@@ -1,29 +1,41 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <sortnumerical>true</sortnumerical>
-    <icon>/images/repository/CommandDefinition/icons/firewall.png</icon>
-    <sortauto>true</sortauto>
-    <order>100000</order>
-    <description>ACL based firewall object</description>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>true</defaultDisplay>
-    <name>Access-list</name>
-    <sortvariable>params._order</sortvariable>
+    <description>ACL based firewall object</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
     <group>Firewall</group>
+    <icon>/images/repository/CommandDefinition/icons/pix firewall.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Access-list</name>
+    <order>100000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Interface" displayOrder="1" isMandatory="true" name="params.interface" type="ObjectRef">
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" type="String"/>
+    <variable displayName="Interface" displayOrder="1" isMandatory="true" maxLength="100" name="params.interface" numberOfRowMax="3000" type="ObjectRef">
       <classes>
         <class>interfaceNameObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" default="in" displayName="Direction" displayOrder="2" isMandatory="true" name="params.direction" type="String">
+    <variable default="in" displayName="Direction" displayOrder="2" isMandatory="true" maxLength="100" name="params.direction" numberOfRowMax="3000" type="String">
       <values>
         <value>in</value>
         <value>out</value>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Source" displayOrder="3" isMandatory="true" name="params.rules.0.source" type="ObjectRef">
+    <variable displayName="Source" displayOrder="3" isMandatory="true" maxLength="100" name="params.rules.0.source" numberOfRowMax="3000" type="ObjectRef">
       <classes>
         <class>addressObject</class>
         <class>networkObject</class>
@@ -32,7 +44,7 @@
         <class>predefineNetworkObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Destination" displayOrder="4" isMandatory="true" name="params.rules.0.destination" type="ObjectRef">
+    <variable displayName="Destination" displayOrder="4" isMandatory="true" maxLength="100" name="params.rules.0.destination" numberOfRowMax="3000" type="ObjectRef">
       <classes>
         <class>addressObject</class>
         <class>networkObject</class>
@@ -41,25 +53,25 @@
         <class>predefineNetworkObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Service" displayOrder="5" isMandatory="true" name="params.rules.0.service" type="ObjectRef">
+    <variable displayName="Service" displayOrder="5" isMandatory="true" maxLength="100" name="params.rules.0.service" numberOfRowMax="3000" type="ObjectRef">
       <classes>
         <class>serviceGroup</class>
         <class>serviceObject</class>
         <class>PredefinedServiceObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Action" displayOrder="6" isMandatory="true" name="params.rules.0.action" type="String">
+    <variable displayName="Action" displayOrder="6" isMandatory="true" maxLength="100" name="params.rules.0.action" numberOfRowMax="3000" type="String">
       <values>
         <value>deny</value>
         <value>permit</value>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Log status" displayOrder="7" name="params.rules.0.log" type="String">
+    <variable displayName="Log status" displayOrder="7" maxLength="100" name="params.rules.0.log" numberOfRowMax="3000" type="String">
       <values>
         <value>log</value>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" displayName="object_id" displayOrder="9" isMandatory="true" name="params.rules.0.object_id" type="String" visible="false">
+    <variable displayName="object_id" displayOrder="9" isMandatory="true" maxLength="100" name="params.rules.0.object_id" numberOfRowMax="3000" type="String" visible="false">
       <sections>
         <section>rules</section>
       </sections>
@@ -108,6 +120,7 @@ access-group FROM-inside in interface inside
         </line>
       </lines>
     </parser>
+  <post_template/>
   </command>
 <command name="CREATE">
     <operation>{assign var="offset" value="0"}

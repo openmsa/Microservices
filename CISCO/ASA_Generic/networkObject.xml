@@ -1,20 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <sortnumerical>true</sortnumerical>
-    <icon>/images/repository/CommandDefinition/icons/network.png</icon>
-    <sortauto>true</sortauto>
-    <order>100000</order>
-    <description/>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <name>Network</name>
-    <sortvariable>params._order</sortvariable>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
     <group>Objects</group>
+    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Network</name>
+    <order>100000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
   </information>  <variables frozen="1">
-    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Network IP" displayOrder="1" isMandatory="true" name="params.networkIp" type="IpAddress"/>
-    <variable numberOfRowMax="3000" displayName="Network Mask" displayOrder="2" isMandatory="true" name="params.networkMask" type="IpMask"/>
-    <variable numberOfRowMax="3000" displayName="Description" displayOrder="3" name="params.description" type="String"/>
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" type="String"/>
+    <variable displayName="Network IP" displayOrder="1" isMandatory="true" maxLength="100" name="params.networkIp" numberOfRowMax="3000" type="IpAddress"/>
+    <variable displayName="Network Mask" displayOrder="2" isMandatory="true" maxLength="100" name="params.networkMask" numberOfRowMax="3000" type="IpMask"/>
+    <variable displayName="Description" displayOrder="3" maxLength="100" name="params.description" numberOfRowMax="3000" type="String"/>
   </variables>  <example>
     <content>CREATE:
 object network myNet1
@@ -63,5 +75,6 @@ description {$params.description}
         
       </lines>
     </parser>
+  <post_template/>
   </command>
 </ObjectDefinition>
