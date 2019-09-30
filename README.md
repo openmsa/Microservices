@@ -1,5 +1,5 @@
-# Workflows-Microservices
-This repository provides some Workflows and Microservices examples.
+# Microservices
+This repository provides some Microservices examples.
 Download them and then load them into the corresponding MSActivator repositories. 
 
 Alternatively, see below "Installing this repo on a live MSA".
