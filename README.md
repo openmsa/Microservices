@@ -1,17 +1,21 @@
-# Microservices
+Microservices
+=============
+
 This repository provides some Microservices examples.
 Download them and then load them into the MSActivator repository.
 
 Alternatively, see below "Installing this repo on a live MSA".
 
 
-# Getting started
+Getting started
+---------------
+
 The [wiki](https://github.com/ubiqube/Workflows-Microservices/wiki)
 provides a set of tutorials to help getting started with Microservices.
 
 
 Installing this repo on a live MSA
-==================================
+----------------------------------
 
 Login to a live MSA as root and perform the following:
 
