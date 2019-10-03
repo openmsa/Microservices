@@ -1,7 +1,10 @@
-language: php
-php:
-  - '5.6'
-  - '7.0'
+language: minimal
+
+addons:
+  apt:
+    packages:
+      # install xmllint
+      - libxml2-utils
 
 script:
-  - ./.travis/check_php_syntax.sh
+  - ./.travis/check_xml_syntax.sh
