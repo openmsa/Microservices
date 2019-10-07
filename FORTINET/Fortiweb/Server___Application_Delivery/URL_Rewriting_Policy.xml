@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Server &amp; Application Delivery|Application Delivery</group>
+    <icon>/images/repository/CommandDefinition/icons/ProtectionProfile.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>URL Rewriting Policy</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="URL Rewriting Policy Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="ID" displayOrder="1" isMandatory="true" isUserLocked="true" maxLength="100" name="params.rule.0.id" numberOfRowMax="256" type="AutoIncrement"/>
+    <variable displayName="URL Rewriting Rule Name" displayOrder="3" editable="false" isMandatory="true" maxLength="100" name="params.rule.0.rewrite" numberOfRowMax="256" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>URL_Rewriting_Rule</class>
+      </classes>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show full-config waf url-rewrite url-rewrite-policy</operation>
+    <parser>
+      <section>
+        <regexp>@edit\s"(?&lt;object_id&gt;.*)"@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@config @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set @</regexp>
+          <regexp>@next @</regexp>
+          <regexp>@end @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ next@</regexp>
+        </ignore>
+        <line>
+          <array name="rule">
+            <regexp>@edit.(?&lt;id&gt;\d+)@</regexp>
+            
+            
+          <lines>
+              <ignore>
+                <regexp>@set @</regexp>
+              </ignore>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <line>
+                <regexp>@set.url-rewrite-rule-name\s(?&lt;rewrite&gt;.*)@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+  <command name="CREATE">
+    <operation>config waf url-rewrite url-rewrite-policy
+  edit "Template_URL_Rewriting_Policy"						
+    config  rule						
+      edit 1						
+        set url-rewrite-rule-name Template_URL_Rewriting_Rule						
+      next						
+    end						
+  next								
+  edit "{$params.object_id}"						
+    config  rule
+     {foreach $params.rule as $rl}						
+      edit {$rl.id}						
+        set url-rewrite-rule-name {$rl.rewrite}						
+      next						
+     {/foreach} 						
+    end						
+  next										
+end
+</operation>
+  </command>
+<command name="UPDATE">
+    <operation>config waf url-rewrite url-rewrite-policy
+  edit "{$params.object_id}"						
+    config  rule
+     purge
+     {foreach $params.rule as $rl}						
+      edit {$rl.id}						
+        set url-rewrite-rule-name {$rl.rewrite}						
+      next						
+     {/foreach} 						
+    end						
+  next										
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config waf url-rewrite url-rewrite-policy
+   delete "{$params.object_id}"
+end
+</operation>
+  </command>
+</ObjectDefinition>

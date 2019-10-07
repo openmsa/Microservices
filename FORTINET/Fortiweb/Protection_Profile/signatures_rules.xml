@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>Signatures Rules</description>
+    <displayField>sig_label</displayField>
+    <dynamic>false</dynamic>
+    <group>Web Protection</group>
+    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>true</importonce>
+    <importrank>1</importrank>
+    <name>Signatures Rules</name>
+    <order>11040</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <singleton>false</singleton>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>0</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable numberOfRowMax="3000" displayName="Rule id" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="Integer" visible="false"/>
+    <variable numberOfRowMax="3000" displayName="Rule description" displayOrder="1" maxLength="200" name="params.description" startIncrement="0" type="String" visible="false"/>
+    <variable numberOfRowMax="3000" displayName="Main class" displayOrder="1" maxLength="200" name="params.main_class" startIncrement="0" type="String" visible="false"/>
+    <variable numberOfRowMax="3000" displayName="Sub class" displayOrder="3" maxLength="200" name="params.sub_class" startIncrement="0" type="String" visible="false"/>
+    <variable numberOfRowMax="3000" displayName="Sig label" displayOrder="4" maxLength="200" name="params.sig_label" startIncrement="0" type="String" visible="false"/>
+  </variables>  
+<example>
+    <content>FortigateHostnam~ #  show waf signature myMediumpolicy
+config waf signature
+  edit "myMediumpolicy"
+    config  main_class_list
+      edit "010000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "020000000"
+        set status disable
+      next
+      edit "030000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "040000000"
+        set status disable
+      next
+      edit "050000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "060000000"
+        set status disable
+      next
+      edit "070000000"
+      next
+      edit "080000000"
+        set severity Low
+      next
+      edit "090000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "100000000"
+        set status disable
+        set severity High
+      next
+      edit "110000000"
+        set action alert_deny
+        set severity Low
+      next
+    end
+    config  sub_class_disable_list
+    end
+    config  signature_disable_list
+      edit "060030001"
+      next
+      edit "060120001"
+      next
+      edit "080080005"
+      next
+      edit "080200001"
+      next
+      edit "080080003"
+      next
+    end
+    config  alert_only_list
+    end
+    config  filter_list
+    end
+  next
+end
+</content>
+  </example>
+  
+
+  
+
+<command name="IMPORT">
+    <operation>get waf signature-rules</operation>
+    <parser>
+      <section>
+        <regexp>@rule id : (?&lt;object_id&gt;\S+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@main class name : (?&lt;main_class&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@sub class name : (?&lt;sub_class&gt;.*)@</regexp>
+        </line>
+        <ignore>
+          <regexp>@^\s@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s \s*$@</regexp>
+        </ignore>
+        <line>
+          <regexp>@rule description : (?&lt;description&gt;.*)@</regexp>
+        </line>
+        <ignore>
+          <regexp>@main @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@sub @</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template>{assign_object_variable var="sig_label" value="{$params.object_id} | {$params.main_class} | {$params.sub_class} | {$params.description}"}</post_template>
+  </command>
+
+  
+  
+</ObjectDefinition>

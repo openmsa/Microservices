@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Protection Profile|DOS Protection</group>
+    <icon>/images/repository/CommandDefinition/icons/DosProtection.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>DoS Protection Policy</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="DoS Protection Policy name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="HTTP Limit Mode" displayOrder="1" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.mode" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Per User">Per User</value>
+        <value displayValue="Per IP">Per IP</value>
+      </values>
+    </variable>
+    <variable displayName="HTTP Limit Rule" displayOrder="2" maxLength="100" name="params.rule" numberOfRowMax="0" selector="params.mode" startIncrement="0" tableSizeFix="false" type="Composite">
+      <behaviors>
+        <behavior displayName="HTTP Limit Rule" displayOrder="0" editable="false" maxLength="100" name="params.rule" numberOfRowMax="0" selectorValue="Per IP" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>HTTP_Limit_IP</class>
+          </classes>
+        </behavior>
+        <behavior displayName="HTTP Limit Rule" displayOrder="0" editable="false" maxLength="100" name="params.rule" numberOfRowMax="0" selectorValue="Per User" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>HTTP_Limit_User</class>
+          </classes>
+        </behavior>
+      </behaviors>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="CREATE">
+    <operation>config waf application-layer-dos-prevention
+  edit "Template_DoS_Protection_Policy"
+    set enable-http-session-based-prevention enable
+    set http-request-flood-prevention-rule Template_HTTP_Connection_Limit_per_User
+    unset http-connection-flood-check-rule
+    set enable-layer4-dos-prevention enable
+    unset layer4-access-limit-rule
+    unset layer4-connection-flood-check-rule
+  next
+  edit "{$params.object_id}"
+   set enable-http-session-based-prevention enable
+   {if $params.mode == "Per User"}
+   set http-request-flood-prevention-rule {$params.rule}
+   unset http-connection-flood-check-rule						
+   set enable-layer4-dos-prevention enable						
+   unset layer4-access-limit-rule						
+   unset layer4-connection-flood-check-rule
+   {else}
+   unset http-request-flood-prevention-rule						
+   unset http-connection-flood-check-rule						
+   set enable-layer4-dos-prevention enable						
+   set layer4-access-limit-rule {$params.rule}						
+   unset layer4-connection-flood-check-rule	
+   {/if}					
+  next						
+end
+</operation>
+  </command>
+  <command name="UPDATE">
+    <operation>config waf application-layer-dos-prevention
+  edit "{$params.object_id}"
+   set enable-http-session-based-prevention enable
+   {if $params.mode == "Per User"}
+   set http-request-flood-prevention-rule {$params.rule}
+   unset http-connection-flood-check-rule						
+   set enable-layer4-dos-prevention enable						
+   unset layer4-access-limit-rule						
+   unset layer4-connection-flood-check-rule
+   {else}
+   unset http-request-flood-prevention-rule						
+   unset http-connection-flood-check-rule						
+   set enable-layer4-dos-prevention enable						
+   set layer4-access-limit-rule {$params.rule}						
+   unset layer4-connection-flood-check-rule	
+   {/if}					
+  next						
+end
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>show full-config waf application-layer-dos-prevention</operation>
+    <parser>
+      <section>
+        <regexp>@edit."(?&lt;object_id&gt;(?!Predefined)[^"]+)"@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@unset @</regexp>
+          <regexp>@set @</regexp>
+        </ignore>
+        
+        <line>
+          <regexp>@set.http-request-flood-prevention-rule.(?&lt;rule&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.layer4-access-limit-rule.(?&lt;rule&gt;.*)@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{if $params.object_id == "Template_DoS_Protection_Policy"}
+{assign_object_variable var="mode" value="Per User"}
+{/if}</post_template>
+  </command>
+<command name="DELETE">
+    <operation>config waf application-layer-dos-prevention
+  delete "{$params.object_id}"
+end
+</operation>
+  </command>
+</ObjectDefinition>

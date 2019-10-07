@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>Signatures</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Web Protection</group>
+    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <name>Signatures Alert Only</name>
+    <order>11040</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <singleton>false</singleton>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>0</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String"/>
+    <variable numberOfRowMax="3000" displayName="Id" displayOrder="1" maxLength="200" name="params.dis.0.id" startIncrement="0" type="String"/>
+  </variables>  
+<example>
+    <content>FortigateHostnam~ #  show waf signature myMediumpolicy
+config waf signature
+  edit "myMediumpolicy"
+    config  main_class_list
+      edit "010000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "020000000"
+        set status disable
+      next
+      edit "030000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "040000000"
+        set status disable
+      next
+      edit "050000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "060000000"
+        set status disable
+      next
+      edit "070000000"
+      next
+      edit "080000000"
+        set severity Low
+      next
+      edit "090000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "100000000"
+        set status disable
+        set severity High
+      next
+      edit "110000000"
+        set action alert_deny
+        set severity Low
+      next
+    end
+    config  sub_class_disable_list
+    end
+    config  signature_disable_list
+      edit "060030001"
+      next
+      edit "060120001"
+      next
+      edit "080080005"
+      next
+      edit "080200001"
+      next
+      edit "080080003"
+      next
+    end
+    config  alert_only_list
+    end
+    config  filter_list
+    end
+  next
+end
+</content>
+  </example>
+  
+
+  
+
+<command name="IMPORT">
+    <operation>config waf signature## {foreach $signatures as $sig} edit "{$sig.object_id}"##config  alert_only_list##echo edit "{$sig.object_id}"##show##end##next##{/foreach}end</operation>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id&gt;[a-zA-Z].*)"@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@^\S@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@config @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@end@</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        <line>
+          <array name="dis">
+            
+            <regexp>@edit "(?&lt;id&gt;[0-9].*)"@</regexp>
+            
+            
+            
+            
+            
+          </array>
+        </line>
+        
+        <ignore>
+          <regexp>@next@</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template/>
+  </command>
+
+</ObjectDefinition>

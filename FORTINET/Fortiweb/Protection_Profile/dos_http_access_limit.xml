@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <defaultDisplay>false</defaultDisplay>
+    <description>DoS HTTP Access Limit</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Policy</group>
+    <icon>/images/repository/CommandDefinition/icons/ProtectionProfile.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <name>DoS HTTP Access Limit</name>
+    <order>13040</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <singleton>false</singleton>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>0</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable numberOfRowMax="3000" displayName=" Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String">
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" default="0" displayName=" Share IP" displayOrder="7" maxLength="200" name="params.access_limit_share_ip" startIncrement="0" type="Integer">
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" default="0" displayName=" Stand IP" displayOrder="8" maxLength="200" name="params.access_limit_standalone_ip" startIncrement="0" type="Integer">
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" default="false" displayName=" Real browser" displayOrder="9" maxLength="200" name="params.access_limit_real_browser_enable" startIncrement="0" type="Boolean">
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" displayName=" Valid Timeout" displayOrder="10" maxLength="200" name="params.access_limit_valid_timeout" startIncrement="0" type="String">
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" default="alert" displayName=" Action alert" displayOrder="11" editable="false" maxLength="200" name="params.access_limit_action" startIncrement="0" type="String">
+      <values>
+        <value displayValue="Alert">alert</value>
+        <value displayValue="Alert &amp; Deny">alert_deny</value>
+        <value displayValue="Period Block">block-period</value>
+      </values>
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" default="Medium" displayName=" Severity" displayOrder="12" maxLength="200" name="params.access_limit_severity" startIncrement="0" type="String">
+      <values>
+        <value>High</value>
+        <value>Low</value>
+        <value>Medium</value>
+      </values>
+      <sections>
+        <section>Application </section>
+        <section> HTTP Access Limit </section>
+      </sections>
+    </variable>
+  </variables>  
+<example>
+    <content>NTT1291 # show waf layer4-access-limit-rule
+config waf layer4-access-limit-rule
+  edit "Predefined"
+    set access-limit-standalone-ip 500
+    set access-limit-share-ip 1000
+    set action block-period
+    set block-period 600
+    set validation-timeout 0
+  next
+  edit "NewLayoerDos"
+    set access-limit-standalone-ip 15000
+    set access-limit-share-ip 15000
+    set severity Low
+    set real-browser-enforcement enable
+    set validation-timeout 25
+  next
+  edit "HtppAccessLim"
+    set action block-period
+    set severity High
+    set validation-timeout 10
+  next
+end
+</content>
+  </example>
+  
+
+  
+
+<command name="IMPORT">
+    <operation>{foreach $dos_protection_name as $dos} show waf layer4-access-limit-rule "{$dos.object_id}" ##{/foreach}</operation>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id&gt;(?!(Predefined)).*)"@</regexp>
+      </section>
+      <lines>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <ignore>
+          <regexp>@next@</regexp>
+        </ignore>
+        
+        
+        
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+        
+        
+        <line>
+          <regexp>@set access-limit-standalone-ip (?&lt;access_limit_standalone_ip&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set access-limit-share-ip (?&lt;access_limit_share_ip&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set action (?&lt;access_limit_action&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set severity (?&lt;access_limit_severity&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set real-browser-enforcement (?&lt;access_limit_real_browser_enable&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set validation-timeout (?&lt;access_limit_valid_timeout&gt;\S+)@</regexp>
+        </line>
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template>{if empty($params.access_limit_standalone_ip)}
+{assign_object_variable var="access_limit_standalone_ip" value="0"}
+{/if}
+
+{if empty($params.access_limit_share_ip)}
+{assign_object_variable var="access_limit_share_ip" value="0"}
+{/if}
+
+{if empty($params.access_limit_action)}
+{assign_object_variable var="access_limit_action" value="alert"}
+{/if}
+
+{if empty($params.access_limit_severity)}
+{assign_object_variable var="access_limit_severity" value="Medium"}
+{/if}
+
+{if empty($params.access_limit_real_browser_enable)}
+{assign_object_variable var="access_limit_real_browser_enable" value="false"}
+{else}
+{assign_object_variable var="access_limit_real_browser_enable" value="true"}
+{/if}
+
+{if empty($params.access_limit_valid_timeout)}
+{assign_object_variable var="access_limit_valid_timeout" value="20"}
+{/if}</post_template>
+  </command>
+</ObjectDefinition>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>true</dynamic>
+    <group>System</group>
+    <icon>/images/repository/CommandDefinition/icons/status.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <maxInstances>0</maxInstances>
+    <name>NTP</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable default="0" displayName="NTP Server" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable default="ntp.nict.jp" displayName="NTP Server" displayOrder="1" isMandatory="true" maxLength="100" name="params.ntp_server" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="60" displayName="NTP SyncInterval" displayOrder="2" isMandatory="true" maxLength="100" name="params.sync_interval" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer"/>
+    <variable displayName="Sync Status" displayOrder="3" isUserLocked="true" maxLength="175" name="params.example" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>NTP_Sync_Status</class>
+      </classes>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show full-configuration system global</operation>
+    <parser>
+      <section>
+        <regexp>@set.ntpserver.(?&lt;ntp_server&gt;.*)@</regexp>
+        <regexp>@set.syncinterval.(?&lt;sync_interval&gt;\d+)@</regexp>
+      </section>
+      <lines>
+        
+      </lines>
+    </parser>
+    <post_template>{assign_object_variable var="object_id" value="0"}
+{assign var="example1" value=$NTP_Sync_Status.0.ntp_sync}
+{assign var="example2" value=$NTP_Sync_Status.0.time}
+{assign_object_variable var="example" value="Current time is - $example1, Last NTP Sync is - $example2"}</post_template>
+  </command>
+  <command name="UPDATE">
+    <operation>config system global
+   set ntpserver {$params.ntp_server}
+   set ntpsync enable
+   set syncinterval {$params.sync_interval}
+end
+</operation>
+  </command>
+
+<command name="CONSTRAINT">
+    <operation>{if {$params.sync_interval} &lt; 1 || {$params.sync_interval} &gt; 1440} INPUT RESTRICTION Valid Interval ranges are between 1 to 1440
+{/if}
+{if {$params.ntp_server|substr:0:1} == "."} INPUT RESTRICTION Valid name unpresent.
+{/if}
+</operation>
+  </command>
+</ObjectDefinition>

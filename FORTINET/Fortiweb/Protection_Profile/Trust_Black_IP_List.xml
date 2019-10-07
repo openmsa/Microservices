@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Protection Profile</group>
+    <icon>/images/repository/CommandDefinition/icons/fortiwaf_access.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Trust Black IP List</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
+    <variable displayName="IP List Count" displayOrder="1" editable="false" maxLength="100" name="params.ip_list_count" numberOfRowMax="3000" startIncrement="0" type="String" visible="false"/>
+    <variable arrayCanMove="false" default="trust-ip" displayName="Type" displayOrder="2" editable="false" isMandatory="true" maxLength="200" name="params.members.0.type" numberOfRowMax="3000" startIncrement="0" type="String">
+      <values>
+        <value displayValue="Trust-ip">trust-ip</value>
+        <value displayValue="Black-ip">black-ip</value>
+      </values>
+      <sections>
+        <section>Members</section>
+      </sections>
+    </variable>
+    <variable arrayCanMove="false" displayName="IP Address" displayOrder="3" isMandatory="true" maxLength="200" name="params.members.0.ipaddress" numberOfRowMax="3000" startIncrement="0" type="String">
+      <sections>
+        <section>Members</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show full-configuration waf ip-list</operation>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id&gt;[^"]+)"@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@edit \d+@</regexp>
+          <regexp>@end@</regexp>
+          <regexp>@next@</regexp>
+          <regexp>@set @</regexp>
+        </ignore>
+        <line>
+          <regexp>@config  members@</regexp>
+        </line>
+        <line>
+          <array name="members">
+            <regexp>@set type (?&lt;type&gt;\S+)@</regexp>
+            <regexp>@set ip (?&lt;ipaddress&gt;\S+)@</regexp>
+          </array>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+  <command name="CREATE">
+    <operation>{$id=1}
+config waf ip-list
+edit "{$params.object_id}"
+ config members
+  {foreach $params.members as $member}
+		edit {$id}
+			set type {$member.type}
+			set ip {$member.ipaddress}
+			{if ($member.type === 'black-ip')}
+				set severity Medium
+			{/if}
+		next
+{$id=$id+1}
+{/foreach}
+ end
+end
+</operation>
+  </command>
+  <command name="UPDATE">
+    <operation>{$id=1}
+config waf ip-list
+edit "{$params.object_id}"
+ config members
+  purge
+  {foreach $params.members as $member}
+		edit {$id}
+			set type {$member.type}
+			set ip {$member.ipaddress}
+			{if ($member.type === 'black-ip')}
+				set severity Medium
+			{/if}
+		next
+{$id=$id+1}
+{/foreach}
+ end
+end
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>config waf ip-list
+  delete "{$Trust_Black_IP_List.$object_id.object_id}"
+end
+</operation>
+  </command>
+<command name="CONSTRAINT">
+    <operation>{foreach $params.members as $m}
+{if "/[a-z]|[A-Z]/"|preg_match:$m.ipaddress}INPUT RESTRICTION - Only IP Address are allowed.
+{/if}
+{if "/\d+.\d+.\d+.\d+-\d+.\d+.\d+.\d+-\d+.\d+.\d+.\d+/"|preg_match:$m.ipaddress}INPUT RESTRICTION - To add range &lt;start_range&gt;-&lt;end-range&gt;.
+{/if}
+{if "/\s+/"|preg_match:$m.ipaddress}INPUT RESTRICTION - No Blank space allowed in between IP Address.
+{/if}
+{/foreach}
+{if "/\s+/"|preg_match:$params.object_id}INPUT RESTRICTION - No Blank space allowed in the Name.
+{/if}
+</operation>
+  </command>
+</ObjectDefinition>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Server &amp; Application Delivery</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Dummy</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Status" displayOrder="1" editable="false" maxLength="100" name="params.vpn.0.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Index">
+      <values>
+        <value displayValue="abc">abc</value>
+        <value>cde</value>
+        <value>efg</value>
+        <value>hij</value>
+      </values>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="UPDATE"/>
+  <command name="CREATE">
+    <operation>config log syslogd			
+  set status enable			
+  set severity information			
+  set facility local7			
+  set policy Customer_Syslog			
+end
+</operation>
+  </command>
+</ObjectDefinition>

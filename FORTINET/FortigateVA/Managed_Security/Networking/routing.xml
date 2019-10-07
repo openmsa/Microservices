@@ -12,7 +12,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>999</maxInstances>
+    <maxInstances>0</maxInstances>
     <name>Routing</name>
     <order>1010</order>
     <relatedObjects/>
@@ -24,10 +24,10 @@
     <visibility>5</visibility>
   </information>  <variables frozen="0">
     <variable displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="AutoIncrement"/>
-    <variable default="0.0.0.0" displayName="Destination IP" displayOrder="1" isMandatory="true" maxLength="200" name="params.ip_dest" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable default="0.0.0.0" displayName="Subnet Mask" displayOrder="2" isMandatory="true" maxLength="200" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable default="0.0.0.0" displayName="Gateway" displayOrder="3" isMandatory="true" maxLength="200" name="params.gw" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable displayName="Interface" displayOrder="4" editable="false" isMandatory="true" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable default="0.0.0.0" displayName="Destination IP" displayOrder="1" isMandatory="true" maxLength="200" name="params.ip_dest" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpMask"/>
+    <variable default="0.0.0.0" displayName="Subnet Mask" displayOrder="2" isMandatory="true" maxLength="200" name="params.mask" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpMask"/>
+    <variable default="0.0.0.0" displayName="Gateway" displayOrder="3" isMandatory="true" maxLength="200" name="params.gw" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpMask"/>
+    <variable default="port1" displayName="Interface" displayOrder="4" isMandatory="true" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <values>
         <value displayValue="port1">port1</value>
         <value displayValue="port8">port8</value>
