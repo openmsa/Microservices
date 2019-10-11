@@ -14,7 +14,7 @@
     <importrank>20</importrank>
     <maxInstances>0</maxInstances>
     <name>Network Interfaces</name>
-    <order>10000</order>
+    <order>10</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -25,11 +25,13 @@
   </information>  <variables frozen="0">
     <variable displayName="Network_interfaces" displayOrder="0" maxLength="100" name="params.Network_interfaces" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
     <variable displayName="Network Interface ID" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Availability Zone" displayOrder="2" maxLength="100" name="params.availability_zone" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Private IP" displayOrder="2" maxLength="100" name="params.private_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="SubnetId" displayOrder="3" maxLength="100" name="params.subnetId" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Vpc ID" displayOrder="4" maxLength="100" name="params.vpc_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Status" displayOrder="5" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable default="none" displayName="_color" displayOrder="6" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="private_ips" displayOrder="4" editable="false" keepOnImport="true" maxLength="100" name="params.private_ips.0.ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Vpc ID" displayOrder="5" maxLength="100" name="params.vpc_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Availability Zone" displayOrder="6" maxLength="100" name="params.availability_zone" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Status" displayOrder="7" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="none" displayName="_color" displayOrder="8" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
   </variables>  <example>
     <content>&lt;?xml version="1.0"?&gt;
 &lt;root&gt;
@@ -549,13 +551,23 @@
   </example>
   <command name="IMPORT">
     <operation>Aws\Ec2\Ec2Client</operation>
-    <post_template>{assign_object_variable var="Network_interfaces" value="{$params.object_id} - {$params.subnetId} - {$params.availability_zone} - {$params.status}"}
+    <post_template>{assign var="_private_ip" value=""}
+
+{foreach $params.private_ips as $p_ip}
+  {if $p_ip.ip != ''}
+    {assign var="_private_ip" value="{$p_ip.ip}"}
+  {/if}
+{/foreach}
+
+{assign_object_variable var="Network_interfaces" value="{$params.object_id} - {$_private_ip} - {$params.status}"}
+
+{assign_object_variable var="private_ip" value={$_private_ip}}
 
 {if  $params.status == 'available' }
       {assign_object_variable var="_color" value=green}
 {/if}
 {if  $params.status == 'in-use' }
-      {assign_object_variable var="_color" value=red}
+      {assign_object_variable var="_color" value=blue}
 {/if}</post_template>
     <xpath>DescribeNetworkInterfaces</xpath>
     <parser>
@@ -583,6 +595,18 @@
           <xpath>NetworkInterfaceId</xpath>
           <regexp>@&lt;NetworkInterfaceId&gt;(?&lt;object_id&gt;.*)&lt;/NetworkInterfaceId&gt;@</regexp>
         </line>
+        <line>
+          <array name="private_ips">
+            <xpath>PrivateIpAddresses/row</xpath>
+            <lines>
+              <line>
+                <xpath>PrivateIpAddress</xpath>
+                <regexp>@&lt;PrivateIpAddress&gt;(?&lt;ip&gt;.*)&lt;/PrivateIpAddress&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        
         
       </lines>
     </parser>

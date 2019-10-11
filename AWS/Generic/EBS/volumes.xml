@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>EBS volumes</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>EBS</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Volumes</name>
+    <order>10100</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Volume ID" displayOrder="0" maxLength="150" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Size (GiB)" displayOrder="1" maxLength="80" name="params.size" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="State" displayOrder="2" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Type" displayOrder="3" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="ID" displayOrder="4" maxLength="100" name="params.attachments.0.ID" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Attachments</section>
+      </sections>
+    </variable>
+    <variable displayName="device" displayOrder="5" maxLength="100" name="params.attachments.0.device" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Attachments</section>
+      </sections>
+    </variable>
+    <variable displayName="Instance" displayOrder="6" maxLength="100" name="params.attachments.0.instance_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <sections>
+        <section>Attachments</section>
+      </sections>
+      <classes>
+        <class>instances</class>
+      </classes>
+    </variable>
+    <variable displayName="State" displayOrder="7" maxLength="100" name="params.attachments.0.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Attachments</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>Aws\Ec2\Ec2Client</operation>
+    <xpath>DescribeVolumes</xpath>
+    <parser>
+      <section>
+        <xpath>//root/Volumes/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>VolumeId</xpath>
+          <regexp>@&lt;VolumeId&gt;(?&lt;object_id&gt;.*)&lt;/VolumeId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>Size</xpath>
+          <regexp>@&lt;Size&gt;(?&lt;size&gt;.*)&lt;/Size&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>State</xpath>
+          <regexp>@&lt;State&gt;(?&lt;state&gt;.*)&lt;/State&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>VolumeType</xpath>
+          <regexp>@&lt;VolumeType&gt;(?&lt;type&gt;.*)&lt;/VolumeType&gt;@</regexp>
+        </line>
+        <line>
+          <array name="attachments">
+            <xpath>Attachments/row</xpath>
+            <lines>
+              <line>
+                <xpath>VolumeId</xpath>
+                <regexp>@&lt;VolumeId&gt;(?&lt;ID&gt;.*)&lt;/VolumeId&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>InstanceId</xpath>
+                <regexp>@&lt;InstanceId&gt;(?&lt;instance_id&gt;.*)&lt;/InstanceId&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>Device</xpath>
+                <regexp>@&lt;Device&gt;(?&lt;device&gt;.*)&lt;/Device&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>State</xpath>
+                <regexp>@&lt;State&gt;(?&lt;state&gt;.*)&lt;/State&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>

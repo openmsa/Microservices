@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>EC2</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>EC2|Network &amp; Security</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Elastic IPs</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Public IP" displayOrder="0" maxLength="100" name="params.elastic_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Private IP" displayOrder="1" maxLength="100" name="params.private_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Instance ID" displayOrder="2" maxLength="100" name="params.instance_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>instances</class>
+      </classes>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>Aws\Ec2\Ec2Client</operation>
+    <xpath>DescribeAddresses</xpath>
+    <parser>
+      <section>
+        <xpath>//root/Addresses/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>PublicIp</xpath>
+          <regexp>@&lt;PublicIp&gt;(?&lt;elastic_ip&gt;.*)&lt;/PublicIp&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>InstanceId</xpath>
+          <regexp>@&lt;InstanceId&gt;(?&lt;instance_id&gt;.*)&lt;/InstanceId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>PrivateIpAddress</xpath>
+          <regexp>@&lt;PrivateIpAddress&gt;(?&lt;private_ip&gt;.*)&lt;/PrivateIpAddress&gt;@</regexp>
+        </line>
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>
