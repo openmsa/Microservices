@@ -23,8 +23,8 @@
     <sortvariable>params._order</sortvariable>
     <visibility>4</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="Hostname" displayOrder="0" isUserLocked="true" maxLength="100" name="params.device_hostname" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="25" displayName="Timezone" displayOrder="0" editable="false" isMandatory="true" maxLength="200" name="params.device_timezone" numberOfRowMax="0" type="String">
+    <variable default="0" displayName="Timezone" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String" visible="false"/>
+    <variable default="25" displayName="Timezone" displayOrder="1" editable="false" isMandatory="true" maxLength="200" name="params.device_timezone" numberOfRowMax="0" type="String">
       <values>
         <value displayValue="(GMT-12:00)Eniwetok,Kwajalein">00</value>
         <value displayValue="(GMT-11:00)Midway Island, Samoa">01</value>
@@ -109,12 +109,15 @@
         <value displayValue="(GMT)Greenwich Mean Time">80</value>
       </values>
     </variable>
-    <variable default="0" displayName="Timezone" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String" visible="false"/>
-    <variable displayName="timezone" displayOrder="1" editable="false" isUserLocked="true" maxLength="200" name="params.timezone" numberOfRowMax="0" type="String" visible="false"/>
+    <variable displayName="timezone" displayOrder="2" editable="false" isUserLocked="true" maxLength="200" name="params.timezone" numberOfRowMax="0" type="String"/>
   </variables>  
   <example>
     <content>config system global
-set timezone &lt;timezone&gt;
+    set admin-scp enable
+    set alias "FortiGate-VM64"
+    set gui-theme red
+    set hostname "FGT_10_31_1_31"
+    set timezone 49
 end
 </content>
   </example>
@@ -129,7 +132,7 @@ end
     <operation>show system global</operation>
     <parser>
       <section>
-        <regexp>@global@</regexp>
+        <regexp>@config system (?&lt;object_id&gt;\S+)@</regexp>
         
         
       </section>
@@ -138,175 +141,173 @@ end
           <regexp>@set @</regexp>
         </ignore>
         <line>
-          <regexp>@^\s+set timezone (?&lt;device_timezone&gt;\d+)\s*$@</regexp>
+          <regexp>@set timezone (?&lt;device_timezone&gt;\d+)@</regexp>
         </line>
-        <line>
-          <regexp>@^\s+set hostname (?&lt;device_hostname&gt;\S+)\s*$@</regexp>
-        </line>
+        
       </lines>
     </parser>
     <post_template>{assign_object_variable var="object_id" value="0"}
-{if ($params.device_timezone == 00)}
+{if ($params.device_timezone == "00")}
 {assign_object_variable var="timezone" value="-1200"}
-{elseif ($params.device_timezone == 01)}
+{elseif ($params.device_timezone == "01")}
 {assign_object_variable var="timezone" value="-1100"}
-{elseif ($params.device_timezone == 02)}
+{elseif ($params.device_timezone == "02")}
 {assign_object_variable var="timezone" value="-1000"}
-{elseif ($params.device_timezone == 03)}
+{elseif ($params.device_timezone == "03")}
 {assign_object_variable var="timezone" value="-0900"}
-{elseif ($params.device_timezone == 04)}
+{elseif ($params.device_timezone == "04")}
 {assign_object_variable var="timezone" value="-0800"}
-{elseif ($params.device_timezone == 05)}
+{elseif ($params.device_timezone == "05")}
 {assign_object_variable var="timezone" value="-0700"}
-{elseif ($params.device_timezone == 06)}
+{elseif ($params.device_timezone == "06")}
 {assign_object_variable var="timezone" value="-0700"}
-{elseif ($params.device_timezone == 07)}
+{elseif ($params.device_timezone == "07")}
 {assign_object_variable var="timezone" value="-0600"}
-{elseif ($params.device_timezone == 08)}
+{elseif ($params.device_timezone == "08")}
 {assign_object_variable var="timezone" value="-0600"}
-{elseif ($params.device_timezone == 09)}
+{elseif ($params.device_timezone == "09")}
 {assign_object_variable var="timezone" value="-0600"}
-{elseif ($params.device_timezone == 10)}
+{elseif ($params.device_timezone == "10")}
 {assign_object_variable var="timezone" value="-0600"}
-{elseif ($params.device_timezone == 11)}
+{elseif ($params.device_timezone == "11")}
 {assign_object_variable var="timezone" value="-0500"}
-{elseif ($params.device_timezone == 12)}
+{elseif ($params.device_timezone == "12")}
 {assign_object_variable var="timezone" value="-0500"}
-{elseif ($params.device_timezone == 13)}
+{elseif ($params.device_timezone == "13")}
 {assign_object_variable var="timezone" value="-0500"}
-{elseif ($params.device_timezone == 14)}
+{elseif ($params.device_timezone == "14")}
 {assign_object_variable var="timezone" value="-0400"}
-{elseif ($params.device_timezone == 15)}
+{elseif ($params.device_timezone == "15")}
 {assign_object_variable var="timezone" value="-0400"}
-{elseif ($params.device_timezone == 16)}
+{elseif ($params.device_timezone == "16")}
 {assign_object_variable var="timezone" value="-0400"}
-{elseif ($params.device_timezone == 17)}
+{elseif ($params.device_timezone == "17")}
 {assign_object_variable var="timezone" value="-0330"}
-{elseif ($params.device_timezone == 18)}
+{elseif ($params.device_timezone == "18")}
 {assign_object_variable var="timezone" value="-0300"}
-{elseif ($params.device_timezone == 19)}
+{elseif ($params.device_timezone == "19")}
 {assign_object_variable var="timezone" value="-0300"}
-{elseif ($params.device_timezone == 20)}
+{elseif ($params.device_timezone == "20")}
 {assign_object_variable var="timezone" value="-0300"}
-{elseif ($params.device_timezone == 21)}
+{elseif ($params.device_timezone == "21")}
 {assign_object_variable var="timezone" value="-0200"}
-{elseif ($params.device_timezone == 22)}
+{elseif ($params.device_timezone == "22")}
 {assign_object_variable var="timezone" value="-0100"}
-{elseif ($params.device_timezone == 23)}
+{elseif ($params.device_timezone == "23")}
 {assign_object_variable var="timezone" value="-0100"}
-{elseif ($params.device_timezone == 24)}
+{elseif ($params.device_timezone == "24")}
 {assign_object_variable var="timezone" value="+0000"}
-{elseif ($params.device_timezone == 25)}
+{elseif ($params.device_timezone == "25")}
 {assign_object_variable var="timezone" value="+0000"}
-{elseif ($params.device_timezone == 26)}
+{elseif ($params.device_timezone == "26")}
 {assign_object_variable var="timezone" value="+0100"}
-{elseif ($params.device_timezone == 27)}
+{elseif ($params.device_timezone == "27")}
 {assign_object_variable var="timezone" value="+0100"}
-{elseif ($params.device_timezone == 28)}
+{elseif ($params.device_timezone == "28")}
 {assign_object_variable var="timezone" value="+0100"}
-{elseif ($params.device_timezone == 29)}
+{elseif ($params.device_timezone == "29")}
 {assign_object_variable var="timezone" value="+0100"}
-{elseif ($params.device_timezone == 30)}
+{elseif ($params.device_timezone == "30")}
 {assign_object_variable var="timezone" value="+0100"}
-{elseif ($params.device_timezone == 31)}
+{elseif ($params.device_timezone == "31")}
 {assign_object_variable var="timezone" value="+0200"}
-{elseif ($params.device_timezone == 32)}
+{elseif ($params.device_timezone == "32")}
 {assign_object_variable var="timezone" value="+0200"}
-{elseif ($params.device_timezone == 33)}
+{elseif ($params.device_timezone == "33")}
 {assign_object_variable var="timezone" value="+0200"}
-{elseif ($params.device_timezone == 34)}
+{elseif ($params.device_timezone == "34")}
 {assign_object_variable var="timezone" value="+0200"}
-{elseif ($params.device_timezone == 35)}
+{elseif ($params.device_timezone == "35")}
 {assign_object_variable var="timezone" value="+0200"}
-{elseif ($params.device_timezone == 36)}
+{elseif ($params.device_timezone == "36")}
 {assign_object_variable var="timezone" value="+0200"}
-{elseif ($params.device_timezone == 37)}
+{elseif ($params.device_timezone == "37")}
 {assign_object_variable var="timezone" value="+0300"}
-{elseif ($params.device_timezone == 38)}
+{elseif ($params.device_timezone == "38")}
 {assign_object_variable var="timezone" value="+0300"}
-{elseif ($params.device_timezone == 39)}
+{elseif ($params.device_timezone == "39")}
 {assign_object_variable var="timezone" value="+0400"}
-{elseif ($params.device_timezone == 40)}
+{elseif ($params.device_timezone == "40")}
 {assign_object_variable var="timezone" value="+0300"}
-{elseif ($params.device_timezone == 41)}
+{elseif ($params.device_timezone == "41")}
 {assign_object_variable var="timezone" value="+0330"}
-{elseif ($params.device_timezone == 42)}
+{elseif ($params.device_timezone == "42")}
 {assign_object_variable var="timezone" value="+0400"}
-{elseif ($params.device_timezone == 43)}
+{elseif ($params.device_timezone == "43")}
 {assign_object_variable var="timezone" value="+0400"}
-{elseif ($params.device_timezone == 44)}
+{elseif ($params.device_timezone == "44")}
 {assign_object_variable var="timezone" value="+0430"}
-{elseif ($params.device_timezone == 45)}
+{elseif ($params.device_timezone == "45")}
 {assign_object_variable var="timezone" value="+0600"}
-{elseif ($params.device_timezone == 46)}
+{elseif ($params.device_timezone == "46")}
 {assign_object_variable var="timezone" value="+0500"}
-{elseif ($params.device_timezone == 47)}
+{elseif ($params.device_timezone == "47")}
 {assign_object_variable var="timezone" value="+0530"}
-{elseif ($params.device_timezone == 48)}
+{elseif ($params.device_timezone == "48")}
 {assign_object_variable var="timezone" value="+0545"}
-{elseif ($params.device_timezone == 49)}
+{elseif ($params.device_timezone == "49")}
 {assign_object_variable var="timezone" value="+0600"}
-{elseif ($params.device_timezone == 50)}
+{elseif ($params.device_timezone == "50")}
 {assign_object_variable var="timezone" value="+0600"}
-{elseif ($params.device_timezone == 51)}
+{elseif ($params.device_timezone == "51")}
 {assign_object_variable var="timezone" value="+0530"}
-{elseif ($params.device_timezone == 52)}
+{elseif ($params.device_timezone == "52")}
 {assign_object_variable var="timezone" value="+0630"}
-{elseif ($params.device_timezone == 53)}
+{elseif ($params.device_timezone == "53")}
 {assign_object_variable var="timezone" value="+0700"}
-{elseif ($params.device_timezone == 54)}
+{elseif ($params.device_timezone == "54")}
 {assign_object_variable var="timezone" value="+0800"}
-{elseif ($params.device_timezone == 55)}
+{elseif ($params.device_timezone == "55")}
 {assign_object_variable var="timezone" value="+0800"}
-{elseif ($params.device_timezone == 56)}
+{elseif ($params.device_timezone == "56")}
 {assign_object_variable var="timezone" value="+0800"}
-{elseif ($params.device_timezone == 57)}
+{elseif ($params.device_timezone == "57")}
 {assign_object_variable var="timezone" value="+0800"}
-{elseif ($params.device_timezone == 58)}
+{elseif ($params.device_timezone == "58")}
 {assign_object_variable var="timezone" value="+0800"}
-{elseif ($params.device_timezone == 59)}
+{elseif ($params.device_timezone == "59")}
 {assign_object_variable var="timezone" value="+0800"}
-{elseif ($params.device_timezone == 60)}
+{elseif ($params.device_timezone == "60")}
 {assign_object_variable var="timezone" value="+0900"}
-{elseif ($params.device_timezone == 61)}
+{elseif ($params.device_timezone == "61")}
 {assign_object_variable var="timezone" value="+1000"}
-{elseif ($params.device_timezone == 62)}
+{elseif ($params.device_timezone == "62")}
 {assign_object_variable var="timezone" value="+0930"}
-{elseif ($params.device_timezone == 63)}
+{elseif ($params.device_timezone == "63")}
 {assign_object_variable var="timezone" value="+0930"}
-{elseif ($params.device_timezone == 64)}
+{elseif ($params.device_timezone == "64")}
 {assign_object_variable var="timezone" value="+1000"}
-{elseif ($params.device_timezone == 65)}
+{elseif ($params.device_timezone == "65")}
 {assign_object_variable var="timezone" value="+1000"}
-{elseif ($params.device_timezone == 66)}
+{elseif ($params.device_timezone == "66")}
 {assign_object_variable var="timezone" value="+1000"}
-{elseif ($params.device_timezone == 67)}
+{elseif ($params.device_timezone == "67")}
 {assign_object_variable var="timezone" value="+1000"}
-{elseif ($params.device_timezone == 68)}
+{elseif ($params.device_timezone == "68")}
 {assign_object_variable var="timezone" value="+1100"}
-{elseif ($params.device_timezone == 69)}
+{elseif ($params.device_timezone == "69")}
 {assign_object_variable var="timezone" value="+1200"}
-{elseif ($params.device_timezone == 70)}
+{elseif ($params.device_timezone == "70")}
 {assign_object_variable var="timezone" value="+1100"}
-{elseif ($params.device_timezone == 71)}
+{elseif ($params.device_timezone == "71")}
 {assign_object_variable var="timezone" value="+1200"}
-{elseif ($params.device_timezone == 72)}
+{elseif ($params.device_timezone == "72")}
 {assign_object_variable var="timezone" value="+1200"}
-{elseif ($params.device_timezone == 73)}
+{elseif ($params.device_timezone == "73")}
 {assign_object_variable var="timezone" value="+1300"}
-{elseif ($params.device_timezone == 74)}
+{elseif ($params.device_timezone == "74")}
 {assign_object_variable var="timezone" value="-0430"}
-{elseif ($params.device_timezone == 75)}
+{elseif ($params.device_timezone == "75")}
 {assign_object_variable var="timezone" value="-0300"}
-{elseif ($params.device_timezone == 76)}
+{elseif ($params.device_timezone == "76")}
 {assign_object_variable var="timezone" value="+1400"}
-{elseif ($params.device_timezone == 77)}
+{elseif ($params.device_timezone == "77")}
 {assign_object_variable var="timezone" value="-0400"}
-{elseif ($params.device_timezone == 78)}
+{elseif ($params.device_timezone == "78")}
 {assign_object_variable var="timezone" value="+0100"}
-{elseif ($params.device_timezone == 79)}
+{elseif ($params.device_timezone == "79")}
 {assign_object_variable var="timezone" value="+0000"}
-{elseif ($params.device_timezone == 80)}
+{elseif ($params.device_timezone == "80")}
 {assign_object_variable var="timezone" value="+0000"}
 {else}
 {assign_object_variable var="timezone" value="+0000"}
