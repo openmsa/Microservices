@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Protection Profile</group>
+    <icon>/images/repository/CommandDefinition/icons/webfilter_fortinet.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Web Protection profile</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Policy Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="false" displayName="X-Forwarded-For" displayOrder="1" editable="false" groupDisplayName="X-Forwarded-For" isGrouped="true" isMandatory="true" maxLength="100" name="params.x_forwarded" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable default="false" displayName="URL Rewriting Management" displayOrder="2" groupDisplayName="URL Rewriting" isGrouped="true" maxLength="100" name="params.url_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="URL Rewriting Policy" displayOrder="3" groupDisplayName="URL Rewriting" isGrouped="true" maxLength="100" name="params.url" numberOfRowMax="0" selector="params.url_select" startIncrement="0" tableSizeFix="false" type="Composite">
+      <behaviors>
+        <behavior displayName="url" displayOrder="0" editable="false" maxLength="100" name="params.url" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="URL Rewriting Management" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.url" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>URL_Rewriting_Policy</class>
+          </classes>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable default="false" displayName="Signature Management" displayOrder="4" groupSeparator="Signatures Profile" isGrouped="true" isMandatory="true" maxLength="100" name="params.signature_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="Signature Profile" displayOrder="5" groupDisplayName="Signatures Profile" isGrouped="true" maxLength="100" name="params.signature" numberOfRowMax="0" selector="params.signature_select" startIncrement="0" tableSizeFix="false" type="Composite">
+      <behaviors>
+        <behavior displayName="signature" displayOrder="0" editable="false" maxLength="100" name="params.signature" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="Signature Profile" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.signature" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>signatures_merge</class>
+          </classes>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable default="false" displayName="File Upload Management" displayOrder="6" groupDisplayName="File Upload Policy" isGrouped="true" maxLength="100" name="params.file_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="File Upload Policy" displayOrder="7" groupDisplayName="File Upload Policy" isGrouped="true" maxLength="100" name="params.file_upload" numberOfRowMax="0" selector="params.file_select" startIncrement="0" tableSizeFix="false" type="Composite">
+      <behaviors>
+        <behavior displayName="file_upload" displayOrder="0" editable="false" maxLength="100" name="params.file_upload" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="File Upload Policy" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.file_upload" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>File_Upload_Restriction_Policy</class>
+          </classes>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable default="false" displayName="DoS Protection Management" displayOrder="8" groupDisplayName="DoS Protection" isGrouped="true" maxLength="100" name="params.dos_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="DoS Protection" displayOrder="9" editable="false" groupDisplayName="DoS Protection" isGrouped="true" isMandatory="true" maxLength="100" name="params.dos" numberOfRowMax="0" selector="params.dos_select" startIncrement="0" tableSizeFix="false" type="Composite">
+      <behaviors>
+        <behavior displayName="dos" displayOrder="0" editable="false" maxLength="100" name="params.dos" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="DoS Protection" displayOrder="0" editable="false" maxLength="100" name="params.dos" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>DoS_Protection_Policy</class>
+          </classes>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable default="false" displayName="IP-List Management" displayOrder="10" groupDisplayName="IP List" isGrouped="true" maxLength="100" name="params.ip_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="IP-List" displayOrder="11" groupDisplayName="IP List" isGrouped="true" maxLength="100" name="params.ip_list" numberOfRowMax="0" selector="params.ip_select" startIncrement="0" tableSizeFix="false" type="Composite">
+      <behaviors>
+        <behavior displayName="ip_list" displayOrder="0" editable="false" maxLength="100" name="params.ip_list" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="IP-List" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.ip_list" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+          <classes>
+            <class>Trust_Black_IP_List</class>
+          </classes>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable default="false" displayName="IP Reputation" displayOrder="12" maxLength="100" name="params.ip_rep" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="Comments" displayOrder="13" maxLength="100" name="params.comment" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="CREATE">
+    <operation>config waf web-protection-profile inline-protection	
+  edit Template_Web_Protection_Profile											
+    set http-session-management disable						
+    set signature-rule Template_Signature_Profile
+    unset x-forwarded-for-rule						
+    set url-rewrite-policy Template_URL_Rewriting_Policy						
+    set file-upload-policy Template_File_Upload_Restriction_Policy						
+    set ip-list-policy Template_IP-List						
+    set application-layer-dos-prevention Template_DoS_Protection_Policy						
+    set ip-intelligence disable						
+    unset comment										
+  next				
+   edit {$params.object_id}						
+    {if $params.signature_select=="true"}						
+    set signature-rule {$params.signature}
+    {else}
+    unset signature-rule 
+    {/if}
+    {if $params.x_forwarded=="true"}
+    set x-forwarded-for-rule X-Forwarded-For
+    {else}
+    unset x-forwarded-for-rule
+    {/if}						 						
+    {if $params.url_select=="true"}						
+    set url-rewrite-policy {$params.url}	
+    {else}
+    unset url-rewrite-policy
+    {/if}					
+    {if $params.file_select=="true"}						
+    set file-upload-policy {$params.file_upload}	
+    {else}
+    unset file-upload-policy
+    {/if}					
+    {if $params.ip_select=="true"}						
+    set ip-list-policy {$params.ip_list}
+    {else}
+    unset ip-list-policy
+    {/if}						
+    {if $params.dos_select=="true"}						
+    set application-layer-dos-prevention {$params.dos}	
+    set http-session-management enable
+    {else}
+    set http-session-management disable
+    unset application-layer-dos-prevention
+    {/if} 				
+    {if $params.ip_rep=="true"}						
+    set ip-intelligence enable
+    {else}
+    set ip-intelligence disable	
+    {/if}							
+    {if empty($params.comment)}
+    unset comment
+    {else}
+    set comment "{$params.comment}"
+    {/if}										
+  next
+end
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>show waf web-protection-profile inline-protection</operation>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id&gt;(?!(Inline High Level Security|Inline Medium Level Security|Inline Alert Only|Inline Exchange 2013|Inline SharePoint 2013|Inline WordPress|Inline Exchange 2016|Inline SharePoint 2016|Inline Drupal)).*)"@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@set.signature-rule.(?&lt;signature&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.x-forwarded-for-rule.(?&lt;x_forwarded&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.url-rewrite-policy.(?&lt;url&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.file-upload-policy.(?&lt;file_upload&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.application-layer-dos-prevention.(?&lt;dos&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.ip-list-policy.(?&lt;ip_list&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.ip-intelligence.(?&lt;ip_rep&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.comment."(?&lt;comment&gt;.*)"@</regexp>
+        </line>
+        <ignore>
+          <regexp>@next @</regexp>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+    <post_template>{if empty($params.ip_rep)}
+{assign_object_variable var="ip_rep" value="false"}
+{else}
+{assign_object_variable var="ip_rep" value="true"}
+{/if}
+{if empty($params.x_forwarded)}
+{assign_object_variable var="x_forwarded" value="false"}
+{else}
+{assign_object_variable var="x_forwarded" value="true"}
+{/if}</post_template>
+  </command>
+<command name="UPDATE">
+    <operation>config waf web-protection-profile inline-protection
+   edit {$params.object_id}						
+    {if $params.signature_select=="true"}						
+    set signature-rule {$params.signature}
+    {else}
+    unset signature-rule 
+    {/if}
+    {if $params.x_forwarded=="true"}
+    set x-forwarded-for-rule X-Forwarded-For
+    {else}
+    unset x-forwarded-for-rule
+    {/if}						 						
+    {if $params.url_select=="true"}						
+    set url-rewrite-policy {$params.url}	
+    {else}
+    unset url-rewrite-policy
+    {/if}					
+    {if $params.file_select=="true"}						
+    set file-upload-policy {$params.file_upload}	
+    {else}
+    unset file-upload-policy
+    {/if}					
+    {if $params.ip_select=="true"}						
+    set ip-list-policy {$params.ip_list}
+    {else}
+    unset ip-list-policy
+    {/if}						
+    {if $params.dos_select=="true"}						
+    set application-layer-dos-prevention {$params.dos}	
+    set http-session-management enable
+    {else}
+    set http-session-management disable
+    unset application-layer-dos-prevention
+    {/if} 				
+    {if $params.ip_rep=="true"}						
+    set ip-intelligence enable
+    {else}
+    set ip-intelligence disable	
+    {/if}							
+    {if empty($params.comment)}
+    unset comment
+    {else}
+    set comment "{$params.comment}"
+    {/if}										
+  next
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config waf web-protection-profile inline-protection
+  delete {$params.object_id}
+end
+</operation>
+  </command>
+</ObjectDefinition>

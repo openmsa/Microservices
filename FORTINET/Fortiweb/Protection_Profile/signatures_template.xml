@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>Signature Profile</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Web Protection</group>
+    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>5</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Signature Profile Template</name>
+    <order>5200</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>0</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String"/>
+    <variable numberOfRowMax="3000" cols="130" displayName="Signatures Disabled Id" displayOrder="1" editable="false" isMandatory="true" isSearchable="true" maxLength="200" name="params.sig_disabled_tab.0.id" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>signatures_rules</class>
+      </classes>
+    </variable>
+    <variable numberOfRowMax="3000" displayName="severity" displayOrder="1" maxLength="200" name="params.sig_main_tab.0.severity" startIncrement="0" type="String">
+      <sections>
+        <section>sig_main_tab</section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" cols="130" displayName="Signatures Alert Only Id" displayOrder="2" editable="false" isMandatory="true" isSearchable="true" maxLength="200" name="params.sig_alert_only_tab.0.id" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>signatures_rules</class>
+      </classes>
+    </variable>
+    <variable numberOfRowMax="3000" displayName="block_period" displayOrder="2" maxLength="200" name="params.sig_main_tab.0.block_period" startIncrement="0" type="String">
+      <sections>
+        <section>sig_main_tab</section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" displayName="Comment" displayOrder="3" maxLength="200" name="params.comment" startIncrement="0" type="String"/>
+    <variable numberOfRowMax="3000" displayName="action" displayOrder="3" maxLength="200" name="params.sig_main_tab.0.action" startIncrement="0" type="String">
+      <sections>
+        <section>sig_main_tab</section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" displayName="status" displayOrder="4" maxLength="200" name="params.sig_main_tab.0.status" startIncrement="0" type="String">
+      <sections>
+        <section>sig_main_tab</section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" displayName="id" displayOrder="6" maxLength="200" name="params.sig_main_tab.0.id" startIncrement="0" type="String">
+      <sections>
+        <section>sig_main_tab</section>
+      </sections>
+    </variable>
+    <variable numberOfRowMax="3000" default="false" displayName="st" displayOrder="7" maxLength="200" name="params.sig_main_tab.0.st" startIncrement="0" type="Boolean"/>
+  </variables>  
+<example>
+    <content>FortigateHostnam~ #  show waf signature myMediumpolicy
+config waf signature
+  edit "myMediumpolicy"
+    config  main_class_list
+      edit "010000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "020000000"
+        set status disable
+      next
+      edit "030000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "040000000"
+        set status disable
+      next
+      edit "050000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "060000000"
+        set status disable
+      next
+      edit "070000000"
+      next
+      edit "080000000"
+        set severity Low
+      next
+      edit "090000000"
+        set action alert_deny
+        set severity High
+      next
+      edit "100000000"
+        set status disable
+        set severity High
+      next
+      edit "110000000"
+        set action alert_deny
+        set severity Low
+      next
+    end
+    config  sub_class_disable_list
+    end
+    config  signature_disable_list
+      edit "060030001"
+      next
+      edit "060120001"
+      next
+      edit "080080005"
+      next
+      edit "080200001"
+      next
+      edit "080080003"
+      next
+    end
+    config  alert_only_list
+    end
+    config  filter_list
+    end
+  next
+end
+</content>
+  </example>
+  
+
+  
+
+<command name="IMPORT">
+    <operation>show waf signature</operation>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id&gt;Template_Signature_Profile)"@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@set comment "?(?&lt;comment&gt;\S[^"]+)"?@</regexp>
+        </line>
+        <line>
+          <array name="sig_disabled_tab"/>
+        </line>
+        <line>
+          <array name="sig_alert_only_tab"/>
+        </line>
+        <line>
+          <array name="sig_main_tab"/>
+        </line>
+        
+        <ignore>
+          <regexp>@config @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@end@</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+        
+        <ignore>
+          <regexp>@next@</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template>{$sig_dis_ref=$signatures_disabled[$params.object_id]}
+{$sig_index=0}
+
+{if !empty($sig_dis_ref.dis)}
+{foreach $sig_dis_ref.dis as $sig_dis} 
+	{assign_object_variable var="sig_disabled_tab.{$sig_index}.id" value=$sig_dis.id}
+	{assign var="sig_index" value=$sig_index+1}
+{/foreach}
+{/if}
+
+{$sig_alert_ref=$signatures_alert_only[$params.object_id]}
+{$sig_alert_index=0}
+
+{if !empty($sig_alert_ref.dis)}
+{foreach $sig_alert_ref.dis as $sig_dis} 
+	{assign_object_variable var="sig_alert_only_tab.{$sig_alert_index}.id" value=$sig_dis.id}
+	{assign var="sig_alert_index" value=$sig_alert_index+1}
+{/foreach}
+{/if}
+
+{$sig_main_ref=$signatures_main[$params.object_id]}
+{$sig_main_index=0}
+
+{if !empty($sig_main_ref.dis)}
+{foreach $sig_main_ref.dis as $sig_dis} 
+	{assign_object_variable var="sig_main_tab.{$sig_main_index}.id" value=$sig_dis.id}
+	{if $sig_dis.status == "disable"}
+	  {assign_object_variable var="sig_main_tab.{$sig_main_index}.status" value=$sig_dis.status}
+	  {assign_object_variable var="sig_main_tab.{$sig_main_index}.st" value="false"}
+	{else}
+	  {assign_object_variable var="sig_main_tab.{$sig_main_index}.status" value="enable"}
+	  {assign_object_variable var="sig_main_tab.{$sig_main_index}.st" value="true"}
+	{/if}
+	{assign_object_variable var="sig_main_tab.{$sig_main_index}.action" value=$sig_dis.action}
+	{assign_object_variable var="sig_main_tab.{$sig_main_index}.block_period" value=$sig_dis.block_period}
+	{assign_object_variable var="sig_main_tab.{$sig_main_index}.severity" value=$sig_dis.severity}
+	{assign var="sig_main_index" value=$sig_main_index+1}
+{/foreach}
+{/if}</post_template>
+  </command>
+
+  
+  
+
+
+
+</ObjectDefinition>

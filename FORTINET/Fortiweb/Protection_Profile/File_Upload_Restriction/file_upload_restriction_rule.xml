@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Protection Profile|File Upload Restriction</group>
+    <icon>/images/repository/CommandDefinition/icons/ProtectionProfile.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>File Upload Restriction Rule</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Rule Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
+    <variable displayName="Request URL" displayOrder="1" isMandatory="true" maxLength="100" name="params.request_file" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="File Size Limit" displayOrder="2" maxLength="100" name="params.file_size_limit" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>config waf file-upload-restriction-rule ## show full-configuration ## end</operation>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id&gt;[^"]+)"@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        <line>
+          <regexp>@set file-size-limit (?&lt;file_size_limit&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set request-file (?&lt;request_file&gt;\S+)@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="CREATE">
+    <operation>config waf file-upload-restriction-rule
+  edit "{$params.object_id}"
+    set host-status disable
+    unset host
+    set request-type plain
+    set request-file {$params.request_file}
+    set file-size-limit {$params.file_size_limit}
+  next
+end
+</operation>
+  </command>
+  <command name="UPDATE">
+    <operation>config waf file-upload-restriction-rule
+  edit "{$params.object_id}"
+    set request-file {$params.request_file}
+    set file-size-limit {$params.file_size_limit}
+  next
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config waf file-upload-restriction-rule
+  delete "{$params.object_id}"
+end
+</operation>
+  </command>
+  <command name="CONSTRAINT">
+    <operation>{if {$params.file_size_limit} &lt; 1024 || {$params.file_size_limit} &gt; 10240}
+{$params.file_size_limit} is not a valid value
+File Size Limit must be in 1024~10240.
+{/if}
+</operation>
+  </command>
+</ObjectDefinition>

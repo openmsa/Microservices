@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Server &amp; Application Delivery|Application Delivery</group>
+    <icon>/images/repository/CommandDefinition/icons/logconfig_fortinet.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>URL Rewriting Rule</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="URL rewriting rule Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
+    <variable default="http-header-rewrite" displayName="Action " displayOrder="1" editable="false" isMandatory="true" maxLength="100" name="params.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="http-header-rewrite">http-header-rewrite</value>
+        <value displayValue="Redirect(301 Permanently)">redirect-301</value>
+        <value displayValue="Redirect(302 Temporary)">redirect</value>
+      </values>
+    </variable>
+    <variable displayName="Host-Status " displayOrder="2" maxLength="20" name="params.host_status" numberOfRowMax="0" selector="params.action" startIncrement="0" tableSizeFix="false" type="Composite">
+      <sections>
+        <section>Replacement Host</section>
+      </sections>
+      <behaviors>
+        <behavior default="false" displayName="Host-Status " displayOrder="0" isMandatory="true" maxLength="100" name="params.host_status" numberOfRowMax="0" selectorValue="http-header-rewrite" startIncrement="0" tableSizeFix="false" type="Boolean">
+          <sections>
+            <section>Replacement Host</section>
+          </sections>
+        </behavior>
+        <behavior default="false" displayName="host_status" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.host_status" numberOfRowMax="0" selectorValue="redirect" startIncrement="0" tableSizeFix="false" type="Boolean" visible="false"/>
+        <behavior default="false" displayName="host_status" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.host_status" numberOfRowMax="0" selectorValue="redirect-301" startIncrement="0" tableSizeFix="false" type="Boolean" visible="false"/>
+      </behaviors>
+    </variable>
+    <variable displayName="Host" displayOrder="3" editable="false" maxLength="100" name="params.host" numberOfRowMax="0" selector="params.host_status" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <sections>
+        <section>Replacement Host</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="host" displayOrder="0" editable="false" maxLength="100" name="params.host" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="Host" displayOrder="0" isMandatory="true" maxLength="100" name="params.host" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="String">
+          <sections>
+            <section>Replacement Host</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="URL Status" displayOrder="4" maxLength="20" name="params.url_status" numberOfRowMax="0" selector="params.action" startIncrement="0" tableSizeFix="false" type="Composite">
+      <sections>
+        <section>Replacement URL</section>
+      </sections>
+      <behaviors>
+        <behavior default="false" displayName="URL Status" displayOrder="0" isMandatory="true" maxLength="100" name="params.url_status" numberOfRowMax="0" selectorValue="http-header-rewrite" startIncrement="0" tableSizeFix="false" type="Boolean">
+          <sections>
+            <section>Replacement URL</section>
+          </sections>
+        </behavior>
+        <behavior displayName="url_status" displayOrder="0" editable="false" maxLength="100" name="params.url_status" numberOfRowMax="0" selectorValue="redirect" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="url_status" displayOrder="0" editable="false" maxLength="100" name="params.url_status" numberOfRowMax="0" selectorValue="redirect-301" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+      </behaviors>
+    </variable>
+    <variable displayName="URL" displayOrder="5" editable="false" maxLength="100" name="params.url" numberOfRowMax="0" selector="params.url_status" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <sections>
+        <section>Replacement URL</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="url" displayOrder="0" editable="false" maxLength="100" name="params.url" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="URL" displayOrder="0" isMandatory="true" maxLength="100" name="params.url" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="String">
+          <sections>
+            <section>Replacement URL</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="Location" displayOrder="6" maxLength="100" name="params.location" numberOfRowMax="0" selector="params.action" startIncrement="0" tableSizeFix="false" type="Composite">
+      <sections>
+        <section>Redirect Location</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="location" displayOrder="0" editable="false" maxLength="100" name="params.location" numberOfRowMax="0" selectorValue="http-header-rewrite" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+        <behavior displayName="Location" displayOrder="0" maxLength="100" name="params.location" numberOfRowMax="0" selectorValue="redirect" startIncrement="0" tableSizeFix="false" type="String">
+          <sections>
+            <section>Redirect Location</section>
+          </sections>
+        </behavior>
+        <behavior displayName="Location" displayOrder="0" maxLength="100" name="params.location" numberOfRowMax="0" selectorValue="redirect-301" startIncrement="0" tableSizeFix="false" type="String">
+          <sections>
+            <section>Redirect Location</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable arrayCanMove="false" displayName="ID" displayOrder="7" editable="false" isMandatory="true" isUserLocked="true" maxLength="100" name="params.match.0.id" numberOfRowMax="0" onlyDetailView="true" tableSizeFix="false" type="AutoIncrement">
+      <sections>
+        <section>Condition</section>
+      </sections>
+    </variable>
+    <variable arrayCanMove="false" default="http-host" displayName="Field to match" displayOrder="8" editable="false" isMandatory="true" maxLength="100" name="params.match.0.field" numberOfRowMax="3000" startIncrement="0" type="String">
+      <values>
+        <value displayValue="http-host">http-host</value>
+        <value displayValue="http-url">http-url</value>
+      </values>
+      <sections>
+        <section>Condition</section>
+      </sections>
+    </variable>
+    <variable arrayCanMove="false" displayName="Parameter" displayOrder="9" maxLength="100" name="params.match.0.regexp" numberOfRowMax="3000" selector="params.match.0.field" startIncrement="0" type="Composite">
+      <sections>
+        <section>Condition</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="Parameter" displayOrder="0" maxLength="100" name="params.match.0.regexp" numberOfRowMax="0" selectorValue="http-host" startIncrement="0" tableSizeFix="false" type="String">
+          <sections>
+            <section>Condition</section>
+          </sections>
+        </behavior>
+        <behavior displayName="Parameter" displayOrder="0" maxLength="100" name="params.match.0.regexp" numberOfRowMax="3000" selectorValue="http-url" startIncrement="0" type="String">
+          <sections>
+            <section>Condition</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable arrayCanMove="false" default="disable" displayName="Protocol filter status" displayOrder="10" displayType="alt" editable="false" maxLength="100" name="params.match.0.protocol_status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Enable">enable</value>
+        <value displayValue="Disable">disable</value>
+      </values>
+      <sections>
+        <section>Condition</section>
+      </sections>
+    </variable>
+    <variable displayName="Protocol filter" displayOrder="11" editable="false" maxLength="100" name="params.match.0.https_protocol" numberOfRowMax="0" selector="params.match.0.protocol_status" startIncrement="0" tableSizeFix="false" type="Composite">
+      <sections>
+        <section>Condition</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="Protocol filter" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.match.0.https_protocol" numberOfRowMax="0" selectorValue="disable" startIncrement="0" tableSizeFix="false" type="String">
+          <values>
+            <value displayValue="http">http</value>
+          </values>
+          <sections>
+            <section>Condition</section>
+          </sections>
+        </behavior>
+        <behavior displayName="Protocol filter" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.match.0.https_protocol" numberOfRowMax="0" selectorValue="enable" startIncrement="0" tableSizeFix="false" type="String">
+          <values>
+            <value displayValue="http">http</value>
+            <value displayValue="https">https</value>
+          </values>
+          <sections>
+            <section>Condition</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="new_var12" displayOrder="12" editable="false" maxLength="100" name="params.host_status_import" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="new_var13" displayOrder="13" editable="false" maxLength="100" name="params.url_status_import" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show full-configuration waf url-rewrite url-rewrite-rule</operation>
+    <parser>
+      <section>
+        <regexp>@edit."(?&lt;object_id&gt;.*)"@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@unset @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ unset@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ config@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ next@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ end@</regexp>
+        </ignore>
+        <line>
+          <regexp>@set.host-status.(?&lt;host_status_import&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.host\s(?&lt;host&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.url-status.(?&lt;url_status_import&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.url\s(?&lt;url&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.action.(?&lt;action&gt;.*)@</regexp>
+        </line>
+        <line>
+          <regexp>@set.location\s(?&lt;location&gt;.*)@</regexp>
+        </line>
+        <line>
+          <array name="match">
+            <regexp>@edit.(?&lt;id&gt;\d+)@</regexp>
+            
+            
+            
+            
+            
+          <lines>
+              <ignore>
+                <regexp>@set @</regexp>
+              </ignore>
+              <ignore>
+                <regexp>@unset @</regexp>
+              </ignore>
+              
+              <line>
+                <regexp>@set.object.(?&lt;field&gt;\S*)@</regexp>
+              </line>
+              <line>
+                <regexp>@set.reg-exp.(?&lt;regexp&gt;.*)@</regexp>
+              </line>
+              <line>
+                <regexp>@set.protocol-filter.(?&lt;protocol_status&gt;\S+)@</regexp>
+              </line>
+              <line>
+                <regexp>@set.HTTP-protocol.(?&lt;https_protocol&gt;\S+)@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{if ($params.host_status_import=="disable") }
+{assign_object_variable var="host_status" value="false"}
+{else}
+{assign_object_variable var="host_status" value="true"}
+{/if}
+{if ($params.url_status_import=="disable") }
+{assign_object_variable var="url_status" value="false"}
+{else}
+{assign_object_variable var="url_status" value="true"}
+{/if}</post_template>
+  </command>
+  <command name="CREATE">
+    <operation>config waf url-rewrite url-rewrite-rule					
+  edit "Template_URL_Rewriting_Rule"				
+    set host-status enable				
+    set host-use-pserver disable				
+    set host example.com				
+    set url-status disable				
+    unset url				
+    set location http://				
+    set referer-status disable				
+    set referer-use-pserver disable				
+    set referer http://				
+    unset body_replace				
+    unset location_replace				
+    set header-status disable				
+    unset header-name				
+    unset header-value				
+    set action http-header-rewrite				
+    config  match-condition				
+    end				
+  next				
+  edit "{$params.object_id}"
+    {if $params.host_status=="true"}			
+    set host-status enable			
+    set host {$params.host}
+    {else}
+    set host-status disable
+    unset host
+    {/if}
+    {if $params.url_status=="true"}			
+    set url-status enable			
+    set url {$params.url}
+    {else}
+    set url-status disable
+    unset url
+    {/if}
+    {if !empty($params.location)}					
+    set location {$params.location}
+    {else}
+    unset location
+    {/if}			
+    set referer-status disable			
+    set referer-use-pserver disable			
+    unset referer			
+    unset body_replace			
+    unset location_replace			
+    set header-status disable			
+    unset header-name			
+    unset header-value			
+    set action {$params.action}			
+    config  match-condition			
+    {foreach $params.match as $mt}			
+      edit {$mt.id}				
+        set object {$mt.field}				
+        set reg-exp {$mt.regexp}				
+        set reverse-match no				
+        set protocol-filter {$mt.protocol_status}				
+        set HTTP-protocol {$mt.https_protocol}				
+        set content-type-filter disable				
+        unset content-type-set				
+      next
+    {/foreach}			
+    end			
+  next			
+end
+</operation>
+  </command>
+<command name="CONSTRAINT">
+    <operation>{if ($params.host_status=="false") &amp;&amp; ($params.url_status=="false")}Both Host-Status and URL-Status cannot be disabled.
+{/if}
+
+{if ($params.host|count_characters) &gt; 255}Restriction.Charachter lenght reached.
+{/if}
+
+
+
+{assign var=restricthost value=['1'=&gt;'@',
+'2'=&gt;'!',
+'3'=&gt;'#',
+'4'=&gt;'$',
+'5'=&gt;'%',
+'6'=&gt;'^',
+'7'=&gt;'&amp;',
+'8'=&gt;'*',
+'9'=&gt;'(',
+'10'=&gt;')',
+'12'=&gt;'+',
+'13'=&gt;'=',
+'14'=&gt;'{',
+'15'=&gt;'}',
+'16'=&gt;'[',
+'17'=&gt;']',
+'18'=&gt;';',
+'19'=&gt;'"',
+'20'=&gt;'?',
+'21'=&gt;',',
+'22'=&gt;'/',
+'23'=&gt;'&lt;',
+'24'=&gt;'&gt;',
+'25'=&gt;'_']}
+{if !empty($params.host)}
+{foreach $restricthost as $resth}
+{if ($params.host|strstr:"$resth")}INPUT RESTRICTION - You have added a special character for Host value and it is not allowed. 
+{/if}
+{/foreach}
+{/if}
+
+
+
+
+{assign var=restricturl value=['1'=&gt;'@',
+'2'=&gt;'!',
+'3'=&gt;'#',
+'5'=&gt;'%',
+'6'=&gt;'^',
+'7'=&gt;'&amp;',
+'8'=&gt;'*',
+'9'=&gt;'(',
+'10'=&gt;')',
+'11'=&gt;':',
+'12'=&gt;'+',
+'13'=&gt;'=',
+'14'=&gt;'{',
+'15'=&gt;'}',
+'16'=&gt;'[',
+'17'=&gt;']',
+'18'=&gt;';',
+'19'=&gt;'"',
+'20'=&gt;'?',
+'21'=&gt;',',
+'23'=&gt;'&lt;',
+'24'=&gt;'&gt;']}
+{if !empty($params.url)}
+{foreach $restricturl as $restu}
+{if ($params.url|strstr:"$restu")}INPUT RESTRICTION - You have added a special character for URL value and it is not allowed. 
+{/if}
+{/foreach}
+{/if}
+
+{assign var=restrictloc value=['1'=&gt;'@',
+'2'=&gt;'!',
+'3'=&gt;'#',
+'5'=&gt;'%',
+'6'=&gt;'^',
+'7'=&gt;'&amp;',
+'8'=&gt;'*',
+'9'=&gt;'(',
+'10'=&gt;')',
+'12'=&gt;'+',
+'13'=&gt;'=',
+'14'=&gt;'{',
+'15'=&gt;'}',
+'16'=&gt;'[',
+'17'=&gt;']',
+'18'=&gt;';',
+'19'=&gt;'"',
+'20'=&gt;'?',
+'21'=&gt;',',
+'23'=&gt;'&lt;',
+'24'=&gt;'&gt;']}
+{if !empty($params.location)}
+{foreach $restrictloc as $restl}
+{if ($params.location|strstr:"$restl")}INPUT RESTRICTION - You have added a special character for Location value and it is not allowed. 
+{/if}
+{/foreach}
+{/if}
+
+
+
+{assign var=restrictreg value=['1'=&gt;'@',
+'2'=&gt;'!',
+'3'=&gt;'#',
+'4'=&gt;'$',
+'5'=&gt;'%',
+'7'=&gt;'&amp;',
+'8'=&gt;'*',
+'9'=&gt;'(',
+'10'=&gt;')',
+'12'=&gt;'+',
+'13'=&gt;'=',
+'14'=&gt;'{',
+'15'=&gt;'}',
+'16'=&gt;'[',
+'17'=&gt;']',
+'18'=&gt;';',
+'19'=&gt;'"',
+'20'=&gt;'?',
+'21'=&gt;',',
+'22'=&gt;'/',
+'23'=&gt;'&lt;',
+'24'=&gt;'&gt;',
+'25'=&gt;'_']}
+{foreach $restrictreg as $restr}
+{foreach $params.match as $mt}
+{if $mt.field == "http-host"}
+{if ($mt.regexp|strstr:"$restr")}INPUT RESTRICTION - You have added a special character for Regex Host value and it is not allowed. 
+{/if}
+{/if}
+{/foreach}
+{/foreach}
+
+
+{assign var=restrictrej value=['1'=&gt;'@',
+'2'=&gt;'!',
+'3'=&gt;'#',
+'4'=&gt;'$',
+'5'=&gt;'%',
+'7'=&gt;'&amp;',
+'12'=&gt;'+',
+'13'=&gt;'=',
+'14'=&gt;'{',
+'15'=&gt;'}',
+'16'=&gt;'[',
+'17'=&gt;']',
+'18'=&gt;';',
+'19'=&gt;'"',
+'20'=&gt;'?',
+'21'=&gt;',',
+'23'=&gt;'&lt;',
+'24'=&gt;'&gt;']}
+{foreach $restrictrej as $restj}
+{foreach $params.match as $mt}
+{if $mt.field == "http-url"}
+{if ($mt.regexp|strstr:"$restj")}INPUT RESTRICTION - You have added a special character for Regex URL value and it is not allowed. 
+{/if}
+{/if}
+{/foreach}
+{/foreach}
+</operation>
+  </command>
+<command name="UPDATE">
+    <operation>config waf url-rewrite url-rewrite-rule
+edit "{$params.object_id}"
+    {if $params.host_status=="true"}			
+    set host-status enable			
+    set host {$params.host}
+    {else}
+    set host-status disable
+    unset host
+    {/if}
+    {if $params.url_status=="true"}			
+    set url-status enable			
+    set url {$params.url}
+    {else}
+    set url-status disable
+    unset url
+    {/if}
+    {if !empty($params.location)}					
+    set location {$params.location}
+    {else}
+    unset location
+    {/if}			
+    set referer-status disable			
+    set referer-use-pserver disable			
+    unset referer			
+    unset body_replace			
+    unset location_replace			
+    set header-status disable			
+    unset header-name			
+    unset header-value			
+    set action {$params.action}			
+    config  match-condition			
+    {foreach $params.match as $mt}			
+      edit {$mt.id}				
+        set object {$mt.field}				
+        set reg-exp {$mt.regexp}				
+        set reverse-match no				
+        set protocol-filter {$mt.protocol_status}				
+        set HTTP-protocol {$mt.https_protocol}				
+        set content-type-filter disable				
+        unset content-type-set				
+      next
+    {/foreach}			
+    end			
+  next			
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config waf url-rewrite url-rewrite-rule
+    delete "{$params.object_id}"
+end
+</operation>
+  </command>
+</ObjectDefinition>

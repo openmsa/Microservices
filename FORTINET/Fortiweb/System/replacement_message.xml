@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Protection Profile</group>
+    <icon>/images/repository/CommandDefinition/icons/config_fortinet.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Replacement Message</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="HTTP Response Code" displayOrder="1" isMandatory="true" maxLength="100" name="params.http_code" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer"/>
+    <variable displayName="Description" displayOrder="2" isUserLocked="true" maxLength="100" name="params.comments" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show full-configuration system replacemsg</operation>
+    <parser>
+      <section>
+        <regexp>@edit\s"(?&lt;object_id&gt;[^"]+)"@</regexp>
+        
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@set header@</regexp>
+        </ignore>
+        
+        <ignore>
+          <regexp>@set group@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set format@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@This @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@is @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@action. @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@monitoring @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@expectation @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@of @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@related @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@the @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@If @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@unauthorized @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@make @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@disciplinary @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@P R E W A R @</regexp>
+        </ignore>
+        
+        <ignore>
+          <regexp>@next@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@end@</regexp>
+        </ignore>
+        
+        <line>
+          <regexp>@set\scode.(?&lt;http_code&gt;\S+)@</regexp>
+        </line>
+        
+      </lines>
+    </parser>
+    <post_template>{if $params.object_id == "url-block"}
+{assign_object_variable var="comments" value="Replace HTTP response code for Attack Block"}
+{/if}
+{if $params.object_id == "server-inaccessible"}
+{assign_object_variable var="comments" value="Replace HTTP response code for Server Unavailable"}
+{/if}</post_template>
+  </command>
+  
+  <command name="UPDATE">
+    <operation>config system replacemsg
+   edit "{$params.object_id}"
+   set header http
+   set format html
+   set group alert
+   set code {$params.http_code}
+   next
+end
+</operation>
+  </command>
+<command name="CONSTRAINT">
+    <operation>{if $params.http_code &lt; "100" || $params.http_code &gt; "599"}INPUT RESTRICTION. $params.http_code is not a valid INPUT.
+{/if}
+</operation>
+  </command>
+</ObjectDefinition>

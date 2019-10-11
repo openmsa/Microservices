@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Networking</group>
+    <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Interface</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Port Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="IP/CIDR" displayOrder="1" isUserLocked="true" maxLength="100" name="params.address" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress"/>
+    <variable default="up" displayName="Status" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="UP">up</value>
+        <value displayValue="DOWN">down</value>
+      </values>
+    </variable>
+    <variable displayName="Comment" displayOrder="3" maxLength="100" name="params.comment" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>get system interface</operation>
+    <parser>
+      <section>
+        <regexp>@^==\s..(?&lt;object_id&gt;\S+)\s.@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@.type:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@.ip6:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@.allowaccess:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@.mode@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@.ip6-mode@</regexp>
+        </ignore>
+        
+        
+        
+        
+        
+        <line>
+          <regexp>@.ip:.(?&lt;address&gt;\S*)@</regexp>
+        </line>
+        <line>
+          <regexp>@status:.(?&lt;status&gt;\S*)@</regexp>
+        </line>
+        <line>
+          <regexp>@description:.(?&lt;comment&gt;.*)@</regexp>
+        </line>
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+  
+<command name="UPDATE">
+    <operation>config system interface		
+  edit "{$params.object_id}"	
+    set type physical		
+    set ip6 ::/0		
+    unset allowaccess		
+    set status {$params.status}		
+    set mode dhcp		
+    set ip6-mode static	
+    {if empty($params.comment)}	
+    unset description
+    {else}
+    set description {$params.comment}
+    {/if}		
+    config  secondaryip		
+    end		
+    unset ip6-allowaccess		
+    set wccp disable		
+    set mtu 1500		
+  next	
+end
+</operation>
+  </command>
+  <command name="CONSTRAINT">
+    <operation>{if $params.object_id == "port2"}INPUT RESTRICTION: Interface {$params.object_id} cannot be EDITED/DELETED. Management port.
+{/if}
+
+
+{if "/\s+/"|preg_match:$params.comment}INPUT RESTRICTION - No Blank space allowed in comments.
+{/if}
+</operation>
+  </command>
+</ObjectDefinition>
