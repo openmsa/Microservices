@@ -153,7 +153,7 @@ The position is effective when the changes are applied to the device.</descripti
         <value displayValue="Disable">disable</value>
       </values>
     </variable>
-    <variable cols="165" displayName="Comment" displayOrder="16" maxLength="150" name="params.comments" numberOfRowMax="0" rows="1" startIncrement="0" type="String"/>
+    <variable cols="165" displayName="Comment" displayOrder="16" maxLength="150" name="params.comments" numberOfRowMax="0" onlyDetailView="true" rows="1" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="natVerify" displayOrder="17" maxLength="200" name="params.natVerify" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
     <variable displayName="StatusVerfiy" displayOrder="18" maxLength="200" name="params.statusVerify" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
     <variable displayName="ippoolVerify" displayOrder="19" maxLength="200" name="params.ippoolVerify" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
