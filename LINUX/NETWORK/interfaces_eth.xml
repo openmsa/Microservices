@@ -23,12 +23,12 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable default="eth0:" displayName="interface name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="ip" displayOrder="1" isMandatory="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
-    <variable default="255.255.255.0" displayName="mask" displayOrder="2" maxLength="100" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable displayName="macaddress" displayOrder="3" maxLength="100" name="params.macaddress" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="type" displayOrder="4" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="bcast" displayOrder="5" maxLength="100" name="params.bcast" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable default="eth0:" displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Type" displayOrder="1" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="IP" displayOrder="2" isMandatory="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
+    <variable default="255.255.255.0" displayName="Mask" displayOrder="3" maxLength="100" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
+    <variable displayName="MacAddress" displayOrder="4" maxLength="100" name="params.macaddress" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Broadcast" displayOrder="5" maxLength="100" name="params.bcast" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
   </variables>  <example>
     <content>eth0      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:8F  
           inet adr:172.10.15.139  Bcast:172.10.15.255  Masque:255.255.255.0
@@ -59,11 +59,12 @@ lo        Link encap:Boucle locale
 </content>
   </example>
   <command name="IMPORT">
-    <operation>LANG=C ifconfig</operation>
+    <operation>LANG=C ifconfig##ip addr show</operation>
     <parser>
       <section>
-        <regexp>@(?&lt;object_id&gt;\S+)\s+flags@</regexp>
+        <regexp>@(?&lt;object_id&gt;\S+):\s+flags@</regexp>
         <regexp>@(?&lt;object_id&gt;\S+)\s+Link encap:(?&lt;type&gt;\S+)\s+(HWaddr\s+(?&lt;macaddress&gt;\S+)\s+)*@</regexp>
+        <regexp>@\d: (?&lt;object_id&gt;\S+):@</regexp>
       </section>
       <lines>
         
@@ -74,6 +75,15 @@ lo        Link encap:Boucle locale
         
         <line>
           <regexp>@inet addr:(?&lt;ip&gt;\S+)  Bcast:(?&lt;bcast&gt;\S+)  Mask:(?&lt;mask&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@inet\s+(?&lt;ip&gt;\S+)\s+netmask (?&lt;mask&gt;\S+)\s+broadcast (?&lt;bcast&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@inet\s+(?&lt;ip&gt;\S+)\s+netmask (?&lt;mask&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@link/(?&lt;type&gt;\S+) (?&lt;macaddress&gt;\S+)@</regexp>
         </line>
       </lines>
     </parser>
