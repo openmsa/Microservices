@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
     <configType>cli</configType>
     <createTemplateId/>
@@ -7,7 +7,7 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>true</dynamic>
-    <group>Loopback</group>
+    <group>Networking</group>
     <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
@@ -23,10 +23,10 @@
     <sortvariable>params._order</sortvariable>
     <visibility>3</visibility>
   </information>  <variables frozen="0">
-    <variable default="lo:" displayName="interface name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
-    <variable default="127.0.0." displayName="ip" displayOrder="1" isMandatory="true" maxLength="100" name="params.ip" startIncrement="0" type="IpAddress"/>
-    <variable displayName="macaddress" displayOrder="3" maxLength="100" name="params.macaddress" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="type" displayOrder="4" isUserLocked="true" maxLength="100" name="params.type" startIncrement="0" type="String"/>
+    <variable default="lo:" displayName="interface name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="127.0.0." displayName="ip" displayOrder="1" isMandatory="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
+    <variable displayName="macaddress" displayOrder="3" maxLength="100" name="params.macaddress" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="type" displayOrder="4" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
   </variables>  <example>
     <content>eth0      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:8F  
           inet adr:172.10.15.139  Bcast:172.10.15.255  Masque:255.255.255.0

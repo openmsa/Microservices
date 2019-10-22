@@ -14,7 +14,7 @@
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
     <name>Interfaces</name>
-    <order>10001</order>
+    <order>20</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -62,6 +62,7 @@ lo        Link encap:Boucle locale
     <operation>LANG=C ifconfig</operation>
     <parser>
       <section>
+        <regexp>@(?&lt;object_id&gt;\S+)\s+flags@</regexp>
         <regexp>@(?&lt;object_id&gt;\S+)\s+Link encap:(?&lt;type&gt;\S+)\s+(HWaddr\s+(?&lt;macaddress&gt;\S+)\s+)*@</regexp>
       </section>
       <lines>
