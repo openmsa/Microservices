@@ -1,0 +1,6 @@
+[root@managed-linux ~]# ip route show
+172.10.15.0/24 dev eth0  proto kernel  scope link  src 172.10.15.135 
+10.31.0.0/20 dev eth1  proto kernel  scope link  src 10.31.1.113 
+169.254.0.0/16 dev eth0  scope link  metric 1002 
+169.254.0.0/16 dev eth1  scope link  metric 1003 
+default via 10.31.1.254 dev eth1 
