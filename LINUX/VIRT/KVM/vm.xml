@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>true</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>VM</group>
+    <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Virtual Machines</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="40" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Image" displayOrder="2" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>images</class>
+      </classes>
+    </variable>
+    <variable displayName="State" displayOrder="3" isUserLocked="true" maxLength="80" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="none" displayName="_color" displayOrder="4" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+  </variables>  <example>
+    <content>3     17.1_P5_ForQA                  running
+ -     16.1.2_GA_KVM                  shut off
+ -     16.2.2-P11                     shut off
+ -     17.1-P5-Official               shut off
+ -     17.1GA                         shut off
+ -     17.1GA_2                       shut off
+ -     DBHA                           shut off
+ -     DBHA-16.2                      shut off
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>virsh list --all | grep -v Name | grep -v "\-\-" </operation>
+    <parser>
+      <section>
+        <regexp>@ (?&lt;object_id&gt;\S+)\s+(?&lt;name&gt;\S+)\s+(?&lt;state&gt;.*)@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@^\s \s*$@</regexp>
+        </ignore>
+        
+        
+      </lines>
+    </parser>
+    <post_template>{if $params.state == 'running'}
+ {assign_object_variable var="_color" value=green}
+{else}
+ {assign_object_variable var="_color" value=red}
+{/if}</post_template>
+  </command>
+<command name="CREATE">
+    <operation>virt-install --connect=qemu:///system --name={$params.name} --os-type=linux --os-variant=rhel4 --arch=x86_64 --cpu host --vcpus=1,sockets=1,cores=1,threads=1 --hvm --ram=4096 --import --disk path=/home/vm/{$params.image},format=qcow2 --network bridge=virbr0,model=virtio --noreboot
+
+
+virsh --connect qemu:///system start {$params.name}
+</operation>
+  </command>
+
+<command name="DELETE">
+    <operation>virsh shutdown {$params.name}
+virsh undefine {$params.name}
+</operation>
+  </command>
+</ObjectDefinition>
