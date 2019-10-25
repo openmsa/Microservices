@@ -23,15 +23,25 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="40" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement"/>
-    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="40" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="Image" displayOrder="2" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
         <class>images</class>
       </classes>
     </variable>
     <variable displayName="State" displayOrder="3" isUserLocked="true" maxLength="80" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="none" displayName="_color" displayOrder="4" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable default="4096" displayName="RAM" displayOrder="4" isMandatory="true" maxLength="100" name="params.ram" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer">
+      <values>
+        <value displayValue="4096">4096</value>
+        <value displayValue="2048">2048</value>
+        <value displayValue="8192">8192</value>
+      </values>
+    </variable>
+    <variable default="2" displayName="vCPU" displayOrder="5" isMandatory="true" maxLength="100" name="params.vcpu" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer"/>
+    <variable default="1" displayName="Sockets" displayOrder="6" isMandatory="true" maxLength="100" name="params.sockets" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer"/>
+    <variable default="1" displayName="Cores" displayOrder="7" isMandatory="true" maxLength="100" name="params.cores" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer"/>
+    <variable default="none" displayName="_color" displayOrder="8" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
   </variables>  <example>
     <content>3     17.1_P5_ForQA                  running
  -     16.1.2_GA_KVM                  shut off
@@ -47,7 +57,7 @@
     <operation>virsh list --all | grep -v Name | grep -v "\-\-" </operation>
     <parser>
       <section>
-        <regexp>@ (?&lt;object_id&gt;\S+)\s+(?&lt;name&gt;\S+)\s+(?&lt;state&gt;.*)@</regexp>
+        <regexp>@ (?&lt;id&gt;\S+)\s+(?&lt;object_id&gt;\S+)\s+(?&lt;state&gt;.*)@</regexp>
       </section>
       <lines>
         <ignore>
@@ -64,7 +74,7 @@
 {/if}</post_template>
   </command>
 <command name="CREATE">
-    <operation>virt-install --connect=qemu:///system --name={$params.name} --os-type=linux --os-variant=rhel4 --arch=x86_64 --cpu host --vcpus=1,sockets=1,cores=1,threads=1 --hvm --ram=4096 --import --disk path=/home/vm/{$params.image},format=qcow2 --network bridge=virbr0,model=virtio --noreboot
+    <operation>virt-install --connect=qemu:///system --name={$params.object_id} --os-type=linux --os-variant=rhel4 --arch=x86_64 --cpu host --vcpus={$params.vcpu},sockets={$params.sockets},cores={$params.cores},threads=1 --hvm --ram={$params.ram} --import --disk path=/home/vm/{$params.image},format=qcow2 --network bridge=virbr0,model=virtio --noreboot
 
 
 virsh --connect qemu:///system start {$params.name}
@@ -72,8 +82,8 @@ virsh --connect qemu:///system start {$params.name}
   </command>
 
 <command name="DELETE">
-    <operation>virsh shutdown {$params.name}
-virsh undefine {$params.name}
+    <operation>virsh shutdown {$params.object_id}
+virsh undefine {$params.object_id}
 </operation>
   </command>
 </ObjectDefinition>
