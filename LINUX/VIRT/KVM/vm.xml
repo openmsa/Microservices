@@ -11,7 +11,7 @@
     <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>50</importrank>
     <maxInstances>0</maxInstances>
     <name>Virtual Machines</name>
     <order>10000</order>
@@ -24,24 +24,49 @@
     <visibility>5</visibility>
   </information>  <variables frozen="0">
     <variable displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="40" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement"/>
-    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Image" displayOrder="2" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable default="shut off" displayName="State" displayOrder="1" editable="false" isMandatory="true" maxLength="60" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="running">running</value>
+        <value displayValue="shut off">shut off</value>
+      </values>
+    </variable>
+    <variable displayName="Name" displayOrder="2" maxLength="50" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Image" displayOrder="3" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
         <class>images</class>
       </classes>
     </variable>
-    <variable displayName="State" displayOrder="3" isUserLocked="true" maxLength="80" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="4096" displayName="RAM" displayOrder="4" isMandatory="true" maxLength="100" name="params.ram" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer">
+    <variable displayName="Bootstrap ISO" displayOrder="4" editable="false" keepOnImport="true" maxLength="100" name="params.bootstrap_iso" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>bootstrap_iso</class>
+      </classes>
+    </variable>
+    <variable default="4096" displayName="RAM" displayOrder="5" isMandatory="true" keepOnImport="true" maxLength="100" name="params.ram" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer">
       <values>
         <value displayValue="4096">4096</value>
         <value displayValue="2048">2048</value>
         <value displayValue="8192">8192</value>
       </values>
     </variable>
-    <variable default="2" displayName="vCPU" displayOrder="5" isMandatory="true" maxLength="100" name="params.vcpu" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer"/>
-    <variable default="1" displayName="Sockets" displayOrder="6" isMandatory="true" maxLength="100" name="params.sockets" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer"/>
-    <variable default="1" displayName="Cores" displayOrder="7" isMandatory="true" maxLength="100" name="params.cores" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer"/>
-    <variable default="none" displayName="_color" displayOrder="8" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable default="host" displayName="CPU" displayOrder="6" editable="false" keepOnImport="true" maxLength="100" name="params.cpu" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="host">host</value>
+      </values>
+    </variable>
+    <variable default="2" displayName="vCPU" displayOrder="7" isMandatory="true" keepOnImport="true" maxLength="100" name="params.vcpu" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer">
+      <values>
+        <value displayValue="1">1</value>
+        <value displayValue="2">2</value>
+        <value displayValue="4">4</value>
+      </values>
+    </variable>
+    <variable default="16" displayName="Disk Size" displayOrder="9" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.disk_size" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Integer">
+      <values>
+        <value displayValue="16">16</value>
+        <value displayValue="32">32</value>
+      </values>
+    </variable>
+    <variable default="none" displayName="_color" displayOrder="10" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
   </variables>  <example>
     <content>3     17.1_P5_ForQA                  running
  -     16.1.2_GA_KVM                  shut off
@@ -70,20 +95,26 @@
     <post_template>{if $params.state == 'running'}
  {assign_object_variable var="_color" value=green}
 {else}
- {assign_object_variable var="_color" value=red}
+ {assign_object_variable var="_color" value=none}
 {/if}</post_template>
   </command>
 <command name="CREATE">
-    <operation>virt-install --connect=qemu:///system --name={$params.object_id} --os-type=linux --os-variant=rhel4 --arch=x86_64 --cpu host --vcpus={$params.vcpu},sockets={$params.sockets},cores={$params.cores},threads=1 --hvm --ram={$params.ram} --import --disk path=/home/vm/{$params.image},format=qcow2 --network bridge=virbr0,model=virtio --noreboot
-
-
-virsh --connect qemu:///system start {$params.name}
+    <operation>virt-install --connect=qemu:///system --name={$params.object_id} --os-variant=rhel7 --arch=x86_64 --cpu {$params.cpu} --vcpus={$params.vcpu} --hvm --ram={$params.ram} --disk path={$params.image},format=qcow2,size={$params.disk_size},device=disk,bus=ide {if $params.bootstrap_iso != ''}
+--disk path={$params.bootstrap_iso},device=cdrom,bus=ide {/if} --boot hd --import --network bridge=br0,model=virtio --graphics none --noreboot
 </operation>
   </command>
 
 <command name="DELETE">
-    <operation>virsh shutdown {$params.object_id}
+    <operation>virsh destroy {$params.object_id}
 virsh undefine {$params.object_id}
+</operation>
+  </command>
+<command name="UPDATE">
+    <operation>{if $params.state == 'running'}
+virsh --connect qemu:///system start {$params.object_id}
+{else}
+virsh --connect qemu:///system shutdown {$params.object_id}
+{/if}
 </operation>
   </command>
 </ObjectDefinition>

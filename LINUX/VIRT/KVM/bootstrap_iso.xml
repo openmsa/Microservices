@@ -13,8 +13,8 @@
     <importonce>false</importonce>
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>Images</name>
-    <order>10000</order>
+    <name>Bootstrap ISO</name>
+    <order>20000</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -47,7 +47,7 @@ drwxr-xr-x. 2 root root 4.0K Aug 19 15:18 From_REPO_PUB
 </content>
   </example>
   <command name="IMPORT">
-    <operation>ls -Alh /home/vm/*.qcow2 | sort -u</operation>
+    <operation>ls -Alh /home/vm/*.iso | sort -u</operation>
     <parser>
       <section>
         <regexp>@\S+\s+\S+\s+\S+\s+\S+\s+(?&lt;image_size&gt;\S+)\s+\S+\s+\S+\s+\S+\s+(?&lt;object_id&gt;.*)@</regexp>
