@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
     <configType>cli</configType>
     <createTemplateId/>
@@ -7,7 +7,7 @@
     <description/>
     <displayField>subnet</displayField>
     <dynamic>false</dynamic>
-    <group>Networking</group>
+    <group>Network</group>
     <icon>/images/repository/CommandDefinition/icons/Network.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
@@ -23,22 +23,22 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="id" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.object_id" type="AutoIncrement" visible="false"/>
-    <variable displayName="Subnet" displayOrder="1" isMandatory="true" maxLength="200" name="params.subnet" startIncrement="0" type="IpAddress"/>
-    <variable default="255.255.255.0" displayName="Mask" displayOrder="2" isMandatory="true" maxLength="200" name="params.mask" startIncrement="0" type="IpMask">
+    <variable displayName="id" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="AutoIncrement" visible="false"/>
+    <variable displayName="Subnet" displayOrder="1" isMandatory="true" maxLength="200" name="params.subnet" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
+    <variable default="255.255.255.0" displayName="Mask" displayOrder="2" isMandatory="true" maxLength="200" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask">
       <values>
         <value>255.255.255.0</value>
         <value>255.255.0.0</value>
         <value>255.0.0.0</value>
       </values>
     </variable>
-    <variable displayName="Gateway" displayOrder="3" isMandatory="true" maxLength="200" name="params.gateway" startIncrement="0" type="IpAddress"/>
-    <variable default="GigabitEthernet0/0" displayName="Interface" displayOrder="4" keepOnImport="true" maxLength="165" name="params.interface" startIncrement="0" type="String" visible="false">
+    <variable displayName="Gateway" displayOrder="3" isMandatory="true" maxLength="200" name="params.gateway" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
+    <variable default="GigabitEthernet0/0" displayName="Interface" displayOrder="4" keepOnImport="true" maxLength="165" name="params.interface" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <classes>
         <class>interface</class>
       </classes>
     </variable>
-    <variable default="1" displayName="Metric" displayOrder="5" maxLength="200" name="params.metric" startIncrement="0" type="Integer" visible="false"/>
+    <variable default="1" displayName="Metric" displayOrder="5" maxLength="200" name="params.metric" numberOfRowMax="0" startIncrement="0" type="Integer" visible="false"/>
   </variables>  <example>
     <content>ip route 0.0.0.0 0.0.0.0 10.30.19.254
 ip route 3.3.3.0 255.255.255.0 GigabitEthernet1 5.5.5.5 2
