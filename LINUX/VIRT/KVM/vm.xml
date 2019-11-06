@@ -100,8 +100,13 @@
   </command>
 <command name="CREATE">
     <operation>virt-install --connect=qemu:///system --name={$params.object_id} --os-variant=rhel7 --arch=x86_64 --cpu {$params.cpu} --vcpus={$params.vcpu} --hvm --ram={$params.ram} --disk path={$params.image},format=qcow2,size={$params.disk_size},device=disk,bus=ide {if $params.bootstrap_iso != ''}
---disk path={$params.bootstrap_iso},device=cdrom,bus=ide {/if} --boot hd --import --network bridge=br0,model=virtio --graphics none --noreboot
-</operation>
+--disk path={$params.bootstrap_iso},device=cdrom,bus=ide {/if} --boot hd --import --network bridge=br0,model=virtio --network bridge=br1,model=virtio --network network=privatenet --graphics none --noreboot
+
+{if $params.state == 'running'}
+virsh --connect qemu:///system start {$params.object_id}
+{else}
+virsh --connect qemu:///system shutdown {$params.object_id}
+{/if}</operation>
   </command>
 
 <command name="DELETE">
