@@ -11,10 +11,10 @@
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>50</importrank>
     <maxInstances>0</maxInstances>
     <name>container</name>
-    <order>10000</order>
+    <order>50</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -23,7 +23,23 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="new_var0" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="CONTAINER ID" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="CONTAINER ID" displayOrder="1" isMandatory="true" isUserLocked="true" maxLength="100" name="params.short_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="IMAGE" displayOrder="2" maxLength="60" name="params.image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="IMAGE ID" displayOrder="3" maxLength="100" name="params.image_id" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>images</class>
+      </classes>
+    </variable>
+    <variable displayName="NAMES" displayOrder="4" maxLength="70" name="params.names" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="CMD" displayOrder="5" isUserLocked="true" maxLength="100" name="params.command" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="PORTS" displayOrder="6" groupDisplayName="PORTS" groupSeparator=":" isGrouped="true" maxLength="40" name="params.ports.0.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="PORTS" displayOrder="7" groupDisplayName="PORTS" groupSeparator=":" isGrouped="true" maxLength="40" name="params.ports.0.IP" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="PORTS" displayOrder="8" groupDisplayName="PORTS" groupSeparator=":" isGrouped="true" maxLength="40" name="params.ports.0.priv_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="PORTS" displayOrder="9" groupDisplayName="PORTS" groupSeparator=":" isGrouped="true" maxLength="40" name="params.ports.0.pub_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="STATUS" displayOrder="10" isUserLocked="true" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="state" displayOrder="11" editable="false" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable default="blank" displayName="_color" displayOrder="12" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
   </variables>  <example>
     <content>
 </content>
@@ -33,15 +49,76 @@
     <xpath>/containers/json</xpath>
     <parser>
       <section>
-        <xpath>//</xpath>
+        <xpath>/root/row</xpath>
       </section>
       <lines>
         <line>
           <xpath>//Id</xpath>
           <regexp>@&lt;Id&gt;(?&lt;object_id&gt;.*)&lt;/Id&gt;@</regexp>
         </line>
+        <line>
+          <xpath>//Image</xpath>
+          <regexp>@&lt;Image&gt;(?&lt;image&gt;.*)&lt;/Image&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//ImageID</xpath>
+          <regexp>@&lt;ImageID&gt;(?&lt;image_id&gt;.*)&lt;/ImageID&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//Command</xpath>
+          <regexp>@&lt;Command&gt;(?&lt;command&gt;.*)&lt;/Command&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//State</xpath>
+          <regexp>@&lt;State&gt;(?&lt;state&gt;.*)&lt;/State&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//Status</xpath>
+          <regexp>@&lt;Status&gt;(?&lt;status&gt;.*)&lt;/Status&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//Names/row</xpath>
+          <regexp>@&lt;row&gt;(?&lt;names&gt;.*)&lt;/row&gt;@</regexp>
+        </line>
+        
+        <line>
+          <array name="ports">
+            <xpath>//Ports/row</xpath>
+            <lines>
+              <line>
+                <xpath>//IP</xpath>
+                <regexp>@&lt;IP&gt;(?&lt;IP&gt;.*)&lt;/IP&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//PrivatePort</xpath>
+                <regexp>@&lt;PrivatePort&gt;(?&lt;priv_port&gt;.*)&lt;/PrivatePort&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//PublicPort</xpath>
+                <regexp>@&lt;PublicPort&gt;(?&lt;pub_port&gt;.*)&lt;/PublicPort&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//Type</xpath>
+                <regexp>@&lt;Type&gt;(?&lt;type&gt;.*)&lt;/Type&gt;@</regexp>
+              </line>
+              
+            </lines>
+          </array>
+        </line>
       </lines>
     </parser>
-    <post_template/>
+    <post_template>{if  $params.state == "running" }
+      {assign_object_variable var="_color" value=green}
+{/if}
+
+{assign_object_variable var="short_id" value={$params.object_id}}</post_template>
+  </command>
+<command name="UPDATE">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
   </command>
 </ObjectDefinition>
