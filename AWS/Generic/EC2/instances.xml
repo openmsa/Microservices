@@ -24,7 +24,7 @@
     <visibility>5</visibility>
   </information>  <variables frozen="0">
     <variable displayName="ID" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement" visible="false"/>
-    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Name" displayOrder="1" maxLength="80" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="Instance ID" displayOrder="2" isUserLocked="true" maxLength="150" name="params.instance_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="availability_zone" displayOrder="3" maxLength="100" name="params.Placement.0.availability_zone" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
