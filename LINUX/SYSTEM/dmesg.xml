@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/repository/CommandDefinition/icons/callNumber_24x24.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Dmesg</name>
+    <order>100000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable displayName="Log" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="800" name="params.object_id" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  
+  <command name="IMPORT">
+    <operation>dmesg</operation>
+    <parser>
+      <section>
+        <regexp>@(?&lt;object_id&gt;.*)@</regexp>
+      </section>
+      <lines>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template/>
+  </command>
+  <command name="LIST">
+  <output>
+</output>
+</command>
+
+
+</ObjectDefinition>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VNF Instances</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="VNF Name" displayOrder="0" maxLength="100" name="params.vnfdName" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="State" displayOrder="1" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="vim Eid" displayOrder="2" isUserLocked="true" maxLength="100" name="params.vimEid" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Flavour" displayOrder="3" isUserLocked="true" maxLength="100" name="params.vnfdFlavour" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="vnfi" displayOrder="4" maxLength="100" name="params.vnfi" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Action" displayOrder="5" maxLength="100" name="params.action" numberOfRowMax="0" onlyDetailView="true" selector="params.state" startIncrement="0" type="Composite">
+      <values>
+        <value displayValue="Start VNF">startVNF</value>
+        <value displayValue="Stop VNF">stopVNF</value>
+      </values>
+      <behaviors>
+        <behavior default="stopVNF" displayName="action" displayOrder="0" editable="false" maxLength="100" name="params.action" numberOfRowMax="0" selectorValue="Running" startIncrement="0" type="String">
+          <values>
+            <value displayValue="Stop VNF">stopVNF</value>
+          </values>
+        </behavior>
+        <behavior default="startVNF" displayName="action" displayOrder="0" editable="false" maxLength="100" name="params.action" numberOfRowMax="0" selectorValue="Stopped" startIncrement="0" type="String">
+          <values>
+            <value displayValue="Start VNF">startVNF</value>
+          </values>
+        </behavior>
+      </behaviors>
+    </variable>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>POST</operation>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/getVnfInstances</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>_internal_objectId</xpath>
+          <regexp>@&lt;_internal_objectId&gt;(?&lt;vnfi&gt;.*)&lt;/_internal_objectId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//state</xpath>
+          <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//vnfdFlavour</xpath>
+          <regexp>@&lt;vnfdFlavour&gt;(?&lt;vnfdFlavour&gt;.*)&lt;/vnfdFlavour&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//vimEid</xpath>
+          <regexp>@&lt;vimEid&gt;(?&lt;vimEid&gt;.*)&lt;/vimEid&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//vnfdName</xpath>
+          <regexp>@&lt;vnfdName&gt;(?&lt;vnfdName&gt;.*)&lt;/vnfdName&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="UPDATE">
+    <rest>POST</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/{$params.action}</xpath>
+    <operation>{literal}{{/literal}
+  "vnfi" : "{$params.vnfi}"
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>POST</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/terminateVNF
+
+</xpath>
+    <operation>{literal}{{/literal}
+  "vnfi" : "{$params.vnfi}"
+{literal}}{/literal}
+</operation>
+  </command>
+
+</ObjectDefinition>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Issues</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>issue</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Index"/>
+    <variable displayName="Summary" displayOrder="1" isMandatory="true" maxLength="100" name="params.summary" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Issue Type" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.issue_type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Task">10003</value>
+      </values>
+    </variable>
+    <variable displayName="Project" displayOrder="3" editable="false" isMandatory="true" maxLength="100" name="params.project_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="DEMO">10902</value>
+      </values>
+    </variable>
+    <variable displayName="Priority" displayOrder="4" editable="false" isMandatory="true" maxLength="100" name="params.priority" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Highest">1</value>
+      </values>
+    </variable>
+    <variable displayName="Description" displayOrder="5" maxLength="100" name="params.description" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/rest/api/2/issue
+</xpath>
+    <operation>{
+		"fields": {
+			"project": {
+				"id": "{$params.project_id}"
+			},
+			"summary": "{$params.summary}",
+			"issuetype": {
+				"id": "{$params.issue_type}"
+			},
+			"priority": {
+				"id": "{$params.priority}"
+			},
+			"description": "{$params.description}"
+		}
+	
+}
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>DELETE
+</rest>
+    <xpath>/rest/api/2/issue/{$issue.$object_id.object_id}
+</xpath>
+    <operation>
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/rest/api/2/search?jql=project={$SD-&gt;SD_HOSTNAME}&amp;fields=project,summary,issuetype,priority,description,-avatarUrls,-48x48</xpath>
+    <parser>
+      <section>
+        <xpath>//issues/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>key</xpath>
+          <regexp>@&lt;key&gt;(?&lt;object_id&gt;.*)&lt;/key&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>fields/issuetype/id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;issue_type&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>fields/summary</xpath>
+          <regexp>@&lt;summary&gt;(?&lt;summary&gt;.*)&lt;/summary&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>fields/description</xpath>
+          <regexp>@&lt;description&gt;(?&lt;description&gt;.*)&lt;/description&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>fields/priority/id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;priority&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>fields/project/id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;project_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="UPDATE">
+    <rest>PUT
+</rest>
+    <xpath>/rest/api/2/issue/{$issue.$object_id.object_id}
+</xpath>
+    <operation>{
+		"fields": {
+			"project": {
+				"id": "{$params.project_id}"
+			},
+			"summary": "{$params.summary}",
+			"issuetype": {
+				"id": "{$params.issue_type}"
+			},
+			"priority": {
+				"id": "{$params.priority}"
+			},
+			"description": "{$params.description}"
+		}
+	
+}
+</operation>
+  </command>
+</ObjectDefinition>
