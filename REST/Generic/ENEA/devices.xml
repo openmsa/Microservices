@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Devices</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="ID" displayOrder="1" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="IP Address" displayOrder="2" maxLength="100" name="params.ip_address" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Username" displayOrder="3" maxLength="100" name="params.username" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable displayName="Password" displayOrder="4" maxLength="100" name="params.password" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable displayName="Port" displayOrder="5" maxLength="100" name="params.port" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Type" displayOrder="6" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Version" displayOrder="7" maxLength="100" name="params.version" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="description" displayOrder="8" maxLength="100" name="params.description" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable displayName="Property Name" displayOrder="9" maxLength="100" name="params.properties.0.property_name" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Properties</section>
+      </sections>
+    </variable>
+    <variable displayName="Property Value" displayOrder="10" maxLength="100" name="params.properties.0.property_value" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Properties</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>POST</operation>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/EMS/services/elements/methods/getElementList</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array name="properties">
+            <xpath>//properties/row</xpath>
+            <lines>
+              <line>
+                <xpath>//value</xpath>
+                <regexp>@&lt;value&gt;(?&lt;property_value&gt;.*)&lt;/value&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//name</xpath>
+                <regexp>@&lt;name&gt;(?&lt;property_name&gt;.*)&lt;/name&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        
+        <line>
+          <xpath>//version</xpath>
+          <regexp>@&lt;version&gt;(?&lt;version&gt;.*)&lt;/version&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//address</xpath>
+          <regexp>@&lt;address&gt;(?&lt;ip_address&gt;.*)&lt;/address&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//type</xpath>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{foreach $params.properties as $index=&gt;$name}
+
+{if $name.property_name=="port"} 
+	{assign_object_variable var="port" value="{$name.property_value}"}
+{/if}
+
+{/foreach}</post_template>
+  </command>
+
+  
+  <command name="DELETE">
+    <rest>POST</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/EMS/services/elements/methods/deleteElement
+</xpath>
+    <operation>{literal}{{/literal}
+"eid": "{$params.object_id}"
+{literal}}{/literal}
+</operation>
+  </command>
+
+
+<command name="CREATE">
+    <rest>POST</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/EMS/services/elements/methods/addElement
+</xpath>
+    <operation>{literal}{{/literal}
+	  "element": {literal}{{/literal}
+		"name": "{$params.name}",
+		"address": "{$params.ip_address}",
+		"type": "{$params.type}",
+		"version": "{$params.version}",
+		"description": "{$params.description}",
+		"properties": [
+		  {literal}{{/literal}
+			"_internal_objectType": "EMS/ElementProperty",
+			"_tag": "elements",
+			"type": "string",
+			"name": "port",
+			"value": "{$params.port}"
+		  {literal}}{/literal},
+		  {literal}{{/literal}
+			"_internal_objectType": "EMS/ElementProperty",
+			"_tag": "elements",
+			"type": "string",
+			"name": "username",
+			"value": "{$params.username}"
+		  {literal}}{/literal},
+		  {literal}{{/literal}
+			"_internal_objectType": "EMS/ElementProperty",
+			"_tag": "elements",
+			"type": "string",
+			"name": "password",
+			"value": "{$params.password}"
+		  {literal}}{/literal},
+		  {literal}{{/literal}
+			"_internal_objectType": "EMS/ElementProperty",
+			"_tag": "elements",
+			"type": "string",
+			"name": "certificate",
+			"value": null
+		  {literal}}{/literal},
+		  {literal}{{/literal}
+			"_internal_objectType": "EMS/ElementProperty",
+			"_tag": "elements",
+			"type": "string",
+			"name": "passphrase",
+			"value": null
+		  {literal}}{/literal},
+		  {literal}{{/literal}
+			"_internal_objectType": "EMS/ElementProperty",
+			"_tag": "elements",
+			"type": "string",
+			"name": "maintMode",
+			"value": "false"
+		  {literal}}{/literal}
+		]
+	  {literal}}{/literal}
+	{literal}}{/literal}
+</operation>
+  </command>
+</ObjectDefinition>
