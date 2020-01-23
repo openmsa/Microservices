@@ -5,7 +5,7 @@
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
     <description/>
-    <displayField>object_id</displayField>
+    <displayField>name</displayField>
     <dynamic>false</dynamic>
     <group>Default</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
@@ -26,9 +26,9 @@
     <variable displayName="Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="ID" displayOrder="1" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="IP Address" displayOrder="2" maxLength="100" name="params.ip_address" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Username" displayOrder="3" maxLength="100" name="params.username" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable default="root" displayName="Username" displayOrder="3" maxLength="100" name="params.username" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
     <variable displayName="Password" displayOrder="4" maxLength="100" name="params.password" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
-    <variable displayName="Port" displayOrder="5" maxLength="100" name="params.port" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="22" displayName="Port" displayOrder="5" maxLength="100" name="params.port" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Type" displayOrder="6" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Version" displayOrder="7" maxLength="100" name="params.version" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="description" displayOrder="8" maxLength="100" name="params.description" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String"/>
@@ -103,7 +103,8 @@
 
   
   <command name="DELETE">
-    <rest>POST</rest>
+    <rest>POST
+</rest>
     <xpath>/REST/v2/ServiceMethodExecution/modules/EMS/services/elements/methods/deleteElement
 </xpath>
     <operation>{literal}{{/literal}
@@ -114,7 +115,8 @@
 
 
 <command name="CREATE">
-    <rest>POST</rest>
+    <rest>POST
+</rest>
     <xpath>/REST/v2/ServiceMethodExecution/modules/EMS/services/elements/methods/addElement
 </xpath>
     <operation>{literal}{{/literal}

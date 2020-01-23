@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>vnfdName</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VNF Bridges</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="internal_oId" displayOrder="0" editable="false" maxLength="100" name="params.internal_oId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="object_id" displayOrder="1" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Descriptor Name" displayOrder="2" isMandatory="true" maxLength="100" name="params.vnfdName" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Provider" displayOrder="3" maxLength="100" name="params.provider" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="1" displayName="Version" displayOrder="5" maxLength="100" name="params.version" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="image" displayOrder="6" isMandatory="true" maxLength="100" name="params.image" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="image Description" displayOrder="7" maxLength="100" name="params.imageDescription" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="QCOW2" displayName="image Format" displayOrder="8" editable="false" isMandatory="true" maxLength="100" name="params.imageFormat" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="QCOW2">QCOW2</value>
+        <value displayValue="VDI">VDI</value>
+        <value displayValue="RAW">RAW</value>
+      </values>
+    </variable>
+    <variable default="1" displayName="Number of CPUS" displayOrder="9" isMandatory="true" maxLength="100" name="params.numVcpus" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="1024" displayName="memoryInMb" displayOrder="10" isMandatory="true" maxLength="100" name="params.memoryInMb" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="10" displayName="storageInGb" displayOrder="11" isMandatory="true" maxLength="100" name="params.storageInGb" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="NoCloud" displayName=" DataSource" displayOrder="12" editable="false" maxLength="100" name="params.cloudInitDataSource" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="NoCloud">NoCloud</value>
+        <value displayValue="ConfigDrive">ConfigDrive</value>
+        <value displayValue="ISO">ISO</value>
+      </values>
+      <sections>
+        <section>cloudInit</section>
+      </sections>
+    </variable>
+    <variable default="disk" displayName=" DriveType" displayOrder="13" editable="false" maxLength="100" name="params.cloudInitDriveType" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="disk">disk</value>
+        <value displayValue="cdrom">cdrom</value>
+      </values>
+      <sections>
+        <section>cloudInit</section>
+      </sections>
+    </variable>
+    <variable displayName="Configuration File" displayOrder="14" maxLength="100" name="params.config_file" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="File"/>
+    <variable displayName="Name" displayOrder="15" maxLength="100" name="params.interfaces.0.interfaceName" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Interfaces</section>
+      </sections>
+    </variable>
+    <variable displayName="Description" displayOrder="16" maxLength="100" name="params.interfaces.0.description" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Interfaces</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>POST</operation>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/getVNFDescriptors</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>_internal_objectId</xpath>
+          <regexp>@&lt;_internal_objectId&gt;(?&lt;internal_oId&gt;.*)&lt;/_internal_objectId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//provider</xpath>
+          <regexp>@&lt;provider&gt;(?&lt;provider&gt;.*)&lt;/provider&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//version</xpath>
+          <regexp>@&lt;version&gt;(?&lt;version&gt;.*)&lt;/version&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>version</xpath>
+          <regexp>@&lt;version&gt;(?&lt;version&gt;.*)&lt;/version&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;vnfdName&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        
+        
+        <line>
+          <xpath>//id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+
+
+<command name="DELETE">
+    <rest>POST
+</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/offboardVNF
+</xpath>
+    <operation>{literal}{{/literal}
+  "oid" : "{$params.internal_oId}"
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/onboardVNFRaw
+</xpath>
+    <operation>{literal}{{/literal}
+  "vnfdBundleInfo" : {literal}{{/literal}
+    "image" : "{$params.image}",
+    "instanceParams" : [ {literal}{{/literal}
+      "description" : "",
+      "name" : "",
+      "value" : "",
+      "_internal_objectType" : "VnfManager/VnfInstanceParamInfo",
+      "_internal_objectId" : "string",
+      "_internal_persistenceVersion" : 0,
+      "_internal_alarmStatus" : 0,
+      "_internal_applicationSpecificData" : 0,
+      "_internal_applicationSpecificText" : "string",
+      "_internal_parentObjectId" : "string",
+      "_internal_parentObjectType" : "string"
+   {literal}}{/literal} ],
+    "imageFormat" : "{$params.imageFormat}",
+    "numVcpus" : "{$params.numVcpus}",
+    "memoryInMb" : "{$params.memoryInMb}",
+    "storageInGb" : "{$params.storageInGb}",
+    "cloudInitDataSource" : "{$params.cloudInitDataSource}",
+    "cloudInitDriveType" : "{$params.cloudInitDriveType}",
+    "version" : "{$params.version}",
+    "provider" : "{$params.provider}",
+    "description" : "{$params.imageDescription}",
+    "interfaces" : [ 
+    {foreach $params.interfaces as $interfaces}
+    {literal}{{/literal}
+      "description" : "{$interfaces.description}",
+      "name" : "{$interfaces.interfaceName}",
+      "_internal_objectType" : "VnfManager/VnfInterfaceInfo",
+      "_internal_objectId" : "string",
+      "_internal_persistenceVersion" : 0,
+      "_internal_alarmStatus" : 0,
+      "_internal_applicationSpecificData" : 0,
+      "_internal_applicationSpecificText" : "string",
+      "_internal_parentObjectId" : "string",
+      "_internal_parentObjectType" : "string"
+   {literal}}{/literal}
+{if not $interfaces@last} 
+{literal},{/literal} 
+{/if}
+    {/foreach}
+    ],
+    "name" : "{$params.vnfdName}",
+    "_internal_objectType" : "VnfManager/VnfdBundleInfo",
+    "_internal_objectId" : "string",
+    "_internal_persistenceVersion" : 0,
+    "_internal_alarmStatus" : 0,
+    "_internal_applicationSpecificData" : 0,
+    "_internal_applicationSpecificText" : "string",
+    "_internal_parentObjectId" : "string",
+    "_internal_parentObjectType" : "string"
+ {literal}}{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+</ObjectDefinition>

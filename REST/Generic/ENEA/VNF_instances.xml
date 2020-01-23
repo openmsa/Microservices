@@ -5,7 +5,7 @@
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
     <description/>
-    <displayField>object_id</displayField>
+    <displayField>name</displayField>
     <dynamic>false</dynamic>
     <group>Default</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
@@ -23,11 +23,12 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="VNF Name" displayOrder="0" maxLength="100" name="params.vnfdName" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="VNF Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="VNF ID" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="VNF Descriptor" displayOrder="0" maxLength="100" name="params.vnfdName" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="State" displayOrder="1" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="vim Eid" displayOrder="2" isUserLocked="true" maxLength="100" name="params.vimEid" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Flavour" displayOrder="3" isUserLocked="true" maxLength="100" name="params.vnfdFlavour" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="vnfi" displayOrder="4" maxLength="100" name="params.vnfi" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
     <variable displayName="Action" displayOrder="5" maxLength="100" name="params.action" numberOfRowMax="0" onlyDetailView="true" selector="params.state" startIncrement="0" type="Composite">
       <values>
         <value displayValue="Start VNF">startVNF</value>
@@ -59,8 +60,12 @@
       </section>
       <lines>
         <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
           <xpath>_internal_objectId</xpath>
-          <regexp>@&lt;_internal_objectId&gt;(?&lt;vnfi&gt;.*)&lt;/_internal_objectId&gt;@</regexp>
+          <regexp>@&lt;_internal_objectId&gt;(?&lt;object_id&gt;.*)&lt;/_internal_objectId&gt;@</regexp>
         </line>
         <line>
           <xpath>//state</xpath>
@@ -83,20 +88,22 @@
     <post_template/>
   </command>
 <command name="UPDATE">
-    <rest>POST</rest>
-    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/{$params.action}</xpath>
+    <rest>POST
+</rest>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/{$params.action}
+</xpath>
     <operation>{literal}{{/literal}
-  "vnfi" : "{$params.vnfi}"
+  "vnfi" : "{$params.object_id}"
 {literal}}{/literal}
 </operation>
   </command>
 <command name="DELETE">
-    <rest>POST</rest>
+    <rest>POST
+</rest>
     <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/terminateVNF
-
 </xpath>
     <operation>{literal}{{/literal}
-  "vnfi" : "{$params.vnfi}"
+  "vnfi" : "{$params.object_id}"
 {literal}}{/literal}
 </operation>
   </command>
