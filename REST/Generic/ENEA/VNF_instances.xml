@@ -23,24 +23,24 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="VNF Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="VNF ID" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="VNF Descriptor" displayOrder="0" maxLength="100" name="params.vnfdName" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="State" displayOrder="1" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="vim Eid" displayOrder="2" isUserLocked="true" maxLength="100" name="params.vimEid" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Flavour" displayOrder="3" isUserLocked="true" maxLength="100" name="params.vnfdFlavour" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Action" displayOrder="5" maxLength="100" name="params.action" numberOfRowMax="0" onlyDetailView="true" selector="params.state" startIncrement="0" type="Composite">
+    <variable displayName="VNF Name" displayOrder="0" maxLength="100" name="params.name" startIncrement="0" type="String"/>
+    <variable displayName="VNF ID" displayOrder="0" editable="false" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="VNF Descriptor" displayOrder="0" maxLength="100" name="params.vnfdName" startIncrement="0" type="String"/>
+    <variable displayName="State" displayOrder="1" isUserLocked="true" maxLength="100" name="params.state" startIncrement="0" type="String"/>
+    <variable displayName="vim Eid" displayOrder="2" isUserLocked="true" maxLength="100" name="params.vimEid" startIncrement="0" type="String"/>
+    <variable displayName="Flavour" displayOrder="3" isUserLocked="true" maxLength="100" name="params.vnfdFlavour" startIncrement="0" type="String"/>
+    <variable displayName="Action" displayOrder="5" maxLength="100" name="params.action" onlyDetailView="true" selector="params.state" startIncrement="0" type="Composite">
       <values>
         <value displayValue="Start VNF">startVNF</value>
         <value displayValue="Stop VNF">stopVNF</value>
       </values>
       <behaviors>
-        <behavior default="stopVNF" displayName="action" displayOrder="0" editable="false" maxLength="100" name="params.action" numberOfRowMax="0" selectorValue="Running" startIncrement="0" type="String">
+        <behavior default="stopVNF" displayName="action" displayOrder="0" editable="false" maxLength="100" name="params.action" selectorValue="Running" startIncrement="0" type="String">
           <values>
             <value displayValue="Stop VNF">stopVNF</value>
           </values>
         </behavior>
-        <behavior default="startVNF" displayName="action" displayOrder="0" editable="false" maxLength="100" name="params.action" numberOfRowMax="0" selectorValue="Stopped" startIncrement="0" type="String">
+        <behavior default="startVNF" displayName="action" displayOrder="0" editable="false" maxLength="100" name="params.action" selectorValue="Stopped" startIncrement="0" type="String">
           <values>
             <value displayValue="Start VNF">startVNF</value>
           </values>
