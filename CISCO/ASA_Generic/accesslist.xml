@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>
 
 	<information>
@@ -9,14 +9,14 @@
     <description>ACL catching</description>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
+    <group>Policies</group>
     <icon>/images/repository/CommandDefinition/icons/itp.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
     <name>ACL</name>
-    <order>10000</order>
+    <order>110</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -30,15 +30,18 @@
 	<parser>
                 <section name="interfaces">
         
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;any)\s+(?&lt;destip&gt;any)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-                        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;any)\s+(?&lt;destformat&gt;host)\s+(?&lt;destip&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;any)\s+(?&lt;destip&gt;[0-9.]+)\s+(?&lt;destmask&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;sourcemask&gt;[0-9.]+)\s+(?&lt;destip&gt;any)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;sourcemask&gt;[0-9.]+)\s+(?&lt;destformat&gt;host)\s+(?&lt;destip&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;sourcemask&gt;[0-9.]+)\s+(?&lt;destip&gt;[0-9.]+)\s+(?&lt;destmask&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceformat&gt;host)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;destip&gt;any)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceformat&gt;host)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;destformat&gt;host)\s+(?&lt;destip&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
-        <regexp>@^access-list\s+(?&lt;object_id&gt;.*)\s+extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceformat&gt;host)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;destip&gt;[0-9.]+)\s+(?&lt;destmask&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;any)\s+(?&lt;destip&gt;any)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+                        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;any)\s+(?&lt;destformat&gt;host)\s+(?&lt;destip&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;any)\s+(?&lt;destip&gt;[0-9.]+)\s+(?&lt;destmask&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;sourcemask&gt;[0-9.]+)\s+(?&lt;destip&gt;any)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;sourcemask&gt;[0-9.]+)\s+(?&lt;destformat&gt;host)\s+(?&lt;destip&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;sourcemask&gt;[0-9.]+)\s+(?&lt;destip&gt;[0-9.]+)\s+(?&lt;destmask&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceformat&gt;host)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;destip&gt;any)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceformat&gt;host)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;destformat&gt;host)\s+(?&lt;destip&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list\s+(?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended\s+(?&lt;right&gt;\S+)\s+(?&lt;protocol&gt;\S+)\s+(?&lt;sourceformat&gt;host)\s+(?&lt;sourceip&gt;[0-9.]+)\s+(?&lt;destip&gt;[0-9.]+)\s+(?&lt;destmask&gt;[0-9.]+)+(\s)?+(?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;right&gt;\S+) object (?&lt;protocol&gt;\S+) (?&lt;sourceip&gt;[0-9.]+) (?&lt;sourcemask&gt;[0-9.]+) (?&lt;destformat&gt;host) (?&lt;destip&gt;[0-9.]+) (?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;right&gt;\S+) object (?&lt;protocol&gt;\S+) (?&lt;sourceformat&gt;host) (?&lt;sourceip&gt;[0-9.]+) (?&lt;destformat&gt;host) (?&lt;destip&gt;[0-9.]+) (?&lt;destmask&gt;[0-9.]+) (?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;right&gt;\S+) object (?&lt;protocol&gt;\S+) (?&lt;sourceip&gt;[0-9.]+) (?&lt;sourcemask&gt;[0-9.]+) (?&lt;destip&gt;[0-9.]+) (?&lt;destmask&gt;[0-9.]+) (?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
                 </section>
                 <lines>
         
@@ -156,94 +159,117 @@ access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$o
 </output>
   </command>
 	<command name="UPDATE">
-    <operation>{*
-&lt;variables&gt;
-  &lt;variable name="params.sourceformat" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.destformat" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.destip" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.protocol" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.destmask" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.sourcemask" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.right" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.sourceip" type="String"&gt;  &lt;/variable&gt;
-&lt;/variables&gt;
-*}
-{if $params.sourceip == 'any' &amp;&amp; $params.destip == 'any'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} log
+    <operation>{if $params.sourceip == 'any' &amp;&amp; $params.destip == 'any'}
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip}  {$params.options|default:'log'}
 {else if $params.sourceip == 'any' &amp;&amp; $params.destformat == 'host'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destformat} {$params.destip} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destformat} {$params.destip}  {$params.options|default:'log'}
 {else if $params.sourceip == 'any'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} {$params.destmask} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} {$params.destmask}  {$params.options|default:'log'}
 {else if $params.sourceformat == 'host' &amp;&amp; $params.destip == 'any'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip}  {$params.options|default:'log'}
 {else if $params.sourceformat == 'host' &amp;&amp; $params.destformat == 'host'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destformat} {$params.destip}  log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destformat} {$params.destip}   {$params.options|default:'log'}
 {else if $params.sourceformat == 'host'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip} {$params.destmask} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip} {$params.destmask}  {$params.options|default:'log'}
 {else if $params.destip == 'any'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destip} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destip}  {$params.options|default:'log'}
 {else if $params.destformat == 'host'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destformat} {$params.destip} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destformat} {$params.destip}  {$params.options|default:'log'}
 {else}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destip} {$params.destmask} log
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destip} {$params.destmask}  {$params.options|default:'log'}
 {/if}
 </operation>
   </command>
 	<command name="DELETE">
     <operation>{if $accesslist.$object_id.sourceip == 'any' &amp;&amp; $accesslist.$object_id.destip == 'any'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip}  {$params.options|default:'log'}
 {else if $accesslist.$object_id.sourceip == 'any' &amp;&amp; $accesslist.$object_id.destformat == 'host'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip} log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip}  {$params.options|default:'log'}
 {else if $accesslist.$object_id.sourceip == 'any'}
-access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask} log
+access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}  {$params.options|default:'log'}
 
 {else if $accesslist.$object_id.sourceformat == 'host' &amp;&amp; $accesslist.$object_id.destip == 'any'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip}  log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip}   {$params.options|default:'log'}
 {else if $accesslist.$object_id.sourceformat == 'host' &amp;&amp; $accesslist.$object_id.destformat == 'host'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip}  log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip}   {$params.options|default:'log'}
 {else if $accesslist.$object_id.destformat == 'host'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}  log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}   {$params.options|default:'log'}
 
 {else if $accesslist.$object_id.destip == 'any'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destip} log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destip}  {$params.options|default:'log'}
 {else if $accesslist.$object_id.destformat == 'host'}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip} log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip}  {$params.options|default:'log'}
 {else}
-no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask} log
+no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}  {$params.options|default:'log'}
 {/if}
 </operation>
   </command>
 <example>
-    <content>access-list NETCELO-NONAT line 1 extended permit ip 10.101.40.0 255.255.255.0 192.32.1.0 255.255.255.128
-access-list FROM-inside line 5 extended permit tcp any any eq www log informational interval 300 
-access-list FROM-inside line 14 extended deny ip any any log informational interval 300
-
-# ALL ACL FORMAT - 9 cases supported
-# SOURCE	|	DESTINATION
-
-ANY		|	ANY					 
-ANY		|	HOST	D-IP
-ANY		|	DIP	D-MASK		 
-
-S-IP S-MASK	|	ANY					
-S-IP S-MASK	|	HOST	D-IP		
-S-IP S-MASK	|	D-IP	D-MASK		
-
-HOST HOST-IP	|	ANY					
-HOST HOST-IP	|	HOST 	D-IP		
-HOST HOST-IP	|	D-IP	D-MASK
+    <content>access-list 300 line 1 extended deny object ftp 30.0.0.0 255.255.255.0 host 192.168.10.10 log informational interval 300 (hitcnt=0) 0x7927d9e4
 </content>
   </example>
 <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="destformat" displayOrder="1" maxLength="100" name="params.destformat" startIncrement="0" type="String"/>
-    <variable displayName="destip" displayOrder="2" maxLength="100" name="params.destip" startIncrement="0" type="String"/>
-    <variable displayName="destmask" displayOrder="3" maxLength="100" name="params.destmask" startIncrement="0" type="String"/>
-    <variable displayName="options" displayOrder="4" maxLength="100" name="params.options" startIncrement="0" type="String"/>
-    <variable displayName="protocol" displayOrder="5" maxLength="100" name="params.protocol" startIncrement="0" type="String"/>
-    <variable displayName="right" displayOrder="6" maxLength="100" name="params.right" startIncrement="0" type="String"/>
-    <variable displayName="sourceformat" displayOrder="7" maxLength="100" name="params.sourceformat" startIncrement="0" type="String"/>
-    <variable displayName="sourceip" displayOrder="8" maxLength="100" name="params.sourceip" startIncrement="0" type="String"/>
-    <variable displayName="sourcemask" displayOrder="9" maxLength="100" name="params.sourcemask" startIncrement="0" type="String"/>
+    <variable displayName="Index" displayOrder="0" maxLength="100" name="params.index" startIncrement="0" type="Integer"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="Format" displayOrder="2" maxLength="100" name="params.sourceformat" startIncrement="0" type="String">
+      <values>
+        <value>host</value>
+      </values>
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable default="any" displayName="IP" displayOrder="3" maxLength="100" name="params.sourceip" startIncrement="0" type="String">
+      <sections>
+        <section>Source</section>
+      </sections>
+      <classes>
+        <class>addressObject</class>
+      </classes>
+    </variable>
+    <variable displayName="Mask" displayOrder="4" maxLength="100" name="params.sourcemask" startIncrement="0" type="String">
+      <values>
+        <value>255.255.255.255</value>
+      </values>
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable displayName="Format" displayOrder="5" maxLength="100" name="params.destformat" startIncrement="0" type="String">
+      <values>
+        <value>host</value>
+      </values>
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable default="any" displayName="IP" displayOrder="6" maxLength="100" name="params.destip" startIncrement="0" type="String">
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable displayName="Mask" displayOrder="7" maxLength="100" name="params.destmask" startIncrement="0" type="String">
+      <values>
+        <value>255.255.255.255</value>
+      </values>
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable displayName="Protocol" displayOrder="8" maxLength="100" name="params.protocol" startIncrement="0" type="String">
+      <values>
+        <value>TCP</value>
+        <value>UDP</value>
+        <value>IP</value>
+        <value>ICMP</value>
+      </values>
+    </variable>
+    <variable default="permit" displayName="Action" displayOrder="9" maxLength="100" name="params.right" startIncrement="0" type="String">
+      <values>
+        <value>deny</value>
+        <value>permit</value>
+      </values>
+    </variable>
+    <variable default="log" displayName="Options" displayOrder="10" maxLength="100" name="params.options" onlyDetailView="true" startIncrement="0" type="String"/>
   </variables>
 </ObjectDefinition>
