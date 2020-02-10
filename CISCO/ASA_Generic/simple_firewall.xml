@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Policies</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>simple_firewall</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>1</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" maxLength="50" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="IP" displayOrder="1" maxLength="100" name="params.src_ip" startIncrement="0" type="String">
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable default="255.255.255.255" displayName="Mask" displayOrder="2" maxLength="100" name="params.src_mask" startIncrement="0" type="String">
+      <values>
+        <value>255.255.255.0</value>
+        <value>255.255.255.255</value>
+      </values>
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable displayName="IP" displayOrder="3" maxLength="100" name="params.dst_ip" startIncrement="0" type="String">
+      <sections>
+        <section>Destimation</section>
+      </sections>
+    </variable>
+    <variable default="255.255.255.255" displayName="Mask" displayOrder="4" maxLength="100" name="params.dst_mask" startIncrement="0" type="String">
+      <values>
+        <value>255.255.255.0</value>
+        <value>255.255.255.254</value>
+        <value>255.255.255.255</value>
+      </values>
+      <sections>
+        <section>Destimation</section>
+      </sections>
+    </variable>
+    <variable default="ftp" displayName="Service" displayOrder="5" maxLength="100" name="params.service" startIncrement="0" type="String">
+      <values>
+        <value>ftp</value>
+        <value>http</value>
+        <value>https</value>
+      </values>
+    </variable>
+    <variable default="deny" displayName="Action" displayOrder="6" editable="false" maxLength="100" name="params.action" startIncrement="0" type="String">
+      <values>
+        <value>deny</value>
+        <value>allow</value>
+      </values>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  
+<command name="CREATE">
+    <operation>access-list {$params.object_id} extended {$params.action|default:'deny'} object {$params.service} {$params.src_ip} {$params.src_mask} {$params.dst_ip} {$params.dst_mask} log
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>clear configure access-list {$object_id}
+</operation>
+  </command>
+<command name="UPDATE"/>
+</ObjectDefinition>

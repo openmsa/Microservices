@@ -1,29 +1,40 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <sortnumerical>true</sortnumerical>
-    <icon>/images/repository/CommandDefinition/icons/service control.jpg</icon>
     <configType>cli</configType>
-    <sortauto>true</sortauto>
-    <order>100000</order>
-    <description/>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Policies</group>
+    <icon>/images/repository/CommandDefinition/icons/service control.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
     <name>NAT rules</name>
-    <sortvariable>params._order</sortvariable>
-    <group>Firewall</group>
+    <order>100</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Description" displayOrder="0" isMandatory="true" name="params.description" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Input Interface" displayOrder="1" isMandatory="true" name="params.InputInterface" type="ObjectRef">
+    <variable displayName="Description" displayOrder="0" isMandatory="true" maxLength="100" name="params.description" type="String"/>
+    <variable displayName="Input Interface" displayOrder="1" isMandatory="true" maxLength="100" name="params.InputInterface" type="ObjectRef">
       <classes>
         <class>interfaceNameObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Ouput Interface" displayOrder="2" isMandatory="true" name="params.OutputInterface" type="ObjectRef">
+    <variable displayName="Ouput Interface" displayOrder="2" isMandatory="true" maxLength="100" name="params.OutputInterface" type="ObjectRef">
       <classes>
         <class>interfaceNameObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="source" displayOrder="3" name="params.originalSource" type="ObjectRef">
+    <variable displayName="source" displayOrder="3" maxLength="100" name="params.originalSource" type="ObjectRef">
       <sections>
         <section>Original</section>
       </sections>
@@ -35,7 +46,7 @@
         <class>predefineNetworkObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Destination" displayOrder="4" name="params.originalDestination" type="ObjectRef">
+    <variable displayName="Destination" displayOrder="4" maxLength="100" name="params.originalDestination" type="ObjectRef">
       <sections>
         <section>Original</section>
       </sections>
@@ -47,7 +58,7 @@
         <class>predefineNetworkObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Service" displayOrder="5" name="params.originalService" type="ObjectRef">
+    <variable displayName="Service" displayOrder="5" maxLength="100" name="params.originalService" type="ObjectRef">
       <sections>
         <section>Original</section>
       </sections>
@@ -56,7 +67,7 @@
         <class>PredefinedServiceObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Source" displayOrder="6" name="params.translatedSource" type="ObjectRef">
+    <variable displayName="Source" displayOrder="6" maxLength="100" name="params.translatedSource" type="ObjectRef">
       <sections>
         <section>Translated</section>
       </sections>
@@ -68,7 +79,7 @@
         <class>predefineNetworkObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Destination" displayOrder="7" name="params.translatedDestination" type="ObjectRef">
+    <variable displayName="Destination" displayOrder="7" maxLength="100" name="params.translatedDestination" type="ObjectRef">
       <sections>
         <section>Translated</section>
       </sections>
@@ -80,7 +91,7 @@
         <class>predefineNetworkObject</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Service" displayOrder="8" name="params.translatedService" type="ObjectRef">
+    <variable displayName="Service" displayOrder="8" maxLength="100" name="params.translatedService" type="ObjectRef">
       <sections>
         <section>Translated</section>
       </sections>
@@ -120,6 +131,7 @@ object network MSA-1.2.3.4
         
       </lines>
     </parser>
+  <post_template/>
   </command>
   <command name="DELETE">
     <operation>no nat ({$natRulesObject.$object_id.InputInterface},{$natRulesObject.$object_id.OutputInterface}) source static {$natRulesObject.$object_id.originalSource} {$natRulesObject.$object_id.translatedSource}{if $natRulesObject.$object_id.originalDestination!="" &amp;&amp; $natRulesObject.$object_id.translatedDestination!=""}  destination static {$natRulesObject.$object_id.originalDestination} {$natRulesObject.$object_id.translatedDestination}{/if}{if $natRulesObject.$object_id.translatedService!="" &amp;&amp; $natRulesObject.$object_id.originalService!=""} service {$natRulesObject.$object_id.originalService} {$natRulesObject.$object_id.translatedService}{/if}{if $params.description!=""} description {$natRulesObject.$object_id.description}{/if}

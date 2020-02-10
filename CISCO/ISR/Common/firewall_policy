@@ -23,8 +23,8 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="id" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="AutoIncrement"/>
-    <variable displayName="Address" displayOrder="1" isMandatory="true" maxLength="200" name="params.source_ip" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="id" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" type="AutoIncrement"/>
+    <variable displayName="Address" displayOrder="1" isMandatory="true" maxLength="200" name="params.source_ip" startIncrement="0" type="ObjectRef">
       <sections>
         <section>Source</section>
       </sections>
@@ -32,7 +32,7 @@
         <class>address</class>
       </classes>
     </variable>
-    <variable displayName="Interface/Zone" displayOrder="3" isMandatory="true" maxLength="200" name="params.source_int_zone" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Interface/Zone" displayOrder="3" isMandatory="true" maxLength="200" name="params.source_int_zone" startIncrement="0" type="ObjectRef">
       <sections>
         <section>Source</section>
       </sections>
@@ -40,7 +40,7 @@
         <class>zone</class>
       </classes>
     </variable>
-    <variable displayName="Address" displayOrder="4" maxLength="200" name="params.dest_ip" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Address" displayOrder="4" maxLength="200" name="params.dest_ip" startIncrement="0" type="ObjectRef">
       <sections>
         <section>Destination</section>
       </sections>
@@ -48,7 +48,7 @@
         <class>address</class>
       </classes>
     </variable>
-    <variable displayName="Interface/Zone" displayOrder="5" maxLength="200" name="params.dest_int_zone" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Interface/Zone" displayOrder="5" maxLength="200" name="params.dest_int_zone" startIncrement="0" type="ObjectRef">
       <sections>
         <section>Destination</section>
       </sections>
@@ -56,18 +56,18 @@
         <class>zone</class>
       </classes>
     </variable>
-    <variable displayName="Service/Application" displayOrder="6" editable="false" maxLength="200" name="params.service" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Service/Application" displayOrder="6" editable="false" maxLength="200" name="params.service" startIncrement="0" type="ObjectRef">
       <classes>
         <class>service</class>
       </classes>
     </variable>
-    <variable displayName="Action" displayOrder="7" maxLength="200" name="params.action" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Action" displayOrder="7" editable="false" maxLength="200" name="params.action" startIncrement="0" type="String">
       <values>
         <value displayValue="Allow">permit</value>
         <value displayValue="Deny">deny</value>
       </values>
     </variable>
-    <variable displayName="Options" displayOrder="8" editable="false" maxLength="200" name="params.options" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Options" displayOrder="8" editable="false" maxLength="200" name="params.options" startIncrement="0" type="String">
       <values>
         <value displayValue="log">log</value>
       </values>
