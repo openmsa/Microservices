@@ -25,7 +25,7 @@
     <visible>true</visible>
   </information>  <variables frozen="1">
     <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String"/>
-    <variable default="external" displayName="Zone" displayOrder="1" isMandatory="true" maxLength="100" name="params.zone_from" type="ObjectRef">
+    <variable displayName="Zone" displayOrder="1" isMandatory="true" maxLength="100" name="params.zone_from" type="ObjectRef">
       <sections>
         <section>Source</section>
       </sections>
@@ -42,7 +42,7 @@
         <class>address_ip_range</class>
       </classes>
     </variable>
-    <variable default="internal" displayName="Zone" displayOrder="3" isMandatory="true" maxLength="100" name="params.zone_to" type="ObjectRef">
+    <variable displayName="Zone" displayOrder="3" isMandatory="true" maxLength="100" name="params.zone_to" type="ObjectRef">
       <sections>
         <section>Destination</section>
       </sections>

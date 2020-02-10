@@ -1,23 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <dynamic>false</dynamic>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <configType>xml</configType>
-    <visible>true</visible>
-    <visibility>5</visibility>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <singleton>false</singleton>
-    <sortvariable>params._order</sortvariable>
-    <sortascending>true</sortascending>
-    <sortnumerical>true</sortnumerical>
-    <sortauto>true</sortauto>
-    <order>20</order>
-    <description/>
-    <name>Net Imports</name>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <group>Objects|Network</group>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Network</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Net Imports</name>
+    <order>20</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
   </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Layer3" displayOrder="0" maxLength="150" name="params.object_id" type="ObjectRef">
+    <variable displayName="Layer3" displayOrder="0" maxLength="150" name="params.object_id" type="ObjectRef">
       <classes>
         <class>layer3</class>
       </classes>
