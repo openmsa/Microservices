@@ -1,52 +1,53 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <dynamic>false</dynamic>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <configType>xml</configType>
-    <visible>true</visible>
-    <visibility>5</visibility>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <singleton>false</singleton>
-    <sortvariable>params._order</sortvariable>
-    <sortascending>true</sortascending>
-    <sortnumerical>true</sortnumerical>
-    <sortauto>true</sortauto>
-    <order>1</order>
-    <description/>
-    <name>Security Services</name>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <group>Security</group>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Policies</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Security Services</name>
+    <order>1</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
   </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" default="security" displayName="Name" displayOrder="0" maxLength="150" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="URL filtering" displayOrder="1" maxLength="220" name="params.url_filtering_profile" type="ObjectRef">
+    <variable default="security" displayName="Name" displayOrder="0" maxLength="150" name="params.object_id" type="String"/>
+    <variable displayName="URL Filtering" displayOrder="1" maxLength="220" name="params.url_filtering_profile" type="ObjectRef">
       <classes>
         <class>urlf_shared_profile</class>
         <class>urlf_user_profile</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Virus" displayOrder="2" maxLength="220" name="params.virus_profile" type="ObjectRef">
+    <variable displayName="Antivirus" displayOrder="2" maxLength="220" name="params.virus_profile" type="ObjectRef">
       <classes>
         <class>antivirus_shared_profile</class>
         <class>antivirus_user_profile</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="IPS/IDS" displayOrder="3" maxLength="220" name="params.ips_profile" type="ObjectRef">
+    <variable displayName="IPS/IDS" displayOrder="3" maxLength="220" name="params.ips_profile" type="ObjectRef">
       <classes>
         <class>vulnerability_shared_profile</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" default="IN" displayName="Direction" displayOrder="4" keepOnImport="true" maxLength="100" name="params.dir" type="String">
-      <values>
-        <value displayValue="IN">IN</value>
-        <value displayValue="OUT">OUT</value>
-      </values>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="From" displayOrder="5" isUserLocked="true" maxLength="150" name="params.zone_from" type="String">
+    <variable displayName="From" displayOrder="5" isUserLocked="true" maxLength="150" name="params.zone_from" type="String">
       <classes>
         <class>zone</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="To" displayOrder="6" isUserLocked="true" maxLength="150" name="params.zone_to" type="String">
+    <variable displayName="To" displayOrder="6" isUserLocked="true" maxLength="150" name="params.zone_to" type="String">
       <classes>
         <class>zone</class>
       </classes>
@@ -150,6 +151,7 @@
         
       </lines>
     </parser>
+  <post_template/>
   </command>
 <command name="UPDATE">
     <rest>type=config&amp;action=edit

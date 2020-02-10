@@ -1,24 +1,31 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <dynamic>false</dynamic>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <configType>xml</configType>
-    <visible>true</visible>
-    <visibility>5</visibility>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <singleton>false</singleton>
-    <sortvariable>params._order</sortvariable>
-    <sortascending>true</sortascending>
-    <sortnumerical>true</sortnumerical>
-    <sortauto>true</sortauto>
-    <order>10</order>
-    <description/>
-    <name>Anti-virus Profile</name>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <group>Security Options</group>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Objects|Security Profiles</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Antivirus Profile</name>
+    <order>200</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
   </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Profile name" displayOrder="0" maxLength="200" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="name" displayOrder="1" editable="false" isMandatory="true" maxLength="150" name="params.decoder.0.decoder_id" type="String">
+    <variable displayName="Profile name" displayOrder="0" maxLength="200" name="params.object_id" type="String"/>
+    <variable displayName="name" displayOrder="1" editable="false" isMandatory="true" maxLength="150" name="params.decoder.0.decoder_id" type="String">
       <values>
         <value>ftp</value>
         <value>http</value>
@@ -31,7 +38,7 @@
         <section>decoder</section>
       </sections>
     </variable>
-    <variable numberOfRowMax="3000" displayName="action" displayOrder="2" editable="false" isMandatory="true" maxLength="150" name="params.decoder.0.decoder_action" type="String">
+    <variable displayName="action" displayOrder="2" editable="false" isMandatory="true" maxLength="150" name="params.decoder.0.decoder_action" type="String">
       <values>
         <value>alert</value>
         <value>allow</value>
@@ -42,7 +49,7 @@
         <section>decoder</section>
       </sections>
     </variable>
-    <variable numberOfRowMax="3000" displayName="wildfire action" displayOrder="3" editable="false" isMandatory="true" maxLength="150" name="params.decoder.0.decoder_wildfire_action" type="String">
+    <variable displayName="wildfire action" displayOrder="3" editable="false" isMandatory="true" maxLength="150" name="params.decoder.0.decoder_wildfire_action" type="String">
       <values>
         <value>alert</value>
         <value>allow</value>
@@ -53,13 +60,13 @@
         <section>decoder</section>
       </sections>
     </variable>
-    <variable numberOfRowMax="3000" default="no" displayName="packet capture" displayOrder="3" editable="false" isMandatory="true" maxLength="150" name="params.packet_capture" type="String">
+    <variable default="no" displayName="packet capture" displayOrder="3" editable="false" isMandatory="true" maxLength="150" name="params.packet_capture" type="String">
       <values>
         <value>yes</value>
         <value>no</value>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" displayName="description" displayOrder="4" maxLength="150" name="params.description" type="String"/>
+    <variable displayName="description" displayOrder="4" maxLength="150" name="params.description" type="String"/>
   </variables>  <example>
     <content>&lt;virus&gt;
   &lt;entry name="USER_AV_Config"&gt;
@@ -135,6 +142,7 @@
         </line>
       </lines>
     </parser>
+  <post_template/>
   </command>
 <command name="CREATE">
     <rest>type=config&amp;action=set

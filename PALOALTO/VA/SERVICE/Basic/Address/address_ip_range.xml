@@ -1,19 +1,22 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
     <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
     <description>IP Range object</description>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Objects|Network|Addresses</group>
+    <group>Objects</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
     <importrank>1</importrank>
-    <name>IP Range</name>
-    <order>50</order>
+    <maxInstances>0</maxInstances>
+    <name>Address IP Range</name>
+    <order>102</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
@@ -21,9 +24,9 @@
     <visibility>5</visibility>
     <visible>true</visible>
   </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" maxLength="250" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Start address" displayOrder="1" groupDisplayName="Range" groupSeparator="-" isGrouped="true" isMandatory="true" maxLength="250" name="params.startaddress" type="IpAddress"/>
-    <variable numberOfRowMax="3000" displayName="End address" displayOrder="2" groupDisplayName="Range" groupSeparator="-" isGrouped="true" isMandatory="true" maxLength="250" name="params.endaddress" type="IpAddress"/>
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="250" name="params.object_id" type="String"/>
+    <variable displayName="Start address" displayOrder="1" groupDisplayName="Range" groupSeparator="-" isGrouped="true" isMandatory="true" maxLength="250" name="params.startaddress" type="IpAddress"/>
+    <variable displayName="End address" displayOrder="2" groupDisplayName="Range" groupSeparator="-" isGrouped="true" isMandatory="true" maxLength="250" name="params.endaddress" type="IpAddress"/>
   </variables>  <example>
     <content>&lt;result&gt;
   &lt;address&gt;
