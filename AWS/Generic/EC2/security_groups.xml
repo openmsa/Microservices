@@ -23,25 +23,25 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="80" name="params.group_name" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="ID" displayOrder="1" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="From Port" displayOrder="2" maxLength="80" name="params.ip_permissions.0.from_port" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="80" name="params.group_name" startIncrement="0" type="String"/>
+    <variable displayName="ID" displayOrder="1" isUserLocked="true" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="From Port" displayOrder="2" maxLength="80" name="params.ip_permissions.0.from_port" startIncrement="0" type="String">
       <sections>
         <section>Rule</section>
       </sections>
     </variable>
-    <variable displayName="Protocol" displayOrder="3" maxLength="80" name="params.ip_permissions.0.ip_protocol" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Protocol" displayOrder="3" maxLength="80" name="params.ip_permissions.0.ip_protocol" startIncrement="0" type="String">
       <sections>
         <section>Rule</section>
       </sections>
     </variable>
-    <variable displayName="Description" displayOrder="4" isMandatory="true" maxLength="100" name="params.description" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="VPC" displayOrder="5" maxLength="100" name="params.vpcid" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Description" displayOrder="4" isMandatory="true" maxLength="100" name="params.description" startIncrement="0" type="String"/>
+    <variable displayName="VPC" displayOrder="5" maxLength="100" name="params.vpcid" startIncrement="0" type="ObjectRef">
       <classes>
         <class>vpc</class>
       </classes>
     </variable>
-    <variable displayName="security_group" displayOrder="6" editable="false" maxLength="100" name="params.security_group" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="security_group" displayOrder="6" editable="false" maxLength="100" name="params.security_group" startIncrement="0" type="String" visible="false"/>
   </variables>  <example>
     <content>
 </content>
@@ -100,6 +100,16 @@
 {if !empty($params.vpcid)}
 ,"VpcId":"{$params.vpcid}"
 {/if}
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>Aws\Ec2\Ec2Client
+</rest>
+    <xpath>deleteSecurityGroup
+</xpath>
+    <operation>{literal}{{/literal}
+"GroupId":"{$params.object_id}"
 {literal}}{/literal}
 </operation>
   </command>
