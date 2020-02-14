@@ -152,8 +152,8 @@ no security-level{$params.securitylevel}
   </example>
 <variables frozen="0">
     <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="description" displayOrder="1" maxLength="100" name="params.description" startIncrement="0" type="String"/>
-    <variable displayName="nameif" displayOrder="2" maxLength="100" name="params.nameif" startIncrement="0" type="String"/>
-    <variable displayName="securitylevel" displayOrder="3" maxLength="100" name="params.securitylevel" startIncrement="0" type="String"/>
+    <variable displayName="Alias" displayOrder="1" maxLength="100" name="params.nameif" startIncrement="0" type="String"/>
+    <variable displayName="Description" displayOrder="2" maxLength="100" name="params.description" startIncrement="0" type="String"/>
+    <variable displayName="Security Level" displayOrder="3" maxLength="100" name="params.securitylevel" startIncrement="0" type="String"/>
   </variables>
 </ObjectDefinition>
