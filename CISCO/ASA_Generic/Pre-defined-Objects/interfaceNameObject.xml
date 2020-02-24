@@ -23,11 +23,11 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" type="String"/>
-    <variable displayName="IP address" displayOrder="1" maxLength="100" name="params.interfaceIPaddress" numberOfRowMax="3000" type="String" visible="false"/>
-    <variable displayName="Real name" displayOrder="1" maxLength="100" name="params.interfaceRealName" numberOfRowMax="3000" type="String"/>
-    <variable displayName="Admin status" displayOrder="2" maxLength="100" name="params.interfaceAdminStatus" numberOfRowMax="3000" type="String"/>
-    <variable displayName="Line status" displayOrder="3" maxLength="100" name="params.interfaceLineStatus" numberOfRowMax="3000" type="String"/>
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.interfaceRealName" type="String"/>
+    <variable displayName="Alias" displayOrder="1" isMandatory="true" maxLength="100" name="params.object_id" type="String"/>
+    <variable displayName="IP address" displayOrder="2" maxLength="100" name="params.interfaceIPaddress" type="String" visible="false"/>
+    <variable displayName="Admin status" displayOrder="3" maxLength="100" name="params.interfaceAdminStatus" type="String"/>
+    <variable displayName="Line status" displayOrder="4" maxLength="100" name="params.interfaceLineStatus" type="String"/>
   </variables>  <example>
     <content>#  sho interface  | inc Interface
 
