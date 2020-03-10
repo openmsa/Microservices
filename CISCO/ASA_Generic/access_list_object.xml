@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>true</defaultDisplay>
+    <description>ACL based firewall object</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Firewall Policy</group>
+    <icon>/images/repository/CommandDefinition/icons/pix firewall.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Firewall Policy</name>
+    <order>100</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" type="String"/>
+    <variable displayName="Interface" displayOrder="1" isMandatory="true" maxLength="100" name="params.interface" type="ObjectRef">
+      <classes>
+        <class>interface_name_object</class>
+        <class>interfaces</class>
+      </classes>
+    </variable>
+    <variable default="in" displayName="Direction" displayOrder="2" isMandatory="true" maxLength="100" name="params.direction" type="String">
+      <values>
+        <value displayValue="in">in</value>
+        <value displayValue="out">out</value>
+      </values>
+    </variable>
+    <variable displayName="Source" displayOrder="3" isMandatory="true" maxLength="100" name="params.rules.0.source" type="ObjectRef">
+      <classes>
+        <class>address_object</class>
+        <class>network_object</class>
+        <class>range_object</class>
+        <class>object_group</class>
+        <class>predefined_network_object</class>
+      </classes>
+    </variable>
+    <variable displayName="Mask" displayOrder="4" maxLength="100" name="params.rules.0.source_mask" startIncrement="0" type="String"/>
+    <variable displayName="Destination" displayOrder="5" isMandatory="true" maxLength="100" name="params.rules.0.destination" type="ObjectRef">
+      <classes>
+        <class>address_object</class>
+        <class>network_object</class>
+        <class>range_object</class>
+        <class>object_group</class>
+        <class>predefined_network_object</class>
+      </classes>
+    </variable>
+    <variable displayName="Mask" displayOrder="6" maxLength="100" name="params.rules.0.destination_mask" startIncrement="0" type="String"/>
+    <variable displayName="Service" displayOrder="7" isMandatory="true" maxLength="100" name="params.rules.0.service" type="ObjectRef">
+      <classes>
+        <class>service_group</class>
+        <class>service_object</class>
+        <class>predefined_service_object</class>
+      </classes>
+    </variable>
+    <variable displayName="Action" displayOrder="8" isMandatory="true" maxLength="100" name="params.rules.0.action" type="String">
+      <values>
+        <value>deny</value>
+        <value>permit</value>
+      </values>
+    </variable>
+    <variable displayName="Log status" displayOrder="9" maxLength="100" name="params.rules.0.log" type="String">
+      <values>
+        <value>log</value>
+      </values>
+    </variable>
+    <variable displayName="object_id" displayOrder="10" isMandatory="true" maxLength="100" name="params.rules.0.object_id" type="String" visible="false">
+      <sections>
+        <section>rules</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>access-list cached ACL log flows: total 0, denied 0 (deny-flow-max 4096)
+            alert-interval 300
+access-list 300; 1 elements; name hash: 0x54050f52
+access-list 300 line 1 extended deny object ftp 30.0.0.0 255.255.255.0 host 192.168.10.10 log informational interval 300 (hitcnt=0) 0x7927d9e4 
+  access-list 300 line 1 extended deny tcp 30.0.0.0 255.255.255.0 host 192.168.10.10 eq ftp log informational interval 300 (hitcnt=0) 0x7927d9e4 
+access-list 310; 1 elements; name hash: 0xfd4a6d17
+access-list 310 line 1 extended deny object http 31.0.0.0 255.255.255.0 192.168.31.0 255.255.255.0 log informational interval 300 (hitcnt=0) 0xb01b490a 
+  access-list 310 line 1 extended deny tcp 31.0.0.0 255.255.255.0 192.168.31.0 255.255.255.0 eq www log informational interval 300 (hitcnt=0) 0xb01b490a
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>show running-config | include access-group##show access-list</operation>
+    <parser>
+      <section>
+        
+        
+        
+      </section>
+      <lines>
+        <line>
+          <regexp>@^access-group (?&lt;object_id&gt;\S+) (?&lt;direction&gt;\S+) interface (?&lt;interface&gt;\S+)\s*$@</regexp>
+        </line>
+        <line>
+          <array name="rules">
+            <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;action&gt;\S+) (object|object-group) (?&lt;service&gt;\S+) (object|object-group|host) (?&lt;source&gt;\S+) (object|object-group|host) (?&lt;destination&gt;\S+) (?&lt;log&gt;log)?@</regexp>
+            
+            <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;action&gt;\S+) (object|object-group) (?&lt;service&gt;\S+) (?&lt;source&gt;\S+) (?&lt;source_mask&gt;\S+) (object|object-group|host) (?&lt;destination&gt;\S+) (?&lt;log&gt;log)?@</regexp>
+            <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;action&gt;\S+) (object|object-group) (?&lt;service&gt;\S+) (object|object-group|host) (?&lt;source&gt;\S+) (?&lt;destination&gt;\S+) (?&lt;destination_mask&gt;\S+) (?&lt;log&gt;log)?@</regexp>
+            <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;action&gt;\S+) (object|object-group) (?&lt;service&gt;\S+) (?&lt;source&gt;\S+) (?&lt;source_mask&gt;\S+) (?&lt;destination&gt;\S+) (?&lt;destination_mask&gt;\S+) (?&lt;log&gt;log)?@</regexp>
+          </array>
+        </line>
+      </lines>
+    </parser>
+  <post_template/>
+  </command>
+<command name="CREATE">
+    <operation>{assign var="offset" value="0"}
+{foreach $params.rules as $index =&gt; $rule}
+!
+{assign var=service value=$rule.service}
+{if !empty($serviceGroup.$service)}
+{assign var=service_object_command value="object-group"}
+{else}
+{assign var=service_object_command value="object"}
+{/if}
+!
+{assign var=source value=$rule.source}
+{if !empty($objectGroup.$source)}
+{assign var=source_object_command value="object-group"}
+{else}
+{assign var=source_object_command value="object"}
+{/if}
+!
+{assign var=destination value=$rule.destination}
+{if !empty($objectGroup.$destination)}
+{assign var=destination_object_command value="object-group"}
+{else}
+{assign var=destination_object_command value="object"}
+{/if}
+!
+{if $index=="0"}
+ {assign var="offset" value="1"}
+{/if}
+
+{assign var="line" value=$index+$offset}
+access-list {$params.object_id} line {$line} extended {$rule.action} {$service_object_command} {$rule.service} {$source_object_command} {$rule.source} {$destination_object_command} {$rule.destination} {$rule.log}
+{/foreach}
+!
+{if !empty($params.interface)}
+access-group {$params.object_id} {$params.direction} interface {$params.interface}
+{/if}
+</operation>
+  </command>
+  <command name="UPDATE">
+    <operation>clear configure access-list {$params.object_id}
+
+{assign var="offset" value="0"}
+{foreach $params.rules as $index =&gt; $rule}
+!
+{assign var=service value=$rule.service}
+{if !empty($serviceGroup.$service)}
+{assign var=service_object_command value="object-group"}
+{else}
+{assign var=service_object_command value="object"}
+{/if}
+!
+{assign var=source value=$rule.source}
+{if !empty($objectGroup.$source)}
+{assign var=source_object_command value="object-group"}
+{else}
+{assign var=source_object_command value="object"}
+{/if}
+!
+{assign var=destination value=$rule.destination}
+{if !empty($objectGroup.$destination)}
+{assign var=destination_object_command value="object-group"}
+{else}
+{assign var=destination_object_command value="object"}
+{/if}
+!
+{if $index=="0"}
+ {assign var="offset" value="1"}
+{/if}
+{assign var="line" value=$index+$offset}
+access-list {$params.object_id} line {$line} extended {$rule.action} {$service_object_command} {$rule.service} {$source_object_command} {$rule.source} {$destination_object_command} {$rule.destination} {$rule.log}
+{/foreach}
+!
+{if !empty($params.interface)}
+access-group {$params.object_id} {$params.direction} interface {$params.interface}
+{/if}
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>clear configure access-list {$object_id}
+</operation>
+  </command>
+</ObjectDefinition>
