@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/webfilter_fortinet.png</icon>
+    <description>Web Filter</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>13020</order>
+    <visibility>4</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Security Profile|Web Filter</group>
-    <icon>/images/repository/CommandDefinition/icons/webfilter_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importRank>2</importRank>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Web Filter</name>
+    <group>Security Profile|Web Filter</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Web Filter</name>
-    <order>13020</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>4</visibility>
-    <visible>true</visible>
-  </information>  <variables frozen="0">
-    <variable displayName="Profile Name" displayOrder="0" isMandatory="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayCols="4" displayName="Blocked Categories" displayOrder="1" displayType="alt" editable="false" maxLength="200" name="params.categories.0.id" type="Index">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Profile Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Blocked Categories" name="params.categories_0_id" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Abortion">7</value>
         <value displayValue="Advertising">17</value>
@@ -109,277 +109,84 @@
         <value displayValue="Web Hosting">56</value>
       </values>
     </variable>
-    <variable default="false" displayName="URL Filter" displayOrder="2" maxLength="80" name="params.url_filter_status" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable displayName="URL Filter ID" displayOrder="3" isMandatory="true" isUserLocked="true" maxLength="200" name="params.filter_id" onlyDetailView="true" type="AutoIncrement" visible="false"/>
-    <variable displayName="ID" displayOrder="5" isUserLocked="true" maxLength="200" name="params.urlfilter.0.url_id" selector="params.url_filter_status" type="Composite">
+    <variable displayName="URL Filter" name="params.url_filter_status" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="URL Filter ID" name="params.filter_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ID" name="params.urlfilter_0_url_id" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.url_filter_status" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour displayName="url_id" displayOrder="0" maxLength="100" name="params.urlfilter.0.url_id" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="ID" displayOrder="0" maxLength="200" name="params.urlfilter.0.url_id" selectorValue="true" startIncrement="0" type="AutoIncrement"/>
+      </behaviors>
       <sections>
         <section>URL Filters</section>
       </sections>
-      <behaviors>
-        <behavior displayName="url_id" displayOrder="0" maxLength="100" name="params.urlfilter.0.url_id" selectorValue="false" startIncrement="0" type="String" visible="false">
-          <sections>
-            <section>urlfilter</section>
-          </sections>
-        </behavior>
-        <behavior displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.urlfilter.0.url_id" selectorValue="true" type="AutoIncrement">
-          <sections>
-            <section>URL Filter</section>
-          </sections>
-        </behavior>
-      </behaviors>
     </variable>
-    <variable displayName="URL" displayOrder="6" maxLength="200" name="params.urlfilter.0.url" selector="params.url_filter_status" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="URL" name="params.urlfilter_0_url" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.url_filter_status" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour displayName="url" displayOrder="0" maxLength="100" name="params.urlfilter.0.url" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="URL" displayOrder="0" maxLength="200" name="params.urlfilter.0.url" selectorValue="true" startIncrement="0" type="String"/>
+      </behaviors>
       <sections>
         <section>URL Filters</section>
       </sections>
-      <behaviors>
-        <behavior displayName="url" displayOrder="0" maxLength="100" name="params.urlfilter.0.url" selectorValue="false" startIncrement="0" type="String" visible="false">
-          <sections>
-            <section>urlfilter</section>
-          </sections>
-        </behavior>
-        <behavior cols="150" displayName="URL" displayOrder="0" isMandatory="true" maxLength="200" name="params.urlfilter.0.url" selectorValue="true" startIncrement="0" type="String">
-          <sections>
-            <section>URL Filter</section>
-          </sections>
-        </behavior>
-      </behaviors>
     </variable>
-    <variable displayName="Type" displayOrder="7" editable="false" maxLength="200" name="params.urlfilter.0.type" selector="params.url_filter_status" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Type" name="params.urlfilter_0_type" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.url_filter_status" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="simple">simple</value>
         <value displayValue="wildcard">wildcard</value>
         <value displayValue="regex">regex</value>
       </values>
+      <behaviors>
+        <behaviour displayName="type" displayOrder="0" maxLength="100" name="params.urlfilter.0.type" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="Type" displayOrder="0" maxLength="200" name="params.urlfilter.0.type" selectorValue="true" startIncrement="0" type="String"/>
+      </behaviors>
       <sections>
         <section>URL Filters</section>
       </sections>
-      <behaviors>
-        <behavior displayName="type" displayOrder="0" maxLength="100" name="params.urlfilter.0.type" selectorValue="false" startIncrement="0" type="String" visible="false">
-          <sections>
-            <section>urlfilter</section>
-          </sections>
-        </behavior>
-        <behavior default="simple" displayName="Type" displayOrder="0" editable="false" isMandatory="true" maxLength="200" name="params.urlfilter.0.type" selectorValue="true" startIncrement="0" type="String">
-          <values>
-            <value displayValue="simple">simple</value>
-            <value displayValue="wildcard">wildcard</value>
-          </values>
-          <sections>
-            <section>URL Filter</section>
-          </sections>
-        </behavior>
-      </behaviors>
     </variable>
-    <variable displayName="Action" displayOrder="8" editable="false" maxLength="200" name="params.urlfilter.0.action" selector="params.url_filter_status" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Action" name="params.urlfilter_0_action" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.url_filter_status" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="exempt">exempt</value>
         <value displayValue="block">block</value>
       </values>
+      <behaviors>
+        <behaviour displayName="action" displayOrder="0" maxLength="100" name="params.urlfilter.0.action" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="Action" displayOrder="0" maxLength="200" name="params.urlfilter.0.action" selectorValue="true" startIncrement="0" type="String"/>
+      </behaviors>
       <sections>
         <section>URL Filters</section>
       </sections>
-      <behaviors>
-        <behavior displayName="action" displayOrder="0" maxLength="100" name="params.urlfilter.0.action" selectorValue="false" startIncrement="0" type="String" visible="false">
-          <sections>
-            <section>urlfilter</section>
-          </sections>
-        </behavior>
-        <behavior default="block" displayName="Action" displayOrder="0" editable="false" isMandatory="true" maxLength="200" name="params.urlfilter.0.action" selectorValue="true" startIncrement="0" type="String">
-          <values>
-            <value displayValue="block">block</value>
-            <value displayValue="exempt">exempt</value>
-          </values>
-          <sections>
-            <section>URL Filter</section>
-          </sections>
-        </behavior>
-      </behaviors>
     </variable>
-    <variable cols="150" displayName="Comments" displayOrder="9" maxLength="200" name="params.comment" startIncrement="0" type="String"/>
-    <variable default="http://www.fortiguard.com/static/webfiltering.html" displayName="Rating" displayOrder="10" isUserLocked="true" maxLength="250" name="params.rating" onlyDetailView="true" type="Link"/>
-  </variables>  <example>
-    <content>config webfilter profile
-    edit "default"
-        set comment "Default web filtering."
-        set post-action comfort
-            config ftgd-wf
-                    config filters
-                        edit 77
-                            set category 81
-                        next
-                        edit 78
-                            set category 84
-                        next
-                        edit 79
-                        next
-                    end
-            end
-        set log-all-url enable
-        set web-content-log disable
-        set web-filter-activex-log disable
-        set web-filter-command-block-log disable
-        set web-filter-cookie-log disable
-        set web-filter-applet-log disable
-        set web-filter-jscript-log disable
-        set web-filter-js-log disable
-        set web-filter-vbs-log disable
-        set web-filter-unknown-log disable
-        set web-filter-referer-log disable
-        set web-filter-cookie-removal-log disable
-        set web-url-log disable
-        set web-invalid-domain-log disable
-        set web-ftgd-err-log disable
-        set web-ftgd-quota-usage disable
+    <variable displayName="Comments" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Rating" name="params.rating" startIncrement="0" type="Link" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="http://www.fortiguard.com/static/webfiltering.html" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>config webfilter profileedit "default"set comment "Default web filtering."set post-action comfortconfig ftgd-wfconfig filtersedit 77set category 81nextedit 78set category 84nextedit 79nextendendset log-all-url enableset web-content-log disableset web-filter-activex-log disableset web-filter-command-block-log disableset web-filter-cookie-log disableset web-filter-applet-log disableset web-filter-jscript-log disableset web-filter-js-log disableset web-filter-vbs-log disableset web-filter-unknown-log disableset web-filter-referer-log disableset web-filter-cookie-removal-log disableset web-url-log disableset web-invalid-domain-log disableset web-ftgd-err-log disableset web-ftgd-quota-usage disable
 end
 </content>
   </example>
-  <command name="CREATE">
-    <operation>config webfilter urlfilter
-        edit {$params.filter_id}
-	set name "{$params.object_id}"
-        config entries
-        {foreach $params.urlfilter as $filter}
-		edit {$filter.url_id}
-			set url "{$filter.url}"
-			set type {$filter.type}
-			set action {$filter.action}
-  			{if $filter.action == "exempt"}
-			set exempt web-content activex-java-cookie dlp fortiguard range-block
-			{/if}
-   			set status enable
-		next
-	{/foreach}
-        end
-     next
-end
-
-config webfilter profile
-	edit "{$params.object_id}"
-        set comment "{$params.comment}"
-                config override
-                        set ovrd-user-group ""
-                end
-                config web
-                	{if empty($params.filter_id)}
-                        unset urlfilter-table
-                        {else}
- 			set urlfilter-table {$params.filter_id}
-			{/if}
-		end
-		config ftgd-wf
-			set options error-allow
-			set category-override 140 141 142 143
-			config filters
-				{foreach $params.categories as $category}
-				{if isset($category.id) &amp;&amp; $category.id !== ""}
-				{if $category.id === "0"}
-				edit 144
-				{else}
-				edit {$category.id}
-				{/if}
-					set category {$category.id}
-					set action block
-   					set log enable
-				next
-				{/if}
-				{/foreach}
-				edit 143
-					set category 143
-					set action block
-					set log enable
-				next
-			end
-		end
-		set log-all-url disable
-	next
-end
-</operation>
-  </command>
-<command name="UPDATE">
-    <operation>config webfilter urlfilter
-        edit {$params.filter_id}
-	set name "{$params.object_id}"
-	config entries
-        purge
-        {foreach $params.urlfilter as $filter}
-		edit {$filter.url_id}
-			set url "{$filter.url}"
-			set type {$filter.type}
-			set action {$filter.action}
-  			{if $filter.action == "exempt"}
-			set exempt web-content activex-java-cookie dlp fortiguard range-block
-			{/if}
-   			set status enable
-		next
-	{/foreach}
-        end
-     next
-end
-
-
-config webfilter profile
-	edit "{$params.object_id}"
-	set comment "{$params.comment}"
-		config override
-                        set ovrd-user-group ""
-                end		
-		config web
-                	{if empty($params.filter_id)}
-                        unset urlfilter-table
-                        {else}
- 			set urlfilter-table {$params.filter_id}
-			{/if}
-		end
-		config ftgd-wf
-			set options error-allow
-			set category-override 140 141 142 143
-			config filters
-				purge
-				{foreach $params.categories as $category}
-				{if isset($category.id) &amp;&amp; $category.id !== ""}
-				{if $category.id === "0"}
-				edit 144
-				{else}
-				edit {$category.id}
-				{/if}
-					set category {$category.id}
-					set action block
-					set log enable
-				next
-				{/if}
-				{/foreach}
-				edit 143
-					set category 143
-					set action block
-					set log enable
-				next
-			end
-		end
-		set log-all-url disable
-	next
-end
-</operation>
-  </command>
-  
-
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show full-configuration webfilter profile</operation>
+    <post_template>{assign_object_variable var="url_filter_status" value="false"}
+{foreach $URL_Filter|sortby:_orderas $filter}{if isset($params.filter_id) &amp;&amp; $params.filter_id == $filter.object_id}{assign_object_variable var="url_filter_status" value="true"}{assign_object_variable var="filter_id" value=$filter.object_id}{assign_object_variable var="filter_name" value=$filter.filter_name}{if !empty($filter.urls)}{foreach $filter.urls as$index => $url}{assign_object_variable var="urlfilter.{$index}.url_id" value=$url.url_id}{assign_object_variable var="urlfilter.{$index}.url" value=$url.url}{assign_object_variable var="urlfilter.{$index}.action" value=$url.action}{assign_object_variable var="urlfilter.{$index}.type" value=$url.type}{/foreach}{/if}{break}{/if}
+{/foreach}
+{if $params.object_id == "default"}
+{assign_object_variable var="_readonly" value="true"}
+{else}
+{assign_object_variable var="_readonly" value="false"}
+{/if}</post_template>
     <parser>
       <section>
-        <regexp>@edit(?! "(default)") "(?&lt;object_id&gt;[^"]+)"@</regexp>
+        <regexp>@edit(?! "(default)") "(?&lt;object_id>[^"]+)"@</regexp>
       </section>
       <lines>
         <line>
-          <regexp>@set urlfilter-table (?&lt;filter_id&gt;\d+)@</regexp>
+          <array name="categories">
+            <lines/>
+            <regexp>@set category(?! 143) (?&lt;id>\d+)@</regexp>
+            <mregexp>@^\s \s*$@</mregexp>
+          </array>
+          <regexp/>
         </line>
-        
-        <line>
-          <regexp>@set comment "(?&lt;comment&gt;.*)"@</regexp>
-        </line>
-        
-        
-        
         <ignore>
           <regexp>@end@</regexp>
         </ignore>
@@ -398,47 +205,30 @@ end
         <ignore>
           <regexp>@next@</regexp>
         </ignore>
-        
-        <line>
-          <array name="categories">
-            <regexp>@set category(?! 143) (?&lt;id&gt;\d+)@</regexp>
-          </array>
-        </line>
-        
       </lines>
     </parser>
-  <post_template>{assign_object_variable var="url_filter_status" value="false"}
-{foreach $URL_Filter|sortby:_order  as $filter}
-	{if isset($params.filter_id) &amp;&amp; $params.filter_id == $filter.object_id}
-		{assign_object_variable var="url_filter_status" value="true"}
-		{assign_object_variable var="filter_id" value=$filter.object_id}
- 		{assign_object_variable var="filter_name" value=$filter.filter_name}
-		{if !empty($filter.urls)}
-		  {foreach $filter.urls as  $index => $url}
-			  {assign_object_variable var="urlfilter.{$index}.url_id" value=$url.url_id}
-			  {assign_object_variable var="urlfilter.{$index}.url" value=$url.url}
-			  {assign_object_variable var="urlfilter.{$index}.action" value=$url.action}
-			  {assign_object_variable var="urlfilter.{$index}.type" value=$url.type}
-    		  {/foreach}
-		{/if}
-		{break}
-	{/if}
-{/foreach}
-{if $params.object_id == "default"}
-{assign_object_variable var="_readonly" value="true"}
-{else}
-{assign_object_variable var="_readonly" value="false"}
-{/if}</post_template>
   </command>
-
-<command name="DELETE">
-    <operation>{assign var="params" value=$Web_Filter.$object_id}
-config webfilter profile
-  delete "{$params.object_id}"
-end
-config webfilter urlfilter
-  delete {$params.filter_id}
+  <command name="UPDATE">
+    <operation>config webfilter urlfilteredit {$params.filter_id}set name "{$params.object_id}"config entriespurge{foreach $params.urlfilter as $filter}edit {$filter.url_id}set url "{$filter.url}"set type {$filter.type}set action {$filter.action}{if $filter.action == "exempt"}set exempt web-content activex-java-cookie dlp fortiguard range-block{/if}set status enablenext{/foreach}endnext
+endconfig webfilter profileedit "{$params.object_id}"set comment "{$params.comment}"config overrideset ovrd-user-group ""endconfig web{if empty($params.filter_id)}unset urlfilter-table{else}set urlfilter-table {$params.filter_id}{/if}endconfig ftgd-wfset options error-allowset category-override 140 141 142 143config filterspurge{foreach $params.categories as $category}{if isset($category.id) &amp;&amp; $category.id !== ""}{if $category.id === "0"}edit 144{else}edit {$category.id}{/if}set category {$category.id}set action blockset log enablenext{/if}{/foreach}edit 143set category 143set action blockset log enablenextendendset log-all-url disablenext
 end
 </operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>config webfilter urlfilteredit {$params.filter_id}set name "{$params.object_id}"config entries{foreach $params.urlfilter as $filter}edit {$filter.url_id}set url "{$filter.url}"set type {$filter.type}set action {$filter.action}{if $filter.action == "exempt"}set exempt web-content activex-java-cookie dlp fortiguard range-block{/if}set status enablenext{/foreach}endnext
+endconfig webfilter profileedit "{$params.object_id}"set comment "{$params.comment}"config overrideset ovrd-user-group ""endconfig web{if empty($params.filter_id)}unset urlfilter-table{else}set urlfilter-table {$params.filter_id}{/if}endconfig ftgd-wfset options error-allowset category-override 140 141 142 143config filters{foreach $params.categories as $category}{if isset($category.id) &amp;&amp; $category.id !== ""}{if $category.id === "0"}edit 144{else}edit {$category.id}{/if}set category {$category.id}set action blockset log enablenext{/if}{/foreach}edit 143set category 143set action blockset log enablenextendendset log-all-url disablenext
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>{assign var="params" value=$Web_Filter.$object_id}
+config webfilter profiledelete "{$params.object_id}"
+end
+config webfilter urlfilterdelete {$params.filter_id}
+end
+</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

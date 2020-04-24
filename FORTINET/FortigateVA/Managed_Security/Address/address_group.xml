@@ -1,30 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/objects_fortinet.png</icon>
+    <description>Address Group</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>1040</order>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Address</group>
-    <icon>/images/repository/CommandDefinition/icons/objects_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Address Group</name>
+    <group>Address</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Address Group</name>
-    <order>1040</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Group Name" displayOrder="1" maxLength="200" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Associated Interface" displayOrder="2" isMandatory="true" maxLength="200" name="params.port" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Group Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Associated Interface" name="params.port" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Port4">4</value>
         <value displayValue="Port5">5</value>
@@ -38,58 +40,20 @@
         <class>interface</class>
       </classes>
     </variable>
-    <variable displayName="Members" displayOrder="3" editable="false" isMandatory="true" isMandatoryArray="true" localVarNameMatch="port" maxLength="200" name="params.members.0.member" numberOfRowMax="0" remoteVarNameMatch="port" startIncrement="0" type="ObjectRef">
+    <variable displayName="Members" name="params.members_0_member" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="port" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>address_object</class>
       </classes>
     </variable>
-    <variable cols="165" displayName="Comment " displayOrder="5" maxLength="200" name="params.comment" numberOfRowMax="0" rows="1" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>FGVM020000034713 # show full-configuration firewall addrgrp 
-config firewall addrgrp
-    edit "group1"
-        set uuid 105ae9a6-7ee5-51e5-67bf-3e9c620000e9
-        set member "didiTest" "didiTest2"
-        set comment ''
-        set visibility enable
-        set color 0
-    next
+    <variable displayName="Comment " name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>FGVM020000034713 # show full-configuration firewall addrgrpconfig firewall addrgrpedit "group1"set uuid 105ae9a6-7ee5-51e5-67bf-3e9c620000e9set member "didiTest" "didiTest2"set comment ''set visibility enableset color 0next
 end
 </content>
   </example>
-<command name="CREATE">
-    <operation>{if !empty($params.members)}
-config firewall addrgrp
-edit "{$params.object_id}"
-  set comment '{$params.comment}'
-  set member {foreach $params.members as $memberItem}{$memberItem.member} {/foreach}
-
-end
-{/if}
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show full-configuration firewall addrgrp </operation>
-    <parser>
-      <section>
-        <regexp>@edit "(?&lt;object_id&gt;[^"]+)"@</regexp>
-      </section>
-      <lines>
-        <ignore>
-          <regexp>@set @</regexp>
-        </ignore>
-        
-        <line>
-          <regexp>@set comment "(?&lt;comment&gt;[^"]+)"@</regexp>
-        </line>
-        <line>
-          <array name="members">
-            
-            <mregexp>@"(?&lt;member&gt;\S+)"@</mregexp>
-          </array>
-        </line>
-      </lines>
-    </parser>
     <post_template>{foreach $params.members as $memberItem}
 {foreach $AddressObject as $AO}
 {if $AO.object_id==$memberItem.member}
@@ -97,15 +61,41 @@ end
 {/if}
 {/foreach}
 {/foreach}</post_template>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id>[^"]+)"@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set comment "(?&lt;comment>[^"]+)"@</regexp>
+        </line>
+        <line>
+          <array name="members">
+            <lines/>
+            <regexp>@^\s \s*$@</regexp>
+            <mregexp>@"(?&lt;member>\S+)"@</mregexp>
+          </array>
+          <regexp/>
+        </line>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
   </command>
   <command name="UPDATE">
     <operation>{if !empty($params.members)}
 config firewall addrgrp
-edit "{$params.object_id}"
-  set comment '{$params.comment}'
-  set member {foreach $params.members as $memberItem}{$memberItem.member} {/foreach}
-
-end
+edit "{$params.object_id}"set comment '{$params.comment}'set member {foreach $params.members as $memberItem}{$memberItem.member} {/foreach}end
+{/if}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{if !empty($params.members)}
+config firewall addrgrp
+edit "{$params.object_id}"set comment '{$params.comment}'set member {foreach $params.members as $memberItem}{$memberItem.member} {/foreach}end
 {/if}
 </operation>
   </command>
@@ -115,4 +105,6 @@ delete {$AddressGroup.$object_id.object_id}
 end
 </operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
