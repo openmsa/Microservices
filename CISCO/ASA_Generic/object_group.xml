@@ -1,31 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/dot-dot.jpg</icon>
+    <description>Object groups</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>5000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/dot-dot.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Object groups</name>
+    <group>Objects</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Object groups</name>
-    <order>5000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Group name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" type="String"/>
-    <variable displayName="Description" displayOrder="3" maxLength="100" name="params.description" type="String"/>
-    <variable displayName="Objects" displayOrder="4" isMandatory="true" maxLength="100" name="params.ObjectList.0.networkObject" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Group name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Objects" name="params.ObjectList_0_networkObject" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>address_object</class>
         <class>network_object</class>
@@ -33,38 +35,45 @@
         <class>predefined_network_object</class>
       </classes>
     </variable>
-  </variables>  <example>
-    <content>sho run object-group
-
-object-group network MyServersGroup
- network-object object obj-10_101_65_0-255_255_255_0
- network-object object WebServer01
+  </variables>
+  <example>
+    <content>sho run object-groupobject-group network MyServersGroupnetwork-object object obj-10_101_65_0-255_255_255_0network-object object WebServer01
 </content>
   </example>
   <command name="IMPORT">
     <operation>sho object-group</operation>
     <parser>
       <section>
-        <regexp>@^object-group network (?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group network (?&lt;object_id>\S+)@</regexp>
       </section>
       <lines>
         <line>
-          <regexp>@^\sdescription: (?&lt;description&gt;.*)@</regexp>
+          <array/>
+          <regexp>@^\sdescription: (?&lt;description>.*)@</regexp>
         </line>
         <line>
           <array name="ObjectList">
-            <regexp>@^\snetwork-object object (?&lt;networkObject&gt;\S+)\s*$@</regexp>
+            <lines/>
+            <regexp>@^\snetwork-object object (?&lt;networkObject>\S+)\s*$@</regexp>
+            <mregexp>@^\s \s*$@</mregexp>
           </array>
+          <regexp/>
         </line>
       </lines>
     </parser>
-  <post_template/>
   </command>
-<command name="CREATE">
-    <operation>object-group network {$object_id}
- description {$params.description}
-{foreach $params.ObjectList as $Object}
- network-object object {$Object.networkObject}
+  <command name="UPDATE">
+    <operation>object-group network {$object_id}description {$params.description}
+{foreach $objectGroup.$object_id.ObjectList as $oldObject}no network-object object {$oldObject.networkObject}
+{/foreach}
+{foreach $params.ObjectList as $Object}network-object object {$Object.networkObject}
+{/foreach}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>object-group network {$object_id}description {$params.description}
+{foreach $params.ObjectList as $Object}network-object object {$Object.networkObject}
 {/foreach}
 </operation>
   </command>
@@ -72,15 +81,6 @@ object-group network MyServersGroup
     <operation>no object-group network {$objectGroup.$object_id.object_id}
 </operation>
   </command>
-  <command name="UPDATE">
-    <operation>object-group network {$object_id}
- description {$params.description}
-{foreach $objectGroup.$object_id.ObjectList as $oldObject}
- no network-object object {$oldObject.networkObject}
-{/foreach}
-{foreach $params.ObjectList as $Object}
- network-object object {$Object.networkObject}
-{/foreach}
-</operation>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

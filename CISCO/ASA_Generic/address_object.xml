@@ -1,58 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/6700 series.jpg</icon>
+    <description>Address</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>5000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/6700 series.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Address</name>
+    <group>Objects</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Address</name>
-    <order>5000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayName="IP Address" displayOrder="1" isMandatory="true" maxLength="200" name="params.ipAddress" type="IpAddress"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP Address" name="params.ipAddress" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>CREATE:
-object network Address1
- host 1.1.1.1
-    
-IMPORT:
-show running-config object network in-line | include host
-
-object network MSA-1.2.3.4 host 1.2.3.4
+object network Address1host 1.1.1.1IMPORT:
+show running-config object network in-line | include hostobject network MSA-1.2.3.4 host 1.2.3.4
 </content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show running-config object network in-line | include host</operation>
     <parser>
       <section>
-        <regexp>@^object network (?&lt;object_id&gt;\S+) host (?&lt;ipAddress&gt;\S+)\s*$@</regexp>
+        <regexp>@^object network (?&lt;object_id>\S+) host (?&lt;ipAddress>\S+)\s*$@</regexp>
       </section>
       <lines/>
     </parser>
-  <post_template/>
-  </command>
-  <command name="CREATE">
-    <operation>object network {$params.object_id}
-host {$params.ipAddress}
-</operation>
   </command>
   <command name="UPDATE">
     <operation>object network {$object_id}
+host {$params.ipAddress}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>object network {$params.object_id}
 host {$params.ipAddress}
 </operation>
   </command>
@@ -60,4 +58,6 @@ host {$params.ipAddress}
     <operation>no object network {$addressObject.$object_id.object_id}
 </operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

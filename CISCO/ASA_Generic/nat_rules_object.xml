@@ -1,40 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/service control.jpg</icon>
+    <description>NAT rules</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>100</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>NAT Object</group>
-    <icon>/images/repository/CommandDefinition/icons/service control.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>NAT rules</name>
+    <group>NAT Object</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>NAT rules</name>
-    <order>100</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Description" displayOrder="0" isMandatory="true" maxLength="100" name="params.description" type="String"/>
-    <variable displayName="Input Interface" displayOrder="1" isMandatory="true" maxLength="100" name="params.InputInterface" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Input Interface" name="params.InputInterface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>interface_name_object</class>
       </classes>
     </variable>
-    <variable displayName="Ouput Interface" displayOrder="2" isMandatory="true" maxLength="100" name="params.OutputInterface" type="ObjectRef">
+    <variable displayName="Ouput Interface" name="params.OutputInterface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>interface_name_object</class>
       </classes>
     </variable>
-    <variable displayName="source" displayOrder="3" maxLength="100" name="params.originalSource" type="ObjectRef">
+    <variable displayName="source" name="params.originalSource" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Original</section>
       </sections>
@@ -46,7 +48,7 @@
         <class>predefined_network_object</class>
       </classes>
     </variable>
-    <variable displayName="Destination" displayOrder="4" maxLength="100" name="params.originalDestination" type="ObjectRef">
+    <variable displayName="Destination" name="params.originalDestination" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Original</section>
       </sections>
@@ -58,7 +60,7 @@
         <class>predefined_network_object</class>
       </classes>
     </variable>
-    <variable displayName="Service" displayOrder="5" maxLength="100" name="params.originalService" type="ObjectRef">
+    <variable displayName="Service" name="params.originalService" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Original</section>
       </sections>
@@ -67,7 +69,7 @@
         <class>predefined_service_object</class>
       </classes>
     </variable>
-    <variable displayName="Source" displayOrder="6" maxLength="100" name="params.translatedSource" type="ObjectRef">
+    <variable displayName="Source" name="params.translatedSource" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Translated</section>
       </sections>
@@ -79,7 +81,7 @@
         <class>predefined_network_object</class>
       </classes>
     </variable>
-    <variable displayName="Destination" displayOrder="7" maxLength="100" name="params.translatedDestination" type="ObjectRef">
+    <variable displayName="Destination" name="params.translatedDestination" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Translated</section>
       </sections>
@@ -91,7 +93,7 @@
         <class>predefined_network_object</class>
       </classes>
     </variable>
-    <variable displayName="Service" displayOrder="8" maxLength="100" name="params.translatedService" type="ObjectRef">
+    <variable displayName="Service" name="params.translatedService" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Translated</section>
       </sections>
@@ -100,47 +102,33 @@
         <class>predefined_service_object</class>
       </classes>
     </variable>
-  </variables>  <example>
-    <content>sh run nat
-
-nat (inside,any) source static obj-10.101.119.0-255.255.255.0 obj-10.101.119.0-255.255.255.0 destination static obj-10.101.200.96-255.255.255.240 obj-10.101.200.96-255.255.255.240
-
-object network obj-10.101.119.0-255.255.255.0
- nat (inside,outside) dynamic interface
-
-object network MSA-1.2.3.4
- nat (inside,outside) static interface service tcp www www
+  </variables>
+  <example>
+    <content>sh run natnat (inside,any) source static obj-10.101.119.0-255.255.255.0 obj-10.101.119.0-255.255.255.0 destination static obj-10.101.200.96-255.255.255.240 obj-10.101.200.96-255.255.255.240object network obj-10.101.119.0-255.255.255.0nat (inside,outside) dynamic interfaceobject network MSA-1.2.3.4nat (inside,outside) static interface service tcp www www
 </content>
   </example>
-  <command name="CREATE">
-    <operation>nat ({$params.InputInterface},{$params.OutputInterface}) source static {$params.originalSource} {$params.translatedSource}{if $params.originalDestination!="" &amp;&amp; $params.translatedDestination!=""}  destination static {$params.originalDestination} {$params.translatedDestination}{/if}{if $params.translatedService!="" &amp;&amp; $params.originalService!=""} service {$params.originalService} {$params.translatedService}{/if}{if $params.description!=""} description {$params.description}{/if}
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>sho run nat</operation>
     <parser>
       <section>
-        <regexp>@^nat \((?&lt;InputInterface&gt;\S+),(?&lt;OutputInterface&gt;\S+)\) source static (?&lt;originalSource&gt;\S+) (?&lt;translatedSource&gt;\S+)(?: destination static (?&lt;originalDestination&gt;\S+) (?&lt;translatedDestination&gt;\S+))?(?: service (?&lt;originalService&gt;\S+) (?&lt;translatedService&gt;\S+))? description (?&lt;description&gt;\S+)@</regexp>
-        <regexp>@^nat \((?&lt;InputInterface&gt;\S+),(?&lt;OutputInterface&gt;\S+)\) source static (?&lt;originalSource&gt;\S+) (?&lt;translatedSource&gt;\S+)(?: destination static (?&lt;originalDestination&gt;\S+) (?&lt;translatedDestination&gt;\S+))?(?: service (?&lt;originalService&gt;\S+) (?&lt;translatedService&gt;\S+))?@</regexp>
-        
-        
-        
-        
+        <regexp>@^nat \((?&lt;InputInterface>\S+),(?&lt;OutputInterface>\S+)\) source static (?&lt;originalSource>\S+) (?&lt;translatedSource>\S+)(?: destination static (?&lt;originalDestination>\S+) (?&lt;translatedDestination>\S+))?(?: service (?&lt;originalService>\S+) (?&lt;translatedService>\S+))?@</regexp>
       </section>
-      <lines>
-        
-      </lines>
+      <lines/>
     </parser>
-  <post_template/>
-  </command>
-  <command name="DELETE">
-    <operation>no nat ({$natRulesObject.$object_id.InputInterface},{$natRulesObject.$object_id.OutputInterface}) source static {$natRulesObject.$object_id.originalSource} {$natRulesObject.$object_id.translatedSource}{if $natRulesObject.$object_id.originalDestination!="" &amp;&amp; $natRulesObject.$object_id.translatedDestination!=""}  destination static {$natRulesObject.$object_id.originalDestination} {$natRulesObject.$object_id.translatedDestination}{/if}{if $natRulesObject.$object_id.translatedService!="" &amp;&amp; $natRulesObject.$object_id.originalService!=""} service {$natRulesObject.$object_id.originalService} {$natRulesObject.$object_id.translatedService}{/if}{if $params.description!=""} description {$natRulesObject.$object_id.description}{/if}
-</operation>
   </command>
   <command name="UPDATE">
-    <operation>no nat ({$natRulesObject.$object_id.InputInterface},{$natRulesObject.$object_id.OutputInterface}) source static {$natRulesObject.$object_id.originalSource} {$natRulesObject.$object_id.translatedSource}{if $natRulesObject.$object_id.originalDestination!="" &amp;&amp; $natRulesObject.$object_id.translatedDestination!=""}  destination static {$natRulesObject.$object_id.originalDestination} {$natRulesObject.$object_id.translatedDestination}{/if}{if $natRulesObject.$object_id.translatedService!="" &amp;&amp; $natRulesObject.$object_id.originalService!=""} service {$natRulesObject.$object_id.originalService} {$natRulesObject.$object_id.translatedService}{/if}{if $params.description!=""} description {$natRulesObject.$object_id.description}{/if}
-
-nat ({$params.InputInterface},{$params.OutputInterface}) source static {$params.originalSource} {$params.translatedSource}{if $params.originalDestination!="" &amp;&amp; $params.translatedDestination!=""}  destination static {$params.originalDestination} {$params.translatedDestination}{/if}{if $params.translatedService!="" &amp;&amp; $params.originalService!=""} service {$params.originalService} {$params.translatedService}{/if}{/if}{if $params.description!=""} description {$params.description}{/if}
+    <operation>no nat ({$natRulesObject.$object_id.InputInterface},{$natRulesObject.$object_id.OutputInterface}) source static {$natRulesObject.$object_id.originalSource} {$natRulesObject.$object_id.translatedSource}{if $natRulesObject.$object_id.originalDestination!="" &amp;&amp; $natRulesObject.$object_id.translatedDestination!=""}destination static {$natRulesObject.$object_id.originalDestination} {$natRulesObject.$object_id.translatedDestination}{/if}{if $natRulesObject.$object_id.translatedService!="" &amp;&amp; $natRulesObject.$object_id.originalService!=""} service {$natRulesObject.$object_id.originalService} {$natRulesObject.$object_id.translatedService}{/if}{if $params.description!=""} description {$natRulesObject.$object_id.description}{/if}nat ({$params.InputInterface},{$params.OutputInterface}) source static {$params.originalSource} {$params.translatedSource}{if $params.originalDestination!="" &amp;&amp; $params.translatedDestination!=""}destination static {$params.originalDestination} {$params.translatedDestination}{/if}{if $params.translatedService!="" &amp;&amp; $params.originalService!=""} service {$params.originalService} {$params.translatedService}{/if}{/if}{if $params.description!=""} description {$params.description}{/if}
 </operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>nat ({$params.InputInterface},{$params.OutputInterface}) source static {$params.originalSource} {$params.translatedSource}{if $params.originalDestination!="" &amp;&amp; $params.translatedDestination!=""}destination static {$params.originalDestination} {$params.translatedDestination}{/if}{if $params.translatedService!="" &amp;&amp; $params.originalService!=""} service {$params.originalService} {$params.translatedService}{/if}{if $params.description!=""} description {$params.description}{/if}
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>no nat ({$natRulesObject.$object_id.InputInterface},{$natRulesObject.$object_id.OutputInterface}) source static {$natRulesObject.$object_id.originalSource} {$natRulesObject.$object_id.translatedSource}{if $natRulesObject.$object_id.originalDestination!="" &amp;&amp; $natRulesObject.$object_id.translatedDestination!=""}destination static {$natRulesObject.$object_id.originalDestination} {$natRulesObject.$object_id.translatedDestination}{/if}{if $natRulesObject.$object_id.translatedService!="" &amp;&amp; $natRulesObject.$object_id.originalService!=""} service {$natRulesObject.$object_id.originalService} {$natRulesObject.$object_id.translatedService}{/if}{if $params.description!=""} description {$natRulesObject.$object_id.description}{/if}
+</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

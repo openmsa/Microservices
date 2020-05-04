@@ -1,30 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/voice commserver.jpg</icon>
+    <description>Services</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>5000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/voice commserver.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Services</name>
+    <group>Objects</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Services</name>
-    <order>5000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="1">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" type="String"/>
-    <variable displayName="Protocol" displayOrder="1" isMandatory="true" maxLength="100" name="params.protocol" type="String">
+  </information>
+  <variables frozen="1">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Protocol" name="params.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value>tcp</value>
         <value>udp</value>
@@ -32,44 +34,36 @@
         <value>ip</value>
       </values>
     </variable>
-    <variable displayName="port" displayOrder="2" isMandatory="true" maxLength="100" name="params.port" type="String"/>
-  </variables>  <example>
-    <content>CREATE
-
-object service mySer1
- service tcp source eq ssh destination eq ssh
-
-IMPORT
-
-show running-config object service in-line
-     
-object service sms service tcp destination eq 28169
+    <variable displayName="port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>CREATEobject service mySer1service tcp source eq ssh destination eq sshIMPORTshow running-config object service in-lineobject service sms service tcp destination eq 28169
 </content>
   </example>
-<command name="CREATE">
-    <operation>object service {$params.object_id}
-service {$params.protocol} destination eq {$params.port}
-</operation>
-  </command>
-<command name="DELETE">
-    <operation>no object service {$object_id}
-</operation>
+  <command name="IMPORT">
+    <operation>show running-config object service in-line</operation>
+    <parser>
+      <section>
+        <regexp>@^object service (?&lt;object_id>\S+) service (?&lt;protocol>\S+) destination eq (?&lt;port>\S+)\s*$@</regexp>
+      </section>
+      <lines/>
+    </parser>
   </command>
   <command name="UPDATE">
     <operation>object service {$params.object_id}
 service {$params.protocol} destination eq {$params.port}
 </operation>
   </command>
-<command name="IMPORT">
-    <operation>show running-config object service in-line</operation>
-    <parser>
-      <section>
-        <regexp>@^object service (?&lt;object_id&gt;\S+) service (?&lt;protocol&gt;\S+) destination eq (?&lt;port&gt;\S+)\s*$@</regexp>
-      </section>
-      <lines>
-        
-      </lines>
-    </parser>
-  <post_template/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>object service {$params.object_id}
+service {$params.protocol} destination eq {$params.port}
+</operation>
   </command>
+  <command name="DELETE">
+    <operation>no object service {$object_id}
+</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

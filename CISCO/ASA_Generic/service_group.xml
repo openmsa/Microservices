@@ -1,31 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/dot-dot.jpg</icon>
+    <description>Services groups</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>5000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/dot-dot.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Services groups</name>
+    <group>Objects</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Services groups</name>
-    <order>5000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Group name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" type="String"/>
-    <variable displayName="Description" displayOrder="1" maxLength="100" name="params.description" type="String"/>
-    <variable displayName="Services" displayOrder="2" isMandatory="true" maxLength="100" name="params.ObjectList.0.serviceObject" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Group name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Services" name="params.ObjectList_0_serviceObject" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value>serviceObject</value>
         <value>PredefinedServiceObject</value>
@@ -35,38 +37,45 @@
         <class>predefined_service_object</class>
       </classes>
     </variable>
-  </variables>  <example>
-    <content>sho run object-group
-
-object-group service MyServersGroup
- network-object object obj-10_101_65_0-255_255_255_0
- network-object object WebServer01
+  </variables>
+  <example>
+    <content>sho run object-groupobject-group service MyServersGroupnetwork-object object obj-10_101_65_0-255_255_255_0network-object object WebServer01
 </content>
   </example>
   <command name="IMPORT">
     <operation>sho object-group</operation>
     <parser>
       <section>
-        <regexp>@^object-group service (?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^object-group service (?&lt;object_id>\S+)@</regexp>
       </section>
       <lines>
         <line>
-          <regexp>@^\sdescription: (?&lt;description&gt;.*)@</regexp>
+          <array/>
+          <regexp>@^\sdescription: (?&lt;description>.*)@</regexp>
         </line>
         <line>
           <array name="ObjectList">
-            <regexp>@^\sservice-object object (?&lt;serviceObject&gt;\S+)\s*$@</regexp>
+            <lines/>
+            <regexp>@^\sservice-object object (?&lt;serviceObject>\S+)\s*$@</regexp>
+            <mregexp>@^\s \s*$@</mregexp>
           </array>
+          <regexp/>
         </line>
       </lines>
     </parser>
-  <post_template/>
   </command>
-<command name="CREATE">
-    <operation>object-group service {$object_id}
- description {$params.description}
-{foreach $params.ObjectList as $Object}
- service-object object {$Object.serviceObject}
+  <command name="UPDATE">
+    <operation>object-group service {$object_id}description {$params.description}
+{foreach $serviceGroup.$object_id.ObjectList as $oldObject}no service-object object {$oldObject.serviceObject}
+{/foreach}
+{foreach $params.ObjectList as $Object}service-object object {$Object.serviceObject}
+{/foreach}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>object-group service {$object_id}description {$params.description}
+{foreach $params.ObjectList as $Object}service-object object {$Object.serviceObject}
 {/foreach}
 </operation>
   </command>
@@ -74,15 +83,6 @@ object-group service MyServersGroup
     <operation>no object-group service {$objectGroup.$object_id.object_id}
 </operation>
   </command>
-  <command name="UPDATE">
-    <operation>object-group service {$object_id}
- description {$params.description}
-{foreach $serviceGroup.$object_id.ObjectList as $oldObject}
- no service-object object {$oldObject.serviceObject}
-{/foreach}
-{foreach $params.ObjectList as $Object}
- service-object object {$Object.serviceObject}
-{/foreach}
-</operation>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

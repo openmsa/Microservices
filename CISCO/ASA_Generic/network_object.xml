@@ -1,80 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
+    <description>Network</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>5000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Network</name>
+    <group>Objects</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Network</name>
-    <order>5000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="1">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" type="String"/>
-    <variable displayName="Network IP" displayOrder="1" isMandatory="true" maxLength="100" name="params.networkIp" type="IpAddress"/>
-    <variable displayName="Network Mask" displayOrder="2" isMandatory="true" maxLength="100" name="params.networkMask" type="IpMask"/>
-    <variable displayName="Description" displayOrder="3" maxLength="100" name="params.description" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="1">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network IP" name="params.networkIp" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network Mask" name="params.networkMask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>CREATE:
-object network myNet1
- subnet 1.1.1.0 255.255.255.0
- description Net1DEscription
-
-IMPORT:
-show running-config object network in-line | include subnet
-
-object network obj-10.101.119.0-255.255.255.0 subnet 10.101.119.0 255.255.255.0
+object network myNet1subnet 1.1.1.0 255.255.255.0description Net1DEscriptionIMPORT:
+show running-config object network in-line | include subnetobject network obj-10.101.119.0-255.255.255.0 subnet 10.101.119.0 255.255.255.0
 object network obj-10.101.200.96-255.255.255.240 subnet 10.101.200.96 255.255.255.240
 object network obj-10.101.45.0-255.255.255.0 subnet 10.101.45.0 255.255.255.0
 object network obj-1.1.1.0-255.255.255.0 subnet 1.1.1.0 255.255.255.0
 object network obj-10.101.65.0-255.255.255.0 subnet 10.101.65.0 255.255.255.0
 </content>
   </example>
-<command name="UPDATE">
-    <operation>object network {$object_id}
- {if $params.description neq ''} 
-description {$params.description}
-{/if}
- subnet {$params.networkIp} {$params.networkMask}
+  <command name="IMPORT">
+    <operation>show running-config object network in-line | include subnet</operation>
+    <parser>
+      <section>
+        <regexp>@^object network (?&lt;object_id>\S+) subnet (?&lt;networkIp>\S+) (?&lt;networkMask>\S+) description (?&lt;description>.*)$@</regexp>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>object network {$object_id}{if $params.description neq ''}description {$params.description}
+{/if}subnet {$params.networkIp} {$params.networkMask}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>object network {$object_id}{if $params.description neq ''}description {$params.description}
+{/if}subnet {$params.networkIp} {$params.networkMask}
 </operation>
   </command>
   <command name="DELETE">
     <operation>no object network {$object_id}
 </operation>
   </command>
-  <command name="CREATE">
-    <operation>object network {$object_id}
- {if $params.description neq ''} 
-description {$params.description}
-{/if}
- subnet {$params.networkIp} {$params.networkMask}
-</operation>
-  </command>
-  <command name="IMPORT">
-    <operation>show running-config object network in-line | include subnet</operation>
-    <parser>
-      <section>
-        <regexp>@^object network (?&lt;object_id&gt;\S+) subnet (?&lt;networkIp&gt;\S+) (?&lt;networkMask&gt;\S+)\s*$@</regexp>
-        <regexp>@^object network (?&lt;object_id&gt;\S+) subnet (?&lt;networkIp&gt;\S+) (?&lt;networkMask&gt;\S+) description (?&lt;description&gt;.*)$@</regexp>
-        
-      </section>
-      <lines>
-        
-      </lines>
-    </parser>
-  <post_template/>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
