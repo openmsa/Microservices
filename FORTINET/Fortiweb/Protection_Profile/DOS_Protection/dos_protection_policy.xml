@@ -1,131 +1,86 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/DosProtection.png</icon>
+    <description>DoS Protection Policy</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Protection Profile|DOS Protection</group>
-    <icon>/images/repository/CommandDefinition/icons/DosProtection.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>DoS Protection Policy</name>
+    <group>Protection Profile|DOS Protection</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>DoS Protection Policy</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="DoS Protection Policy name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="HTTP Limit Mode" displayOrder="1" editable="false" isMandatory="true" keepOnImport="true" maxLength="100" name="params.mode" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="DoS Protection Policy name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="HTTP Limit Mode" name="params.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Per User">Per User</value>
         <value displayValue="Per IP">Per IP</value>
       </values>
     </variable>
-    <variable displayName="HTTP Limit Rule" displayOrder="2" maxLength="100" name="params.rule" numberOfRowMax="0" selector="params.mode" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="HTTP Limit Rule" name="params.rule" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.mode" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="HTTP Limit Rule" displayOrder="0" editable="false" maxLength="100" name="params.rule" numberOfRowMax="0" selectorValue="Per IP" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>HTTP_Limit_IP</class>
-          </classes>
-        </behavior>
-        <behavior displayName="HTTP Limit Rule" displayOrder="0" editable="false" maxLength="100" name="params.rule" numberOfRowMax="0" selectorValue="Per User" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>HTTP_Limit_User</class>
-          </classes>
-        </behavior>
+        <behaviour displayName="HTTP Limit Rule" displayOrder="0" maxLength="100" name="params.rule" selectorValue="Per IP" startIncrement="0" type="ObjectRef"/>
+        <behaviour displayName="HTTP Limit Rule" displayOrder="0" maxLength="100" name="params.rule" selectorValue="Per User" startIncrement="0" type="ObjectRef"/>
       </behaviors>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
-  <command name="CREATE">
-    <operation>config waf application-layer-dos-prevention
-  edit "Template_DoS_Protection_Policy"
-    set enable-http-session-based-prevention enable
-    set http-request-flood-prevention-rule Template_HTTP_Connection_Limit_per_User
-    unset http-connection-flood-check-rule
-    set enable-layer4-dos-prevention enable
-    unset layer4-access-limit-rule
-    unset layer4-connection-flood-check-rule
-  next
-  edit "{$params.object_id}"
-   set enable-http-session-based-prevention enable
-   {if $params.mode == "Per User"}
-   set http-request-flood-prevention-rule {$params.rule}
-   unset http-connection-flood-check-rule						
-   set enable-layer4-dos-prevention enable						
-   unset layer4-access-limit-rule						
-   unset layer4-connection-flood-check-rule
-   {else}
-   unset http-request-flood-prevention-rule						
-   unset http-connection-flood-check-rule						
-   set enable-layer4-dos-prevention enable						
-   set layer4-access-limit-rule {$params.rule}						
-   unset layer4-connection-flood-check-rule	
-   {/if}					
-  next						
-end
-</operation>
-  </command>
-  <command name="UPDATE">
-    <operation>config waf application-layer-dos-prevention
-  edit "{$params.object_id}"
-   set enable-http-session-based-prevention enable
-   {if $params.mode == "Per User"}
-   set http-request-flood-prevention-rule {$params.rule}
-   unset http-connection-flood-check-rule						
-   set enable-layer4-dos-prevention enable						
-   unset layer4-access-limit-rule						
-   unset layer4-connection-flood-check-rule
-   {else}
-   unset http-request-flood-prevention-rule						
-   unset http-connection-flood-check-rule						
-   set enable-layer4-dos-prevention enable						
-   set layer4-access-limit-rule {$params.rule}						
-   unset layer4-connection-flood-check-rule	
-   {/if}					
-  next						
-end
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show full-config waf application-layer-dos-prevention</operation>
-    <parser>
-      <section>
-        <regexp>@edit."(?&lt;object_id&gt;(?!Predefined)[^"]+)"@</regexp>
-      </section>
-      <lines>
-        <ignore>
-          <regexp>@unset @</regexp>
-          <regexp>@set @</regexp>
-        </ignore>
-        
-        <line>
-          <regexp>@set.http-request-flood-prevention-rule.(?&lt;rule&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.layer4-access-limit-rule.(?&lt;rule&gt;.*)@</regexp>
-        </line>
-      </lines>
-    </parser>
     <post_template>{if $params.object_id == "Template_DoS_Protection_Policy"}
 {assign_object_variable var="mode" value="Per User"}
 {/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@edit."(?&lt;object_id>(?!Predefined)[^"]+)"@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set.http-request-flood-prevention-rule.(?&lt;rule>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.layer4-access-limit-rule.(?&lt;rule>.*)@</regexp>
+        </line>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
   </command>
-<command name="DELETE">
-    <operation>config waf application-layer-dos-prevention
-  delete "{$params.object_id}"
+  <command name="UPDATE">
+    <operation>config waf application-layer-dos-preventionedit "{$params.object_id}"set enable-http-session-based-prevention enable{if $params.mode == "Per User"}set http-request-flood-prevention-rule {$params.rule}unset http-connection-flood-check-ruleset enable-layer4-dos-prevention enableunset layer4-access-limit-ruleunset layer4-connection-flood-check-rule{else}unset http-request-flood-prevention-ruleunset http-connection-flood-check-ruleset enable-layer4-dos-prevention enableset layer4-access-limit-rule {$params.rule}unset layer4-connection-flood-check-rule{/if}nextend
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>config waf application-layer-dos-preventionedit "Template_DoS_Protection_Policy"set enable-http-session-based-prevention enableset http-request-flood-prevention-rule Template_HTTP_Connection_Limit_per_Userunset http-connection-flood-check-ruleset enable-layer4-dos-prevention enableunset layer4-access-limit-ruleunset layer4-connection-flood-check-rulenextedit "{$params.object_id}"set enable-http-session-based-prevention enable{if $params.mode == "Per User"}set http-request-flood-prevention-rule {$params.rule}unset http-connection-flood-check-ruleset enable-layer4-dos-prevention enableunset layer4-access-limit-ruleunset layer4-connection-flood-check-rule{else}unset http-request-flood-prevention-ruleunset http-connection-flood-check-ruleset enable-layer4-dos-prevention enableset layer4-access-limit-rule {$params.rule}unset layer4-connection-flood-check-rule{/if}nextend
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config waf application-layer-dos-preventiondelete "{$params.object_id}"
 end
 </operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

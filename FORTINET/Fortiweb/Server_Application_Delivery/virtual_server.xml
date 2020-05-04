@@ -1,37 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description>Virtual Server</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Server &amp; Application Delivery</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Virtual Server</name>
+    <group>Server &amp; Application Delivery</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Virtual Server</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Virtual Server Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="0.0.0.0/0" displayName="Virtual IP" displayOrder="1" maxLength="100" name="params.virtualip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Status" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Virtual Server Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Virtual IP" name="params.virtualip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="0.0.0.0/0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Enable">enable</value>
         <value displayValue="Disable">disable</value>
       </values>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
@@ -39,68 +42,53 @@
     <operation>show full-configuration server-policy vserver</operation>
     <parser>
       <section>
-        <regexp>@edit\s"(?&lt;object_id&gt;\S*)"@</regexp>
+        <regexp>@edit\s"(?&lt;object_id>\S*)"@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@set\svip\s(?&lt;virtualip>\S*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set\sstatus\s(?&lt;status>\S*)@</regexp>
+        </line>
         <ignore>
           <regexp>@set@</regexp>
         </ignore>
-        <line>
-          <regexp>@set\svip\s(?&lt;virtualip&gt;\S*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set\sstatus\s(?&lt;status&gt;\S*)@</regexp>
-        </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
-  <command name="CREATE">
-    <operation>config server-policy vserver		
-  edit "{$params.object_id}"		
-    set vip {$params.virtualip}		
-    set interface port1		
-    set status {$params.status}		
-    set vip6 ::/0		
-    set use-interface-ip disable		
-  next		
-end
+  <command name="UPDATE">
+    <operation>config server-policy vserveredit "{$params.object_id}"set vip {$params.virtualip}set interface port1set status {$params.status}set vip6 ::/0set use-interface-ip disablenextend
 </operation>
   </command>
   <command name="CONSTRAINT">
     <operation>{if $params.virtualip == $Interface.port1.address}Input Restriction. Virtual Server name cannot be the same as Port1 IP Address
-{/if}
-
-
-{if "/\s+/"|preg_match:$params.object_id}INPUT RESTRICTION - No Blank space allowed in Virtual Server Name.
-{/if}
-
-{if "/[a-z]|[A-Z]/"|preg_match:$params.virtualip}INPUT RESTRICTION - Kindly enter IP Address and CIDR.
-{/if}
-
-
-{assign var=restricturl value=['1'=&gt;'@',
-'2'=&gt;'!',
-'3'=&gt;'#',
-'5'=&gt;'%',
-'6'=&gt;'^',
-'7'=&gt;'&amp;',
-'8'=&gt;'*',
-'9'=&gt;'(',
-'10'=&gt;')',
-'11'=&gt;':',
-'12'=&gt;'+',
-'13'=&gt;'=',
-'14'=&gt;'{',
-'15'=&gt;'}',
-'16'=&gt;'[',
-'17'=&gt;']',
-'18'=&gt;';',
-'19'=&gt;'"',
-'20'=&gt;'?',
-'21'=&gt;',',
-'23'=&gt;'&lt;',
-'24'=&gt;'&gt;']}
+{/if}{if "/\s+/"|preg_match:$params.object_id}INPUT RESTRICTION - No Blank space allowed in Virtual Server Name.
+{/if}{if "/[a-z]|[A-Z]/"|preg_match:$params.virtualip}INPUT RESTRICTION - Kindly enter IP Address and CIDR.
+{/if}{assign var=restricturl value=['1'=>'@',
+'2'=>'!',
+'3'=>'#',
+'5'=>'%',
+'6'=>'^',
+'7'=>'&amp;',
+'8'=>'*',
+'9'=>'(',
+'10'=>')',
+'11'=>':',
+'12'=>'+',
+'13'=>'=',
+'14'=>'{',
+'15'=>'}',
+'16'=>'[',
+'17'=>']',
+'18'=>';',
+'19'=>'"',
+'20'=>'?',
+'21'=>',',
+'23'=>'&lt;',
+'24'=>'>']}
 {if !empty($params.virtualip)}
 {foreach $restricturl as $restu}
 {if ($params.virtualip|strstr:"$restu")}INPUT RESTRICTION - Special character not allowed in Virtual IP
@@ -109,22 +97,14 @@ end
 {/if}
 </operation>
   </command>
-<command name="DELETE">
-    <operation>config server-policy vserver
-  delete "{$params.object_id}"
-end
-  </operation>
-  </command>
-<command name="UPDATE">
-    <operation>config server-policy vserver		
-  edit "{$params.object_id}"		
-    set vip {$params.virtualip}		
-    set interface port1		
-    set status {$params.status}		
-    set vip6 ::/0		
-    set use-interface-ip disable		
-  next		
-end
+  <command name="CREATE">
+    <operation>config server-policy vserveredit "{$params.object_id}"set vip {$params.virtualip}set interface port1set status {$params.status}set vip6 ::/0set use-interface-ip disablenextend
 </operation>
   </command>
+  <command name="DELETE">
+    <operation>config server-policy vserverdelete "{$params.object_id}"
+end</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

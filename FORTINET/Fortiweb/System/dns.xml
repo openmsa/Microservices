@@ -1,58 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/VirtualServer.png</icon>
+    <description>DNS</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>System</group>
-    <icon>/images/repository/CommandDefinition/icons/VirtualServer.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>DNS</name>
+    <group>System</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>DNS</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="DNS Priority" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+  </information>
+  <variables frozen="0">
+    <variable displayName="DNS Priority" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="0">0</value>
       </values>
     </variable>
-    <variable default="dhcp" displayName="DNS Priority" displayOrder="1" editable="false" maxLength="100" name="params.dns_priority" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+    <variable displayName="DNS Priority" name="params.dns_priority" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="dhcp" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="System">system</value>
         <value displayValue="DHCP">dhcp</value>
       </values>
     </variable>
-    <variable displayName="DHCP Server Mode" displayOrder="2" displayType="alt" editable="false" isMandatory="true" maxLength="100" name="params.server_mode" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="DHCP Server Mode" name="params.server_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Static">static</value>
         <value displayValue="DHCP">dhcp</value>
       </values>
     </variable>
-    <variable displayName="DNS Server 01" displayOrder="3" maxLength="100" name="params.primary_dns" numberOfRowMax="0" selector="params.server_mode" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="DNS Server 01" name="params.primary_dns" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_mode" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="primary_dns" displayOrder="0" editable="false" maxLength="100" name="params.primary_dns" numberOfRowMax="0" selectorValue="dhcp" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior default="8.8.8.8" displayName="primary_dns" displayOrder="0" isMandatory="true" maxLength="100" name="params.primary_dns" numberOfRowMax="0" selectorValue="static" startIncrement="0" tableSizeFix="false" type="IpAddress"/>
+        <behaviour displayName="primary_dns" displayOrder="0" maxLength="100" name="params.primary_dns" selectorValue="dhcp" startIncrement="0" type="String"/>
+        <behaviour displayName="primary_dns" displayOrder="0" maxLength="100" name="params.primary_dns" selectorValue="static" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="DNS Server 02" displayOrder="4" maxLength="100" name="params.secondary_dns" numberOfRowMax="0" selector="params.server_mode" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="DNS Server 02" name="params.secondary_dns" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_mode" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="secondary_dns" displayOrder="0" editable="false" maxLength="100" name="params.secondary_dns" numberOfRowMax="0" selectorValue="dhcp" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior default="0.0.0.0" displayName="secondary_dns" displayOrder="0" maxLength="100" name="params.secondary_dns" numberOfRowMax="0" selectorValue="static" startIncrement="0" tableSizeFix="false" type="IpAddress"/>
+        <behaviour displayName="secondary_dns" displayOrder="0" maxLength="100" name="params.secondary_dns" selectorValue="dhcp" startIncrement="0" type="String"/>
+        <behaviour displayName="secondary_dns" displayOrder="0" maxLength="100" name="params.secondary_dns" selectorValue="static" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
@@ -60,48 +63,25 @@
     <operation>show full-configuration system dns</operation>
     <parser>
       <section>
-        
-        <regexp>@set.primary\s(?&lt;primary_dns&gt;\S+)@</regexp>
-        <regexp>@set.secondary\s(?&lt;secondary_dns&gt;\S+)@</regexp>
+        <regexp>@set.secondary\s(?&lt;secondary_dns>\S+)@</regexp>
       </section>
-      <lines>
-        
-        
-        
-        
-      </lines>
+      <lines/>
     </parser>
-    <post_template/>
   </command>
   <command name="UPDATE">
-    <operation>config system network-option
-  {if $params.server_mode == dhcp}
-  set dns-priority dhcp
-  {else}
-  set dns-priority system
-  {/if}
+    <operation>config system network-option{if $params.server_mode == dhcp}set dns-priority dhcp{else}set dns-priority system{/if}
 end
-config system dns
-  {if $params.server_mode == dhcp}
-  set primary 0.0.0.0
-  set secondary 0.0.0.0
-  {else}
-  set primary {$params.primary_dns}
-  {if empty($params.secondary_dns)}
-  set secondary 0.0.0.0
-  {else}
-  set secondary {$params.secondary_dns}
-  {/if}
-  {/if}
-  unset domain
+config system dns{if $params.server_mode == dhcp}set primary 0.0.0.0set secondary 0.0.0.0{else}set primary {$params.primary_dns}{if empty($params.secondary_dns)}set secondary 0.0.0.0{else}set secondary {$params.secondary_dns}{/if}{/if}unset domain
 end
 </operation>
   </command>
-
-
-<command name="CONSTRAINT">
+  <command name="CONSTRAINT">
     <operation>{if $params.dns_priority == "system" &amp;&amp; $params.server_mode == "dhcp"} INPUT RESTRICTION. BOTH PRIMARY DNS AND SECONDARY DNS VALUES ARE EMPTY.
 {/if}
 </operation>
   </command>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

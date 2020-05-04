@@ -1,37 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/ServerPolicy.png</icon>
+    <description>HTTP Limit/User</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Protection Profile|DOS Protection</group>
-    <icon>/images/repository/CommandDefinition/icons/ServerPolicy.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>HTTP Limit/User</name>
+    <group>Protection Profile|DOS Protection</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>HTTP Limit/User</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Per User HTTP Connection Limit" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
-    <variable default="50" displayName="Threshold" displayOrder="1" maxLength="100" name="params.threshold" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="alert" displayName="Action" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Per User HTTP Connection Limit" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Threshold" name="params.threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="50" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="alert" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Alert">alert</value>
         <value displayValue="Alert_Deny">alert_deny</value>
       </values>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
@@ -39,71 +42,43 @@
     <operation>show full-configuration waf http-request-flood-prevention-rule</operation>
     <parser>
       <section>
-        <regexp>@edit\s"(?&lt;object_id&gt;(?!Predefined)\S*)"@</regexp>
+        <regexp>@edit\s"(?&lt;object_id>(?!Predefined)\S*)"@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@set\saccess\S+.(?&lt;threshold>\S*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set\saction.(?&lt;action>\S*)@</regexp>
+        </line>
         <ignore>
-          <regexp>@set @</regexp>
           <regexp>@unset @</regexp>
         </ignore>
-        <line>
-          <regexp>@set\saccess\S+.(?&lt;threshold&gt;\S*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set\saction.(?&lt;action&gt;\S*)@</regexp>
-        </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
-  <command name="CREATE">
-    <operation>config waf http-request-flood-prevention-rule
-  edit "Template_HTTP_Connection_Limit_per_User"					
-    set access-limit-in-http-session 50					
-    set action alert					
-    set severity Medium					
-    unset trigger-policy					
-    set bot-recognition disabled					
-  next				
-  edit "{$params.object_id}"	
-    {if !empty($params.threshold)}	
-    set access-limit-in-http-session {$params.threshold}
-    {/if}	
-    set action {$params.action}		
-    set severity Medium		
-    unset trigger-policy		
-    set bot-recognition disabled		
-  next
+  <command name="UPDATE">
+    <operation>config waf http-request-flood-prevention-ruleedit "{$params.object_id}"{if !empty($params.threshold)}set access-limit-in-http-session {$params.threshold}{/if}set action {$params.action}set severity Mediumunset trigger-policyset bot-recognition disablednext
 end
 </operation>
   </command>
-  <command name="UPDATE">
-    <operation>config waf http-request-flood-prevention-rule		
-  edit "{$params.object_id}"		
-    {if !empty($params.threshold)}	
-    set access-limit-in-http-session {$params.threshold}
-    {/if}	
-    set action {$params.action}		
-    set severity Medium		
-    unset trigger-policy		
-    set bot-recognition disabled		
-  next
+  <command name="CONSTRAINT">
+    <operation>{if {$params.threshold} &lt; 0 || {$params.threshold} > 4096} Input Restriction: Please Enter a value between 0-4096.
+{/if}{if "/\s+/"|preg_match:$params.object_id}INPUT RESTRICTION - No Blank space allowed in the HTTP Connection Limit Name .
+{/if}
+</operation>
+  </command>
+  <command name="CREATE">
+    <operation>config waf http-request-flood-prevention-ruleedit "Template_HTTP_Connection_Limit_per_User"set access-limit-in-http-session 50set action alertset severity Mediumunset trigger-policyset bot-recognition disablednextedit "{$params.object_id}"{if !empty($params.threshold)}set access-limit-in-http-session {$params.threshold}{/if}set action {$params.action}set severity Mediumunset trigger-policyset bot-recognition disablednext
 end
 </operation>
   </command>
   <command name="DELETE">
-    <operation>config waf http-request-flood-prevention-rule		
-  delete "{$params.object_id}"		  
-end
+    <operation>config waf http-request-flood-prevention-ruledelete "{$params.object_id}"end
 </operation>
   </command>
-<command name="CONSTRAINT">
-    <operation>{if {$params.threshold} &lt; 0 || {$params.threshold} &gt; 4096} Input Restriction: Please Enter a value between 0-4096.
-{/if}
-
-
-{if "/\s+/"|preg_match:$params.object_id}INPUT RESTRICTION - No Blank space allowed in the HTTP Connection Limit Name .
-{/if}
-</operation>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
