@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -7,7 +6,7 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>IPtables</group>
+    <group>Security|Policies</group>
     <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
@@ -23,7 +22,7 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="IP addresses banned (DROP)" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="IpAddress"/>
+    <variable displayName="IP addresses banned (DROP)" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
   </variables>  <example>
     <content>iptables -I INPUT -s 10.1.1.1 -j DROP
 
