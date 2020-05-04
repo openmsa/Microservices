@@ -1,68 +1,64 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/key.jpg</icon>
+    <description>Keypairs</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Nova</group>
-    <icon>/images/repository/CommandDefinition/icons/key.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Keypairs</name>
+    <group>Nova</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Keypairs</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="Fingerprint" displayOrder="1" isUserLocked="true" maxLength="200" name="params.fingerprint" startIncrement="0" type="String"/>
-    <variable displayName="Public Key" displayOrder="2" maxLength="200" name="params.public_key" startIncrement="0" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Fingerprint" name="params.fingerprint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Public Key" name="params.public_key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
     <operation>nova</operation>
-    <xpath>/{$TENANT_ID}/os-keypairs</xpath>
     <parser>
       <section>
-        <xpath>//root/keypairs/row</xpath>
+        <regexp>@^\s \s*$@</regexp>
       </section>
       <lines>
         <line>
-          <xpath>keypair/name</xpath>
-          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <array/>
+          <regexp>@&lt;name>(?&lt;object_id>.*)&lt;/name>@</regexp>
         </line>
         <line>
-          <xpath>keypair/fingerprint</xpath>
-          <regexp>@&lt;fingerprint&gt;(?&lt;fingerprint&gt;.*)&lt;/fingerprint&gt;@</regexp>
+          <array/>
+          <regexp>@&lt;fingerprint>(?&lt;fingerprint>.*)&lt;/fingerprint>@</regexp>
         </line>
         <line>
-          <xpath>keypair/public_key</xpath>
-          <regexp>@&lt;public_key&gt;(?&lt;public_key&gt;.*)&lt;/public_key&gt;@</regexp>
+          <array/>
+          <regexp>@&lt;public_key>(?&lt;public_key>.*)&lt;/public_key>@</regexp>
         </line>
-        
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/{$TENANT_ID}/os-keypairs</xpath>
   </command>
-  
-  
-  
-<command name="CREATE">
-    <rest>POST#nova
-</rest>
-    <xpath>/{$TENANT_ID}/os-keypairs
-</xpath>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
     <operation>{literal}{{/literal}
 "keypair": {literal}{{/literal}
 "name": "{$params.object_id}"
@@ -72,13 +68,19 @@
 {literal}}{/literal}
 {literal}}{/literal}
 </operation>
+    <rest>POST#nova
+</rest>
+    <xpath>/{$TENANT_ID}/os-keypairs
+</xpath>
   </command>
-<command name="DELETE">
+  <command name="DELETE">
+    <operation>
+</operation>
     <rest>nova
 </rest>
     <xpath>/{$TENANT_ID}/os-keypairs/{$params.object_id|object_id}
 </xpath>
-    <operation>
-</operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
