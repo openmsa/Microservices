@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>10000</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -34,7 +34,7 @@
 </content>
   </example>
   <command name="IMPORT">
-    <operation>iptables --line-numbers -L INPUT -n | grep -v Chain | grep -v num</operation>
+    <operation>sudo iptables --line-numbers -L INPUT -n | grep -v Chain | grep -v num</operation>
     <parser>
       <section>
         <regexp>@(?&lt;object_id>\d+)DROPtcp--(?&lt;src_ip>([0-9]{1,3}\.){3}[0-9]{1,3})[^:]+:(?&lt;dst_port>\d+)@</regexp>
@@ -46,7 +46,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sudo iptables -A INPUT -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP
-sudo iptables -A FORWARD -p tcp --dport {$params.dst_port} -s {$params.src_ip}-j DROP
+sudo iptables -A FORWARD -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP
 </operation>
   </command>
   <command name="DELETE">
