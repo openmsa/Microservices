@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>vnfdName</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VNF Connections</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="connection_name" displayOrder="0" maxLength="100" name="params.default_name.0.connection_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>default_name</section>
+      </sections>
+    </variable>
+    <variable displayName="internal_oId" displayOrder="0" editable="false" maxLength="100" name="params.internal_oId" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="object_id" displayOrder="1" editable="false" maxLength="200" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Descriptor Name" displayOrder="2" isMandatory="true" maxLength="100" name="params.vnfdName" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Connection" displayOrder="3" maxLength="100" name="params.connection" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>POST</operation>
+    <xpath>/REST/v2/ServiceMethodExecution/modules/VnfManager/services/Configuration/methods/getVNFDescriptors</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array name="default_name">
+            <xpath>//connectionPoints/row</xpath>
+            <lines>
+              
+              <line>
+                <xpath>name</xpath>
+                <regexp>@&lt;name&gt;(?&lt;connection_name&gt;.*)&lt;/name&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>_internal_objectId</xpath>
+          <regexp>@&lt;_internal_objectId&gt;(?&lt;internal_oId&gt;.*)&lt;/_internal_objectId&gt;@</regexp>
+        </line>
+        
+        
+        
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;vnfdName&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        
+        
+        <line>
+          <xpath>//id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+
+
+
+
+</ObjectDefinition>
