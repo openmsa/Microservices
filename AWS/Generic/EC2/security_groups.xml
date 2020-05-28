@@ -5,7 +5,7 @@
     <displayField>security_group</displayField>
     <serviceTaskType/>
     <order>10</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -29,12 +29,12 @@
     <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="From Port" name="params.ip_permissions_0_from_port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Rule</section>
+        <sections>Rule</sections>
       </sections>
     </variable>
     <variable displayName="Protocol" name="params.ip_permissions_0_ip_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Rule</section>
+        <sections>Rule</sections>
       </sections>
     </variable>
     <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -55,23 +55,28 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@&lt;GroupId>(?&lt;object_id>.*)&lt;/GroupId>@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@&lt;GroupName>(?&lt;group_name>.*)&lt;/GroupName>@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@&lt;Description>(?&lt;description>.*)&lt;/Description>@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@&lt;VpcId>(?&lt;vpcid>.*)&lt;/VpcId>@</regexp>
+          <xpath/>
         </line>
         <line>
           <array name="ip_permissions">
@@ -79,16 +84,19 @@
               <line>
                 <array/>
                 <regexp>@&lt;FromPort>(?&lt;from_port>.*)&lt;/FromPort>@</regexp>
+                <xpath/>
               </line>
               <line>
                 <array/>
                 <regexp>@&lt;IpProtocol>(?&lt;ip_protocol>.*)&lt;/IpProtocol>@</regexp>
+                <xpath/>
               </line>
             </lines>
             <regexp>@^\s \s*$@</regexp>
             <mregexp>@^\s \s*$@</mregexp>
           </array>
           <regexp/>
+          <xpath/>
         </line>
       </lines>
     </parser>
