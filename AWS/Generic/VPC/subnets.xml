@@ -1,93 +1,98 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>subnet_ref</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>subnet_ref</displayField>
     <dynamic>false</dynamic>
-    <group>VPC|Virtual Private Cloud</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Subnets</name>
+    <group>VPC|Virtual Private Cloud</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Subnets</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Subnet Id" displayOrder="0" isUserLocked="true" maxLength="120" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="CIDR" displayOrder="1" isMandatory="true" maxLength="100" name="params.cidr_block" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="VPC Id" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.vpc_id" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Subnet Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="CIDR" name="params.cidr_block" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VPC Id" name="params.vpc_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>vpc</class>
       </classes>
     </variable>
-    <variable displayName="Availability Zone" displayOrder="3" editable="false" maxLength="100" name="params.availability_zone" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable displayName="Availability Zone" name="params.availability_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>availability_zones</class>
       </classes>
     </variable>
-    <variable displayName="Available Address Count" displayOrder="4" isUserLocked="true" maxLength="100" name="params.available_address_count" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="State" displayOrder="5" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="subnet_ref" displayOrder="6" editable="false" maxLength="100" name="params.subnet_ref" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable default="none" displayName="_color" displayOrder="7" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-  </variables>  <example>
+    <variable displayName="Available Address Count" name="params.available_address_count" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="State" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="subnet_ref" name="params.subnet_ref" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
     <operation>Aws\Ec2\Ec2Client</operation>
-    <xpath>describeSubnets</xpath>
+    <post_template>{assign_object_variable var="subnet_ref" value="{$params.object_id} - {$params.cidr_block}"}{if$params.state == "available" }{assign_object_variable var="_color" value=green}
+{/if}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/Subnets/row</xpath>
       </section>
       <lines>
         <line>
+          <array/>
+          <regexp>@&lt;SubnetId>(?&lt;object_id>.*)&lt;/SubnetId>@</regexp>
           <xpath>SubnetId</xpath>
-          <regexp>@&lt;SubnetId&gt;(?&lt;object_id&gt;.*)&lt;/SubnetId&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;VpcId>(?&lt;vpc_id>.*)&lt;/VpcId>@</regexp>
           <xpath>VpcId</xpath>
-          <regexp>@&lt;VpcId&gt;(?&lt;vpc_id&gt;.*)&lt;/VpcId&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;CidrBlock>(?&lt;cidr_block>.*)&lt;/CidrBlock>@</regexp>
           <xpath>CidrBlock</xpath>
-          <regexp>@&lt;CidrBlock&gt;(?&lt;cidr_block&gt;.*)&lt;/CidrBlock&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;AvailableIpAddressCount>(?&lt;available_address_count>.*)&lt;/AvailableIpAddressCount>@</regexp>
           <xpath>AvailableIpAddressCount</xpath>
-          <regexp>@&lt;AvailableIpAddressCount&gt;(?&lt;available_address_count&gt;.*)&lt;/AvailableIpAddressCount&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;State>(?&lt;state>.*)&lt;/State>@</regexp>
           <xpath>State</xpath>
-          <regexp>@&lt;State&gt;(?&lt;state&gt;.*)&lt;/State&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;AvailabilityZone>(?&lt;availability_zone>.*)&lt;/AvailabilityZone>@</regexp>
           <xpath>AvailabilityZone</xpath>
-          <regexp>@&lt;AvailabilityZone&gt;(?&lt;availability_zone&gt;.*)&lt;/AvailabilityZone&gt;@</regexp>
         </line>
       </lines>
     </parser>
-    <post_template>{assign_object_variable var="subnet_ref" value="{$params.object_id} - {$params.cidr_block}"}
-
-{if  $params.state == "available" }
-      {assign_object_variable var="_color" value=green}
-{/if}</post_template>
+    <xpath>describeSubnets</xpath>
   </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <rest>Aws\Ec2\Ec2Client
-</rest>
-    <xpath>createSubnet
-</xpath>
     <operation>{literal}{{/literal}
 "VpcId":"{$params.vpc_id}",
 "CidrBlock":"{$params.cidr_block}"
@@ -96,5 +101,12 @@
 {/if}
 {literal}}{/literal}
 </operation>
+    <rest>Aws\Ec2\Ec2Client
+</rest>
+    <xpath>createSubnet
+</xpath>
   </command>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
