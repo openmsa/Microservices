@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>true</dynamic>
+    <group>Network</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>1</maxInstances>
+    <name>Firewall Policies</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable displayName="Rule ID" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" tableUniqueValue="true" type="String"/>
+    <variable displayName="Description" displayOrder="1" maxLength="200" name="params.descr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Target Interface" displayOrder="2" maxLength="100" name="params.target_int" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Action" displayOrder="3" maxLength="100" name="params.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Protocol" displayOrder="4" maxLength="100" name="params.proto" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Address" displayOrder="5" maxLength="100" name="params.source_addr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable displayName="Network" displayOrder="6" maxLength="100" name="params.source_net" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable displayName="Port" displayOrder="7" maxLength="100" name="params.source_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable displayName="Address" displayOrder="8" maxLength="100" name="params.dst_addr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable displayName="Network" displayOrder="9" maxLength="100" name="params.dst_net" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable displayName="Port" displayOrder="10" maxLength="100" name="params.dst_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>&lt;filter&gt;
+		&lt;rule&gt;
+			&lt;tracker&gt;1583420223&lt;/tracker&gt;
+			&lt;type&gt;pass&lt;/type&gt;
+			&lt;interface&gt;wan&lt;/interface&gt;
+			&lt;ipprotocol&gt;inet46&lt;/ipprotocol&gt;
+			&lt;statetype&gt;&lt;![CDATA[keep state]]&gt;&lt;/statetype&gt;
+			&lt;os&gt;&lt;/os&gt;
+			&lt;source&gt;
+				&lt;any&gt;&lt;/any&gt;
+			&lt;/source&gt;
+			&lt;destination&gt;
+				&lt;any&gt;&lt;/any&gt;
+			&lt;/destination&gt;
+			&lt;descr&gt;&lt;![CDATA[Allow all ipv4+ipv6 via pfSsh.php]]&gt;&lt;/descr&gt;
+			&lt;created&gt;
+				&lt;time&gt;1583420223&lt;/time&gt;
+				&lt;username&gt;pfSsh.php added allow all wan rule&lt;/username&gt;
+			&lt;/created&gt;
+		&lt;/rule&gt;
+		&lt;rule&gt;
+			&lt;type&gt;pass&lt;/type&gt;
+			&lt;ipprotocol&gt;inet&lt;/ipprotocol&gt;
+			&lt;descr&gt;&lt;![CDATA[Default allow LAN to any rule]]&gt;&lt;/descr&gt;
+			&lt;interface&gt;lan&lt;/interface&gt;
+			&lt;tracker&gt;0100000101&lt;/tracker&gt;
+			&lt;source&gt;
+				&lt;network&gt;lan&lt;/network&gt;
+			&lt;/source&gt;
+			&lt;destination&gt;
+				&lt;any&gt;&lt;/any&gt;
+			&lt;/destination&gt;
+		&lt;/rule&gt;
+		&lt;rule&gt;
+			&lt;type&gt;pass&lt;/type&gt;
+			&lt;ipprotocol&gt;inet6&lt;/ipprotocol&gt;
+			&lt;descr&gt;&lt;![CDATA[Default allow LAN IPv6 to any rule]]&gt;&lt;/descr&gt;
+			&lt;interface&gt;lan&lt;/interface&gt;
+			&lt;tracker&gt;0100000102&lt;/tracker&gt;
+			&lt;source&gt;
+				&lt;network&gt;lan&lt;/network&gt;
+			&lt;/source&gt;
+			&lt;destination&gt;
+				&lt;any&gt;&lt;/any&gt;
+			&lt;/destination&gt;
+		&lt;/rule&gt;
+</content>
+  </example>
+  
+
+  <command name="IMPORT">
+    <operation>cat /cf/conf/config.xml</operation>
+    <xpath>/pfsense/filter/rule</xpath>
+    <parser>
+      <section>
+        <xpath>//rule</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//protocol</xpath>
+          <regexp>@&lt;protocol&gt;(?&lt;proto&gt;\S+)&lt;/protocol&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//interface</xpath>
+          <regexp>@&lt;interface&gt;(?&lt;target_int&gt;\S+)&lt;/interface&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//type</xpath>
+          <regexp>@&lt;type&gt;(?&lt;action&gt;\S+)&lt;/type&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//destination/port</xpath>
+          <regexp>@&lt;port&gt;(?&lt;dst_port&gt;\S+)&lt;/port&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//destination/network</xpath>
+          <regexp>@&lt;network&gt;(?&lt;dst_net&gt;\S+)&lt;/network&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//destination/address</xpath>
+          <regexp>@&lt;address&gt;(?&lt;dst_addr&gt;\S+)&lt;/address&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//source/address</xpath>
+          <regexp>@&lt;address&gt;(?&lt;source_addr&gt;\S+)&lt;/address&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//source/port</xpath>
+          <regexp>@&lt;port&gt;(?&lt;source_port&gt;\S+)&lt;/port&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//source/network</xpath>
+          <regexp>@&lt;network&gt;(?&lt;source_net&gt;\S+)&lt;/network&gt;@</regexp>
+        </line>
+        
+        
+        
+        <line>
+          <xpath>//tracker</xpath>
+          <regexp>@&lt;tracker&gt;(?&lt;object_id&gt;\S+)&lt;/tracker&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//descr</xpath>
+          <regexp>@&lt;descr&gt;&lt;!\[CDATA\[(?&lt;descr&gt;.+)\]\]&gt;&lt;/descr&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template/>
+  </command>
+
+<command name="UPDATE">
+    <rest>action=edit
+</rest>
+    <xpath>/pfsense/filter/rule/tracker[text()='{$params.object_id}']/..
+</xpath>
+    <operation>&lt;rule&gt;
+			&lt;tracker&gt;{$params.object_id}&lt;/tracker&gt;
+			&lt;type&gt;{$params.action}&lt;/type&gt;
+			&lt;interface&gt;{$params.target_int}&lt;/interface&gt;
+			&lt;ipprotocol&gt;inet&lt;/ipprotocol&gt;
+			&lt;protocol&gt;{$params.proto}&lt;/protocol&gt;
+			&lt;source&gt;
+{if !empty($params.source_net)}
+				&lt;network&gt;{$params.source_net}&lt;/network&gt;
+{/if}{if !empty($params.source_port)}
+				&lt;port&gt;{$params.source_port}&lt;/port&gt;
+{/if}{if !empty($params.source_addr)}
+				&lt;address&gt;{$params.source_addr}&lt;/address&gt;
+{/if}
+			&lt;/source&gt;
+			&lt;destination&gt;
+{if !empty($params.dst_net)}
+				&lt;network&gt;{$params.dst_net}&lt;/network&gt;
+{/if}{if !empty($params.dst_addr)}
+				&lt;address&gt;{$params.dst_addr}&lt;/address&gt;
+{/if}{if !empty($params.dst_port)}
+				&lt;port&gt;{$params.dst_port}&lt;/port&gt;
+{/if}
+			&lt;/destination&gt;
+			&lt;descr&gt;&lt;![CDATA[{$params.descr}]]&gt;&lt;/descr&gt;
+		&lt;/rule&gt;
+</operation>
+  </command>
+<command name="CREATE">
+    <rest>action=set
+</rest>
+    <xpath>/pfsense/filter
+</xpath>
+    <operation>&lt;rule&gt;
+			&lt;tracker&gt;{$params.object_id}&lt;/tracker&gt;
+			&lt;type&gt;{$params.action}&lt;/type&gt;
+			&lt;interface&gt;{$params.target_int}&lt;/interface&gt;
+			&lt;ipprotocol&gt;inet&lt;/ipprotocol&gt;
+			&lt;protocol&gt;{$params.proto}&lt;/protocol&gt;
+			&lt;source&gt;
+{if !empty($params.source_net)}
+				&lt;network&gt;{$params.source_net}&lt;/network&gt;
+{/if}{if !empty($params.source_port)}
+				&lt;port&gt;{$params.source_port}&lt;/port&gt;
+{/if}{if !empty($params.source_addr)}
+				&lt;address&gt;{$params.source_addr}&lt;/address&gt;
+{/if}
+			&lt;/source&gt;
+			&lt;destination&gt;
+{if !empty($params.dst_net)}
+				&lt;network&gt;{$params.dst_net}&lt;/network&gt;
+{/if}{if !empty($params.dst_addr)}
+				&lt;address&gt;{$params.dst_addr}&lt;/address&gt;
+{/if}{if !empty($params.dst_port)}
+				&lt;port&gt;{$params.dst_port}&lt;/port&gt;
+{/if}
+			&lt;/destination&gt;
+			&lt;descr&gt;&lt;![CDATA[{$params.descr}]]&gt;&lt;/descr&gt;
+		&lt;/rule&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>action=delete
+</rest>
+    <xpath>/pfsense/filter/rule/tracker[text()='{$params.object_id}']/..
+</xpath>
+    <operation>
+</operation>
+  </command>
+</ObjectDefinition>

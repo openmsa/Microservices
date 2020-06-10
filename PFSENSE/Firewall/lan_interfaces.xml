@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>true</dynamic>
+    <group>Network</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>1</maxInstances>
+    <name>LAN Interfaces</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
+  </information>  <variables frozen="0">
+    <variable displayName="Interface ID" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="IP Address" displayOrder="1" maxLength="100" name="params.ipaddr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>&lt;thirdparty&gt;
+    &lt;case&gt;
+      
+      &lt;case_enabled&gt;0&lt;/case_enabled&gt;
+      &lt;case_disable_case_early_exit&gt;0&lt;/case_disable_case_early_exit&gt;
+      &lt;case_disable_vof_early_exit&gt;0&lt;/case_disable_vof_early_exit&gt;
+      &lt;case_disable_magic_header&gt;0&lt;/case_disable_magic_header&gt;
+      &lt;case_max_vof2_message_size&gt;524288&lt;/case_max_vof2_message_size&gt;
+      &lt;case_min_suspect_threshold&gt;25&lt;/case_min_suspect_threshold&gt;
+      &lt;case_subprocess_timeout&gt;120&lt;/case_subprocess_timeout&gt;
+      &lt;case_vof_descr_lang&gt;EN&lt;/case_vof_descr_lang&gt;
+      &lt;case_timeout&gt;60&lt;/case_timeout&gt;
+      &lt;case_max_message_size&gt;5242880&lt;/case_max_message_size&gt;
+      &lt;case_advisory_scan_size&gt;524288&lt;/case_advisory_scan_size&gt;
+      &lt;case_cache_verdict_enable&gt;1&lt;/case_cache_verdict_enable&gt;
+      &lt;case_region&gt;&lt;/case_region&gt;
+      &lt;case_max_attempts&gt;10&lt;/case_max_attempts&gt;
+      &lt;case_retry_interval&gt;12&lt;/case_retry_interval&gt;
+    &lt;/case&gt;
+    
+    
+  &lt;/thirdparty&gt;
+</content>
+  </example>
+  
+
+  <command name="IMPORT">
+    <operation>cat /cf/conf/config.xml</operation>
+    <xpath>/pfsense/interfaces</xpath>
+    <parser>
+      <section>
+        <xpath>//interfaces/lan</xpath>
+      </section>
+      <lines>
+        
+        <line>
+          <xpath>//if</xpath>
+          <regexp>@&lt;if&gt;(?&lt;object_id&gt;\S+)&lt;/if&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//ipaddr</xpath>
+          <regexp>@&lt;ipaddr&gt;(?&lt;ipaddr&gt;\S+)&lt;/ipaddr&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+  <post_template/>
+  </command>
+
+<command name="UPDATE">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
+  </command>
+</ObjectDefinition>
