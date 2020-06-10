@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
@@ -13,7 +13,7 @@
     <importonce>false</importonce>
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>Network</name>
+    <name>CP Network</name>
     <order>10000</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -23,12 +23,12 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="broadcast" displayOrder="0" maxLength="100" name="params.broadcast" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.name" startIncrement="0" type="String"/>
-    <variable displayName="Subnet" displayOrder="2" isMandatory="true" maxLength="100" name="params.subnet4" startIncrement="0" type="IpAddress"/>
-    <variable displayName="Subnet Mask" displayOrder="2" isMandatory="true" maxLength="100" name="params.subnet_mask" startIncrement="0" type="IpMask"/>
-    <variable displayName="object_display_var" displayOrder="3" keepOnImport="true" maxLength="100" name="params.object_display_var" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="UID" displayOrder="3" isUserLocked="true" maxLength="100" name="params.object_id" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="broadcast" displayOrder="0" maxLength="100" name="params.broadcast" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Subnet" displayOrder="2" isMandatory="true" maxLength="100" name="params.subnet4" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
+    <variable displayName="Subnet Mask" displayOrder="2" isMandatory="true" maxLength="100" name="params.subnet_mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
+    <variable displayName="object_display_var" displayOrder="3" keepOnImport="true" maxLength="100" name="params.object_display_var" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="UID" displayOrder="3" isUserLocked="true" maxLength="100" name="params.uuid" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
   </variables>  <example>
     <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
 </content>
@@ -39,7 +39,7 @@
     <xpath>
 </xpath>
     <operation>{literal}{{/literal}
-"name":"{$params.name}",
+"name":"{$params.object_id}",
 "subnet4":"{$params.subnet4}",
 "subnet-mask":"{$params.subnet_mask}"
 {literal}}{/literal}
@@ -51,7 +51,7 @@
     <xpath>
 </xpath>
     <operation>{literal}{{/literal}
-"uid":"{$params.object_id}"
+"name":"{$params.object_id}"
 {literal}}{/literal}
 </operation>
   </command>
@@ -77,11 +77,11 @@
         </line>
         <line>
           <xpath>name</xpath>
-          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
         </line>
         <line>
           <xpath>uid</xpath>
-          <regexp>@&lt;uid&gt;(?&lt;object_id&gt;.*)&lt;/uid&gt;@</regexp>
+          <regexp>@&lt;uid&gt;(?&lt;uuid&gt;.*)&lt;/uid&gt;@</regexp>
         </line>
       </lines>
     </parser>
@@ -93,8 +93,8 @@
     <xpath>
 </xpath>
     <operation>{literal}{{/literal}
-"new-name":"{$params.name}",
-"uid":"{$params.object_id}",
+"new-name":"{$params.object_id}",
+"uid":"{$params.uuid}",
 "subnet4":"{$params.subnet4}",
 "subnet-mask":"{$params.subnet_mask}"
 {literal}}{/literal}
