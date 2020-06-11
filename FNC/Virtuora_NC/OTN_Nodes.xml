@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>OTN</group>
+    <icon>/images/repository/CommandDefinition/icons/CUBE.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>OTN Nodes</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="layer" displayOrder="1" maxLength="100" name="params.layer" startIncrement="0" type="String"/>
+    <variable displayName="neState" displayOrder="2" maxLength="100" name="params.neState" startIncrement="0" type="String"/>
+    <variable displayName="dsId" displayOrder="3" maxLength="100" name="params.dsId" startIncrement="0" type="String"/>
+    <variable displayName="type" displayOrder="3" maxLength="100" name="params.type" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>services-nb-otn/OTN/nodes</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath>//root/nodeInfoList/nodes/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>dsId</xpath>
+          <regexp>@&lt;dsId&gt;(?&lt;dsId&gt;.*)&lt;/dsId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>type</xpath>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>layer</xpath>
+          <regexp>@&lt;layer&gt;(?&lt;layer&gt;.*)&lt;/layer&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>neState</xpath>
+          <regexp>@&lt;neState&gt;(?&lt;neState&gt;.*)&lt;/neState&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>

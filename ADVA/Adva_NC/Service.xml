@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/repository/CommandDefinition/icons/7500ars (7513).jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Services</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Direction" displayOrder="0" isUserLocked="true" maxLength="100" name="params.direction" startIncrement="0" type="String"/>
+    <variable displayName="Destination Node" displayOrder="1" maxLength="100" name="params.destNode" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>Interface_Point</class>
+      </classes>
+    </variable>
+    <variable displayName="Source Node" displayOrder="2" maxLength="100" name="params.sourceNode" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>Interface_Point</class>
+      </classes>
+    </variable>
+    <variable default="DWDM" displayName="Grid Type" displayOrder="7" maxLength="100" name="params.grid_type" startIncrement="0" type="String"/>
+    <variable default="G_50GHZ" displayName="Adjustment Granularity" displayOrder="8" maxLength="100" name="params.adjustment_granularity" startIncrement="0" type="String"/>
+    <variable default="18" displayName="Channel Number" displayOrder="9" isMandatory="true" maxLength="100" name="params.channel_number" startIncrement="0" type="Integer"/>
+    <variable default="OTSiA" displayName="Layer Protocol" displayOrder="10" editable="false" isMandatory="true" maxLength="100" name="params.layer_protocol" startIncrement="0" type="String">
+      <values>
+        <value>OTSiA</value>
+        <value>ETH</value>
+      </values>
+    </variable>
+    <variable default="OTSiA" displayName="Layer ProtocolName" displayOrder="11" isMandatory="true" maxLength="100" name="params.layer_protocol_name" startIncrement="0" type="String">
+      <values>
+        <value>OTSiA</value>
+        <value>ETH</value>
+      </values>
+    </variable>
+    <variable default="0.0" displayName="Osnr Penalty" displayOrder="12" isMandatory="true" maxLength="100" name="params.osnr_penalty" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable default="0.0" displayName="Power Loss" displayOrder="13" isMandatory="true" maxLength="100" name="params.power_loss" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable default="4" displayName="Slot Width Number" displayOrder="14" isMandatory="true" maxLength="100" name="params.slot_width_number" startIncrement="0" type="Integer"/>
+    <variable displayName="UUID" displayOrder="15" isUserLocked="true" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
+</content>
+  </example>
+  <command name="CREATE">
+    <rest>context/connectivity-service
+</rest>
+    <xpath>
+</xpath>
+    <operation>{literal}{{/literal}
+
+{assign var="nodeA" value=$params.sourceNode}    
+  {assign var="nodeZ" value=$params.destNode}
+
+  "administrative-state" : "LOCKED",
+  "connection" : [ ],
+  "end-point" :
+     {literal}[{/literal}
+     {literal}{{/literal} 
+
+    "layer-protocol-name"     : "{$Interface_Point.$nodeA.layer_protocol_name}" ,
+    "service-interface-point" : "{$Interface_Point.$nodeA.object_id}"
+  {literal}}{/literal},
+  {literal}{{/literal} 
+    "layer-protocol-name"     : "{$Interface_Point.$nodeZ.layer_protocol_name}",
+    "service-interface-point" : "{$Interface_Point.$nodeZ.object_id}"
+   {literal}}{/literal}
+  {literal}]{/literal},
+
+   "layer-protocol" : "{$params.layer_protocol}",
+  "layer-protocol-name" : "{$params.layer_protocol_name}",
+  "power-loss" : "{$params.power_loss}",
+  "osnr-penalty" : "{$params.osnr_penalty}",
+  "include-optical-channel-characteristic" :  
+    {literal}[{/literal}
+     {literal}{{/literal} 
+
+    "local-id" : "",
+    "name" : [ ],
+    "nominal-central-frequency" :  
+    {literal}{{/literal} 
+        "adjustment-granularity": "{$params.adjustment_granularity}",
+        "channel-number": "{$params.channel_number}",
+        "grid-type": "{$params.grid_type}"
+    {literal}}{/literal},
+    "slot-width-number" : "{$params.slot_width_number}"
+  {literal}}{/literal}
+  {literal}]{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>context</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath>//root/connectivity-service/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//uuid</xpath>
+          <regexp>@&lt;uuid&gt;(?&lt;object_id&gt;.*)&lt;/uuid&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//row/nominal-central-frequency/adjustment-granularity</xpath>
+          <regexp>@&lt;adjustment-granularity&gt;(?&lt;adjustment_granularity&gt;.*)&lt;/adjustment-granularity&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//row/nominal-central-frequency/channel-number</xpath>
+          <regexp>@&lt;channel-number&gt;(?&lt;channel_number&gt;.*)&lt;/channel-number&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//layer-protocol-name</xpath>
+          <regexp>@&lt;layer-protocol-name&gt;(?&lt;layer_protocol_name&gt;.*)&lt;/layer-protocol-name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//layer-protocol</xpath>
+          <regexp>@&lt;layer-protocol&gt;(?&lt;layer_protocol&gt;.*)&lt;/layer-protocol&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//row/slot-width-number</xpath>
+          <regexp>@&lt;slot-width-number&gt;(?&lt;slot_width_number&gt;.*)&lt;/slot-width-number&gt;@</regexp>
+        </line>
+        
+        
+        <line>
+          <xpath>//row/nominal-central-frequency/grid-type</xpath>
+          <regexp>@&lt;grid-type&gt;(?&lt;grid_type&gt;.*)&lt;/grid-type&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>direction</xpath>
+          <regexp>@&lt;direction&gt;(?&lt;direction&gt;.*)&lt;/direction&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="DELETE">
+    <rest>context/connectivity-service/{$params.object_id}
+</rest>
+    <xpath/>
+    <operation/>
+  </command>
+</ObjectDefinition>

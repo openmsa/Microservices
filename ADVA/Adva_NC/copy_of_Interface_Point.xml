@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/repository/CommandDefinition/icons/10700.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Interface Points</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Administrative State" displayOrder="1" maxLength="100" name="params.administrative_state" startIncrement="0" type="String"/>
+    <variable displayName="Layer Protocol Name" displayOrder="1" maxLength="100" name="params.layer_protocol_name" startIncrement="0" type="String"/>
+    <variable displayName="Lifecycle State" displayOrder="2" maxLength="100" name="params.lifecycle_state" startIncrement="0" type="String"/>
+    <variable displayName="Operational State" displayOrder="3" maxLength="100" name="params.operational_state" startIncrement="0" type="String"/>
+    <variable displayName="UUID" displayOrder="4" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>context</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath>//root/service-interface-point/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//lifecycle-state</xpath>
+          <regexp>@&lt;lifecycle-state&gt;(?&lt;lifecycle_state&gt;.*)&lt;/lifecycle-state&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//administrative-state</xpath>
+          <regexp>@&lt;administrative-state&gt;(?&lt;administrative_state&gt;.*)&lt;/administrative-state&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        <line>
+          <xpath>//uuid</xpath>
+          <regexp>@&lt;uuid&gt;(?&lt;object_id&gt;.*)&lt;/uuid&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//layer-protocol-name/row</xpath>
+          <regexp>@&lt;row&gt;(?&lt;layer_protocol_name&gt;.*)&lt;/row&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//operational-state</xpath>
+          <regexp>@&lt;operational-state&gt;(?&lt;operational_state&gt;.*)&lt;/operational-state&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>
