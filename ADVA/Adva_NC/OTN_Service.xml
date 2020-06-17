@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>OTN Service</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable default="ETH" displayName="Layer Protocol Name One" displayOrder="0" maxLength="100" name="params.layer_protocol_name_one" startIncrement="0" type="String"/>
+    <variable default="ETH" displayName="Layer Protocol Name Two" displayOrder="1" maxLength="100" name="params.layer_protocol_name_two" startIncrement="0" type="String"/>
+    <variable default="22112233-5535-6677-8899-000000037115" displayName="Service Interface Point One" displayOrder="2" maxLength="100" name="params.service_interface_point_one" startIncrement="0" type="String"/>
+    <variable default="22112233-5535-6677-8899-000000037141" displayName="Service Interface Point Two" displayOrder="3" maxLength="100" name="params.service_interface_point_two" startIncrement="0" type="String"/>
+    <variable default="DWDM" displayName="Grid Type" displayOrder="4" maxLength="100" name="params.grid_type" startIncrement="0" type="String"/>
+    <variable default="G_50GHZ" displayName="Adjustment Granularity" displayOrder="5" maxLength="100" name="params.adjustment_granularity" startIncrement="0" type="String"/>
+    <variable default="18" displayName="Channel Number" displayOrder="6" maxLength="100" name="params.channel_number" startIncrement="0" type="Integer"/>
+    <variable default="ETH" displayName="Layer Protocol" displayOrder="7" maxLength="100" name="params.layer_protocol" startIncrement="0" type="String"/>
+    <variable default="ETH" displayName="Layer ProtocolName" displayOrder="8" maxLength="100" name="params.layer_protocol_name" startIncrement="0" type="String"/>
+    <variable default="0.0" displayName="Osnr Penalty" displayOrder="9" maxLength="100" name="params.osnr_penalty" startIncrement="0" type="String"/>
+    <variable default="0.0" displayName="Power Loss" displayOrder="10" maxLength="100" name="params.power_loss" startIncrement="0" type="String"/>
+    <variable default="4" displayName="Slot Width Number" displayOrder="11" maxLength="100" name="params.slot_width_number" startIncrement="0" type="Integer"/>
+    <variable displayName="object_id" displayOrder="12" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
+</content>
+  </example>
+  <command name="CREATE">
+    <rest>connectivity-service
+</rest>
+    <xpath>
+</xpath>
+    <operation>{literal}{{/literal}
+  "administrative-state" : "LOCKED",
+  "connection" : [ ],
+  "end-point" :
+     {literal}[{/literal}
+     {literal}{{/literal} 
+
+    "layer-protocol-name"     : "{$params.layer_protocol_name_one}" ,
+    "service-interface-point" : "{$params.service_interface_point_one}"
+  {literal}}{/literal},
+  {literal}{{/literal} 
+    "layer-protocol-name"     : "{$params.layer_protocol_name_two}",
+    "service-interface-point" : "{$params.service_interface_point_two}"
+   {literal}}{/literal}
+  {literal}]{/literal},
+
+  "layer-protocol" : "{$params.layer_protocol}",
+  "layer-protocol-name" : "{$params.layer_protocol_name}",
+  "power-loss" : "{$params.power_loss}",
+  "osnr-penalty" : "{$params.osnr_penalty}",
+  "include-optical-channel-characteristic" :  
+    {literal}[{/literal}
+     {literal}{{/literal} 
+
+    "local-id" : "",
+    "name" : [ ],
+    "nominal-central-frequency" :  
+    {literal}{{/literal} 
+        "adjustment-granularity": "{$params.adjustment_granularity}",
+        "channel-number": "{$params.channel_number}",
+        "grid-type": "{$params.grid_type}"
+    {literal}}{/literal},
+    "slot-width-number" : "{$params.slot_width_number}"
+  {literal}}{/literal}
+  {literal}]{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>connectivity-service</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath/>
+      </section>
+      <lines/>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
@@ -11,9 +11,9 @@
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>4</importrank>
+    <importrank>5</importrank>
     <maxInstances>0</maxInstances>
-    <name>Access Rules</name>
+    <name>CP Access Rules</name>
     <order>10000</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -23,9 +23,9 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.name" startIncrement="0" type="String"/>
-    <variable displayName="testlayer" displayOrder="0" maxLength="100" name="params.testlayer" startIncrement="0" type="String"/>
-    <variable default="Drop" displayName="Action" displayOrder="1" editable="false" maxLength="25" name="params.action" startIncrement="0" type="String">
+    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="testlayer" displayOrder="0" editable="false" isUserLocked="true" maxLength="100" name="params.testlayer" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable default="Drop" displayName="Action" displayOrder="1" editable="false" maxLength="25" name="params.action" numberOfRowMax="0" startIncrement="0" type="String">
       <values>
         <value displayValue="Accept">Accept</value>
         <value displayValue="Drop">Drop</value>
@@ -37,49 +37,49 @@
         <value displayValue="Apply Layer">Apply Layer</value>
       </values>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Gateway" displayOrder="2" maxLength="100" name="params.gateways.0.gateway" startIncrement="0" type="String" visible="false">
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Gateway" displayOrder="2" maxLength="100" name="params.gateways.0.gateway" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Gateways Installed On</section>
       </sections>
     </variable>
-    <variable displayName="Layer" displayOrder="3" keepOnImport="true" maxLength="100" name="params.layer" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+    <variable displayName="Layer" displayOrder="3" keepOnImport="true" maxLength="100" name="params.layer" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="ObjectRef">
       <classes>
         <class>Layer</class>
       </classes>
     </variable>
-    <variable displayName="UID" displayOrder="4" isUserLocked="true" maxLength="100" name="params.object_id" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="Gateway Installed On" displayOrder="5" maxLength="100" name="params.install_on" startIncrement="0" type="ObjectRef">
+    <variable displayName="UID" displayOrder="4" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Gateway Installed On" displayOrder="5" maxLength="100" name="params.install_on" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>Gateways</class>
       </classes>
     </variable>
-    <variable displayName="Source" displayOrder="6" maxLength="100" name="params.source" startIncrement="0" type="ObjectRef">
+    <variable displayName="Source" displayOrder="6" maxLength="100" name="params.source" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>Network</class>
       </classes>
     </variable>
-    <variable displayName="Destination" displayOrder="7" maxLength="100" name="params.destination" startIncrement="0" type="ObjectRef">
+    <variable displayName="Destination" displayOrder="7" maxLength="100" name="params.destination" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>Network</class>
       </classes>
     </variable>
-    <variable displayName="Position" displayOrder="8" isMandatory="true" maxLength="30" name="params.position" startIncrement="0" type="Integer"/>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Name" displayOrder="9" editable="false" isUserLocked="true" maxLength="50" name="params.sources.0.source" startIncrement="0" type="String" visible="false">
+    <variable displayName="Position" displayOrder="8" isMandatory="true" maxLength="30" name="params.position" numberOfRowMax="0" startIncrement="0" type="Integer"/>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Name" displayOrder="9" editable="false" isUserLocked="true" maxLength="50" name="params.sources.0.source" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Sources</section>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Subnet" displayOrder="10" maxLength="50" name="params.sources.0.subnet4" startIncrement="0" type="String" visible="false">
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Subnet" displayOrder="10" maxLength="50" name="params.sources.0.subnet4" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Sources</section>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Name" displayOrder="11" maxLength="50" name="params.destinations.0.destination" startIncrement="0" type="String" visible="false">
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Name" displayOrder="11" maxLength="50" name="params.destinations.0.destination" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Destinations</section>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Subnet" displayOrder="12" maxLength="50" name="params.destinations.0.subnet4" startIncrement="0" type="String" visible="false">
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Subnet" displayOrder="12" maxLength="50" name="params.destinations.0.subnet4" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
         <section>Destinations</section>
       </sections>
@@ -142,6 +142,7 @@
         <xpath>//root/rulebase/row</xpath>
       </section>
       <lines>
+        
         <line>
           <xpath>//install-on/row/name</xpath>
           <regexp>@&lt;name&gt;(?&lt;install_on&gt;.*)&lt;/name&gt;@</regexp>
@@ -184,6 +185,6 @@
         
       </lines>
     </parser>
-    <post_template>{assign_object_variable var="testlayer" value=$Layer.object_id}</post_template>
+    <post_template>{assign_object_variable var="testlayer" value={$Layer.{$params.object_id}}}</post_template>
   </command>
 </ObjectDefinition>

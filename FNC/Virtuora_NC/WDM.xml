@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>WDM</group>
+    <icon>/images/repository/CommandDefinition/icons/10700.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <maxInstances>0</maxInstances>
+    <name>WDM Service</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable default="true" displayName="Activate" displayOrder="0" maxLength="100" name="params.activate" onlyDetailView="true" startIncrement="0" type="Boolean"/>
+    <variable displayName="Name" displayOrder="1" isMandatory="true" maxLength="100" name="params.svcName" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable displayName="Name" displayOrder="2" isUserLocked="true" maxLength="100" name="params.name" startIncrement="0" type="String"/>
+    <variable displayName="svcID" displayOrder="3" isUserLocked="true" maxLength="100" name="params.object_id" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Connection Type" displayOrder="4" maxLength="100" name="params.connectionType" onlyDetailView="true" startIncrement="0" type="String" visible="false"/>
+    <variable default="100G" displayName="Line Rate" displayOrder="5" editable="false" maxLength="100" name="params.lineRate" startIncrement="0" type="String">
+      <values>
+        <value>100G</value>
+        <value>10G</value>
+        <value>10G-e</value>
+        <value>200G</value>
+      </values>
+    </variable>
+    <variable default="WDM" displayName="Layer" displayOrder="6" maxLength="100" name="params.layer" startIncrement="0" type="String">
+      <values>
+        <value>WDM</value>
+      </values>
+    </variable>
+    <variable default="Unprotected" displayName="Protection Scheme" displayOrder="7" maxLength="100" name="params.protectionScheme" onlyDetailView="true" startIncrement="0" type="String">
+      <values>
+        <value>Unprotected</value>
+      </values>
+    </variable>
+    <variable default="WCH" displayName="Rate" displayOrder="8" maxLength="100" name="params.rate" startIncrement="0" type="String">
+      <values>
+        <value>WCH</value>
+      </values>
+    </variable>
+    <variable default="false" displayName="Ignore Alarms" displayOrder="9" maxLength="100" name="params.ignoreAlarms" startIncrement="0" type="Boolean"/>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Protection Level" displayOrder="10" isUserLocked="true" maxLength="100" name="params.protectionLevel" startIncrement="0" type="String">
+      <values>
+        <value displayValue="Unprotected">Unprotected</value>
+      </values>
+    </variable>
+    <variable displayName="Central Frequency" displayOrder="11" maxLength="100" name="params.centralFrequency" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>WDM_CentralFreq</class>
+      </classes>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="tid" displayOrder="12" isUserLocked="true" maxLength="100" name="params.Point A.0.tid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="aid" displayOrder="14" maxLength="100" name="params.Point A.0.aid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="tid" displayOrder="15" isUserLocked="true" maxLength="100" name="params.Point Z.0.tid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="aid" displayOrder="17" maxLength="100" name="params.Point Z.0.aid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="tid" displayOrder="18" isUserLocked="true" maxLength="100" name="params.routes.0.tid" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>routes</section>
+      </sections>
+    </variable>
+    <variable displayName="tidA" displayOrder="19" maxLength="100" name="params.tidA" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+      <classes>
+        <class>Nodes</class>
+      </classes>
+    </variable>
+    <variable displayName="Port" displayOrder="20" maxLength="100" name="params.portsA" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+      <classes>
+        <class>WDM_Ports</class>
+      </classes>
+    </variable>
+    <variable displayName="ctpAidA" displayOrder="21" editable="false" isMandatory="true" maxLength="100" name="params.ctpAidA" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="rateA" displayOrder="22" maxLength="100" name="params.rateA" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="tpTypeA" displayOrder="23" maxLength="100" name="params.tpTypeA" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="tidZ" displayOrder="24" maxLength="100" name="params.tidZ" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+      <classes>
+        <class>Nodes</class>
+      </classes>
+    </variable>
+    <variable displayName="Port" displayOrder="25" maxLength="100" name="params.portsZ" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+      <classes>
+        <class>WDM_Ports</class>
+      </classes>
+    </variable>
+    <variable displayName="ctpAidZ" displayOrder="26" isMandatory="true" maxLength="100" name="params.ctpAidZ" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="rateZ" displayOrder="27" maxLength="100" name="params.rateZ" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="tpTypeZ" displayOrder="28" maxLength="100" name="params.tpTypeZ" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable default="true" displayName="working Route" displayOrder="29" maxLength="100" name="params.workingRoute" onlyDetailView="true" startIncrement="0" type="Boolean">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable default="LeastCost" displayName="Routing bjective" displayOrder="30" editable="false" maxLength="100" name="params.routingObjective" onlyDetailView="true" startIncrement="0" type="String">
+      <values>
+        <value displayValue="Least Cost">LeastCost</value>
+        <value displayValue="Least Hops">LeastHops</value>
+        <value displayValue="Least Latency">LeastLatency</value>
+        <value displayValue="Manual">Manual</value>
+      </values>
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable displayName="Max Cost" displayOrder="31" maxLength="100" name="params.maxCost" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable displayName="Max Latency" displayOrder="32" maxLength="100" name="params.maxLatency" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable displayName="state" displayOrder="33" isUserLocked="true" maxLength="100" name="params.state" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="CREATE">
+    <rest>services-nb-wdm/WDM/nwservices
+</rest>
+    <xpath>
+</xpath>
+    <operation>{literal}{{/literal}
+"svcCreationRequest":
+
+{literal}{{/literal}
+ "activate": "{$params.activate}",
+ {if $params.connectionType != ""}
+ "connectionType": "{$params.connectionType}",
+ {/if}
+    "ignoreAlarms": "{$params.ignoreAlarms}",
+    "layer": "{$params.layer}",
+    "lineRate": "{$params.lineRate}",
+    "protectionScheme": "{$params.protectionScheme}",
+    "rate": "{$params.rate}",
+    "svcName": "{$params.svcName}",
+    "svcRoutes":
+     {literal}[{/literal}
+     {literal}{{/literal} 
+        {assign var="endpointA" value=$params.portsA}    
+        {assign var="endpointZ" value=$params.portsZ}    
+
+        "ctpAidA": "{$WDM_Ports.$endpointA.aid}",
+        "ctpAidZ": "{$WDM_Ports.$endpointZ.aid}",
+        "rateA":   "{$WDM_Ports.$endpointA.rate}",
+        "rateZ":   "{$WDM_Ports.$endpointZ.rate}",
+        "svcRoutingConstraints": {literal}{{/literal}
+          "layer":  "wdm",
+          {if $params.maxCost!= ""}
+          "maxCost":          "{$params.maxCost}",
+          {/if}
+          {if $params.maxLatency!= ""}
+          "maxLatency":       "{$params.maxLatency}",
+          {/if}
+          "routingObjective": "{$params.routingObjective}",
+          {if $params.centralFrequency!= ""}
+          "centralFrequency":"{$params.centralFrequency}"  
+          {/if}
+      {literal}}{/literal},
+        "tidA":    "{$params.tidA}",
+        "tidZ":    "{$params.tidZ}",
+        "tpTypeA": "{$WDM_Ports.$endpointA.tpType}",
+        "tpTypeZ": "{$WDM_Ports.$endpointZ.tpType}",
+        "workingRoute": "{$params.workingRoute}"
+      {literal}}{/literal}
+  {literal}]{/literal}
+{literal}}{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="DELETE">
+    <rest>services-nb-wdm/WDM/nwservices?isDetach=false&amp;harddelete=false&amp;isDeleteEndPoints=false
+</rest>
+    <xpath>
+</xpath>
+    <operation>{literal}{{/literal}
+  "svcDeletionRequest": {literal}{{/literal}
+    "targets":
+    {literal}[{{/literal}
+        "layer": "{$WDM.$object_id.layer}",
+        "name": "{$WDM.$object_id.name}",
+        "rate": "{$WDM.$object_id.rate}",
+        "state":"{$WDM.$object_id.state}",
+        "svcID": "{$params.object_id}"
+     {literal}}]{/literal}
+{literal}}{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>services-nb-wdm/WDM/nwservices</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath>//root/svcInfoList/services/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//routingConstraints/centralFrequency</xpath>
+          <regexp>@&lt;centralFrequency&gt;(?&lt;centralFrequency&gt;.*)&lt;/centralFrequency&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>ignoreAlarms</xpath>
+          <regexp>@&lt;ignoreAlarms&gt;(?&lt;ignoreAlarms&gt;.*)&lt;/ignoreAlarms&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>protectionLevel</xpath>
+          <regexp>@&lt;protectionLevel&gt;(?&lt;protectionLevel&gt;.*)&lt;/protectionLevel&gt;@</regexp>
+        </line>
+        <line>
+          <array name="Point Z">
+            <xpath>//routes/row/pointZ</xpath>
+            <lines>
+              <line>
+                <xpath>aid</xpath>
+                <regexp>@&lt;aid&gt;(?&lt;aid&gt;.*)&lt;/aid&gt;@</regexp>
+              </line>
+              
+              <line>
+                <xpath>tid</xpath>
+                <regexp>@&lt;tid&gt;(?&lt;tid&gt;.*)&lt;/tid&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <array name="Point A">
+            <xpath>//routes/row/pointA</xpath>
+            <lines>
+              <line>
+                <xpath>aid</xpath>
+                <regexp>@&lt;aid&gt;(?&lt;aid&gt;.*)&lt;/aid&gt;@</regexp>
+              </line>
+              
+              <line>
+                <xpath>tid</xpath>
+                <regexp>@&lt;tid&gt;(?&lt;tid&gt;.*)&lt;/tid&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>state</xpath>
+          <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>lineRate</xpath>
+          <regexp>@&lt;lineRate&gt;(?&lt;lineRate&gt;.*)&lt;/lineRate&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>rate</xpath>
+          <regexp>@&lt;rate&gt;(?&lt;rate&gt;.*)&lt;/rate&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>layer</xpath>
+          <regexp>@&lt;layer&gt;(?&lt;layer&gt;.*)&lt;/layer&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>svcID</xpath>
+          <regexp>@&lt;svcID&gt;(?&lt;object_id&gt;.*)&lt;/svcID&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>
