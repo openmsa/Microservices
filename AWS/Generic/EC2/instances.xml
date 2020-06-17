@@ -1,295 +1,412 @@
-<ObjectDefinition>
-  <information>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
-    <description>EC2 Instances</description>
-    <displayField>instance_id</displayField>
-    <serviceTaskType/>
-    <order>1</order>
-    <visibility>0</visibility>
+<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>instance_id</displayField>
     <dynamic>false</dynamic>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
-    <relatedObjects/>
-    <name>Instances</name>
     <group>EC2|Instances</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>100</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Instances</name>
+    <order>1</order>
+    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-  </information>
-  <variables frozen="0">
-    <variable displayName="ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Instance ID" name="params.instance_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="availability_zone" name="params.Placement_0_availability_zone" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement" visible="false"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Instance ID" displayOrder="2" isUserLocked="true" maxLength="150" name="params.instance_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="availability_zone" displayOrder="3" maxLength="100" name="params.Placement.0.availability_zone" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
-        <sections>Placement</sections>
+        <section>Placement</section>
       </sections>
     </variable>
-    <variable displayName="group_name" name="params.Placement_0_group_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="group_name" displayOrder="4" maxLength="100" name="params.Placement.0.group_name" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false">
       <sections>
-        <sections>Placement</sections>
+        <section>Placement</section>
       </sections>
     </variable>
-    <variable displayName="tenancy" name="params.Placement_0_tenancy" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="tenancy" displayOrder="5" maxLength="100" name="params.Placement.0.tenancy" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false">
       <sections>
-        <sections>Placement</sections>
+        <section>Placement</section>
       </sections>
     </variable>
-    <variable displayName="tag_name" name="params.Tags_0_tag_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>Tags</sections>
-      </sections>
-    </variable>
-    <variable displayName="Availability Zone " name="params.availability_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="eu-west-1a" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable default="eu-west-1a" displayName="Availability Zone " displayOrder="6" maxLength="100" name="params.availability_zone" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>availability_zones</class>
       </classes>
     </variable>
-    <variable displayName="Image ID" name="params.image_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="ami-0938efb76b45ff5b8" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Instance Type" name="params.instance_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="t2.medium" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable default="ami-0938efb76b45ff5b8" displayName="Image ID" displayOrder="7" maxLength="100" name="params.image_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="t2.medium" displayName="Instance Type" displayOrder="8" maxLength="100" name="params.instance_type" numberOfRowMax="0" startIncrement="0" type="String">
       <values>
-        <values>t2.small</values>
-        <values>t2.xlarge</values>
-        <values>t2.micro</values>
-        <values>t2.large</values>
-        <values>t2.medium</values>
+        <value>t2.small</value>
+        <value>t2.xlarge</value>
+        <value>t2.micro</value>
+        <value>t2.large</value>
+        <value>t2.medium</value>
       </values>
     </variable>
-    <variable displayName="Max Count" name="params.max_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="1" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Min Count" name="params.min_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="1" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Security Groups" name="params.security_groups" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable default="1" displayName="Max Count" displayOrder="9" maxLength="100" name="params.max_count" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Integer"/>
+    <variable default="1" displayName="Min Count" displayOrder="10" maxLength="100" name="params.min_count" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Integer"/>
+    <variable displayName="Security Groups" displayOrder="11" maxLength="100" name="params.security_groups" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>security_groups</class>
       </classes>
     </variable>
-    <variable displayName="State" name="params.state_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="State" displayOrder="12" isUserLocked="true" maxLength="100" name="params.state_name" numberOfRowMax="0" startIncrement="0" type="String">
       <classes>
         <class>security_groups</class>
       </classes>
     </variable>
-    <variable displayName="Private DNS Name" name="params.dns_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="state_name" name="params.State_0_state_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Private DNS Name" displayOrder="13" maxLength="100" name="params.dns_name" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="state_name" displayOrder="14" maxLength="100" name="params.State.0.state_name" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
-        <sections>State</sections>
+        <section>State</section>
       </sections>
     </variable>
-    <variable displayName="Key" name="params.Tags_0_tag_key" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="tag_key" displayOrder="16" maxLength="100" name="params.tags.0.tag_key" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
-        <sections>Tags</sections>
+        <section>tags</section>
       </sections>
     </variable>
-    <variable displayName="Value" name="params.Tags_0_tag_value" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="tag_value" displayOrder="17" maxLength="100" name="params.tags.0.tag_value" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
-        <sections>Tags</sections>
+        <section>tags</section>
       </sections>
     </variable>
-    <variable displayName="State Transition Reason" name="params.state_transition_reason" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="group_id" name="params.SecurityGroups_0_group_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="State Transition Reason" displayOrder="18" maxLength="100" name="params.state_transition_reason" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="group_id" displayOrder="19" maxLength="100" name="params.SecurityGroups.0.group_id" numberOfRowMax="0" startIncrement="0" type="String" visible="false">
       <sections>
-        <sections>SecurityGroups</sections>
+        <section>SecurityGroups</section>
       </sections>
     </variable>
-    <variable displayName="Group Name" name="params.SecurityGroups_0_group_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Group Name" displayOrder="20" maxLength="100" name="params.SecurityGroups.0.group_name" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false">
       <sections>
-        <sections>SecurityGroups</sections>
+        <section>SecurityGroups</section>
       </sections>
     </variable>
-    <variable displayName="Hypervisor" name="params.hypervisor" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Key Name" name="params.key_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="23" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Subnet ID" name="params.subnet_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Hypervisor" displayOrder="21" isUserLocked="true" maxLength="100" name="params.hypervisor" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Key Name" displayOrder="22" maxLength="100" name="params.key_name" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Subnet ID" displayOrder="23" maxLength="100" name="params.subnet_id" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>subnets</class>
       </classes>
     </variable>
-    <variable displayName="VPC ID" name="params.vpc_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="25" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="VPC ID" displayOrder="24" maxLength="100" name="params.vpc_id" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
         <class>vpc</class>
       </classes>
     </variable>
-    <variable displayName="Launch Time" name="params.launch_time" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="26" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Private IP Address" name="params.private_ip_address" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="27" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Public DNS Name" name="params.public_dns_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Virtualization Type" name="params.virtualization_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="30" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-  </variables>
-  <example>
-    <content>&lt;?xml version="1.0"?>
-&lt;root>&lt;requestId>290f81fa-88dc-43a8-8635-5863056ff198&lt;/requestId>&lt;Reservations>&lt;row>&lt;ReservationId>r-0210c3ba32edccc99&lt;/ReservationId>&lt;OwnerId>180813930377&lt;/OwnerId>&lt;Groups/>&lt;Instances>&lt;row>&lt;enaSupport>true&lt;/enaSupport>&lt;InstanceId>i-03a5755a0c96f00f5&lt;/InstanceId>&lt;ImageId>ami-7ce67205&lt;/ImageId>&lt;State>&lt;Code>80&lt;/Code>&lt;Name>stopped&lt;/Name>&lt;/State>&lt;PrivateDnsName>ip-172-31-46-106.eu-west-1.compute.internal&lt;/PrivateDnsName>&lt;PublicDnsName/>&lt;StateTransitionReason>User initiated (2018-03-13 14:30:33 GMT)&lt;/StateTransitionReason>&lt;KeyName>Fortigate&lt;/KeyName>&lt;AmiLaunchIndex>0&lt;/AmiLaunchIndex>&lt;ProductCodes>&lt;row>&lt;ProductCodeId>dlaioq277sglm5mw1y1dmeuqa&lt;/ProductCodeId>&lt;ProductCodeType>marketplace&lt;/ProductCodeType>&lt;/row>&lt;/ProductCodes>&lt;InstanceType>m4.2xlarge&lt;/InstanceType>&lt;LaunchTime>2018-03-13T13:57:28.000Z&lt;/LaunchTime>&lt;Placement>&lt;AvailabilityZone>eu-west-1b&lt;/AvailabilityZone>&lt;GroupName/>&lt;Tenancy>default&lt;/Tenancy>&lt;/Placement>&lt;Monitoring>&lt;State>disabled&lt;/State>&lt;/Monitoring>&lt;SubnetId>subnet-f8d3cba0&lt;/SubnetId>&lt;VpcId>vpc-5cc71e3b&lt;/VpcId>&lt;PrivateIpAddress>172.31.46.106&lt;/PrivateIpAddress>&lt;StateReason>&lt;Code>Client.UserInitiatedShutdown&lt;/Code>&lt;Message>Client.UserInitiatedShutdown: User initiated shutdown&lt;/Message>&lt;/StateReason>&lt;Architecture>x86_64&lt;/Architecture>&lt;RootDeviceType>ebs&lt;/RootDeviceType>&lt;RootDeviceName>/dev/sda1&lt;/RootDeviceName>&lt;BlockDeviceMappings>&lt;row>&lt;DeviceName>/dev/sda1&lt;/DeviceName>&lt;Ebs>&lt;VolumeId>vol-0eef7460300fb800d&lt;/VolumeId>&lt;Status>attached&lt;/Status>&lt;AttachTime>2018-03-13T13:57:28.000Z&lt;/AttachTime>&lt;DeleteOnTermination>true&lt;/DeleteOnTermination>&lt;/Ebs>&lt;/row>&lt;row>&lt;DeviceName>/dev/sdb&lt;/DeviceName>&lt;Ebs>&lt;VolumeId>vol-0207bcd75d2158185&lt;/VolumeId>&lt;Status>attached&lt;/Status>&lt;AttachTime>2018-03-13T13:57:28.000Z&lt;/AttachTime>&lt;DeleteOnTermination>true&lt;/DeleteOnTermination>&lt;/Ebs>&lt;/row>&lt;/BlockDeviceMappings>&lt;VirtualizationType>hvm&lt;/VirtualizationType>&lt;ClientToken>15209494455666649&lt;/ClientToken>&lt;Tags>&lt;row>&lt;Key>Name&lt;/Key>&lt;Value>Fortigate BYOL test&lt;/Value>&lt;/row>&lt;/Tags>&lt;SecurityGroups>&lt;row>&lt;GroupName>launch-wizard-1&lt;/GroupName>&lt;GroupId>sg-07f2147f&lt;/GroupId>&lt;/row>&lt;/SecurityGroups>&lt;SourceDestCheck>true&lt;/SourceDestCheck>&lt;Hypervisor>xen&lt;/Hypervisor>&lt;NetworkInterfaces>&lt;row>&lt;NetworkInterfaceId>eni-01971804&lt;/NetworkInterfaceId>&lt;SubnetId>subnet-f8d3cba0&lt;/SubnetId>&lt;VpcId>vpc-5cc71e3b&lt;/VpcId>&lt;Description/>&lt;OwnerId>180813930377&lt;/OwnerId>&lt;Status>in-use&lt;/Status>&lt;MacAddress>0a:ee:b1:bf:c7:3e&lt;/MacAddress>&lt;PrivateIpAddress>172.31.46.106&lt;/PrivateIpAddress>&lt;PrivateDnsName>ip-172-31-46-106.eu-west-1.compute.internal&lt;/PrivateDnsName>&lt;SourceDestCheck>true&lt;/SourceDestCheck>&lt;Groups>&lt;row>&lt;GroupName>launch-wizard-1&lt;/GroupName>&lt;GroupId>sg-07f2147f&lt;/GroupId>&lt;/row>&lt;/Groups>&lt;Attachment>&lt;AttachmentId>eni-attach-e3d62701&lt;/AttachmentId>&lt;DeviceIndex>0&lt;/DeviceIndex>&lt;Status>attached&lt;/Status>&lt;AttachTime>2018-03-13T13:57:28.000Z&lt;/AttachTime>&lt;DeleteOnTermination>true&lt;/DeleteOnTermination>&lt;/Attachment>&lt;PrivateIpAddresses>&lt;row>&lt;PrivateIpAddress>172.31.46.106&lt;/PrivateIpAddress>&lt;PrivateDnsName>ip-172-31-46-106.eu-west-1.compute.internal&lt;/PrivateDnsName>&lt;Primary>true&lt;/Primary>&lt;/row>&lt;/PrivateIpAddresses>&lt;/row>&lt;/NetworkInterfaces>&lt;EbsOptimized>true&lt;/EbsOptimized>&lt;/row>&lt;/Instances>&lt;/row>&lt;/Reservations>
-&lt;/root>
+    <variable displayName="Launch Time" displayOrder="25" maxLength="100" name="params.launch_time" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Private IP Address" displayOrder="26" maxLength="100" name="params.private_ip_address" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Public DNS Name" displayOrder="27" maxLength="100" name="params.public_dns_name" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Virtualization Type" displayOrder="28" maxLength="100" name="params.virtualization_type" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="String" visible="false"/>
+    <variable default="none" displayName="_color" displayOrder="29" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+	&lt;requestId&gt;290f81fa-88dc-43a8-8635-5863056ff198&lt;/requestId&gt;
+	&lt;Reservations&gt;
+		&lt;row&gt;
+			&lt;ReservationId&gt;r-0210c3ba32edccc99&lt;/ReservationId&gt;
+			&lt;OwnerId&gt;180813930377&lt;/OwnerId&gt;
+			&lt;Groups/&gt;
+			&lt;Instances&gt;
+				&lt;row&gt;
+					&lt;enaSupport&gt;true&lt;/enaSupport&gt;
+					&lt;InstanceId&gt;i-03a5755a0c96f00f5&lt;/InstanceId&gt;
+					&lt;ImageId&gt;ami-7ce67205&lt;/ImageId&gt;
+					&lt;State&gt;
+						&lt;Code&gt;80&lt;/Code&gt;
+						&lt;Name&gt;stopped&lt;/Name&gt;
+					&lt;/State&gt;
+					&lt;PrivateDnsName&gt;ip-172-31-46-106.eu-west-1.compute.internal&lt;/PrivateDnsName&gt;
+					&lt;PublicDnsName/&gt;
+					&lt;StateTransitionReason&gt;User initiated (2018-03-13 14:30:33 GMT)&lt;/StateTransitionReason&gt;
+					&lt;KeyName&gt;Fortigate&lt;/KeyName&gt;
+					&lt;AmiLaunchIndex&gt;0&lt;/AmiLaunchIndex&gt;
+					&lt;ProductCodes&gt;
+						&lt;row&gt;
+							&lt;ProductCodeId&gt;dlaioq277sglm5mw1y1dmeuqa&lt;/ProductCodeId&gt;
+							&lt;ProductCodeType&gt;marketplace&lt;/ProductCodeType&gt;
+						&lt;/row&gt;
+					&lt;/ProductCodes&gt;
+					&lt;InstanceType&gt;m4.2xlarge&lt;/InstanceType&gt;
+					&lt;LaunchTime&gt;2018-03-13T13:57:28.000Z&lt;/LaunchTime&gt;
+					&lt;Placement&gt;
+						&lt;AvailabilityZone&gt;eu-west-1b&lt;/AvailabilityZone&gt;
+						&lt;GroupName/&gt;
+						&lt;Tenancy&gt;default&lt;/Tenancy&gt;
+					&lt;/Placement&gt;
+					&lt;Monitoring&gt;
+						&lt;State&gt;disabled&lt;/State&gt;
+					&lt;/Monitoring&gt;
+					&lt;SubnetId&gt;subnet-f8d3cba0&lt;/SubnetId&gt;
+					&lt;VpcId&gt;vpc-5cc71e3b&lt;/VpcId&gt;
+					&lt;PrivateIpAddress&gt;172.31.46.106&lt;/PrivateIpAddress&gt;
+					&lt;StateReason&gt;
+						&lt;Code&gt;Client.UserInitiatedShutdown&lt;/Code&gt;
+						&lt;Message&gt;Client.UserInitiatedShutdown: User initiated shutdown&lt;/Message&gt;
+					&lt;/StateReason&gt;
+					&lt;Architecture&gt;x86_64&lt;/Architecture&gt;
+					&lt;RootDeviceType&gt;ebs&lt;/RootDeviceType&gt;
+					&lt;RootDeviceName&gt;/dev/sda1&lt;/RootDeviceName&gt;
+					&lt;BlockDeviceMappings&gt;
+						&lt;row&gt;
+							&lt;DeviceName&gt;/dev/sda1&lt;/DeviceName&gt;
+							&lt;Ebs&gt;
+								&lt;VolumeId&gt;vol-0eef7460300fb800d&lt;/VolumeId&gt;
+								&lt;Status&gt;attached&lt;/Status&gt;
+								&lt;AttachTime&gt;2018-03-13T13:57:28.000Z&lt;/AttachTime&gt;
+								&lt;DeleteOnTermination&gt;true&lt;/DeleteOnTermination&gt;
+							&lt;/Ebs&gt;
+						&lt;/row&gt;
+						&lt;row&gt;
+							&lt;DeviceName&gt;/dev/sdb&lt;/DeviceName&gt;
+							&lt;Ebs&gt;
+								&lt;VolumeId&gt;vol-0207bcd75d2158185&lt;/VolumeId&gt;
+								&lt;Status&gt;attached&lt;/Status&gt;
+								&lt;AttachTime&gt;2018-03-13T13:57:28.000Z&lt;/AttachTime&gt;
+								&lt;DeleteOnTermination&gt;true&lt;/DeleteOnTermination&gt;
+							&lt;/Ebs&gt;
+						&lt;/row&gt;
+					&lt;/BlockDeviceMappings&gt;
+					&lt;VirtualizationType&gt;hvm&lt;/VirtualizationType&gt;
+					&lt;ClientToken&gt;15209494455666649&lt;/ClientToken&gt;
+					&lt;Tags&gt;
+						&lt;row&gt;
+							&lt;Key&gt;Name&lt;/Key&gt;
+							&lt;Value&gt;Fortigate BYOL test&lt;/Value&gt;
+						&lt;/row&gt;
+					&lt;/Tags&gt;
+					&lt;SecurityGroups&gt;
+						&lt;row&gt;
+							&lt;GroupName&gt;launch-wizard-1&lt;/GroupName&gt;
+							&lt;GroupId&gt;sg-07f2147f&lt;/GroupId&gt;
+						&lt;/row&gt;
+					&lt;/SecurityGroups&gt;
+					&lt;SourceDestCheck&gt;true&lt;/SourceDestCheck&gt;
+					&lt;Hypervisor&gt;xen&lt;/Hypervisor&gt;
+					&lt;NetworkInterfaces&gt;
+						&lt;row&gt;
+							&lt;NetworkInterfaceId&gt;eni-01971804&lt;/NetworkInterfaceId&gt;
+							&lt;SubnetId&gt;subnet-f8d3cba0&lt;/SubnetId&gt;
+							&lt;VpcId&gt;vpc-5cc71e3b&lt;/VpcId&gt;
+							&lt;Description/&gt;
+							&lt;OwnerId&gt;180813930377&lt;/OwnerId&gt;
+							&lt;Status&gt;in-use&lt;/Status&gt;
+							&lt;MacAddress&gt;0a:ee:b1:bf:c7:3e&lt;/MacAddress&gt;
+							&lt;PrivateIpAddress&gt;172.31.46.106&lt;/PrivateIpAddress&gt;
+							&lt;PrivateDnsName&gt;ip-172-31-46-106.eu-west-1.compute.internal&lt;/PrivateDnsName&gt;
+							&lt;SourceDestCheck&gt;true&lt;/SourceDestCheck&gt;
+							&lt;Groups&gt;
+								&lt;row&gt;
+									&lt;GroupName&gt;launch-wizard-1&lt;/GroupName&gt;
+									&lt;GroupId&gt;sg-07f2147f&lt;/GroupId&gt;
+								&lt;/row&gt;
+							&lt;/Groups&gt;
+							&lt;Attachment&gt;
+								&lt;AttachmentId&gt;eni-attach-e3d62701&lt;/AttachmentId&gt;
+								&lt;DeviceIndex&gt;0&lt;/DeviceIndex&gt;
+								&lt;Status&gt;attached&lt;/Status&gt;
+								&lt;AttachTime&gt;2018-03-13T13:57:28.000Z&lt;/AttachTime&gt;
+								&lt;DeleteOnTermination&gt;true&lt;/DeleteOnTermination&gt;
+							&lt;/Attachment&gt;
+							&lt;PrivateIpAddresses&gt;
+								&lt;row&gt;
+									&lt;PrivateIpAddress&gt;172.31.46.106&lt;/PrivateIpAddress&gt;
+									&lt;PrivateDnsName&gt;ip-172-31-46-106.eu-west-1.compute.internal&lt;/PrivateDnsName&gt;
+									&lt;Primary&gt;true&lt;/Primary&gt;
+								&lt;/row&gt;
+							&lt;/PrivateIpAddresses&gt;
+						&lt;/row&gt;
+					&lt;/NetworkInterfaces&gt;
+					&lt;EbsOptimized&gt;true&lt;/EbsOptimized&gt;
+				&lt;/row&gt;
+			&lt;/Instances&gt;
+		&lt;/row&gt;
+	&lt;/Reservations&gt;
+&lt;/root&gt;
 </content>
   </example>
   <command name="IMPORT">
     <operation>Aws\Ec2\Ec2Client</operation>
-    <post_template>{ assign_object_variable var="availability_zone" value=$params.Placement.0.availability_zone }
-{ assign_object_variable var="state_name" value=$params.State.0.state_name }
-{ assign_object_variable var="security_groups" value=$params.SecurityGroups.0.group_id }
-{ assign_object_variable var="name" value=$params.Tags.0.tag_value }{ if $params.State.0.state_name == "running" }{ assign_object_variable var="_color" value=green }
-{ elseif $params.State.0.state_name == "pending" }{ assign_object_variable var="_color" value=blue }
-{ elseif $params.State.0.state_name == "stopped" }{ assign_object_variable var="_color" value=red }
-{ elseif $params.State.0.state_name == terminated }{ assign_object_variable var="_color" value=red }
-{ elseif $params.State.0.state_name == shutting-down }{ assign_object_variable var="_color" value=orange }
-{ /if }</post_template>
+    <xpath>describeInstances</xpath>
     <parser>
       <section>
-        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/Reservations/row/Instances/row</xpath>
       </section>
       <lines>
+        
         <line>
-          <array/>
-          <regexp>@&lt;InstanceId>(?&lt;instance_id>.*)&lt;/InstanceId>@</regexp>
           <xpath>InstanceId</xpath>
+          <regexp>@&lt;InstanceId&gt;(?&lt;instance_id&gt;.*)&lt;/InstanceId&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;ImageId>(?&lt;image_id>.*)&lt;/ImageId>@</regexp>
           <xpath>ImageId</xpath>
+          <regexp>@&lt;ImageId&gt;(?&lt;image_id&gt;.*)&lt;/ImageId&gt;@</regexp>
         </line>
         <line>
           <array name="State">
+            <xpath>State</xpath>
             <lines>
+              
               <line>
-                <array/>
-                <regexp>@&lt;Name>(?&lt;state_name>.*)&lt;/Name>@</regexp>
                 <xpath>Name</xpath>
+                <regexp>@&lt;Name&gt;(?&lt;state_name&gt;.*)&lt;/Name&gt;@</regexp>
               </line>
             </lines>
-            <regexp>@^\s \s*$@</regexp>
-            <mregexp>@^\s \s*$@</mregexp>
           </array>
-          <regexp/>
-          <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;PrivateDnsName>(?&lt;dns_name>.*)&lt;/PrivateDnsName>@</regexp>
           <xpath>PrivateDnsName</xpath>
+          <regexp>@&lt;PrivateDnsName&gt;(?&lt;dns_name&gt;.*)&lt;/PrivateDnsName&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;PublicDnsName>(?&lt;public_dns_name>.*)&lt;/PublicDnsName>@</regexp>
           <xpath>PublicDnsName</xpath>
+          <regexp>@&lt;PublicDnsName&gt;(?&lt;public_dns_name&gt;.*)&lt;/PublicDnsName&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;StateTransitionReason>(?&lt;state_transition_reason>.*)&lt;/StateTransitionReason>@</regexp>
           <xpath>StateTransitionReason</xpath>
+          <regexp>@&lt;StateTransitionReason&gt;(?&lt;state_transition_reason&gt;.*)&lt;/StateTransitionReason&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;KeyName>(?&lt;key_name>.*)&lt;/KeyName>@</regexp>
           <xpath>KeyName</xpath>
+          <regexp>@&lt;KeyName&gt;(?&lt;key_name&gt;.*)&lt;/KeyName&gt;@</regexp>
         </line>
+        
+        
         <line>
-          <array/>
-          <regexp>@&lt;InstanceType>(?&lt;instance_type>.*)&lt;/InstanceType>@</regexp>
           <xpath>InstanceType</xpath>
+          <regexp>@&lt;InstanceType&gt;(?&lt;instance_type&gt;.*)&lt;/InstanceType&gt;@</regexp>
         </line>
+        
         <line>
           <array name="Placement">
+            <xpath>Placement</xpath>
             <lines>
               <line>
-                <array/>
-                <regexp>@&lt;AvailabilityZone>(?&lt;availability_zone>.*)&lt;/AvailabilityZone>@</regexp>
                 <xpath>AvailabilityZone</xpath>
+                <regexp>@&lt;AvailabilityZone&gt;(?&lt;availability_zone&gt;.*)&lt;/AvailabilityZone&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;GroupName>(?&lt;group_name>.*)&lt;/GroupName>@</regexp>
                 <xpath>GroupName</xpath>
+                <regexp>@&lt;GroupName&gt;(?&lt;group_name&gt;.*)&lt;/GroupName&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;Tenancy>(?&lt;tenancy>.*)&lt;/Tenancy>@</regexp>
                 <xpath>Tenancy</xpath>
+                <regexp>@&lt;Tenancy&gt;(?&lt;tenancy&gt;.*)&lt;/Tenancy&gt;@</regexp>
               </line>
             </lines>
-            <regexp>@^\s \s*$@</regexp>
-            <mregexp>@^\s \s*$@</mregexp>
           </array>
-          <regexp/>
-          <xpath/>
         </line>
+        
+        
+        
+        
+        
         <line>
-          <array/>
-          <regexp>@&lt;SubnetId>(?&lt;subnet_id>.*)&lt;/SubnetId>@</regexp>
           <xpath>SubnetId</xpath>
+          <regexp>@&lt;SubnetId&gt;(?&lt;subnet_id&gt;.*)&lt;/SubnetId&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;VpcId>(?&lt;vpc_id>.*)&lt;/VpcId>@</regexp>
           <xpath>VpcId</xpath>
+          <regexp>@&lt;VpcId&gt;(?&lt;vpc_id&gt;.*)&lt;/VpcId&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;PrivateIpAddress>(?&lt;private_ip_address>.*)&lt;/PrivateIpAddress>@</regexp>
           <xpath>PrivateIpAddress</xpath>
+          <regexp>@&lt;PrivateIpAddress&gt;(?&lt;private_ip_address&gt;.*)&lt;/PrivateIpAddress&gt;@</regexp>
         </line>
+        
+        
+        
+        
         <line>
-          <array/>
-          <regexp>@&lt;VirtualizationType>(?&lt;virtualization_type>.*)&lt;/VirtualizationType>@</regexp>
           <xpath>VirtualizationType</xpath>
+          <regexp>@&lt;VirtualizationType&gt;(?&lt;virtualization_type&gt;.*)&lt;/VirtualizationType&gt;@</regexp>
         </line>
+        
         <line>
           <array name="SecurityGroups">
+            <xpath>SecurityGroups/row</xpath>
             <lines>
               <line>
-                <array/>
-                <regexp>@&lt;GroupName>(?&lt;group_name>.*)&lt;/GroupName>@</regexp>
                 <xpath>GroupName</xpath>
+                <regexp>@&lt;GroupName&gt;(?&lt;group_name&gt;.*)&lt;/GroupName&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;GroupId>(?&lt;group_id>.*)&lt;/GroupId>@</regexp>
                 <xpath>GroupId</xpath>
+                <regexp>@&lt;GroupId&gt;(?&lt;group_id&gt;.*)&lt;/GroupId&gt;@</regexp>
               </line>
             </lines>
-            <regexp>@^\s \s*$@</regexp>
-            <mregexp>@^\s \s*$@</mregexp>
           </array>
-          <regexp/>
-          <xpath/>
         </line>
         <line>
-          <array name="Tags">
+          <array name="tags">
+            <xpath>Tags/row</xpath>
             <lines>
               <line>
-                <array/>
-                <regexp>@&lt;Value>(?&lt;tag_key>.*)&lt;/Value>@</regexp>
                 <xpath>Key</xpath>
+                <regexp>@&lt;Value&gt;(?&lt;tag_key&gt;.*)&lt;/Value&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;Value>(?&lt;tag_value>.*)&lt;/Value>@</regexp>
                 <xpath>Value</xpath>
+                <regexp>@&lt;Value&gt;(?&lt;tag_value&gt;.*)&lt;/Value&gt;@</regexp>
               </line>
             </lines>
-            <regexp>@^\s \s*$@</regexp>
-            <mregexp>@^\s \s*$@</mregexp>
           </array>
-          <regexp/>
-          <xpath/>
         </line>
+        
         <line>
-          <array/>
-          <regexp>@&lt;Hypervisor>(?&lt;hypervisor>.*)&lt;/Hypervisor>@</regexp>
           <xpath>Hypervisor</xpath>
+          <regexp>@&lt;Hypervisor&gt;(?&lt;hypervisor&gt;.*)&lt;/Hypervisor&gt;@</regexp>
         </line>
+        
+        
+        
+        
+        
+        
+        
       </lines>
     </parser>
-    <xpath>describeInstances</xpath>
+    <post_template>{assign_object_variable var="availability_zone" value=$params.Placement.0.availability_zone}
+{assign_object_variable var="state_name" value=$params.State.0.state_name}
+{assign_object_variable var="security_groups" value=$params.SecurityGroups.0.group_id}
+
+{foreach $params.tags as $tag}
+{if $tag.tag_key == "Name"}
+{assign_object_variable var="name" value=$tag.tag_value}
+{/if}
+{/foreach}
+
+
+{if  $params.State.0.state_name == "running" }
+      {assign_object_variable var="_color" value=green}
+{else if  $params.State.0.state_name == "pending" }
+      {assign_object_variable var="_color" value=blue}
+{else if  $params.State.0.state_name == "stopped" }
+      {assign_object_variable var="_color" value=red}
+{else if  $params.State.0.state_name == terminated }
+      {assign_object_variable var="_color" value=red}
+{else if  $params.State.0.state_name == shutting-down }
+      {assign_object_variable var="_color" value=orange}
+{/if}</post_template>
   </command>
-  <command name="UPDATE"/>
-  <command name="CONSTRAINT"/>
-  <command name="CREATE">
+<command name="CREATE">
+    <rest>Aws\Ec2\Ec2Client
+</rest>
+    <xpath>RunInstances
+</xpath>
     <operation>{literal}{{/literal}
 "ImageId":"{$params.image_id}",
 "InstanceType":"{$params.instance_type}",
@@ -299,24 +416,21 @@
 "TagSpecifications":
 {literal}[[{{/literal}
 "ResourceType":"instance",
-"Tags":{literal}[[{{/literal}"key":"Name"{literal}}{/literal},{literal}{{/literal}"value":"{$params.name}"{literal}}{/literal}
+"Tags":
+  {literal}[[{{/literal}"key":"Name"{literal}}{/literal},
+  {literal}{{/literal}"value":"{$params.name}"{literal}}{/literal}
 {literal}]]}]]}{/literal}
 </operation>
-    <rest>Aws\Ec2\Ec2Client
-</rest>
-    <xpath>RunInstances
-</xpath>
   </command>
-  <command name="DELETE">
-    <operation>{literal}{{/literal}
-"InstanceIds":{literal}[{/literal}"{$instances.$object_id.instance_id}"{literal}]{/literal}
-{literal}}{/literal}
-</operation>
+<command name="DELETE">
     <rest>Aws\Ec2\Ec2Client
 </rest>
     <xpath>TerminateInstances
 </xpath>
+    <operation>{literal}{{/literal}
+"InstanceIds":{literal}[{/literal}"{$instances.$object_id.instance_id}"{literal}]{/literal}
+{literal}}{/literal}
+</operation>
   </command>
-  <command name="READ"/>
-  <command name="LIST"/>
+
 </ObjectDefinition>
