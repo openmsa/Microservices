@@ -1,42 +1,52 @@
-<ObjectDefinition>
+<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>
   <information>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
-    <description>VPC</description>
-    <displayField>vpc_ref</displayField>
-    <serviceTaskType/>
-    <order>50</order>
-    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description>VPC</description>
+    <displayField>vpc_ref</displayField>
     <dynamic>false</dynamic>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
-    <relatedObjects/>
-    <name>VPC</name>
     <group>VPC|Virtual Private Cloud</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VPC</name>
+    <order>50</order>
+    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
+    <visibility>0</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="VPC Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="CIDR Block" name="params.cidr_block" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vpc_ref" name="params.vpc_ref" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="State" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Key" name="params.tags_0_tag_key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="Name" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="none" displayName="VPC Id" displayOrder="1" editable="false" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="CIDR Block" displayOrder="2" maxLength="100" name="params.cidr_block" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="tag_key" displayOrder="3" maxLength="100" name="params.tags.0.tag_key" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>tags</section>
+      </sections>
+    </variable>
+    <variable displayName="vpc_ref" displayOrder="3" maxLength="100" name="params.vpc_ref" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable default="none" displayName="_color" displayOrder="4" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="tag_value" displayOrder="4" maxLength="100" name="params.tags.0.tag_value" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>tags</section>
+      </sections>
+    </variable>
+    <variable displayName="State" displayOrder="5" editable="false" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable default="Name" displayName="Key" displayOrder="6" editable="false" isUserLocked="true" maxLength="100" name="params.tags_0_tag_key" numberOfRowMax="0" startIncrement="0" type="String">
       <sections>
         <section>Tags</section>
       </sections>
     </variable>
-    <variable displayName="Value" name="params.tags_0_tag_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable arrayCanEdit="false" arrayCanMove="false" displayName="Value" displayOrder="7" maxLength="100" name="params.tags_0_tag_value" numberOfRowMax="0" startIncrement="0" type="String">
       <sections>
         <section>Tags</section>
       </sections>
@@ -46,53 +56,62 @@
     <content>
 </content>
   </example>
-  <command name="IMPORT">
+
+
+<command name="IMPORT">
     <operation>Aws\Ec2\Ec2Client</operation>
-    <post_template>{assign_object_variable var="vpc_ref" value="{$params.object_id} - {$params.cidr_block}"}{foreach $params.tags as $tag}
-{if $tag.tag_key == "Name"}
-{assign_object_variable var="name" value=$tag.tag_value}
-{/if}
-{/foreach}{if$params.state == "available" }{assign_object_variable var="_color" value=green}
-{else if $params.state == "deleted" }{assign_object_variable var="_color" value=gray}{assign_object_variable var="name" value=DELETED}
-{/if}</post_template>
+    <xpath>describeVpcs</xpath>
     <parser>
       <section>
-        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/Vpcs/row</xpath>
       </section>
       <lines>
         <line>
-          <array/>
-          <regexp>@&lt;VpcId>(?&lt;object_id>.*)&lt;/VpcId>@</regexp>
+          <xpath>VpcId</xpath>
+          <regexp>@&lt;VpcId&gt;(?&lt;object_id&gt;.*)&lt;/VpcId&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;CidrBlock>(?&lt;cidr_block>.*)&lt;/CidrBlock>@</regexp>
+          <xpath>CidrBlock</xpath>
+          <regexp>@&lt;CidrBlock&gt;(?&lt;cidr_block&gt;.*)&lt;/CidrBlock&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;State>(?&lt;state>.*)&lt;/State>@</regexp>
+          <xpath>State</xpath>
+          <regexp>@&lt;State&gt;(?&lt;state&gt;.*)&lt;/State&gt;@</regexp>
         </line>
         <line>
           <array name="tags">
+            <xpath>Tags/row</xpath>
             <lines>
               <line>
-                <array/>
-                <regexp>@&lt;Key>(?&lt;tag_key>.*)&lt;/Key>@</regexp>
+                <xpath>Key</xpath>
+                <regexp>@&lt;Key&gt;(?&lt;tag_key&gt;.*)&lt;/Key&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;Value>(?&lt;tag_value>.*)&lt;/Value>@</regexp>
+                <xpath>Value</xpath>
+                <regexp>@&lt;Value&gt;(?&lt;tag_value&gt;.*)&lt;/Value&gt;@</regexp>
               </line>
             </lines>
-            <regexp>@^\s \s*$@</regexp>
-            <mregexp>@^\s \s*$@</mregexp>
           </array>
-          <regexp/>
         </line>
       </lines>
     </parser>
-    <xpath>describeVpcs</xpath>
+    <post_template>{assign_object_variable var="vpc_ref" value="{$params.object_id} - {$params.cidr_block}"}
+
+{foreach $params.tags as $tag}
+{if $tag.tag_key == "Name"}
+{assign_object_variable var="name" value=$tag.tag_value}
+{/if}
+{/foreach}
+
+{if  $params.state == "available" }
+      {assign_object_variable var="_color" value=green}
+{else if $params.state == "deleted" }
+      {assign_object_variable var="_color" value=gray}
+      {assign_object_variable var="name" value=DELETED}
+{/if}</post_template>
   </command>
+
+
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
@@ -115,6 +134,10 @@
     <xpath>deleteVpc
 </xpath>
   </command>
-  <command name="READ"/>
-  <command name="LIST"/>
+  <command name="READ">
+    <output/>
+  </command>
+  <command name="LIST">
+    <output/>
+  </command>
 </ObjectDefinition>
