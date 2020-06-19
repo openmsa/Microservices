@@ -6,13 +6,13 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
+    <group>BIOS|HPE</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>100</importrank>
     <maxInstances>0</maxInstances>
-    <name>Server power state</name>
+    <name>Server Power State</name>
     <order>1</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -67,8 +67,11 @@
 </operation>
   </command>
 <command name="DELETE">
-    <rest/>
-    <xpath/>
-    <operation/>
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
   </command>
 </ObjectDefinition>

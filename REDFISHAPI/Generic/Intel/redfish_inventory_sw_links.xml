@@ -6,13 +6,13 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
+    <group>BIOS|Intel</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>[SERVICE]Software inventory list</name>
+    <name>L[SERVICE]Software Inventory List</name>
     <order>10</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -46,8 +46,10 @@
 {assign_object_variable var="system" value=$link_array|@end}</post_template>
   </command>
 <command name="UPDATE">
-    <rest/>
-    <xpath/>
+    <rest>
+</rest>
+    <xpath>
+</xpath>
     <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;    
   &lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos"&gt;
     &lt;name&gt;{$params.object_id}&lt;/name&gt;
@@ -61,6 +63,7 @@
       &lt;not/&gt;
     &lt;/match&gt;
   &lt;/class-map&gt;
-&lt;/system&gt;</operation>
+&lt;/system&gt;
+</operation>
   </command>
 </ObjectDefinition>
