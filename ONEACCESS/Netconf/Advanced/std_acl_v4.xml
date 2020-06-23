@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>netconf</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Access-List | IPv4</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Standard Access List</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ACL name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Action" displayOrder="1" editable="false" maxLength="100" name="params.rule_list.0.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="permit">permit</value>
+        <value>deny</value>
+      </values>
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Source Net" displayOrder="2" maxLength="100" name="params.rule_list.0.source_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Source Net Mask" displayOrder="3" maxLength="100" name="params.rule_list.0.source_mask" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Sequence" displayOrder="4" maxLength="100" name="params.rule_list.0.seq" numberOfRowMax="0" tableSizeFix="false" type="AutoIncrement">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable default="false" displayName="Log?" displayOrder="5" maxLength="100" name="params.rule_list.0.log" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+
+
+<command name="IMPORT">
+    <operation/>
+    <post_template>{foreach from=$params.rule_list item=rule key=num}
+{if !$rule.source_mask}
+{assign_object_variable var="rule_list.$num.source_mask" value = '0.0.0.0'}
+{/if}
+{if !$rule.log}
+{assign_object_variable var="rule_list.$num.log" value = "false"}
+{else}
+{assign_object_variable var="rule_list.$num.log" value = "true"}
+{/if}
+{/foreach}</post_template>
+    <xpath>/data/system/ip/access-list/standard</xpath>
+    <parser>
+      <section>
+        <xpath>//std-named-acl</xpath>
+      </section>
+      <lines>
+        <line>
+          <array name="rule_list">
+            <xpath>//std-access-list-rule</xpath>
+            <lines>
+              <line>
+                <xpath>//std-access-list-rule</xpath>
+                <regexp>@&lt;rule&gt;(?&lt;action&gt;permit|deny)\s+?(?&lt;source_ip&gt;((\d{1,3}\.){3}\d{1,3})*)\s*?(?&lt;source_mask&gt;((\d{1,3}\.){3}\d{1,3})*)&lt;/rule&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//std-access-list-rule</xpath>
+                <regexp>@(?&lt;log&gt;&lt;log/&gt;)@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;\S+?)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  </command>
+<command name="UPDATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+    &lt;ip&gt;
+      &lt;access-list xmlns="http://oneaccess-net.com/oneos/ipservices/acl"&gt;
+        &lt;standard&gt;
+          &lt;std-named-acl operation="replace"&gt;
+            &lt;name&gt;{$params.object_id}&lt;/name&gt;
+              {foreach $params.rule_list item=rule}
+            &lt;std-access-list-rule&gt;
+              &lt;rule&gt;{$rule.action} {$rule.source_ip} {$rule.source_mask}&lt;/rule&gt;
+              {if $rule.log eq 'true'}
+              &lt;log/&gt;
+              {/if}
+              &lt;sequence&gt;{$rule.seq}&lt;/sequence&gt;
+            &lt;/std-access-list-rule&gt;
+              {/foreach}
+        &lt;/std-named-acl&gt;
+      &lt;/standard&gt;
+    &lt;/access-list&gt;
+  &lt;/ip&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="CREATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+    &lt;ip&gt;
+      &lt;access-list xmlns="http://oneaccess-net.com/oneos/ipservices/acl"&gt;
+        &lt;standard&gt;
+          &lt;std-named-acl&gt;
+            &lt;name&gt;{$params.object_id}&lt;/name&gt;
+              {foreach $params.rule_list item=rule}
+            &lt;std-access-list-rule&gt;
+              &lt;rule&gt;{$rule.action} {$rule.source_ip} {$rule.source_mask}&lt;/rule&gt;
+              {if $rule.log}
+              &lt;log/&gt;
+              {/if}
+              &lt;sequence&gt;{$rule.seq}&lt;/sequence&gt;
+            &lt;/std-access-list-rule&gt;
+              {/foreach}
+        &lt;/std-named-acl&gt;
+      &lt;/standard&gt;
+    &lt;/access-list&gt;
+  &lt;/ip&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+    &lt;ip&gt;
+      &lt;access-list xmlns="http://oneaccess-net.com/oneos/ipservices/acl"&gt;
+        &lt;standard&gt;
+          &lt;std-named-acl operation="delete"&gt;
+            &lt;name&gt;{$params.object_id}&lt;/name&gt;
+              {foreach $params.rule_list item=rule}
+            &lt;std-access-list-rule&gt;
+              &lt;rule&gt;{$rule.action} {$rule.source_ip} {$rule.source_mask}&lt;/rule&gt;
+              &lt;log/&gt;
+              &lt;sequence&gt;{$rule.seq}&lt;/sequence&gt;
+            &lt;/std-access-list-rule&gt;
+              {/foreach}
+        &lt;/std-named-acl&gt;
+      &lt;/standard&gt;
+    &lt;/access-list&gt;
+  &lt;/ip&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+</ObjectDefinition>

@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>netconf</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>QoS</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>400</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Policy Map</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Class map name" displayOrder="1" maxLength="100" name="params.class_list.0.class_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <sections>
+        <section>Class</section>
+      </sections>
+      <classes>
+        <class>class_map</class>
+      </classes>
+    </variable>
+    <variable displayName="Action Type" displayOrder="2" editable="false" maxLength="100" name="params.class_list.0.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="police">police</value>
+        <value displayValue="dscp">dscp</value>
+        <value displayValue="cos">cos</value>
+        <value displayValue="precedence">precedence</value>
+        <value displayValue="policy-map">policy-map</value>
+        <value displayValue="drop">drop</value>
+      </values>
+      <sections>
+        <section>Class</section>
+      </sections>
+    </variable>
+    <variable displayName="Action" displayOrder="3" maxLength="100" name="params.class_list.0.action_value" numberOfRowMax="0" selector="params.class_list.0.action" startIncrement="0" tableSizeFix="false" type="Composite">
+      <sections>
+        <section>Class</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="CoS Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_value" numberOfRowMax="0" selectorValue="cos" startIncrement="0" tableSizeFix="false" type="Integer"/>
+        <behavior displayName="DSCP Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_value" numberOfRowMax="0" selectorValue="dscp" startIncrement="0" tableSizeFix="false" type="String"/>
+        <behavior displayName="Policy-Map" displayOrder="0" maxLength="100" name="params.class_list.0.action_value" numberOfRowMax="0" selectorValue="policy-map" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+          <classes>
+            <class>policy_map</class>
+          </classes>
+        </behavior>
+        <behavior displayName="IP Precedence" displayOrder="0" maxLength="100" name="params.class_list.0.action_value" numberOfRowMax="0" selectorValue="precedence" startIncrement="0" tableSizeFix="false" type="Integer"/>
+      </behaviors>
+    </variable>
+    <variable displayName="conform_action_raw" displayOrder="4" editable="false" maxLength="100" name="params.class_list.0.conform_action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>Class</section>
+        <section>Police</section>
+      </sections>
+    </variable>
+    <variable displayName="exceed_action_raw" displayOrder="5" editable="false" maxLength="100" name="params.class_list.0.exceed_action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>Class</section>
+        <section>Police</section>
+      </sections>
+    </variable>
+    <variable default="true" displayName="drop" displayOrder="6" editable="false" maxLength="100" name="params.class_list.0.drop" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean" visible="false">
+      <sections>
+        <section>Class</section>
+      </sections>
+    </variable>
+    <variable displayName="policy_map" displayOrder="7" editable="false" maxLength="100" name="params.class_list.0.policy_map" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef" visible="false">
+      <sections>
+        <section>Class</section>
+      </sections>
+      <classes>
+        <class>policy_map</class>
+      </classes>
+    </variable>
+    <variable displayName="dscp" displayOrder="8" editable="false" maxLength="100" name="params.class_list.0.dscp" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>Class</section>
+      </sections>
+    </variable>
+    <variable displayName="precedence" displayOrder="8" editable="false" maxLength="100" name="params.class_list.0.precedence" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer" visible="false">
+      <sections>
+        <section>Class</section>
+      </sections>
+    </variable>
+    <variable displayName="cir" displayOrder="9" editable="false" maxLength="100" name="params.class_list.0.cir" numberOfRowMax="0" selector="params.class_list.0.action" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <sections>
+        <section>Class</section>
+        <section>Police Properties</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="cir" displayOrder="0" maxLength="100" name="params.class_list.0.cir" numberOfRowMax="0" selectorValue="police" startIncrement="0" tableSizeFix="false" type="Integer">
+          <sections>
+            <section>class_list</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="cbs" displayOrder="10" editable="false" maxLength="100" name="params.class_list.0.cbs" numberOfRowMax="0" selector="params.class_list.0.action" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <sections>
+        <section>Class</section>
+        <section>Police Properties</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="cbs" displayOrder="0" maxLength="100" name="params.class_list.0.cbs" numberOfRowMax="0" selectorValue="police" startIncrement="0" tableSizeFix="false" type="Integer">
+          <sections>
+            <section>class_list</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="Conform Action" displayOrder="11" editable="false" maxLength="100" name="params.class_list.0.action_conform_action" numberOfRowMax="0" selector="params.class_list.0.action" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <values>
+        <value displayValue="transmit">transmit</value>
+        <value displayValue="drop">drop</value>
+        <value displayValue="cos">cos</value>
+        <value displayValue="dscp">dscp</value>
+        <value displayValue="precedence">precedence</value>
+      </values>
+      <sections>
+        <section>Class</section>
+        <section>Police Properties</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="Conform Action Type" displayOrder="0" editable="false" maxLength="100" name="params.class_list.0.action_conform_action" numberOfRowMax="0" selectorValue="police" startIncrement="0" tableSizeFix="false" type="String">
+          <values>
+            <value displayValue="Transmit w/o modification">transmit</value>
+            <value displayValue="Drop">drop</value>
+            <value displayValue="Modify DSCP and transmit">dscp</value>
+            <value displayValue="Modify CoS and transmit">cos</value>
+            <value displayValue="Modify IP Precedence and transmit">precedence</value>
+          </values>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="Conform Value" displayOrder="12" editable="false" maxLength="100" name="params.class_list.0.action_conform_value" numberOfRowMax="0" selector="params.class_list.0.action_conform_action" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <sections>
+        <section>Class</section>
+        <section>Police Properties</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="COS Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_conform_value" numberOfRowMax="0" selectorValue="cos" startIncrement="0" tableSizeFix="false" type="Integer"/>
+        <behavior displayName="DSCP value" displayOrder="0" maxLength="100" name="params.class_list.0.action_conform_value" numberOfRowMax="0" selectorValue="dscp" startIncrement="0" tableSizeFix="false" type="String"/>
+        <behavior displayName="IP Precedence Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_conform_value" numberOfRowMax="0" selectorValue="precedence" startIncrement="0" tableSizeFix="false" type="Integer"/>
+      </behaviors>
+    </variable>
+    <variable displayName="Exceed Action" displayOrder="13" editable="false" maxLength="100" name="params.class_list.0.action_exceed_action" numberOfRowMax="0" selector="params.class_list.0.action" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <values>
+        <value displayValue="transmit">transmit</value>
+        <value displayValue="drop">drop</value>
+        <value displayValue="cos">cos</value>
+        <value displayValue="dscp">dscp</value>
+        <value displayValue="cos">cos</value>
+        <value displayValue="precedence">precedence</value>
+      </values>
+      <sections>
+        <section>Class</section>
+        <section>Police Properties</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="Exceed Action Type" displayOrder="0" editable="false" maxLength="100" name="params.class_list.0.action_exceed_action" numberOfRowMax="0" selectorValue="police" startIncrement="0" tableSizeFix="false" type="String">
+          <values>
+            <value displayValue="Transmit w/o modification">transmit</value>
+            <value displayValue="Drop">drop</value>
+            <value displayValue="Modify DSCP and transmit">dscp</value>
+            <value displayValue="Modify CoS and transmit">cos</value>
+            <value displayValue="Modify IP Precedence and transmit">precedence</value>
+          </values>
+        </behavior>
+      </behaviors>
+    </variable>
+    <variable displayName="Exceed Value" displayOrder="14" editable="false" maxLength="100" name="params.class_list.0.action_exceed_value" numberOfRowMax="0" selector="params.class_list.0.action_exceed_action" startIncrement="0" tableSizeFix="false" type="Composite" visible="false">
+      <sections>
+        <section>Class</section>
+        <section>Police Properties</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="CoS Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_exceed_value" numberOfRowMax="0" selectorValue="cos" startIncrement="0" tableSizeFix="false" type="String"/>
+        <behavior displayName="DSCP Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_exceed_value" numberOfRowMax="0" selectorValue="dscp" startIncrement="0" tableSizeFix="false" type="String"/>
+        <behavior displayName="IP Precedence Value" displayOrder="0" maxLength="100" name="params.class_list.0.action_exceed_value" numberOfRowMax="0" selectorValue="precedence" startIncrement="0" tableSizeFix="false" type="Integer"/>
+      </behaviors>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="IMPORT">
+    <operation/>
+    <post_template>{foreach from=$params.class_list item=class key=num}
+	{if $class.cir}
+		{assign_object_variable var="class_list.$num.action" value = "police"}
+		{if $class.conform_action|strstr:'&lt;transmit/&gt;'}
+			{assign var="conform_action" value = "transmit"}
+			{assign var="conform_value" value = ""}
+		{elseif $class.conform_action|strstr:'&lt;drop/&gt;'}
+			{assign var="conform_action" value = "drop"}
+			{assign var="conform_value" value = ""}
+		{elseif $class.conform_action|strstr:'set-dscp-transmit'}
+			{assign var="conform_action" value = "dscp"}
+			{assign var="conform_value" value = "{$class.conform_action|substr:($class.conform_action|strpos:"|dscp"+19):2}"}
+		{elseif $class.conform_action|strstr:'set-prec-transmit'}
+			{assign var="conform_action" value = "precedence"}
+			{assign var="conform_value" value = "{$class.conform_action|substr:($class.conform_action|strpos:"|prec"+19):1}"}
+		{elseif $class.conform_action|strstr:'set-cos-transmit'}
+			{assign var="conform_action" value = "cos"}
+			{assign var="conform_value" value = "{$class.conform_action|substr:($class.conform_action|strpos:"|cos"+18):1}"}
+		{else}
+			{assign var="conform_action" value = "NULL"}
+			{assign var="conform_value" value = "NULL"}
+		{/if}
+		{if $class.exceed_action|strstr:'&lt;transmit/&gt;'}
+			{assign var="exceed_action" value = "transmit"}
+			{assign var="exceed_value" value = ""}
+		{elseif $class.exceed_action|strstr:'&lt;drop/&gt;'}
+			{assign var="exceed_action" value = "drop"}
+			{assign var="exceed_value" value = ""}
+		{elseif $class.exceed_action|strstr:'set-dscp-transmit'}
+			{assign var="exceed_action" value = "dscp"}
+			{assign var="exceed_value" value = "{$class.exceed_action|substr:($class.exceed_action|strpos:"|dscp"+19):2}"}
+		{elseif $class.exceed_action|strstr:'set-prec-transmit'}
+			{assign var="exceed_action" value = "precedence"}
+			{assign var="exceed_value" value = "{$class.exceed_action|substr:($class.exceed_action|strpos:"|prec"+19):1}"}
+		{elseif $class.exceed_action|strstr:'set-cos-transmit'}
+			{assign var="exceed_action" value = "cos"}
+			{assign var="exceed_value" value = "{$class.exceed_action|substr:($class.exceed_action|strpos:"|cos"+18):1}"}
+		{else}
+			{assign var="exceed_action" value = "NULL"}
+			{assign var="exceed_value" value = "NULL"}
+		{/if}
+		{assign_object_variable var="class_list.$num.action_value" value = "CIR {$class.cir}Kbps CBS {$class.cbs}Bytes Conform: {$conform_action} {$conform_value} Exceed: {$exceed_action} {$exceed_value}"}
+		{assign_object_variable var="class_list.$num.action_conform_action" value = "{$conform_action}"}
+		{assign_object_variable var="class_list.$num.action_conform_value" value = "{$conform_value}"}
+		{assign_object_variable var="class_list.$num.action_exceed_action" value = "{$exceed_action}"}
+		{assign_object_variable var="class_list.$num.action_exceed_value" value = "{$exceed_value}"}
+	{elseif $class.transmit}
+		{assign_object_variable var="class_list.$num.action" value = "transmit"}
+		{assign_object_variable var="class_list.$num.action_value" value = "Traffic will be transmited"}
+	{elseif $class.drop}
+		{assign_object_variable var="class_list.$num.action" value = "drop"}
+		{assign_object_variable var="class_list.$num.action_value" value = "Traffic will be dropped"}
+	{elseif $class.dscp}
+		{assign_object_variable var="class_list.$num.action" value = "dscp"}
+		{assign_object_variable var="class_list.$num.action_value" value = $class.dscp}
+	{elseif $class.precedence}
+		{assign_object_variable var="class_list.$num.action" value = "precedence"}
+		{assign_object_variable var="class_list.$num.action_value" value = $class.precedence}
+	{elseif $class.cos}
+		{assign_object_variable var="class_list.$num.action" value = "cos"}
+		{assign_object_variable var="class_list.$num.action_value" value = $class.cos}
+	{elseif $class.policy_map}
+		{assign_object_variable var="class_list.$num.action" value = "policy-map"}
+		{assign_object_variable var="class_list.$num.action_value" value = $class.policy_map}
+	{/if}
+{/foreach}</post_template>
+    <xpath>/system</xpath>
+    <parser>
+      <section>
+        <xpath>//policy-map</xpath>
+      </section>
+      <lines>
+        <line>
+          <array name="class_list">
+            <xpath>//class</xpath>
+            <lines>
+              <line>
+                <xpath>//service-policy</xpath>
+                <regexp>@&lt;service-policy&gt;(?&lt;policy_map&gt;\S+?)&lt;/service-policy&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//set/ip</xpath>
+                <regexp>@&lt;dscp&gt;(?&lt;dscp&gt;\S+?)&lt;/dscp&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//set/ip</xpath>
+                <regexp>@&lt;precedence&gt;(?&lt;precedence&gt;\d+?)&lt;/precedence&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//drop</xpath>
+                <regexp>@&lt;drop&gt;(?&lt;drop&gt;true)&lt;/drop&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//police/cir-cir-percent/cir</xpath>
+                <regexp>@&lt;cir&gt;(?&lt;cir&gt;\d+?)&lt;/cir&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//police/cir-cir-percent/cir</xpath>
+                <regexp>@&lt;cbs&gt;(?&lt;cbs&gt;\d+?)&lt;/cbs&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//police/conform-action</xpath>
+                <regexp>@&lt;conform-action&gt;(?&lt;conform_action&gt;.+?)&lt;/conform-action&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//police/exceed-action</xpath>
+                <regexp>@&lt;exceed-action&gt;(?&lt;exceed_action&gt;.+?)&lt;/exceed-action&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//classMap</xpath>
+                <regexp>@&lt;classMap&gt;(?&lt;class_name&gt;\S+?)&lt;/classMap&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>//policyMap</xpath>
+          <regexp>@&lt;policyMap&gt;(?&lt;object_id&gt;\S+?)&lt;/policyMap&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  </command>
+<command name="UPDATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+  &lt;policy-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos" operation="replace"&gt;
+    &lt;policyMap&gt;{$params.object_id}&lt;/policyMap&gt;
+    {foreach $params.class_list item=class}
+    {if $class.class_name neq ''}
+      &lt;class&gt;
+        &lt;classMap&gt;{$class.class_name}&lt;/classMap&gt;
+        {if $class.action eq 'police'}
+        &lt;police&gt;
+          &lt;cir-cir-percent&gt;
+            &lt;cir&gt;
+              &lt;cir&gt;{$class.cir}&lt;/cir&gt;
+              &lt;cbs&gt;{$class.cbs}&lt;/cbs&gt;
+            &lt;/cir&gt;
+          &lt;/cir-cir-percent&gt;
+          &lt;conform-action&gt;
+            {if $class.action_conform_action eq 'transmit'}
+            &lt;transmit/&gt;
+            {/if}
+            {if $class.action_conform_action eq 'drop'}
+            &lt;drop/&gt;
+            {/if}
+            {if $class.action_conform_action eq 'dscp'}
+            &lt;set-dscp-transmit&gt;{$class.action_conform_value}&lt;/set-dscp-transmit&gt;
+            {/if}
+            {if $class.action_conform_action eq 'precedence'}
+            &lt;set-prec-transmit&gt;{$class.action_conform_value}&lt;/set-prec-transmit&gt;
+            {/if}
+            {if $class.action_conform_action eq 'cos'}
+            &lt;set-cos-transmit&gt;{$class.action_conform_value}&lt;/set-cos-transmit&gt;
+            {/if}
+          &lt;/conform-action&gt;
+          &lt;exceed-action&gt;
+            {if $class.action_exceed_action eq 'transmit'}
+            &lt;transmit/&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'drop'}
+            &lt;drop/&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'dscp'}
+            &lt;set-dscp-transmit&gt;{$class.action_exceed_value}&lt;/set-dscp-transmit&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'precedence'}
+            &lt;set-prec-transmit&gt;{$class.action_exceed_value}&lt;/set-prec-transmit&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'cos'}
+            &lt;set-cos-transmit&gt;{$class.action_exceed_value}&lt;/set-cos-transmit&gt;
+            {/if}
+          &lt;/exceed-action&gt;
+        &lt;/police&gt;
+        {/if}
+        {if $class.action eq 'dscp'}
+        &lt;set&gt;
+          &lt;ip&gt;
+            &lt;dscp&gt;{$class.action_value}&lt;/dscp&gt;
+          &lt;/ip&gt;
+        &lt;/set&gt;
+        {/if}
+        {if $class.action eq 'precedence'}
+        &lt;set&gt;
+          &lt;ip&gt;
+            &lt;precedence&gt;{$class.action_value}&lt;/precedence&gt;
+          &lt;/ip&gt;
+        &lt;/set&gt;
+        {/if}
+        {if $class.action eq 'cos'}
+        &lt;set&gt;
+          &lt;cos&gt;{$class.action_value}&lt;/cos&gt;
+        &lt;/set&gt;
+        {/if}
+        {if $class.action eq 'policy-map'}
+        &lt;service-policy&gt;{$class.action_value}&lt;/service-policy&gt;
+        {/if}
+        {if $class.action eq 'drop'}
+        &lt;drop&gt;true&lt;/drop&gt;
+        {/if}
+      &lt;/class&gt;
+    {/if} 
+    {/foreach}
+  &lt;/policy-map&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="CREATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+  &lt;policy-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos"&gt;
+    &lt;policyMap&gt;{$params.object_id}&lt;/policyMap&gt;
+    {foreach $params.class_list item=class}
+    {if $class.class_name neq ''}
+      &lt;class&gt;
+        &lt;classMap&gt;{$class.class_name}&lt;/classMap&gt;
+        {if $class.action eq 'police'}
+        &lt;police&gt;
+          &lt;cir-cir-percent&gt;
+            &lt;cir&gt;
+              &lt;cir&gt;{$class.cir}&lt;/cir&gt;
+              &lt;cbs&gt;{$class.cbs}&lt;/cbs&gt;
+            &lt;/cir&gt;
+          &lt;/cir-cir-percent&gt;
+          &lt;conform-action&gt;
+            {if $class.action_conform_action eq 'transmit'}
+            &lt;transmit/&gt;
+            {/if}
+            {if $class.action_conform_action eq 'drop'}
+            &lt;drop/&gt;
+            {/if}
+            {if $class.action_conform_action eq 'dscp'}
+            &lt;set-dscp-transmit&gt;{$class.action_conform_value}&lt;/set-dscp-transmit&gt;
+            {/if}
+            {if $class.action_conform_action eq 'precedence'}
+            &lt;set-prec-transmit&gt;{$class.action_conform_value}&lt;/set-prec-transmit&gt;
+            {/if}
+            {if $class.action_conform_action eq 'cos'}
+            &lt;set-cos-transmit&gt;{$class.action_conform_value}&lt;/set-cos-transmit&gt;
+            {/if}
+          &lt;/conform-action&gt;
+          &lt;exceed-action&gt;
+            {if $class.action_exceed_action eq 'transmit'}
+            &lt;transmit/&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'drop'}
+            &lt;drop/&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'dscp'}
+            &lt;set-dscp-transmit&gt;{$class.action_exceed_value}&lt;/set-dscp-transmit&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'precedence'}
+            &lt;set-prec-transmit&gt;{$class.action_exceed_value}&lt;/set-prec-transmit&gt;
+            {/if}
+            {if $class.action_exceed_action eq 'cos'}
+            &lt;set-cos-transmit&gt;{$class.action_exceed_value}&lt;/set-cos-transmit&gt;
+            {/if}
+          &lt;/exceed-action&gt;
+        &lt;/police&gt;
+        {/if}
+        {if $class.action eq 'dscp'}
+        &lt;set&gt;
+          &lt;ip&gt;
+            &lt;dscp&gt;{$class.action_value}&lt;/dscp&gt;
+          &lt;/ip&gt;
+        &lt;/set&gt;
+        {/if}
+        {if $class.action eq 'precedence'}
+        &lt;set&gt;
+          &lt;ip&gt;
+            &lt;precedence&gt;{$class.action_value}&lt;/precedence&gt;
+          &lt;/ip&gt;
+        &lt;/set&gt;
+        {/if}
+        {if $class.action eq 'cos'}
+        &lt;set&gt;
+          &lt;cos&gt;{$class.action_value}&lt;/cos&gt;
+        &lt;/set&gt;
+        {/if}
+        {if $class.action eq 'policy-map'}
+        &lt;service-policy&gt;{$class.action_value}&lt;/service-policy&gt;
+        {/if}
+        {if $class.action eq 'drop'}
+        &lt;drop&gt;true&lt;/drop&gt;
+        {/if}
+      &lt;/class&gt;
+    {/if} 
+    {/foreach}
+  &lt;/policy-map&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+  &lt;policy-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos" operation="delete"&gt;
+    &lt;policyMap&gt;{$params.object_id}&lt;/policyMap&gt;
+  &lt;/policy-map&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+</ObjectDefinition>
