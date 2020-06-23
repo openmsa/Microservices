@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>netconf</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Interfaces</group>
+    <icon>/images/repository/CommandDefinition/icons/ProtectionProfile.png</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Loopback</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Interface Name" displayOrder="0" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String"/>
+    <variable displayName="Description" displayOrder="1" maxLength="200" name="params.description" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName=" IP address" displayOrder="2" maxLength="100" name="params.primary_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>IP address (primary)</section>
+      </sections>
+    </variable>
+    <variable displayName=" IP mask" displayOrder="3" maxLength="100" name="params.primary_mask" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>IP address (primary)</section>
+      </sections>
+    </variable>
+    <variable displayName=" Inbound map" displayOrder="4" maxLength="100" name="params.inbound_pbr_map" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <sections>
+        <section>PBR </section>
+      </sections>
+      <classes>
+        <class>pbr_map</class>
+      </classes>
+    </variable>
+    <variable displayName=" Outbound map" displayOrder="5" maxLength="100" name="params.outbound_pbr_map" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <sections>
+        <section>PBR </section>
+      </sections>
+      <classes>
+        <class>pbr_map</class>
+      </classes>
+    </variable>
+    <variable displayName="Inbound" displayOrder="6" maxLength="100" name="params.inbound_srv_plc" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <sections>
+        <section>Service Policy</section>
+      </sections>
+      <classes>
+        <class>policy_map</class>
+      </classes>
+    </variable>
+    <variable displayName="Outbound" displayOrder="7" maxLength="100" name="params.outbound_srv_plc" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <sections>
+        <section>Service Policy</section>
+      </sections>
+      <classes>
+        <class>policy_map</class>
+      </classes>
+    </variable>
+  </variables>  <example>
+    <content>&lt;interfaces&gt;
+        &lt;interface&gt;
+            &lt;name&gt;ge-0/0/0&lt;/name&gt;
+            &lt;unit&gt;
+                &lt;name&gt;0&lt;/name&gt;
+                &lt;family&gt;
+                    &lt;inet&gt;
+                        &lt;address&gt;
+                            &lt;name&gt;10.30.18.138/23&lt;/name&gt;
+                        &lt;/address&gt;
+                    &lt;/inet&gt;
+                &lt;/family&gt;
+            &lt;/unit&gt;
+        &lt;/interface&gt;
+&lt;/interfaces&gt;
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;rpc-reply xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="101"&gt;
+    &lt;data&gt;
+        &lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+            &lt;interface&gt;
+                &lt;gigabitethernet xmlns="http://oneaccess-net.com/oneos/infrastructure/interface"&gt;
+                    &lt;name&gt;0/1&lt;/name&gt;
+                    &lt;ip xmlns="http://oneaccess-net.com/oneos/intfipglob"&gt;
+                        &lt;address xmlns="http://oneaccess-net.com/oneos/infrastructure/ipmgmt"&gt;
+                            &lt;dhcp /&gt;
+                        &lt;/address&gt;
+                    &lt;/ip&gt;
+                &lt;/gigabitethernet&gt;
+                &lt;gigabitethernet xmlns="http://oneaccess-net.com/oneos/infrastructure/interface"&gt;
+                    &lt;name&gt;0/2&lt;/name&gt;
+                &lt;/gigabitethernet&gt;
+            &lt;/interface&gt;
+        &lt;/system&gt;
+    &lt;/data&gt;
+&lt;/rpc-reply&gt;
+</content>
+  </example>
+  
+  <command name="UPDATE">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+  &lt;interface&gt;
+    &lt;loopback xmlns="http://oneaccess-net.com/oneos/infrastructure/interface" operation="replace"&gt;
+      &lt;name&gt;{$params.object_id}&lt;/name&gt;
+      &lt;description&gt;{$params.description}&lt;/description&gt;
+      {if $params.inbound_srv_plc}
+      &lt;service-policy xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+        &lt;direction&gt;input&lt;/direction&gt;
+        &lt;policy-list&gt;{$params.inbound_srv_plc}&lt;/policy-list&gt;
+      &lt;/service-policy&gt;
+      {/if}
+      {if $params.outbound_srv_plc}
+      &lt;service-policy xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+        &lt;direction&gt;output&lt;/direction&gt;
+        &lt;policy-list&gt;{$params.outbound_srv_plc}&lt;/policy-list&gt;
+      &lt;/service-policy&gt;
+      {/if}
+      &lt;ip xmlns="http://oneaccess-net.com/oneos/intfipglob"&gt;
+        {if $params.inbound_pbr_map}
+        &lt;policy-routing xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+          &lt;in&gt;
+            &lt;pol-name&gt;{$params.inbound_pbr_map}&lt;/pol-name&gt;
+            &lt;in/&gt;
+          &lt;/in&gt;
+        &lt;/policy-routing&gt;
+        {elseif $params.outbound_pbr_map}
+        &lt;policy-routing xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+          &lt;out&gt;
+            &lt;pol-name&gt;{$params.outbound_pbr_map}&lt;/pol-name&gt;
+            &lt;out/&gt;
+          &lt;/out&gt;
+        &lt;/policy-routing&gt;
+        {/if}
+        &lt;address xmlns="http://oneaccess-net.com/oneos/infrastructure/ipmgmt"&gt;
+      	 &lt;primary&gt;
+      	   &lt;address&gt;{$params.primary_ip}&lt;/address&gt;
+      	   &lt;mask&gt;{$params.primary_mask}&lt;/mask&gt;
+      	 &lt;/primary&gt;
+      	&lt;/address&gt;
+      &lt;/ip&gt;
+    &lt;/loopback&gt;
+  &lt;/interface&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation/>
+    <xpath>/data/system/interface</xpath>
+    <parser>
+      <section>
+        <xpath>//loopback</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//service-policy</xpath>
+          <regexp>@&lt;direction&gt;input&lt;/direction&gt;&lt;policy-list&gt;(?&lt;inbound_srv_plc&gt;\S+?)&lt;/policy-list&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//service-policy</xpath>
+          <regexp>@&lt;direction&gt;output&lt;/direction&gt;&lt;policy-list&gt;(?&lt;outbound_srv_plc&gt;\S+?)&lt;/policy-list&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//ip/policy-routing/in</xpath>
+          <regexp>@&lt;pol-name&gt;(?&lt;inbound_pbr_map&gt;\S+?)&lt;/pol-name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//ip/policy-routing/out</xpath>
+          <regexp>@&lt;pol-name&gt;(?&lt;outbound_pbr_map&gt;\S+?)&lt;/pol-name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//ip/address/primary</xpath>
+          <regexp>@&lt;address&gt;(?&lt;primary_ip&gt;(\d{1,3}\.){3}\d{1,3})&lt;/address&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//ip/address/primary</xpath>
+          <regexp>@&lt;mask&gt;(?&lt;primary_mask&gt;(\d{1,3}\.){3}\d{1,3})&lt;/mask&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//description</xpath>
+          <regexp>@&lt;description&gt;(?&lt;description&gt;.+?)&lt;/description&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+<command name="CREATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+  &lt;interface&gt;
+    &lt;loopback xmlns="http://oneaccess-net.com/oneos/infrastructure/interface"&gt;
+      &lt;name&gt;{$params.object_id}&lt;/name&gt;
+      &lt;description&gt;{$params.description}&lt;/description&gt;
+      {if $params.inbound_srv_plc}
+      &lt;service-policy xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+        &lt;direction&gt;input&lt;/direction&gt;
+        &lt;policy-list&gt;{$params.inbound_srv_plc}&lt;/policy-list&gt;
+      &lt;/service-policy&gt;
+      {/if}
+      {if $params.outbound_srv_plc}
+      &lt;service-policy xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+        &lt;direction&gt;output&lt;/direction&gt;
+        &lt;policy-list&gt;{$params.outbound_srv_plc}&lt;/policy-list&gt;
+      &lt;/service-policy&gt;
+      {/if}
+      &lt;ip xmlns="http://oneaccess-net.com/oneos/intfipglob"&gt;
+        {if $params.inbound_pbr_map}
+        &lt;policy-routing xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+          &lt;in&gt;
+            &lt;pol-name&gt;{$params.inbound_pbr_map}&lt;/pol-name&gt;
+            &lt;in/&gt;
+          &lt;/in&gt;
+        &lt;/policy-routing&gt;
+        {elseif $params.outbound_pbr_map}
+        &lt;policy-routing xmlns="http://oneaccess-net.com/oneos/infrastructure/intfbinds"&gt;
+          &lt;out&gt;
+            &lt;pol-name&gt;{$params.outbound_pbr_map}&lt;/pol-name&gt;
+            &lt;out/&gt;
+          &lt;/out&gt;
+        &lt;/policy-routing&gt;
+        {/if}
+        &lt;address xmlns="http://oneaccess-net.com/oneos/infrastructure/ipmgmt"&gt;
+      	 &lt;primary&gt;
+      	   &lt;address&gt;{$params.primary_ip}&lt;/address&gt;
+      	   &lt;mask&gt;{$params.primary_mask}&lt;/mask&gt;
+      	 &lt;/primary&gt;
+      	&lt;/address&gt;
+      &lt;/ip&gt;
+    &lt;/loopback&gt;
+  &lt;/interface&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+  &lt;interface&gt;
+    &lt;loopback xmlns="http://oneaccess-net.com/oneos/infrastructure/interface" operation="delete"&gt;
+      &lt;name&gt;{$loopback_Interface.$object_id.object_id}&lt;/name&gt;
+    &lt;/loopback&gt;
+  &lt;/interface&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+</ObjectDefinition>

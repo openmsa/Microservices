@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>netconf</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>IPv4 Routing</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>IPv4 Static Routing</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="object_id" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Network" displayOrder="1" maxLength="100" name="params.prefix" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Mask" displayOrder="2" maxLength="100" name="params.mask" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Gateway" displayOrder="3" maxLength="100" name="params.gateway" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Name" displayOrder="4" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="IMPORT">
+    <operation/>
+    <post_template/>
+    <xpath>/system/ip/route</xpath>
+    <parser>
+      <section>
+        <xpath>//ip-route-list</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//mask</xpath>
+          <regexp>@&lt;mask&gt;(?&lt;mask&gt;(\d{1,3}\.){3}\d{1,3})&lt;/mask&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//prefix</xpath>
+          <regexp>@&lt;prefix&gt;(?&lt;prefix&gt;(\d{1,3}\.){3}\d{1,3})&lt;/prefix&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//gateway</xpath>
+          <regexp>@&lt;gateway&gt;(?&lt;gateway&gt;(\d{1,3}\.){3}\d{1,3})&lt;/gateway&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  </command>
+<command name="CREATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+    &lt;ip&gt;
+      &lt;route xmlns="http://oneaccess-net.com/oneos/routing/route"&gt;
+        &lt;ip-route-list xmlns="http://oneaccess-net.com/oneos/routing/static"&gt;
+          &lt;prefix&gt;{$params.prefix}&lt;/prefix&gt;
+          &lt;mask&gt;{$params.mask}&lt;/mask&gt;
+          &lt;gateway&gt;{$params.gateway}&lt;/gateway&gt;
+          &lt;name&gt;{$params.name}&lt;/name&gt;
+        &lt;/ip-route-list&gt;
+      &lt;/route&gt;
+    &lt;/ip&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="UPDATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+    &lt;ip&gt;
+      &lt;route xmlns="http://oneaccess-net.com/oneos/routing/route"&gt;
+        &lt;ip-route-list xmlns="http://oneaccess-net.com/oneos/routing/static" operation="delete"&gt;
+          &lt;prefix&gt;{$route_v4_static.$object_id.prefix}&lt;/prefix&gt;
+          &lt;mask&gt;{$route_v4_static.$object_id.mask}&lt;/mask&gt;
+          &lt;gateway&gt;{$route_v4_static.$object_id.gateway}&lt;/gateway&gt;
+          &lt;name&gt;{$route_v4_static.$object_id.name}&lt;/name&gt;
+        &lt;/ip-route-list&gt;
+        &lt;ip-route-list xmlns="http://oneaccess-net.com/oneos/routing/static"&gt;
+          &lt;prefix&gt;{$params.prefix}&lt;/prefix&gt;
+          &lt;mask&gt;{$params.mask}&lt;/mask&gt;
+          &lt;gateway&gt;{$params.gateway}&lt;/gateway&gt;
+          &lt;name&gt;{$params.name}&lt;/name&gt;
+        &lt;/ip-route-list&gt;
+      &lt;/route&gt;
+    &lt;/ip&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;
+    &lt;ip&gt;
+      &lt;route xmlns="http://oneaccess-net.com/oneos/routing/route"&gt;
+        &lt;ip-route-list xmlns="http://oneaccess-net.com/oneos/routing/static" operation="delete"&gt;
+          &lt;prefix&gt;{$route_v4_static.$object_id.prefix}&lt;/prefix&gt;
+          &lt;mask&gt;{$route_v4_static.$object_id.mask}&lt;/mask&gt;
+          &lt;gateway&gt;{$route_v4_static.$object_id.gateway}&lt;/gateway&gt;
+          &lt;name&gt;{$route_v4_static.$object_id.name}&lt;/name&gt;
+        &lt;/ip-route-list&gt;
+      &lt;/route&gt;
+    &lt;/ip&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+</ObjectDefinition>
