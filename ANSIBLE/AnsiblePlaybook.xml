@@ -26,13 +26,12 @@
     <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="extra_vars" displayOrder="0" editable="false" maxLength="100" name="params.extra_vars" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="var_name" displayOrder="0" editable="false" maxLength="100" name="params.extra_vars.0.var_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+    <variable displayName="var_name" displayOrder="0" editable="false" maxLength="100" name="params.ansible_vars.0.var_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
       <sections>
         <section>extra_vars</section>
       </sections>
     </variable>
-    <variable displayName="Extra Vars" displayOrder="0" maxLength="100" name="params.extra_vars_res" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Extra Vars" displayOrder="0" maxLength="100" name="params.extra_vars" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="object_id" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="AutoIncrement" visible="false"/>
     <variable displayName="Playbook path" displayOrder="0" maxLength="100" name="params.playbook_path" numberOfRowMax="0" startIncrement="0" type="String"/>
   </variables>
@@ -43,11 +42,11 @@
   <command name="IMPORT">
     <operation>for file in /opt/playbooks/*; do echo $file; cat $file | shyaml get-values-0 0.vars_prompt |while IFS='' read -r -d '' row; do echo "$row";done | grep -E "name:"; done</operation>
     <post_template>{assign var='line' value=''}
-{foreach from=$params.extra_vars key=number item = varname}
+{foreach from=$params.ansible_vars key=number item = varname}
 {assign var var='temp' value=$varname.var_name}
 {$line = "$line $temp"}
 {/foreach}
-{assign_object_variable var='extra_vars_res' value=$line}</post_template>
+{assign_object_variable var='extra_vars' value=$line}</post_template>
     <parser>
       <section>
         <regexp>@^(?&lt;playbook_path&gt;\S+[^/]+?\.yml)*$@</regexp>
@@ -55,7 +54,7 @@
       </section>
       <lines>
         <line>
-          <array name="extra_vars">
+          <array name="ansible_vars">
             <regexp>@^\S+?:\s+?(?&lt;var_name&gt;\S+)$@</regexp>
           </array>
         </line>
