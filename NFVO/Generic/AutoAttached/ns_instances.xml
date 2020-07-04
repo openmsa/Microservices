@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>NS Instances</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="_color" displayOrder="0" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="nsInstanceId" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="nsdId" displayOrder="1" maxLength="100" name="params.nsdId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="operational_state" displayOrder="1" maxLength="100" name="params.operational_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="nsState" displayOrder="2" maxLength="100" name="params.nsState" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="nsdInfoId" displayOrder="3" maxLength="100" name="params.nsdInfoId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+	&lt;row&gt;
+		&lt;id&gt;598780c4-35fe-445b-968d-bbb9bc4f9b72&lt;/id&gt;
+		&lt;nsdId&gt;13491bf2-b0e7-4ac5-b2fb-57a0cd6fe485&lt;/nsdId&gt;
+		&lt;nsdInfoId&gt;5258a7f6-f9c2-4f67-9c8e-c650829b48f4&lt;/nsdInfoId&gt;
+		&lt;vnfInstance/&gt;
+		&lt;nsState&gt;NOT_INSTANTIATED&lt;/nsState&gt;
+		&lt;_links&gt;
+			&lt;self&gt;
+				&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/sol005/nslcm/v1/ns_instances/598780c4-35fe-445b-968d-bbb9bc4f9b72&lt;/href&gt;
+			&lt;/self&gt;
+			&lt;instantiate&gt;
+				&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/sol005/nslcm/v1/ns_instances/598780c4-35fe-445b-968d-bbb9bc4f9b72/instantiate&lt;/href&gt;
+			&lt;/instantiate&gt;
+			&lt;terminate&gt;
+				&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/sol005/nslcm/v1/ns_instances/598780c4-35fe-445b-968d-bbb9bc4f9b72/terminate&lt;/href&gt;
+			&lt;/terminate&gt;
+			&lt;update&gt;
+				&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/sol005/nslcm/v1/ns_instances/598780c4-35fe-445b-968d-bbb9bc4f9b72/update&lt;/href&gt;
+			&lt;/update&gt;
+			&lt;scale&gt;
+				&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/sol005/nslcm/v1/ns_instances/598780c4-35fe-445b-968d-bbb9bc4f9b72/scale&lt;/href&gt;
+			&lt;/scale&gt;
+			&lt;heal&gt;
+				&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/sol005/nslcm/v1/ns_instances/598780c4-35fe-445b-968d-bbb9bc4f9b72/heal&lt;/href&gt;
+			&lt;/heal&gt;
+		&lt;/_links&gt;
+	&lt;/row&gt;
+&lt;/root&gt;
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>nsdId</xpath>
+          <regexp>@&lt;nsdId&gt;(?&lt;nsdId&gt;.*)&lt;/nsdId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>nsdInfoId</xpath>
+          <regexp>@&lt;nsdInfoId&gt;(?&lt;nsdInfoId&gt;.*)&lt;/nsdInfoId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>nsState</xpath>
+          <regexp>@&lt;nsState&gt;(?&lt;nsState&gt;.*)&lt;/nsState&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{if  $params.nsState== NOT_INSTANTIATED}
+      {assign_object_variable var="_color" value=red}
+{/if}
+
+{if  $params.nsState== INSTANTIATED}
+      {assign_object_variable var="_color" value=green}
+{/if}</post_template>
+  <xpath>/ubi-etsi-mano/sol005/nslcm/v1/ns_instances</xpath>
+  </command>
+</ObjectDefinition>

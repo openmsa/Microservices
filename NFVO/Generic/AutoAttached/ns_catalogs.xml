@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>nsd_catalogs</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>NS catalogs</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="NSD Package Id" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="NSD Name" displayOrder="1" maxLength="100" name="params.nsd_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="nsd_onboarding_state" displayOrder="2" maxLength="100" name="params.nsd_onboarding_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="NSD Operational State" displayOrder="3" maxLength="100" name="params.nsd_operational_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="nsd_usage_state" displayOrder="4" maxLength="100" name="params.nsd_usage_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="nsd_catalogs" displayOrder="5" editable="false" maxLength="100" name="params.nsd_catalogs" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="vnf_pkg_ids" displayOrder="6" maxLength="100" name="params.vnfPkgIds.0.vnf_pkg_ids" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>vnfPkgIds</section>
+      </sections>
+    </variable>
+    <variable displayName="_color" displayOrder="7" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="customer_id" displayOrder="8" maxLength="100" name="params.userDefinedData.0.customer_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+    <variable displayName="vim_id" displayOrder="9" maxLength="100" name="params.userDefinedData.0.vim_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+      	<xpath>//root/row</xpath>  
+      </section>
+      <lines>
+        <line>
+          <array name="userDefinedData">
+            <xpath>userDefinedData</xpath>
+            <lines>
+              <line>
+                <xpath>customerId</xpath>
+                <regexp>@&lt;customerId&gt;(?&lt;customer_id&gt;.*)&lt;/customerId&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>vimId</xpath>
+                <regexp>@&lt;vimId&gt;(?&lt;vim_id&gt;.*)&lt;/vimId&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        
+        <line>
+          <xpath>nsdUsageState</xpath>
+          <regexp>@&lt;nsdUsageState&gt;(?&lt;nsd_usage_state&gt;.*)&lt;/nsdUsageState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>nsdOperationalState</xpath>
+          <regexp>@&lt;nsdOperationalState&gt;(?&lt;nsd_operational_state&gt;.*)&lt;/nsdOperationalState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>nsdOnboardingState</xpath>
+          <regexp>@&lt;nsdOnboardingState&gt;(?&lt;nsd_onboarding_state&gt;.*)&lt;/nsdOnboardingState&gt;@</regexp>
+        </line>
+        <line>
+          <array name="vnfPkgIds">
+            <xpath>vnfPkgIds</xpath>
+            <lines>
+              <line>
+                <xpath>row</xpath>
+                <regexp>@&lt;row&gt;(?&lt;vnf_pkg_ids&gt;.*)&lt;/row&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        
+        <line>
+          <xpath>nsdName</xpath>
+          <regexp>@&lt;nsdName&gt;(?&lt;nsd_name&gt;.*)&lt;/nsdName&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>id
+</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <post_template>{assign_object_variable var="nsd_catalogs" value="{$params.object_id} - {$params.nsd_name} - {$params.nsd_operational_state}"}
+
+{if  $params.nsd_operational_state == DISABLED}
+      {assign_object_variable var="_color" value=red}
+{/if}
+
+{if  $params.nsd_operational_state == ENABLED}
+      {assign_object_variable var="_color" value=green}
+{/if}</post_template>
+  <xpath>/ubi-etsi-mano/sol005/nsd/v1/ns_descriptors</xpath>
+  </command>
+</ObjectDefinition>
