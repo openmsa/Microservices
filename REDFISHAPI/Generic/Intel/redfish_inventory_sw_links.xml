@@ -1,69 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10</order>
+    <visibility>0</visibility>
     <configType>netconf</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|Intel</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[SERVICE]Software Inventory List</name>
+    <group>BIOS|Intel</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>L[SERVICE]Software Inventory List</name>
-    <order>10</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Target Link" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="System" displayOrder="0" maxLength="100" name="params.system" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Target Link" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="System" name="params.system" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/redfish/v1/UpdateService/SoftwareInventory</xpath>
+    <post_template>{assign var="link_array" value='/'|explode:$params.object_id}
+{assign_object_variable var="system" value=$link_array|@end}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/Members/row</xpath>
       </section>
       <lines>
         <line>
+          <array/>
+          <regexp>@&lt;ATodataDOTid>(?&lt;object_id>.*)&lt;/ATodataDOTid>@</regexp>
           <xpath>//ATodataDOTid</xpath>
-          <regexp>@&lt;ATodataDOTid&gt;(?&lt;object_id&gt;.*)&lt;/ATodataDOTid&gt;@</regexp>
         </line>
       </lines>
     </parser>
-    <post_template>{assign var="link_array" value='/'|explode:$params.object_id}
-{assign_object_variable var="system" value=$link_array|@end}</post_template>
+    <xpath>/redfish/v1/UpdateService/SoftwareInventory</xpath>
   </command>
-<command name="UPDATE">
+  <command name="UPDATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob">&lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos">&lt;name>{$params.object_id}&lt;/name>{foreach $params.rule_list item=rule}&lt;match>{if $rule.type eq 'dscp'}&lt;matchRule>ip dscp {$rule.value}&lt;/matchRule>{elseif}&lt;not/>&lt;/match>&lt;/class-map>
+&lt;/system>
+</operation>
     <rest>
 </rest>
     <xpath>
 </xpath>
-    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;    
-  &lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos"&gt;
-    &lt;name&gt;{$params.object_id}&lt;/name&gt;
-    {foreach $params.rule_list item=rule}
-    &lt;match&gt;
-      {if $rule.type eq 'dscp'}
-      &lt;matchRule&gt;ip dscp {$rule.value}&lt;/matchRule&gt;
-      {elseif}
-      
-
-      &lt;not/&gt;
-    &lt;/match&gt;
-  &lt;/class-map&gt;
-&lt;/system&gt;
-</operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
