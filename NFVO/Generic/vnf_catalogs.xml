@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>vnf_catalogs</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VNF catalogs</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="operational_state" displayOrder="0" maxLength="100" name="params.operational_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnf_operational_state" displayOrder="1" editable="false" maxLength="100" name="params.vnf_operational_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="VNF Package Id" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="onboarding_state" displayOrder="3" maxLength="100" name="params.onboarding_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="usage_state" displayOrder="4" maxLength="100" name="params.usage_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnf_catalogs" displayOrder="5" editable="false" maxLength="100" name="params.vnf_catalogs" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="_color" displayOrder="6" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="vnf_pkg_name" displayOrder="7" maxLength="100" name="params.userDefinedData.0.vnf_package_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+    <variable displayName="customer_id" displayOrder="8" maxLength="100" name="params.userDefinedData.0.customer_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+    <variable displayName="manufacturer" displayOrder="9" maxLength="100" name="params.userDefinedData.0.manufacturer" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+    <variable displayName="vim_id" displayOrder="10" maxLength="100" name="params.userDefinedData.0.vim_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+    <variable displayName="model" displayOrder="11" maxLength="100" name="params.userDefinedData.0.model" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+    <variable displayName="device_password" displayOrder="12" maxLength="100" name="params.userDefinedData.0.device_password" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>userDefinedData</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0"?&gt;
+&lt;row&gt;
+	&lt;id&gt;c026b619-8fa5-48a7-a724-228892cad44e&lt;/id&gt;
+	&lt;additionalArtifacts/&gt;
+	&lt;onboardingState&gt;ONBOARDED&lt;/onboardingState&gt;
+	&lt;operationalState&gt;ENABLED&lt;/operationalState&gt;
+	&lt;usageState&gt;NOT_IN_USE&lt;/usageState&gt;
+	&lt;userDefinedData&gt;
+		&lt;customerId&gt;TMAA6&lt;/customerId&gt;
+		&lt;vimId&gt;TMA125&lt;/vimId&gt;
+		&lt;manufacturerId&gt;18&lt;/manufacturerId&gt;
+		&lt;modelId&gt;16010203&lt;/modelId&gt;
+		&lt;device_login&gt;root&lt;/device_login&gt;
+		&lt;device_password&gt;ubisle38&lt;/device_password&gt;
+		&lt;monitoring_profile_ref&gt;VNF_MON_JUNIPER&lt;/monitoring_profile_ref&gt;
+		&lt;heat&gt;
+			&lt;heat_template_version&gt;2015-04-30&lt;/heat_template_version&gt;
+			&lt;description&gt;HOT template (Heat Orchestration Template) for Juniper vSRX VNF.
+			&lt;/description&gt;
+			&lt;parameters&gt;
+				&lt;key_name&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Name of key-pair to be used for compute instance&lt;/description&gt;
+					&lt;default/&gt;
+				&lt;/key_name&gt;
+				&lt;flavor&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Type of instance (flavor) to be used&lt;/description&gt;
+					&lt;default&gt;m1.medium&lt;/default&gt;
+				&lt;/flavor&gt;
+				&lt;availability_zone&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;availability zone to be used&lt;/description&gt;
+					&lt;default&gt;standard&lt;/default&gt;
+				&lt;/availability_zone&gt;
+				&lt;image_id&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Image Name&lt;/description&gt;
+					&lt;default&gt;66c96610-f427-45fe-b7c9-e70d163f35e5&lt;/default&gt;
+				&lt;/image_id&gt;
+				&lt;private_primary_network_id&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Private primary network ID&lt;/description&gt;
+					&lt;default&gt;net3&lt;/default&gt;
+				&lt;/private_primary_network_id&gt;
+				&lt;private_primary_subnetwork&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Private primary sub-network name or ID&lt;/description&gt;
+					&lt;default&gt;net3_subnet&lt;/default&gt;
+				&lt;/private_primary_subnetwork&gt;
+				&lt;private_secondary_network_id&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Private secondary network ID&lt;/description&gt;
+					&lt;default&gt;net2&lt;/default&gt;
+				&lt;/private_secondary_network_id&gt;
+				&lt;private_secondary_subnetwork&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Private secondary sub-network name or ID&lt;/description&gt;
+					&lt;default&gt;net2_subnet&lt;/default&gt;
+				&lt;/private_secondary_subnetwork&gt;
+				&lt;public_network&gt;
+					&lt;type&gt;string&lt;/type&gt;
+					&lt;description&gt;Network private IP's to attach instance to .&lt;/description&gt;
+					&lt;default&gt;Floating-Public&lt;/default&gt;
+				&lt;/public_network&gt;
+			&lt;/parameters&gt;
+			&lt;resources&gt;
+				&lt;Junipervsrx&gt;
+					&lt;type&gt;OS::Nova::Server&lt;/type&gt;
+					&lt;properties&gt;
+						&lt;name&gt;Junipervsrx&lt;/name&gt;
+						&lt;key_name&gt;
+							&lt;get_param&gt;key_name&lt;/get_param&gt;
+						&lt;/key_name&gt;
+						&lt;image&gt;
+							&lt;get_param&gt;image_id&lt;/get_param&gt;
+						&lt;/image&gt;
+						&lt;flavor&gt;
+							&lt;get_param&gt;flavor&lt;/get_param&gt;
+						&lt;/flavor&gt;
+						&lt;availability_zone&gt;
+							&lt;get_param&gt;availability_zone&lt;/get_param&gt;
+						&lt;/availability_zone&gt;
+						&lt;networks&gt;
+							&lt;row&gt;
+								&lt;port&gt;
+									&lt;get_resource&gt;server_primary_port&lt;/get_resource&gt;
+								&lt;/port&gt;
+							&lt;/row&gt;
+							&lt;row&gt;
+								&lt;port&gt;
+									&lt;get_resource&gt;server_secondary_port&lt;/get_resource&gt;
+								&lt;/port&gt;
+							&lt;/row&gt;
+						&lt;/networks&gt;
+						&lt;config_drive&gt;true&lt;/config_drive&gt;
+						&lt;user_data_format&gt;RAW&lt;/user_data_format&gt;
+						&lt;user_data&gt;#junos-config
+system { root-authentication { encrypted-password "$5$FgYBloiu$uWknvCn20tUyUsHP8Uf3JuoSngcMf4TMMjrkCiRmVF9"; } name-server { 8.8.4.4; } services { ssh { root-login allow; } web-management { http { interface fxp0.0; } https { system-generated-certificate; interface[fxp0.0 ge-0/0/0.0]; } } } syslog { user * { any emergency; } file messages { any any; authorization info; } file interactive-commands { interactive-commands any; } } license { autoupdate { url https://ae1.juniper.net/junos/key_retrieval; } } } services { application-identification; } security { application-firewall { traceoptions { file app; flag all; } rule-sets apptest { rule 1 { match { dynamic-application junos:UNKNOWN; } then { deny; } } default-rule { permit; } } } application-tracking { first-update; } screen { ids-option untrust-screen { icmp { ping-death; } ip { source-route-option; tear-drop; } tcp { syn-flood { alarm-threshold 1024; attack-threshold 200; source-threshold 1024; destination-threshold 2048; timeout 20; } land; } } } nat { source { rule-set nat { from zone trust; to zone untrust; rule 1 { match { source-address 0.0.0.0/0; destination-address 0.0.0.0/0; } then { source-nat { interface; } } } } } } policies { from-zone trust to-zone trust { policy default-permit { match { source-address any; destination-address any; application any; } then { permit; log { session-init; session-close; } } } } from-zone trust to-zone untrust { policy default-permit { match { source-address any; destination-address any; application any; } then { permit { application-services { application-firewall { rule-set apptest; } } } } } } from-zone untrust to-zone trust { policy default-deny { match { source-address any; destination-address any; application any; } then { deny; } } } global { policy log-deny { match { source-address any; destination-address any; application any; } then { reject; log { session-init; session-close; } } } } } zones { security-zone untrust { screen untrust-screen; interfaces { ge-0/0/0.0 { host-inbound-traffic { system-services { ping; ssh; https; } } } } } security-zone trust; } } interfaces { ge-0/0/0 { unit 0 { family inet { dhcp-client; } } } fxp0 { unit 0 { family inet { dhcp-client; } } } } snmp { community ubiqube { authorization read-only; } }&lt;/user_data&gt;
+					&lt;/properties&gt;
+				&lt;/Junipervsrx&gt;
+				&lt;server_primary_port&gt;
+					&lt;type&gt;OS::Neutron::Port&lt;/type&gt;
+					&lt;properties&gt;
+						&lt;network_id&gt;
+							&lt;get_param&gt;private_primary_network_id&lt;/get_param&gt;
+						&lt;/network_id&gt;
+					&lt;/properties&gt;
+				&lt;/server_primary_port&gt;
+				&lt;server_floating_ip&gt;
+					&lt;type&gt;OS::Neutron::FloatingIP&lt;/type&gt;
+					&lt;properties&gt;
+						&lt;floating_network&gt;
+							&lt;get_param&gt;public_network&lt;/get_param&gt;
+						&lt;/floating_network&gt;
+					&lt;/properties&gt;
+				&lt;/server_floating_ip&gt;
+				&lt;server_floating_ip_association&gt;
+					&lt;type&gt;OS::Neutron::FloatingIPAssociation&lt;/type&gt;
+					&lt;properties&gt;
+						&lt;floatingip_id&gt;
+							&lt;get_resource&gt;server_floating_ip&lt;/get_resource&gt;
+						&lt;/floatingip_id&gt;
+						&lt;port_id&gt;
+							&lt;get_attr&gt;
+								&lt;row&gt;Junipervsrx&lt;/row&gt;
+								&lt;row&gt;addresses&lt;/row&gt;
+								&lt;row&gt;
+									&lt;get_param&gt;private_primary_network_id&lt;/get_param&gt;
+								&lt;/row&gt;
+								&lt;row&gt;0&lt;/row&gt;
+								&lt;row&gt;port&lt;/row&gt;
+							&lt;/get_attr&gt;
+						&lt;/port_id&gt;
+					&lt;/properties&gt;
+				&lt;/server_floating_ip_association&gt;
+				&lt;server_secondary_port&gt;
+					&lt;type&gt;OS::Neutron::Port&lt;/type&gt;
+					&lt;properties&gt;
+						&lt;network_id&gt;
+							&lt;get_param&gt;private_secondary_network_id&lt;/get_param&gt;
+						&lt;/network_id&gt;
+					&lt;/properties&gt;
+				&lt;/server_secondary_port&gt;
+			&lt;/resources&gt;
+		&lt;/heat&gt;
+		&lt;manufacturer&gt;JUNIPER&lt;/manufacturer&gt;
+		&lt;model&gt;junOS generic&lt;/model&gt;
+	&lt;/userDefinedData&gt;
+	&lt;_links&gt;
+		&lt;self&gt;
+			&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/c026b619-8fa5-48a7-a724-228892cad44e&lt;/href&gt;
+		&lt;/self&gt;
+		&lt;vnfd&gt;
+			&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/c026b619-8fa5-48a7-a724-228892cad44e/vnfd&lt;/href&gt;
+		&lt;/vnfd&gt;
+		&lt;packageContent&gt;
+			&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/c026b619-8fa5-48a7-a724-228892cad44e/package_content&lt;/href&gt;
+		&lt;/packageContent&gt;
+	&lt;/_links&gt;
+&lt;/row&gt;
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+      	<xpath>//root/row</xpath> 
+      </section>
+      <lines>
+        <line>
+          <array name="userDefinedData">
+            <xpath>userDefinedData</xpath>
+            <lines>
+              <line>
+                <xpath>vnf_package_name</xpath>
+                <regexp>@&lt;vnf_package_name&gt;(?&lt;vnf_package_name&gt;.*)&lt;/vnf_package_name&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>model</xpath>
+                <regexp>@&lt;model&gt;(?&lt;model&gt;.*)&lt;/model&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>manufacturer</xpath>
+                <regexp>@&lt;manufacturer&gt;(?&lt;manufacturer&gt;.*)&lt;/manufacturer&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>vimId</xpath>
+                <regexp>@&lt;vimId&gt;(?&lt;vim_id&gt;.*)&lt;/vimId&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>customerId</xpath>
+                <regexp>@&lt;customerId&gt;(?&lt;customer_id&gt;.*)&lt;/customerId&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>device_password</xpath>
+                <regexp>@&lt;device_password&gt;(?&lt;device_password&gt;.*)&lt;/device_password&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>usageState</xpath>
+          <regexp>@&lt;usageState&gt;(?&lt;usage_state&gt;.*)&lt;/usageState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>operationalState</xpath>
+          <regexp>@&lt;operationalState&gt;(?&lt;operational_state&gt;.*)&lt;/operationalState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>onboardingState</xpath>
+          <regexp>@&lt;onboardingState&gt;(?&lt;onboarding_state&gt;.*)&lt;/onboardingState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        
+      </lines>
+    </parser>
+    <post_template>{assign_object_variable var="vnf_catalogs" value="{$params.object_id} - {$params.userDefinedData.0.vnf_package_name} - {$params.userDefinedData.0.manufacturer} - {$params.userDefinedData.0.model} - {$params.operational_state}"}
+
+{if  $params.operational_state == DISABLED}
+      {assign_object_variable var="_color" value=red}
+{/if}
+
+{if  $params.operational_state == ENABLED}
+      {assign_object_variable var="_color" value=green}
+{/if}</post_template>
+  <xpath>/ubi-etsi-mano/sol005/vnfpkgm/v1/vnf_packages</xpath>
+  </command>
+</ObjectDefinition>

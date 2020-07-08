@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VNF_Instances</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="_color" displayOrder="0" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="vnfinstanceId" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnfdId" displayOrder="1" maxLength="100" name="params.vnfdId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnfProvider" displayOrder="2" maxLength="100" name="params.vnfProvider" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnfProductName" displayOrder="3" maxLength="100" name="params.vnfProductName" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnfSoftwareVersion" displayOrder="4" maxLength="100" name="params.vnfSoftwareVersion" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnfdVersion" displayOrder="5" maxLength="100" name="params.vnfdVersion" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vnfPkgId" displayOrder="6" maxLength="100" name="params.vnfPkgId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="instantiationState" displayOrder="7" maxLength="100" name="params.instantiationState" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+	&lt;row&gt;
+		&lt;id&gt;20d2d1f2-d01d-4fd3-82af-b1fc160526b8&lt;/id&gt;
+		&lt;vnfdId&gt;5e84f394-4721-4122-a3e9-3ad3e74c7af2&lt;/vnfdId&gt;
+		&lt;vnfProvider&gt;Ubiqube internal.&lt;/vnfProvider&gt;
+		&lt;vnfProductName&gt;small_integration_test&lt;/vnfProductName&gt;
+		&lt;vnfSoftwareVersion&gt;1.0.0&lt;/vnfSoftwareVersion&gt;
+		&lt;vnfdVersion&gt;1.0.1&lt;/vnfdVersion&gt;
+		&lt;vnfPkgId&gt;9518fc5c-8a23-42b1-a2bb-303a9e9818b6&lt;/vnfPkgId&gt;
+		&lt;instantiationState&gt;NOT_INSTANTIATED&lt;/instantiationState&gt;
+		&lt;instantiatedVnfInfo&gt;
+			&lt;vnfState&gt;STOPPED&lt;/vnfState&gt;
+			&lt;scaleStatus/&gt;
+			&lt;extCpInfo/&gt;
+			&lt;extVirtualLinkInfo/&gt;
+			&lt;extManagedVirtualLinkInfo/&gt;
+			&lt;monitoringParameters/&gt;
+			&lt;vnfcResourceInfo/&gt;
+			&lt;virtualLinkResourceInfo/&gt;
+			&lt;virtualStorageResourceInfo/&gt;
+		&lt;/instantiatedVnfInfo&gt;
+		&lt;_links&gt;
+			&lt;self&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8&lt;/href&gt;
+			&lt;/self&gt;
+			&lt;indicators&gt;
+				&lt;href/&gt;
+			&lt;/indicators&gt;
+			&lt;instantiate&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/instantiate&lt;/href&gt;
+			&lt;/instantiate&gt;
+			&lt;terminate&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/terminate&lt;/href&gt;
+			&lt;/terminate&gt;
+			&lt;scale&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/scale&lt;/href&gt;
+			&lt;/scale&gt;
+			&lt;scaleToLevel&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/scale_to_level&lt;/href&gt;
+			&lt;/scaleToLevel&gt;
+			&lt;changeFlavour&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/change_flavour&lt;/href&gt;
+			&lt;/changeFlavour&gt;
+			&lt;heal&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/heal&lt;/href&gt;
+			&lt;/heal&gt;
+			&lt;operate&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/operate&lt;/href&gt;
+			&lt;/operate&gt;
+			&lt;changeExtConn&gt;
+				&lt;href&gt;http://10.31.1.251:8380/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances/20d2d1f2-d01d-4fd3-82af-b1fc160526b8/change_ext_conn&lt;/href&gt;
+			&lt;/changeExtConn&gt;
+		&lt;/_links&gt;
+	&lt;/row&gt;
+&lt;/root&gt;
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vnfdId</xpath>
+          <regexp>@&lt;vnfdId&gt;(?&lt;vnfdId&gt;.*)&lt;/vnfdId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vnfProvider</xpath>
+          <regexp>@&lt;vnfProvider&gt;(?&lt;vnfProvider&gt;.*)&lt;/vnfProvider&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vnfProductName</xpath>
+          <regexp>@&lt;vnfProductName&gt;(?&lt;vnfProductName&gt;.*)&lt;/vnfProductName&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vnfSoftwareVersion</xpath>
+          <regexp>@&lt;vnfSoftwareVersion&gt;(?&lt;vnfSoftwareVersion&gt;.*)&lt;/vnfSoftwareVersion&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vnfdVersion</xpath>
+          <regexp>@&lt;vnfdVersion&gt;(?&lt;vnfdVersion&gt;.*)&lt;/vnfdVersion&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vnfPkgId</xpath>
+          <regexp>@&lt;vnfPkgId&gt;(?&lt;vnfPkgId&gt;.*)&lt;/vnfPkgId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>instantiationState</xpath>
+          <regexp>@&lt;instantiationState&gt;(?&lt;instantiationState&gt;.*)&lt;/instantiationState&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{if  $params.instantiationState == NOT_INSTANTIATED}
+      {assign_object_variable var="_color" value=red}
+{/if}
+
+{if  $params.instantiationState == INSTANTIATED}
+      {assign_object_variable var="_color" value=green}
+{/if}</post_template>
+  <xpath>/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances</xpath>
+  </command>
+</ObjectDefinition>
