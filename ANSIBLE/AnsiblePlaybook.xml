@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description>Call Ansible playbook on remote server</description>
+    <displayField>none</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>AnsiblePlaybook</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="var_name" displayOrder="0" editable="false" maxLength="100" name="params.ansible_vars.0.var_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>extra_vars</section>
+      </sections>
+    </variable>
+    <variable displayName="Extra Vars" displayOrder="0" maxLength="100" name="params.extra_vars" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="object_id" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="AutoIncrement" visible="false"/>
+    <variable displayName="Playbook path" displayOrder="0" maxLength="100" name="params.playbook_path" numberOfRowMax="0" startIncrement="0" type="String"/>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>for file in /opt/playbooks/*; do echo $file; cat $file | shyaml get-values-0 0.vars_prompt |while IFS='' read -r -d '' row; do echo "$row";done | grep -E "name:"; done</operation>
+    <post_template>{assign var='line' value=''}
+{foreach from=$params.ansible_vars key=number item = varname}
+{assign var var='temp' value=$varname.var_name}
+{$line = "$line $temp"}
+{/foreach}
+{assign_object_variable var='extra_vars' value=$line}</post_template>
+    <parser>
+      <section>
+        <regexp>@^(?&lt;playbook_path&gt;\S+[^/]+?\.yml)*$@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array name="ansible_vars">
+            <regexp>@^\S+?:\s+?(?&lt;var_name&gt;\S+)$@</regexp>
+          </array>
+        </line>
+        
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>sudo ansible-playbook {$params.playbook_path} --extra-vars {$params.extra_vars}
+</operation>
+  </command>
+  <command name="DELETE"/>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
