@@ -1,87 +1,87 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/file server.jpg</icon>
+    <description>K8s API ressources List</description>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>API</group>
-    <icon>/images/repository/CommandDefinition/icons/file server.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>API resources list</name>
+    <group>API</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Kubernetes API ressources List</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="id" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String"/>
-    <variable displayName="Name" displayOrder="1" maxLength="200" name="params.name" numberOfRowMax="0" type="String"/>
-    <variable displayName="Namespaced" displayOrder="2" isUserLocked="true" maxLength="200" name="params.namespaced" numberOfRowMax="0" type="String"/>
-    <variable displayName="Kind" displayOrder="3" maxLength="200" name="params.kind" numberOfRowMax="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Namespaced" name="params.namespaced" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Kind" name="params.kind" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>vdi</value>
-        <value>raw</value>
-        <value>aki</value>
-        <value>ari</value>
-        <value>qcow2</value>
-        <value>ami</value>
-        <value>iso</value>
-        <value>vmdk</value>
-        <value>vhd</value>
+        <values>vdi</values>
+        <values>raw</values>
+        <values>aki</values>
+        <values>ari</values>
+        <values>qcow2</values>
+        <values>ami</values>
+        <values>iso</values>
+        <values>vmdk</values>
+        <values>vhd</values>
       </values>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/api/v1</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/resources/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp/>
+          <xpath>id</xpath>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;name>(?&lt;name>.*)&lt;/name>@</regexp>
           <xpath>name</xpath>
-          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;namespaced>(?&lt;namespaced>.*)&lt;/namespaced>@</regexp>
           <xpath>namespaced</xpath>
-          <regexp>@&lt;namespaced&gt;(?&lt;namespaced&gt;.*)&lt;/namespaced&gt;@</regexp>
         </line>
         <line>
+          <array/>
+          <regexp>@&lt;kind>(?&lt;kind>.*)&lt;/kind>@</regexp>
           <xpath>kind</xpath>
-          <regexp>@&lt;kind&gt;(?&lt;kind&gt;.*)&lt;/kind&gt;@</regexp>
         </line>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/api/v1</xpath>
   </command>
-
-
-
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
