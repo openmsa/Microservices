@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>name</displayField>
+    <dynamic>false</dynamic>
+    <group>API</group>
+    <icon>/images/repository/CommandDefinition/icons/file server.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Kubernetes API ressources List</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="id" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String"/>
+    <variable displayName="Name" displayOrder="1" maxLength="200" name="params.name" numberOfRowMax="0" type="String"/>
+    <variable displayName="Namespaced" displayOrder="2" isUserLocked="true" maxLength="200" name="params.namespaced" numberOfRowMax="0" type="String"/>
+    <variable displayName="Kind" displayOrder="3" maxLength="200" name="params.kind" numberOfRowMax="0" type="String">
+      <values>
+        <value>vdi</value>
+        <value>raw</value>
+        <value>aki</value>
+        <value>ari</value>
+        <value>qcow2</value>
+        <value>ami</value>
+        <value>iso</value>
+        <value>vmdk</value>
+        <value>vhd</value>
+      </values>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/api/v1</xpath>
+    <parser>
+      <section>
+        <xpath>//root/resources/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>id</xpath>
+          <regexp/>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>namespaced</xpath>
+          <regexp>@&lt;namespaced&gt;(?&lt;namespaced&gt;.*)&lt;/namespaced&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>kind</xpath>
+          <regexp>@&lt;kind&gt;(?&lt;kind&gt;.*)&lt;/kind&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+
+
+</ObjectDefinition>

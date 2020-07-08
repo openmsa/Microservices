@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Deployments</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Total" displayOrder="2" isUserLocked="true" maxLength="100" name="params.replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Replicas</section>
+      </sections>
+    </variable>
+    <variable displayName="Available" displayOrder="3" isUserLocked="true" maxLength="100" name="params.available_replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Replicas</section>
+      </sections>
+    </variable>
+    <variable displayName="Ready" displayOrder="4" isUserLocked="true" maxLength="100" name="params.ready_replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Replicas</section>
+      </sections>
+    </variable>
+    <variable displayName="Updated" displayOrder="5" isUserLocked="true" maxLength="100" name="params.updated_replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Replicas</section>
+      </sections>
+    </variable>
+    <variable displayName="Template URL" displayOrder="6" maxLength="100" name="params.template_url" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Link"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/apis/apps/v1/deployments</xpath>
+    <parser>
+      <section>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>metadata/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>status/replicas</xpath>
+          <regexp>@&lt;replicas&gt;(?&lt;replicas&gt;.*)&lt;/replicas&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>status/availableReplicas</xpath>
+          <regexp>@&lt;availableReplicas&gt;(?&lt;available_replicas&gt;.*)&lt;/availableReplicas&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>status/readyReplicas</xpath>
+          <regexp>@&lt;readyReplicas&gt;(?&lt;ready_replicas&gt;.*)&lt;/readyReplicas&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>status/updatedReplicas</xpath>
+          <regexp>@&lt;updatedReplicas&gt;(?&lt;updated_replicas&gt;.*)&lt;/updatedReplicas&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+</ObjectDefinition>

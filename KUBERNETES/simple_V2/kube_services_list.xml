@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Services</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Creation Date" displayOrder="1" maxLength="100" name="params.creation_date" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="Type" displayOrder="2" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="Cluster Ip" displayOrder="3" maxLength="100" name="params.cluster_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="External IPs" displayOrder="4" maxLength="100" name="params.external_ips" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="Protocol" displayOrder="5" maxLength="100" name="params.protocol" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="Port" displayOrder="6" maxLength="100" name="params.port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="Target Port" displayOrder="7" maxLength="100" name="params.target_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+    <variable displayName="Node Port" displayOrder="8" maxLength="100" name="params.node_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Service</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/api/v1/services</xpath>
+    <parser>
+      <section>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>metadata/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>metadata/creationTimestamp</xpath>
+          <regexp>@&lt;creationTimestamp&gt;(?&lt;creation_date&gt;.*)&lt;/creationTimestamp&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/type</xpath>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/clusterIP</xpath>
+          <regexp>@&lt;clusterIP&gt;(?&lt;cluster_ip&gt;.*)&lt;/clusterIP&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/externalIPs/row</xpath>
+          <regexp>@&lt;row&gt;(?&lt;external_ips&gt;.*)&lt;/row&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/ports/row/protocol</xpath>
+          <regexp>@&lt;protocol&gt;(?&lt;protocol&gt;.*)&lt;/protocol&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/ports/row/port</xpath>
+          <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/ports/row/targetPort</xpath>
+          <regexp>@&lt;targetPort&gt;(?&lt;target_port&gt;.*)&lt;/targetPort&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/ports/row/nodePort</xpath>
+          <regexp>@&lt;nodePort&gt;(?&lt;node_port&gt;.*)&lt;/nodePort&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+</ObjectDefinition>
