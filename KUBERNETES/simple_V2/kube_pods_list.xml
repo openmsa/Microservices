@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Pods</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Creation Date" displayOrder="1" maxLength="100" name="params.creation_date" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Pods</section>
+      </sections>
+    </variable>
+    <variable displayName="App Name" displayOrder="2" maxLength="100" name="params.app_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Pods</section>
+      </sections>
+    </variable>
+    <variable displayName="Container Image" displayOrder="3" maxLength="100" name="params.container_image" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Pods</section>
+      </sections>
+    </variable>
+    <variable displayName="Container Name" displayOrder="4" maxLength="100" name="params.container_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Pods</section>
+      </sections>
+    </variable>
+    <variable displayName="Container Status" displayOrder="6" maxLength="100" name="params.container_status_phase" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Pods</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/api/v1/pods</xpath>
+    <parser>
+      <section>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>metadata/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>metadata/creationTimestamp</xpath>
+          <regexp>@&lt;creationTimestamp&gt;(?&lt;creation_date&gt;.*)&lt;/creationTimestamp&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>metadata/labels/app</xpath>
+          <regexp>@&lt;app&gt;(?&lt;app_name&gt;.*)&lt;/app&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/containers/row/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;container_name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>spec/containers/row/image</xpath>
+          <regexp>@&lt;image&gt;(?&lt;container_image&gt;.*)&lt;/image&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>status/phase</xpath>
+          <regexp>@&lt;phase&gt;(?&lt;container_status_phase&gt;.*)&lt;/phase&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+</ObjectDefinition>
