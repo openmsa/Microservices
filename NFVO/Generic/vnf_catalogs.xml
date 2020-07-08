@@ -290,6 +290,6 @@ system { root-authentication { encrypted-password "$5$FgYBloiu$uWknvCn20tUyUsHP8
 {if  $params.operational_state == ENABLED}
       {assign_object_variable var="_color" value=green}
 {/if}</post_template>
-  <xpath>/ubi-etsi-mano/sol003/vnfpkgm/v1/vnf_packages</xpath>
+  <xpath>/ubi-etsi-mano/sol005/vnfpkgm/v1/vnf_packages</xpath>
   </command>
 </ObjectDefinition>
