@@ -5,7 +5,7 @@
     <displayField>none</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>5</visibility>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>sdwan_ipsec_network</name>
+    <name>SDWAN IPSec Network</name>
     <group>SDWAN|IPSEC</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -52,19 +52,23 @@
     <parser>
       <section>
         <regexp>@^###___CRYPTO_MAP_EXT-(?&lt;object_id>\S+)___START###$@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@^\s+also=(?&lt;also>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+rightsubnet=(?&lt;rightsubnet>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+leftsubnet=(?&lt;leftsubnet>\S+)$@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@^conn.+$@</regexp>
@@ -76,7 +80,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sed -i "\$a###___CRYPTO_MAP_EXT-{$params.object_id}___START###" /etc/ipsec.conf
-sed -i "\$aconn {$params.object_id}\n      also={$params.also}\n      rightsubnet={$params.rightsubnet}\n      leftsubnet={$params.leftsubnet}" /etc/ipsec.conf
+sed -i "\$aconn {$params.object_id}\nalso={$params.also}\nrightsubnet={$params.rightsubnet}\nleftsubnet={$params.leftsubnet}" /etc/ipsec.conf
 sed -i "\$a###___CRYPTO_MAP_EXT-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
   </command>
   <command name="DELETE">

@@ -5,7 +5,7 @@
     <displayField>none</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>5</visibility>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>sdwan_ipsec_conf_policy</name>
+    <name>SDWAN IPSec  Config Policy</name>
     <group>SDWAN|IPSEC</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -67,31 +67,38 @@
     <parser>
       <section>
         <regexp>@^###___DEFAULT_POLICY-(?&lt;object_id>\S+)___START###$@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@^\s+ikelifetime.(?&lt;ikelifetime>.+$)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+keylife.(?&lt;keylife>.+$)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+rekeymargin.(?&lt;rekeymargin>.+$)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+keyingtries.(?&lt;keyingtries>.+$)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+keyexchange.(?&lt;keyexchange>.+$)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+authby.(?&lt;authby>.+$)@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@^conn.+$@</regexp>
@@ -103,7 +110,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sed -i "\$a###___DEFAULT_POLICY-{$params.object_id}___START###" /etc/ipsec.conf
-sed -i "\$aconn %default\n      ikelifetime={$params.ikelifetime}\n      keylife={$params.keylife}\n      rekeymargin={$params.rekeymargin}\n      keyingtries={$params.keyingtries}\n      keyexchange={$params.keyexchange}\n      authby={$params.authby}" /etc/ipsec.conf
+sed -i "\$aconn %default\nikelifetime={$params.ikelifetime}\nkeylife={$params.keylife}\nrekeymargin={$params.rekeymargin}\nkeyingtries={$params.keyingtries}\nkeyexchange={$params.keyexchange}\nauthby={$params.authby}" /etc/ipsec.conf
 sed -i "\$a###___DEFAULT_POLICY-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
   </command>
   <command name="DELETE">

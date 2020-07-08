@@ -5,7 +5,7 @@
     <displayField>none</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>5</visibility>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>sdwan_ipsec_conf_cryptomap</name>
+    <name>SDWAN IPSec Config Cryptomap</name>
     <group>SDWAN|IPSEC</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -87,47 +87,58 @@
     <parser>
       <section>
         <regexp>@^###___CRYPTO_MAP-(?&lt;object_id>\S+)___START###$@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@^\s+left=(?&lt;left>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+leftsubnet=(?&lt;leftsubnet>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+leftid=(?&lt;leftid>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+leftfirewall=(?&lt;leftfirewall>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+right=(?&lt;right>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+rightsubnet=(?&lt;rightsubnet>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+rightid=(?&lt;rightid>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+auto=(?&lt;auto>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+ike=(?&lt;ike>\S+)$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s+esp=(?&lt;esp>\S+)$@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@^conn.+$@</regexp>
@@ -139,7 +150,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sed -i "\$a###___CRYPTO_MAP-{$params.object_id}___START###" /etc/ipsec.conf
-sed -i "\$aconn {$params.object_id}\n      left={$params.left}\n      leftsubnet={$params.leftsubnet}\n      leftid={$params.left}\n      leftfirewall=yes\n      right={$params.right}\n      rightsubnet={$params.rightsubnet}\n      rightid={$params.right}\n      auto=start\n      ike={$params.ike}\n      esp={$params.esp}" /etc/ipsec.conf
+sed -i "\$aconn {$params.object_id}\nleft={$params.left}\nleftsubnet={$params.leftsubnet}\nleftid={$params.left}\nleftfirewall=yes\nright={$params.right}\nrightsubnet={$params.rightsubnet}\nrightid={$params.right}\nauto=start\nike={$params.ike}\nesp={$params.esp}" /etc/ipsec.conf
 sed -i "\$a###___CRYPTO_MAP-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
   </command>
   <command name="DELETE">

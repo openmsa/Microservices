@@ -5,7 +5,7 @@
     <displayField>none</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>sdwan_loopback</name>
+    <name>SDWAN Loopback</name>
     <group>SDWAN|NETWORK</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -42,11 +42,13 @@
     <parser>
       <section>
         <regexp>@lo:(?&lt;object_id>\S+)\s+Link encap:Local Loopback@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@inet addr:(?&lt;ip_address>\S+)@</regexp>
+          <xpath/>
         </line>
       </lines>
     </parser>
