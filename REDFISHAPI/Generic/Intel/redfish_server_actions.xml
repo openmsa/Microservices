@@ -6,13 +6,13 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|Intel</group>
+    <group>Default</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>100</importrank>
     <maxInstances>0</maxInstances>
-    <name>Server Power State</name>
+    <name>Server power state</name>
     <order>1</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -67,11 +67,8 @@
 </operation>
   </command>
 <command name="DELETE">
-    <rest>
-</rest>
-    <xpath>
-</xpath>
-    <operation>
-</operation>
+    <rest/>
+    <xpath/>
+    <operation/>
   </command>
 </ObjectDefinition>

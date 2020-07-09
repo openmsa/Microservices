@@ -1,59 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><metadata>
-    <map>
-        <entry>
-            <key>DATE_MODIFICATION</key>
-            <value>1592491361431</value>
-        </entry>
-        <entry>
-            <key>REPOSITORY</key>
-            <value>CommandDefinition</value>
-        </entry>
-        <entry>
-            <key>DATE_CREATION</key>
-            <value>1592491361406</value>
-        </entry>
-        <entry>
-            <key>FILE_TYPE</key>
-            <value>text</value>
-        </entry>
-        <entry>
-            <key>TAG</key>
-            <value>string</value>
-        </entry>
-        <entry>
-            <key>MODEL</key>
-            <value>191200</value>
-        </entry>
-        <entry>
-            <key>MANUFACTURER</key>
-            <value>191200</value>
-        </entry>
-        <entry>
-            <key>TYPE</key>
-            <value>FILE</value>
-        </entry>
-        <entry>
-            <key>COMMENT</key>
-            <value>string</value>
-        </entry>
-    </map>
-<variables frozen="0"/>
-  <information>
-    <configType>cli</configType>
+<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+    <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|HPE</group>
+    <group>Default</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>redfish_inventory_fw_links</name>
-    <order>10000</order>
+    <name>[SERVICE]Firmware inventory links</name>
+    <order>10</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -61,9 +21,11 @@
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
-  </information>
-  <example>
+  </information>  <variables frozen="0">
+    <variable displayName="Rescource Link" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
     <content>
 </content>
   </example>
-</metadata>
+
+</ObjectDefinition>
