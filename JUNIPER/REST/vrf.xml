@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Routing</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VRF</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Instance Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="vrf" displayName="Instance Type" displayOrder="1" editable="false" maxLength="100" name="params.instance_type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <values>
+        <value displayValue="vrf">vrf</value>
+      </values>
+    </variable>
+    <variable displayName="Interfaces" displayOrder="1" maxLength="100" name="params.interfaces.0.iface_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Route Distinguisher" displayOrder="3" maxLength="100" name="params.rd" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Export" displayOrder="4" maxLength="100" name="params.route_target_export" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Route target</section>
+      </sections>
+    </variable>
+    <variable displayName="Import" displayOrder="4" maxLength="100" name="params.route_target_import" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Route target</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/rpc/get-instance-information?verbosity_level=detail</xpath>
+    <parser>
+      <section>
+        <xpath>//instance-core</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//vrf-import-target</xpath>
+          <regexp>@&lt;vrf-import-target&gt;(?&lt;route_target_import&gt;.+?)&lt;/vrf-import-target&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//vrf-export-target</xpath>
+          <regexp>@&lt;vrf-export-target&gt;(?&lt;route_target_export&gt;.+?)&lt;/vrf-export-target&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//route-distinguisher</xpath>
+          <regexp>@&lt;route-distinguisher&gt;(?&lt;rd&gt;\S+?)&lt;/route-distinguisher&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//instance-name</xpath>
+          <regexp>@&lt;instance-name&gt;(?&lt;name&gt;\S+?)&lt;/instance-name&gt;@</regexp>
+        </line>
+        <line>
+          <array name="interfaces">
+            <xpath>//instance-interface</xpath>
+            <lines>
+              <line>
+                <xpath>//interface-name</xpath>
+                <regexp>@&lt;interface-name&gt;(?&lt;iface_name&gt;.+?)&lt;/interface-name&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>//instance-type</xpath>
+          <regexp>@&lt;instance-type&gt;(?&lt;instance_type&gt;.*)&lt;/instance-type&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{foreach from=$vrf item=vars key=object}
+	{if $vars.instance_type neq 'vrf'}
+		{$vars.instance_type|print_r}
+		{$vrf.$object = null}
+	{/if}
+{/foreach}</post_template>
+  </command>
+<command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+	&lt;load-configuration&gt;
+    	&lt;configuration&gt;
+    	        &lt;routing-instances&gt;
+    	            &lt;instance&gt;
+    	                &lt;name&gt;{$params.name}&lt;/name&gt;
+    	                &lt;instance-type&gt;vrf&lt;/instance-type&gt;
+    	                {foreach $params.interfaces item=interface}
+    	                &lt;interface&gt;
+    	                    &lt;name&gt;{$interface.iface_name}&lt;/name&gt;
+    	                &lt;/interface&gt;
+    	                {/foreach}
+    	                &lt;route-distinguisher&gt;
+    	                    &lt;rd-type&gt;{$params.rd}&lt;/rd-type&gt;
+    	                &lt;/route-distinguisher&gt;
+    	                &lt;vrf-target&gt;
+    	                    &lt;community&gt;{$params.route_target_export}&lt;/community&gt;
+    	                    &lt;import&gt;{$params.route_target_import}&lt;/import&gt;
+    	                &lt;/vrf-target&gt;
+    	                &lt;vrf-table-label&gt;
+    	                &lt;/vrf-table-label&gt;
+    	            &lt;/instance&gt;
+    	        &lt;/routing-instances&gt;
+    	&lt;/configuration&gt;
+	&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+	&lt;load-configuration&gt;
+    	&lt;configuration&gt;
+    	        &lt;routing-instances&gt;
+    	            &lt;instance delete="delete"&gt;
+    	                &lt;name&gt;{$params.name}&lt;/name&gt;
+    	            &lt;/instance&gt;
+    	        &lt;/routing-instances&gt;
+    	&lt;/configuration&gt;
+	&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+
+</ObjectDefinition>
