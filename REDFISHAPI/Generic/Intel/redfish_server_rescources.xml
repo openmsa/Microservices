@@ -10,10 +10,10 @@
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>BIOS attributes</name>
-    <order>1</order>
+    <name>System rescources</name>
+    <order>10000</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -22,66 +22,38 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="BIOS option" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Value" displayOrder="1" maxLength="100" name="params.value" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="object_id" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
   </variables>  <example>
     <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
 </content>
   </example>
-
-
 <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>_SYSTEM/Bios?$select=Attributes</xpath>
+    <xpath>/redfish/v1/Systems</xpath>
     <parser>
       <section>
-        <xpath>//root/row/Attributes/row</xpath>
+        <xpath>//root</xpath>
       </section>
       <lines>
         <line>
-          <xpath>*</xpath>
-          <regexp>@&lt;(?&lt;object_id&gt;.+?)&gt;(?&lt;value&gt;.+?)&lt;/.+@</regexp>
+          <xpath>//Members/row</xpath>
+          <regexp>@&lt;ATodataDOTid&gt;/redfish/v1/Systems/(?&lt;object_id&gt;.*)&lt;/ATodataDOTid&gt;@</regexp>
         </line>
         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+        <line>
+          <xpath>//Name</xpath>
+          <regexp>@&lt;Name&gt;(?&lt;name&gt;.*)&lt;/Name&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
       </lines>
     </parser>
     <post_template/>
   </command>
 
-<command name="UPDATE">
-    <rest>PATCH
-</rest>
-    <xpath>_SYSTEM/Bios/Settings
-</xpath>
-    <operation>{literal}{{/literal}
-"{$redfish_bios_settings.$object_id.object_id}" : {$params.value}
-{literal}}{/literal}
-</operation>
-  </command>
 </ObjectDefinition>
