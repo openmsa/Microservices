@@ -150,7 +150,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sed -i "\$a###___CRYPTO_MAP-{$params.object_id}___START###" /etc/ipsec.conf
-sed -i "\$aconn {$params.object_id}\nleft={$params.left}\nleftsubnet={$params.leftsubnet}\nleftid={$params.left}\nleftfirewall=yes\nright={$params.right}\nrightsubnet={$params.rightsubnet}\nrightid={$params.right}\nauto=start\nike={$params.ike}\nesp={$params.esp}" /etc/ipsec.conf
+sed -i "\$aconn {$params.object_id}\n    left={$params.left}\n    leftsubnet={$params.leftsubnet}\n    leftid={$params.left}\n    leftfirewall=yes\n    right={$params.right}\n    rightsubnet={$params.rightsubnet}\n    rightid={$params.right}\n    auto=start\n    ike={$params.ike}\n    esp={$params.esp}" /etc/ipsec.conf
 sed -i "\$a###___CRYPTO_MAP-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
   </command>
   <command name="DELETE">
