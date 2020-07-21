@@ -110,7 +110,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sed -i "\$a###___DEFAULT_POLICY-{$params.object_id}___START###" /etc/ipsec.conf
-sed -i "\$aconn %default\nikelifetime={$params.ikelifetime}\nkeylife={$params.keylife}\nrekeymargin={$params.rekeymargin}\nkeyingtries={$params.keyingtries}\nkeyexchange={$params.keyexchange}\nauthby={$params.authby}" /etc/ipsec.conf
+sed -i "\$aconn %default\n    ikelifetime={$params.ikelifetime}\n    keylife={$params.keylife}\n    rekeymargin={$params.rekeymargin}\n    keyingtries={$params.keyingtries}\n    keyexchange={$params.keyexchange}\n    authby={$params.authby}" /etc/ipsec.conf
 sed -i "\$a###___DEFAULT_POLICY-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
   </command>
   <command name="DELETE">
