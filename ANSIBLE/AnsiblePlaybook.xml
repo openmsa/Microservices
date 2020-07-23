@@ -8,7 +8,7 @@
     <description>Call Ansible playbook on remote server</description>
     <displayField>none</displayField>
     <dynamic>false</dynamic>
-    <group>IT|AUTOMATION</group>
+    <group>Default</group>
     <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
@@ -26,11 +26,7 @@
     <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="var_name" displayOrder="0" editable="false" maxLength="100" name="params.ansible_vars.0.var_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
-      <sections>
-        <section>extra_vars</section>
-      </sections>
-    </variable>
+    <variable displayName="extra_vars" displayOrder="0" editable="false" maxLength="100" name="params.ansible_vars.0.var_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
     <variable displayName="Extra Vars" displayOrder="0" maxLength="100" name="params.extra_vars" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="object_id" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="AutoIncrement" visible="false"/>
     <variable displayName="Playbook path" displayOrder="0" maxLength="100" name="params.playbook_path" numberOfRowMax="0" startIncrement="0" type="String"/>
