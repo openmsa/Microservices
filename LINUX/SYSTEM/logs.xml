@@ -35,23 +35,7 @@
       <section>
         <regexp>@^(?&lt;date&gt;(.*)\s[0-9]+\s[0-9:]+)\s(.*)\skernel:\s\[(?&lt;object_id&gt;(.*))\](.*)IN=(?&lt;in&gt;(.*))\sOUT=(?&lt;out&gt;(.*))\sSRC=(?&lt;ip_src&gt;[0-9.]+)\sDST=(?&lt;ip_dst&gt;[0-9.]+)\s(.*)\sPROTO=(?&lt;proto&gt;[A-Z]+)\s(.*)$@</regexp>
       </section>
-      <lines>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      </lines>
+      <lines></lines>
     </parser>
   </command>
   <command name="LIST">
