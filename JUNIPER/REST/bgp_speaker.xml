@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -6,14 +7,14 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|HPE</group>
+    <group>BGP</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>Server User links</name>
-    <order>1</order>
+    <name>BGP speaker</name>
+    <order>10000</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -22,29 +23,28 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="Account ID" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Autonomous system number" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Router ID" displayOrder="0" maxLength="100" name="params.router_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
   </variables>  <example>
     <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
 </content>
   </example>
-
-
-
-
 <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/redfish/v1/AccountService/Accounts</xpath>
+    <xpath>/rpc/get-configuration</xpath>
     <parser>
       <section>
-        <xpath>//root/Members/row</xpath>
+        <xpath>//configuration/routing-options</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//ATodataDOTid</xpath>
-          <regexp>@&lt;ATodataDOTid&gt;(?&lt;object_id&gt;.*)&lt;/ATodataDOTid&gt;@</regexp>
+          <xpath>//router-id</xpath>
+          <regexp>@&lt;router-id&gt;(?&lt;router_id&gt;(\d{1,3}\.){3}\d{1,3})&lt;/router-id&gt;@</regexp>
         </line>
-        
-        
+        <line>
+          <xpath>//autonomous-system/as-number</xpath>
+          <regexp>@&lt;as-number&gt;(?&lt;object_id&gt;\d+?)&lt;/as-number&gt;@</regexp>
+        </line>
       </lines>
     </parser>
     <post_template/>

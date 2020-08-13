@@ -80,7 +80,7 @@
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sed -i "\$a###___CRYPTO_MAP_EXT-{$params.object_id}___START###" /etc/ipsec.conf
-sed -i "\$aconn {$params.object_id}\nalso={$params.also}\nrightsubnet={$params.rightsubnet}\nleftsubnet={$params.leftsubnet}" /etc/ipsec.conf
+sed -i "\$aconn {$params.object_id}\n    also={$params.also}\n    rightsubnet={$params.rightsubnet}\n    leftsubnet={$params.leftsubnet}" /etc/ipsec.conf
 sed -i "\$a###___CRYPTO_MAP_EXT-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
   </command>
   <command name="DELETE">

@@ -1,82 +1,73 @@
-<ObjectDefinition>
-  <information>
-    <icon>/images/repository/CommandDefinition/icons/itp.jpg</icon>
-    <description>VRF definition</description>
-    <displayField>object_id</displayField>
-    <serviceTaskType/>
-    <order>10000</order>
-    <visibility>0</visibility>
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
+    <group>Routing</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
-    <relatedObjects/>
-    <name>VRF</name>
-    <group>VRF</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VRF</name>
+    <order>10000</order>
+    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-  </information>
-  <variables frozen="0">
-    <variable displayName="VRF Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Route distinguisher" name="params.rd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName=" Import" name="params.rt_identifier_imp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="iface_raw_string" displayOrder="0" editable="false" maxLength="100" name="params.iface_raw_string" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Instance Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Interfaces" displayOrder="1" maxLength="100" name="params.interfaces.0.iface_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Route Distinguisher" displayOrder="2" maxLength="100" name="params.rd" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Export" displayOrder="3" maxLength="100" name="params.route_target_export" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
-        <section>Route Target </section>
+        <section>Route target</section>
       </sections>
     </variable>
-    <variable displayName=" Export" name="params.rt_identifier_exp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Import" displayOrder="4" maxLength="100" name="params.route_target_import" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
       <sections>
-        <section>Route Target </section>
+        <section>Route target</section>
       </sections>
     </variable>
-  </variables>
-  <example>
-    <content>ip vrf &lt;vrf-name>rd &lt;rd-identifier>route-target import &lt;rt-identifier-imp>route-target export &lt;rt-identifier-exp
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
 </content>
   </example>
-  <command name="IMPORT">
-    <operation>show running-config all</operation>
+<command name="IMPORT">
+    <operation>show ip vrf detail</operation>
     <parser>
-      <section name="vrf">
-        <regexp>@^ip vrf\s+(?&lt;object_id>\S+)\s*$@</regexp>
+      <section>
+        <regexp>@^VRF\s+?(?&lt;name&gt;\S+?)\s+?\S.+?default\s+?RD\s+?(?&lt;rd&gt;\d{1,5}:\d{1,5}).+?$@</regexp>
       </section>
       <lines>
+        
         <line>
-          <array/>
-          <regexp>@^\sroute-target\simport\s+(?&lt;rt_identifier_imp>[:0-9]+)\s*$@</regexp>
+          <regexp>@^\s*?(?&lt;route_target_export&gt;RT:.+?)$@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@^\sroute-target\sexport\s+(?&lt;rt_identifier_exp>[:0-9]+)\s*$@</regexp>
+          <regexp>@^\s*?(?&lt;iface_raw_string&gt;(Gi|Lo|Fa).+?)$@</regexp>
         </line>
-        <line>
-          <array/>
-          <regexp>@^\srd\s+(?&lt;rd>[:0-9]+)\s*$@</regexp>
-        </line>
+        <ignore>
+          <regexp>@^.+?$@</regexp>
+        </ignore>
       </lines>
     </parser>
+    <post_template>{assign var="parsed_interfaces" value=" "|explode:$params.iface_raw_string}
+{$parsed_interfaces|print_r}
+{foreach from=$parsed_interfaces item=iface key=k}
+{if $iface}
+{assign_object_variable var="interfaces.$k.iface_name" value = $iface}
+{/if}
+{/foreach}
+//This is extremely ugly and relevant only for single case, but it is what we can do now 
+{assign_object_variable var="route_target_import" value = $params.route_target_export}</post_template>
   </command>
-  <command name="UPDATE">
-    <operation>ip vrf {$params.object_id}no rd {$vrf.$object_id.rd}rd {$params.rd}{if !empty($vrf.$object_id.rt_identifier_imp)}no route-target import {$vrf.$object_id.rt_identifier_imp}{/if}{if !empty($vrf.$object_id.rt_identifier_exp)}no route-target export {$vrf.$object_id.rt_identifier_exp}{/if}{if !empty($params.rt_identifier_imp)}route-target import {$params.rt_identifier_imp}{/if}{if !empty($params.rt_identifier_exp)}route-target export {$params.rt_identifier_exp}{/if}
-</operation>
-  </command>
-  <command name="CONSTRAINT"/>
-  <command name="CREATE">
-    <operation>ip vrf {$params.object_id}rd {$params.rd}{if !empty($params.rt_identifier_imp)}route-target import {$params.rt_identifier_imp}{/if}{if !empty($params.rt_identifier_exp)}route-target export {$params.rt_identifier_exp}{/if}
-</operation>
-  </command>
-  <command name="DELETE">
-    <operation>no ip vrf {$params.object_id}
-</operation>
-  </command>
-  <command name="READ"/>
-  <command name="LIST"/>
 </ObjectDefinition>
