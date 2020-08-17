@@ -50,9 +50,7 @@
       <section>
         <regexp>@\s+(?&lt;object_id&gt;(?&lt;network&gt;\d+\.\d+\.\d+\.\d+)\s+(?&lt;netmask&gt;\d+\.\d+\.\d+\.\d+)\s+(?&lt;gateway_ip&gt;\d+\.\d+\.\d+\.\d+))\s+(?&lt;status&gt;\S+)\s+(?&lt;traffic_domain&gt;\d+)\s+(?&lt;type&gt;\S+)@</regexp>
       </section>
-      <lines>
-        
-      </lines>
+      <lines></lines>
     </parser>
     <post_template/>
   </command>

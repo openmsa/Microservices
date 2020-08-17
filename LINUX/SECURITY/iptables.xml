@@ -62,23 +62,7 @@ sudo /sbin/iptables -I FORWARD_RULES {$rule} -m conntrack --ctstate ESTABLISHED,
       <section>
         <regexp>@^(?&lt;object_id&gt;[0-9]+)\s*(?&lt;action&gt;(ACCEPT|DROP|REJECT))\s*(all|(?&lt;ip_proto&gt;(tcp|udp)))\s*(--)\s*(?&lt;ip_src&gt;([0-9.\/]+|))\s*(?&lt;ip_dst&gt;([0-9.\/]+|))\s*(?&lt;statefull&gt;(true|))\s*(tcp\s|udp\s|)(spt\:|)(?&lt;port_src&gt;([0-9]+|))\s*(dpt\:|)(?&lt;port_dst&gt;([0-9]+|))\s*$@</regexp>
       </section>
-      <lines>
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      </lines>
+      <lines></lines>
     </parser>
   <post_template>{assign_object_variable var="rule" value="{$params.object_id}"}</post_template>
   </command>
