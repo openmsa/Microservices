@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>IPAM</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>10</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VLAN</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="VLAN Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="VLAN ID" displayOrder="2" isMandatory="true" maxLength="100" name="params.vid" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer"/>
+    <variable default="active" displayName="Status" displayOrder="3" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Active">active</value>
+        <value displayValue="Reserved">reserved</value>
+        <value displayValue="Deprecated">deprecated</value>
+      </values>
+    </variable>
+    <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>NetBox___Tenant</class>
+      </classes>
+    </variable>
+    <variable displayName="Site" displayOrder="5" maxLength="100" name="params.site" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Netbox___Sites</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>/row/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;[^&lt;&gt;]+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/site/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;site&gt;[^&lt;&gt;]+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/tenant/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;tenant&gt;[^&lt;&gt;]+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/status/value</xpath>
+          <regexp>@&lt;value&gt;(?&lt;status&gt;active|reserved|deprecated)&lt;/value&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/vid</xpath>
+          <regexp>@&lt;vid&gt;(?&lt;vid&gt;\d{1,4})&lt;/vid&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>/row/id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  <operation>GET</operation>
+    <xpath>/api/ipam/vlans/</xpath>
+    <post_template/>
+  </command>
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/api/ipam/vlans/
+</xpath>
+    <operation>{literal}{{/literal}
+	"name": "{$params.object_id}"
+	, "vid": "{$params.vid}"
+	, "status": "{$params.status}"
+	{if !empty($params.tenant)}
+		{foreach $NetBox___Tenant item=tenant}
+			{if $tenant.object_id eq $params.tenant}
+				, "tenant": "{$tenant.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.site)}
+		{foreach $Netbox___Sites item=site}
+			{if $site.object_id eq $params.site}
+				, "site": "{$site.id}"
+			{/if}
+		{/foreach}
+	{/if}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="UPDATE">
+    <rest>PATCH
+</rest>
+    <xpath>/api/ipam/vlans/{$Netbox___VLAN.$object_id.id}/
+</xpath>
+    <operation>{literal}{{/literal}
+	"name": "{$params.object_id}"
+	, "vid": "{$params.vid}"
+	, "status": "{$params.status}"
+	{if !empty($params.tenant)}
+		{foreach $NetBox___Tenant item=tenant}
+			{if $tenant.object_id eq $params.tenant}
+				, "tenant": "{$tenant.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.site)}
+		{foreach $Netbox___Sites item=site}
+			{if $site.object_id eq $params.site}
+				, "site": "{$site.id}"
+			{/if}
+		{/foreach}
+	{/if}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <rest>DELETE
+</rest>
+    <xpath>/api/ipam/vlans/{$Netbox___VLAN.$object_id.id}/
+</xpath>
+    <operation>{literal}{{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
