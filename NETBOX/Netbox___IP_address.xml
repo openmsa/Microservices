@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>IPAM</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>IP address</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" type="Integer"/>
+    <variable displayName="Device interface" displayOrder="0" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>Netbox___Interfaces</class>
+      </classes>
+    </variable>
+    <variable displayName="IP address" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="active" displayName="Status" displayOrder="3" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" type="String">
+      <values>
+        <value displayValue="Active">active</value>
+        <value displayValue="Reserved">reserved</value>
+        <value displayValue="Deprecated">deprecated</value>
+        <value displayValue="DHCP">dhcp</value>
+      </values>
+    </variable>
+    <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>NetBox___Tenant</class>
+      </classes>
+    </variable>
+    <variable displayName="VRF name" displayOrder="5" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>Netbox___VRF</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;value&gt;(?&lt;status&gt;active|reserved|deprecated|dhcp)&lt;/value&gt;@</regexp>
+          <xpath>/row/status/value</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;tenant&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/tenant/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;vrf&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/vrf/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;address&gt;(?&lt;object_id&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})&lt;/address&gt;@</regexp>
+          <xpath>/row/address</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+          <xpath>/row/id</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/ipam/ip-addresses/</xpath>
+  <post_template/>
+  </command>
+  <command name="UPDATE">
+    <operation>{literal}{{/literal}"address": "{$params.object_id}","status": "{$params.status}"{if !empty($params.tenant)}{foreach $NetBox___Tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $Netbox___VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.interface)}{foreach $Netbox___Interfaces item=interface}{if $interface.object_id eq $params.interface}, "interface": "{$interface.id}"{/if}{/foreach}{/if}
+{literal}}{/literal}
+</operation>
+    <rest>PATCH
+</rest>
+    <xpath>/api/ipam/ip-addresses/{$Netbox___IP_address.$object_id.id}/
+</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}
+	"address": "{$params.object_id}"
+	,"status": "{$params.status}"
+	{if !empty($params.tenant)}
+		{foreach $NetBox___Tenant item=tenant}
+			{if $tenant.object_id eq $params.tenant}
+			, "tenant": "{$tenant.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vrf)}
+		{foreach $Netbox___VRF item=vrf}
+			{if $vrf.object_id eq $params.vrf}
+			, "vrf": "{$vrf.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.interface)}
+		{foreach $Netbox___Interfaces item=interface}
+			{if $interface.name eq $params.interface}
+			, "interface": "{$interface.object_id}"
+			{/if}
+		{/foreach}
+	{/if}
+{literal}}{/literal}</operation>
+    <rest>POST
+</rest>
+    <xpath>/api/ipam/ip-addresses/
+</xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}{literal}}{/literal}
+</operation>
+    <rest>DELETE
+</rest>
+    <xpath>/api/ipam/ip-addresses/{$Netbox___IP_address.$object_id.id}/
+</xpath>
+  </command>
+  <command name="READ">
+    <output/>
+  </command>
+  <command name="LIST">
+    <output/>
+  </command>
+</ObjectDefinition>
