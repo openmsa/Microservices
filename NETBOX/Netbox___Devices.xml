@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Devices</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Devices</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Additional data in JSON format" displayOrder="1" editable="false" maxLength="100" name="params.local_context_data" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Model" displayOrder="2" maxLength="100" name="params.model" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Netbox___Device_types</class>
+      </classes>
+    </variable>
+    <variable displayName="Vendor" displayOrder="3" maxLength="100" name="params.vendor" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Netbox___Device_manufactures</class>
+      </classes>
+    </variable>
+    <variable displayName="Role" displayOrder="4" maxLength="100" name="params.role" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Netbox___Device_role</class>
+      </classes>
+    </variable>
+    <variable displayName="Tenant" displayOrder="5" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>NetBox___Tenant</class>
+      </classes>
+    </variable>
+    <variable displayName="Site" displayOrder="6" maxLength="100" name="params.site" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Netbox___Sites</class>
+      </classes>
+    </variable>
+    <variable displayName="Primary IP" displayOrder="7" maxLength="100" name="params.primary_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Status" displayOrder="8" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Offline">offline</value>
+        <value displayValue="Active">active</value>
+        <value displayValue="Staged">staged</value>
+        <value displayValue="Planned">planned</value>
+        <value displayValue="Failed">failed</value>
+        <value displayValue="Inventory">inventory</value>
+        <value displayValue="Decommissioning">decommissioning</value>
+      </values>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>/row/local_context_data</xpath>
+          <regexp>@(?&lt;local_context_data&gt;&lt;local_context_data&gt;.+?&lt;/local_context_data&gt;)@</regexp>
+        </line>
+        <line>
+          <xpath>/row/status</xpath>
+          <regexp>@&lt;value&gt;(?&lt;status&gt;.+?)&lt;/value&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/tenant</xpath>
+          <regexp>@&lt;name&gt;(?&lt;tenant&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/site</xpath>
+          <regexp>@&lt;name&gt;(?&lt;site&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/primary_ip4</xpath>
+          <regexp>@&lt;address&gt;(?&lt;primary_ip&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})&lt;/address&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;\S+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/device_type</xpath>
+          <regexp>@&lt;model&gt;(?&lt;model&gt;\S+?)&lt;/model&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/device_type/manufacturer</xpath>
+          <regexp>@&lt;name&gt;(?&lt;vendor&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/device_role</xpath>
+          <regexp>@&lt;name&gt;(?&lt;role&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  <operation>GET</operation>
+    <xpath>/api/dcim/devices/</xpath>
+    <post_template/>
+  </command>
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/api/dcim/devices/
+</xpath>
+    <operation>{literal}{{/literal}
+	"name": "{$params.object_id}"
+	, "status": "{$params.status}"
+	{foreach $Netbox___Device_types item=type}
+		{if $type.object_id eq $params.model}
+			, "device_type": "{$type.id}"
+		{/if}
+	{/foreach}
+	{foreach $Netbox___Device_role item=role}
+		{if $role.object_id eq $params.role}
+			, "device_role": "{$role.id}"
+		{/if}
+	{/foreach}
+	{foreach $Netbox___Sites item=site}
+		{if $site.object_id eq $params.site}
+			, "site": "{$site.id}"
+		{/if}
+	{/foreach}
+	{foreach $NetBox___Tenant item=tenant}
+		{if $tenant.object_id eq $params.tenant}
+			, "tenant": "{$tenant.id}"
+		{/if}
+	{/foreach}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="UPDATE">
+    <rest>PUT
+</rest>
+    <xpath>/api/dcim/devices/{$Netbox___Devices.$object_id.id}/
+</xpath>
+    <operation>{literal}{{/literal}
+	"name": "{$params.object_id}"
+	, "status": "{$params.status}"
+	{foreach $Netbox___Device_types item=type}
+		{if $type.object_id eq $params.model}
+			, "device_type": "{$type.id}"
+		{/if}
+	{/foreach}
+	{foreach $Netbox___Device_role item=role}
+		{if $role.object_id eq $params.role}
+			, "device_role": "{$role.id}"
+		{/if}
+	{/foreach}
+	{foreach $Netbox___Sites item=site}
+		{if $site.object_id eq $params.site}
+			, "site": "{$site.id}"
+		{/if}
+	{/foreach}
+	{foreach $NetBox___Tenant item=tenant}
+		{if $tenant.object_id eq $params.tenant}
+			, "tenant": "{$tenant.id}"
+		{/if}
+	{/foreach}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
