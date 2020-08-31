@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>none</displayField>
+    <dynamic>false</dynamic>
+    <group>Routing</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Import connected routes to BGP</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Num" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" type="AutoIncrement"/>
+    <variable displayName="Local BGP ASN" displayOrder="1" maxLength="100" name="params.local_asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <classes>
+        <class>bgp_speaker</class>
+      </classes>
+    </variable>
+    <variable displayName="Prefix Filter Name" displayOrder="2" maxLength="100" name="params.prefix_filter" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <classes>
+        <class>prefix_filter</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+	&lt;configuration&gt;
+		&lt;policy-options&gt;
+            &lt;policy-statement&gt;
+                &lt;name&gt;plc-direct-to-bgp-{$params.object_id}&lt;/name&gt;
+                &lt;term&gt;
+                    &lt;name&gt;10&lt;/name&gt;
+                    &lt;from&gt;
+                        &lt;protocol&gt;direct&lt;/protocol&gt;
+                        &lt;route-filter-list&gt;
+                            &lt;name&gt;{$params.prefix_filter}&lt;/name&gt;
+                        &lt;/route-filter-list&gt;
+                    &lt;/from&gt;
+                    &lt;then&gt;
+                        &lt;accept/&gt;
+                    &lt;/then&gt;
+                &lt;/term&gt;
+            &lt;/policy-statement&gt;
+        &lt;/policy-options&gt;
+        &lt;protocols&gt;
+            &lt;bgp&gt;
+                &lt;export&gt;plc-direct-to-bgp-{$params.object_id}&lt;/export&gt;
+            &lt;/bgp&gt;
+        &lt;/protocols&gt;
+	&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+  
+  
+  
+  
+  
+<command name="DELETE">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
+  </command>
+</ObjectDefinition>

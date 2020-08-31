@@ -7,13 +7,13 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BGP</group>
+    <group>Routing</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>BGP speaker</name>
+    <name>Import Advertised routes via BGP</name>
     <order>10000</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -23,30 +23,41 @@
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
   </information>  <variables frozen="0">
-    <variable displayName="Autonomous system number" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Router ID" displayOrder="0" maxLength="100" name="params.router_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="IPv4 prefix" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Next Hop" displayOrder="2" isUserLocked="true" maxLength="100" name="params.next_hop" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
   </variables>  <example>
     <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
 </content>
   </example>
 <command name="IMPORT">
-    <operation>GET</operation>
-    <xpath>/rpc/get-configuration</xpath>
+    <operation>POST</operation>
+    <xpath>/rpc#&lt;get-route-information&gt;&lt;advertising-protocol-name&gt;bgp&lt;/advertising-protocol-name&gt;&lt;neighbor&gt;1.1.1.1&lt;/neighbor&gt;&lt;/get-route-information&gt;</xpath>
     <parser>
       <section>
-        <xpath>//configuration/routing-options</xpath>
+        <xpath>//route-table/rt</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//router-id</xpath>
-          <regexp>@&lt;router-id&gt;(?&lt;router_id&gt;(\d{1,3}\.){3}\d{1,3})&lt;/router-id&gt;@</regexp>
+          <xpath>//rt-entry/nh/to</xpath>
+          <regexp>@&lt;to&gt;(?&lt;next_hop&gt;\S+?)&lt;/to&gt;@</regexp>
         </line>
         <line>
-          <xpath>//autonomous-system/as-number</xpath>
-          <regexp>@&lt;as-number&gt;(?&lt;object_id&gt;\d+?)&lt;/as-number&gt;@</regexp>
+          <xpath>//rt-destination</xpath>
+          <regexp>@&lt;rt-destination&gt;(?&lt;object_id&gt;.*)&lt;/rt-destination&gt;@</regexp>
         </line>
+        
+        
+        
+        
+        
       </lines>
     </parser>
-    <post_template/>
+    <post_template>{if $params.next_hop === 'Self'}
+{assign_object_variable var='next_hop' value='0.0.0.0'}
+{/if}</post_template>
   </command>
+
+
+
+
 </ObjectDefinition>

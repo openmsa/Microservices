@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>none</displayField>
+    <dynamic>false</dynamic>
+    <group>Routing</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Prefix Filter</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Filter name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="exact" displayOrder="1" editable="false" maxLength="100" name="params.rules_list.0.exact" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>rules_list</section>
+      </sections>
+    </variable>
+    <variable displayName="prefix_length_range" displayOrder="2" editable="false" maxLength="100" name="params.rules_list.0.prefix_length_range" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>rules_list</section>
+      </sections>
+    </variable>
+    <variable displayName="upto" displayOrder="3" editable="false" maxLength="100" name="params.rules_list.0.upto" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>rules_list</section>
+      </sections>
+    </variable>
+    <variable default="permit" displayName="Action" displayOrder="4" editable="false" maxLength="100" name="params.rules_list.0.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>permit</value>
+      </values>
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Number" displayOrder="5" maxLength="100" name="params.rules_list.0.number" numberOfRowMax="0" tableSizeFix="false" type="AutoIncrement">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="prefix" displayOrder="6" maxLength="100" name="params.rules_list.0.prefix" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Prefex great or equal" displayOrder="7" maxLength="100" name="params.rules_list.0.ge" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Prefex less or equal" displayOrder="8" maxLength="100" name="params.rules_list.0.le" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//policy-options/route-filter-list</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;\S+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <array name="rules_list">
+            <xpath>//rf_list</xpath>
+            <lines>
+              <line>
+                <xpath>//upto</xpath>
+                <regexp>@&lt;upto&gt;(?&lt;upto&gt;/\d{1,2})&lt;/upto&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//prefix-length-range</xpath>
+                <regexp>@^&lt;prefix-length-range&gt;(?&lt;prefix_length_range&gt;/\d{1,2}-/\d{1,2})&lt;/prefix-length-range&gt;$@</regexp>
+              </line>
+              <line>
+                <xpath>//exact</xpath>
+                <regexp>@^(?&lt;exact&gt;&lt;exact/&gt;)$@</regexp>
+              </line>
+              <line>
+                <xpath>//address</xpath>
+                <regexp>@&lt;address&gt;(?&lt;prefix&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})&lt;/address&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+      </lines>
+    </parser>
+  <operation>GET</operation>
+    <xpath>/rpc/get-configuration</xpath>
+    <post_template>{foreach from=$params.rules_list item=details key=num}
+    {assign_object_variable var="rules_list.$num.action" value = "permit"}
+    {assign_object_variable var="rules_list.$num.number" value = $num+1}
+    {if $details.exact}
+        {assign_object_variable var="rules_list.$num.ge" value = ""}
+        {assign_object_variable var="rules_list.$num.le" value = ""}
+    {/if}
+    {if $details.upto}
+        {assign_object_variable var="rules_list.$num.ge" value = ""}
+        {assign_object_variable var="rules_list.$num.le" value = $details.upto|replace:'/':''}
+    {/if}
+    {if $details.prefix_length_range}
+        {assign var="prefix_array" value="-"|explode:$details.prefix_length_range}
+        {assign_object_variable var="rules_list.$num.ge" value = $prefix_array.0|replace:'/':''}
+        {assign_object_variable var="rules_list.$num.le" value = $prefix_array.1|replace:'/':''}
+    {/if}
+{/foreach}</post_template>
+  </command>
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+	&lt;configuration&gt;
+		&lt;policy-options&gt;
+            &lt;route-filter-list&gt;
+                &lt;name&gt;{$params.object_id}&lt;/name&gt;
+                {foreach from=$params.rules_list item=details key=number}
+                {if $details.ge and $details.le}
+                	&lt;rf_list&gt;
+                	    &lt;address&gt;{$details.prefix}&lt;/address&gt;
+                	    &lt;prefix-length-range&gt;/{$details.ge}-/{$details.le}&lt;/prefix-length-range&gt;
+                	&lt;/rf_list&gt;
+                {/if}
+                {if !$details.ge and $details.le}
+                	&lt;rf_list&gt;
+                	    &lt;address&gt;{$details.prefix}&lt;/address&gt;
+                    	&lt;upto&gt;/{$details.le}&lt;/upto&gt;
+                	&lt;/rf_list&gt;
+                {/if}
+                {if $details.ge and !$details.le}
+                    &lt;rf_list&gt;
+                        &lt;address&gt;{$details.prefix}&lt;/address&gt;
+                            &lt;exact/&gt;
+                    &lt;/rf_list&gt;
+                {/if}
+                {if !$details.ge and !$details.le}
+                	&lt;rf_list&gt;
+                	    &lt;address&gt;{$details.prefix}&lt;/address&gt;
+                    	    &lt;exact/&gt;
+                	&lt;/rf_list&gt;
+                {/if}
+                {/foreach}
+            &lt;/route-filter-list&gt;
+        &lt;/policy-options&gt;
+	&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
