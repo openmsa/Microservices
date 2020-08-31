@@ -30,7 +30,7 @@
 </content>
   </example>
 <command name="IMPORT">
-    <operation>show ip bgp summary</operation>
+    <operation>show bgp all summary</operation>
     <parser>
       <section>
         <regexp>@^\s*?BGP\s+?router\s+?identifier\s+?(?&lt;router_id&gt;(\d{1,3}\.){3}\d{1,3}).+?local\s+?AS\s+?number\s+?(?&lt;object_id&gt;\d+?)$@</regexp>
@@ -38,5 +38,14 @@
       <lines/>
     </parser>
     <post_template/>
+  </command>
+<command name="CREATE">
+    <operation>router bgp {$params.object_id}
+   bgp router-id {$params.router_id}
+</operation>
+  </command>
+<command name="DELETE">
+    <operation>no router bgp {$params.object_id}
+</operation>
   </command>
 </ObjectDefinition>

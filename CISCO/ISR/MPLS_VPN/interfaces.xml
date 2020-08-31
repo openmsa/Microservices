@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>true</dynamic>
+    <group>Network</group>
+    <icon>/images/repository/CommandDefinition/icons/svx.jpg</icon>
+    <importIfMandatoryPresent>true</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Interfaces</name>
+    <order>2000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Interface Name" displayOrder="0" maxLength="200" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="IP address" displayOrder="1" editable="false" maxLength="100" name="params.ip_addr" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="ip_prefix" displayOrder="2" editable="false" maxLength="100" name="params.ip_prefix" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="IP address/prefix" displayOrder="3" isUserLocked="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>MSA358#sho ip interface
+GigabitEthernet1 is administratively down, line protocol is down
+  Internet protocol processing disabled
+GigabitEthernet2 is up, line protocol is up
+  Internet address is 10.30.19.12/23
+  Broadcast address is 255.255.255.255
+  Address determined by setup command
+  MTU is 1500 bytes
+  Helper address is not set
+  Directed broadcast forwarding is disabled
+  Outgoing Common access list is not set
+  Outgoing access list is not set
+  Inbound Common access list is not set
+</content>
+  </example>
+  
+  
+
+<command name="IMPORT">
+    <operation>sho ip interface</operation>
+    <parser>
+      <section>
+        
+        <regexp>@(?&lt;object_id&gt;\S+) is administratively \S+, line protocol is .?@</regexp>
+        <regexp>@(?&lt;object_id&gt;\S+) is \S+, line protocol is .+?@</regexp>
+        
+        
+        
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@^\s@</regexp>
+        </ignore>
+        <line>
+          <regexp>@\s+Internet address is (?&lt;ip_addr&gt;(\d{1,3}\.){3}\d{1,3})/(?&lt;ip_prefix&gt;\d{1,2})@</regexp>
+        </line>
+        
+        
+      </lines>
+    </parser>
+    <post_template>{if ($params.ip_addr) and (!$params.ip_prefix)}
+{$params.ip_prefix = "32"}
+{/if}
+
+{if $params.ip_addr}
+{assign_object_variable var="ip" value = "{$params.ip_addr}/{$params.ip_prefix}"}
+{/if}
+</post_template>
+  </command>
+<command name="UPDATE">
+    <operation>!{get_mask_from_len len=$params.ip_prefix var="_mask"}
+{assign var="mask" value=$_mask}
+!
+interface {$params.object_id}
+{if empty($params.ip_addr)}
+ no ip address
+ shut
+{else}
+ ip address {$params.ip_addr} {$mask}
+ no shut
+{/if}
+</operation>
+  </command>
+</ObjectDefinition>

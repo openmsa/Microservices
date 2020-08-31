@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Routing</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>VRF</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="iface_raw_string" displayOrder="0" editable="false" maxLength="100" name="params.iface_raw_string" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Instance Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Interfaces" displayOrder="1" maxLength="100" name="params.interfaces.0.iface_name" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>interface</class>
+      </classes>
+    </variable>
+    <variable displayName="Route Distinguisher" displayOrder="2" maxLength="100" name="params.rd" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Export" displayOrder="3" maxLength="100" name="params.route_target_export" numberOfRowMax="0" startIncrement="0" type="String">
+      <sections>
+        <section>Route target</section>
+      </sections>
+    </variable>
+    <variable displayName="Import" displayOrder="4" maxLength="100" name="params.route_target_import" numberOfRowMax="0" startIncrement="0" type="String">
+      <sections>
+        <section>Route target</section>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show ip vrf detail</operation>
+    <post_template>{assign var="parsed_interfaces" value=" "|explode:$params.iface_raw_string}
+{$parsed_interfaces|print_r}
+{foreach from=$parsed_interfaces item=iface key=k}
+{if $iface}
+{assign_object_variable var="interfaces.$k.iface_name" value = $iface}
+{/if}
+{/foreach}
+//This is extremely ugly and relevant only for single case, but it is what we can do now{assign_object_variable var="route_target_import" value = $params.route_target_export}</post_template>
+    <parser>
+      <section>
+        <regexp>@^VRF\s+?(?&lt;object_id&gt;\S+?)\s+?\S.+?default\s+?RD\s+?(?&lt;rd&gt;\d{1,5}:\d{1,5}).+?$@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*?(?&lt;route_target_export&gt;RT:.+?)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*?(?&lt;iface_raw_string&gt;(Gi|Lo|Fa).+?)$@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^.+?$@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>ip vrf {$params.object_id}
+rd {$params.rd}
+route-target export {$params.route_target_export}
+route-target import {$params.route_target_import}
+{foreach from=$params.interfaces item=iface_name}
+interface {$iface_name.iface_name}
+   ip vrf forwarding {$params.object_id}
+{/foreach}
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>{foreach from=$vrf.$object_id.interfaces item=iface_name}
+interface {$iface_name.iface_name}
+   no ip vrf forwarding {$vrf.$object_id.object_id}
+{/foreach}
+!
+exit
+!
+no ip vrf {$vrf.$object_id.object_id}
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
