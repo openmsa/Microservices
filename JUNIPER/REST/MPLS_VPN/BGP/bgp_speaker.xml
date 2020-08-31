@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>BGP</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>BGP speaker</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable default=" " displayName="Autonomous system number" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Router ID" displayOrder="0" maxLength="100" name="params.router_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/rpc/get-configuration</xpath>
+    <parser>
+      <section>
+        <xpath>//routing-options</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//router-id</xpath>
+          <regexp>@&lt;router-id&gt;(?&lt;router_id&gt;(\d{1,3}\.){3}\d{1,3})&lt;/router-id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//autonomous-system/as-number</xpath>
+          <regexp>@&lt;as-number&gt;(?&lt;object_id&gt;\d+?)&lt;/as-number&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="UPDATE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+	&lt;configuration&gt;
+	    &lt;routing-options&gt;
+                &lt;router-id&gt;{$params.router_id}&lt;/router-id&gt;
+                &lt;autonomous-system&gt;
+                     &lt;as-number&gt;{$params.object_id}&lt;/as-number&gt;
+                &lt;/autonomous-system&gt;
+            &lt;/routing-options&gt;
+	&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+	&lt;configuration&gt;
+	    &lt;routing-options&gt;
+                &lt;router-id&gt;{$params.router_id}&lt;/router-id&gt;
+                &lt;autonomous-system&gt;
+                     &lt;as-number&gt;{$params.object_id}&lt;/as-number&gt;
+                &lt;/autonomous-system&gt;
+            &lt;/routing-options&gt;
+	&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+	&lt;configuration&gt;
+	    &lt;routing-options&gt;
+                &lt;router-id delete="delete"&gt;{$params.router_id}&lt;/router-id&gt;
+                &lt;autonomous-system delete="delete"&gt;
+                     &lt;as-number&gt;{$params.object_id}&lt;/as-number&gt;
+                &lt;/autonomous-system&gt;
+            &lt;/routing-options&gt;
+	&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;</operation>
+  </command>
+</ObjectDefinition>

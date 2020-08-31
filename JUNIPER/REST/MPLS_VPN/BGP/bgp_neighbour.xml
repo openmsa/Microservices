@@ -47,6 +47,16 @@
         <section>Address Family </section>
       </sections>
     </variable>
+    <variable default="master" displayName="VRF" displayOrder="7" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <classes>
+        <class>vrf</class>
+      </classes>
+    </variable>
+    <variable displayName="Local ASN" displayOrder="8" maxLength="100" name="params.local_asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <classes>
+        <class>bgp_speaker</class>
+      </classes>
+    </variable>
   </variables>  <example>
     <content>
 </content>
@@ -59,6 +69,10 @@
         <xpath>//bgp-peer</xpath>
       </section>
       <lines>
+        <line>
+          <xpath>//peer-fwd-rti</xpath>
+          <regexp>@&lt;peer-fwd-rti&gt;(?&lt;vrf&gt;.+?)&lt;/peer-fwd-rti&gt;@</regexp>
+        </line>
         <line>
           <xpath>//peer-group</xpath>
           <regexp>@&lt;peer-group&gt;(?&lt;peer_group&gt;\S+?)&lt;/peer-group&gt;@</regexp>
@@ -107,6 +121,7 @@
     <operation>&lt;lock-configuration/&gt;
 	&lt;load-configuration&gt;
 		&lt;configuration&gt;
+{if $params.vrf eq 'master'}
 			&lt;protocols&gt;
 				&lt;bgp&gt;
 					&lt;group&gt;
@@ -136,6 +151,42 @@
 					&lt;/group&gt;
 				&lt;/bgp&gt;
 			&lt;/protocols&gt;
+{else}
+			&lt;routing-instances&gt;
+			    &lt;instance&gt;
+			        &lt;name&gt;{$params.vrf}&lt;/name&gt;
+			        	&lt;protocols&gt;
+							&lt;bgp&gt;
+								&lt;group&gt;
+									&lt;name&gt;{$params.peer_group}&lt;/name&gt;
+									&lt;neighbor&gt;
+										&lt;name&gt;{$params.object_id}&lt;/name&gt;
+										{if $params.asn}
+										&lt;peer-as&gt;{$params.asn}&lt;/peer-as&gt;
+										{/if}
+										&lt;family&gt;
+										{foreach $params.address_family item=family}
+										{if $family.afi eq 'IPv4'}
+											&lt;inet&gt;
+												&lt;{$family.safi|lower}&gt;
+												&lt;/{$family.safi|lower}&gt;
+											&lt;/inet&gt;
+										{/if}
+										{if $family.afi eq 'VPNv4'}
+											&lt;inet-vpn&gt;
+												&lt;{$family.safi|lower}&gt;
+												&lt;/{$family.safi|lower}&gt;
+											&lt;/inet-vpn&gt;
+										{/if}
+										{/foreach}
+										&lt;/family&gt;
+									&lt;/neighbor&gt;
+								&lt;/group&gt;
+							&lt;/bgp&gt;
+						&lt;/protocols&gt;
+				&lt;/instance&gt;
+			&lt;/routing-instances&gt;
+{/if}
 		&lt;/configuration&gt;
 	&lt;/load-configuration&gt;
 &lt;commit/&gt;
@@ -147,7 +198,41 @@
 </rest>
     <xpath>/rpc
 </xpath>
-    <operation>&lt;lock-configuration/&gt;&lt;load-configuration&gt;&lt;configuration&gt;&lt;protocols&gt;&lt;bgp&gt;&lt;group&gt;&lt;name&gt;{$bgp_neighbour.$object_id.peer_group}&lt;/name&gt;&lt;neighbor delete="delete"&gt;&lt;name&gt;{$bgp_neighbour.$object_id.object_id}&lt;/name&gt;&lt;/neighbor&gt;&lt;/group&gt;&lt;/bgp&gt;&lt;/protocols&gt;&lt;/configuration&gt;&lt;/load-configuration&gt;&lt;commit/&gt;&lt;unlock-configuration/&gt;
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+&lt;configuration&gt;
+{if $bgp_neighbour.$object_id.vrf eq 'master'}
+	&lt;protocols&gt;
+		&lt;bgp&gt;
+			&lt;group&gt;
+				&lt;name&gt;{$bgp_neighbour.$object_id.peer_group}&lt;/name&gt;
+				&lt;neighbor delete="delete"&gt;
+					&lt;name&gt;{$bgp_neighbour.$object_id.object_id}&lt;/name&gt;
+				&lt;/neighbor&gt;
+			&lt;/group&gt;
+		&lt;/bgp&gt;
+	&lt;/protocols&gt;
+{else}
+	&lt;routing-instances&gt;
+	    &lt;instance&gt;
+	        &lt;name&gt;{$bgp_neighbour.$object_id.vrf}&lt;/name&gt;
+			&lt;protocols&gt;
+				&lt;bgp&gt;
+					&lt;group&gt;
+						&lt;name&gt;{$bgp_neighbour.$object_id.peer_group}&lt;/name&gt;
+						&lt;neighbor delete="delete"&gt;
+							&lt;name&gt;{$bgp_neighbour.$object_id.object_id}&lt;/name&gt;
+						&lt;/neighbor&gt;
+					&lt;/group&gt;
+				&lt;/bgp&gt;
+			&lt;/protocols&gt;
+		&lt;/instance&gt;
+	&lt;/routing-instances&gt;
+{/if}
+&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
 </operation>
   </command>
 </ObjectDefinition>
