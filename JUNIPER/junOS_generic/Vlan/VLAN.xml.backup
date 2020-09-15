@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>VLAN</group>
+    <icon>/images/repository/CommandDefinition/icons/virtual layer switch.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <name>VirtualLAN</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <singleton>false</singleton>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable numberOfRowMax="3000" displayName="VLAN ID" displayOrder="0" maxLength="200" name="params.vlanId" startIncrement="0" type="Integer"/>
+    <variable numberOfRowMax="3000" displayName="VLAN Name" displayOrder="1" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="CREATE">
+    <operation>set vlans {$object_id} vlan-id {$params.vlanId}
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>show configuration vlans</operation>
+    <parser>
+      <section>
+        <regexp>@(?&lt;object_id&gt;\S+) {@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@vlan-id (?&lt;vlanId&gt;\S+);@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="DELETE">
+    <operation>delete vlans {$VLAN.$object_id.object_id}</operation>
+  </command>
+  <command name="UPDATE">
+    <operation>delete vlans {$VLAN.$object_id.object_id}
+set vlans {$object_id} vlan-id {$params.vlanId}
+</operation>
+  </command>
+</ObjectDefinition>
