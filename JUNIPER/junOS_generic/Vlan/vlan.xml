@@ -1,56 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>Virtual LAN</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>VLAN</group>
-    <icon>/images/repository/CommandDefinition/icons/virtual layer switch.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importonce>false</importonce>
-    <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>Virtual LAN</name>
-    <order>10000</order>
     <relatedObjects/>
+    <name>vlan</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
-    <sortascending>true</sortascending>
-    <sortauto>true</sortauto>
-    <sortnumerical>true</sortnumerical>
-    <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="VLAN ID" displayOrder="0" maxLength="200" name="params.vlanId" numberOfRowMax="3000" startIncrement="0" type="Integer"/>
-    <variable displayName="VLAN Name" displayOrder="1" maxLength="200" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>
-</content>
-  </example>
-<command name="CREATE">
-    <operation>set vlans {$object_id} vlan-id {$params.vlanId}
-</operation>
-  </command>
-<command name="IMPORT">
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="VLAN ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VLAN NAME" name="params.vlan" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
     <operation>show configuration vlans | display set | match vlan-id</operation>
     <parser>
       <section>
-        <regexp>@^set\s+?vlans\s+?(?&lt;object_id&gt;\S+)\s+?vlan-id\s+?(?&lt;vlanId&gt;\d{1,4})$@</regexp>
+        <regexp>@^set\s+?vlans\s+?(?&lt;vlan&gt;\S+)\s+?vlan-id\s+?(?&lt;object_id&gt;\d{1,4})$@</regexp>
+        <xpath/>
       </section>
-      <lines>
-      </lines>
+      <lines/>
     </parser>
-    <post_template/>
-  </command>
-<command name="DELETE">
-    <operation>delete vlans {$VLAN.$object_id.object_id}
-</operation>
   </command>
   <command name="UPDATE">
-    <operation>delete vlans {$VLAN.$object_id.object_id}
-set vlans {$object_id} vlan-id {$params.vlanId}
-</operation>
+    <operation>delete vlans {$vlan.$object_id.vlan}
+set vlans {$param.vlan} vlan-id {$params.object_id}</operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>set vlans {$param.vlan} vlan-id {$params.object_id}</operation>
+  </command>
+  <command name="DELETE">
+    <operation>delete vlans {$vlan.$object_id.vlan}</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
