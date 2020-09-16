@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>14000</order>
-    <visibility>1</visibility>
+    <visibility>4</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -74,6 +74,9 @@ end</content>
           <regexp>@\s*set server &quot;(?&lt;syslogd3_server_ip&gt;[^&quot;]+)&quot;@</regexp>
           <xpath/>
         </line>
+        <ignore>
+          <regexp>@set@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
