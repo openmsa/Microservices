@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>cli</configType>
+    <defaultDisplay>false</defaultDisplay>
+    <description>Manage bandwidth</description>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Network</group>
+    <icon>/images/repository/CommandDefinition/icons/breakout box.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <name>Bandwidth</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <singleton>false</singleton>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable numberOfRowMax="3000" displayName="Policer name" displayOrder="0" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
+    <variable numberOfRowMax="3000" displayName="Bandwidth Limit" displayOrder="1" maxLength="200" name="params.bandwidth_limit" startIncrement="0" type="Integer"/>
+    <variable numberOfRowMax="3000" displayName="Burst Size Limit" displayOrder="2" maxLength="200" name="params.burst_size_limit" startIncrement="0" type="Integer"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the object OR a complete existant Object definition file.
+</content>
+  </example>
+  <command name="CREATE">
+    <operation>set firewall policer {$params.object_id} logical-interface-policer 
+set firewall policer {$params.object_id} if-exceeding bandwidth-limit {$params.bandwidth_limit}
+set firewall policer {$params.object_id} if-exceeding burst-size-limit {$params.burst_size_limit}
+set firewall policer {$params.object_id} then discard
+</operation>
+  </command>
+  <command name="IMPORT">
+    <operation>show configuration firewall | display set</operation>
+    <parser>
+      <section>
+        <regexp>@^set firewall policer (?&lt;object_id&gt;\S+) logical-interface-policer@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@^set firewall policer (?&lt;object_id&gt;\S+) if-exceeding bandwidth-limit (?&lt;bandwidth_limit&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@^set firewall policer (?&lt;object_id&gt;\S+) if-exceeding burst-size-limit (?&lt;burst_size_limit&gt;\S+)@</regexp>
+        </line>
+        <ignore>
+          <regexp>@^set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="DELETE">
+    <operation>{assign var="params" value=$bandwidth_management.$object_id}
+delete firewall policer {$params.object_id}</operation>
+  </command>
+  <command name="UPDATE">
+    <operation>set firewall policer {$params.object_id} logical-interface-policer 
+set firewall policer {$params.object_id} if-exceeding bandwidth-limit {$params.bandwidth_limit}
+set firewall policer {$params.object_id} if-exceeding burst-size-limit {$params.burst_size_limit}
+set firewall policer {$params.object_id} then discard
+</operation>
+  </command>
+</ObjectDefinition>
