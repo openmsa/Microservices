@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Software management</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>100</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Software Inventory</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Uploaded File" displayOrder="0" editable="false" maxLength="100" name="params.file_list.0" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="File">
+      <repositories>
+        <repository>Datafiles</repository>
+      </repositories>
+    </variable>
+    <variable displayName="Software type" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="image" displayName="Form name" displayOrder="1" editable="false" maxLength="100" name="params.form_list.0" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="image">image</value>
+        <value displayValue="cfg">cfg</value>
+        <value displayValue="sdr">sdr</value>
+      </values>
+    </variable>
+    <variable displayName="odata_id" displayOrder="1" editable="false" maxLength="100" name="params.odata_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Target" displayOrder="1" editable="false" isUserLocked="true" maxLength="100" name="params.target" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Software version" displayOrder="1" isUserLocked="true" maxLength="100" name="params.version" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Update State" displayOrder="2" isUserLocked="true" maxLength="100" name="params.update_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>{foreach from=$redfish_inventory_sw_links item=sw_link}{$sw_link.object_id}##{/foreach}</xpath>
+    <parser>
+      <section>
+        <xpath>//root</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//root/ATodataDOTid</xpath>
+          <regexp>@&lt;ATodataDOTid&gt;(?&lt;odata_id&gt;\S+?)&lt;/ATodataDOTid&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//root/Oem</xpath>
+          <regexp>@&lt;UpdateState&gt;(?&lt;update_state&gt;.*)&lt;/UpdateState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//root/Id</xpath>
+          <regexp>@&lt;Id&gt;(?&lt;object_id&gt;\S+?)&lt;/Id&gt;@</regexp>
+        </line>
+        
+        
+        <line>
+          <xpath>//root/Version</xpath>
+          <regexp>@&lt;Version&gt;(?&lt;version&gt;\S+)\s*.*?&lt;/Version&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//root/Actions/Oem</xpath>
+          <regexp>@&lt;HASH_SIGNIntelDOTOemDOTUpdate[^&gt;]+?&gt;&lt;target&gt;(?&lt;target&gt;.+?)&lt;/target&gt;.*?&lt;/HASH_SIGNIntelDOTOemDOTUpdate[^&gt;]+?&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{assign var="link_array" value='/'|explode:$params.odata_id}
+{assign var="id" value="{$link_array|@end}"}
+{if !$params.object_id neq $id}
+   {assign_object_variable var="object_id" value=$id}
+{/if}
+{if !$params.target}
+   {assign_object_variable var="target" value="NULL"}
+{/if}</post_template>
+  </command>
+<command name="UPDATE">
+    <rest>POST
+</rest>
+    <xpath>{$redfish_inventory_sw.$object_id.target}
+</xpath>
+    <operation>FORM_DATA_UPLOADING#{foreach from=$params.file_list key=k item=i}{$params.form_list[$k]}=@{$i}***{/foreach}#
+</operation>
+  </command>
+</ObjectDefinition>

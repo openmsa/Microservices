@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>none</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>20</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Job Manager</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Job ID" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="BIOSConfiguration" displayName="Job Type" displayOrder="1" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>BIOSConfiguration</value>
+      </values>
+    </variable>
+    <variable displayName="Job State" displayOrder="2" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//JobType</xpath>
+          <regexp>@&lt;JobType&gt;(?&lt;type&gt;.+?)&lt;/JobType&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//Id</xpath>
+          <regexp>@&lt;Id&gt;(?&lt;object_id&gt;.+?)&lt;/Id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//JobState</xpath>
+          <regexp>@&lt;JobState&gt;(?&lt;state&gt;.+?)&lt;/JobState&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  <operation>GET</operation>
+    <xpath>{foreach from=$service_redfish_job_manager item=job_link}{$job_link.object_id}##{/foreach}</xpath>
+    <post_template/>
+  </command>
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>_MANAGER/Jobs
+</xpath>
+    <operation>{if $params.type == 'BIOSConfiguration'}
+{literal}{{/literal}
+{foreach $redfish_server_rescources item=system}
+{assign var='system_rescourse' value=$system.object_id}
+{/foreach}
+"TargetSettingsURI": "{$system_rescourse}/Bios/Settings"
+{literal}}{/literal}
+{/if}
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
