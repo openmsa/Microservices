@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Organisation</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>20</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Sites</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="asn" displayOrder="0" maxLength="100" name="params.asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="ID" displayOrder="0" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Slug" displayOrder="2" maxLength="100" name="params.slug" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
+    <variable displayName="Tenant" displayOrder="3" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>NetBox___Tenant</class>
+      </classes>
+    </variable>
+    <variable default="active" displayName="Status" displayOrder="4" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="Active">active</value>
+        <value displayValue="Planned">planned</value>
+        <value displayValue="Retired">retired</value>
+      </values>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>/row/status/value</xpath>
+          <regexp>@&lt;value&gt;(?&lt;status&gt;\S+?)&lt;/value&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/asn</xpath>
+          <regexp>@&lt;asn&gt;(?&lt;asn&gt;\d+?)&lt;/asn&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/tenant/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;tenant&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/slug</xpath>
+          <regexp>@&lt;slug&gt;(?&lt;slug&gt;.+?)&lt;/slug&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>/row/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <xpath>/api/dcim/sites/</xpath>
+  <post_template/>
+  </command>
+  <command name="UPDATE">
+    <operation>{literal}{{/literal}
+"name": "{$params.object_id}",
+"status": "{$params.status}",
+{foreach $NetBox___Tenant item=tenant}
+{if $tenant.object_id eq $params.tenant}
+"tenant": "{$tenant.id}",
+{/if}
+{/foreach}
+"slug": "{$params.slug}",
+{if !empty($params.asn)}
+"asn": "{$params.asn}"
+{/if}
+{literal}}{/literal}
+</operation>
+    <rest>PATCH
+</rest>
+    <xpath>/api/dcim/sites/{$Netbox___Sites.$object_id.id}/
+</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/api/dcim/sites/
+</xpath>
+  <operation>{literal}{{/literal}
+"name": "{$params.object_id}"
+, "status": "{$params.status}"
+{foreach $NetBox___Tenant item=tenant}
+{if $tenant.object_id eq $params.tenant}
+, "tenant": "{$tenant.id}"
+{/if}
+{/foreach}
+{if empty($params.slug)}
+, "slug": "{$params.object_id|replace:' ':'-'|lower}"
+{else}
+, "slug": "{$params.slug}"
+{/if}
+{if !empty($params.asn)}
+, "asn": "{$params.asn}"
+{/if}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="DELETE">
+    <rest>DELETE
+</rest>
+    <xpath>/api/dcim/sites/{$Netbox___Sites.$object_id.id}/
+</xpath>
+    <operation>{literal}{{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>

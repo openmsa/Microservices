@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Devices</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>50</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Interface connections</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="AutoIncrement" visible="false"/>
+    <variable displayName=" Name" displayOrder="1" maxLength="100" name="params.iface_a_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Interface A </section>
+      </sections>
+    </variable>
+    <variable displayName=" Device" displayOrder="2" maxLength="100" name="params.iface_a_device" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Interface A </section>
+      </sections>
+    </variable>
+    <variable displayName=" Name" displayOrder="3" maxLength="100" name="params.iface_b_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Interface B </section>
+      </sections>
+    </variable>
+    <variable displayName=" Device" displayOrder="4" maxLength="100" name="params.iface_b_device" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Interface B </section>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//row/interface_a/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;iface_a_port&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//row/interface_a/device</xpath>
+          <regexp>@&lt;name&gt;(?&lt;iface_a_device&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//row/interface_b/name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;iface_b_port&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//row/interface_b/device</xpath>
+          <regexp>@&lt;name&gt;(?&lt;iface_b_device&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  <operation>GET</operation>
+    <xpath>/api/dcim/interface-connections/</xpath>
+    <post_template/>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST">
+    <output>
+</output>
+  </command>
+</ObjectDefinition>
