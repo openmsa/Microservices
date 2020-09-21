@@ -1,98 +1,96 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>CP Access Layer</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>CP Access Layer</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable default="true" displayName="Add default rule" displayOrder="0" maxLength="100" name="params.add_default_rule" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable displayName="Access Layer Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable default="false" displayName="Applications and url filtering" displayOrder="1" maxLength="100" name="params.applications_and_url_filtering" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable default="false" displayName="Shared" displayOrder="1" maxLength="100" name="params.shared" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable displayName="Type" displayOrder="1" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable default="true" displayName="Firewall" displayOrder="2" maxLength="100" name="params.firewall" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable arrayCanAdd="false" displayName="UID" displayOrder="2" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Access Layer Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Add default rule" name="params.add_default_rule" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Applications and url filtering" name="params.applications_and_url_filtering" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Shared" name="params.shared" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Firewall" name="params.firewall" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="UID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content></content>
   </example>
-  <command name="CREATE">
-    <rest>add-access-layer
-</rest>
-    <xpath>
-</xpath>
-    <operation>{literal}{{/literal}
-"name":"{$params.name}",
-"firewall":"{$params.firewall}",
-"applications-and-url-filtering":"{$params.applications_and_url_filtering}",
-"add-default-rule":"{$params.add_default_rule}",
-"shared":"{$params.shared}"
-{literal}}{/literal}
-</operation>
-  </command>
-  <command name="DELETE">
-    <rest>delete-access-layer
-</rest>
-    <xpath>
-</xpath>
-    <operation>{literal}{{/literal}
-"uid":"{$params.object_id}"
-{literal}}{/literal}
-</operation>
-  </command>
   <command name="IMPORT">
     <operation>show-access-layers</operation>
-    <xpath/>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/access-layers/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>type</xpath>
+          <array/>
           <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+          <xpath>type</xpath>
         </line>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
         <line>
-          <xpath>uid</xpath>
+          <array/>
           <regexp>@&lt;uid&gt;(?&lt;object_id&gt;.*)&lt;/uid&gt;@</regexp>
+          <xpath>uid</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
-<command name="UPDATE">
-    <rest>set-access-layer
-</rest>
-    <xpath>
-</xpath>
+  <command name="UPDATE">
     <operation>{literal}{{/literal}
-"new-name":"{$params.name}",
-"uid":"{$params.object_id}",
-"firewall":"{$params.firewall}",
-"shared":"{$params.shared}"
-{literal}}{/literal}
-</operation>
+&quot;new-name&quot;:&quot;{$params.name}&quot;,
+&quot;uid&quot;:&quot;{$params.object_id}&quot;,
+&quot;firewall&quot;:&quot;{$params.firewall}&quot;,
+&quot;shared&quot;:&quot;{$params.shared}&quot;
+{literal}}{/literal}</operation>
+    <rest>set-access-layer</rest>
+    <xpath></xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.name}&quot;,
+&quot;firewall&quot;:&quot;{$params.firewall}&quot;,
+&quot;applications-and-url-filtering&quot;:&quot;{$params.applications_and_url_filtering}&quot;,
+&quot;add-default-rule&quot;:&quot;{$params.add_default_rule}&quot;,
+&quot;shared&quot;:&quot;{$params.shared}&quot;
+{literal}}{/literal}</operation>
+    <rest>add-access-layer</rest>
+    <xpath></xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}
+&quot;uid&quot;:&quot;{$params.object_id}&quot;
+{literal}}{/literal}</operation>
+    <rest>delete-access-layer</rest>
+    <xpath></xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
