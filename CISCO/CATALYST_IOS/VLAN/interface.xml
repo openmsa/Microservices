@@ -27,46 +27,41 @@
   <variables frozen="0">
     <variable displayName="Interface" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="FastEthernet 0/1" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="FastEthernet 0/1">FastEthernet 0/1</value>
-        <value displayValue="FastEthernet 0/1">FastEthernet 0/2</value>
-        <value displayValue="FastEthernet 0/3">FastEthernet 0/3</value>
-        <value displayValue="FastEthernet 0/4">FastEthernet 0/4</value>
-        <value displayValue="FastEthernet 0/5">FastEthernet 0/5</value>
-        <value displayValue="FastEthernet 0/6">FastEthernet 0/6</value>
-        <value displayValue="FastEthernet 0/7">FastEthernet 0/7</value>
-        <value displayValue="FastEthernet 0/8">FastEthernet 0/8</value>
-        <value displayValue="FastEthernet 0/9">FastEthernet 0/9</value>
-        <value displayValue="FastEthernet 0/10">FastEthernet 0/10</value>
-        <value displayValue="FastEthernet 0/11">FastEthernet 0/11</value>
-        <value displayValue="FastEthernet 0/12">FastEthernet 0/12</value>
-        <value displayValue="FastEthernet 0/13">FastEthernet 0/13</value>
-        <value displayValue="FastEthernet 0/14">FastEthernet 0/14</value>
-        <value displayValue="FastEthernet 0/15">FastEthernet 0/15</value>
-        <value displayValue="FastEthernet 0/16">FastEthernet 0/16</value>
-        <value displayValue="FastEthernet 0/17">FastEthernet 0/17</value>
-        <value displayValue="FastEthernet 0/18">FastEthernet 0/18</value>
-        <value displayValue="FastEthernet 0/19">FastEthernet 0/19</value>
-        <value displayValue="FastEthernet 0/20">FastEthernet 0/20</value>
-        <value displayValue="FastEthernet 0/21">FastEthernet 0/21</value>
-        <value displayValue="FastEthernet 0/22">FastEthernet 0/22</value>
-        <value displayValue="FastEthernet 0/23">FastEthernet 0/23</value>
-        <value displayValue="FastEthernet 0/24">FastEthernet 0/24</value>
+        <values displayValue="FastEthernet 0/1">FastEthernet 0/1</values>
+        <values displayValue="FastEthernet 0/1">FastEthernet 0/2</values>
+        <values displayValue="FastEthernet 0/3">FastEthernet 0/3</values>
+        <values displayValue="FastEthernet 0/4">FastEthernet 0/4</values>
+        <values displayValue="FastEthernet 0/5">FastEthernet 0/5</values>
+        <values displayValue="FastEthernet 0/6">FastEthernet 0/6</values>
+        <values displayValue="FastEthernet 0/7">FastEthernet 0/7</values>
+        <values displayValue="FastEthernet 0/8">FastEthernet 0/8</values>
+        <values displayValue="FastEthernet 0/9">FastEthernet 0/9</values>
+        <values displayValue="FastEthernet 0/10">FastEthernet 0/10</values>
+        <values displayValue="FastEthernet 0/11">FastEthernet 0/11</values>
+        <values displayValue="FastEthernet 0/12">FastEthernet 0/12</values>
+        <values displayValue="FastEthernet 0/13">FastEthernet 0/13</values>
+        <values displayValue="FastEthernet 0/14">FastEthernet 0/14</values>
+        <values displayValue="FastEthernet 0/15">FastEthernet 0/15</values>
+        <values displayValue="FastEthernet 0/16">FastEthernet 0/16</values>
+        <values displayValue="FastEthernet 0/17">FastEthernet 0/17</values>
+        <values displayValue="FastEthernet 0/18">FastEthernet 0/18</values>
+        <values displayValue="FastEthernet 0/19">FastEthernet 0/19</values>
+        <values displayValue="FastEthernet 0/20">FastEthernet 0/20</values>
+        <values displayValue="FastEthernet 0/21">FastEthernet 0/21</values>
+        <values displayValue="FastEthernet 0/22">FastEthernet 0/22</values>
+        <values displayValue="FastEthernet 0/23">FastEthernet 0/23</values>
+        <values displayValue="FastEthernet 0/24">FastEthernet 0/24</values>
       </values>
     </variable>
     <variable displayName="Address" name="params.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Mask" name="params.mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="VLAN" name="params.vlan" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="false">false</value>
-        <value displayValue="true">true</value>
+        <values displayValue="false">false</values>
+        <values displayValue="true">true</values>
       </values>
     </variable>
-    <variable displayName="VLAN ID" name="params.vlanNumber" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.vlan" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <behaviors>
-        <behaviour displayName="vlanNumber" displayOrder="0" maxLength="100" name="params.vlanNumber" selectorValue="false" startIncrement="0" type="String"/>
-        <behaviour displayName="vlanNumber" displayOrder="0" maxLength="100" name="params.vlanNumber" selectorValue="true" startIncrement="0" type="ObjectRef"/>
-      </behaviors>
-    </variable>
+    <variable displayName="VLAN ID" name="params.vlanNumber" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
@@ -99,22 +94,35 @@ interface GigabitEthernet0/2
 interface Vlan1ip address 10.30.18.68 255.255.254.0no ip route-cache
 interface Vlan2222ip address 3.3.3.1 255.255.255.0no ip route-cache
 logging source-interface Vlan1
-MSA311#
-</content>
+MSA311#</content>
   </example>
   <command name="IMPORT">
-    <operation>sh run | section interface </operation>
-    <post_template>{if !empty($params.vlanNumber)}{assign_object_variable var="vlan" value="true"}
-{else}{assign_object_variable var="vlan" value="false"}
+    <operation>sh run | section interface</operation>
+    <post_template>{if !empty($params.vlanNumber)}
+{assign_object_variable var=&quot;vlan&quot; value=&quot;true&quot;}
+{else}
+{assign_object_variable var=&quot;vlan&quot; value=&quot;false&quot;}
 {/if}</post_template>
     <parser>
       <section>
-        <regexp>@^interface (?&lt;object_id>.*)@</regexp>
+        <regexp>@^interface (?&lt;object_id&gt;.*)@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@ description (?&lt;description>.*)@</regexp>
+          <regexp>@\s+description (?&lt;description&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s+switchport access vlan (?&lt;vlanNumber&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s+ip address (?&lt;ip&gt;\S+) (?&lt;mask&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@^\s+\S+.*$@</regexp>
@@ -132,13 +140,11 @@ MSA311#
     <operation>interface {$params.object_id}
 no description{if !empty($params.description)}description {$params.description}{/if}
 no switchport mode trunk
-no switchport access vlan{if $params.vlan === "true"}switchport access vlan {$params.vlanNumber}{/if}no snmp trap link-statusno cdp enable
-</operation>
+no switchport access vlan{if $params.vlan === &quot;true&quot;}switchport access vlan {$params.vlanNumber}{/if}no snmp trap link-statusno cdp enable</operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>interface {$params.object_id}{if !empty($params.description)}description {$params.description}{/if}{if $params.vlan === "true"}switchport access vlan {$params.vlanNumber}{/if}no snmp trap link-statusno cdp enable
-</operation>
+    <operation>interface {$params.object_id}{if !empty($params.description)}description {$params.description}{/if}{if $params.vlan === &quot;true&quot;}switchport access vlan {$params.vlanNumber}{/if}no snmp trap link-statusno cdp enable</operation>
   </command>
   <command name="DELETE">
     <operation>interface {$interface.$object_id.object_id}
@@ -146,8 +152,7 @@ no description
 no switchport mode trunk
 no switchport access vlan
 snmp trap link-status
-cdp enable
-</operation>
+cdp enable</operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
