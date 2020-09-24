@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>5</visibility>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>vlan_ports</name>
-    <group>Default</group>
+    <name>Vlan ports</name>
+    <group>VLAN</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -53,8 +53,7 @@ brctl addif vlan_{$params.vlan} {$params.port}
 {elseif (empty($vlan_ports.$object_id.tag)) OR ($vlan_ports.$object_id.tag == &apos;untagged&apos;)}
 brctl delif vlan_{$vlan_ports.$object_id.vlan} {$vlan_ports.$object_id.port}
 ip link add link {$params.port} name {$params.port}.{$params.tag} type vlan id {$params.tag}
-ip link set {$params.port}.{$params.tag} promisc on
-ip link set {$params.port}.{$params.tag} up
+ip link set {$params.port}.{$params.tag} promisc onip link set {$params.port}.{$params.tag} up
 brctl addif vlan_{$params.vlan} {$params.port}.{$params.tag}
 {/if}</operation>
   </command>
