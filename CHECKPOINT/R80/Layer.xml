@@ -5,7 +5,7 @@
     <displayField>name</displayField>
     <serviceTaskType/>
     <order>10000</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>CP Access Layer</name>
+    <name>Access Layer</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
@@ -70,7 +70,6 @@
 &quot;shared&quot;:&quot;{$params.shared}&quot;
 {literal}}{/literal}</operation>
     <rest>set-access-layer</rest>
-    <xpath></xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
@@ -82,14 +81,12 @@
 &quot;shared&quot;:&quot;{$params.shared}&quot;
 {literal}}{/literal}</operation>
     <rest>add-access-layer</rest>
-    <xpath></xpath>
   </command>
   <command name="DELETE">
     <operation>{literal}{{/literal}
 &quot;uid&quot;:&quot;{$params.object_id}&quot;
 {literal}}{/literal}</operation>
     <rest>delete-access-layer</rest>
-    <xpath></xpath>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
