@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>5</visibility>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -60,8 +60,8 @@ brctl addbr vlan_{$params.object_id}
 {/if}</operation>
   </command>
   <command name="DELETE">
-    <operation>ifconfig vlan_{$vlan_list.$object_id.object_id} down
-brctl delbr vlan_{$vlan_list.$object_id.object_id}</operation>
+    <operation>ifconfig vlan_{$vlan.$object_id.object_id} down
+brctl delbr vlan_{$vlan.$object_id.object_id}</operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
