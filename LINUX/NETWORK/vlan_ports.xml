@@ -1,0 +1,84 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>vlan_ports</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="PORT" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VLAN" name="params.vlan" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="8021q TAG" name="params.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>./port</operation>
+    <parser>
+      <section>
+        <regexp>@^(?&lt;object_id&gt;\S+)\s+(?&lt;port&gt;\S+)\s+vlan_(?&lt;vlan&gt;\S+)\s+(?&lt;tag&gt;\S+)@</regexp>
+        <xpath/>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>{if ((empty($params.tag)) OR ($params.tag == &apos;untagged&apos;)) AND (empty($vlan_ports.$object_id.tag) OR ($vlan_ports.$object_id.tag == &apos;untagged&apos;))}
+brctl delif vlan_{$vlan_ports.$object_id.vlan} {$vlan_ports.$object_id.port}
+brctl addif vlan_{$params.vlan} {$params.port}
+{elseif (empty($params.tag)) OR ($params.tag == &apos;untagged&apos;)}
+brctl delif vlan_{$vlan_ports.$object_id.vlan} {$vlan_ports.$object_id.port}.{$vlan_ports.$object_id.tag}
+iplink set {$vlan_ports.$object_id.port}.{$vlan_ports.$object_id.tag} down
+ip link del link {$vlan_ports.$object_id.port} name {$vlan_ports.$object_id.port}.{$vlan_ports.$object_id.tag} type vlan id {$vlan_ports.$object_id.tag}
+brctl addif vlan_{$params.vlan} {$params.port}
+{elseif (empty($vlan_ports.$object_id.tag)) OR ($vlan_ports.$object_id.tag == &apos;untagged&apos;)}
+brctl delif vlan_{$vlan_ports.$object_id.vlan} {$vlan_ports.$object_id.port}
+ip link add link {$params.port} name {$params.port}.{$params.tag} type vlan id {$params.tag}
+ip link set {$params.port}.{$params.tag} promisc on
+ip link set {$params.port}.{$params.tag} up
+brctl addif vlan_{$params.vlan} {$params.port}.{$params.tag}
+{/if}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{if empty($params.tag)}
+brctl addbr vlan_{$params.vlan} {$params.port}
+{else}
+ip link add link {$params.port} name {$params.port}.{$params.tag} type vlan id {$params.tag}
+ip link set {$params.port}.{$params.tag} promisc on
+iplink set {$params.port}.{$params.tag} up
+brctl addif vlan_{$params.vlan} {$params.port}.{$params.tag}
+{/if}</operation>
+  </command>
+  <command name="DELETE">
+    <operation>{if $vlan_ports.$object_id.tag == &apos;untagged&apos;}
+brctl delif vlan_{$vlan_ports.$object_id.vlan} {$vlan_ports.$object_id.port}
+brctl addif vlan_default {$vlan_ports.$object_id.port}
+{else}
+brctl delif vlan_{$vlan_ports.$object_id.vlan} {$vlan_ports.$object_id.port}.{$vlan_ports.$object_id.tag}
+iplink set {$vlan_ports.$object_id.port}.{$vlan_ports.$object_id.tag} down
+ip link del link {$vlan_ports.$object_id.port} name {$vlan_ports.$object_id.port}.{$vlan_ports.$object_id.tag} type vlan id {$vlan_ports.$object_id.tag}
+{/if}</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
