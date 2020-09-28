@@ -1,0 +1,69 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>none</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>k8s_user_app</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="NAMESPACE" name="params.namespace" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="USER APP" name="params.user_app" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath></xpath>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}"apiVersion":"v1","kind":"Pod","metadata":{literal}{{/literal}"name":"{$params.user_app}-{$params.object_id}","namespace": "{$params.namespace}"{literal}}{/literal},"spec":{literal}{{/literal}"containers":[{literal}{{/literal}"name":"{$params.user_app}-{$params.object_id}","image":"{$params.user_app}"{literal}}{/literal}],"restartPolicy":"Never"{literal}}{/literal}
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/v1/namespaces/{$params.namespace}/pods</xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/v1/namespaces/{$k8s_user_app.$object_id.namespace}/pods/{$k8s_user_app.$object_id.user_app}-{$k8s_user_app.$object_id.object_id}</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
