@@ -39,30 +39,30 @@
     </variable>
     <variable displayName="VRF name" displayOrder="3" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>Netbox___VRF</class>
+        <class>VRF</class>
       </classes>
     </variable>
     <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable displayName=" Name" displayOrder="5" maxLength="100" name="params.vlan_name" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <sections>
-        <section>VLAN </section>
+        <section>VLAN</section>
       </sections>
       <classes>
-        <class>Netbox___VLAN</class>
+        <class>VLAN</class>
       </classes>
     </variable>
     <variable displayName=" Id" displayOrder="6" isUserLocked="true" maxLength="100" name="params.vlan_id" numberOfRowMax="0" startIncrement="0" type="Integer">
       <sections>
-        <section>VLAN </section>
+        <section>VLAN</section>
       </sections>
     </variable>
     <variable displayName="Site" displayOrder="8" maxLength="100" name="params.site" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>Netbox___Sites</class>
+        <class>sites</class>
       </classes>
     </variable>
   </variables>
@@ -135,12 +135,12 @@
   <post_template/>
   </command>
   <command name="UPDATE">
-    <operation>{literal}{{/literal}"prefix": "{$params.object_id}", "status": "{$params.status}"{if !empty($params.tenant)}{foreach $NetBox___Tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.site)}{foreach $Netbox___Sites item=site}{if $site.object_id eq $params.site}, "site": "{$site.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $Netbox___VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.vlan_name)}{foreach $Netbox___VLAN item=vlan}{if $vlan.object_id eq $params.vlan_name}, "vlan": "{$vlan.id}"{/if}{/foreach}{/if}
+    <operation>{literal}{{/literal}"prefix": "{$params.object_id}", "status": "{$params.status}"{if !empty($params.tenant)}{foreach $tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.site)}{foreach $sites item=site}{if $site.object_id eq $params.site}, "site": "{$site.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.vlan_name)}{foreach $VLAN item=vlan}{if $vlan.object_id eq $params.vlan_name}, "vlan": "{$vlan.id}"{/if}{/foreach}{/if}
 {literal}}{/literal}
 </operation>
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/prefixes/{$Netbox___Prefix.$object_id.id}/
+    <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/
 </xpath>
   </command>
   <command name="CONSTRAINT"/>
@@ -156,28 +156,28 @@
 	, "tags": {$temp_tag_array|@json_encode}
 	{/if}
 	{if !empty($params.tenant)}
-		{foreach $NetBox___Tenant item=tenant}
+		{foreach $tenant item=tenant}
 			{if $tenant.object_id eq $params.tenant}
 				, "tenant": "{$tenant.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.site)}
-		{foreach $Netbox___Sites item=site}
+		{foreach $sites item=site}
 			{if $site.object_id eq $params.site}
 			, "site": "{$site.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.vrf)}
-		{foreach $Netbox___VRF item=vrf}
+		{foreach $VRF item=vrf}
 			{if $vrf.object_id eq $params.vrf}
 				, "vrf": "{$vrf.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.vlan_name)}
-		{foreach $Netbox___VLAN item=vlan}
+		{foreach $VLAN item=vlan}
 			{if $vlan.object_id eq $params.vlan_name}
 				, "vlan": "{$vlan.id}"
 			{/if}
@@ -196,7 +196,7 @@
 </operation>
     <rest>DELETE
 </rest>
-    <xpath>/api/ipam/prefixes/{$Netbox___Prefix.$object_id.id}/
+    <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/
 </xpath>
   </command>
   <command name="READ">

@@ -30,7 +30,7 @@
     <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Tenant" displayOrder="2" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable displayName="Route Distinguisher" displayOrder="3" maxLength="100" name="params.rd" numberOfRowMax="0" startIncrement="0" type="String"/>
@@ -83,7 +83,7 @@
 "name": "{$params.object_id}"
 , "rd": "{$params.rd}"
 , "enforce_unique": "{$params.is_enforce_unique}"
-{foreach $NetBox___Tenant item=tenant}
+{foreach $tenant item=tenant}
 {if $tenant.object_id eq $params.tenant}
 , "tenant": "{$tenant.id}"
 {/if}
@@ -100,7 +100,7 @@
 </operation>
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/vrfs/{$Netbox___VRF.$object_id.id}/
+    <xpath>/api/ipam/vrfs/{$VRF.$object_id.id}/
 </xpath>
   </command>
   <command name="CONSTRAINT"/>
@@ -109,7 +109,7 @@
 "name": "{$params.object_id}"
 , "rd": "{$params.rd}"
 , "enforce_unique": "{$params.is_enforce_unique}"
-{foreach $NetBox___Tenant item=tenant}
+{foreach $tenant item=tenant}
 {if $tenant.object_id eq $params.tenant}
 , "tenant": "{$tenant.id}"
 {/if}
@@ -135,7 +135,7 @@
 </operation>
     <rest>DELETE
 </rest>
-    <xpath>/api/ipam/vrfs/{$Netbox___VRF.$object_id.id}/
+    <xpath>/api/ipam/vrfs/{$VRF.$object_id.id}/
 </xpath>
   </command>
   <command name="READ">

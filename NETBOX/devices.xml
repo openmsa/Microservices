@@ -31,27 +31,27 @@
     <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Model" displayOrder="2" maxLength="100" name="params.model" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>Netbox___Device_types</class>
+        <class>device_types</class>
       </classes>
     </variable>
     <variable displayName="Vendor" displayOrder="3" maxLength="100" name="params.vendor" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>Netbox___Device_manufactures</class>
+        <class>device_manufacturers</class>
       </classes>
     </variable>
     <variable displayName="Role" displayOrder="4" maxLength="100" name="params.role" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>Netbox___Device_role</class>
+        <class>device_role</class>
       </classes>
     </variable>
     <variable displayName="Tenant" displayOrder="5" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable displayName="Site" displayOrder="6" maxLength="100" name="params.site" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>Netbox___Sites</class>
+        <class>sites</class>
       </classes>
     </variable>
     <variable displayName="Primary IP" displayOrder="7" maxLength="100" name="params.primary_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
@@ -132,22 +132,22 @@
     <operation>{literal}{{/literal}
 	"name": "{$params.object_id}"
 	, "status": "{$params.status}"
-	{foreach $Netbox___Device_types item=type}
+	{foreach $device_types item=type}
 		{if $type.object_id eq $params.model}
 			, "device_type": "{$type.id}"
 		{/if}
 	{/foreach}
-	{foreach $Netbox___Device_role item=role}
+	{foreach $device_role item=role}
 		{if $role.object_id eq $params.role}
 			, "device_role": "{$role.id}"
 		{/if}
 	{/foreach}
-	{foreach $Netbox___Sites item=site}
+	{foreach $sites item=site}
 		{if $site.object_id eq $params.site}
 			, "site": "{$site.id}"
 		{/if}
 	{/foreach}
-	{foreach $NetBox___Tenant item=tenant}
+	{foreach $tenant item=tenant}
 		{if $tenant.object_id eq $params.tenant}
 			, "tenant": "{$tenant.id}"
 		{/if}
@@ -162,27 +162,27 @@
   <command name="UPDATE">
     <rest>PUT
 </rest>
-    <xpath>/api/dcim/devices/{$Netbox___Devices.$object_id.id}/
+    <xpath>/api/dcim/devices/{$devices.$object_id.id}/
 </xpath>
     <operation>{literal}{{/literal}
 	"name": "{$params.object_id}"
 	, "status": "{$params.status}"
-	{foreach $Netbox___Device_types item=type}
+	{foreach $device_types item=type}
 		{if $type.object_id eq $params.model}
 			, "device_type": "{$type.id}"
 		{/if}
 	{/foreach}
-	{foreach $Netbox___Device_role item=role}
+	{foreach $device_role item=role}
 		{if $role.object_id eq $params.role}
 			, "device_role": "{$role.id}"
 		{/if}
 	{/foreach}
-	{foreach $Netbox___Sites item=site}
+	{foreach $tites item=site}
 		{if $site.object_id eq $params.site}
 			, "site": "{$site.id}"
 		{/if}
 	{/foreach}
-	{foreach $NetBox___Tenant item=tenant}
+	{foreach $tenant item=tenant}
 		{if $tenant.object_id eq $params.tenant}
 			, "tenant": "{$tenant.id}"
 		{/if}

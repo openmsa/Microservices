@@ -32,7 +32,7 @@
     <variable displayName="Slug" displayOrder="2" maxLength="100" name="params.slug" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
     <variable displayName="Tenant" displayOrder="3" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable default="active" displayName="Status" displayOrder="4" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
@@ -94,7 +94,7 @@
     <operation>{literal}{{/literal}
 "name": "{$params.object_id}",
 "status": "{$params.status}",
-{foreach $NetBox___Tenant item=tenant}
+{foreach $tenant item=tenant}
 {if $tenant.object_id eq $params.tenant}
 "tenant": "{$tenant.id}",
 {/if}
@@ -107,7 +107,7 @@
 </operation>
     <rest>PATCH
 </rest>
-    <xpath>/api/dcim/sites/{$Netbox___Sites.$object_id.id}/
+    <xpath>/api/dcim/sites/{$sites.$object_id.id}/
 </xpath>
   </command>
   <command name="CONSTRAINT"/>
@@ -119,7 +119,7 @@
   <operation>{literal}{{/literal}
 "name": "{$params.object_id}"
 , "status": "{$params.status}"
-{foreach $NetBox___Tenant item=tenant}
+{foreach $tenant item=tenant}
 {if $tenant.object_id eq $params.tenant}
 , "tenant": "{$tenant.id}"
 {/if}
@@ -138,7 +138,7 @@
   <command name="DELETE">
     <rest>DELETE
 </rest>
-    <xpath>/api/dcim/sites/{$Netbox___Sites.$object_id.id}/
+    <xpath>/api/dcim/sites/{$sites.$object_id.id}/
 </xpath>
     <operation>{literal}{{/literal}
 {literal}}{/literal}

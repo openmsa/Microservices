@@ -38,12 +38,12 @@
     </variable>
     <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable displayName="Site" displayOrder="5" maxLength="100" name="params.site" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
-        <class>Netbox___Sites</class>
+        <class>sites</class>
       </classes>
     </variable>
   </variables>
@@ -99,14 +99,14 @@
 	, "vid": "{$params.vid}"
 	, "status": "{$params.status}"
 	{if !empty($params.tenant)}
-		{foreach $NetBox___Tenant item=tenant}
+		{foreach $tenant item=tenant}
 			{if $tenant.object_id eq $params.tenant}
 				, "tenant": "{$tenant.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.site)}
-		{foreach $Netbox___Sites item=site}
+		{foreach $sites item=site}
 			{if $site.object_id eq $params.site}
 				, "site": "{$site.id}"
 			{/if}
@@ -122,21 +122,21 @@
   <command name="UPDATE">
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/vlans/{$Netbox___VLAN.$object_id.id}/
+    <xpath>/api/ipam/vlans/{$VLAN.$object_id.id}/
 </xpath>
     <operation>{literal}{{/literal}
 	"name": "{$params.object_id}"
 	, "vid": "{$params.vid}"
 	, "status": "{$params.status}"
 	{if !empty($params.tenant)}
-		{foreach $NetBox___Tenant item=tenant}
+		{foreach $tenant item=tenant}
 			{if $tenant.object_id eq $params.tenant}
 				, "tenant": "{$tenant.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.site)}
-		{foreach $Netbox___Sites item=site}
+		{foreach $sites item=site}
 			{if $site.object_id eq $params.site}
 				, "site": "{$site.id}"
 			{/if}
@@ -149,7 +149,7 @@
   <command name="DELETE">
     <rest>DELETE
 </rest>
-    <xpath>/api/ipam/vlans/{$Netbox___VLAN.$object_id.id}/
+    <xpath>/api/ipam/vlans/{$VLAN.$object_id.id}/
 </xpath>
     <operation>{literal}{{/literal}
 {literal}}{/literal}
