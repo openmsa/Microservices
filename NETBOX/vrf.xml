@@ -1,44 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>
   <information>
+    <icon>none</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>NETBOX|IPAM</group>
-    <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>VRF</name>
+    <group>NETBOX|IPAM</group>
     <importonce>false</importonce>
     <importrank>20</importrank>
-    <maxInstances>0</maxInstances>
-    <name>VRF</name>
-    <order>0</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <serviceTaskType/>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
     <sortnumerical>false</sortnumerical>
     <sortvariable>param._order</sortvariable>
-    <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Tenant" displayOrder="2" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="ID" name="params.id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tenant" name="params.tenant" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenant</class>
       </classes>
     </variable>
-    <variable displayName="Route Distinguisher" displayOrder="3" maxLength="100" name="params.rd" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable default="true" displayName="Shall enforce prefix uniqueness in VRF? " displayOrder="4" maxLength="100" name="params.is_enforce_unique" numberOfRowMax="0" startIncrement="0" type="Boolean"/>
+    <variable displayName="Route Distinguisher" name="params.rd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Shall enforce prefix uniqueness in VRF? " name="params.is_enforce_unique" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
-    <content>
-</content>
+    <content></content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
@@ -76,74 +74,58 @@
       </lines>
     </parser>
     <xpath>/api/ipam/vrfs/</xpath>
-  <post_template/>
   </command>
   <command name="UPDATE">
     <operation>{literal}{{/literal}
-"name": "{$params.object_id}"
-, "rd": "{$params.rd}"
-, "enforce_unique": "{$params.is_enforce_unique}"
+&quot;name&quot;: &quot;{$params.object_id}&quot;
+, &quot;rd&quot;: &quot;{$params.rd}&quot;
+, &quot;enforce_unique&quot;: &quot;{$params.is_enforce_unique}&quot;
 {foreach $tenant item=tenant}
 {if $tenant.object_id eq $params.tenant}
-, "tenant": "{$tenant.id}"
+, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
 {/if}
 {/foreach}
 {if empty($params.slug)}
-, "slug": "{$params.object_id|replace:' ':'-'|lower}"
+, &quot;slug&quot;: &quot;{$params.object_id|replace:&apos; &apos;:&apos;-&apos;|lower}&quot;
 {else}
-, "slug": "{$params.slug}"
+, &quot;slug&quot;: &quot;{$params.slug}&quot;
 {/if}
 {if !empty($params.asn)}
-, "asn": "{$params.asn}"
+, &quot;asn&quot;: &quot;{$params.asn}&quot;
 {/if}
-{literal}}{/literal}
-</operation>
-    <rest>PATCH
-</rest>
-    <xpath>/api/ipam/vrfs/{$VRF.$object_id.id}/
-</xpath>
+{literal}}{/literal}</operation>
+    <rest>PATCH</rest>
+    <xpath>/api/ipam/vrfs/{$VRF.$object_id.id}/</xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>{literal}{{/literal}
-"name": "{$params.object_id}"
-, "rd": "{$params.rd}"
-, "enforce_unique": "{$params.is_enforce_unique}"
+&quot;name&quot;: &quot;{$params.object_id}&quot;
+, &quot;rd&quot;: &quot;{$params.rd}&quot;
+, &quot;enforce_unique&quot;: &quot;{$params.is_enforce_unique}&quot;
 {foreach $tenant item=tenant}
 {if $tenant.object_id eq $params.tenant}
-, "tenant": "{$tenant.id}"
+, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
 {/if}
 {/foreach}
 {if empty($params.slug)}
-, "slug": "{$params.object_id|replace:' ':'-'|lower}"
+, &quot;slug&quot;: &quot;{$params.object_id|replace:&apos; &apos;:&apos;-&apos;|lower}&quot;
 {else}
-, "slug": "{$params.slug}"
+, &quot;slug&quot;: &quot;{$params.slug}&quot;
 {/if}
 {if !empty($params.asn)}
-, "asn": "{$params.asn}"
+, &quot;asn&quot;: &quot;{$params.asn}&quot;
 {/if}
-{literal}}{/literal}
-</operation>
-    <rest>POST
-</rest>
-    <xpath>/api/ipam/vrfs/
-</xpath>
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/ipam/vrfs/</xpath>
   </command>
   <command name="DELETE">
     <operation>{literal}{{/literal}
-{literal}}{/literal}
-</operation>
-    <rest>DELETE
-</rest>
-    <xpath>/api/ipam/vrfs/{$VRF.$object_id.id}/
-</xpath>
+{literal}}{/literal}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/ipam/vrfs/{$vrf.$object_id.id}/</xpath>
   </command>
-  <command name="READ">
-    <output>
-</output>
-  </command>
-  <command name="LIST">
-    <output>
-</output>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

@@ -1,60 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>
   <information>
+    <icon>none</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>NETBOX|IPAM</group>
-    <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>IP address</name>
+    <group>NETBOX|IPAM</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
-    <maxInstances>0</maxInstances>
-    <name>IP address</name>
-    <order>0</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <serviceTaskType/>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
     <sortnumerical>false</sortnumerical>
     <sortvariable>param._order</sortvariable>
-    <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" type="Integer"/>
-    <variable displayName="Device interface" displayOrder="0" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="ID" name="params.id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Device interface" name="params.interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>interfaces</class>
       </classes>
     </variable>
-    <variable displayName="IP address" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable default="active" displayName="Status" displayOrder="3" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="IP address" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="active" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="Active">active</value>
-        <value displayValue="Reserved">reserved</value>
-        <value displayValue="Deprecated">deprecated</value>
-        <value displayValue="DHCP">dhcp</value>
+        <values displayValue="Active">active</values>
+        <values displayValue="Reserved">reserved</values>
+        <values displayValue="Deprecated">deprecated</values>
+        <values displayValue="DHCP">dhcp</values>
       </values>
     </variable>
-    <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Tenant name" name="params.tenant" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenant</class>
       </classes>
     </variable>
-    <variable displayName="VRF name" displayOrder="5" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="VRF name" name="params.vrf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>vrf</class>
       </classes>
     </variable>
   </variables>
   <example>
-    <content>
-</content>
+    <content></content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
@@ -92,61 +90,48 @@
       </lines>
     </parser>
     <xpath>/api/ipam/ip-addresses/</xpath>
-  <post_template/>
   </command>
   <command name="UPDATE">
-    <operation>{literal}{{/literal}"address": "{$params.object_id}","status": "{$params.status}"{if !empty($params.tenant)}{foreach $tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.interface)}{foreach $interfaces item=interface}{if $interface.object_id eq $params.interface}, "interface": "{$interface.id}"{/if}{/foreach}{/if}
-{literal}}{/literal}
-</operation>
-    <rest>PATCH
-</rest>
-    <xpath>/api/ipam/ip-addresses/{$ip_address.$object_id.id}/
-</xpath>
+    <operation>{literal}{{/literal}&quot;address&quot;: &quot;{$params.object_id}&quot;,&quot;status&quot;: &quot;{$params.status}&quot;{if !empty($params.tenant)}{foreach $tenant item=tenant}{if $tenant.object_id eq $params.tenant}, &quot;tenant&quot;: &quot;{$tenant.id}&quot;{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $VRF item=vrf}{if $vrf.object_id eq $params.vrf}, &quot;vrf&quot;: &quot;{$vrf.id}&quot;{/if}{/foreach}{/if}{if !empty($params.interface)}{foreach $interfaces item=interface}{if $interface.object_id eq $params.interface}, &quot;interface&quot;: &quot;{$interface.id}&quot;{/if}{/foreach}{/if}
+{literal}}{/literal}</operation>
+    <rest>PATCH</rest>
+    <xpath>/api/ipam/ip-addresses/{$ip_address.$object_id.id}/</xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>{literal}{{/literal}
-	"address": "{$params.object_id}"
-	,"status": "{$params.status}"
-	{if !empty($params.tenant)}
-		{foreach $tenant item=tenant}
-			{if $tenant.object_id eq $params.tenant}
-			, "tenant": "{$tenant.id}"
-			{/if}
-		{/foreach}
-	{/if}
-	{if !empty($params.vrf)}
-		{foreach $VRF item=vrf}
-			{if $vrf.object_id eq $params.vrf}
-			, "vrf": "{$vrf.id}"
-			{/if}
-		{/foreach}
-	{/if}
-	{if !empty($params.interface)}
-		{foreach $interfaces item=interface}
-			{if $interface.name eq $params.interface}
-			, "interface": "{$interface.object_id}"
-			{/if}
-		{/foreach}
-	{/if}
+&quot;address&quot;: &quot;{$params.object_id}&quot;
+,&quot;status&quot;: &quot;{$params.status}&quot;
+{if !empty($params.tenant)}
+{foreach $tenant item=tenant}
+{if $tenant.object_id eq $params.tenant}
+, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
+{/if}
+{/foreach}
+{/if}
+{if !empty($params.vrf)}
+{foreach $VRF item=vrf}
+{if $vrf.object_id eq $params.vrf}
+, &quot;vrf&quot;: &quot;{$vrf.id}&quot;
+{/if}
+{/foreach}
+{/if}
+{if !empty($params.interface)}
+{foreach $interfaces item=interface}
+{if $interface.name eq $params.interface}
+, &quot;interface&quot;: &quot;{$interface.object_id}&quot;
+{/if}
+{/foreach}
+{/if}
 {literal}}{/literal}</operation>
-    <rest>POST
-</rest>
-    <xpath>/api/ipam/ip-addresses/
-</xpath>
+    <rest>POST</rest>
+    <xpath>/api/ipam/ip-addresses/</xpath>
   </command>
   <command name="DELETE">
-    <operation>{literal}{{/literal}{literal}}{/literal}
-</operation>
-    <rest>DELETE
-</rest>
-    <xpath>/api/ipam/ip-addresses/{$IP_address.$object_id.id}/
-</xpath>
+    <operation>{literal}{{/literal}{literal}}{/literal}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/ipam/ip-addresses/{$ip_address.$object_id.id}/</xpath>
   </command>
-  <command name="READ">
-    <output/>
-  </command>
-  <command name="LIST">
-    <output/>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
