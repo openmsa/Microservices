@@ -8,7 +8,7 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>IPAM</group>
+    <group>NETBOX|IPAM</group>
     <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
@@ -29,7 +29,7 @@
     <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" type="Integer"/>
     <variable displayName="Device interface" displayOrder="0" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>Netbox___Interfaces</class>
+        <class>interfaces</class>
       </classes>
     </variable>
     <variable displayName="IP address" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
@@ -43,12 +43,12 @@
     </variable>
     <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable displayName="VRF name" displayOrder="5" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>Netbox___VRF</class>
+        <class>VRF</class>
       </classes>
     </variable>
   </variables>
@@ -95,12 +95,12 @@
   <post_template/>
   </command>
   <command name="UPDATE">
-    <operation>{literal}{{/literal}"address": "{$params.object_id}","status": "{$params.status}"{if !empty($params.tenant)}{foreach $NetBox___Tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $Netbox___VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.interface)}{foreach $Netbox___Interfaces item=interface}{if $interface.object_id eq $params.interface}, "interface": "{$interface.id}"{/if}{/foreach}{/if}
+    <operation>{literal}{{/literal}"address": "{$params.object_id}","status": "{$params.status}"{if !empty($params.tenant)}{foreach $tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.interface)}{foreach $interfaces item=interface}{if $interface.object_id eq $params.interface}, "interface": "{$interface.id}"{/if}{/foreach}{/if}
 {literal}}{/literal}
 </operation>
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/ip-addresses/{$Netbox___IP_address.$object_id.id}/
+    <xpath>/api/ipam/ip-addresses/{$IP_address.$object_id.id}/
 </xpath>
   </command>
   <command name="CONSTRAINT"/>
@@ -109,21 +109,21 @@
 	"address": "{$params.object_id}"
 	,"status": "{$params.status}"
 	{if !empty($params.tenant)}
-		{foreach $NetBox___Tenant item=tenant}
+		{foreach $tenant item=tenant}
 			{if $tenant.object_id eq $params.tenant}
 			, "tenant": "{$tenant.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.vrf)}
-		{foreach $Netbox___VRF item=vrf}
+		{foreach $VRF item=vrf}
 			{if $vrf.object_id eq $params.vrf}
 			, "vrf": "{$vrf.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.interface)}
-		{foreach $Netbox___Interfaces item=interface}
+		{foreach $interfaces item=interface}
 			{if $interface.name eq $params.interface}
 			, "interface": "{$interface.object_id}"
 			{/if}
@@ -140,7 +140,7 @@
 </operation>
     <rest>DELETE
 </rest>
-    <xpath>/api/ipam/ip-addresses/{$Netbox___IP_address.$object_id.id}/
+    <xpath>/api/ipam/ip-addresses/{$IP_address.$object_id.id}/
 </xpath>
   </command>
   <command name="READ">

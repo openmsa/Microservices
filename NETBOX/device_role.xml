@@ -12,9 +12,9 @@
     <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>20</importrank>
+    <importrank>10</importrank>
     <maxInstances>0</maxInstances>
-    <name>Device manufactures</name>
+    <name>NETBOX|Device roles</name>
     <order>0</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
@@ -27,7 +27,8 @@
   </information>
   <variables frozen="0">
     <variable displayName="ID" displayOrder="0" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Vendor" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Role" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Description" displayOrder="2" maxLength="100" name="params.description" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
   </variables>
   <example>
     <content>
@@ -41,8 +42,12 @@
       </section>
       <lines>
         <line>
+          <xpath>/row/description</xpath>
+          <regexp>@&lt;description&gt;(?&lt;description&gt;.+?)&lt;/description&gt;@</regexp>
+        </line>
+        <line>
           <xpath>/row/id</xpath>
-          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;.+?)&lt;/id&gt;@</regexp>
         </line>
         <line>
           <xpath>/row/name</xpath>
@@ -51,7 +56,7 @@
       </lines>
     </parser>
   <operation>GET</operation>
-    <xpath>/api/dcim/manufacturers/</xpath>
+    <xpath>/api/dcim/device-roles/</xpath>
     <post_template/>
   </command>
   <command name="CREATE"/>

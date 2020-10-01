@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>
   <information>
     <configType>xml</configType>
@@ -9,11 +8,11 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>IPAM|NetBox</group>
+    <group>NETBOX|IPAM</group>
     <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>30</importrank>
     <maxInstances>0</maxInstances>
     <name>Prefix</name>
     <order>0</order>
@@ -28,7 +27,7 @@
   </information>
   <variables frozen="0">
     <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" type="Integer"/>
-    <variable displayName="Tags" displayOrder="0" maxLength="100" name="params.tags.0" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="Tags" displayOrder="0" maxLength="100" name="params.tags.0.tag" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Prefix" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Status" displayOrder="2" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" type="String">
       <values>
@@ -40,30 +39,30 @@
     </variable>
     <variable displayName="VRF name" displayOrder="3" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>Netbox___VRF</class>
+        <class>VRF</class>
       </classes>
     </variable>
     <variable displayName="Tenant name" displayOrder="4" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>NetBox___Tenant</class>
+        <class>tenant</class>
       </classes>
     </variable>
     <variable displayName=" Name" displayOrder="5" maxLength="100" name="params.vlan_name" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <sections>
-        <section>VLAN </section>
+        <section>VLAN</section>
       </sections>
       <classes>
-        <class>Netbox___VLAN</class>
+        <class>VLAN</class>
       </classes>
     </variable>
     <variable displayName=" Id" displayOrder="6" isUserLocked="true" maxLength="100" name="params.vlan_id" numberOfRowMax="0" startIncrement="0" type="Integer">
       <sections>
-        <section>VLAN </section>
+        <section>VLAN</section>
       </sections>
     </variable>
     <variable displayName="Site" displayOrder="8" maxLength="100" name="params.site" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>Netbox___Sites</class>
+        <class>sites</class>
       </classes>
     </variable>
   </variables>
@@ -79,6 +78,17 @@
         <xpath>//results/row</xpath>
       </section>
       <lines>
+        <line>
+          <array name="tags">
+            <xpath>/row/tags/row</xpath>
+            <lines>
+              <line>
+                <xpath>//row</xpath>
+                <regexp>@&lt;row&gt;(?&lt;tag&gt;.+?)&lt;/row&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
         <line>
           <array/>
           <regexp>@&lt;name&gt;(?&lt;site&gt;.+?)&lt;/name&gt;@</regexp>
@@ -119,28 +129,60 @@
           <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
           <xpath>/row/id</xpath>
         </line>
-        <line>
-          <array/>
-          <regexp>@&lt;tags&gt;(?&lt;tags&gt;.+?)&lt;/tags&gt;@</regexp>
-          <xpath>//row/tags</xpath>
-        </line>
       </lines>
     </parser>
     <xpath>/api/ipam/prefixes/</xpath>
   <post_template/>
   </command>
   <command name="UPDATE">
-    <operation>{literal}{{/literal}"prefix": "{$params.object_id}", "status": "{$params.status}"{if !empty($params.tenant)}{foreach $NetBox___Tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.site)}{foreach $Netbox___Sites item=site}{if $site.object_id eq $params.site}, "site": "{$site.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $Netbox___VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.vlan_name)}{foreach $Netbox___VLAN item=vlan}{if $vlan.object_id eq $params.vlan_name}, "vlan": "{$vlan.id}"{/if}{/foreach}{/if}
+    <operation>{literal}{{/literal}"prefix": "{$params.object_id}", "status": "{$params.status}"{if !empty($params.tenant)}{foreach $tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.site)}{foreach $sites item=site}{if $site.object_id eq $params.site}, "site": "{$site.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.vlan_name)}{foreach $VLAN item=vlan}{if $vlan.object_id eq $params.vlan_name}, "vlan": "{$vlan.id}"{/if}{/foreach}{/if}
 {literal}}{/literal}
 </operation>
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/prefixes/{$Netbox___Prefix.$object_id.id}/
+    <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/
 </xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{literal}{{/literal}"prefix": "{$params.object_id}", "status": "{$params.status}"{if !empty($params.tags)}, "tags": {','|explode:$params.tags|@json_encode}{/if}{if !empty($params.tenant)}{foreach $NetBox___Tenant item=tenant}{if $tenant.object_id eq $params.tenant}, "tenant": "{$tenant.id}"{/if}{/foreach}{/if}{if !empty($params.site)}{foreach $Netbox___Sites item=site}{if $site.object_id eq $params.site}, "site": "{$site.id}"{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $Netbox___VRF item=vrf}{if $vrf.object_id eq $params.vrf}, "vrf": "{$vrf.id}"{/if}{/foreach}{/if}{if !empty($params.vlan_name)}{foreach $Netbox___VLAN item=vlan}{if $vlan.object_id eq $params.vlan_name}, "vlan": "{$vlan.id}"{/if}{/foreach}{/if}
+    <operation>{literal}{{/literal}
+	"prefix": "{$params.object_id}"
+	, "status": "{$params.status}"
+	{if !empty($params.tags)}
+		{assign var="temp_tag_array" value=[]}
+		{foreach $params.tags item=tag}
+			{$temp_tag_array[] = $tag.tag}
+		{/foreach}
+	, "tags": {$temp_tag_array|@json_encode}
+	{/if}
+	{if !empty($params.tenant)}
+		{foreach $tenant item=tenant}
+			{if $tenant.object_id eq $params.tenant}
+				, "tenant": "{$tenant.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.site)}
+		{foreach $sites item=site}
+			{if $site.object_id eq $params.site}
+			, "site": "{$site.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vrf)}
+		{foreach $VRF item=vrf}
+			{if $vrf.object_id eq $params.vrf}
+				, "vrf": "{$vrf.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vlan_name)}
+		{foreach $VLAN item=vlan}
+			{if $vlan.object_id eq $params.vlan_name}
+				, "vlan": "{$vlan.id}"
+			{/if}
+		{/foreach}
+	{/if}
 {literal}}{/literal}
 </operation>
     <rest>POST
@@ -154,13 +196,15 @@
 </operation>
     <rest>DELETE
 </rest>
-    <xpath>/api/ipam/prefixes/{$Netbox___Prefix.$object_id.id}/
+    <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/
 </xpath>
   </command>
   <command name="READ">
-    <output/>
+    <output>
+</output>
   </command>
   <command name="LIST">
-    <output/>
+    <output>
+</output>
   </command>
 </ObjectDefinition>
