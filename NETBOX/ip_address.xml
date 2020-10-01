@@ -48,7 +48,7 @@
     </variable>
     <variable displayName="VRF name" displayOrder="5" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
       <classes>
-        <class>VRF</class>
+        <class>vrf</class>
       </classes>
     </variable>
   </variables>
@@ -100,7 +100,7 @@
 </operation>
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/ip-addresses/{$IP_address.$object_id.id}/
+    <xpath>/api/ipam/ip-addresses/{$ip_address.$object_id.id}/
 </xpath>
   </command>
   <command name="CONSTRAINT"/>

@@ -122,7 +122,7 @@
   <command name="UPDATE">
     <rest>PATCH
 </rest>
-    <xpath>/api/ipam/vlans/{$VLAN.$object_id.id}/
+    <xpath>/api/ipam/vlans/{$vlan.$object_id.id}/
 </xpath>
     <operation>{literal}{{/literal}
 	"name": "{$params.object_id}"
