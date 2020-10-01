@@ -42,7 +42,7 @@
     </variable>
     <variable displayName="Tenant name" name="params.tenant" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
-        <class>tenant</class>
+        <class>tenants</class>
       </classes>
     </variable>
     <variable displayName="VRF name" name="params.vrf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -104,7 +104,7 @@
 ,&quot;status&quot;: &quot;{$params.status}&quot;
 {if !empty($params.tenant)}
 {foreach $tenant item=tenant}
-{if $tenant.object_id eq $params.tenant}
+{if $tenants.object_id eq $params.tenant}
 , &quot;tenant&quot;: &quot;{$tenant.id}&quot;
 {/if}
 {/foreach}

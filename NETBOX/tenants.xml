@@ -82,7 +82,7 @@
   <command name="DELETE">
     <rest>DELETE
 </rest>
-    <xpath>/api/tenancy/tenants/{$tenant.$object_id.id}/
+    <xpath>/api/tenancy/tenants/{$tenants.$object_id.id}/
 </xpath>
     <operation>{literal}{{/literal}
 {literal}}{/literal}
