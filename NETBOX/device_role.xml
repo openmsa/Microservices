@@ -1,40 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>
   <information>
+    <icon>none</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Devices</group>
-    <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>device roles</name>
+    <group>Devices</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
-    <maxInstances>0</maxInstances>
-    <name>NETBOX|Device roles</name>
-    <order>0</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <serviceTaskType/>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
     <sortnumerical>false</sortnumerical>
     <sortvariable>param._order</sortvariable>
-    <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Role" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Description" displayOrder="2" maxLength="100" name="params.description" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="ID" name="params.id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Role" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
-    <content>
-</content>
+    <content></content>
   </example>
   <command name="IMPORT">
+    <operation>GET</operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
@@ -42,33 +41,28 @@
       </section>
       <lines>
         <line>
-          <xpath>/row/description</xpath>
+          <array/>
           <regexp>@&lt;description&gt;(?&lt;description&gt;.+?)&lt;/description&gt;@</regexp>
+          <xpath>/row/description</xpath>
         </line>
         <line>
-          <xpath>/row/id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;id&gt;.+?)&lt;/id&gt;@</regexp>
+          <xpath>/row/id</xpath>
         </line>
         <line>
-          <xpath>/row/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/name</xpath>
         </line>
       </lines>
     </parser>
-  <operation>GET</operation>
     <xpath>/api/dcim/device-roles/</xpath>
-    <post_template/>
-  </command>
-  <command name="CREATE"/>
-  <command name="READ">
-    <output>
-</output>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
   <command name="DELETE"/>
-  <command name="LIST">
-    <output>
-</output>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
