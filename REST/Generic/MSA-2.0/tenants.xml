@@ -35,8 +35,7 @@
     </variable>
   </variables>
   <example>
-    <content>
-</content>
+    <content></content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
@@ -48,22 +47,22 @@
       <lines>
         <line>
           <array/>
-          <regexp>@&lt;id>(?&lt;object_id>.*)&lt;/id>@</regexp>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
           <xpath>//id</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;prefix>(?&lt;prefix>.*)&lt;/prefix>@</regexp>
+          <regexp>@&lt;prefix&gt;(?&lt;prefix&gt;.*)&lt;/prefix&gt;@</regexp>
           <xpath>//prefix</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;name>(?&lt;name>.*)&lt;/name>@</regexp>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
           <xpath>//name</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;type>(?&lt;type>.*)&lt;/type>@</regexp>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
           <xpath>//type</xpath>
         </line>
       </lines>
