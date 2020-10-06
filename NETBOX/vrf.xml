@@ -80,9 +80,9 @@
 &quot;name&quot;: &quot;{$params.object_id}&quot;
 , &quot;rd&quot;: &quot;{$params.rd}&quot;
 , &quot;enforce_unique&quot;: &quot;{$params.is_enforce_unique}&quot;
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+, &quot;tenant&quot;: &quot;{$tenant_object.id}&quot;
 {/if}
 {/foreach}
 {if empty($params.slug)}
@@ -103,9 +103,9 @@
 &quot;name&quot;: &quot;{$params.object_id}&quot;
 , &quot;rd&quot;: &quot;{$params.rd}&quot;
 , &quot;enforce_unique&quot;: &quot;{$params.is_enforce_unique}&quot;
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+, &quot;tenant&quot;: &quot;{$tenant_object.id}&quot;
 {/if}
 {/foreach}
 {if empty($params.slug)}
