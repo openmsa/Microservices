@@ -143,7 +143,7 @@
 		{/if}
 	{/foreach}
 	{foreach $sites item=site_object}
-		{if $site.object_id eq $params.site}
+		{if $site_object.object_id eq $params.site}
 			, "site": "{$site_object.id}"
 		{/if}
 	{/foreach}
@@ -178,7 +178,7 @@
                 {/if}
         {/foreach}
         {foreach $sites item=site_object}
-                {if $site.object_id eq $params.site}
+                {if $site_object.object_id eq $params.site}
                         , "site": "{$site_object.id}"
                 {/if}
         {/foreach}
