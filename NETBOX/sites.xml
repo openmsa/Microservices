@@ -94,9 +94,9 @@
     <operation>{literal}{{/literal}
 "name": "{$params.object_id}",
 "status": "{$params.status}",
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-"tenant": "{$tenant.id}",
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+"tenant": "{$tenant_object.id}",
 {/if}
 {/foreach}
 "slug": "{$params.slug}",
@@ -119,9 +119,9 @@
   <operation>{literal}{{/literal}
 "name": "{$params.object_id}"
 , "status": "{$params.status}"
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-, "tenant": "{$tenant.id}"
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+, "tenant": "{$tenant_object.id}"
 {/if}
 {/foreach}
 {if empty($params.slug)}
