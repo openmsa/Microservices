@@ -1,106 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Interfaces</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Interfaces</name>
+    <group>Interfaces</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Interfaces</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Interface Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="IP address" displayOrder="1" maxLength="100" name="params.ip_addr" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="IpAddress"/>
-    <variable displayName="ip_prefix" displayOrder="1" maxLength="100" name="params.ip_prefix" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="router_id" displayOrder="1" maxLength="100" name="params.router_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="IP address/prefix" displayOrder="2" isUserLocked="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP address" name="params.ip_addr" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ip_prefix" name="params.ip_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP address/prefix" name="params.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/rpc/get-interface-information</xpath>
+    <post_template>{if ($params.ip_addr) and (!$params.ip_prefix)}
+{$params.ip_prefix = &quot;32&quot;}
+{/if}
+{if $params.ip_addr}
+{assign_object_variable var=&quot;ip&quot; value = &quot;{$params.ip_addr}/{$params.ip_prefix}&quot;}
+{/if}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//physical-interface/logical-interface</xpath>
       </section>
       <lines>
-        
         <line>
-          <xpath>//name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;\S+?)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
         </line>
         <line>
-          <xpath>//address-family/interface-address</xpath>
+          <array/>
           <regexp>@&lt;ifa-destination&gt;(\d{1,3}\.*){1,4}/(?&lt;ip_prefix&gt;\d{1,2})&lt;/ifa-destination&gt;@</regexp>
+          <xpath>//address-family/interface-address</xpath>
         </line>
         <line>
-          <xpath>//address-family/interface-address</xpath>
+          <array/>
           <regexp>@&lt;ifa-local&gt;(?&lt;ip_addr&gt;(\d{1,3}\.){3}\d{1,3})&lt;/ifa-local&gt;@</regexp>
+          <xpath>//address-family/interface-address</xpath>
         </line>
       </lines>
     </parser>
-    <post_template>{if ($params.ip_addr) and (!$params.ip_prefix)}
-{$params.ip_prefix = "32"}
-{/if}
-
-
-{if $params.ip_addr}
-{assign_object_variable var="ip" value = "{$params.ip_addr}/{$params.ip_prefix}"}
-{/if}
-</post_template>
+    <xpath>/rpc/get-interface-information</xpath>
   </command>
-
-
-
-<command name="UPDATE">
-    <rest>POST</rest>
-    <xpath>/rpc</xpath>
-    <operation>{assign var=interface_array value="."|explode:$params.object_id} 
-{assign var='phys_interface' value=$interface_array.0}
-{assign var='logical_interface' value=$interface_array.1}
-
+  <command name="UPDATE">
+    <operation>{assign var=interface_array value=&quot;.&quot;|explode:$params.object_id}
+{assign var=&apos;phys_interface&apos; value=$interface_array.0}
+{assign var=&apos;logical_interface&apos; value=$interface_array.1}
 &lt;lock-configuration/&gt;
 &lt;load-configuration&gt;
-	&lt;configuration&gt;
-		&lt;interfaces&gt;
-		    &lt;interface&gt;
-		        &lt;name&gt;{$phys_interface}&lt;/name&gt;
-		        &lt;unit&gt;
-		            &lt;name&gt;{$logical_interface}&lt;/name&gt;
-		            &lt;family&gt;
-		                &lt;inet&gt;
-		                	&lt;address delete="delete"&gt;
-		                	&lt;/address&gt;
-                                    {if $params.ip_addr}
-		                    &lt;address&gt;
-		                        &lt;name&gt;{$params.ip_addr}/{$params.ip_prefix}&lt;/name&gt;
-		                    &lt;/address&gt;
-                                    {/if}
-		                &lt;/inet&gt;
-		            &lt;/family&gt;
-		        &lt;/unit&gt;
-		    &lt;/interface&gt;
-		&lt;/interfaces&gt;
-	&lt;/configuration&gt;
+&lt;configuration&gt;
+&lt;interfaces&gt;
+&lt;interface&gt;
+&lt;name&gt;{$phys_interface}&lt;/name&gt;
+&lt;unit&gt;
+&lt;name&gt;{$logical_interface}&lt;/name&gt;
+&lt;family&gt;
+&lt;inet&gt;
+&lt;address delete=&quot;delete&quot;&gt;
+&lt;/address&gt;
+{if $params.ip_addr}
+&lt;address&gt;
+&lt;name&gt;{$params.ip_addr}/{$params.ip_prefix}&lt;/name&gt;
+&lt;/address&gt;
+{/if}
+&lt;/inet&gt;
+&lt;/family&gt;
+&lt;/unit&gt;&lt;/interface&gt;
+&lt;/interfaces&gt;
+&lt;/configuration&gt;
 &lt;/load-configuration&gt;
 &lt;commit/&gt;
-&lt;unlock-configuration/&gt;
-</operation>
+&lt;unlock-configuration/&gt;</operation>
+    <rest>POST</rest>
+    <xpath>/rpc</xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
