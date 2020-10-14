@@ -1,97 +1,95 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Gateways</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>CP Gateways</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Type" displayOrder="1" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Firewall enabled" displayOrder="2" maxLength="100" name="params.firewall" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable arrayCanEdit="false" displayName="IPS enabled" displayOrder="3" maxLength="100" name="params.ips" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="Boolean"/>
-    <variable arrayCanEdit="false" displayName="IPv4 Address" displayOrder="4" isMandatory="true" maxLength="100" name="params.ipv4_address" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" type="IpAddress"/>
-    <variable displayName="UID" displayOrder="5" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Firewall enabled" name="params.firewall" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPS enabled" name="params.ips" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4 Address" name="params.ipv4_address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="UID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content></content>
   </example>
   <command name="IMPORT">
     <operation>show-simple-gateways</operation>
-    <xpath/>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/objects/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>type</xpath>
+          <array/>
           <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+          <xpath>type</xpath>
         </line>
         <line>
-          <xpath>uid</xpath>
+          <array/>
           <regexp>@&lt;uid&gt;(?&lt;object_id&gt;.*)&lt;/uid&gt;@</regexp>
+          <xpath>uid</xpath>
         </line>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
   <command name="UPDATE">
-    <rest>set-simple-gateway
-</rest>
-    <xpath>
-</xpath>
     <operation>{literal}{{/literal}
-"new-name":"{$params.name}",
-"uid":"{$params.object_id}",
-"ipv4-address":"{$params.ipv4_address}",
-"firewall":"{$params.firewall}",
-"ips":"{$params.ips}"
-{literal}}{/literal}
-</operation>
+&quot;new-name&quot;:&quot;{$params.name}&quot;,
+&quot;uid&quot;:&quot;{$params.object_id}&quot;,
+&quot;ipv4-address&quot;:&quot;{$params.ipv4_address}&quot;,
+&quot;firewall&quot;:&quot;{$params.firewall}&quot;,
+&quot;ips&quot;:&quot;{$params.ips}&quot;
+{literal}}{/literal}</operation>
+    <rest>set-simple-gateway</rest>
+    <xpath></xpath>
   </command>
+  <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <rest>add-simple-gateway
-</rest>
-    <xpath>
-</xpath>
     <operation>{literal}{{/literal}
-"name":"{$params.name}",
-"ipv4-address":"{$params.ipv4_address}",
-"firewall":"{$params.firewall}",
-"ips":"{$params.ips}"
-{literal}}{/literal}
-</operation>
+&quot;name&quot;:&quot;{$params.name}&quot;,
+&quot;ipv4-address&quot;:&quot;{$params.ipv4_address}&quot;,
+&quot;firewall&quot;:&quot;{$params.firewall}&quot;,
+&quot;ips&quot;:&quot;{$params.ips}&quot;
+{literal}}{/literal}</operation>
+    <rest>add-simple-gateway</rest>
+    <xpath></xpath>
   </command>
   <command name="DELETE">
-    <rest>delete-simple-gateway
-</rest>
-    <xpath>
-</xpath>
     <operation>{literal}{{/literal}
-"uid":"{$params.object_id}"
-{literal}}{/literal}
-</operation>
+&quot;uid&quot;:&quot;{$params.object_id}&quot;
+{literal}}{/literal}</operation>
+    <rest>delete-simple-gateway</rest>
+    <xpath></xpath>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

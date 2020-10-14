@@ -1,141 +1,132 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/AccesIpList.png</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>2400</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Network</group>
-    <icon>/images/repository/CommandDefinition/icons/AccesIpList.png</icon>
     <importIfMandatoryPresent>true</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Addresses</name>
+    <group>Network</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <name>Addresses</name>
-    <order>2400</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="Type" displayOrder="1" isMandatory="true" maxLength="200" name="params.type" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="ipaddress">ipaddress</value>
-        <value displayValue="network">network</value>
+        <values displayValue="ipaddress">ipaddress</values>
+        <values displayValue="network">network</values>
       </values>
     </variable>
-    <variable displayName="IP address" displayOrder="2" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.address" selector="params.type" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="IP address" name="params.address" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="Address" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="address" displayOrder="0" groupDisplayName="Address" isGrouped="true" isMandatory="true" maxLength="200" name="params.address" selectorValue="ipaddress" startIncrement="0" type="IpAddress"/>
+        <behaviour displayName="address" displayOrder="0" maxLength="200" name="params.address" selectorValue="ipaddress" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="Network address" displayOrder="3" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.network_address" selector="params.type" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Network address" name="params.network_address" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="Address" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="network_address" displayOrder="0" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.network_address" selectorValue="network" startIncrement="0" type="IpAddress"/>
+        <behaviour displayName="network_address" displayOrder="0" maxLength="200" name="params.network_address" selectorValue="network" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="Network Mask" displayOrder="4" groupDisplayName="Address" groupSeparator="/" isGrouped="true" maxLength="200" name="params.network_mask" selector="params.type" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Network Mask" name="params.network_mask" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="/" groupDisplayName="Address" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="network_mask" displayOrder="0" groupDisplayName="Address" groupSeparator="/" isGrouped="true" maxLength="200" name="params.network_mask" selectorValue="network" startIncrement="0" type="IpMask"/>
+        <behaviour displayName="network_mask" displayOrder="0" maxLength="200" name="params.network_mask" selectorValue="network" startIncrement="0" type="IpMask"/>
       </behaviors>
     </variable>
-    <variable displayName="Start IP address" displayOrder="5" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.start_address" selector="params.type" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Start IP address" name="params.start_address" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="Address" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="start_address" displayOrder="0" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.start_address" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
+        <behaviour displayName="start_address" displayOrder="0" maxLength="200" name="params.start_address" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="End IP address" displayOrder="6" groupDisplayName="Address" groupSeparator="-" isGrouped="true" maxLength="200" name="params.end_address" selector="params.type" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="End IP address" name="params.end_address" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="-" groupDisplayName="Address" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="end_address" displayOrder="0" groupDisplayName="Address" groupSeparator="-" isGrouped="true" maxLength="200" name="params.end_address" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
+        <behaviour displayName="end_address" displayOrder="0" maxLength="200" name="params.end_address" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="FQDN" displayOrder="7" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.fqdn" selector="params.type" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="FQDN" name="params.fqdn" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="Address" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="fqdn" displayOrder="0" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.fqdn" selectorValue="fqdn" startIncrement="0" type="String"/>
+        <behaviour displayName="fqdn" displayOrder="0" maxLength="200" name="params.fqdn" selectorValue="fqdn" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>! ipaddress
 object-group network Address1
- host 1.1.1.1
-
+host 1.1.1.1
 !iprange
-
-
 !network
-
-
-!fqdn
-</content>
+!fqdn</content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show running-config | sec object-group network</operation>
+    <post_template>{if !empty($params.address)}
+{assign_object_variable var=&quot;type&quot; value=&quot;ipaddress&quot;}
+{else if !empty($params.network_address) and !empty($params.network_mask) }
+{assign_object_variable var=&quot;type&quot; value=&quot;network&quot;}
+{else if !empty($params.start_address) and !empty($params.end_address)}
+{assign_object_variable var=&quot;type&quot; value=&quot;iprange&quot;}
+{else if !empty($params.fqdn)}
+{assign_object_variable var=&quot;type&quot; value=&quot;fqdn&quot;}
+{/if}</post_template>
     <parser>
       <section>
         <regexp>@object-group network (?&lt;object_id&gt;\S+)@</regexp>
-        
-        
-        
+        <xpath/>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@\s+host (?&lt;address&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s+(?&lt;network_address&gt;([0-9]{1,3}\.){3}[0-9]{1,3}) (?&lt;network_mask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\sdescription@</regexp>
         </ignore>
-        <line>
-          <regexp>@\s+host (?&lt;address&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@\s+(?&lt;network_address&gt;([0-9]{1,3}\.){3}[0-9]{1,3}) (?&lt;network_mask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})@</regexp>
-        </line>
       </lines>
     </parser>
-    <post_template>{if !empty($params.address)}
-{assign_object_variable var="type" value="ipaddress"}
-{else if !empty($params.network_address) and !empty($params.network_mask) }
-{assign_object_variable var="type" value="network"}
-{else if !empty($params.start_address) and !empty($params.end_address)}
-{assign_object_variable var="type" value="iprange"}
-{else if !empty($params.fqdn)}
-{assign_object_variable var="type" value="fqdn"}
-{/if}</post_template>
-  </command>
-<command name="CREATE">
-    <operation>{if !empty($params.address)}
-
-object-group network {$params.object_id}
- host {$params.address}
-
-{else if !empty($params.network_address) and !empty($params.network_mask)}
-
-object-group  network {$params.object_id}
- {$params.network_address} {$params.network_mask}
-
-{/if}
-</operation>
   </command>
   <command name="UPDATE">
     <operation>no object network {$address.$object_id.object_id}
 {if !empty($params.address)}
-
 object network {$params.object_id}
- host {$params.address}
-
+host {$params.address}
 {else if !empty($params.network_address) and !empty($params.network_mask)}
-
 object network {$params.object_id}
- {$params.network_address}{$params.network_mask}
-
-{/if}
-</operation>
+{$params.network_address}{$params.network_mask}
+{/if}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{if !empty($params.address)}
+object-group network {$params.object_id}
+host {$params.address}
+{else if !empty($params.network_address) and !empty($params.network_mask)}
+object-group  network {$params.object_id}
+{$params.network_address} {$params.network_mask}
+{/if}</operation>
   </command>
   <command name="DELETE">
-    <operation>no object network {$address.$object_id.object_id}
-</operation>
+    <operation>no object network {$address.$object_id.object_id}</operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
