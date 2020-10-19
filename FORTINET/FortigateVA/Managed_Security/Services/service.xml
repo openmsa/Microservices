@@ -1,30 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/objects_fortinet.png</icon>
+    <description>Service Object</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>1070</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Service</group>
-    <icon>/images/repository/CommandDefinition/icons/objects_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Service Object</name>
+    <group>Service</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Service Object</name>
-    <order>1070</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Service Name" displayOrder="0" maxLength="250" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="Protocol Type" displayOrder="1" editable="false" isMandatory="true" maxLength="200" name="params.proto" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Service Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Protocol Type" name="params.proto" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="ICMP">icmp</value>
         <value displayValue="IP">IP</value>
@@ -32,115 +34,75 @@
         <value displayValue="TCP">tcp</value>
       </values>
     </variable>
-    <variable displayName="Source Port" displayOrder="2" maxLength="200" name="params.srcport" selector="params.proto" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Source Port" name="params.srcport" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="Source Port" displayOrder="0" maxLength="200" name="params.srcport" selectorValue="tcp" startIncrement="0" type="String"/>
-        <behavior displayName="Source Port" displayOrder="0" maxLength="200" name="params.srcport" selectorValue="udp" startIncrement="0" type="String"/>
+        <behaviour displayName="Source Port" displayOrder="0" maxLength="200" name="params.srcport" selectorValue="tcp" startIncrement="0" type="String"/>
+        <behaviour displayName="Source Port" displayOrder="0" maxLength="200" name="params.srcport" selectorValue="udp" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-    <variable displayName="Destination Port" displayOrder="3" maxLength="200" name="params.destport" selector="params.proto" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Destination Port" name="params.destport" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="Destination Port" displayOrder="0" maxLength="200" name="params.destport" selectorValue="tcp" startIncrement="0" type="String"/>
-        <behavior displayName="Destination Port" displayOrder="0" maxLength="200" name="params.destport" selectorValue="udp" startIncrement="0" type="String"/>
+        <behaviour displayName="Destination Port" displayOrder="0" maxLength="200" name="params.destport" selectorValue="tcp" startIncrement="0" type="String"/>
+        <behaviour displayName="Destination Port" displayOrder="0" maxLength="200" name="params.destport" selectorValue="udp" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-    <variable displayName="Type" displayOrder="4" maxLength="200" name="params.icmpType" selector="params.proto" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Type" name="params.icmpType" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour displayName="Type" displayOrder="0" maxLength="200" name="params.icmpType" selectorValue="icmp" startIncrement="0" type="String"/>
+      </behaviors>
       <sections>
         <section>ICMP</section>
       </sections>
-      <behaviors>
-        <behavior displayName="Type" displayOrder="0" maxLength="200" name="params.icmpType" selectorValue="icmp" startIncrement="0" type="String"/>
-      </behaviors>
     </variable>
-    <variable displayName="Code" displayOrder="5" maxLength="200" name="params.icmpCode" selector="params.proto" startIncrement="0" type="Composite" visible="false">
+    <variable displayName="Code" name="params.icmpCode" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour displayName="Code" displayOrder="0" maxLength="200" name="params.icmpCode" selectorValue="icmp" startIncrement="0" type="String"/>
+      </behaviors>
       <sections>
         <section>ICMP</section>
       </sections>
+    </variable>
+    <variable displayName="Protocol Number " name="params.ipProtoNum" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="Code" displayOrder="0" maxLength="200" name="params.icmpCode" selectorValue="icmp" startIncrement="0" type="String"/>
+        <behaviour displayName=" Protocol Number " displayOrder="0" maxLength="200" name="params.ipProtoNum" selectorValue="IP" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-    <variable displayName="Protocol Number " displayOrder="6" maxLength="200" name="params.ipProtoNum" selector="params.proto" startIncrement="0" type="Composite" visible="false">
-      <behaviors>
-        <behavior displayName=" Protocol Number " displayOrder="0" maxLength="200" name="params.ipProtoNum" selectorValue="IP" startIncrement="0" type="String"/>
-      </behaviors>
-    </variable>
-    <variable cols="150" displayName="Comment" displayOrder="7" maxLength="200" name="params.comment" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>FGVM020000034713 # show full-configuration firewall service custom 
-config firewall service custom
-    edit "ALL"
-        set explicit-proxy disable
-        set category "General"
-        set protocol IP
-        set comment ''
-        set color 0
-        set visibility enable
-        set protocol-number 0
-    next
-    edit "ALL_TCP"
-        set explicit-proxy disable
-        set category "General"
-        set protocol TCP/UDP/SCTP
-        set check-reset-range default
-        set comment ''
-        set color 0
-        set visibility enable
-        set iprange 0.0.0.0
-        set fqdn ''
-        set tcp-portrange 1-65535
-        unset udp-portrange
-        unset sctp-portrange
-        set tcp-halfclose-timer 0
-        set tcp-halfopen-timer 0
-        set tcp-timewait-timer 0
-        set udp-idle-timer 0
-        set session-ttl 0
-    next
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>FGVM020000034713 # show full-configuration firewall service customconfig firewall service customedit "ALL"set explicit-proxy disableset category "General"set protocol IPset comment ''set color 0set visibility enableset protocol-number 0nextedit "ALL_TCP"set explicit-proxy disableset category "General"set protocol TCP/UDP/SCTPset check-reset-range defaultset comment ''set color 0set visibility enableset iprange 0.0.0.0set fqdn ''set tcp-portrange 1-65535unset udp-portrangeunset sctp-portrangeset tcp-halfclose-timer 0set tcp-halfopen-timer 0set tcp-timewait-timer 0set udp-idle-timer 0set session-ttl 0next
 </content>
   </example>
-<command name="CREATE">
-    <operation>config firewall service custom
-    edit "{$params.object_id}"
-		
-		{if $params.proto== "tcp" }
-			set protocol TCP/UDP/SCTP
-        		set tcp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
-
-			unset udp-portrange
-		{elseif $params.proto == "udp"}
-			set protocol TCP/UDP/SCTP
-			set udp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
-
-			unset tcp-portrange
-
-		{elseif $params.proto=="IP"}
-			set protocol IP
-			{if !empty($params.ipProtoNum)}
-			set  protocol-number {$params.ipProtoNum}{/if}
-
-		{elseif $params.proto== "icmp" }
-			set protocol ICMP
-		{if !empty($params.icmpType)}
-			set icmptype {$params.icmpType}
-		{/if}
-		{if !empty($params.icmpCode)}
-			set icmpcode {$params.icmpCode}
-		{/if}
-		{/if}
-		set comment "{$params.comment}"
-end
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show full-configuration firewall service custom</operation>
     <parser>
       <section>
-        <regexp>@edit "(?&lt;object_id&gt;[^"]+)"@</regexp>
+        <regexp>@edit "(?&lt;object_id>[^"]+)"@</regexp>
       </section>
       <lines>
         <line>
-          <regexp>@set protocol (?&lt;proto&gt;\S+)@</regexp>
+          <array/>
+          <regexp>@set comment "(?&lt;comment>[^"]+)"@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set (?&lt;proto>...+)-portrange (?&lt;destport>[^:]+)\s*$@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set (?&lt;proto>...+)-portrange (?&lt;destport>[^:]+):(?&lt;srcport>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set (?&lt;proto>icmp)code (?&lt;icmpCode>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set (?&lt;proto>icmp)type (?&lt;icmpType>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set protocol-number (?&lt;ipProtoNum>\S+)@</regexp>
         </line>
         <ignore>
           <regexp>@set @
@@ -149,70 +111,70 @@ end
         <ignore>
           <regexp>@unset @</regexp>
         </ignore>
-        
-        <line>
-          <regexp>@set comment "(?&lt;comment&gt;[^"]+)"@</regexp>
-        </line>
-        <line>
-          <regexp>@set (?&lt;proto&gt;...+)-portrange (?&lt;destport&gt;[^:]+)\s*$@</regexp>
-        </line>
-        
-        <line>
-          <regexp>@set (?&lt;proto&gt;...+)-portrange (?&lt;destport&gt;[^:]+):(?&lt;srcport&gt;\S+)@</regexp>
-        </line>
-        
-        <line>
-          <regexp>@set (?&lt;proto&gt;icmp)code (?&lt;icmpCode&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set (?&lt;proto&gt;icmp)type (?&lt;icmpType&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set protocol-number (?&lt;ipProtoNum&gt;\S+)@</regexp>
-        </line>
-        
       </lines>
     </parser>
-    <post_template/>
   </command>
-<command name="DELETE">
+  <command name="UPDATE">
     <operation>config firewall service custom
-    delete "{$Service.$object_id.object_id}"
+edit "{$params.object_id}"
+{if $params.proto== "tcp" }
+set protocol TCP/UDP/SCTP
+set tcp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
+unset udp-portrange
+{elseif $params.proto == "udp"}
+set protocol TCP/UDP/SCTP
+set udp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
+unset tcp-portrange
+{elseif $params.proto=="IP"}
+set protocol IP
+{if !empty($params.ipProtoNum)} 
+set protocol-number {$params.ipProtoNum}{/if}
+{elseif $params.proto== "icmp" }
+set protocol ICMP
+{if !empty($params.icmpType)}
+set icmptype {$params.icmpType}{/if}
+{if !empty($params.icmpCode)}
+set icmpcode {$params.icmpCode}{/if}
+{/if}
+set comment "{$params.comment}"
 end
 </operation>
   </command>
-
-<command name="UPDATE">
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
     <operation>config firewall service custom
-    edit "{$params.object_id}"
-		
-		{if $params.proto== "tcp" }
-			set protocol TCP/UDP/SCTP
-        		set tcp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
-
-			unset udp-portrange
-		{elseif $params.proto == "udp"}
-			set protocol TCP/UDP/SCTP
-			set udp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
-
-			unset tcp-portrange
-
-		{elseif $params.proto=="IP"}
-			set protocol IP
-			{if !empty($params.ipProtoNum)}
-			set  protocol-number {$params.ipProtoNum}{/if}
-
-		{elseif $params.proto== "icmp" }
-			set protocol ICMP
-		{if !empty($params.icmpType)}
-			set icmptype {$params.icmpType}
-		{/if}
-		{if !empty($params.icmpCode)}
-			set icmpcode {$params.icmpCode}
-		{/if}
-		{/if}
-		set comment "{$params.comment}"
+edit "{$params.object_id}"
+{if $params.proto== "tcp" }
+set protocol TCP/UDP/SCTP
+set tcp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
+unset udp-portrange
+{elseif $params.proto == "udp"}
+set protocol TCP/UDP/SCTP
+set udp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
+unset tcp-portrange
+{elseif $params.proto=="IP"}
+set protocol IP
+{if !empty($params.ipProtoNum)}
+set protocol-number {$params.ipProtoNum}
+{/if}
+{elseif $params.proto== "icmp" }set protocol ICMP
+{if !empty($params.icmpType)}
+set icmptype {$params.icmpType}
+{/if}
+{if !empty($params.icmpCode)}
+set icmpcode {$params.icmpCode}
+{/if}
+{/if}
+set comment "{$params.comment}"
 end
 </operation>
   </command>
+  <command name="DELETE">
+    <operation>config firewall service custom
+delete "{$Service.$object_id.object_id}"
+end
+</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Device Status</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="name" displayOrder="0" isUserLocked="true" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="start" displayName="upstate" displayOrder="0" editable="false" maxLength="100" name="params.upstate" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>start</value>
+        <value>stop</value>
+      </values>
+    </variable>
+    <variable displayName="org" displayOrder="1" editable="false" maxLength="100" name="params.org" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="state" displayOrder="1" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="object_id" displayOrder="2" editable="false" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/api/devices</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//org</xpath>
+          <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>//deviceStatus/state</xpath>
+          <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+        </line>
+        
+        
+        
+        <line>
+          <xpath>_id</xpath>
+          <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+        </line>
+        
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+
+<command name="UPDATE">
+    <rest>POST
+</rest>
+    <xpath>/api/devices/{$params.object_id}/apply?org={$params.org}
+</xpath>
+    <operation>{literal}{{/literal}
+"method":"{$params.upstate}"
+{literal}}{/literal}
+</operation>
+  </command>
+</ObjectDefinition>

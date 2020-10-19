@@ -1,41 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/DosProtection.png</icon>
+    <description>Rules</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Security</group>
-    <icon>/images/repository/CommandDefinition/icons/DosProtection.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Rules</name>
+    <group>Security</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Rules</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Rule" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="Integer"/>
-    <variable displayName="Action" displayOrder="1" maxLength="100" name="params.action" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Rule" name="params.object_id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value>Deny</value>
         <value>Allow</value>
       </values>
     </variable>
-    <variable displayName=" IP" displayOrder="2" maxLength="100" name="params.source_ip" startIncrement="0" type="IpAddress">
+    <variable displayName=" IP" name="params.source_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Source </section>
       </sections>
     </variable>
-    <variable displayName=" Mask" displayOrder="3" maxLength="100" name="params.source_mask" startIncrement="0" type="IpMask">
+    <variable displayName=" Mask" name="params.source_mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value>255.255.255.0</value>
         <value>255.255.255.254</value>
@@ -45,12 +47,12 @@
         <section>Source </section>
       </sections>
     </variable>
-    <variable displayName=" IP" displayOrder="4" maxLength="100" name="params.destination_ip" startIncrement="0" type="IpAddress">
+    <variable displayName=" IP" name="params.destination_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <section>Destination </section>
       </sections>
     </variable>
-    <variable displayName=" Mask" displayOrder="5" maxLength="100" name="params.destination_mask" startIncrement="0" type="IpMask">
+    <variable displayName=" Mask" name="params.destination_mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value>255.255.255.0</value>
         <value>255.255.255.254</value>
@@ -60,94 +62,13 @@
         <section>Destination </section>
       </sections>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
 </content>
   </example>
-<command name="CREATE">
-    <rest>type=config&amp;action=set
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='ubi_{$params.object_id}']
-</xpath>
-    <operation>{if $params.action == "Allow" }
-{$params.action="allow"}
-{else}
-{$params.action="deny"}
-{/if}
-{if $params.source_mask == "255.255.255.255" }
-	{$params.source_mask="32"}
-{/if}
-{if $params.source_mask == "255.255.255.254" }
-	{$params.source_mask="31"}
-{/if}
-{if $params.source_mask == "255.255.255.0" }
-	{$params.source_mask="24"}
-{/if}
-{if $params.destination_mask == "255.255.255.255" }
-	{$params.destination_mask="32"}
-{/if}
-{if $params.destination_mask == "255.255.255.254" }
-	{$params.destination_mask="31"}
-{/if}
-{if $params.destination_mask == "255.255.255.0" }
-	{$params.destination_mask="24"}
-{/if}
-&lt;from&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/from&gt;
-&lt;to&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/to&gt;
-&lt;source&gt;
-&lt;member&gt;{$params.source_ip}/{$params.source_mask}&lt;/member&gt;
-&lt;/source&gt;
-&lt;destination&gt;
-&lt;member&gt;{$params.destination_ip}/{$params.destination_mask}&lt;/member&gt;
-&lt;/destination&gt;
-&lt;source-user&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/source-user&gt;
-&lt;category&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/category&gt;
-&lt;application&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/application&gt;
-&lt;service&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/service&gt;
-&lt;hip-profiles&gt;
-&lt;member&gt;any&lt;/member&gt;
-&lt;/hip-profiles&gt;
-&lt;action&gt;{$params.action}&lt;/action&gt;
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>type=config&amp;action=show</operation>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules</xpath>
-    <parser>
-      <section>
-        <xpath>//rules/entry</xpath>
-      </section>
-      <lines>
-        <line>
-          <xpath>//entry/@name</xpath>
-          <regexp>@name="ubi_(?&lt;object_id&gt;.*)"@</regexp>
-        </line>
-        <line>
-          <xpath>//entry/action</xpath>
-          <regexp>@&lt;action&gt;(?&lt;action&gt;.*)&lt;/action&gt;@</regexp>
-        </line>
-        <line>
-          <xpath>//entry/source/member</xpath>
-          <regexp>@&lt;member&gt;(?&lt;source_ip&gt;[^/]+)/(?&lt;source_mask&gt;.*)&lt;/member&gt;@</regexp>
-        </line>
-        <line>
-          <xpath>//entry/destination/member</xpath>
-          <regexp>@&lt;member&gt;(?&lt;destination_ip&gt;[^/]+)/(?&lt;destination_mask&gt;.*)&lt;/member&gt;@</regexp>
-        </line>
-      </lines>
-    </parser>
     <post_template>{if $params.action=="allow"}
 {assign_object_variable var="action" value="Allow"}
 {/if}
@@ -172,5 +93,86 @@
 {if $params.destination_mask=="24"}
 {assign_object_variable var="destination_mask" value="255.255.255.0"}
 {/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@name="ubi_(?&lt;object_id>.*)"@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;action>(?&lt;action>.*)&lt;/action>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;member>(?&lt;source_ip>[^/]+)/(?&lt;source_mask>.*)&lt;/member>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;member>(?&lt;destination_ip>[^/]+)/(?&lt;destination_mask>.*)&lt;/member>@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules</xpath>
   </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{if $params.action == "Allow" }
+{$params.action="allow"}
+{else}
+{$params.action="deny"}
+{/if}
+{if $params.source_mask == "255.255.255.255" }{$params.source_mask="32"}
+{/if}
+{if $params.source_mask == "255.255.255.254" }{$params.source_mask="31"}
+{/if}
+{if $params.source_mask == "255.255.255.0" }{$params.source_mask="24"}
+{/if}
+{if $params.destination_mask == "255.255.255.255" }{$params.destination_mask="32"}
+{/if}
+{if $params.destination_mask == "255.255.255.254" }{$params.destination_mask="31"}
+{/if}
+{if $params.destination_mask == "255.255.255.0" }{$params.destination_mask="24"}
+{/if}
+&lt;from>
+&lt;member>any&lt;/member>
+&lt;/from>
+&lt;to>
+&lt;member>any&lt;/member>
+&lt;/to>
+&lt;source>
+&lt;member>{$params.source_ip}/{$params.source_mask}&lt;/member>
+&lt;/source>
+&lt;destination>
+&lt;member>{$params.destination_ip}/{$params.destination_mask}&lt;/member>
+&lt;/destination>
+&lt;source-user>
+&lt;member>any&lt;/member>
+&lt;/source-user>
+&lt;category>
+&lt;member>any&lt;/member>
+&lt;/category>
+&lt;application>
+&lt;member>any&lt;/member>
+&lt;/application>
+&lt;service>
+&lt;member>any&lt;/member>
+&lt;/service>
+&lt;hip-profiles>
+&lt;member>any&lt;/member>
+&lt;/hip-profiles>
+&lt;action>{$params.action}&lt;/action>
+</operation>
+    <rest>type=config&amp;action=set
+</rest>
+    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='ubi_{$params.object_id}']
+</xpath>
+  </command>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

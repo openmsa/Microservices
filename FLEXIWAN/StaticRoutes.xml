@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>5</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Static Routes</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Destination" displayOrder="0" maxLength="100" name="params.destination_network" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="device_id" displayOrder="0" editable="false" maxLength="100" name="params.device_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Gateway" displayOrder="0" maxLength="100" name="params.gateway_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Interface" displayOrder="1" isUserLocked="true" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Devices" displayOrder="2" editable="false" maxLength="100" name="params.Devices" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Devices</class>
+      </classes>
+    </variable>
+    <variable displayName="object_id" displayOrder="3" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Status" displayOrder="3" isUserLocked="true" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Organisation" displayOrder="4" maxLength="100" name="params.Organisation" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+      <classes>
+        <class>Organisation</class>
+      </classes>
+    </variable>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>{foreach from=$Devices item=device}/api/devices/{$device.object_id}/staticroutes##{/foreach}</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//ifname</xpath>
+          <regexp>@&lt;ifname&gt;(?&lt;interface&gt;.*)&lt;/ifname&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>_id</xpath>
+          <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//destination</xpath>
+          <regexp>@&lt;destination&gt;(?&lt;destination_network&gt;.*)&lt;/destination&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//gateway</xpath>
+          <regexp>@&lt;gateway&gt;(?&lt;gateway_ip&gt;.*)&lt;/gateway&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//status</xpath>
+          <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{assign_object_variable var="device_id" value=$device.object_id}</post_template>
+  </command>
+<command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/api/devices/{$params.Devices}/staticroutes/?org={$params.Organisation}
+</xpath>
+    <operation>{literal}{{/literal}
+"destination":"{$params.destination_network}",
+"gateway": "{$params.gateway_ip}"
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>DELETE
+</rest>
+    <xpath>/api/devices/{$params.Devices}/staticroutes/{$params.object_id}?org={$params.Organisation}
+</xpath>
+    <operation>{}
+</operation>
+  </command>
+</ObjectDefinition>

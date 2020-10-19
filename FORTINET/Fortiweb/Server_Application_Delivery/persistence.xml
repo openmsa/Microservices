@@ -1,40 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description>Persistence</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Persistence</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Persistence</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0"/>  <example>
+  </information>
+  <variables frozen="0"/>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation/>
     <parser>
-      <section/>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
       <lines/>
     </parser>
-    <post_template/>
   </command>
-  <command name="CREATE"/>
   <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
   <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

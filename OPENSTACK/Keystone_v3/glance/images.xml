@@ -1,0 +1,159 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/file server.jpg</icon>
+    <description>Images</description>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Images</name>
+    <group>Glance</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Disk Format" name="params.disk_format" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <value>vdi</value>
+        <value>raw</value>
+        <value>aki</value>
+        <value>ari</value>
+        <value>qcow2</value>
+        <value>ami</value>
+        <value>iso</value>
+        <value>vmdk</value>
+        <value>vhd</value>
+      </values>
+    </variable>
+    <variable displayName="Container Format" name="params.container_format" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <value>bare</value>
+        <value>aki</value>
+        <value>ari</value>
+        <value>ovf</value>
+        <value>ami</value>
+      </values>
+    </variable>
+    <variable displayName="Size" name="params.size" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Minimum RAM" name="params.min_ram" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Minimum Disk" name="params.min_disk" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Protected" name="params.protected" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Visibility" name="params.visibility" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="public" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <value displayValue="public">public</value>
+        <value displayValue="private">private</value>
+      </values>
+    </variable>
+    <variable displayName="File Path" name="params.file_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>glance</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;id>(?&lt;object_id>.*)&lt;/id>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name>(?&lt;name>.*)&lt;/name>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;status>(?&lt;status>.*)&lt;/status>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;container_format>(?&lt;container_format>.*)&lt;/container_format>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;disk_format>(?&lt;disk_format>.*)&lt;/disk_format>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;min_disk>(?&lt;min_disk>.*)&lt;/min_disk>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;min_ram>(?&lt;min_ram>.*)&lt;/min_ram>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;protected>(?&lt;protected>.*)&lt;/protected>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;visibility>(?&lt;visibility>.*)&lt;/visibility>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;size>(?&lt;size>.*)&lt;/size>@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/v2/images</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>@{$params.file_path}
+</operation>
+    <rest>PUT#glance
+</rest>
+    <xpath>​/v2/images/{$params.object_id|object_id}/file
+</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}
+"name": "{$params.name}",
+"visibility": "{$params.visibility}",
+"container_format": "{$params.container_format}",
+"disk_format": "{$params.disk_format}",
+{if !empty({$params.min_disk})}
+"min_disk": {$params.min_disk},
+{/if}
+{if !empty({$params.min_ram})}
+"min_ram": {$params.min_ram},
+{/if}
+"protected": {$params.protected}
+{literal}}{/literal}
+</operation>
+    <rest>POST#glance
+</rest>
+    <xpath>/v2/images
+</xpath>
+  </command>
+  <command name="DELETE">
+    <operation>
+</operation>
+    <rest>glance
+</rest>
+    <xpath>​/v2/images/{$params.object_id|object_id}
+</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

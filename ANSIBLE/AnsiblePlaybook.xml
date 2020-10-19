@@ -1,0 +1,74 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>Call Ansible playbook on remote server</description>
+    <displayField>none</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>AnsiblePlaybook</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="extra_vars" name="params.ansible_vars.0.var_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Extra Vars" name="params.extra_vars" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Playbook path" name="params.playbook_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="/opt/playbooks/linux_firewall_creation.yml" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>for file in /opt/playbooks/*; do echo $file; cat $file | shyaml get-values-0 0.vars_prompt |while IFS='' read -r -d '' row; do echo "$row";done | grep -E "name:"; done</operation>
+    <post_template>{assign var='line' value=''}
+{foreach from=$params.ansible_vars key=number item = varname}
+{assign var var='temp' value=$varname.var_name}
+{$line = "$line $temp"}
+{/foreach}
+{assign_object_variable var='extra_vars' value=$line}</post_template>
+    <parser>
+      <section>
+        <regexp>@^(?&lt;playbook_path>\S+[^/]+?\.yml)*$@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array name="ansible_vars">
+            <lines/>
+            <regexp>@^\S+?:\s+?(?&lt;var_name>\S+)$@</regexp>
+            <mregexp>@^\s \s*$@</mregexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>sudo ansible-playbook {$params.playbook_path} --extra-vars {$params.extra_vars}
+</operation>
+  </command>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

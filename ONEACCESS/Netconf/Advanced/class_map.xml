@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>netconf</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>QoS</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>200</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Class Map</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Type" displayOrder="1" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>match-any</value>
+        <value>match-all</value>
+      </values>
+    </variable>
+    <variable default="false" displayName="Not?" displayOrder="2" maxLength="100" name="params.rule_list.0.not" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean">
+      <sections>
+        <section>Rule List</section>
+      </sections>
+    </variable>
+    <variable displayName="Rule" displayOrder="3" editable="false" maxLength="100" name="params.rule_list.0.rule" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false">
+      <sections>
+        <section>Rule List</section>
+      </sections>
+    </variable>
+    <variable displayName="Matching type" displayOrder="10" editable="false" maxLength="100" name="params.rule_list.0.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value displayValue="cos">cos</value>
+        <value displayValue="dscp">dscp</value>
+        <value displayValue="protocol">protocol</value>
+        <value displayValue="access-group">access-group</value>
+        <value displayValue="vlan">vlan</value>
+        <value displayValue="input gigabitethernet">gigabitethernet</value>
+      </values>
+      <sections>
+        <section>Rule List</section>
+      </sections>
+    </variable>
+    <variable displayName="Matching value" displayOrder="11" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selector="params.rule_list.0.type" startIncrement="0" tableSizeFix="false" type="Composite">
+      <sections>
+        <section>Rule List</section>
+      </sections>
+      <behaviors>
+        <behavior displayName="value" displayOrder="0" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selectorValue="access-group" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+          <sections>
+            <section>rule_list</section>
+          </sections>
+          <classes>
+            <class>ext_ack_v4</class>
+          </classes>
+        </behavior>
+        <behavior displayName="value" displayOrder="0" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selectorValue="cos" startIncrement="0" tableSizeFix="false" type="Integer">
+          <sections>
+            <section>rule_list</section>
+          </sections>
+        </behavior>
+        <behavior displayName="value" displayOrder="0" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selectorValue="dscp" startIncrement="0" tableSizeFix="false" type="Integer">
+          <sections>
+            <section>rule_list</section>
+          </sections>
+        </behavior>
+        <behavior displayName="value" displayOrder="0" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selectorValue="gigabitethernet" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+          <sections>
+            <section>rule_list</section>
+          </sections>
+          <classes>
+            <class>gigabit_interface</class>
+          </classes>
+        </behavior>
+        <behavior displayName="value" displayOrder="0" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selectorValue="protocol" startIncrement="0" tableSizeFix="false" type="String">
+          <sections>
+            <section>rule_list</section>
+          </sections>
+        </behavior>
+        <behavior displayName="value" displayOrder="0" maxLength="100" name="params.rule_list.0.value" numberOfRowMax="0" selectorValue="vlan" startIncrement="0" tableSizeFix="false" type="Integer">
+          <sections>
+            <section>rule_list</section>
+          </sections>
+        </behavior>
+      </behaviors>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="IMPORT">
+    <operation/>
+    <post_template>{if !$params.type}
+{assign_object_variable var="type" value = "match-all"}
+{/if}
+{foreach from=$params.rule_list item=rule key=num}
+{if !$rule.not}
+{assign_object_variable var="rule_list.$num.not" value = "false"}
+{else}
+{assign_object_variable var="rule_list.$num.not" value = "true"}
+{/if}
+
+{assign var="parsed_line" value=" "|explode:$rule.rule}
+{assign_object_variable var="rule_list.$num.value" value = $parsed_line|@end}
+{assign_object_variable var="rule_list.$num.type" value = $parsed_line|@prev}
+
+
+
+{/foreach}</post_template>
+    <xpath>/data/system/class-map</xpath>
+    <parser>
+      <section>
+        <xpath>//class-map</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//prematch</xpath>
+          <regexp>@&lt;prematch&gt;(?&lt;type&gt;match-all|match-any)&lt;/prematch&gt;@</regexp>
+        </line>
+        <line>
+          <array name="rule_list">
+            <xpath>//match</xpath>
+            <lines>
+              <line>
+                <xpath>//matchRule</xpath>
+                <regexp>@&lt;matchRule&gt;(?&lt;rule&gt;.*)&lt;/matchRule&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//not</xpath>
+                <regexp>@(?&lt;not&gt;&lt;not/&gt;)@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.+?)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  </command>
+<command name="UPDATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;    
+  &lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos" operation="replace"&gt;
+    &lt;name&gt;{$params.object_id}&lt;/name&gt;
+    &lt;prematch&gt;{$params.type}&lt;/prematch&gt;
+    {foreach $params.rule_list item=rule}
+    {if $rule.type}
+    &lt;match&gt;
+      {if $rule.type eq 'dscp'}
+      &lt;matchRule&gt;ip dscp {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'cos'}
+      &lt;matchRule&gt;cos {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'access-group'}
+      &lt;matchRule&gt;access-group {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'gigabitethernet'}
+      &lt;matchRule&gt;input-interface gigabitethernet {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'protocol'}
+      &lt;matchRule&gt;protocol {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'vlan'}
+      &lt;matchRule&gt;vlan {$rule.value}&lt;/matchRule&gt;
+      {/if}
+      {if $rule.not}
+      &lt;not/&gt;
+      {/if}
+    &lt;/match&gt;
+   {/if}
+   {/foreach}
+  &lt;/class-map&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+<command name="CREATE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;    
+  &lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos"&gt;
+    &lt;name&gt;{$params.object_id}&lt;/name&gt;
+    &lt;prematch&gt;{$params.type}&lt;/prematch&gt;
+    {foreach $params.rule_list item=rule}
+    {if $rule.type}
+    &lt;match&gt;
+      {if $rule.type eq 'dscp'}
+      &lt;matchRule&gt;ip dscp {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'cos'}
+      &lt;matchRule&gt;cos {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'access-group'}
+      &lt;matchRule&gt;access-group {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'gigabitethernet'}
+      &lt;matchRule&gt;input-interface gigabitethernet {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'protocol'}
+      &lt;matchRule&gt;protocol {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'vlan'}
+      &lt;matchRule&gt;vlan {$rule.value}&lt;/matchRule&gt;
+      {/if}
+      {if $rule.not}
+      &lt;not/&gt;
+      {/if}
+    &lt;/match&gt;
+   {/if}
+   {/foreach}
+  &lt;/class-map&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;    
+  &lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos" operation="delete"&gt;
+    &lt;name&gt;{$params.object_id}&lt;/name&gt;
+    {foreach $params.rule_list item=rule}
+    {if $rule.type}
+    &lt;match&gt;
+      {if $rule.type eq 'dscp'}
+      &lt;matchRule&gt;ip dscp {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'cos'}
+      &lt;matchRule&gt;cos {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'access-group'}
+      &lt;matchRule&gt;access-group {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'gigabitethernet'}
+      &lt;matchRule&gt;input-interface gigabitethernet {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'protocol'}
+      &lt;matchRule&gt;protocol {$rule.value}&lt;/matchRule&gt;
+      {elseif $rule.type eq 'vlan'}
+      &lt;matchRule&gt;vlan {$rule.value}&lt;/matchRule&gt;
+      {/if}
+      {if $rule.not}
+      &lt;not/&gt;
+      {/if}
+    &lt;/match&gt;
+   {/if}
+   {/foreach}
+  &lt;/class-map&gt;
+&lt;/system&gt;
+</operation>
+  </command>
+</ObjectDefinition>

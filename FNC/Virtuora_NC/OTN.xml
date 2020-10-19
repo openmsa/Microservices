@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>OTN</group>
+    <icon>/images/repository/CommandDefinition/icons/CUBE.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>OTN Service</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.svcName" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable default="false" displayName="Ignore Alarms" displayOrder="1" maxLength="100" name="params.ignoreAlarms" onlyDetailView="true" startIncrement="0" type="Boolean"/>
+    <variable default="true" displayName="Activate" displayOrder="2" maxLength="100" name="params.activate" onlyDetailView="true" startIncrement="0" type="Boolean"/>
+    <variable displayName="svcID" displayOrder="3" maxLength="100" name="params.object_id" startIncrement="0" type="String" visible="false"/>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Name" displayOrder="4" isUserLocked="true" maxLength="100" name="params.name" startIncrement="0" type="String"/>
+    <variable default="OTN" displayName="Layer" displayOrder="5" isUserLocked="true" maxLength="100" name="params.layer" startIncrement="0" type="String"/>
+    <variable default="Unprotected" displayName="Protection Scheme" displayOrder="6" maxLength="100" name="params.protectionScheme" onlyDetailView="true" startIncrement="0" type="String"/>
+    <variable default="ODU4" displayName="Rate" displayOrder="7" maxLength="100" name="params.rate" startIncrement="0" type="String"/>
+    <variable default="false" displayName="Restorable" displayOrder="8" maxLength="100" name="params.restorable" onlyDetailView="true" startIncrement="0" type="Boolean"/>
+    <variable displayName="Policy" displayOrder="9" isMandatory="true" maxLength="100" name="params.policy" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <classes>
+        <class>Policy</class>
+      </classes>
+    </variable>
+    <variable displayName="Max Cost" displayOrder="10" maxLength="100" name="params.maxCost" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable displayName="Max Latency" displayOrder="11" maxLength="100" name="params.maxLatency" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable default="otn" displayName="Layer" displayOrder="12" maxLength="100" name="params.svcLayer" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable default="true" displayName="Working Route" displayOrder="13" maxLength="100" name="params.workingRoute" onlyDetailView="true" startIncrement="0" type="Boolean">
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable displayName="Routing Objective" displayOrder="14" editable="false" maxLength="100" name="params.routingObjective" onlyDetailView="true" startIncrement="0" type="String">
+      <values>
+        <value displayValue="Least Cost">LeastCost</value>
+        <value displayValue="Least Hops">LeastHops</value>
+        <value displayValue="Least Latency">LeastLatency</value>
+        <value displayValue="Manaul">Manual</value>
+      </values>
+      <sections>
+        <section>svcRoutes</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="State" displayOrder="15" isUserLocked="true" maxLength="100" name="params.state" startIncrement="0" type="String"/>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Protection Level" displayOrder="16" isUserLocked="true" maxLength="100" name="params.protectionLevel" startIncrement="0" type="String"/>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="tid" displayOrder="17" isUserLocked="true" maxLength="100" name="params.PointA.0.tid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="aid" displayOrder="18" isUserLocked="true" maxLength="100" name="params.PointA.0.aid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="parentRate" displayOrder="19" isUserLocked="true" maxLength="100" name="params.PointA.0.parentRate" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="aid" displayOrder="20" isUserLocked="true" maxLength="100" name="params.PointZ.0.aid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="tid" displayOrder="21" isUserLocked="true" maxLength="100" name="params.PointZ.0.tid" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="parentRate" displayOrder="22" isUserLocked="true" maxLength="100" name="params.PointZ.0.parentRate" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="Source Node" displayOrder="23" maxLength="100" name="params.tidA" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+      <classes>
+        <class>OTN_Nodes</class>
+      </classes>
+    </variable>
+    <variable default="100GE" displayName="Rate" displayOrder="24" maxLength="100" name="params.rateA" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="Port" displayOrder="25" maxLength="100" name="params.portsA" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+      <classes>
+        <class>OTN_Ports</class>
+      </classes>
+    </variable>
+    <variable displayName="tpTypeA" displayOrder="26" maxLength="100" name="params.tpTypeA" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="ctpAidA" displayOrder="27" maxLength="100" name="params.ctpAidA" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="sfpEqptTypeA" displayOrder="28" maxLength="100" name="params.sfpEqptTypeA" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Source</section>
+      </sections>
+    </variable>
+    <variable displayName="Destination Node" displayOrder="31" maxLength="100" name="params.tidZ" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+      <classes>
+        <class>OTN_Nodes</class>
+      </classes>
+    </variable>
+    <variable default="100GE" displayName="Rate" displayOrder="32" maxLength="100" name="params.rateZ" onlyDetailView="true" startIncrement="0" type="String">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="Port" displayOrder="33" maxLength="100" name="params.portsZ" onlyDetailView="true" startIncrement="0" type="ObjectRef">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+      <classes>
+        <class>OTN_Ports</class>
+      </classes>
+    </variable>
+    <variable displayName="ctpAidZ" displayOrder="34" maxLength="100" name="params.ctpAidZ" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="sfpEqptTypeZ" displayOrder="35" maxLength="100" name="params.sfpEqptTypeZ" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+    <variable displayName="tpTypeZ" displayOrder="38" maxLength="100" name="params.tpTypeZ" onlyDetailView="true" startIncrement="0" type="String" visible="false">
+      <sections>
+        <section>Endpoint Dest</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="CREATE">
+    <rest>services-nb-otn/OTN/nwservices
+</rest>
+    <xpath>
+</xpath>
+    <operation>{literal}{{/literal}
+  "svcCreationRequest": {literal}{{/literal}
+    "svcName": "{$params.svcName}",
+    "layer": "{$params.layer}",
+    "ignoreAlarms": "{$params.ignoreAlarms}",
+    "rate": "{$params.rate}",
+    "protectionScheme": "{$params.protectionScheme}",
+    "activate": "{$params.activate}",
+    "restorable": "{$params.restorable}",
+    "svcRoutes": {literal}[{/literal}
+    
+    {literal}{{/literal}
+
+      {assign var="endpointA" value=$params.portsA}    
+      {assign var="templatePol" value=$params.policy}
+      {assign var="endpointZ" value=$params.portsZ}    
+
+      "ctpAidA": "{$OTN_Ports.$endpointA.aid}",
+      "ctpAidZ": "{$OTN_Ports.$endpointZ.aid}",
+      "rateA":   "{$params.rateA}",
+      "rateZ":   "{$params.rateZ}",        
+      "tidA": "{$params.tidA}",
+      "tidZ": "{$params.tidZ}",
+      "tpTypeA": "{$OTN_Ports.$endpointA.tpType}",
+      "tpTypeZ": "{$OTN_Ports.$endpointA.tpType}",
+      "svcTmplA": "{$Policy.$templatePol.partId}",
+      "svcTmplZ": "{$Policy.$templatePol.partId}",
+      "sfpEqptTypeA": "{$OTN_Ports.$endpointA.rate}",
+      "sfpEqptTypeZ": "{$OTN_Ports.$endpointZ.rate}",
+      "svcPolicyA": "{$params.policy}",
+      "svcPolicyZ": "{$params.policy}",
+      "workingRoute":  {$params.workingRoute},
+      "svcRoutingConstraints": 
+      {literal}{{/literal}
+        "layer": "{$params.svcLayer}",
+
+{if $params.maxLatency !=""}
+        "maxLatency": "{$params.maxLatency}",
+{/if}
+{if $params.maxLatency !=""}
+        "maxCost": "{$params.maxCost}" ,
+{/if}
+        "routingObjective": "{$params.routingObjective}"
+      {literal}}{/literal}
+      {literal}}{/literal}    
+    {literal}]{/literal}
+{literal}}{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+  <command name="DELETE">
+    <rest>services-nb-otn/OTN/nwservices?isDetach=false&amp;harddelete=false&amp;isDeleteEndPoints=false
+</rest>
+    <xpath>
+</xpath>
+    <operation>{literal}{{/literal}
+	"svcDeletionRequest": {literal}{{/literal}
+		"targets": {literal}[{{/literal}
+			"name": "{$OTN.$object_id.name}",
+			"svcID": "{$params.object_id}",
+			"rate": "{$OTN.$object_id.rate}",
+			"layer": "{$OTN.$object_id.layer}",
+			"state": "{$OTN.$object_id.state}"
+		{literal}}]{/literal}
+	{literal}}{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="IMPORT">
+    <operation>services-nb-otn/OTN/nwservices</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath>//root/svcInfoList/services/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array name="PointZ">
+            <xpath>//routes/row/pointZ</xpath>
+            <lines>
+              <line>
+                <xpath>tid</xpath>
+                <regexp>@&lt;tid&gt;(?&lt;tid&gt;.*)&lt;/tid&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>parentRate</xpath>
+                <regexp>@&lt;parentRate&gt;(?&lt;parentRate&gt;.*)&lt;/parentRate&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>aid</xpath>
+                <regexp>@&lt;aid&gt;(?&lt;aid&gt;.*)&lt;/aid&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <array name="PointA">
+            <xpath>//routes/row/pointA</xpath>
+            <lines>
+              <line>
+                <xpath>tid</xpath>
+                <regexp>@&lt;tid&gt;(?&lt;tid&gt;.*)&lt;/tid&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>parentRate</xpath>
+                <regexp>@&lt;parentRate&gt;(?&lt;parentRate&gt;.*)&lt;/parentRate&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>aid</xpath>
+                <regexp>@&lt;aid&gt;(?&lt;aid&gt;.*)&lt;/aid&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>protectionLevel</xpath>
+          <regexp>@&lt;protectionLevel&gt;(?&lt;protectionLevel&gt;.*)&lt;/protectionLevel&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>state</xpath>
+          <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>rate</xpath>
+          <regexp>@&lt;rate&gt;(?&lt;rate&gt;.*)&lt;/rate&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>layer</xpath>
+          <regexp>@&lt;layer&gt;(?&lt;layer&gt;.*)&lt;/layer&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>svcID</xpath>
+          <regexp>@&lt;svcID&gt;(?&lt;object_id&gt;.*)&lt;/svcID&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>

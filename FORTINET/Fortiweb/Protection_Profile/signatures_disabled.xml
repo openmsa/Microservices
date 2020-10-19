@@ -1,156 +1,67 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
+    <description>Disabled Signatures</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>11040</order>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description>Signatures</description>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Web Protection</group>
-    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Disabled Signatures</name>
+    <group>Web Protection</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <name>Signatures Disabled</name>
-    <order>11040</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>0</visibility>
-    <visible>true</visible>
-  </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Id" displayOrder="1" maxLength="200" name="params.dis.0.id" startIncrement="0" type="String"/>
-  </variables>  
-<example>
-    <content>FortigateHostnam~ #  show waf signature myMediumpolicy
-config waf signature
-  edit "myMediumpolicy"
-    config  main_class_list
-      edit "010000000"
-        set action alert_deny
-        set severity High
-      next
-      edit "020000000"
-        set status disable
-      next
-      edit "030000000"
-        set action alert_deny
-        set severity High
-      next
-      edit "040000000"
-        set status disable
-      next
-      edit "050000000"
-        set action alert_deny
-        set severity High
-      next
-      edit "060000000"
-        set status disable
-      next
-      edit "070000000"
-      next
-      edit "080000000"
-        set severity Low
-      next
-      edit "090000000"
-        set action alert_deny
-        set severity High
-      next
-      edit "100000000"
-        set status disable
-        set severity High
-      next
-      edit "110000000"
-        set action alert_deny
-        set severity Low
-      next
-    end
-    config  sub_class_disable_list
-    end
-    config  signature_disable_list
-      edit "060030001"
-      next
-      edit "060120001"
-      next
-      edit "080080005"
-      next
-      edit "080200001"
-      next
-      edit "080080003"
-      next
-    end
-    config  alert_only_list
-    end
-    config  filter_list
-    end
-  next
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Id" name="params.dis_0_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>FortigateHostnam~ #show waf signature myMediumpolicy
+config waf signatureedit "myMediumpolicy"configmain_class_listedit "010000000"set action alert_denyset severity Highnextedit "020000000"set status disablenextedit "030000000"set action alert_denyset severity Highnextedit "040000000"set status disablenextedit "050000000"set action alert_denyset severity Highnextedit "060000000"set status disablenextedit "070000000"nextedit "080000000"set severity Lownextedit "090000000"set action alert_denyset severity Highnextedit "100000000"set status disableset severity Highnextedit "110000000"set action alert_denyset severity Lownextendconfigsub_class_disable_listendconfigsignature_disable_listedit "060030001"nextedit "060120001"nextedit "080080005"nextedit "080200001"nextedit "080080003"nextendconfigalert_only_listendconfigfilter_listendnext
 end
 </content>
   </example>
-  
-
-  
-
-<command name="IMPORT">
-    <operation>config waf signature## {foreach $signatures as $sig} edit "{$sig.object_id}"##config  signature_disable_list##echo edit "{$sig.object_id}"##show##end##next##{/foreach}end</operation>
+  <command name="IMPORT">
+    <operation>config waf signature## {foreach $signatures as $sig} edit "{$sig.object_id}"##configsignature_disable_list##echo edit "{$sig.object_id}"##show##end##next##{/foreach}end</operation>
     <parser>
       <section>
-        <regexp>@edit "(?&lt;object_id&gt;[a-zA-Z].*)"@</regexp>
+        <regexp>@edit "(?&lt;object_id>[a-zA-Z].*)"@</regexp>
       </section>
       <lines>
-        <ignore>
-          <regexp>@^\S@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@config @</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@end@</regexp>
-        </ignore>
-        
-        
-        
-        
-        
         <line>
           <array name="dis">
-            
-            <regexp>@edit "(?&lt;id&gt;[0-9].*)"@</regexp>
-            
-            
-            
-            
-            
+            <lines/>
+            <regexp>@edit "(?&lt;id>[0-9].*)"@</regexp>
+            <mregexp>@^\s \s*$@</mregexp>
           </array>
+          <regexp/>
         </line>
-        
         <ignore>
           <regexp>@next@</regexp>
         </ignore>
-        
-        
-        
-        
-        
-        
         <ignore>
           <regexp>@set @</regexp>
         </ignore>
-        
-        
-        
-        
-        
-        
       </lines>
     </parser>
-  <post_template/>
   </command>
-
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>WDM</group>
+    <icon>/images/repository/CommandDefinition/icons/10700.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>WDM Nodes</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="Configuration" displayOrder="1" maxLength="100" name="params.configuration" startIncrement="0" type="String"/>
+    <variable displayName="Layer" displayOrder="2" maxLength="100" name="params.layer" startIncrement="0" type="String"/>
+    <variable displayName="Type" displayOrder="3" maxLength="100" name="params.type" startIncrement="0" type="String"/>
+    <variable displayName="dsId" displayOrder="4" maxLength="100" name="params.dsId" startIncrement="0" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>services-nb-wdm/WDM/nodes</operation>
+    <xpath/>
+    <parser>
+      <section>
+        <xpath>//root/nodeInfoList/nodes/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>dsId</xpath>
+          <regexp>@&lt;dsId&gt;(?&lt;dsId&gt;.*)&lt;/dsId&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>configuration</xpath>
+          <regexp>@&lt;configuration&gt;(?&lt;configuration&gt;.*)&lt;/configuration&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>layer</xpath>
+          <regexp>@&lt;layer&gt;(?&lt;layer&gt;.*)&lt;/layer&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>type</xpath>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>

@@ -1,62 +1,56 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
-    <configType>xml</configType>
-    <defaultDisplay>false</defaultDisplay>
-    <description>Predifined application </description>
-    <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Security Options</group>
+<ObjectDefinition>
+  <information>
     <icon>/images/repository/CommandDefinition/icons/longreach cpe.jpg</icon>
-    <importIfMandatoryPresent>true</importIfMandatoryPresent>
-    <importrank>1</importrank>
-    <name>Application [0-9]</name>
+    <description>Predifined application</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
     <order>10</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>true</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>Predifined application</name>
+    <group>Security Options</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
     <reorderinstances>true</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-    <visible>true</visible>
-  </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Application Name" displayOrder="0" isMandatory="true" maxLength="250" name="params.object_id" type="String"/>
-  </variables>  <example>
-    <content>&lt;mgt-config&gt;
-    &lt;users&gt;
-      &lt;entry name="admin"&gt;
-        &lt;phash&gt;fnRL/G5lXVMug&lt;/phash&gt;
-        &lt;permissions&gt;
-          &lt;role-based&gt;
-            &lt;superuser&gt;yes&lt;/superuser&gt;
-          &lt;/role-based&gt;
-        &lt;/permissions&gt;
-      &lt;/entry&gt;
-    &lt;/users&gt;
-&lt;/mgt-config&gt;
+  </information>
+  <variables frozen="0">
+    <variable displayName="Application Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;mgt-config>&lt;users>&lt;entry name="admin">&lt;phash>fnRL/G5lXVMug&lt;/phash>&lt;permissions>&lt;role-based>&lt;superuser>yes&lt;/superuser>&lt;/role-based>&lt;/permissions>&lt;/entry>&lt;/users>
+&lt;/mgt-config>
 </content>
   </example>
-
-
-  
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>type=config&amp;action=get</operation>
-    <xpath>/config/predefined/application</xpath>
     <parser>
       <section>
-        <xpath>//application/entry</xpath>
+        <regexp>@^\s \s*$@</regexp>
       </section>
       <lines>
         <line>
-            <regexp>@name="(?&lt;object_id&gt;[0-9].*)"@</regexp>
-            <xpath>//entry/@name</xpath>
+          <array/>
+          <regexp>@name="(?&lt;object_id>[0-9].*)"@</regexp>
         </line>
-        
-        
-        
       </lines>
     </parser>
-  <post_template/>
+    <xpath>/config/predefined/application</xpath>
   </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

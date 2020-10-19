@@ -1,30 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/system_fortinet.png</icon>
+    <description>system parameters</description>
+    <displayField>timezone</displayField>
+    <serviceTaskType/>
+    <order>15000</order>
+    <visibility>1</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description>system parameters</description>
-    <displayField>timezone</displayField>
     <dynamic>false</dynamic>
-    <group>System</group>
-    <icon>/images/repository/CommandDefinition/icons/system_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Timezone</name>
+    <group>System</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Timezone</name>
-    <order>15000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>4</visibility>
-  </information>  <variables frozen="0">
-    <variable default="0" displayName="Timezone" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String" visible="false"/>
-    <variable default="25" displayName="Timezone" displayOrder="1" editable="false" isMandatory="true" maxLength="200" name="params.device_timezone" numberOfRowMax="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Timezone" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="0" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Timezone" name="params.device_timezone" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="25" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="(GMT-12:00)Eniwetok,Kwajalein">00</value>
         <value displayValue="(GMT-11:00)Midway Island, Samoa">01</value>
@@ -109,43 +111,15 @@
         <value displayValue="(GMT)Greenwich Mean Time">80</value>
       </values>
     </variable>
-    <variable displayName="timezone" displayOrder="2" editable="false" isUserLocked="true" maxLength="200" name="params.timezone" numberOfRowMax="0" type="String"/>
-  </variables>  
+    <variable displayName="timezone" name="params.timezone" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
   <example>
-    <content>config system global
-    set admin-scp enable
-    set alias "FortiGate-VM64"
-    set gui-theme red
-    set hostname "FGT_10_31_1_31"
-    set timezone 49
+    <content>config system globalset admin-scp enableset alias "FortiGate-VM64"set gui-theme redset hostname "FGT_10_31_1_31"set timezone 49
 end
 </content>
   </example>
-
-<command name="UPDATE">
-    <operation>config system global
-set timezone {$params.device_timezone}
-end
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show system global</operation>
-    <parser>
-      <section>
-        <regexp>@config system (?&lt;object_id&gt;\S+)@</regexp>
-        
-        
-      </section>
-      <lines>
-        <ignore>
-          <regexp>@set @</regexp>
-        </ignore>
-        <line>
-          <regexp>@set timezone (?&lt;device_timezone&gt;\d+)@</regexp>
-        </line>
-        
-      </lines>
-    </parser>
     <post_template>{assign_object_variable var="object_id" value="0"}
 {if ($params.device_timezone == "00")}
 {assign_object_variable var="timezone" value="-1200"}
@@ -312,5 +286,30 @@ end
 {else}
 {assign_object_variable var="timezone" value="+0000"}
 {/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@config system (?&lt;object_id>\S+)@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set timezone (?&lt;device_timezone>\d+)@</regexp>
+        </line>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
   </command>
+  <command name="UPDATE">
+    <operation>config system global
+set timezone {$params.device_timezone}
+end
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

@@ -1,0 +1,91 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/CUBE.jpg</icon>
+    <description>Stacks List</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Stack List</name>
+    <group>Orchestration</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Stack ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Stack Name" name="params.stack_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Creation Time" name="params.creation_time" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName=" Stack Status" name="params.stack_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <section>Status </section>
+      </sections>
+    </variable>
+    <variable displayName=" Stack Status Reason" name="params.stack_status_reason" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <section>Status </section>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>heat</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;stack_status_reason>(?&lt;stack_status_reason>.*)&lt;/stack_status_reason>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;stack_status>(?&lt;stack_status>.*)&lt;/stack_status>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;stack_name>(?&lt;stack_name>.*)&lt;/stack_name>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;id>(?&lt;object_id>.*)&lt;/id>@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;creation_time>(?&lt;creation_time>.*)&lt;/creation_time>@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{$TENANT_ID}/stacks</xpath>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE">
+    <operation>
+</operation>
+    <rest>heat
+</rest>
+    <xpath>{assign var="params" value=$stacklist.$object_id}
+{$TENANT_ID}/stacks/{$params.stack_name}/{$params.object_id}
+</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

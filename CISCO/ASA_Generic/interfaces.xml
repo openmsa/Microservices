@@ -16,7 +16,7 @@
     <importrank>1</importrank>
     <maxInstances>0</maxInstances>
     <name>Interfaces</name>
-    <order>10000</order>
+    <order>10</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -29,21 +29,25 @@
 	<operation>show run</operation>
 	<parser>
                 <section name="interfaces">
-                        <regexp><![CDATA[@^\interface\s+(?<object_id>\S+)\s*$@]]></regexp>
+                        <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
                 </section>
                 <lines>
         
+        
         <line>
-          <regexp>@^\ssecurity-level\s+(?&lt;securitylevel&gt;\S+)\s*$@</regexp>
-        </line>
-        <line>
-          <regexp>@^\snameif\s+(?&lt;nameif&gt;\S+)\s*$@</regexp>
+          <regexp>@\s+nameif\s+(?&lt;nameif&gt;\S+)@</regexp>
         </line>
                         <line>
-          <regexp>@^\sdescription\s+(?&lt;description&gt;\S+)\s*$@</regexp>
+          <regexp>@\s+description\s+"(?&lt;description&gt;[^"]+)"@</regexp>
+        </line>
+        <line>
+          <regexp>@\s+ip address\s+(?&lt;ip&gt;\S+)\s+(?&lt;mask&gt;\S+)@</regexp>
+        </line>
+        <line>
+          <regexp>@\s+security-level\s+(?&lt;securitylevel&gt;\S+)@</regexp>
         </line>
 <ignore>
-                                        <regexp><![CDATA[@^\s+\S+.*$@]]></regexp>
+                                        <regexp>@^\s+\S+.*$@</regexp>
                                 </ignore>
                                 <ignore>
                                         <!-- ignore empty lines -->
@@ -60,14 +64,7 @@
 <post_template/>
   </command>
 <command name="CREATE">
-    <operation>{*
-&lt;variables&gt;
-  &lt;variable name="params.description" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.securitylevel" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.nameif" type="String"&gt;  &lt;/variable&gt;
-&lt;/variables&gt;
-*}
-interface {$object_id}
+    <operation>interface {$object_id}
 {if isset($params.description) &amp;&amp; $params.description != ''}
 description {$params.description}
 {/if}
@@ -77,12 +74,12 @@ nameif{$params.nameif}
 {if isset($params.securitylevel) &amp;&amp; $params.securitylevel != ''}
 security-level{$params.securitylevel}
 {/if}
+{if isset($params.ip) &amp;&amp; isset($params.mask) &amp;&amp; $params.ip != '' &amp;&amp; $params.mask != ''}
+ip address {$params.ip} {$params.mask}
+{/if}
 </operation>
   </command>
-	<command name="LIST">
-    <output>
-</output>
-  </command>
+	
 	<command name="READ">
     <output>{*
 &lt;variables&gt;
@@ -95,14 +92,7 @@ description {$interfaces.$object_id.description}
 </output>
   </command>
 	<command name="UPDATE">
-    <operation>{*
-&lt;variables&gt;
-  &lt;variable name="params.description" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.securitylevel" type="String"&gt;  &lt;/variable&gt;
-  &lt;variable name="params.nameif" type="String"&gt;  &lt;/variable&gt;
-&lt;/variables&gt;
-*}
-interface {$object_id}
+    <operation>interface {$object_id}
 {if isset($params.description) &amp;&amp; $params.description != ''}
 description {$params.description}
 {/if}
@@ -110,7 +100,10 @@ description {$params.description}
 nameif {$params.nameif}
 {/if}
 {if isset($params.securitylevel) &amp;&amp; $params.securitylevel != ''}
-security-level{$params.securitylevel}
+security-level {$params.securitylevel}
+{/if}
+{if isset($params.ip) &amp;&amp; isset($params.mask) &amp;&amp; $params.ip != '' &amp;&amp; $params.mask != ''}
+ip address {$params.ip} {$params.mask}
 {/if}
 </operation>
   </command>
@@ -148,12 +141,24 @@ no security-level{$params.securitylevel}
  no ip mroute-cache
  duplex auto
  speed auto
+
+
+!
+interface Management0/0
+ description "description outside"
+ management-only
+ nameif outside
+ security-level 0
+ ip address 10.30.19.156 255.255.254.0 
+!
 </content>
   </example>
 <variables frozen="0">
     <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
     <variable displayName="Alias" displayOrder="1" maxLength="100" name="params.nameif" startIncrement="0" type="String"/>
-    <variable displayName="Description" displayOrder="2" maxLength="100" name="params.description" startIncrement="0" type="String"/>
-    <variable displayName="Security Level" displayOrder="3" maxLength="100" name="params.securitylevel" startIncrement="0" type="String"/>
+    <variable displayName="IP" displayOrder="2" maxLength="100" name="params.ip" startIncrement="0" type="String"/>
+    <variable displayName="Mask" displayOrder="3" maxLength="100" name="params.mask" startIncrement="0" type="String"/>
+    <variable displayName="Security Level" displayOrder="4" maxLength="100" name="params.securitylevel" startIncrement="0" type="String"/>
+    <variable displayName="Description" displayOrder="5" maxLength="100" name="params.description" startIncrement="0" type="String"/>
   </variables>
 </ObjectDefinition>

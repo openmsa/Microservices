@@ -1,47 +1,58 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/config_fortinet.png</icon>
+    <description>Replacement Message</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Protection Profile</group>
-    <icon>/images/repository/CommandDefinition/icons/config_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Replacement Message</name>
+    <group>Protection Profile</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Replacement Message</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="HTTP Response Code" displayOrder="1" isMandatory="true" maxLength="100" name="params.http_code" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer"/>
-    <variable displayName="Description" displayOrder="2" isUserLocked="true" maxLength="100" name="params.comments" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="HTTP Response Code" name="params.http_code" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.comments" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
     <operation>show full-configuration system replacemsg</operation>
+    <post_template>{if $params.object_id == "url-block"}
+{assign_object_variable var="comments" value="Replace HTTP response code for Attack Block"}
+{/if}
+{if $params.object_id == "server-inaccessible"}
+{assign_object_variable var="comments" value="Replace HTTP response code for Server Unavailable"}
+{/if}</post_template>
     <parser>
       <section>
-        <regexp>@edit\s"(?&lt;object_id&gt;[^"]+)"@</regexp>
-        
+        <regexp>@edit\s"(?&lt;object_id>[^"]+)"@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@set\scode.(?&lt;http_code>\S+)@</regexp>
+        </line>
         <ignore>
           <regexp>@set header@</regexp>
         </ignore>
-        
         <ignore>
           <regexp>@set group@</regexp>
         </ignore>
@@ -90,42 +101,27 @@
         <ignore>
           <regexp>@P R E W A R @</regexp>
         </ignore>
-        
         <ignore>
           <regexp>@next@</regexp>
         </ignore>
         <ignore>
           <regexp>@end@</regexp>
         </ignore>
-        
-        <line>
-          <regexp>@set\scode.(?&lt;http_code&gt;\S+)@</regexp>
-        </line>
-        
       </lines>
     </parser>
-    <post_template>{if $params.object_id == "url-block"}
-{assign_object_variable var="comments" value="Replace HTTP response code for Attack Block"}
-{/if}
-{if $params.object_id == "server-inaccessible"}
-{assign_object_variable var="comments" value="Replace HTTP response code for Server Unavailable"}
-{/if}</post_template>
   </command>
-  
   <command name="UPDATE">
-    <operation>config system replacemsg
-   edit "{$params.object_id}"
-   set header http
-   set format html
-   set group alert
-   set code {$params.http_code}
-   next
+    <operation>config system replacemsgedit "{$params.object_id}"set header httpset format htmlset group alertset code {$params.http_code}next
 end
 </operation>
   </command>
-<command name="CONSTRAINT">
-    <operation>{if $params.http_code &lt; "100" || $params.http_code &gt; "599"}INPUT RESTRICTION. $params.http_code is not a valid INPUT.
+  <command name="CONSTRAINT">
+    <operation>{if $params.http_code &lt; "100" || $params.http_code > "599"}INPUT RESTRICTION. $params.http_code is not a valid INPUT.
 {/if}
 </operation>
   </command>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

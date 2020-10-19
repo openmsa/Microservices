@@ -1,31 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/system_fortinet.png</icon>
+    <description>Timezone</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>System</group>
-    <icon>/images/repository/CommandDefinition/icons/system_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Timezone</name>
+    <group>System</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Timezone</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Timezone" displayOrder="0" editable="false" maxLength="100" name="params.device_timezone" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="Sl.no" displayOrder="0" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable default="61" displayName="Timezone" displayOrder="1" editable="false" isMandatory="true" localVarNameMatch="device_timezone" maxLength="100" name="params.timezone" numberOfRowMax="80" remoteVarNameMatch="timezone" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Timezone" name="params.device_timezone" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Sl.no" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Timezone" name="params.timezone" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="device_timezone" remoteVarNameMatch="timezone" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="61" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="(GMT-12:00)Eniwetok,Kwajalein">00</value>
         <value displayValue="(GMT-11:00)Midway Island, Samoa">01</value>
@@ -105,31 +107,13 @@
         <value displayValue="(GMT+3:00)Istanbul">75</value>
       </values>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
     <operation>show full-configuration system global</operation>
-    <parser>
-      <section>
-        <regexp>@set timezone.(?&lt;device_timezone&gt;[0-7]\d)@</regexp>
-        
-        
-      </section>
-      <lines>
-        <ignore>
-          <regexp>@set @</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@ set@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@config @</regexp>
-        </ignore>
-        
-      </lines>
-    </parser>
     <post_template>{assign_object_variable var="object_id" value="0"}
 {if ($params.device_timezone == "00")}
 {assign_object_variable var="timezone" value="(GMT-12:00)Eniwetok,Kwajalein"}
@@ -286,11 +270,31 @@
 {else}
 {assign_object_variable var="timezone" value="+0000"}
 {/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@set timezone.(?&lt;device_timezone>[0-7]\d)@</regexp>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ set@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@config @</regexp>
+        </ignore>
+      </lines>
+    </parser>
   </command>
   <command name="UPDATE">
-    <operation>config system global
-   set timezone {$params.timezone}
+    <operation>config system globalset timezone {$params.timezone}
 end
 </operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

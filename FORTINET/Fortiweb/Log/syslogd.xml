@@ -1,36 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/AccesIpList.png</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Log</group>
-    <icon>/images/repository/CommandDefinition/icons/AccesIpList.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Syslogd</name>
+    <group>Log</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Syslogd</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable default="Syslogd" displayName="syslogd" displayOrder="0" editable="false" keepOnImport="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="Status" displayOrder="1" editable="false" isMandatory="true" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="syslogd" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="Syslogd" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Enable">enable</value>
         <value displayValue="Disable">disable</value>
       </values>
     </variable>
-    <variable default="local7" displayName="Facility" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.facility" numberOfRowMax="3000" startIncrement="0" type="String">
+    <variable displayName="Facility" name="params.facility" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="local7" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="alert">alert</value>
         <value displayValue="audit">audit</value>
@@ -54,9 +56,10 @@
         <value displayValue="user">user</value>
       </values>
     </variable>
-    <variable displayName="Server IP Address" displayOrder="3" maxLength="100" name="params.ipaddr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="IpAddress"/>
-    <variable displayName="Port" displayOrder="4" maxLength="100" name="params.port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
+    <variable displayName="Server IP Address" name="params.ipaddr" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
@@ -64,51 +67,38 @@
     <operation>show full-configuration log syslog-policy##show full-configuration log syslogd</operation>
     <parser>
       <section>
-        <regexp>@syslog-server-list@</regexp>
-        <regexp>@edit 1@</regexp>
         <regexp>@syslogd@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@^\s+set server (?&lt;ipaddr>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+set port (?&lt;port>\d+)\s*$@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+set status (?&lt;status>\S+)\s*$@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+set facility (?&lt;facility>\S+)\s*$@</regexp>
+        </line>
         <ignore>
           <regexp>@set @</regexp>
         </ignore>
-        <line>
-          <regexp>@^\s+set server (?&lt;ipaddr&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@^\s+set port (?&lt;port&gt;\d+)\s*$@</regexp>
-        </line>
-        <line>
-          <regexp>@^\s+set status (?&lt;status&gt;\S+)\s*$@</regexp>
-        </line>
-        <line>
-          <regexp>@^\s+set facility (?&lt;facility&gt;\S+)\s*$@</regexp>
-        </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
-  
   <command name="UPDATE">
-    <operation>config log syslogd			
-  set status {$params.status}			
-  set severity information			
-  set facility {$params.facility}			
-  set policy Customer_Syslog			
-end			
-config log syslog-policy			
-  edit Customer_Syslog			
-    config  syslog-server-list			
-      edit 1			
-        set server {$params.ipaddr}			
-        set port {$params.port}			
-        set csv disable			
-        set tls disable			
-      next			
-    end			
-  next			
-end
+    <operation>config log syslogdset status {$params.status}set severity informationset facility {$params.facility}set policy Customer_Syslogendconfig log syslog-policyedit Customer_Syslogconfigsyslog-server-listedit 1set server {$params.ipaddr}set port {$params.port}set csv disableset tls disablenextendnextend
 </operation>
   </command>
-  
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

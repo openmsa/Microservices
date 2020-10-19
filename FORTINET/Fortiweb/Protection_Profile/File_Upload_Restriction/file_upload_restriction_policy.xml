@@ -1,77 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/Protection.png</icon>
+    <description>File Upload Restriction Policy</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>File Upload Restriction</group>
-    <icon>/images/repository/CommandDefinition/icons/Protection.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>File Upload Restriction Policy</name>
+    <group>File Upload Restriction</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>File Upload Restriction Policy</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
-    <variable displayName="av_scan_realvalue" displayOrder="1" editable="false" keepOnImport="true" maxLength="100" name="params.av_scan_realvalue" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="File Upload Restriction Rule" displayOrder="2" editable="false" isMandatory="true" maxLength="100" name="params.restriction_rule" numberOfRowMax="3000" startIncrement="0" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="av_scan_realvalue" name="params.av_scan_realvalue" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="File Upload Restriction Rule" name="params.restriction_rule" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>File_Upload_Restriction_Rule</class>
       </classes>
     </variable>
-    <variable displayName="Action" displayOrder="3" editable="false" isMandatory="true" maxLength="100" name="params.action" numberOfRowMax="3000" startIncrement="0" type="String">
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Alert">alert</value>
         <value displayValue="Alert_Deny">alert_deny</value>
       </values>
     </variable>
-    <variable default="false" displayName="Trojan Detection" displayOrder="4" maxLength="100" name="params.trojan" numberOfRowMax="3000" startIncrement="0" type="Boolean"/>
-    <variable default="false" displayName="Antivirus Scan" displayOrder="5" maxLength="100" name="params.av_scan" numberOfRowMax="3000" startIncrement="0" type="Boolean"/>
-  </variables>  <example>
+    <variable displayName="Trojan Detection" name="params.trojan" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Antivirus Scan" name="params.av_scan" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
     <operation>config waf file-upload-restriction-policy ## show full-configuration ## end</operation>
-    <parser>
-      <section>
-        <regexp>@edit "(?&lt;object_id&gt;[^"]+)"@</regexp>
-      </section>
-      <lines>
-        <ignore>
-          <regexp>@\s*edit@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@\s*config@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@set @</regexp>
-        </ignore>
-        <line>
-          <regexp>@set action (?&lt;action&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set trojan-detection (?&lt;trojan&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set av-scan (?&lt;av_scan_realvalue&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set file-upload-restriction-rule (?&lt;restriction_rule&gt;\S+)@</regexp>
-        </line>
-      </lines>
-    </parser>
     <post_template>{if $params.trojan === "enable"}
 {assign_object_variable var="trojan" value="true"}
 {else}
@@ -82,61 +57,54 @@
 {else}
 {assign_object_variable var="av_scan" value="false"}
 {/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id>[^"]+)"@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set action (?&lt;action>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set trojan-detection (?&lt;trojan>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set av-scan (?&lt;av_scan_realvalue>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set file-upload-restriction-rule (?&lt;restriction_rule>\S+)@</regexp>
+        </line>
+        <ignore>
+          <regexp>@\s*edit@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@\s*config@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
   </command>
-<command name="CREATE">
-    <operation>config waf file-upload-restriction-policy
-  edit "{$params.object_id}"
-    set action {$params.action}
-    set severity Medium
-    unset trigger
-    {if $params.trojan === "true"}
-    set trojan-detection enable
-    {else}
-    set trojan-detection disable
-    {/if}
-    {if $params.av_scan === "true"}
-    set av-scan enable
-    {else}
-    set av-scan disable
-    {/if}
-    set fortisandbox-check disable
-    config  rule
-      edit 1
-        set file-upload-restriction-rule {$params.restriction_rule}
-      next
-    end
-  next
+  <command name="UPDATE">
+    <operation>config waf file-upload-restriction-policyedit "{$params.object_id}"set action {$params.action}{if $params.trojan === "true"}set trojan-detection enable{else}set trojan-detection disable{/if}{if $params.av_scan === "true"}set av-scan enable{else}set av-scan disable{/if}configrulepurgeedit 1set file-upload-restriction-rule {$params.restriction_rule}nextendnext
 end
 </operation>
   </command>
-  <command name="UPDATE">
-    <operation>config waf file-upload-restriction-policy
-  edit "{$params.object_id}"
-    set action {$params.action}
-    {if $params.trojan === "true"}
-    set trojan-detection enable
-    {else}
-    set trojan-detection disable
-    {/if}
-    {if $params.av_scan === "true"}
-    set av-scan enable
-    {else}
-    set av-scan disable
-    {/if}
-    config  rule
-      purge
-      edit 1
-        set file-upload-restriction-rule {$params.restriction_rule}
-      next
-    end
-  next
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>config waf file-upload-restriction-policyedit "{$params.object_id}"set action {$params.action}set severity Mediumunset trigger{if $params.trojan === "true"}set trojan-detection enable{else}set trojan-detection disable{/if}{if $params.av_scan === "true"}set av-scan enable{else}set av-scan disable{/if}set fortisandbox-check disableconfigruleedit 1set file-upload-restriction-rule {$params.restriction_rule}nextendnext
 end
 </operation>
   </command>
   <command name="DELETE">
-    <operation>config waf file-upload-restriction-policy
-  delete {$params.object_id} 
-end
+    <operation>config waf file-upload-restriction-policydelete {$params.object_id}end
 </operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

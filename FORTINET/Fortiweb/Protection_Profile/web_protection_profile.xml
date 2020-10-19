@@ -1,188 +1,76 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/webfilter_fortinet.png</icon>
+    <description>Web Protection profile</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Protection Profile</group>
-    <icon>/images/repository/CommandDefinition/icons/webfilter_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Web Protection profile</name>
+    <group>Protection Profile</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Web Protection profile</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Policy Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="false" displayName="X-Forwarded-For" displayOrder="1" editable="false" groupDisplayName="X-Forwarded-For" isGrouped="true" isMandatory="true" maxLength="100" name="params.x_forwarded" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable default="false" displayName="URL Rewriting Management" displayOrder="2" groupDisplayName="URL Rewriting" isGrouped="true" maxLength="100" name="params.url_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="URL Rewriting Policy" displayOrder="3" groupDisplayName="URL Rewriting" isGrouped="true" maxLength="100" name="params.url" numberOfRowMax="0" selector="params.url_select" startIncrement="0" tableSizeFix="false" type="Composite">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Policy Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="X-Forwarded-For" name="params.x_forwarded" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="X-Forwarded-For" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="URL Rewriting Management" name="params.url_select" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="URL Rewriting" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="URL Rewriting Policy" name="params.url" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="URL Rewriting" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.url_select" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="url" displayOrder="0" editable="false" maxLength="100" name="params.url" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior displayName="URL Rewriting Management" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.url" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>URL_Rewriting_Policy</class>
-          </classes>
-        </behavior>
+        <behaviour displayName="url" displayOrder="0" maxLength="100" name="params.url" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="URL Rewriting Management" displayOrder="0" maxLength="100" name="params.url" selectorValue="true" startIncrement="0" type="ObjectRef"/>
       </behaviors>
     </variable>
-    <variable default="false" displayName="Signature Management" displayOrder="4" groupSeparator="Signatures Profile" isGrouped="true" isMandatory="true" maxLength="100" name="params.signature_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="Signature Profile" displayOrder="5" groupDisplayName="Signatures Profile" isGrouped="true" maxLength="100" name="params.signature" numberOfRowMax="0" selector="params.signature_select" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="Signature Management" name="params.signature_select" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="Signatures Profile" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Signature Profile" name="params.signature" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Signatures Profile" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.signature_select" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="signature" displayOrder="0" editable="false" maxLength="100" name="params.signature" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior displayName="Signature Profile" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.signature" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>signatures_merge</class>
-          </classes>
-        </behavior>
+        <behaviour displayName="signature" displayOrder="0" maxLength="100" name="params.signature" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="Signature Profile" displayOrder="0" maxLength="100" name="params.signature" selectorValue="true" startIncrement="0" type="ObjectRef"/>
       </behaviors>
     </variable>
-    <variable default="false" displayName="File Upload Management" displayOrder="6" groupDisplayName="File Upload Policy" isGrouped="true" maxLength="100" name="params.file_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="File Upload Policy" displayOrder="7" groupDisplayName="File Upload Policy" isGrouped="true" maxLength="100" name="params.file_upload" numberOfRowMax="0" selector="params.file_select" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="File Upload Management" name="params.file_select" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="File Upload Policy" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="File Upload Policy" name="params.file_upload" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="File Upload Policy" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.file_select" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="file_upload" displayOrder="0" editable="false" maxLength="100" name="params.file_upload" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior displayName="File Upload Policy" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.file_upload" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>File_Upload_Restriction_Policy</class>
-          </classes>
-        </behavior>
+        <behaviour displayName="file_upload" displayOrder="0" maxLength="100" name="params.file_upload" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="File Upload Policy" displayOrder="0" maxLength="100" name="params.file_upload" selectorValue="true" startIncrement="0" type="ObjectRef"/>
       </behaviors>
     </variable>
-    <variable default="false" displayName="DoS Protection Management" displayOrder="8" groupDisplayName="DoS Protection" isGrouped="true" maxLength="100" name="params.dos_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="DoS Protection" displayOrder="9" editable="false" groupDisplayName="DoS Protection" isGrouped="true" isMandatory="true" maxLength="100" name="params.dos" numberOfRowMax="0" selector="params.dos_select" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="DoS Protection Management" name="params.dos_select" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="DoS Protection" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="DoS Protection" name="params.dos" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="DoS Protection" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dos_select" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="dos" displayOrder="0" editable="false" maxLength="100" name="params.dos" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior displayName="DoS Protection" displayOrder="0" editable="false" maxLength="100" name="params.dos" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>DoS_Protection_Policy</class>
-          </classes>
-        </behavior>
+        <behaviour displayName="dos" displayOrder="0" maxLength="100" name="params.dos" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="DoS Protection" displayOrder="0" maxLength="100" name="params.dos" selectorValue="true" startIncrement="0" type="ObjectRef"/>
       </behaviors>
     </variable>
-    <variable default="false" displayName="IP-List Management" displayOrder="10" groupDisplayName="IP List" isGrouped="true" maxLength="100" name="params.ip_select" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="IP-List" displayOrder="11" groupDisplayName="IP List" isGrouped="true" maxLength="100" name="params.ip_list" numberOfRowMax="0" selector="params.ip_select" startIncrement="0" tableSizeFix="false" type="Composite">
+    <variable displayName="IP-List Management" name="params.ip_select" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="IP List" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP-List" name="params.ip_list" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="IP List" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.ip_select" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="ip_list" displayOrder="0" editable="false" maxLength="100" name="params.ip_list" numberOfRowMax="0" selectorValue="false" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-        <behavior displayName="IP-List" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.ip_list" numberOfRowMax="0" selectorValue="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
-          <classes>
-            <class>Trust_Black_IP_List</class>
-          </classes>
-        </behavior>
+        <behaviour displayName="ip_list" displayOrder="0" maxLength="100" name="params.ip_list" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour displayName="IP-List" displayOrder="0" maxLength="100" name="params.ip_list" selectorValue="true" startIncrement="0" type="ObjectRef"/>
       </behaviors>
     </variable>
-    <variable default="false" displayName="IP Reputation" displayOrder="12" maxLength="100" name="params.ip_rep" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="Comments" displayOrder="13" maxLength="100" name="params.comment" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
+    <variable displayName="IP Reputation" name="params.ip_rep" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Comments" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
-  <command name="CREATE">
-    <operation>config waf web-protection-profile inline-protection	
-  edit Template_Web_Protection_Profile											
-    set http-session-management disable						
-    set signature-rule Template_Signature_Profile
-    unset x-forwarded-for-rule						
-    set url-rewrite-policy Template_URL_Rewriting_Policy						
-    set file-upload-policy Template_File_Upload_Restriction_Policy						
-    set ip-list-policy Template_IP-List						
-    set application-layer-dos-prevention Template_DoS_Protection_Policy						
-    set ip-intelligence disable						
-    unset comment										
-  next				
-   edit {$params.object_id}						
-    {if $params.signature_select=="true"}						
-    set signature-rule {$params.signature}
-    {else}
-    unset signature-rule 
-    {/if}
-    {if $params.x_forwarded=="true"}
-    set x-forwarded-for-rule X-Forwarded-For
-    {else}
-    unset x-forwarded-for-rule
-    {/if}						 						
-    {if $params.url_select=="true"}						
-    set url-rewrite-policy {$params.url}	
-    {else}
-    unset url-rewrite-policy
-    {/if}					
-    {if $params.file_select=="true"}						
-    set file-upload-policy {$params.file_upload}	
-    {else}
-    unset file-upload-policy
-    {/if}					
-    {if $params.ip_select=="true"}						
-    set ip-list-policy {$params.ip_list}
-    {else}
-    unset ip-list-policy
-    {/if}						
-    {if $params.dos_select=="true"}						
-    set application-layer-dos-prevention {$params.dos}	
-    set http-session-management enable
-    {else}
-    set http-session-management disable
-    unset application-layer-dos-prevention
-    {/if} 				
-    {if $params.ip_rep=="true"}						
-    set ip-intelligence enable
-    {else}
-    set ip-intelligence disable	
-    {/if}							
-    {if empty($params.comment)}
-    unset comment
-    {else}
-    set comment "{$params.comment}"
-    {/if}										
-  next
-end
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show waf web-protection-profile inline-protection</operation>
-    <parser>
-      <section>
-        <regexp>@edit "(?&lt;object_id&gt;(?!(Inline High Level Security|Inline Medium Level Security|Inline Alert Only|Inline Exchange 2013|Inline SharePoint 2013|Inline WordPress|Inline Exchange 2016|Inline SharePoint 2016|Inline Drupal)).*)"@</regexp>
-      </section>
-      <lines>
-        <line>
-          <regexp>@set.signature-rule.(?&lt;signature&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.x-forwarded-for-rule.(?&lt;x_forwarded&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.url-rewrite-policy.(?&lt;url&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.file-upload-policy.(?&lt;file_upload&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.application-layer-dos-prevention.(?&lt;dos&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.ip-list-policy.(?&lt;ip_list&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.ip-intelligence.(?&lt;ip_rep&gt;.*)@</regexp>
-        </line>
-        <line>
-          <regexp>@set.comment."(?&lt;comment&gt;.*)"@</regexp>
-        </line>
-        <ignore>
-          <regexp>@next @</regexp>
-          <regexp>@set @</regexp>
-        </ignore>
-      </lines>
-    </parser>
     <post_template>{if empty($params.ip_rep)}
 {assign_object_variable var="ip_rep" value="false"}
 {else}
@@ -193,60 +81,65 @@ end
 {else}
 {assign_object_variable var="x_forwarded" value="true"}
 {/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@edit "(?&lt;object_id>(?!(Inline High Level Security|Inline Medium Level Security|Inline Alert Only|Inline Exchange 2013|Inline SharePoint 2013|Inline WordPress|Inline Exchange 2016|Inline SharePoint 2016|Inline Drupal)).*)"@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set.signature-rule.(?&lt;signature>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.x-forwarded-for-rule.(?&lt;x_forwarded>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.url-rewrite-policy.(?&lt;url>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.file-upload-policy.(?&lt;file_upload>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.application-layer-dos-prevention.(?&lt;dos>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.ip-list-policy.(?&lt;ip_list>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.ip-intelligence.(?&lt;ip_rep>.*)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set.comment."(?&lt;comment>.*)"@</regexp>
+        </line>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
   </command>
-<command name="UPDATE">
-    <operation>config waf web-protection-profile inline-protection
-   edit {$params.object_id}						
-    {if $params.signature_select=="true"}						
-    set signature-rule {$params.signature}
-    {else}
-    unset signature-rule 
-    {/if}
-    {if $params.x_forwarded=="true"}
-    set x-forwarded-for-rule X-Forwarded-For
-    {else}
-    unset x-forwarded-for-rule
-    {/if}						 						
-    {if $params.url_select=="true"}						
-    set url-rewrite-policy {$params.url}	
-    {else}
-    unset url-rewrite-policy
-    {/if}					
-    {if $params.file_select=="true"}						
-    set file-upload-policy {$params.file_upload}	
-    {else}
-    unset file-upload-policy
-    {/if}					
-    {if $params.ip_select=="true"}						
-    set ip-list-policy {$params.ip_list}
-    {else}
-    unset ip-list-policy
-    {/if}						
-    {if $params.dos_select=="true"}						
-    set application-layer-dos-prevention {$params.dos}	
-    set http-session-management enable
-    {else}
-    set http-session-management disable
-    unset application-layer-dos-prevention
-    {/if} 				
-    {if $params.ip_rep=="true"}						
-    set ip-intelligence enable
-    {else}
-    set ip-intelligence disable	
-    {/if}							
-    {if empty($params.comment)}
-    unset comment
-    {else}
-    set comment "{$params.comment}"
-    {/if}										
-  next
+  <command name="UPDATE">
+    <operation>config waf web-protection-profile inline-protectionedit {$params.object_id}{if $params.signature_select=="true"}set signature-rule {$params.signature}{else}unset signature-rule{/if}{if $params.x_forwarded=="true"}set x-forwarded-for-rule X-Forwarded-For{else}unset x-forwarded-for-rule{/if}{if $params.url_select=="true"}set url-rewrite-policy {$params.url}{else}unset url-rewrite-policy{/if}{if $params.file_select=="true"}set file-upload-policy {$params.file_upload}{else}unset file-upload-policy{/if}{if $params.ip_select=="true"}set ip-list-policy {$params.ip_list}{else}unset ip-list-policy{/if}{if $params.dos_select=="true"}set application-layer-dos-prevention {$params.dos}set http-session-management enable{else}set http-session-management disableunset application-layer-dos-prevention{/if}{if $params.ip_rep=="true"}set ip-intelligence enable{else}set ip-intelligence disable{/if}{if empty($params.comment)}unset comment{else}set comment "{$params.comment}"{/if}next
+end
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>config waf web-protection-profile inline-protectionedit Template_Web_Protection_Profileset http-session-management disableset signature-rule Template_Signature_Profileunset x-forwarded-for-ruleset url-rewrite-policy Template_URL_Rewriting_Policyset file-upload-policy Template_File_Upload_Restriction_Policyset ip-list-policy Template_IP-Listset application-layer-dos-prevention Template_DoS_Protection_Policyset ip-intelligence disableunset commentnextedit {$params.object_id}{if $params.signature_select=="true"}set signature-rule {$params.signature}{else}unset signature-rule{/if}{if $params.x_forwarded=="true"}set x-forwarded-for-rule X-Forwarded-For{else}unset x-forwarded-for-rule{/if}{if $params.url_select=="true"}set url-rewrite-policy {$params.url}{else}unset url-rewrite-policy{/if}{if $params.file_select=="true"}set file-upload-policy {$params.file_upload}{else}unset file-upload-policy{/if}{if $params.ip_select=="true"}set ip-list-policy {$params.ip_list}{else}unset ip-list-policy{/if}{if $params.dos_select=="true"}set application-layer-dos-prevention {$params.dos}set http-session-management enable{else}set http-session-management disableunset application-layer-dos-prevention{/if}{if $params.ip_rep=="true"}set ip-intelligence enable{else}set ip-intelligence disable{/if}{if empty($params.comment)}unset comment{else}set comment "{$params.comment}"{/if}next
 end
 </operation>
   </command>
   <command name="DELETE">
-    <operation>config waf web-protection-profile inline-protection
-  delete {$params.object_id}
+    <operation>config waf web-protection-profile inline-protectiondelete {$params.object_id}
 end
 </operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

@@ -1,29 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
+    <description>User Interface</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>1000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description>Description</description>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Networking</group>
-    <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>User Interface</name>
+    <group>Networking</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>User Interface</name>
-    <order>1000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Port Name" displayOrder="0" editable="false" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Port Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value>port1</value>
         <value>port8</value>
@@ -37,93 +39,51 @@
         <value>port3</value>
       </values>
     </variable>
-    <variable displayName="IP" displayOrder="1" groupDisplayName="IP / Netmask" isGrouped="true" isUserLocked="true" maxLength="200" name="params.addressIP" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable displayName="Netmask" displayOrder="2" groupDisplayName="IP / Netmask" groupSeparator="/" isGrouped="true" isUserLocked="true" maxLength="200" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable default="false" displayName="Ping" displayOrder="3" maxLength="50" name="params.ping" numberOfRowMax="0" startIncrement="0" type="Boolean"/>
-    <variable default="1500" displayName="MTU" displayOrder="4" isUserLocked="true" maxLength="100" name="params.mtu" numberOfRowMax="0" startIncrement="0" type="Integer"/>
-    <variable default="Up" displayName="Status" displayOrder="5" isUserLocked="true" maxLength="50" name="params.status" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="IP" name="params.addressIP" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="IP / Netmask" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Netmask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="IP / Netmask" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Ping" name="params.ping" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="MTU" name="params.mtu" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="1500" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="Up" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Down">down</value>
         <value displayValue="Up">up</value>
       </values>
     </variable>
-    <variable displayName="verifPing" displayOrder="6" maxLength="200" name="params.verifPing" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-  </variables>  <example>
-    <content>edit "port8"
-        set vdom "root"
-        set mode static
-        set dhcp-relay-service disable
-        set ip 0.0.0.0 0.0.0.0
-        unset allowaccess
-        set fail-detect disable
-        set pptp-client disable
-        set arpforward enable
-        set broadcast-forward disable
-        set bfd global
-        set l2forward disable
-        set icmp-redirect enable
-        set vlanforward disable
-        set stpforward disable
-        set ips-sniffer-mode disable
-        set ident-accept disable
-        set ipmac disable
-        set subst disable
-        set status up
-        set netbios-forward disable
-        set wins-ip 0.0.0.0
-        set type physical
-        set netflow-sampler disable
-        set sflow-sampler disable
-        set sample-rate 2000
-        set polling-interval 20
-        set sample-direction both
-        set explicit-web-proxy disable
-        set explicit-ftp-proxy disable
-        set tcp-mss 0
-        set inbandwidth 0
-        set outbandwidth 0
-        set spillover-threshold 0
-        set weight 0
-        set external disable
-        set description ''
-        set alias ''
-        set security-mode none
-        set device-identification disable
-        set lldp-transmission vdom
-        set listen-forticlient-connection disable
-        set vrrp-virtual-mac disable
-        set snmp-index 8
-        set secondary-IP disable
-            config ipv6
-                set ip6-mode static
-                unset ip6-allowaccess
-                set ip6-reachable-time 0
-                set ip6-retrans-time 0
-                set ip6-hop-limit 0
-                set ip6-address ::/0
-                set ip6-send-adv disable
-                set autoconf disable
-                set dhcp6-relay-service disable
-            end
-        unset dhcp-relay-ip
-        set dhcp-relay-type regular
-        unset macaddr
-        set speed auto
-        set mtu-override disable
-        set wccp disable
-        set drop-overlapped-fragment disable
-        set drop-fragment disable
-    next
+    <variable displayName="verifPing" name="params.verifPing" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>edit "port8"set vdom "root"set mode staticset dhcp-relay-service disableset ip 0.0.0.0 0.0.0.0unset allowaccessset fail-detect disableset pptp-client disableset arpforward enableset broadcast-forward disableset bfd globalset l2forward disableset icmp-redirect enableset vlanforward disableset stpforward disableset ips-sniffer-mode disableset ident-accept disableset ipmac disableset subst disableset status upset netbios-forward disableset wins-ip 0.0.0.0set type physicalset netflow-sampler disableset sflow-sampler disableset sample-rate 2000set polling-interval 20set sample-direction bothset explicit-web-proxy disableset explicit-ftp-proxy disableset tcp-mss 0set inbandwidth 0set outbandwidth 0set spillover-threshold 0set weight 0set external disableset description ''set alias ''set security-mode noneset device-identification disableset lldp-transmission vdomset listen-forticlient-connection disableset vrrp-virtual-mac disableset snmp-index 8set secondary-IP disableconfig ipv6set ip6-mode staticunset ip6-allowaccessset ip6-reachable-time 0set ip6-retrans-time 0set ip6-hop-limit 0set ip6-address ::/0set ip6-send-adv disableset autoconf disableset dhcp6-relay-service disableendunset dhcp-relay-ipset dhcp-relay-type regularunset macaddrset speed autoset mtu-override disableset wccp disableset drop-overlapped-fragment disableset drop-fragment disablenext
 </content>
   </example>
-
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show full-configuration system interface</operation>
+    <post_template>{if empty($params.verifPing)}
+{assign_object_variable var="ping" value="false"}
+{else}
+{assign_object_variable var="ping" value="true"}
+{/if}
+</post_template>
     <parser>
       <section>
-        <regexp>@edit "(?&lt;object_id&gt;(port[1-9]|port10))"@</regexp>
+        <regexp>@edit "(?&lt;object_id>(port[1-9]|port10))"@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@set ip (?&lt;addressIP>\S+) (?&lt;mask>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set allowaccess (?&lt;verifPing>ping)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^set status (?&lt;status>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set mtu (?&lt;mtu>\d+)@</regexp>
+        </line>
         <ignore>
           <regexp>@ set @</regexp>
         </ignore>
@@ -131,10 +91,8 @@
           <regexp>@ config @</regexp>
         </ignore>
         <ignore>
-          <regexp>@                edit @</regexp>
+          <regexp>@edit @</regexp>
         </ignore>
-        
-        
         <ignore>
           <regexp>@ next@</regexp>
         </ignore>
@@ -144,31 +102,10 @@
         <ignore>
           <regexp>@ end@</regexp>
         </ignore>
-        <line>
-          <regexp>@set ip (?&lt;addressIP&gt;\S+) (?&lt;mask&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set allowaccess (?&lt;verifPing&gt;ping)@</regexp>
-        </line>
-        
-        <line>
-          <regexp>@^        set status (?&lt;status&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set mtu (?&lt;mtu&gt;\d+)@</regexp>
-        </line>
-        
       </lines>
     </parser>
-    <post_template>{if empty($params.verifPing)}
-{assign_object_variable var="ping" value="false"}
-{else}
-{assign_object_variable var="ping" value="true"}
-{/if}
-</post_template>
   </command>
-
-<command name="UPDATE">
+  <command name="UPDATE">
     <operation>config system interface
 edit "{$params.object_id}"
 {if $params.ping=="true" }
@@ -179,4 +116,9 @@ unset allowaccess
 end
 </operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

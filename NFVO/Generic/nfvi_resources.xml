@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>MANO</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>NFVI Resources</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Id" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="vimType" displayOrder="1" maxLength="100" name="params.vimType" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="endpoint" displayOrder="2" maxLength="100" name="params.interfaceInfo.0.endpoint" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaceInfo</section>
+      </sections>
+    </variable>
+    <variable displayName="username" displayOrder="3" maxLength="100" name="params.accessInfo.0.username" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>accessInfo</section>
+      </sections>
+    </variable>
+    <variable displayName="password" displayOrder="4" maxLength="100" name="params.accessInfo.0.password" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Password">
+      <sections>
+        <section>accessInfo</section>
+      </sections>
+    </variable>
+    <variable displayName="projectDomain" displayOrder="5" maxLength="100" name="params.accessInfo.0.projectDomain" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>accessInfo</section>
+      </sections>
+    </variable>
+    <variable displayName="projectId" displayOrder="6" maxLength="100" name="params.accessInfo.0.projectId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>accessInfo</section>
+      </sections>
+    </variable>
+    <variable displayName="userDomain" displayOrder="7" maxLength="100" name="params.accessInfo.0.userDomain" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>accessInfo</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0"?&gt;
+&lt;root&gt;
+	&lt;row&gt;
+		&lt;id&gt;81268288-4f34-4a9b-94ad-d9666d75449c&lt;/id&gt;
+		&lt;vimId/&gt;
+		&lt;vimType&gt;OPENSTACK_V3&lt;/vimType&gt;
+		&lt;interfaceInfo&gt;
+			&lt;endpoint&gt;http://10.31.1.240:5000/v3&lt;/endpoint&gt;
+		&lt;/interfaceInfo&gt;
+		&lt;accessInfo&gt;
+			&lt;password&gt;84612d9a2e404ac9&lt;/password&gt;
+			&lt;vim_project&gt;cbamnso&lt;/vim_project&gt;
+			&lt;userDomain&gt;Default&lt;/userDomain&gt;
+			&lt;projectDomain&gt;Default&lt;/projectDomain&gt;
+			&lt;projectId&gt;df1f081bf2d345099e6bb53f6b9407ff&lt;/projectId&gt;
+			&lt;username&gt;admin&lt;/username&gt;
+		&lt;/accessInfo&gt;
+		&lt;extra/&gt;
+		&lt;audit&gt;
+			&lt;createdOn&gt;2020-06-17T07:47:25.824&lt;/createdOn&gt;
+			&lt;updatedOn/&gt;
+		&lt;/audit&gt;
+	&lt;/row&gt;
+&lt;/root&gt;
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>vimType</xpath>
+          <regexp>@&lt;vimType&gt;(?&lt;vimType&gt;.*)&lt;/vimType&gt;@</regexp>
+        </line>
+        <line>
+          <array name="accessInfo">
+            <xpath>accessInfo</xpath>
+            <lines>
+              <line>
+                <xpath>username</xpath>
+                <regexp>@&lt;username&gt;(?&lt;username&gt;.*)&lt;/username&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>password</xpath>
+                <regexp>@&lt;password&gt;(?&lt;password&gt;.*)&lt;/password&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>projectId</xpath>
+                <regexp>@&lt;projectId&gt;(?&lt;projectId&gt;.*)&lt;/projectId&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>projectDomain</xpath>
+                <regexp>@&lt;projectDomain&gt;(?&lt;projectDomain&gt;.*)&lt;/projectDomain&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>userDomain</xpath>
+                <regexp>@&lt;userDomain&gt;(?&lt;userDomain&gt;.*)&lt;/userDomain&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <array name="interfaceInfo">
+            <xpath>interfaceInfo</xpath>
+            <lines>
+              <line>
+                <xpath>endpoint</xpath>
+                <regexp>@&lt;endpoint&gt;(?&lt;endpoint&gt;.*)&lt;/endpoint&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  <xpath>/ubi-etsi-mano/admin/vim</xpath>
+  </command>
+<command name="READ">
+    <output/>
+  </command>
+</ObjectDefinition>

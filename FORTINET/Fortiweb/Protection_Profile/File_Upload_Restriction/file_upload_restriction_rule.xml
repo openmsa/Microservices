@@ -1,32 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/ProtectionProfile.png</icon>
+    <description>File Upload Restriction Rule</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Protection Profile|File Upload Restriction</group>
-    <icon>/images/repository/CommandDefinition/icons/ProtectionProfile.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>File Upload Restriction Rule</name>
+    <group>Protection Profile|File Upload Restriction</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>File Upload Restriction Rule</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Rule Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="3000" startIncrement="0" type="String"/>
-    <variable displayName="Request URL" displayOrder="1" isMandatory="true" maxLength="100" name="params.request_file" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="File Size Limit" displayOrder="2" maxLength="100" name="params.file_size_limit" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Integer"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Rule Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Request URL" name="params.request_file" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="File Size Limit" name="params.file_size_limit" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
@@ -34,54 +37,45 @@
     <operation>config waf file-upload-restriction-rule ## show full-configuration ## end</operation>
     <parser>
       <section>
-        <regexp>@edit "(?&lt;object_id&gt;[^"]+)"@</regexp>
+        <regexp>@edit "(?&lt;object_id>[^"]+)"@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@set file-size-limit (?&lt;file_size_limit>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set request-file (?&lt;request_file>\S+)@</regexp>
+        </line>
         <ignore>
           <regexp>@set @</regexp>
         </ignore>
-        <line>
-          <regexp>@set file-size-limit (?&lt;file_size_limit&gt;\S+)@</regexp>
-        </line>
-        <line>
-          <regexp>@set request-file (?&lt;request_file&gt;\S+)@</regexp>
-        </line>
       </lines>
     </parser>
-    <post_template/>
-  </command>
-<command name="CREATE">
-    <operation>config waf file-upload-restriction-rule
-  edit "{$params.object_id}"
-    set host-status disable
-    unset host
-    set request-type plain
-    set request-file {$params.request_file}
-    set file-size-limit {$params.file_size_limit}
-  next
-end
-</operation>
   </command>
   <command name="UPDATE">
-    <operation>config waf file-upload-restriction-rule
-  edit "{$params.object_id}"
-    set request-file {$params.request_file}
-    set file-size-limit {$params.file_size_limit}
-  next
-end
-</operation>
-  </command>
-  <command name="DELETE">
-    <operation>config waf file-upload-restriction-rule
-  delete "{$params.object_id}"
+    <operation>config waf file-upload-restriction-ruleedit "{$params.object_id}"set request-file {$params.request_file}set file-size-limit {$params.file_size_limit}next
 end
 </operation>
   </command>
   <command name="CONSTRAINT">
-    <operation>{if {$params.file_size_limit} &lt; 1024 || {$params.file_size_limit} &gt; 10240}
+    <operation>{if {$params.file_size_limit} &lt; 1024 || {$params.file_size_limit} > 10240}
 {$params.file_size_limit} is not a valid value
 File Size Limit must be in 1024~10240.
 {/if}
 </operation>
   </command>
+  <command name="CREATE">
+    <operation>config waf file-upload-restriction-ruleedit "{$params.object_id}"set host-status disableunset hostset request-type plainset request-file {$params.request_file}set file-size-limit {$params.file_size_limit}next
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config waf file-upload-restriction-ruledelete "{$params.object_id}"
+end
+</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

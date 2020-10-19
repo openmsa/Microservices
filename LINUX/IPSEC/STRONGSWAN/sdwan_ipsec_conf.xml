@@ -1,0 +1,121 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>none</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>SDWAN IPSec  Config Policy</name>
+    <group>SDWAN|IPSEC</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="ikelifetime" name="params.ikelifetime" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="keylife" name="params.keylife" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="rekeymargin" name="params.rekeymargin" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="keyingtries" name="params.keyingtries" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="keyexchange" name="params.keyexchange" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+    <variable displayName="authby" name="params.authby" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" refDeviceIdVar="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour maxLength="0" selectorValue="" startIncrement="0"/>
+      </behaviors>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>cat /etc/ipsec.conf</operation>
+    <parser>
+      <section>
+        <regexp>@^###___DEFAULT_POLICY-(?&lt;object_id>\S+)___START###$@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s+ikelifetime.(?&lt;ikelifetime>.+$)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+keylife.(?&lt;keylife>.+$)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+rekeymargin.(?&lt;rekeymargin>.+$)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+keyingtries.(?&lt;keyingtries>.+$)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+keyexchange.(?&lt;keyexchange>.+$)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+authby.(?&lt;authby>.+$)@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^conn.+$@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>sed -i "\$a###___DEFAULT_POLICY-{$params.object_id}___START###" /etc/ipsec.conf
+sed -i "\$aconn %default\n    ikelifetime={$params.ikelifetime}\n    keylife={$params.keylife}\n    rekeymargin={$params.rekeymargin}\n    keyingtries={$params.keyingtries}\n    keyexchange={$params.keyexchange}\n    authby={$params.authby}" /etc/ipsec.conf
+sed -i "\$a###___DEFAULT_POLICY-{$params.object_id}___STOP###" /etc/ipsec.conf</operation>
+  </command>
+  <command name="DELETE">
+    <operation>sed -i "/###___DEFAULT_POLICY-{$sdwan_ipsec_conf.$object_id.object_id}___START###/,/###___DEFAULT_POLICY-{$sdwan_ipsec_conf.$object_id.object_id}___STOP###/d" /etc/ipsec.conf</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

@@ -1,37 +1,39 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/antivirus_fortinet.png</icon>
+    <description>Antivirus</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>2000</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Security Profile|Antivirus</group>
-    <icon>/images/repository/CommandDefinition/icons/antivirus_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Antivirus</name>
+    <group>Security Profile|Antivirus</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Antivirus</name>
-    <order>2000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Profile Name" displayOrder="0" maxLength="250" name="params.object_id" startIncrement="0" type="String"/>
-    <variable default="disable" displayName="Detect Botnet C&amp;C Server" displayOrder="1" editable="false" isMandatory="true" maxLength="200" name="params.scanbotnet" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Profile Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Detect Botnet C&amp;C Server" name="params.scanbotnet" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="disable" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">block</value>
         <value displayValue="Monitor">monitor</value>
         <value displayValue="Disable">disable</value>
       </values>
     </variable>
-    <variable default="http" displayName="Protocol" displayOrder="2" editable="false" maxLength="200" name="params.protocols.0.protocol" startIncrement="0" type="String" visible="false">
+    <variable displayName="Protocol" name="params.protocols_0_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="http" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="http">http</value>
         <value displayValue="ftp">ftp</value>
@@ -45,7 +47,7 @@
         <section>Protocols</section>
       </sections>
     </variable>
-    <variable default="unset " displayName="Options" displayOrder="3" editable="false" maxLength="200" name="params.protocols.0.options" startIncrement="0" type="String" visible="false">
+    <variable displayName="Options" name="params.protocols_0_options" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset " isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">avmonitor</value>
@@ -55,7 +57,7 @@
         <section>Protocols</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="HTTP" displayOrder="4" editable="false" isMandatory="true" maxLength="200" name="params.webhttp" startIncrement="0" type="String">
+    <variable displayName="HTTP" name="params.webhttp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -65,7 +67,7 @@
         <section>WEB</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="FTP" displayOrder="5" editable="false" isMandatory="true" maxLength="200" name="params.filetransfert" startIncrement="0" type="String">
+    <variable displayName="FTP" name="params.filetransfert" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -75,7 +77,7 @@
         <section>File Transfert</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="SMTP" displayOrder="6" editable="false" isMandatory="true" maxLength="200" name="params.mailsmtp" startIncrement="0" type="String">
+    <variable displayName="SMTP" name="params.mailsmtp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -85,7 +87,7 @@
         <section>MAIL</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="POP3" displayOrder="7" editable="false" isMandatory="true" maxLength="200" name="params.mailpop3" startIncrement="0" type="String">
+    <variable displayName="POP3" name="params.mailpop3" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -95,7 +97,7 @@
         <section>MAIL</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="IMAP" displayOrder="8" editable="false" isMandatory="true" maxLength="200" name="params.mailimap" startIncrement="0" type="String">
+    <variable displayName="IMAP" name="params.mailimap" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -105,7 +107,7 @@
         <section>MAIL</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="MAPI" displayOrder="9" editable="false" isMandatory="true" maxLength="200" name="params.mailmapi" startIncrement="0" type="String">
+    <variable displayName="MAPI" name="params.mailmapi" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -115,7 +117,7 @@
         <section>MAIL</section>
       </sections>
     </variable>
-    <variable default="unset" displayName="NNTP" displayOrder="10" editable="false" isMandatory="true" maxLength="200" name="params.newsnntp" startIncrement="0" type="String">
+    <variable displayName="NNTP" name="params.newsnntp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="unset" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <value displayValue="Block">scan</value>
         <value displayValue="Monitor">scan avmonitor</value>
@@ -125,242 +127,61 @@
         <section>News</section>
       </sections>
     </variable>
-    <variable displayName="Comments" displayOrder="11" maxLength="200" name="params.comment" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>edit "didiAV"
-        set comment ''
-        set replacemsg-group ''
-        set inspection-mode proxy
-        set scan-botnet-connections monitor
-        set ftgd-analytics disable
-            config http
-                unset options
-                unset archive-block
-                unset archive-log
-                set emulator enable
-            end
-            config ftp
-                unset options
-                unset archive-block
-                unset archive-log
-                set emulator enable
-            end
-            config imap
-                unset options
-                unset archive-block
-                unset archive-log
-                set emulator enable
-            end
-            config pop3
-                unset options
-                unset archive-block
-                unset archive-log
-                set emulator enable
-            end
+    <variable displayName="Comments" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>edit "didiAV"set comment ''set replacemsg-group ''set inspection-mode proxyset scan-botnet-connections monitorset ftgd-analytics disableconfig httpunset optionsunset archive-blockunset archive-logset emulator enableendconfig ftpunset optionsunset archive-blockunset archive-logset emulator enableendconfig imapunset optionsunset archive-blockunset archive-logset emulator enableendconfig pop3unset optionsunset archive-blockunset archive-logset emulator enableend
 </content>
   </example>
-<command name="CREATE">
-    <operation>config antivirus profile
-    edit "{$params.object_id}"
-        set comment "{$params.comment}"
-               set inspection-mode proxy
-        set scan-botnet-connections {$params.scanbotnet}
-    	config http
-		set archive-log nested
-		{if $params.webhttp=="unset"}
-			unset options
-		{else}
-			set options {$params.webhttp}
-		{/if}
-	end
-	config ftp
-		set archive-log nested
-		{if $params.filetransfert=="unset"}
-			unset options
-		{else}
-			set options {$params.filetransfert}
-		{/if}
-	end
-	config imap
-		set archive-log nested
-		{if $params.mailimap=="unset"}
-			unset options
-		{else}
-			set options {$params.mailimap}
-		{/if}
-	end
-	config pop3
-		set archive-log nested
-		{if $params.mailpop3=="unset"}
-			unset options
-		{else}
-			set options {$params.mailpop3}
-		{/if}
-	end
-	config smtp
-		set archive-log nested
-		{if $params.mailsmtp=="unset"}
-			unset options
-		{else}
-			set options {$params.mailsmtp}
-		{/if}
-	end
-
-	config mapi
-		set archive-log nested
-		{if $params.mailmapi=="unset"}
-			unset options
-		{else}
-			set options {$params.mailmapi}
-		{/if}
-	end
-	config nntp
-		set archive-log nested
-		{if $params.newsnntp=="unset"}
-			unset options
-		{else}
-			set options {$params.newsnntp}
-		{/if}
-	end
-        
-end
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show full antivirus profile</operation>
+    <post_template>{foreach $params.protocols as $index => $proto}{if $proto.protocol=="http"}
+{assign_object_variable var="webhttp" value=$proto.options}{elseif $proto.protocol=="smtp"}
+{assign_object_variable var="mailsmtp" value=$proto.options}{elseif $proto.protocol=="ftp"}
+{assign_object_variable var="filetransfert" value=$proto.options}{elseif $proto.protocol=="pop3"}
+{assign_object_variable var="mailpop3" value=$proto.options}{elseif $proto.protocol=="imap"}
+{assign_object_variable var="mailimap" value=$proto.options}{elseif $proto.protocol=="mapi"}
+{assign_object_variable var="mailmapi" value=$proto.options}{elseif $proto.protocol=="nntp"}
+{assign_object_variable var="newsnntp" value=$proto.options}{/if}
+{/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@edit(?! "default") "(?&lt;object_id&gt;[^"]+)"@</regexp>
+        <regexp>@edit(?! "default") "(?&lt;object_id>[^"]+)"@</regexp>
       </section>
       <lines>
         <line>
-          <regexp>@set comment "(?&lt;comment&gt;[^"]+)"@</regexp>
-        </line>
-        <ignore>
-          <regexp>@unset @</regexp>
-        </ignore>
-        <line>
-          <regexp>@set scan-botnet-connections (?&lt;scanbotnet&gt;\S+)@</regexp>
+          <array/>
+          <regexp>@set scan-botnet-connections (?&lt;scanbotnet>\S+)@</regexp>
         </line>
         <line>
           <array name="protocols">
-            <regexp>@config (?&lt;protocol&gt;http|smtp|pop3|imap|ftp|nntp|mapi)@</regexp>
-            <regexp>@set options (?&lt;options&gt;.*)@</regexp>
-            <regexp>@(?&lt;options&gt;\S+) options@</regexp>
+            <lines/>
+            <regexp>@config (?&lt;protocol>http|smtp|pop3|imap|ftp|nntp|mapi)@</regexp>
+            <mregexp>@^\s \s*$@</mregexp>
           </array>
+          <regexp/>
         </line>
-        
-        
-        
-        
-        
-        
-        
-        
-        
         <ignore>
-          <regexp>@set @</regexp>
           <regexp>@end$@</regexp>
         </ignore>
       </lines>
     </parser>
-    <post_template>{foreach $params.protocols as $index =&gt; $proto}
-
-{if $proto.protocol=="http"}
-{assign_object_variable var="webhttp" value=$proto.options}
-
-{elseif $proto.protocol=="smtp"}
-{assign_object_variable var="mailsmtp" value=$proto.options}
-
-
-
-{elseif $proto.protocol=="ftp"}
-{assign_object_variable var="filetransfert" value=$proto.options}
-
-
-{elseif $proto.protocol=="pop3"}
-{assign_object_variable var="mailpop3" value=$proto.options}
-
-
-{elseif $proto.protocol=="imap"}
-{assign_object_variable var="mailimap" value=$proto.options}
-
-
-{elseif $proto.protocol=="mapi"}
-{assign_object_variable var="mailmapi" value=$proto.options}
-
-
-{elseif $proto.protocol=="nntp"}
-{assign_object_variable var="newsnntp" value=$proto.options}
-
-{/if}
-{/foreach}</post_template>
   </command>
-<command name="UPDATE">
-    <operation>config antivirus profile
-    edit "{$params.object_id}"
-        set comment "{$params.comment}"
-               set inspection-mode proxy
-        set scan-botnet-connections {$params.scanbotnet}
-
-    	config http
-		{if $params.webhttp=="unset"}
-			unset options
-		{else}
-			set options {$params.webhttp}
-		{/if}
-	end
-	config ftp
-		{if $params.filetransfert=="unset"}
-			unset options
-		{else}
-			set options {$params.filetransfert}
-		{/if}
-	end
-	config imap
-		{if $params.mailimap=="unset"}
-			unset options
-		{else}
-			set options {$params.mailimap}
-		{/if}
-	end
-	config pop3
-		{if $params.mailpop3=="unset"}
-			unset options
-		{else}
-			set options {$params.mailpop3}
-		{/if}
-	end
-	config smtp
-		{if $params.mailsmtp=="unset"}
-			unset options
-		{else}
-			set options {$params.mailsmtp}
-		{/if}
-	end
-
-	config mapi
-		{if $params.mailmapi=="unset"}
-			unset options
-		{else}
-			set options {$params.mailmapi}
-		{/if}
-	end
-	config nntp
-		{if $params.newsnntp=="unset"}
-			unset options
-		{else}
-			set options {$params.newsnntp}
-		{/if}
-	end
-        
-end
+  <command name="UPDATE">
+    <operation>config antivirus profileedit "{$params.object_id}"set comment "{$params.comment}"set inspection-mode proxyset scan-botnet-connections {$params.scanbotnet}config http{if $params.webhttp=="unset"}unset options{else}set options {$params.webhttp}{/if}endconfig ftp{if $params.filetransfert=="unset"}unset options{else}set options {$params.filetransfert}{/if}endconfig imap{if $params.mailimap=="unset"}unset options{else}set options {$params.mailimap}{/if}endconfig pop3{if $params.mailpop3=="unset"}unset options{else}set options {$params.mailpop3}{/if}endconfig smtp{if $params.mailsmtp=="unset"}unset options{else}set options {$params.mailsmtp}{/if}endconfig mapi{if $params.mailmapi=="unset"}unset options{else}set options {$params.mailmapi}{/if}endconfig nntp{if $params.newsnntp=="unset"}unset options{else}set options {$params.newsnntp}{/if}endend
 </operation>
   </command>
-<command name="DELETE">
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>config antivirus profileedit "{$params.object_id}"set comment "{$params.comment}"set inspection-mode proxyset scan-botnet-connections {$params.scanbotnet}config httpset archive-log nested{if $params.webhttp=="unset"}unset options{else}set options {$params.webhttp}{/if}endconfig ftpset archive-log nested{if $params.filetransfert=="unset"}unset options{else}set options {$params.filetransfert}{/if}endconfig imapset archive-log nested{if $params.mailimap=="unset"}unset options{else}set options {$params.mailimap}{/if}endconfig pop3set archive-log nested{if $params.mailpop3=="unset"}unset options{else}set options {$params.mailpop3}{/if}endconfig smtpset archive-log nested{if $params.mailsmtp=="unset"}unset options{else}set options {$params.mailsmtp}{/if}endconfig mapiset archive-log nested{if $params.mailmapi=="unset"}unset options{else}set options {$params.mailmapi}{/if}endconfig nntpset archive-log nested{if $params.newsnntp=="unset"}unset options{else}set options {$params.newsnntp}{/if}endend
+</operation>
+  </command>
+  <command name="DELETE">
     <operation>config antivirus profile
 delete "{$Antivirus.$object_id.object_id}"
 end
 </operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

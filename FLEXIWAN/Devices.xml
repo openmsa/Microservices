@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Flexi Edge Devices</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="defaultRoute" displayOrder="0" maxLength="100" name="params.defaultRoute" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="device_state" displayOrder="1" maxLength="100" name="params.device_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="name" displayOrder="1" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="fromToken" displayOrder="2" isUserLocked="true" maxLength="100" name="params.fromToken" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="object_id" displayOrder="3" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable default="false" displayName="isApproved" displayOrder="4" maxLength="100" name="params.isApproved" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
+    <variable displayName="hostname" displayOrder="5" isUserLocked="true" maxLength="100" name="params.hostname" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="org" displayOrder="6" editable="false" maxLength="100" name="params.org" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="interface_name" displayOrder="7" isUserLocked="true" maxLength="100" name="params.interfaces.0.interface_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaces</section>
+      </sections>
+    </variable>
+    <variable displayName="IPv4" displayOrder="8" isUserLocked="true" maxLength="100" name="params.interfaces.0.IPv4" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaces</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanRemove="false" displayName="IPv6" displayOrder="9" isUserLocked="true" maxLength="100" name="params.interfaces.0.IPv6" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaces</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="PublicIP" displayOrder="10" isUserLocked="true" maxLength="100" name="params.interfaces.0.PublicIP" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaces</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="routing" displayOrder="11" isUserLocked="true" maxLength="100" name="params.interfaces.0.routing" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaces</section>
+      </sections>
+    </variable>
+    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="type" displayOrder="12" isUserLocked="true" maxLength="100" name="params.interfaces.0.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>interfaces</section>
+      </sections>
+    </variable>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/api/devices</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//deviceStatus/state</xpath>
+          <regexp>@&lt;state&gt;(?&lt;device_state&gt;.*)&lt;/state&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//org</xpath>
+          <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
+        </line>
+        <line>
+          <array name="interfaces">
+            <xpath>//interfaces/row</xpath>
+            <lines>
+              <line>
+                <xpath>//type</xpath>
+                <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//routing</xpath>
+                <regexp>@&lt;routing&gt;(?&lt;routing&gt;.*)&lt;/routing&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//name</xpath>
+                <regexp>@&lt;name&gt;(?&lt;interface_name&gt;.*)&lt;/name&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//PublicIP</xpath>
+                <regexp>@&lt;PublicIP&gt;(?&lt;PublicIP&gt;.*)&lt;/PublicIP&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//IPv6</xpath>
+                <regexp>@&lt;IPv6&gt;(?&lt;IPv6&gt;.*)&lt;/IPv6&gt;@</regexp>
+              </line>
+              <line>
+                <xpath>//IPv4</xpath>
+                <regexp>@&lt;IPv4&gt;(?&lt;IPv4&gt;.*)&lt;/IPv4&gt;@</regexp>
+              </line>
+            </lines>
+          </array>
+        </line>
+        <line>
+          <xpath>_id</xpath>
+          <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//fromToken</xpath>
+          <regexp>@&lt;fromToken&gt;(?&lt;fromToken&gt;.*)&lt;/fromToken&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//defaultRoute</xpath>
+          <regexp>@&lt;defaultRoute&gt;(?&lt;defaultRoute&gt;.*)&lt;/defaultRoute&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>//hostname</xpath>
+          <regexp>@&lt;hostname&gt;(?&lt;hostname&gt;.*)&lt;/hostname&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//isApproved</xpath>
+          <regexp>@&lt;isApproved&gt;(?&lt;isApproved&gt;.*)&lt;/isApproved&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+
+<command name="UPDATE">
+    <rest>PUT
+</rest>
+    <xpath>/api/devices/{$params.object_id}?org={$Devices.$object_id.org}
+</xpath>
+    <operation>{literal}{{/literal}
+"name":"{$params.name}",
+"description":"",
+"defaultRoute":"{$params.defaultRoute}",
+"isApproved":"{$params.isApproved}"
+{literal}}{/literal}
+</operation>
+  </command>
+</ObjectDefinition>

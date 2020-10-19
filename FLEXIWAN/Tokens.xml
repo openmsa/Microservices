@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Default</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Tokens</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="object_id" displayOrder="1" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="token" displayOrder="2" isUserLocked="true" maxLength="100" name="params.token" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="createdAt" displayOrder="3" isUserLocked="true" maxLength="100" name="params.createdAt" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/api/tokens</xpath>
+    <parser>
+      <section>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>_id</xpath>
+          <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//createdAt</xpath>
+          <regexp>@&lt;createdAt&gt;(?&lt;createdAt&gt;.*)&lt;/createdAt&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//token</xpath>
+          <regexp>@&lt;token&gt;(?&lt;token&gt;.*)&lt;/token&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+        
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+<command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/api/tokens
+</xpath>
+    <operation>{literal}{{/literal}
+"name":"{$params.name}"
+{literal}}{/literal}
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>DELETE
+</rest>
+    <xpath>/api/tokens/{$params.object_id}
+</xpath>
+    <operation>{}
+</operation>
+  </command>
+</ObjectDefinition>

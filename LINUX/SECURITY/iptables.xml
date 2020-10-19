@@ -1,45 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
-    <dynamic>false</dynamic>
-    <icon>/images/repository/CommandDefinition/icons/mau.jpg</icon>
+<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
     <configType>cli</configType>
-    <visible>true</visible>
-    <reorderinstances>false</reorderinstances>
-    <visibility>5</visibility>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <singleton>false</singleton>
-    <sortvariable>params._order</sortvariable>
-    <sortascending>true</sortascending>
-    <sortnumerical>true</sortnumerical>
-    <sortauto>true</sortauto>
-    <relatedObjects/>
-    <order>100000</order>
-    <description/>
-    <name>Filter Iptables</name>
+    <createTemplateId/>
+    <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <group>Default</group>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>Security|Policies</group>
+    <icon>/images/repository/CommandDefinition/icons/mau.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
     <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Filter Iptables</name>
+    <order>100000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+    <visible>true</visible>
   </information>  <variables frozen="0">
-    <variable displayName="nom" displayOrder="0" isMandatory="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayName="Numero de règle" displayOrder="1" isMandatory="true" maxLength="200" name="params.rule" type="Integer"/>
-    <variable displayName="IP destination (IP, hostname or subnet)" displayOrder="2" maxLength="200" name="params.ip_dst" type="String"/>
-    <variable displayName="IP source (IP, hostname or subnet)" displayOrder="3" maxLength="200" name="params.ip_src" type="String"/>
-    <variable displayName="TCP/UDP port destination (number or range)" displayOrder="4" maxLength="200" name="params.port_dst" type="String"/>
-    <variable displayName="TCP/UDP port source (number or range)" displayOrder="5" maxLength="200" name="params.port_src" type="String"/>
-    <variable default="udp" displayName="IP protocol" displayOrder="6" editable="false" maxLength="200" name="params.ip_proto" type="String">
+    <variable displayName="nom" displayOrder="0" isMandatory="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String"/>
+    <variable displayName="Numero de règle" displayOrder="1" isMandatory="true" maxLength="200" name="params.rule" numberOfRowMax="0" type="Integer"/>
+    <variable displayName="IP destination (IP, hostname or subnet)" displayOrder="2" maxLength="200" name="params.ip_dst" numberOfRowMax="0" type="String"/>
+    <variable displayName="IP source (IP, hostname or subnet)" displayOrder="3" maxLength="200" name="params.ip_src" numberOfRowMax="0" type="String"/>
+    <variable displayName="TCP/UDP port destination (number or range)" displayOrder="4" maxLength="200" name="params.port_dst" numberOfRowMax="0" type="String"/>
+    <variable displayName="TCP/UDP port source (number or range)" displayOrder="5" maxLength="200" name="params.port_src" numberOfRowMax="0" type="String"/>
+    <variable default="udp" displayName="IP protocol" displayOrder="6" editable="false" maxLength="200" name="params.ip_proto" numberOfRowMax="0" type="String">
       <values>
         <value displayValue="udp">udp</value>
         <value displayValue="tcp">tcp</value>
       </values>
     </variable>
-    <variable default="DROP" displayName="Action" displayOrder="7" editable="false" isMandatory="true" maxLength="200" name="params.action" type="String">
+    <variable default="DROP" displayName="Action" displayOrder="7" editable="false" isMandatory="true" maxLength="200" name="params.action" numberOfRowMax="0" type="String">
       <values>
         <value displayValue="DROP">DROP</value>
         <value displayValue="ACCEPT">ACCEPT</value>
         <value displayValue="REJECT">REJECT</value>
       </values>
     </variable>
-    <variable default="false" displayName="Statefull" displayOrder="8" maxLength="200" name="params.statefull" type="Boolean"/>
+    <variable default="false" displayName="Statefull" displayOrder="8" maxLength="200" name="params.statefull" numberOfRowMax="0" type="Boolean"/>
   </variables>  <example>
     <content>
 </content>
@@ -59,23 +62,7 @@ sudo /sbin/iptables -I FORWARD_RULES {$rule} -m conntrack --ctstate ESTABLISHED,
       <section>
         <regexp>@^(?&lt;object_id&gt;[0-9]+)\s*(?&lt;action&gt;(ACCEPT|DROP|REJECT))\s*(all|(?&lt;ip_proto&gt;(tcp|udp)))\s*(--)\s*(?&lt;ip_src&gt;([0-9.\/]+|))\s*(?&lt;ip_dst&gt;([0-9.\/]+|))\s*(?&lt;statefull&gt;(true|))\s*(tcp\s|udp\s|)(spt\:|)(?&lt;port_src&gt;([0-9]+|))\s*(dpt\:|)(?&lt;port_dst&gt;([0-9]+|))\s*$@</regexp>
       </section>
-      <lines>
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      </lines>
+      <lines></lines>
     </parser>
   <post_template>{assign_object_variable var="rule" value="{$params.object_id}"}</post_template>
   </command>

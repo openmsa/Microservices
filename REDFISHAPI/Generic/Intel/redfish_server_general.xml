@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>BIOS|INTEL</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>5</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Server general</name>
+    <order>1</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Server Vendor" displayOrder="0" maxLength="100" name="params.vendor" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Server Model" displayOrder="1" maxLength="100" name="params.model" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Server Serial Number" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Bios Version" displayOrder="3" maxLength="100" name="params.bios_version" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Server Health" displayOrder="4" maxLength="100" name="params.health" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Server Power state" displayOrder="4" maxLength="100" name="params.power_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+  </variables>  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
+</content>
+  </example>
+
+
+
+
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>_SYSTEM</xpath>
+    <parser>
+      <section>
+        <xpath>//root</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>PowerState</xpath>
+          <regexp>@&lt;PowerState&gt;(?&lt;power_state&gt;.*)&lt;/PowerState&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>BiosVersion</xpath>
+          <regexp>@&lt;BiosVersion&gt;(?&lt;bios_version&gt;.*)&lt;/BiosVersion&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//Status/Health</xpath>
+          <regexp>@&lt;Health&gt;(?&lt;health&gt;.*)&lt;/Health&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>Manufacturer</xpath>
+          <regexp>@&lt;Manufacturer&gt;(?&lt;vendor&gt;.*)&lt;/Manufacturer&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>SerialNumber</xpath>
+          <regexp>@&lt;SerialNumber&gt;(?&lt;object_id&gt;.*)&lt;/SerialNumber&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>Model</xpath>
+          <regexp>@&lt;Model&gt;(?&lt;model&gt;.*)&lt;/Model&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template/>
+  </command>
+</ObjectDefinition>
