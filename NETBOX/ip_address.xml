@@ -104,7 +104,7 @@
 			{/foreach}
 		{/if}
 		{if !empty($params.vrf)}
-			{foreach $VRF item=vrf_object}
+			{foreach $vrf item=vrf_object}
 				{if $vrf_object.object_id eq $params.vrf}
 					, "vrf": "{$vrf_object.id}"
 				{/if}
@@ -136,7 +136,7 @@
                         {/foreach}
                 {/if}
                 {if !empty($params.vrf)}
-                        {foreach $VRF item=vrf_object}
+                        {foreach $vrf item=vrf_object}
                                 {if $vrf_object.object_id eq $params.vrf}
                                         , "vrf": "{$vrf_object.id}"
                                 {/if}

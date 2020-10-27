@@ -95,7 +95,7 @@
 {/if}
 {literal}}{/literal}</operation>
     <rest>PATCH</rest>
-    <xpath>/api/ipam/vrfs/{$VRF.$object_id.id}/</xpath>
+    <xpath>/api/ipam/vrfs/{$vrf.$object_id.id}/</xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
