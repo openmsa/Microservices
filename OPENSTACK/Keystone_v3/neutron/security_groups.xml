@@ -1,138 +1,125 @@
-<ObjectDefinition>
-  <information>
-    <icon>/images/repository/CommandDefinition/icons/firewall.jpg</icon>
-    <description>Security Groups</description>
-    <displayField>name</displayField>
-    <serviceTaskType/>
-    <order>10000</order>
-    <visibility>0</visibility>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
-    <relatedObjects/>
-    <name>Security Groups</name>
     <group>Neutron|Security Groups</group>
+    <icon>/images/repository/CommandDefinition/icons/firewall.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>1</importrank>
+    <name>Security Groups</name>
+    <order>10000</order>
+    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
+    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-  </information>
-  <variables frozen="0">
-    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Direction" name="params.security_group_rules_0_direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="UUID" displayOrder="0" displayType="" isUserLocked="true" maxLength="200" name="params.object_id" type="String"/>
+    <variable displayName="Name" displayOrder="1" displayType="" maxLength="200" name="params.name" type="String"/>
+    <variable displayName="Description" displayOrder="2" displayType="" maxLength="200" name="params.description" type="String"/>
+    <variable displayName="Direction" displayOrder="3" displayType="" isUserLocked="true" maxLength="200" name="params.security_group_rules.0.direction" type="String">
       <sections>
         <section>Security Group Rules</section>
       </sections>
     </variable>
-    <variable displayName="Ethernet Type" name="params.security_group_rules_0_ethertype" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Ethernet Type" displayOrder="4" displayType="" isUserLocked="true" maxLength="200" name="params.security_group_rules.0.ethertype" type="String">
       <sections>
         <section>Security Group Rules</section>
       </sections>
     </variable>
-    <variable displayName="Port Range Min" name="params.security_group_rules_0_port_range_min" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Port Range Min" displayOrder="5" displayType="" isUserLocked="true" maxLength="200" name="params.security_group_rules.0.port_range_min" type="Integer">
       <sections>
         <section>Security Group Rules</section>
       </sections>
     </variable>
-    <variable displayName="Port Range Max" name="params.security_group_rules_0_port_range_max" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Port Range Max" displayOrder="6" displayType="" isUserLocked="true" maxLength="200" name="params.security_group_rules.0.port_range_max" type="Integer">
       <sections>
         <section>Security Group Rules</section>
       </sections>
     </variable>
-    <variable displayName="Protocol" name="params.security_group_rules_0_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Protocol" displayOrder="7" displayType="" isUserLocked="true" maxLength="200" name="params.security_group_rules.0.protocol" type="String">
       <sections>
         <section>Security Group Rules</section>
       </sections>
     </variable>
-    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Tenant" displayOrder="8" displayType="" maxLength="200" name="params.tenant_id" type="ObjectRef">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-  </variables>
-  <example>
+  </variables>  <example>
     <content>
 </content>
   </example>
-  <command name="IMPORT">
+<command name="IMPORT">
     <operation>neutron</operation>
+    <xpath>/v2.0/security-groups</xpath>
     <parser>
       <section>
-        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/security_groups/row</xpath>
       </section>
       <lines>
         <line>
-          <array/>
-          <regexp>@&lt;id>(?&lt;object_id>.*)&lt;/id>@</regexp>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;name>(?&lt;name>.*)&lt;/name>@</regexp>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;description>(?&lt;description>.*)&lt;/description>@</regexp>
+          <xpath>description</xpath>
+          <regexp>@&lt;description&gt;(?&lt;description&gt;.*)&lt;/description&gt;@</regexp>
         </line>
         <line>
-          <array/>
-          <regexp>@&lt;tenant_id>(?&lt;tenant_id>.*)&lt;/tenant_id>@</regexp>
+          <xpath>tenant_id</xpath>
+          <regexp>@&lt;tenant_id&gt;(?&lt;tenant_id&gt;.*)&lt;/tenant_id&gt;@</regexp>
         </line>
         <line>
           <array name="security_group_rules">
+            <xpath>security_group_rules/row</xpath>
             <lines>
               <line>
-                <array/>
-                <regexp>@&lt;direction>(?&lt;direction>.*)&lt;/direction>@</regexp>
+                <xpath>direction</xpath>
+                <regexp>@&lt;direction&gt;(?&lt;direction&gt;.*)&lt;/direction&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;ethertype>(?&lt;ethertype>.*)&lt;/ethertype>@</regexp>
+                <xpath>ethertype</xpath>
+                <regexp>@&lt;ethertype&gt;(?&lt;ethertype&gt;.*)&lt;/ethertype&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;port_range_min>(?&lt;port_range_min>.*)&lt;/port_range_min>@</regexp>
+                <xpath>port_range_min</xpath>
+                <regexp>@&lt;port_range_min&gt;(?&lt;port_range_min&gt;.*)&lt;/port_range_min&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;port_range_max>(?&lt;port_range_max>.*)&lt;/port_range_max>@</regexp>
+                <xpath>port_range_max</xpath>
+                <regexp>@&lt;port_range_max&gt;(?&lt;port_range_max&gt;.*)&lt;/port_range_max&gt;@</regexp>
               </line>
               <line>
-                <array/>
-                <regexp>@&lt;protocol>(?&lt;protocol>.*)&lt;/protocol>@</regexp>
+                <xpath>protocol</xpath>
+                <regexp>@&lt;protocol&gt;(?&lt;protocol&gt;.*)&lt;/protocol&gt;@</regexp>
               </line>
             </lines>
-            <regexp>@^\s \s*$@</regexp>
-            <mregexp>@^\s \s*$@</mregexp>
           </array>
-          <regexp/>
         </line>
       </lines>
     </parser>
-    <xpath>/v2.0/security-groups</xpath>
+    <post_template/>
   </command>
-  <command name="UPDATE">
-    <operation>{literal}{{/literal}
-"security_group": {literal}{{/literal}
-"description": "{$params.description}"
-{literal}}{/literal}
-{literal}}{/literal}
-</operation>
-    <rest>PUT#neutron
+<command name="CREATE">
+    <rest>POST#neutron
 </rest>
-    <xpath>/v2.0/security-groups/{$params.object_id|object_id}
+    <xpath>/v2.0/security-groups
 </xpath>
-  </command>
-  <command name="CONSTRAINT"/>
-  <command name="CREATE">
     <operation>{literal}{{/literal}
 "security_group": {literal}{{/literal}
 "name": "{$params.name}",
@@ -143,19 +130,25 @@
 {literal}}{/literal}
 {literal}}{/literal}
 </operation>
-    <rest>POST#neutron
-</rest>
-    <xpath>/v2.0/security-groups
-</xpath>
   </command>
   <command name="DELETE">
-    <operation>
-</operation>
     <rest>neutron
 </rest>
     <xpath>/v2.0/security-groups/{$params.object_id|object_id}
 </xpath>
+    <operation>
+</operation>
   </command>
-  <command name="READ"/>
-  <command name="LIST"/>
+<command name="UPDATE">
+    <rest>PUT#neutron
+</rest>
+    <xpath>/v2.0/security-groups/{$params.object_id|object_id}
+</xpath>
+    <operation>{literal}{{/literal}
+"security_group": {literal}{{/literal}
+"description": "{$params.description}"
+{literal}}{/literal}
+{literal}}{/literal}
+</operation>
+  </command>
 </ObjectDefinition>

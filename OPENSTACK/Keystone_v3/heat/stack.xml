@@ -1,71 +1,59 @@
-<ObjectDefinition>
-  <information>
-    <icon>/images/repository/CommandDefinition/icons/CUBE.jpg</icon>
-    <description>Stacks</description>
-    <displayField>object_id</displayField>
-    <serviceTaskType/>
-    <order>10000</order>
-    <visibility>0</visibility>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
-    <relatedObjects/>
-    <name>Stacks</name>
     <group>Orchestration</group>
+    <icon>/images/repository/CommandDefinition/icons/CUBE.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>2</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Stacks</name>
+    <order>10000</order>
+    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-  </information>
-  <variables frozen="0">
-    <variable displayName="Stack Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Template URL" name="params.template_url" startIncrement="0" type="Link" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Name" name="params.parameters_0_paramname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="Stack Name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="Template URL" displayOrder="1" maxLength="100" name="params.template_url" startIncrement="0" type="Link"/>
+    <variable displayName="Name" displayOrder="2" maxLength="100" name="params.parameters.0.paramname" startIncrement="0" type="String">
       <sections>
         <section>Parameters</section>
       </sections>
     </variable>
-    <variable displayName="Value" name="params.parameters_0_paramvalue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Value" displayOrder="3" maxLength="100" name="params.parameters.0.paramvalue" startIncrement="0" type="String">
       <sections>
         <section>Parameters</section>
       </sections>
     </variable>
-  </variables>
-  <example>
+  </variables>  <example>
     <content>
 </content>
   </example>
-  <command name="IMPORT">
-    <parser>
-      <section>
-        <regexp>@^\s \s*$@</regexp>
-      </section>
-      <lines/>
-    </parser>
-  </command>
-  <command name="UPDATE"/>
-  <command name="CONSTRAINT"/>
-  <command name="CREATE">
-    <operation>{literal}{{/literal}
-"stack_name": "{$params.object_id}",
-"template_url": "{$params.template_url}",
-"parameters": {literal}{{/literal}{foreach $params.parameters as $p}{if $p@iteration > 1},{/if}"{$p.paramname}": "{$p.paramvalue}"{/foreach}
-{literal}}{/literal}
-{literal}}{/literal}
-</operation>
+<command name="CREATE">
     <rest>POST#heat
 </rest>
     <xpath>{$TENANT_ID}/stacks
 </xpath>
+    <operation>{literal}{{/literal}
+"stack_name": "{$params.object_id}",
+"template_url": "{$params.template_url}",
+"parameters": {literal}{{/literal}
+  {foreach $params.parameters as $p}
+    {if $p@iteration &gt; 1},{/if}
+    "{$p.paramname}": "{$p.paramvalue}"
+  {/foreach}
+{literal}}{/literal}
+{literal}}{/literal}
+</operation>
   </command>
-  <command name="DELETE"/>
-  <command name="READ"/>
-  <command name="LIST"/>
 </ObjectDefinition>
