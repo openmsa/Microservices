@@ -1,0 +1,94 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/objects_fortinet.png</icon>
+    <description>Source NAT</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>1060</order>
+    <visibility>0</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Source NAT</name>
+    <group>NAT Object</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="NAT Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Start IP Address" name="params.startIp" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="End IP Address" name="params.endIp" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>UBI-SITONECELL-MASTE~001 # show full-configuration firewall ippoolconfig firewall ippooledit "testPSM"set type overloadset startip 10.2.3.3set endip 10.2.3.3set arp-reply enableset arp-intf ''set comments "test"next
+end
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show full-configuration firewall ippool </operation>
+    <parser>
+      <section>
+        <regexp>@edit (!?")(?&lt;object_id>[^"]+)(!?")@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set startip (?&lt;startIp>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set endip (?&lt;endIp>\S+)@</regexp>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set comment "(?&lt;comment>[^"]+)"@</regexp>
+        </line>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>config firewall ippool
+edit "{$params.object_id}"
+set startip {$params.startIp}
+set endip {$params.endIp}
+set arp-reply enable
+set comments '{$params.comment}'
+next
+end
+</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>config firewall ippool
+edit "{$params.object_id}"
+set startip {$params.startIp}
+set endip {$params.endIp}
+set arp-reply enable
+set comments '{$params.comment}'
+next
+end
+</operation>
+  </command>
+  <command name="DELETE">
+    <operation>config firewall ippool
+delete "{$Source_NAT.$object_id.object_id}"
+end
+</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
