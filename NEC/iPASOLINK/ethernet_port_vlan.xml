@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>ethernet port vlan</name>
-    <group>Default</group>
+    <name>Ethernet port VLAN configuration</name>
+    <group>NEC|iPASOLINK</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -26,7 +26,12 @@
   </information>
   <variables frozen="0">
     <variable displayName="Interface Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="Access">access</values>
+        <values displayValue="Trunk">trunk</values>
+      </values>
+    </variable>
     <variable displayName="VLAN ID List" name="params.vlan_list.0.id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>vlan</class>
@@ -65,6 +70,9 @@
   <command name="UPDATE">
     <operation>interface eth {$ethernet_port_vlan.$object_id.object_id}
 {if $params.type == &apos;access&apos;}
+{foreach from=$ethernet_port_vlan.$object_id.vlan_list key=number item=ids}
+no vlan {$ids.id}
+{/foreach}
 vlan access {$params.vlan_list.0.id}
 {/if}
 {if $params.type == &apos;trunk&apos;}
@@ -78,7 +86,12 @@ vlan trunk {$ids.id}
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation>interface eth {$ethernet_port_vlan.$object_id.object_id}
+{foreach from=$ethernet_port_vlan.$object_id.vlan_list key=number item=ids}
+no vlan {$ids.id}
+{/foreach}</operation>
+  </command>
   <command name="READ"/>
   <command name="LIST"/>
 </ObjectDefinition>

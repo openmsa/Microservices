@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>hostname</name>
-    <group>Default</group>
+    <name>Hostname</name>
+    <group>NEC|iPASOLINK</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -43,7 +43,10 @@
 ne-name {$params.object_id}</operation>
   </command>
   <command name="CONSTRAINT"/>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation>exit
+ne-name {$params.object_id}</operation>
+  </command>
   <command name="DELETE"/>
   <command name="READ"/>
   <command name="LIST"/>
