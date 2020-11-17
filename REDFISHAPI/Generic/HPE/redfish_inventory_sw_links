@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
-    <configType>xml</configType>
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>netconf</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
+    <group>Software management</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
@@ -44,5 +45,26 @@
     </parser>
     <post_template>{assign var="link_array" value='/'|explode:$params.object_id}
 {assign_object_variable var="system" value=$link_array|@end}</post_template>
+  </command>
+<command name="UPDATE">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>&lt;system xmlns="http://oneaccess-net.com/oneos/glob"&gt;    
+  &lt;class-map xmlns="http://oneaccess-net.com/oneos/ipservices/qos"&gt;
+    &lt;name&gt;{$params.object_id}&lt;/name&gt;
+    {foreach $params.rule_list item=rule}
+    &lt;match&gt;
+      {if $rule.type eq 'dscp'}
+      &lt;matchRule&gt;ip dscp {$rule.value}&lt;/matchRule&gt;
+      {elseif}
+      
+
+      &lt;not/&gt;
+    &lt;/match&gt;
+  &lt;/class-map&gt;
+&lt;/system&gt;
+</operation>
   </command>
 </ObjectDefinition>
