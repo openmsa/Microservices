@@ -1,136 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]Tunnels</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Tunnels</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Organisation" displayOrder="0" maxLength="100" name="params.Organisation" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Organisation" name="params.Organisation" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>Organisation</class>
       </classes>
     </variable>
-    <variable displayName="deviceA_id" displayOrder="0" editable="false" maxLength="100" name="params.deviceA_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="deviceB_id" displayOrder="1" editable="false" maxLength="100" name="params.deviceB_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="ID" displayOrder="1" isUserLocked="true" maxLength="100" name="params.num" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="org" displayOrder="1" editable="false" maxLength="100" name="params.org" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="object_id" displayOrder="2" editable="false" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="Device A" displayOrder="3" isUserLocked="true" maxLength="100" name="params.device_a" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Device B" displayOrder="4" isUserLocked="true" maxLength="100" name="params.device_b" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="is Active" displayOrder="5" isUserLocked="true" maxLength="100" name="params.isActive" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Tunnel A Status" displayOrder="6" isUserLocked="true" maxLength="100" name="params.tunnelStatusA" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Device1" displayOrder="7" maxLength="100" name="params.Device1" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable displayName="deviceA_id" name="params.deviceA_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="deviceB_id" name="params.deviceB_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ID" name="params.num" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="org" name="params.org" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Device A" name="params.device_a" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Device B" name="params.device_b" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="is Active" name="params.isActive" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tunnel A Status" name="params.tunnelStatusA" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Device1" name="params.Device1" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>Devices</class>
       </classes>
     </variable>
-    <variable displayName="Tunnel B Status" displayOrder="8" isUserLocked="true" maxLength="100" name="params.tunnelbstatus" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Device2" displayOrder="9" maxLength="100" name="params.Device2" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable displayName="Tunnel B Status" name="params.tunnelbstatus" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Device2" name="params.Device2" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>Devices</class>
       </classes>
     </variable>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/api/tunnels</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//deviceB/_id</xpath>
+          <array/>
           <regexp>@&lt;_id&gt;(?&lt;deviceB_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>//deviceB/_id</xpath>
         </line>
         <line>
-          <xpath>//deviceA/_id</xpath>
+          <array/>
           <regexp>@&lt;_id&gt;(?&lt;deviceA_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>//deviceA/_id</xpath>
         </line>
         <line>
-          <xpath>//deviceA/org</xpath>
+          <array/>
           <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
+          <xpath>//deviceA/org</xpath>
         </line>
         <line>
-          <xpath>//deviceB/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;device_b&gt;.*)&lt;/name@</regexp>
+          <xpath>//deviceB/name</xpath>
         </line>
         <line>
-          <xpath>//deviceA/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;device_a&gt;.*)&lt;/name@</regexp>
+          <xpath>//deviceA/name</xpath>
         </line>
         <line>
-          <xpath>//num</xpath>
+          <array/>
           <regexp>@&lt;num&gt;(?&lt;num&gt;.*)&lt;/num&gt;@</regexp>
+          <xpath>//num</xpath>
         </line>
         <line>
-          <xpath>//tunnelStatusB/status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;tunnelbstatus&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>//tunnelStatusB/status</xpath>
         </line>
         <line>
-          <xpath>_id</xpath>
+          <array/>
           <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>_id</xpath>
         </line>
         <line>
-          <xpath>//isActive</xpath>
+          <array/>
           <regexp>@&lt;isActive&gt;(?&lt;isActive&gt;.*)&lt;/isActive&gt;@</regexp>
+          <xpath>//isActive</xpath>
         </line>
         <line>
-          <xpath>//tunnelStatusA/status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;tunnelStatusA&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>//tunnelStatusA/status</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/api/tunnels</xpath>
   </command>
-<command name="CREATE">
-    <rest>POST
-</rest>
-    <xpath>/api/devices/apply/?org={$params.Organisation}
-</xpath>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
     <operation>{literal}{{/literal}
-"method":"tunnels",
-"devices":{literal}{{/literal}
-"{$params.Device1}":"true",
-"{$params.Device2}":"true"
+&quot;method&quot;:&quot;tunnels&quot;,
+&quot;devices&quot;:{literal}{{/literal}
+&quot;{$params.Device1}&quot;:&quot;true&quot;,
+&quot;{$params.Device2}&quot;:&quot;true&quot;
 {literal}}{/literal},
-"meta":{literal}{{/literal}"pathLabels":[]{literal}}{/literal}
-
-{literal}}{/literal}
-</operation>
+&quot;meta&quot;:{literal}{{/literal}&quot;pathLabels&quot;:[]{literal}}{/literal}
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/devices/apply/?org={$params.Organisation}</xpath>
   </command>
-<command name="DELETE">
-    <rest>POST
-</rest>
-    <xpath>/api/devices/apply?org={$Tunnels.$object_id.org}
-</xpath>
+  <command name="DELETE">
     <operation>{literal}{{/literal}
-"method":"deltunnels",
-
-"tunnels":{literal}{{/literal}"{$params.object_id}":true{literal}}{/literal}
-
-{literal}}{/literal}
-</operation>
+&quot;method&quot;:&quot;deltunnels&quot;,
+&quot;tunnels&quot;:{literal}{{/literal}&quot;{$params.object_id}&quot;:true{literal}}{/literal}
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/devices/apply?org={$Tunnels.$object_id.org}</xpath>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
