@@ -1,68 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>display_var</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>display_var</displayField>
     <dynamic>false</dynamic>
-    <group>vCenter</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[dc_demo] VM</name>
+    <group>vCenter</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>VM</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="name" displayOrder="1" maxLength="100" name="params.name" startIncrement="0" type="String"/>
-    <variable displayName="CPU Count" displayOrder="2" maxLength="100" name="params.cpu_count" startIncrement="0" type="Integer"/>
-    <variable displayName="Memory Size (MB)" displayOrder="3" maxLength="100" name="params.memory_size_MiB" startIncrement="0" type="Integer"/>
-    <variable displayName="Power State" displayOrder="4" maxLength="100" name="params.power_state" startIncrement="0" type="String"/>
-    <variable displayName="display_var" displayOrder="6" maxLength="100" name="params.display_var" startIncrement="0" type="String" visible="false"/>
-  </variables>  <example>
-    <content>
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="CPU Count" name="params.cpu_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Memory Size (MB)" name="params.memory_size_MiB" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Power State" name="params.power_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="display_var" name="params.display_var" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content></content>
   </example>
   <command name="IMPORT">
     <operation>vcenter</operation>
-    <xpath>vm</xpath>
+    <post_template>{assign_object_variable var=&quot;display_var&quot; value=&quot;{$params.name} - {$params.object_id} - {$params.cpu_count} - {$params.memory_size_MiB} - {$params.power_state}&quot;}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/value/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
         <line>
-          <xpath>vm</xpath>
+          <array/>
           <regexp>@&lt;vm&gt;(?&lt;object_id&gt;.*)&lt;/vm&gt;@</regexp>
+          <xpath>vm</xpath>
         </line>
         <line>
-          <xpath>cpu_count</xpath>
+          <array/>
           <regexp>@&lt;cpu_count&gt;(?&lt;cpu_count&gt;.*)&lt;/cpu_count&gt;@</regexp>
+          <xpath>cpu_count</xpath>
         </line>
         <line>
-          <xpath>memory_size_MiB</xpath>
+          <array/>
           <regexp>@&lt;memory_size_MiB&gt;(?&lt;memory_size_MiB&gt;.*)&lt;/memory_size_MiB&gt;@</regexp>
+          <xpath>memory_size_MiB</xpath>
         </line>
         <line>
-          <xpath>power_state</xpath>
+          <array/>
           <regexp>@&lt;power_state&gt;(?&lt;power_state&gt;.*)&lt;/power_state&gt;@</regexp>
+          <xpath>power_state</xpath>
         </line>
       </lines>
     </parser>
-    <post_template>{assign_object_variable var="display_var" value="{$params.name} - {$params.object_id} - {$params.cpu_count} - {$params.memory_size_MiB} - {$params.power_state}"}</post_template>
+    <xpath>vm</xpath>
   </command>
+  <command name="UPDATE">
+    <operation>{}</operation>
+    <rest>POST#vcenter</rest>
+    <xpath>vm/{$params.object_id}/power/{if $params.power_state === &quot;POWERED_ON&quot; }start{elseif $params.power_state === &quot;POWERED_OFF&quot;}stop{elseif $params.power_state === &quot;POWERED_SUSPEND&quot;}suspend{else}reset{/if}</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE">
+    <operation>{}</operation>
+    <rest>vcenter</rest>
+    <xpath>vm/{$vm.$object_id.object_id}</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

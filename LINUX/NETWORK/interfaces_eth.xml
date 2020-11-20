@@ -1,104 +1,104 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>20</order>
+    <visibility>0</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>true</dynamic>
-    <group>Networking</group>
-    <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Interfaces</name>
+    <group>Networking</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Interfaces</name>
-    <order>20</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable default="eth0:" displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Type" displayOrder="1" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="IP" displayOrder="2" isMandatory="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
-    <variable default="255.255.255.0" displayName="Mask" displayOrder="3" maxLength="100" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable displayName="MacAddress" displayOrder="4" maxLength="100" name="params.macaddress" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Broadcast" displayOrder="5" maxLength="100" name="params.bcast" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-  </variables>  <example>
-    <content>eth0      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:8F  
-          inet adr:172.10.15.139  Bcast:172.10.15.255  Masque:255.255.255.0
-          adr inet6: fe80::20c:29ff:fe88:a48f/64 Scope:Lien
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:438437 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:152476 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 lg file transmission:1000 
-          RX bytes:464609994 (443.0 MiB)  TX bytes:10067755 (9.6 MiB)
-
-eth1      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:99  
-          inet adr:10.30.18.220  Bcast:10.30.19.255  Masque:255.255.254.0
-          adr inet6: fe80::20c:29ff:fe88:a499/64 Scope:Lien
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:49600389 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:35495686 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 lg file transmission:1000 
-          RX bytes:14793185823 (13.7 GiB)  TX bytes:32290581149 (30.0 GiB)
-
-lo        Link encap:Boucle locale  
-          inet adr:127.0.0.1  Masque:255.0.0.0
-          adr inet6: ::1/128 Scope:Hôte
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:886280812 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:886280812 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 lg file transmission:0 
-          RX bytes:254195241352 (236.7 GiB)  TX bytes:254195241352 (236.7 GiB)
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="eth0:" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP" name="params.ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Mask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="255.255.255.0" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="MacAddress" name="params.macaddress" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Broadcast" name="params.bcast" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>eth0      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:8F
+inet adr:172.10.15.139  Bcast:172.10.15.255  Masque:255.255.255.0
+adr inet6: fe80::20c:29ff:fe88:a48f/64 Scope:Lien
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+RX packets:438437 errors:0 dropped:0 overruns:0 frame:0
+TX packets:152476 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 lg file transmission:1000
+RX bytes:464609994 (443.0 MiB)  TX bytes:10067755 (9.6 MiB)
+eth1      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:99
+inet adr:10.30.18.220  Bcast:10.30.19.255  Masque:255.255.254.0
+adr inet6: fe80::20c:29ff:fe88:a499/64 Scope:Lien
+UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+RX packets:49600389 errors:0 dropped:0 overruns:0 frame:0
+TX packets:35495686 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 lg file transmission:1000
+RX bytes:14793185823 (13.7 GiB)  TX bytes:32290581149 (30.0 GiB)
+lo        Link encap:Boucle locale
+inet adr:127.0.0.1  Masque:255.0.0.0
+adr inet6: ::1/128 Scope:H&#244;te
+UP LOOPBACK RUNNING  MTU:65536  Metric:1
+RXpackets:886280812 errors:0 dropped:0 overruns:0 frame:0
+TX packets:886280812 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 lg file transmission:0
+RX bytes:254195241352 (236.7 GiB)  TX bytes:254195241352 (236.7 GiB)</content>
   </example>
   <command name="IMPORT">
     <operation>LANG=C ifconfig##ip addr show</operation>
     <parser>
       <section>
-        <regexp>@(?&lt;object_id&gt;\S+):\s+flags@</regexp>
-        <regexp>@(?&lt;object_id&gt;\S+)\s+Link encap:(?&lt;type&gt;\S+)\s+(HWaddr\s+(?&lt;macaddress&gt;\S+)\s+)*@</regexp>
         <regexp>@\d: (?&lt;object_id&gt;\S+):@</regexp>
+        <xpath/>
       </section>
       <lines>
-        
-        
-        
-        
-        
-        
         <line>
+          <array/>
           <regexp>@inet addr:(?&lt;ip&gt;\S+)  Bcast:(?&lt;bcast&gt;\S+)  Mask:(?&lt;mask&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
+          <array/>
           <regexp>@inet\s+(?&lt;ip&gt;\S+)\s+netmask (?&lt;mask&gt;\S+)\s+broadcast (?&lt;bcast&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
-          <regexp>@inet\s+(?&lt;ip&gt;\S+)\s+netmask (?&lt;mask&gt;\S+)@</regexp>
+          <array/>
+          <regexp>@inet\s+(?&lt;ip&gt;\S+)/(?&lt;mask&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
+          <array/>
           <regexp>@link/(?&lt;type&gt;\S+) (?&lt;macaddress&gt;\S+)@</regexp>
+          <xpath/>
         </line>
       </lines>
     </parser>
-    <post_template/>
-  </command>
-<command name="CREATE">
-    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}
-</operation>
   </command>
   <command name="UPDATE">
-    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}
-</operation>
+    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}</operation>
   </command>
   <command name="DELETE">
-    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask} down
-</operation>
+    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask} down</operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

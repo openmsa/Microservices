@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>Interfaces</name>
+    <name>[dc_demo] Interfaces</name>
     <group>VLAN</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
@@ -138,9 +138,15 @@ MSA311#</content>
   </command>
   <command name="UPDATE">
     <operation>interface {$params.object_id}
-no description{if !empty($params.description)}description {$params.description}{/if}
+no description
 no switchport mode trunk
-no switchport access vlan{if $params.vlan === &quot;true&quot;}switchport access vlan {$params.vlanNumber}{/if}no snmp trap link-statusno cdp enable</operation>
+no switchport access vlan
+no snmp trap link-status
+no cdp enable
+{if !empty($params.description)}description {$params.description}
+{/if}
+{if $params.vlan === &quot;true&quot;}switchport access vlan {$params.vlanNumber}
+{/if}</operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
