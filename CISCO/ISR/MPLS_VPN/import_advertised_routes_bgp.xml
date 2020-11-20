@@ -22,10 +22,12 @@
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
     <visibility>5</visibility>
-  </information>  <variables frozen="0">
+  </information>  
+  <variables frozen="0">
     <variable displayName="IPv4 prefix" displayOrder="0" maxLength="200" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
     <variable displayName="Next Hop" displayOrder="1" maxLength="100" name="params.next_hop" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
+  </variables>  
+  <example>
     <content>MSA358#sho ip interface
 GigabitEthernet1 is administratively down, line protocol is down
   Internet protocol processing disabled
@@ -39,22 +41,19 @@ GigabitEthernet2 is up, line protocol is up
   Outgoing Common access list is not set
   Outgoing access list is not set
   Inbound Common access list is not set
-</content>
-  </example>
+  </content>
+</example>
   
 <command name="IMPORT">
     <operation>show bgp ipv4 unicast neighbors 1.1.1.1 advertised-routes</operation>
+    <post_template/>
     <parser>
       <section>
         <regexp>@^.+?&gt;\s+?(?&lt;object_id&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})\s+?(?&lt;next_hop&gt;(\d{1,3}\.){3}\d{1,3})\s.+?$@</regexp>
         <xpath/>
       </section>
-      <lines>
-    
-        
-      </lines>
+      <lines/>
     </parser>
-    <post_template/>
   </command>
 
   <command name="CREATE"/>
