@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -6,14 +7,14 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|HPE</group>
+    <group>General</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>5</importrank>
+    <importrank>10</importrank>
     <maxInstances>0</maxInstances>
     <name>Server general</name>
-    <order>5</order>
+    <order>1</order>
     <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
@@ -25,8 +26,9 @@
     <variable displayName="Server Vendor" displayOrder="0" maxLength="100" name="params.vendor" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="Server Model" displayOrder="1" maxLength="100" name="params.model" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="Server Serial Number" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="BIOS version" displayOrder="3" maxLength="100" name="params.bios_version" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Bios Version" displayOrder="3" maxLength="100" name="params.bios_version" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
     <variable displayName="Server Health" displayOrder="4" maxLength="100" name="params.health" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Server Power state" displayOrder="4" maxLength="100" name="params.power_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
   </variables>  <example>
     <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
 </content>
@@ -43,6 +45,10 @@
         <xpath>//root</xpath>
       </section>
       <lines>
+        <line>
+          <xpath>PowerState</xpath>
+          <regexp>@&lt;PowerState&gt;(?&lt;power_state&gt;.*)&lt;/PowerState&gt;@</regexp>
+        </line>
         <line>
           <xpath>BiosVersion</xpath>
           <regexp>@&lt;BiosVersion&gt;(?&lt;bios_version&gt;.*)&lt;/BiosVersion&gt;@</regexp>
