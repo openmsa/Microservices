@@ -1,63 +1,74 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]AccessTokens</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>AccessTokens</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Organization" displayOrder="1" maxLength="100" name="params.organization" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Access Token" displayOrder="2" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Is Valid" displayOrder="3" maxLength="100" name="params.is_valid" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Organization" name="params.organization" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Access Token" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Is Valid" name="params.is_valid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/api/accesstokens</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//isValid</xpath>
+          <array/>
           <regexp>@&lt;isValid&gt;(?&lt;is_valid&gt;.*)&lt;/isValid&gt;@</regexp>
+          <xpath>//isValid</xpath>
         </line>
         <line>
-          <xpath>//organization</xpath>
+          <array/>
           <regexp>@&lt;organization&gt;(?&lt;organization&gt;.*)&lt;/organization&gt;@</regexp>
+          <xpath>//organization</xpath>
         </line>
         <line>
-          <xpath>//name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
         </line>
         <line>
-          <xpath>//token</xpath>
+          <array/>
           <regexp>@&lt;token&gt;(?&lt;object_id&gt;.*)&lt;/token&gt;@</regexp>
+          <xpath>//token</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/api/accesstokens</xpath>
   </command>
-
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

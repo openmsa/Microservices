@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -6,11 +7,11 @@
     <description/>
     <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|HPE</group>
+    <group>General</group>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
-    <importrank>100</importrank>
+    <importrank>50</importrank>
     <maxInstances>0</maxInstances>
     <name>Server power state</name>
     <order>1</order>
@@ -67,8 +68,11 @@
 </operation>
   </command>
 <command name="DELETE">
-    <rest/>
-    <xpath/>
-    <operation/>
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
   </command>
 </ObjectDefinition>

@@ -1,159 +1,177 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]Flexi Edge Devices</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Flexi Edge Devices</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="defaultRoute" displayOrder="0" maxLength="100" name="params.defaultRoute" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="device_state" displayOrder="1" maxLength="100" name="params.device_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="name" displayOrder="1" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="fromToken" displayOrder="2" isUserLocked="true" maxLength="100" name="params.fromToken" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="object_id" displayOrder="3" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="false" displayName="isApproved" displayOrder="4" maxLength="100" name="params.isApproved" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="hostname" displayOrder="5" isUserLocked="true" maxLength="100" name="params.hostname" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="org" displayOrder="6" editable="false" maxLength="100" name="params.org" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="interface_name" displayOrder="7" isUserLocked="true" maxLength="100" name="params.interfaces.0.interface_name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="defaultRoute" name="params.defaultRoute" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="device_state" name="params.device_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="fromToken" name="params.fromToken" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="isApproved" name="params.isApproved" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="hostname" name="params.hostname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="org" name="params.org" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_name" name="params.interfaces.0.interface_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaces</section>
+        <sections>interfaces</sections>
       </sections>
     </variable>
-    <variable displayName="IPv4" displayOrder="8" isUserLocked="true" maxLength="100" name="params.interfaces.0.IPv4" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="IPv4" name="params.interfaces.0.IPv4" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaces</section>
+        <sections>interfaces</sections>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanRemove="false" displayName="IPv6" displayOrder="9" isUserLocked="true" maxLength="100" name="params.interfaces.0.IPv6" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="IPv6" name="params.interfaces.0.IPv6" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="true" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaces</section>
+        <sections>interfaces</sections>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="PublicIP" displayOrder="10" isUserLocked="true" maxLength="100" name="params.interfaces.0.PublicIP" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="PublicIP" name="params.interfaces.0.PublicIP" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaces</section>
+        <sections>interfaces</sections>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="routing" displayOrder="11" isUserLocked="true" maxLength="100" name="params.interfaces.0.routing" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="routing" name="params.interfaces.0.routing" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaces</section>
+        <sections>interfaces</sections>
       </sections>
     </variable>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="type" displayOrder="12" isUserLocked="true" maxLength="100" name="params.interfaces.0.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="type" name="params.interfaces.0.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaces</section>
+        <sections>interfaces</sections>
       </sections>
     </variable>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/api/devices</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//deviceStatus/state</xpath>
+          <array/>
           <regexp>@&lt;state&gt;(?&lt;device_state&gt;.*)&lt;/state&gt;@</regexp>
+          <xpath>//deviceStatus/state</xpath>
         </line>
         <line>
-          <xpath>//org</xpath>
+          <array/>
           <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
+          <xpath>//org</xpath>
         </line>
         <line>
           <array name="interfaces">
-            <xpath>//interfaces/row</xpath>
             <lines>
               <line>
-                <xpath>//type</xpath>
+                <array/>
                 <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+                <xpath>//type</xpath>
               </line>
               <line>
-                <xpath>//routing</xpath>
+                <array/>
                 <regexp>@&lt;routing&gt;(?&lt;routing&gt;.*)&lt;/routing&gt;@</regexp>
+                <xpath>//routing</xpath>
               </line>
               <line>
-                <xpath>//name</xpath>
+                <array/>
                 <regexp>@&lt;name&gt;(?&lt;interface_name&gt;.*)&lt;/name&gt;@</regexp>
+                <xpath>//name</xpath>
               </line>
               <line>
-                <xpath>//PublicIP</xpath>
+                <array/>
                 <regexp>@&lt;PublicIP&gt;(?&lt;PublicIP&gt;.*)&lt;/PublicIP&gt;@</regexp>
+                <xpath>//PublicIP</xpath>
               </line>
               <line>
-                <xpath>//IPv6</xpath>
+                <array/>
                 <regexp>@&lt;IPv6&gt;(?&lt;IPv6&gt;.*)&lt;/IPv6&gt;@</regexp>
+                <xpath>//IPv6</xpath>
               </line>
               <line>
-                <xpath>//IPv4</xpath>
+                <array/>
                 <regexp>@&lt;IPv4&gt;(?&lt;IPv4&gt;.*)&lt;/IPv4&gt;@</regexp>
+                <xpath>//IPv4</xpath>
               </line>
             </lines>
+            <mregexp>@^\s \s*$@</mregexp>
+            <xpath>//interfaces/row</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
-          <xpath>_id</xpath>
+          <array/>
           <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>_id</xpath>
         </line>
         <line>
-          <xpath>//fromToken</xpath>
+          <array/>
           <regexp>@&lt;fromToken&gt;(?&lt;fromToken&gt;.*)&lt;/fromToken&gt;@</regexp>
+          <xpath>//fromToken</xpath>
         </line>
         <line>
-          <xpath>//defaultRoute</xpath>
+          <array/>
           <regexp>@&lt;defaultRoute&gt;(?&lt;defaultRoute&gt;.*)&lt;/defaultRoute&gt;@</regexp>
+          <xpath>//defaultRoute</xpath>
         </line>
-        
         <line>
-          <xpath>//hostname</xpath>
+          <array/>
           <regexp>@&lt;hostname&gt;(?&lt;hostname&gt;.*)&lt;/hostname&gt;@</regexp>
+          <xpath>//hostname</xpath>
         </line>
         <line>
-          <xpath>//isApproved</xpath>
+          <array/>
           <regexp>@&lt;isApproved&gt;(?&lt;isApproved&gt;.*)&lt;/isApproved&gt;@</regexp>
+          <xpath>//isApproved</xpath>
         </line>
-        
         <line>
-          <xpath>//name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/api/devices</xpath>
   </command>
-
-<command name="UPDATE">
-    <rest>PUT
-</rest>
-    <xpath>/api/devices/{$params.object_id}?org={$Devices.$object_id.org}
-</xpath>
+  <command name="UPDATE">
     <operation>{literal}{{/literal}
-"name":"{$params.name}",
-"description":"",
-"defaultRoute":"{$params.defaultRoute}",
-"isApproved":"{$params.isApproved}"
-{literal}}{/literal}
-</operation>
+&quot;name&quot;:&quot;{$params.name}&quot;,
+&quot;description&quot;:&quot;&quot;,
+&quot;defaultRoute&quot;:&quot;{$params.defaultRoute}&quot;,
+&quot;isApproved&quot;:&quot;{$params.isApproved}&quot;
+{literal}}{/literal}</operation>
+    <rest>PUT</rest>
+    <xpath>/api/devices/{$params.object_id}?org={$Devices.$object_id.org}</xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

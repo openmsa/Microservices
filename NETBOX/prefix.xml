@@ -155,14 +155,14 @@
 		{/foreach}
 	{/if}
 	{if !empty($params.vrf)}
-		{foreach $VRF item=vrf_object}
+		{foreach $vrf item=vrf_object}
 			{if $vrf_object.object_id eq $params.vrf}
 				, "vrf": "{$vrf_object.id}"
 			{/if}
 		{/foreach}
 	{/if}
 	{if !empty($params.vlan_name)}
-		{foreach $VLAN item=vlan_object}
+		{foreach $vlan item=vlan_object}
 			{if $vlan_object.object_id eq $params.vlan_name}
 				, "vlan": "{$vlan_object.id}"
 			{/if}
@@ -194,14 +194,14 @@
                 {/foreach}
         {/if}
         {if !empty($params.vrf)}
-                {foreach $VRF item=vrf_object}
+                {foreach $vrf item=vrf_object}
                         {if $vrf_object.object_id eq $params.vrf}
                                 , "vrf": "{$vrf_object.id}"
                         {/if}
                 {/foreach}
         {/if}
         {if !empty($params.vlan_name)}
-                {foreach $VLAN item=vlan_object}
+                {foreach $vlan item=vlan_object}
                         {if $vlan_object.object_id eq $params.vlan_name}
                                 , "vlan": "{$vlan_object.id}"
                         {/if}
