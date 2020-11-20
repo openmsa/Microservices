@@ -1,97 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]Static Routes</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Static Routes</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Destination" displayOrder="0" maxLength="100" name="params.destination_network" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="device_id" displayOrder="0" editable="false" maxLength="100" name="params.device_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="Gateway" displayOrder="0" maxLength="100" name="params.gateway_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Interface" displayOrder="1" isUserLocked="true" maxLength="100" name="params.interface" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Devices" displayOrder="2" editable="false" maxLength="100" name="params.Devices" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Destination" name="params.destination_network" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="device_id" name="params.device_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Gateway" name="params.gateway_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface" name="params.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Devices" name="params.Devices" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>Devices</class>
       </classes>
     </variable>
-    <variable displayName="object_id" displayOrder="3" editable="false" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="Status" displayOrder="3" isUserLocked="true" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Organisation" displayOrder="4" maxLength="100" name="params.Organisation" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Organisation" name="params.Organisation" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>Organisation</class>
       </classes>
     </variable>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>{foreach from=$Devices item=device}/api/devices/{$device.object_id}/staticroutes##{/foreach}</xpath>
+    <post_template>{assign_object_variable var=&quot;device_id&quot; value=$device.object_id}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//ifname</xpath>
+          <array/>
           <regexp>@&lt;ifname&gt;(?&lt;interface&gt;.*)&lt;/ifname&gt;@</regexp>
+          <xpath>//ifname</xpath>
         </line>
         <line>
-          <xpath>_id</xpath>
+          <array/>
           <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>_id</xpath>
         </line>
         <line>
-          <xpath>//destination</xpath>
+          <array/>
           <regexp>@&lt;destination&gt;(?&lt;destination_network&gt;.*)&lt;/destination&gt;@</regexp>
+          <xpath>//destination</xpath>
         </line>
         <line>
-          <xpath>//gateway</xpath>
+          <array/>
           <regexp>@&lt;gateway&gt;(?&lt;gateway_ip&gt;.*)&lt;/gateway&gt;@</regexp>
+          <xpath>//gateway</xpath>
         </line>
         <line>
-          <xpath>//status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>//status</xpath>
         </line>
       </lines>
     </parser>
-    <post_template>{assign_object_variable var="device_id" value=$device.object_id}</post_template>
+    <xpath>{foreach from=$Devices item=device}/api/devices/{$device.object_id}/staticroutes##{/foreach}</xpath>
   </command>
-<command name="CREATE">
-    <rest>POST
-</rest>
-    <xpath>/api/devices/{$params.Devices}/staticroutes/?org={$params.Organisation}
-</xpath>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
     <operation>{literal}{{/literal}
-"destination":"{$params.destination_network}",
-"gateway": "{$params.gateway_ip}"
-{literal}}{/literal}
-</operation>
+&quot;destination&quot;:&quot;{$params.destination_network}&quot;,
+&quot;gateway&quot;: &quot;{$params.gateway_ip}&quot;
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/devices/{$params.Devices}/staticroutes/?org={$params.Organisation}</xpath>
   </command>
-<command name="DELETE">
-    <rest>DELETE
-</rest>
-    <xpath>/api/devices/{$params.Devices}/staticroutes/{$params.object_id}?org={$params.Organisation}
-</xpath>
-    <operation>{}
-</operation>
+  <command name="DELETE">
+    <operation>{}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/devices/{$params.Devices}/staticroutes/{$params.object_id}?org={$params.Organisation}</xpath>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

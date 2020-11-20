@@ -132,24 +132,24 @@
     <operation>{literal}{{/literal}
 	"name": "{$params.object_id}"
 	, "status": "{$params.status}"
-	{foreach $device_types item=type}
-		{if $type.object_id eq $params.model}
-			, "device_type": "{$type.id}"
+	{foreach $device_types item=type_object}
+		{if $type_object.object_id eq $params.model}
+			, "device_type": "{$type_object.id}"
 		{/if}
 	{/foreach}
-	{foreach $device_role item=role}
-		{if $role.object_id eq $params.role}
-			, "device_role": "{$role.id}"
+	{foreach $device_role item=role_object}
+		{if $role_object.object_id eq $params.role}
+			, "device_role": "{$role_object.id}"
 		{/if}
 	{/foreach}
-	{foreach $sites item=site}
-		{if $site.object_id eq $params.site}
-			, "site": "{$site.id}"
+	{foreach $sites item=site_object}
+		{if $site_object.object_id eq $params.site}
+			, "site": "{$site_object.id}"
 		{/if}
 	{/foreach}
-	{foreach $tenant item=tenant}
-		{if $tenant.object_id eq $params.tenant}
-			, "tenant": "{$tenant.id}"
+	{foreach $tenants item=tenant_object}
+		{if $tenant_object.object_id eq $params.tenant}
+			, "tenant": "{$tenant_object.id}"
 		{/if}
 	{/foreach}
 {literal}}{/literal}
@@ -167,27 +167,27 @@
     <operation>{literal}{{/literal}
 	"name": "{$params.object_id}"
 	, "status": "{$params.status}"
-	{foreach $device_types item=type}
-		{if $type.object_id eq $params.model}
-			, "device_type": "{$type.id}"
-		{/if}
-	{/foreach}
-	{foreach $device_role item=role}
-		{if $role.object_id eq $params.role}
-			, "device_role": "{$role.id}"
-		{/if}
-	{/foreach}
-	{foreach $tites item=site}
-		{if $site.object_id eq $params.site}
-			, "site": "{$site.id}"
-		{/if}
-	{/foreach}
-	{foreach $tenant item=tenant}
-		{if $tenant.object_id eq $params.tenant}
-			, "tenant": "{$tenant.id}"
-		{/if}
-	{/foreach}
-{literal}}{/literal}
+        {foreach $device_types item=type_object}
+                {if $type_object.object_id eq $params.model}
+                        , "device_type": "{$type_object.id}"
+                {/if}
+        {/foreach}
+        {foreach $device_role item=role_object}
+                {if $role_object.object_id eq $params.role}
+                        , "device_role": "{$role_object.id}"
+                {/if}
+        {/foreach}
+        {foreach $sites item=site_object}
+                {if $site_object.object_id eq $params.site}
+                        , "site": "{$site_object.id}"
+                {/if}
+        {/foreach}
+        {foreach $tenants item=tenant_object}
+                {if $tenant_object.object_id eq $params.tenant}
+                        , "tenant": "{$tenant_object.id}"
+                {/if}
+        {/foreach}
+	{literal}}{/literal}
 </operation>
   </command>
   <command name="CONSTRAINT"/>

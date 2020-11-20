@@ -136,52 +136,79 @@
     <xpath>/api/ipam/prefixes/</xpath>
   </command>
   <command name="UPDATE">
-    <operation>{literal}{{/literal}&quot;prefix&quot;: &quot;{$params.object_id}&quot;, &quot;status&quot;: &quot;{$params.status}&quot;{if !empty($params.tenant)}{foreach $tenant item=tenant}{if $tenant.object_id eq $params.tenant}, &quot;tenant&quot;: &quot;{$tenant.id}&quot;{/if}{/foreach}{/if}{if !empty($params.site)}{foreach $sites item=site}{if $site.object_id eq $params.site}, &quot;site&quot;: &quot;{$site.id}&quot;{/if}{/foreach}{/if}{if !empty($params.vrf)}{foreach $VRF item=vrf}{if $vrf.object_id eq $params.vrf}, &quot;vrf&quot;: &quot;{$vrf.id}&quot;{/if}{/foreach}{/if}{if !empty($params.vlan_name)}{foreach$VLAN item=vlan}{if $vlan.object_id eq $params.vlan_name}, &quot;vlan&quot;: &quot;{$vlan.id}&quot;{/if}{/foreach}{/if}
-{literal}}{/literal}</operation>
+    <operation>
+	{literal}{{/literal}
+	"prefix": "{$params.object_id}"
+	, "status": "{$params.status}"
+	{if !empty($params.tenant)}
+		{foreach $tenants item=tenant_object}
+			{if $tenant_object.object_id eq $params.tenant}
+				, "tenant": "{$tenant_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.site)}
+		{foreach $sites item=site_object}
+			{if $site_object.object_id eq $params.site}
+				, "site": "{$site_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vrf)}
+		{foreach $vrf item=vrf_object}
+			{if $vrf_object.object_id eq $params.vrf}
+				, "vrf": "{$vrf_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vlan_name)}
+		{foreach $vlan item=vlan_object}
+			{if $vlan_object.object_id eq $params.vlan_name}
+				, "vlan": "{$vlan_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{literal}}{/literal}
+    </operation>
     <rest>PATCH</rest>
     <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/</xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{literal}{{/literal}
-&quot;prefix&quot;: &quot;{$params.object_id}&quot;
-, &quot;status&quot;: &quot;{$params.status}&quot;
-{if !empty($params.tags)}
-{assign var=&quot;temp_tag_array&quot; value=[]}
-{foreach $params.tags item=tag}
-{$temp_tag_array[] = $tag.tag}
-{/foreach}
-, &quot;tags&quot;: {$temp_tag_array|@json_encode}
-{/if}
-{if !empty($params.tenant)}
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
-{/if}
-{/foreach}
-{/if}
-{if !empty($params.site)}
-{foreach $sites item=site}
-{if $site.object_id eq $params.site}
-, &quot;site&quot;: &quot;{$site.id}&quot;
-{/if}
-{/foreach}
-{/if}
-{if !empty($params.vrf)}
-{foreach $VRF item=vrf}
-{if $vrf.object_id eq $params.vrf}
-, &quot;vrf&quot;: &quot;{$vrf.id}&quot;
-{/if}
-{/foreach}
-{/if}
-{if !empty($params.vlan_name)}
-{foreach $VLAN item=vlan}
-{if $vlan.object_id eq $params.vlan_name}
-, &quot;vlan&quot;: &quot;{$vlan.id}&quot;
-{/if}
-{/foreach}
-{/if}
-{literal}}{/literal}</operation>
+    <operation>
+        {literal}{{/literal}
+        "prefix": "{$params.object_id}"
+        , "status": "{$params.status}"
+        {if !empty($params.tenant)}
+                {foreach $tenants item=tenant_object}
+                        {if $tenant_object.object_id eq $params.tenant}
+                                , "tenant": "{$tenant_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {if !empty($params.site)}
+                {foreach $sites item=site_object}
+                        {if $site_object.object_id eq $params.site}
+                                , "site": "{$site_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {if !empty($params.vrf)}
+                {foreach $vrf item=vrf_object}
+                        {if $vrf_object.object_id eq $params.vrf}
+                                , "vrf": "{$vrf_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {if !empty($params.vlan_name)}
+                {foreach $vlan item=vlan_object}
+                        {if $vlan_object.object_id eq $params.vlan_name}
+                                , "vlan": "{$vlan_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {literal}}{/literal}
+    </operation>
     <rest>POST</rest>
     <xpath>/api/ipam/prefixes/</xpath>
   </command>

@@ -1,125 +1,62 @@
-<ObjectDefinition>
-  <information>
-    <icon>/images/repository/CommandDefinition/icons/androgenous person.jpg</icon>
-    <description>Tenants</description>
-    <displayField>name</displayField>
-    <serviceTaskType/>
-    <order>1</order>
-    <visibility>0</visibility>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ObjectDefinition>  <information>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
-    <relatedObjects/>
-    <name>Tenants</name>
     <group>Keystone</group>
+    <icon>/images/repository/CommandDefinition/icons/androgenous person.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <importonce>false</importonce>
     <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Tenants</name>
+    <order>1</order>
+    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-  </information>
-  <variables frozen="0">
-    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Enabled" name="params.enabled" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Role" name="params.role" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="UUID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" type="String"/>
+    <variable displayName="Name" displayOrder="1" maxLength="200" name="params.name" type="String"/>
+    <variable default="true" displayName="Enabled" displayOrder="2" maxLength="200" name="params.enabled" type="Boolean"/>
+    <variable displayName="Description" displayOrder="3" maxLength="200" name="params.description" type="String"/>
+    <variable displayName="Role" displayOrder="4" maxLength="200" name="params.role" onlyDetailView="true" type="ObjectRef">
       <classes>
         <class>roles</class>
       </classes>
     </variable>
-    <variable displayName="User" name="params.user" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="User" displayOrder="5" maxLength="200" name="params.user" onlyDetailView="true" type="ObjectRef">
       <classes>
         <class>users</class>
       </classes>
     </variable>
-    <variable displayName="Domain Id" name="params.domain_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Domain Id" displayOrder="6" maxLength="100" name="params.domain_id" startIncrement="0" type="ObjectRef">
       <classes>
         <class>domains</class>
       </classes>
     </variable>
-    <variable displayName="Is Domain" name="params.is_domain" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Parent Id" name="params.parent_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable default="false" displayName="Is Domain" displayOrder="7" maxLength="100" name="params.is_domain" startIncrement="0" type="Boolean"/>
+    <variable displayName="Parent Id" displayOrder="8" maxLength="100" name="params.parent_id" startIncrement="0" type="ObjectRef">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-  </variables>
-  <example>
+  </variables>  <example>
     <content>Click here and paste your configuration example that represent the object OR a complete existant Object definition file.
 </content>
   </example>
-  <command name="IMPORT">
-    <operation>keystone</operation>
-    <parser>
-      <section>
-        <regexp>@^\s \s*$@</regexp>
-      </section>
-      <lines>
-        <line>
-          <array/>
-          <regexp>@&lt;id>(?&lt;object_id>.*)&lt;/id>@</regexp>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;domain_id>(?&lt;domain_id>.*)&lt;/domain_id>@</regexp>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;is_domain>(?&lt;is_domain>.*)&lt;/is_domain>@</regexp>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;parent_id>(?&lt;parent_id>.*)&lt;/parent_id>@</regexp>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;description>(?&lt;description>.*)&lt;/description>@</regexp>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;enabled>(?&lt;enabled>.*)&lt;/enabled>@</regexp>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;name>(?&lt;name>.*)&lt;/name>@</regexp>
-        </line>
-      </lines>
-    </parser>
-    <xpath>/projects</xpath>
-  </command>
-  <command name="UPDATE">
-    <operation>{literal}{{/literal}
-"project": {literal}{{/literal}
-"name": "{$params.name}"
-{if !empty($params.description)}
-,"description": "{$params.description}"
-{/if}
-{if !empty($params.enabled)}
-,"enabled": {$params.enabled}
-{/if}
-{if !empty($params.domain_id)}
-,"domain_id": "{$params.domain_id}"
-{/if}
-{if !empty($params.parent_id)}
-,"parent_id": "{$params.parent_id}"
-{/if}
-{literal}}{/literal}
-{literal}}{/literal}
-</operation>
-    <rest>PATCH#keystone
+<command name="CREATE">
+    <rest>POST#keystone
 </rest>
-    <xpath>​/projects/{$params.object_id|object_id}
+    <xpath>/projects
 </xpath>
-  </command>
-  <command name="CONSTRAINT"/>
-  <command name="CREATE">
     <operation>{literal}{{/literal}
 "project": {literal}{{/literal}
 "name": "{$params.name}"
@@ -141,19 +78,77 @@
 {literal}}{/literal}
 {literal}}{/literal}
 </operation>
-    <rest>POST#keystone
-</rest>
-    <xpath>/projects
-</xpath>
   </command>
-  <command name="DELETE">
-    <operation>
+  <command name="IMPORT">
+    <operation>keystone</operation>
+    <xpath>/projects</xpath>
+    <parser>
+      <section>
+        <xpath>//root/projects/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>domain_id</xpath>
+          <regexp>@&lt;domain_id&gt;(?&lt;domain_id&gt;.*)&lt;/domain_id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>is_domain</xpath>
+          <regexp>@&lt;is_domain&gt;(?&lt;is_domain&gt;.*)&lt;/is_domain&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>parent_id</xpath>
+          <regexp>@&lt;parent_id&gt;(?&lt;parent_id&gt;.*)&lt;/parent_id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>description</xpath>
+          <regexp>@&lt;description&gt;(?&lt;description&gt;.*)&lt;/description&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>enabled</xpath>
+          <regexp>@&lt;enabled&gt;(?&lt;enabled&gt;.*)&lt;/enabled&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>name</xpath>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+  <post_template/>
+  </command>
+<command name="UPDATE">
+    <rest>PATCH#keystone
+</rest>
+    <xpath>​/projects/{$params.object_id|object_id}
+</xpath>
+    <operation>{literal}{{/literal}
+"project": {literal}{{/literal}
+"name": "{$params.name}"
+{if !empty($params.description)}
+,"description": "{$params.description}"
+{/if}
+{if !empty($params.enabled)}
+,"enabled": {$params.enabled}
+{/if}
+{if !empty($params.domain_id)}
+,"domain_id": "{$params.domain_id}"
+{/if}
+{if !empty($params.parent_id)}
+,"parent_id": "{$params.parent_id}"
+{/if}
+{literal}}{/literal}
+{literal}}{/literal}
 </operation>
+  </command>
+<command name="DELETE">
     <rest>keystone
 </rest>
     <xpath>​/projects/{$params.object_id|object_id}
 </xpath>
+    <operation>
+</operation>
   </command>
-  <command name="READ"/>
-  <command name="LIST"/>
 </ObjectDefinition>

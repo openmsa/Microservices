@@ -94,9 +94,15 @@
     <operation>{literal}{{/literal}
 "name": "{$params.object_id}",
 "status": "{$params.status}",
+<<<<<<< HEAD
 {foreach $tenant item=tenant}
 {if $tenants.object_id eq $params.tenant}
 "tenant": "{$tenant.id}",
+=======
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+"tenant": "{$tenant_object.id}",
+>>>>>>> df70dbd100d0157528cb33760a9aa591134f635b
 {/if}
 {/foreach}
 "slug": "{$params.slug}",
@@ -119,9 +125,15 @@
   <operation>{literal}{{/literal}
 "name": "{$params.object_id}"
 , "status": "{$params.status}"
+<<<<<<< HEAD
 {foreach $tenant item=tenant}
 {if $tenants.object_id eq $params.tenant}
 , "tenant": "{$tenant.id}"
+=======
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+, "tenant": "{$tenant_object.id}"
+>>>>>>> df70dbd100d0157528cb33760a9aa591134f635b
 {/if}
 {/foreach}
 {if empty($params.slug)}

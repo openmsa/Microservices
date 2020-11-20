@@ -1,87 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>1</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>BIOS|INTEL</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>BIOS attributes</name>
+    <group>BIOS|INTEL</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
-    <maxInstances>0</maxInstances>
-    <name>BIOS attributes</name>
-    <order>1</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="BIOS option" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Value" displayOrder="1" maxLength="100" name="params.value" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="BIOS option" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Value" name="params.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="BIOS option name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
-
-
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>_SYSTEM/Bios?$select=Attributes</xpath>
+    <post_template>{assign_object_variable var = &apos;name&apos; value = $params.object_id}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row/Attributes/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>*</xpath>
+          <array/>
           <regexp>@&lt;(?&lt;object_id&gt;.+?)&gt;(?&lt;value&gt;.+?)&lt;/.+@</regexp>
+          <xpath>*</xpath>
         </line>
-        
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
       </lines>
     </parser>
-    <post_template/>
+    <xpath>_SYSTEM/Bios?$select=Attributes</xpath>
   </command>
-
-<command name="UPDATE">
-    <rest>PATCH
-</rest>
-    <xpath>_SYSTEM/Bios/Settings
-</xpath>
+  <command name="UPDATE">
     <operation>{literal}{{/literal}
-"{$redfish_bios_settings.$object_id.object_id}" : {$params.value}
-{literal}}{/literal}
-</operation>
+&quot;{$redfish_bios_settings.$object_id.object_id}&quot; : {$params.value}
+{literal}}{/literal}</operation>
+    <rest>PATCH</rest>
+    <xpath>_SYSTEM/Bios/Settings</xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

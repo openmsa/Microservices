@@ -93,20 +93,20 @@
   </command>
   <command name="UPDATE">
     <operation>{literal}{{/literal}
-&quot;name&quot;: &quot;{$params.object_id}&quot;
+"name": "{$params.object_id}"
 , &quot;vid&quot;: &quot;{$params.vid}&quot;
 , &quot;status&quot;: &quot;{$params.status}&quot;
 {if !empty($params.tenant)}
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+, &quot;tenant&quot;: &quot;{$tenant_object.id}&quot;
 {/if}
 {/foreach}
 {/if}
 {if !empty($params.site)}
-{foreach $sites item=site}
-{if $site.object_id eq $params.site}
-, &quot;site&quot;: &quot;{$site.id}&quot;
+{foreach $sites item=site_object}
+{if $site_object.object_id eq $params.site}
+, "site": "{$site_object.id}"
 {/if}
 {/foreach}
 {/if}
@@ -121,16 +121,16 @@
 , &quot;vid&quot;: &quot;{$params.vid}&quot;
 , &quot;status&quot;: &quot;{$params.status}&quot;
 {if !empty($params.tenant)}
-{foreach $tenant item=tenant}
-{if $tenants.object_id eq $params.tenant}
-, &quot;tenant&quot;: &quot;{$tenant.id}&quot;
+{foreach $tenants item=tenant_object}
+{if $tenant_object.object_id eq $params.tenant}
+, &quot;tenant&quot;: &quot;{$tenant_object.id}&quot;
 {/if}
 {/foreach}
 {/if}
 {if !empty($params.site)}
-{foreach $sites item=site}
-{if $site.object_id eq $params.site}
-, &quot;site&quot;: &quot;{$site.id}&quot;
+{foreach $sites item=site_object}
+{if $site_object.object_id eq $params.site}
+, &quot;site&quot;: &quot;{$site_object.id}&quot;
 {/if}
 {/foreach}
 {/if}
