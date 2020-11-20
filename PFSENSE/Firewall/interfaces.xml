@@ -1,97 +1,79 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>true</dynamic>
-    <group>Network</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>1</maxInstances>
+    <relatedObjects/>
+    <name>Interfaces</name>
+    <group>Network</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>1</maxInstances>
-    <name>WAN Interfaces</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-    <visible>true</visible>
-  </information>  <variables frozen="0">
-    <variable displayName="Interface ID" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="IP Address" displayOrder="1" maxLength="100" name="params.ipaddr" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP Address" name="params.ipaddr" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>&lt;thirdparty&gt;
-    &lt;case&gt;
-      
-      &lt;case_enabled&gt;0&lt;/case_enabled&gt;
-      &lt;case_disable_case_early_exit&gt;0&lt;/case_disable_case_early_exit&gt;
-      &lt;case_disable_vof_early_exit&gt;0&lt;/case_disable_vof_early_exit&gt;
-      &lt;case_disable_magic_header&gt;0&lt;/case_disable_magic_header&gt;
-      &lt;case_max_vof2_message_size&gt;524288&lt;/case_max_vof2_message_size&gt;
-      &lt;case_min_suspect_threshold&gt;25&lt;/case_min_suspect_threshold&gt;
-      &lt;case_subprocess_timeout&gt;120&lt;/case_subprocess_timeout&gt;
-      &lt;case_vof_descr_lang&gt;EN&lt;/case_vof_descr_lang&gt;
-      &lt;case_timeout&gt;60&lt;/case_timeout&gt;
-      &lt;case_max_message_size&gt;5242880&lt;/case_max_message_size&gt;
-      &lt;case_advisory_scan_size&gt;524288&lt;/case_advisory_scan_size&gt;
-      &lt;case_cache_verdict_enable&gt;1&lt;/case_cache_verdict_enable&gt;
-      &lt;case_region&gt;&lt;/case_region&gt;
-      &lt;case_max_attempts&gt;10&lt;/case_max_attempts&gt;
-      &lt;case_retry_interval&gt;12&lt;/case_retry_interval&gt;
-    &lt;/case&gt;
-    
-    
-  &lt;/thirdparty&gt;
-</content>
+&lt;case&gt;
+&lt;case_enabled&gt;0&lt;/case_enabled&gt;
+&lt;case_disable_case_early_exit&gt;0&lt;/case_disable_case_early_exit&gt;
+&lt;case_disable_vof_early_exit&gt;0&lt;/case_disable_vof_early_exit&gt;
+&lt;case_disable_magic_header&gt;0&lt;/case_disable_magic_header&gt;
+&lt;case_max_vof2_message_size&gt;524288&lt;/case_max_vof2_message_size&gt;
+&lt;case_min_suspect_threshold&gt;25&lt;/case_min_suspect_threshold&gt;
+&lt;case_subprocess_timeout&gt;120&lt;/case_subprocess_timeout&gt;
+&lt;case_vof_descr_lang&gt;EN&lt;/case_vof_descr_lang&gt;
+&lt;case_timeout&gt;60&lt;/case_timeout&gt;
+&lt;case_max_message_size&gt;5242880&lt;/case_max_message_size&gt;
+&lt;case_advisory_scan_size&gt;524288&lt;/case_advisory_scan_size&gt;
+&lt;case_cache_verdict_enable&gt;1&lt;/case_cache_verdict_enable&gt;
+&lt;case_region&gt;&lt;/case_region&gt;
+&lt;case_max_attempts&gt;10&lt;/case_max_attempts&gt;
+&lt;case_retry_interval&gt;12&lt;/case_retry_interval&gt;
+&lt;/case&gt;
+&lt;/thirdparty&gt;</content>
   </example>
-  
-
   <command name="IMPORT">
     <operation>cat /cf/conf/config.xml</operation>
-    <xpath>/pfsense</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//interfaces</xpath>
       </section>
       <lines>
-        
         <line>
-          <xpath>/</xpath>
+          <array/>
           <regexp>@&lt;(?&lt;object_id&gt;\S+)&gt;@</regexp>
+          <xpath>/</xpath>
         </line>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
       </lines>
     </parser>
-  <post_template/>
+    <xpath>/pfsense</xpath>
   </command>
-
-<command name="UPDATE">
-    <rest>
-</rest>
-    <xpath>
-</xpath>
-    <operation>
-</operation>
+  <command name="UPDATE">
+    <operation></operation>
+    <rest></rest>
+    <xpath></xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
