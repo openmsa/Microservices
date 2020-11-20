@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>BGP</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>BGP Neighbors</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="address_family_row" displayOrder="0" editable="false" maxLength="100" name="params.address_family_row" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Peering IP" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Autonomous System Number" displayOrder="2" maxLength="100" name="params.asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Peer Group" displayOrder="3" maxLength="100" name="params.peer_group" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="Router ID" displayOrder="3" isUserLocked="true" maxLength="100" name="params.router_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="State" displayOrder="4" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName=" AFI" displayOrder="5" maxLength="100" name="params.address_family.0.afi" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>IPv4</value>
+        <value>VPNv4</value>
+      </values>
+      <sections>
+        <section>Address Family </section>
+      </sections>
+    </variable>
+    <variable displayName=" SAFI" displayOrder="6" maxLength="100" name="params.address_family.0.safi" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>Unicast</value>
+        <value>Multicast</value>
+      </values>
+      <sections>
+        <section>Address Family </section>
+      </sections>
+    </variable>
+    <variable default="master" displayName="VRF" displayOrder="7" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <classes>
+        <class>vrf</class>
+      </classes>
+    </variable>
+    <variable displayName="Local ASN" displayOrder="8" maxLength="100" name="params.local_asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+      <classes>
+        <class>bgp_speaker</class>
+      </classes>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>GET</operation>
+    <xpath>/rpc/get-bgp-neighbor-information</xpath>
+    <parser>
+      <section>
+        <xpath>//bgp-peer</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>//peer-fwd-rti</xpath>
+          <regexp>@&lt;peer-fwd-rti&gt;(?&lt;vrf&gt;.+?)&lt;/peer-fwd-rti&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//peer-group</xpath>
+          <regexp>@&lt;peer-group&gt;(?&lt;peer_group&gt;\S+?)&lt;/peer-group&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>//bgp-option-information/address-families</xpath>
+          <regexp>@&lt;address-families&gt;(?&lt;address_family_row&gt;.+?)&lt;/address-families&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//peer-state</xpath>
+          <regexp>@&lt;peer-state&gt;(?&lt;state&gt;Idle|Connect|Active|OpenSent|OpenConfirm|Established)&lt;/peer-state&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//peer-id</xpath>
+          <regexp>@&lt;peer-id&gt;(?&lt;router_id&gt;(\d{1,3}\.){3}\d{1,3}).*?&lt;/peer-id&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//peer-as</xpath>
+          <regexp>@&lt;peer-as&gt;(?&lt;asn&gt;\d+?)&lt;/peer-as&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>//peer-address</xpath>
+          <regexp>@&lt;peer-address&gt;(?&lt;object_id&gt;(\d{1,3}\.){3}\d{1,3}).*?&lt;/peer-address&gt;@</regexp>
+        </line>
+      </lines>
+    </parser>
+    <post_template>{assign var=modification value=$params.address_family_row}
+{assign var="address_families_list" value=' '|explode:$modification}
+{foreach from=$address_families_list key=k item=v}
+{if $v eq 'inet-unicast'}
+	{assign_object_variable var="address_family.{$k}.afi" value = "IPv4"}
+	{assign_object_variable var="address_family.{$k}.safi" value = "Unicast"}
+{/if}
+{if $v eq 'inet-vpn-unicast'}
+	{assign_object_variable var="address_family.{$k}.afi" value = "VPNv4"}
+	{assign_object_variable var="address_family.{$k}.safi" value = "Unicast"}
+{/if}
+{/foreach}</post_template>
+  </command>
+<command name="CREATE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+	&lt;load-configuration&gt;
+		&lt;configuration&gt;
+{if $params.vrf eq 'master'}
+			&lt;protocols&gt;
+				&lt;bgp&gt;
+					&lt;group&gt;
+						&lt;name&gt;{$params.peer_group}&lt;/name&gt;
+						&lt;neighbor&gt;
+							&lt;name&gt;{$params.object_id}&lt;/name&gt;
+							{if $params.asn}
+							&lt;peer-as&gt;{$params.asn}&lt;/peer-as&gt;
+							{/if}
+							&lt;family&gt;
+							{foreach $params.address_family item=family}
+							{if $family.afi eq 'IPv4'}
+								&lt;inet&gt;
+									&lt;{$family.safi|lower}&gt;
+									&lt;/{$family.safi|lower}&gt;
+								&lt;/inet&gt;
+							{/if}
+							{if $family.afi eq 'VPNv4'}
+								&lt;inet-vpn&gt;
+									&lt;{$family.safi|lower}&gt;
+									&lt;/{$family.safi|lower}&gt;
+								&lt;/inet-vpn&gt;
+							{/if}
+							{/foreach}
+							&lt;/family&gt;
+						&lt;/neighbor&gt;
+					&lt;/group&gt;
+				&lt;/bgp&gt;
+			&lt;/protocols&gt;
+{else}
+			&lt;routing-instances&gt;
+			    &lt;instance&gt;
+			        &lt;name&gt;{$params.vrf}&lt;/name&gt;
+			        	&lt;protocols&gt;
+							&lt;bgp&gt;
+								&lt;group&gt;
+									&lt;name&gt;{$params.peer_group}&lt;/name&gt;
+									&lt;neighbor&gt;
+										&lt;name&gt;{$params.object_id}&lt;/name&gt;
+										{if $params.asn}
+										&lt;peer-as&gt;{$params.asn}&lt;/peer-as&gt;
+										{/if}
+										&lt;family&gt;
+										{foreach $params.address_family item=family}
+										{if $family.afi eq 'IPv4'}
+											&lt;inet&gt;
+												&lt;{$family.safi|lower}&gt;
+												&lt;/{$family.safi|lower}&gt;
+											&lt;/inet&gt;
+										{/if}
+										{if $family.afi eq 'VPNv4'}
+											&lt;inet-vpn&gt;
+												&lt;{$family.safi|lower}&gt;
+												&lt;/{$family.safi|lower}&gt;
+											&lt;/inet-vpn&gt;
+										{/if}
+										{/foreach}
+										&lt;/family&gt;
+									&lt;/neighbor&gt;
+								&lt;/group&gt;
+							&lt;/bgp&gt;
+						&lt;/protocols&gt;
+				&lt;/instance&gt;
+			&lt;/routing-instances&gt;
+{/if}
+		&lt;/configuration&gt;
+	&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>POST
+</rest>
+    <xpath>/rpc
+</xpath>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+&lt;configuration&gt;
+{if $bgp_neighbour.$object_id.vrf eq 'master'}
+	&lt;protocols&gt;
+		&lt;bgp&gt;
+			&lt;group&gt;
+				&lt;name&gt;{$bgp_neighbour.$object_id.peer_group}&lt;/name&gt;
+				&lt;neighbor delete="delete"&gt;
+					&lt;name&gt;{$bgp_neighbour.$object_id.object_id}&lt;/name&gt;
+				&lt;/neighbor&gt;
+			&lt;/group&gt;
+		&lt;/bgp&gt;
+	&lt;/protocols&gt;
+{else}
+	&lt;routing-instances&gt;
+	    &lt;instance&gt;
+	        &lt;name&gt;{$bgp_neighbour.$object_id.vrf}&lt;/name&gt;
+			&lt;protocols&gt;
+				&lt;bgp&gt;
+					&lt;group&gt;
+						&lt;name&gt;{$bgp_neighbour.$object_id.peer_group}&lt;/name&gt;
+						&lt;neighbor delete="delete"&gt;
+							&lt;name&gt;{$bgp_neighbour.$object_id.object_id}&lt;/name&gt;
+						&lt;/neighbor&gt;
+					&lt;/group&gt;
+				&lt;/bgp&gt;
+			&lt;/protocols&gt;
+		&lt;/instance&gt;
+	&lt;/routing-instances&gt;
+{/if}
+&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;
+</operation>
+  </command>
+</ObjectDefinition>

@@ -1,0 +1,164 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>IP address</name>
+    <group>NETBOX|IPAM</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" name="params.id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Device interface" name="params.interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>interfaces</class>
+      </classes>
+    </variable>
+    <variable displayName="IP address" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="active" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="Active">active</values>
+        <values displayValue="Reserved">reserved</values>
+        <values displayValue="Deprecated">deprecated</values>
+        <values displayValue="DHCP">dhcp</values>
+      </values>
+    </variable>
+    <variable displayName="Tenant name" name="params.tenant" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>tenants</class>
+      </classes>
+    </variable>
+    <variable displayName="VRF name" name="params.vrf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>vrf</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content></content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;value&gt;(?&lt;status&gt;active|reserved|deprecated|dhcp)&lt;/value&gt;@</regexp>
+          <xpath>/row/status/value</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;tenant&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/tenant/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;vrf&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/vrf/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;address&gt;(?&lt;object_id&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})&lt;/address&gt;@</regexp>
+          <xpath>/row/address</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+          <xpath>/row/id</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/ipam/ip-addresses/</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>
+	{literal}{{/literal}
+		"address": "{$params.object_id}"
+		,"status": "{$params.status}"
+		{if !empty($params.tenant)}
+			{foreach $tenants item=tenant_object}
+				{if $tenant_object.object_id eq $params.tenant}
+					, "tenant": "{$tenant_object.id}"
+				{/if}
+			{/foreach}
+		{/if}
+		{if !empty($params.vrf)}
+			{foreach $vrf item=vrf_object}
+				{if $vrf_object.object_id eq $params.vrf}
+					, "vrf": "{$vrf_object.id}"
+				{/if}
+			{/foreach}
+		{/if}
+		{if !empty($params.interface)}
+			{foreach $interfaces item=interface_object}
+				{if $interface_object.object_id eq $params.interface}
+					, "interface": "{$interface_object.id}"
+				{/if}
+			{/foreach}
+		{/if}
+	{literal}}{/literal}
+    </operation>
+    <rest>PATCH</rest>
+    <xpath>/api/ipam/ip-addresses/{$ip_address.$object_id.id}/</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>
+        {literal}{{/literal}
+                "address": "{$params.object_id}"
+                ,"status": "{$params.status}"
+                {if !empty($params.tenant)}
+                        {foreach $tenants item=tenant_object}
+                                {if $tenant_object.object_id eq $params.tenant}
+                                        , "tenant": "{$tenant_object.id}"
+                                {/if}
+                        {/foreach}
+                {/if}
+                {if !empty($params.vrf)}
+                        {foreach $vrf item=vrf_object}
+                                {if $vrf_object.object_id eq $params.vrf}
+                                        , "vrf": "{$vrf_object.id}"
+                                {/if}
+                        {/foreach}
+                {/if}
+                {if !empty($params.interface)}
+                        {foreach $interfaces item=interface_object}
+                                {if $interface_object.object_id eq $params.interface}
+                                        , "interface": "{$interface_object.id}"
+                                {/if}
+                        {/foreach}
+                {/if}
+        {literal}}{/literal}
+    </operation>
+    <rest>POST</rest>
+    <xpath>/api/ipam/ip-addresses/</xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}{literal}}{/literal}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/ipam/ip-addresses/{$ip_address.$object_id.id}/</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

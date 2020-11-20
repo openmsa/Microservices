@@ -1,0 +1,223 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Prefix</name>
+    <group>NETBOX|IPAM</group>
+    <importonce>false</importonce>
+    <importrank>30</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" name="params.id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tags" name="params.tags.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Prefix" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="Container">container</values>
+        <values displayValue="Active">active</values>
+        <values displayValue="Reserved">reserved</values>
+        <values displayValue="Deprecated">deprecated</values>
+      </values>
+    </variable>
+    <variable displayName="VRF name" name="params.vrf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>vrf</class>
+      </classes>
+    </variable>
+    <variable displayName="Tenant name" name="params.tenant" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>tenants</class>
+      </classes>
+    </variable>
+    <variable displayName=" Name" name="params.vlan_name" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>VLAN</sections>
+      </sections>
+      <classes>
+        <class>vlan</class>
+      </classes>
+    </variable>
+    <variable displayName=" Id" name="params.vlan_id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>VLAN</sections>
+      </sections>
+    </variable>
+    <variable displayName="Site" name="params.site" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>sites</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content></content>
+  </example>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//results/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array name="tags">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;row&gt;(?&lt;tag&gt;.+?)&lt;/row&gt;@</regexp>
+                <xpath>//row</xpath>
+              </line>
+            </lines>
+            <mregexp>@^\s \s*$@</mregexp>
+            <xpath>/row/tags/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;site&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/site/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vid&gt;(?&lt;vlan_id&gt;\d{1,4})&lt;/vid&gt;@</regexp>
+          <xpath>/row/vlan/vid</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;vlan_name&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/vlan/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;tenant&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/tenant/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;vrf&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/vrf/name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;prefix&gt;(?&lt;object_id&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})&lt;/prefix&gt;@</regexp>
+          <xpath>/row/prefix</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;value&gt;(?&lt;status&gt;active|reserved|container|deprecated)&lt;/value&gt;@</regexp>
+          <xpath>/row/status/value</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+          <xpath>/row/id</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/ipam/prefixes/</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>
+	{literal}{{/literal}
+	"prefix": "{$params.object_id}"
+	, "status": "{$params.status}"
+	{if !empty($params.tenant)}
+		{foreach $tenants item=tenant_object}
+			{if $tenant_object.object_id eq $params.tenant}
+				, "tenant": "{$tenant_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.site)}
+		{foreach $sites item=site_object}
+			{if $site_object.object_id eq $params.site}
+				, "site": "{$site_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vrf)}
+		{foreach $vrf item=vrf_object}
+			{if $vrf_object.object_id eq $params.vrf}
+				, "vrf": "{$vrf_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{if !empty($params.vlan_name)}
+		{foreach $vlan item=vlan_object}
+			{if $vlan_object.object_id eq $params.vlan_name}
+				, "vlan": "{$vlan_object.id}"
+			{/if}
+		{/foreach}
+	{/if}
+	{literal}}{/literal}
+    </operation>
+    <rest>PATCH</rest>
+    <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>
+        {literal}{{/literal}
+        "prefix": "{$params.object_id}"
+        , "status": "{$params.status}"
+        {if !empty($params.tenant)}
+                {foreach $tenants item=tenant_object}
+                        {if $tenant_object.object_id eq $params.tenant}
+                                , "tenant": "{$tenant_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {if !empty($params.site)}
+                {foreach $sites item=site_object}
+                        {if $site_object.object_id eq $params.site}
+                                , "site": "{$site_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {if !empty($params.vrf)}
+                {foreach $vrf item=vrf_object}
+                        {if $vrf_object.object_id eq $params.vrf}
+                                , "vrf": "{$vrf_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {if !empty($params.vlan_name)}
+                {foreach $vlan item=vlan_object}
+                        {if $vlan_object.object_id eq $params.vlan_name}
+                                , "vlan": "{$vlan_object.id}"
+                        {/if}
+                {/foreach}
+        {/if}
+        {literal}}{/literal}
+    </operation>
+    <rest>POST</rest>
+    <xpath>/api/ipam/prefixes/</xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}
+{literal}}{/literal}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/ipam/prefixes/{$prefix.$object_id.id}/</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

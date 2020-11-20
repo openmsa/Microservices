@@ -1,86 +1,86 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]Device Status</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Device Status</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="name" displayOrder="0" isUserLocked="true" maxLength="100" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable default="start" displayName="upstate" displayOrder="0" editable="false" maxLength="100" name="params.upstate" numberOfRowMax="0" onlyDetailView="true" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="upstate" name="params.upstate" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="start" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>start</value>
-        <value>stop</value>
+        <values>start</values>
+        <values>stop</values>
       </values>
     </variable>
-    <variable displayName="org" displayOrder="1" editable="false" maxLength="100" name="params.org" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="state" displayOrder="1" isUserLocked="true" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="object_id" displayOrder="2" editable="false" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+    <variable displayName="org" name="params.org" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="state" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>/api/devices</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
         </line>
         <line>
-          <xpath>//org</xpath>
+          <array/>
           <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
+          <xpath>//org</xpath>
         </line>
-        
         <line>
-          <xpath>//deviceStatus/state</xpath>
+          <array/>
           <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+          <xpath>//deviceStatus/state</xpath>
         </line>
-        
-        
-        
         <line>
-          <xpath>_id</xpath>
+          <array/>
           <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>_id</xpath>
         </line>
-        
-        
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/api/devices</xpath>
   </command>
-
-
-<command name="UPDATE">
-    <rest>POST
-</rest>
-    <xpath>/api/devices/{$params.object_id}/apply?org={$params.org}
-</xpath>
+  <command name="UPDATE">
     <operation>{literal}{{/literal}
-"method":"{$params.upstate}"
-{literal}}{/literal}
-</operation>
+&quot;method&quot;:&quot;{$params.upstate}&quot;
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/devices/{$params.object_id}/apply?org={$params.org}</xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

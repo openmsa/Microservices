@@ -1,0 +1,122 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>BIOS attributes</name>
+    <group>BIOS|IPMI</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="BIOS attribute name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Value" name="params.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Offset" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="HEX coded value" name="params.raw_value" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content></content>
+  </example>
+  <command name="IMPORT">
+    <operation>raw 0x2e 0x52 0x0 0x0 | awk &apos;BEGIN{literal}{{/literal}RS=&quot; &quot;;{literal}}{/literal} {literal}{{/literal}printf &quot;%s   %s\n\n&quot;, NR+1, $0{literal}}{/literal}&apos;</operation>
+    <post_template>{assign var=parameters value=[&apos;3&apos;=&gt;[&apos;name&apos;=&gt;&apos;COM0 Console Redirection&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;4&apos;=&gt;[&apos;name&apos;=&gt;&apos;Above 4G Decoding&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;5&apos;=&gt;[&apos;name&apos;=&gt;&apos;Hyper-Threading&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;6&apos;=&gt;[&apos;name&apos;=&gt;&apos;Intel TXT Support&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;7&apos;=&gt;[&apos;name&apos;=&gt;&apos;VMX&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;8&apos;=&gt;[&apos;name&apos;=&gt;&apos;SMX&apos;,&apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;9&apos;=&gt;[&apos;name&apos;=&gt;&apos;EIST (P-States)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;10&apos;=&gt;[&apos;name&apos;=&gt;&apos;Turbo Mode&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;11&apos;=&gt;[&apos;name&apos;=&gt;&apos;CPU C state&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;12&apos;=&gt;[&apos;name&apos;=&gt;&apos;CPU C6 report&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],&apos;12&apos;=&gt;[&apos;name&apos;=&gt;&apos;Enhanced Halt State (C1E)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;14&apos;=&gt;[&apos;name&apos;=&gt;&apos;Enhanced Halt State (C1E)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;15&apos;=&gt;[&apos;name&apos;=&gt;&apos;Memory Rank Sparing&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;16&apos;=&gt;[&apos;name&apos;=&gt;&apos;Patrol Scrub&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;17&apos;=&gt;[&apos;name&apos;=&gt;&apos;Patrol Scrub Interval&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;18&apos;=&gt;[&apos;name&apos;=&gt;&apos;Restore AC Power Loss&apos;, &apos;00&apos;=&gt;&apos;Power On&apos;, &apos;01&apos;=&gt;&apos;Power Off&apos;, &apos;ff&apos;=&gt;&apos;Last State&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;19&apos;=&gt;[&apos;name&apos;=&gt;&apos;Intel VT for Directed I/O (VT-d)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;20&apos;=&gt;[&apos;name&apos;=&gt;&apos;NUMA&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;21&apos;=&gt;[&apos;name&apos;=&gt;&apos;Configured sSATA&apos;, &apos;00&apos;=&gt;&apos;AHCI&apos;, &apos;01&apos;=&gt;&apos;RAID&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;22&apos;=&gt;[&apos;name&apos;=&gt;&apos;Configured SATA&apos;, &apos;00&apos;=&gt;&apos;AHCI&apos;, &apos;01&apos;=&gt;&apos;RAID&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;23&apos;=&gt;[&apos;name&apos;=&gt;&apos;xHCI Hand-off&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;24&apos;=&gt;[&apos;name&apos;=&gt;&apos;Quiet Boot&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;25&apos;=&gt;[&apos;name&apos;=&gt;&apos;Boot Mode Select&apos;, &apos;00&apos;=&gt;&apos;Legacy&apos;, &apos;01&apos;=&gt;&apos;UEFI&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;]
+]
+}
+{assign var=name value=$params.object_id}
+{assign var=val value=$params.raw_value}
+{assign_object_variable var=&apos;name&apos; value=$parameters.$name.name}
+{assign_object_variable var=&apos;value&apos; value=$parameters.$name.$val}</post_template>
+    <parser>
+      <section>
+        <regexp>@^(?&lt;object_id&gt;\d+?)\s+?(?&lt;raw_value&gt;\S{2})$@</regexp>
+        <xpath/>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>{assign var=parameters value=[&apos;3&apos;=&gt;[&apos;name&apos;=&gt;&apos;COM0 Console Redirection&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;4&apos;=&gt;[&apos;name&apos;=&gt;&apos;Above 4G Decoding&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;5&apos;=&gt;[&apos;name&apos;=&gt;&apos;Hyper-Threading&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;6&apos;=&gt;[&apos;name&apos;=&gt;&apos;Intel TXT Support&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;7&apos;=&gt;[&apos;name&apos;=&gt;&apos;VMX&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;8&apos;=&gt;[&apos;name&apos;=&gt;&apos;SMX&apos;,&apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;9&apos;=&gt;[&apos;name&apos;=&gt;&apos;EIST (P-States)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;10&apos;=&gt;[&apos;name&apos;=&gt;&apos;Turbo Mode&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;11&apos;=&gt;[&apos;name&apos;=&gt;&apos;CPU C state&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;12&apos;=&gt;[&apos;name&apos;=&gt;&apos;CPU C6 report&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],&apos;12&apos;=&gt;[&apos;name&apos;=&gt;&apos;Enhanced Halt State (C1E)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;14&apos;=&gt;[&apos;name&apos;=&gt;&apos;Enhanced Halt State (C1E)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;15&apos;=&gt;[&apos;name&apos;=&gt;&apos;Memory Rank Sparing&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;16&apos;=&gt;[&apos;name&apos;=&gt;&apos;Patrol Scrub&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;17&apos;=&gt;[&apos;name&apos;=&gt;&apos;Patrol Scrub Interval&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;18&apos;=&gt;[&apos;name&apos;=&gt;&apos;Restore AC Power Loss&apos;, &apos;00&apos;=&gt;&apos;Power On&apos;, &apos;01&apos;=&gt;&apos;Power Off&apos;, &apos;ff&apos;=&gt;&apos;Last State&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;19&apos;=&gt;[&apos;name&apos;=&gt;&apos;Intel VT for Directed I/O (VT-d)&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;20&apos;=&gt;[&apos;name&apos;=&gt;&apos;NUMA&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;21&apos;=&gt;[&apos;name&apos;=&gt;&apos;Configured sSATA&apos;, &apos;00&apos;=&gt;&apos;AHCI&apos;, &apos;01&apos;=&gt;&apos;RAID&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;22&apos;=&gt;[&apos;name&apos;=&gt;&apos;Configured SATA&apos;, &apos;00&apos;=&gt;&apos;AHCI&apos;, &apos;01&apos;=&gt;&apos;RAID&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;23&apos;=&gt;[&apos;name&apos;=&gt;&apos;xHCI Hand-off&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;24&apos;=&gt;[&apos;name&apos;=&gt;&apos;Quiet Boot&apos;, &apos;00&apos;=&gt;&apos;Disable&apos;, &apos;01&apos;=&gt;&apos;Enable&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;],
+&apos;25&apos;=&gt;[&apos;name&apos;=&gt;&apos;Boot Mode Select&apos;, &apos;00&apos;=&gt;&apos;Legacy&apos;, &apos;01&apos;=&gt;&apos;UEFI&apos;, &apos;fe&apos;=&gt;&apos;Not Implemented&apos;]
+]
+}
+{assign var=raw_string value = array()}
+{for $offset=3 to 80}
+{$raw_string[$offset] = &quot;0x{$bios_parameters.$offset.raw_value}&quot;}
+{/for}
+{foreach from=$parameters item = details key = offset}
+{if $details[&apos;name&apos;] == $bios_parameters.$object_id.name}
+{foreach from=$details item = defenition key = option}
+{if $defenition == $params.value}
+{$raw_string[$bios_parameters.$object_id.object_id] = &quot;0x{$option}&quot;}
+{/if}
+{/foreach}
+{/if}
+{/foreach}
+{$raw_string = &quot; &quot;|implode:$raw_string}
+raw 0x2e 0x53 0 0 {$raw_string}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>user list</operation>
+  </command>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

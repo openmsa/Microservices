@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>820</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -28,43 +28,42 @@
     <variable displayName="VLAN ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="VLAN Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="active" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Associated ports" name="params.ports" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <classes>
-        <class>interface</class>
-      </classes>
-    </variable>
+    <variable displayName="Associated ports" name="params.ports" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>VLAN NameStatusPorts
 ---- -------------------------------- --------- -------------------------------
 1defaultactiveFa0/1, Fa0/2, Fa0/3, Fa0/4, Fa0/5, Fa0/7, Fa0/8, Fa0/9, Fa0/10, Fa0/11, Fa0/12, Fa0/13, Fa0/14, Fa0/15, Fa0/16, Fa0/17, Fa0/18, Fa0/19Fa0/20, Fa0/21, Fa0/22, Fa0/23, Fa0/24, Gi0/1, Gi0/2
 130VLAN0130activeFa0/6
-1002 fddi-defaultact/unsup1003 token-ring-defaultact/unsup1004 fddinet-defaultact/unsup1005 trnet-defaultact/unsup
-</content>
+1002 fddi-defaultact/unsup1003 token-ring-defaultact/unsup1004 fddinet-defaultact/unsup1005 trnet-defaultact/unsup</content>
   </example>
   <command name="IMPORT">
     <operation>terminal width 0 ##show vlan brief</operation>
     <parser>
-      <section name="vlan">
-        <regexp>@^(?&lt;object_id>[0-9]+)\s+(?&lt;name>\S+)\s+(?&lt;status>\S+)\s+(?&lt;ports>.*)@</regexp>
+      <section>
+        <regexp>@^(?&lt;object_id&gt;\d+)\s+(?&lt;name&gt;\S+)\s+(?&lt;status&gt;\S+)\s+(?&lt;ports&gt;.*)@</regexp>
+        <xpath/>
       </section>
       <lines/>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>vlan {$params.object_id}
+    <operation>!
+vlan {$params.object_id}
 name {$params.name}
-</operation>
+!</operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>vlan {$params.object_id}
+    <operation>!
+vlan {$params.object_id}
 name {$params.name}
-</operation>
+!</operation>
   </command>
   <command name="DELETE">
-    <operation>no vlan {$params.object_id}
-</operation>
+    <operation>!
+no vlan {$params.object_id}
+!</operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

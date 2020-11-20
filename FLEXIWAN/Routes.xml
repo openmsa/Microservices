@@ -1,95 +1,111 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]Routes</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Routes</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Device" displayOrder="0" editable="false" maxLength="100" name="params.Devices" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef" visible="false">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Device" name="params.Devices" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>Devices</class>
       </classes>
     </variable>
-    <variable displayName="status" displayOrder="1" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="destination" displayOrder="2" maxLength="100" name="params.osRoutes.0.destination" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="destination" name="params.osRoutes.0.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>osRoutes</section>
+        <sections>osRoutes</sections>
       </sections>
     </variable>
-    <variable displayName="gateway" displayOrder="3" maxLength="100" name="params.osRoutes.0.gateway" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="gateway" name="params.osRoutes.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>osRoutes</section>
+        <sections>osRoutes</sections>
       </sections>
     </variable>
-    <variable displayName="interface" displayOrder="4" maxLength="100" name="params.osRoutes.0.interface" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="interface" name="params.osRoutes.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>osRoutes</section>
+        <sections>osRoutes</sections>
       </sections>
     </variable>
-    <variable displayName="mask" displayOrder="5" maxLength="100" name="params.osRoutes.0.mask" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="mask" name="params.osRoutes.0.mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>osRoutes</section>
+        <sections>osRoutes</sections>
       </sections>
     </variable>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.
-</content>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Microservice OR a complete existant Microservice definition file.</content>
   </example>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>{foreach from=$Devices item=device}/api/devices/{$device.object_id}/routes##{/foreach}</xpath>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root</xpath>
       </section>
       <lines>
         <line>
           <array name="osRoutes">
-            <xpath>//osRoutes/row</xpath>
             <lines>
               <line>
-                <xpath>interface</xpath>
+                <array/>
                 <regexp>@&lt;interface&gt;(?&lt;interface&gt;.*)&lt;/interface&gt;@</regexp>
+                <xpath>interface</xpath>
               </line>
               <line>
-                <xpath>//destination</xpath>
+                <array/>
                 <regexp>@&lt;destination&gt;(?&lt;destination&gt;.*)&lt;/destination&gt;@</regexp>
+                <xpath>//destination</xpath>
               </line>
               <line>
-                <xpath>gateway</xpath>
+                <array/>
                 <regexp>@&lt;gateway&gt;(?&lt;gateway&gt;.*)&lt;/gateway&gt;@</regexp>
+                <xpath>gateway</xpath>
               </line>
               <line>
-                <xpath>//mask</xpath>
+                <array/>
                 <regexp>@&lt;mask&gt;(?&lt;mask&gt;.*)&lt;/mask&gt;@</regexp>
+                <xpath>//mask</xpath>
               </line>
             </lines>
+            <mregexp>@^\s \s*$@</mregexp>
+            <xpath>//osRoutes/row</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
-          <xpath>status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>{foreach from=$Devices item=device}/api/devices/{$device.object_id}/routes##{/foreach}</xpath>
   </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
