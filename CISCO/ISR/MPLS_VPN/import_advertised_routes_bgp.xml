@@ -42,28 +42,25 @@ GigabitEthernet2 is up, line protocol is up
 </content>
   </example>
   
-  
-
 <command name="IMPORT">
     <operation>show bgp ipv4 unicast neighbors 1.1.1.1 advertised-routes</operation>
     <parser>
       <section>
         <regexp>@^.+?&gt;\s+?(?&lt;object_id&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})\s+?(?&lt;next_hop&gt;(\d{1,3}\.){3}\d{1,3})\s.+?$@</regexp>
-        
-        
-        
-        
-        
-        
+        <xpath/>
       </section>
       <lines>
-        
-        
-        
+    
         
       </lines>
     </parser>
     <post_template/>
   </command>
 
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
 </ObjectDefinition>
