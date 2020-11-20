@@ -1,0 +1,67 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description>Mapping VLAN/Interface</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>840</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[dc_demo] VLAN-Interfaces</name>
+    <group>VLAN</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VLAN ID" name="params.vlan" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>vlan</class>
+      </classes>
+    </variable>
+  </variables>
+  <example>
+    <content>interface FastEthernet0/24switchportswitchport access vlan 1switchport private-vlan trunk encapsulation dot1qswitchport private-vlan trunk native vlan tagno switchport nonegotiateno switchport protectedno switchport block multicastno switchport block unicastswitchport port-security maximum 1no switchport port-securityswitchport port-security aging time 0switchport port-security violation shutdownswitchport port-security aging type absoluteswitchport port-security limit rate invalid-source-mac 10no switchport port-security mac-address stickyno switchport port-security aging staticload-interval 300mls qos cos 0snmp trap mac-notification change addedsnmp trap mac-notification change removedsnmp trap link-statuscdp tlv locationcdp tlv server-locationcdp tlv apparp arpa</content>
+  </example>
+  <command name="IMPORT">
+    <operation>show running-config all | sec interface</operation>
+    <parser>
+      <section>
+        <regexp>@interface\s+(?&lt;object_id&gt;\S+Ethernet0/[0-9]+)@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@\s+switchport\s+access\s+vlan\s+(?&lt;vlan&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@\sswitchport@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>int {$params.object_id}
+switchport mode access
+switchport access vlan {$params.vlan}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
