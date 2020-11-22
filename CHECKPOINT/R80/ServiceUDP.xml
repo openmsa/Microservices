@@ -1,0 +1,83 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>Service UDP</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Service UDP</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="UID" name="params.uid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>show-services-udp</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/objects/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;uid&gt;(?&lt;uid&gt;.*)&lt;/uid&gt;@</regexp>
+          <xpath>//uid</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
+          <xpath>//port</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>&quot;details-level&quot;:&quot;full&quot;</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;,
+&quot;port&quot;:&quot;{$params.port}&quot;
+{literal}}{/literal}</operation>
+    <rest>set-service-udp</rest>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;,
+&quot;port&quot;:&quot;{$params.port}&quot;
+{literal}}{/literal}</operation>
+    <rest>add-service-udp</rest>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;
+{literal}}{/literal}</operation>
+    <rest>delete-service-udp</rest>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
