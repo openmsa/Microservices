@@ -182,9 +182,22 @@
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
-  <command name="LIST">
-    <output>
-</output>
+ <command name="DELETE">
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+&lt;configuration&gt;
+&lt;policy-options&gt;
+&lt;route-filter-list delete=&quot;delete&quot;&gt;
+&lt;name&gt;{$prefix_filter.$object_id.object_id}&lt;/name&gt;
+&lt;/route-filter-list&gt;
+&lt;/policy-options&gt;
+&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;</operation>
+    <rest>POST</rest>
+    <xpath>/rpc</xpath>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>

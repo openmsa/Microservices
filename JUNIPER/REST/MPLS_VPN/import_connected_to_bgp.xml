@@ -79,17 +79,27 @@
 &lt;unlock-configuration/&gt;
 </operation>
   </command>
-  
-  
-  
-  
-  
 <command name="DELETE">
-    <rest>
-</rest>
-    <xpath>
-</xpath>
-    <operation>
-</operation>
+    <operation>&lt;lock-configuration/&gt;
+&lt;load-configuration&gt;
+&lt;configuration&gt;
+&lt;policy-options&gt;
+&lt;policy-statement delete=&quot;delete&quot;&gt;
+&lt;name&gt;plc-direct-to-bgp-{$params.object_id}&lt;/name&gt;
+&lt;/policy-statement&gt;
+&lt;/policy-options&gt;
+&lt;protocols&gt;
+&lt;bgp&gt;
+&lt;export delete=&quot;delete&quot;&gt;plc-direct-to-bgp-{$params.object_id}&lt;/export&gt;
+&lt;/bgp&gt;
+&lt;/protocols&gt;
+&lt;/configuration&gt;
+&lt;/load-configuration&gt;
+&lt;commit/&gt;
+&lt;unlock-configuration/&gt;</operation>
+    <rest>POST</rest>
+    <xpath>/rpc</xpath>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
