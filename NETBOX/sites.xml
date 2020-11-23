@@ -1,51 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>
   <information>
+    <icon>none</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>NETBOX|Organisation</group>
-    <icon>none</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Sites</name>
+    <group>NETBOX|Organisation</group>
     <importonce>false</importonce>
     <importrank>20</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Sites</name>
-    <order>0</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <serviceTaskType/>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
     <sortnumerical>false</sortnumerical>
     <sortvariable>param._order</sortvariable>
-    <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="asn" displayOrder="0" maxLength="100" name="params.asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="ID" displayOrder="0" maxLength="100" name="params.id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Slug" displayOrder="2" maxLength="100" name="params.slug" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="Tenant" displayOrder="3" maxLength="100" name="params.tenant" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable displayName="asn" name="params.asn" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ID" name="params.id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Slug" name="params.slug" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tenant" name="params.tenant" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-    <variable default="active" displayName="Status" displayOrder="4" maxLength="100" name="params.status" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="active" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="Active">active</value>
-        <value displayValue="Planned">planned</value>
-        <value displayValue="Retired">retired</value>
+        <values displayValue="Active">active</values>
+        <values displayValue="Planned">planned</values>
+        <values displayValue="Retired">retired</values>
       </values>
     </variable>
   </variables>
   <example>
-    <content>
-</content>
+    <content></content>
   </example>
   <command name="IMPORT">
     <operation>GET</operation>
@@ -56,100 +54,86 @@
       </section>
       <lines>
         <line>
-          <xpath>/row/status/value</xpath>
+          <array/>
           <regexp>@&lt;value&gt;(?&lt;status&gt;\S+?)&lt;/value&gt;@</regexp>
+          <xpath>/row/status/value</xpath>
         </line>
         <line>
-          <xpath>/row/asn</xpath>
+          <array/>
           <regexp>@&lt;asn&gt;(?&lt;asn&gt;\d+?)&lt;/asn&gt;@</regexp>
+          <xpath>/row/asn</xpath>
         </line>
         <line>
-          <xpath>/row/tenant/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;tenant&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/tenant/name</xpath>
         </line>
         <line>
-          <xpath>/row/slug</xpath>
+          <array/>
           <regexp>@&lt;slug&gt;(?&lt;slug&gt;.+?)&lt;/slug&gt;@</regexp>
+          <xpath>/row/slug</xpath>
         </line>
         <line>
-          <xpath>/row/id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;id&gt;\d+?)&lt;/id&gt;@</regexp>
+          <xpath>/row/id</xpath>
         </line>
         <line>
-          <xpath>/row/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.+?)&lt;/name&gt;@</regexp>
+          <xpath>/row/name</xpath>
         </line>
-        
-        
-        
-        
-        
-        
       </lines>
     </parser>
     <xpath>/api/dcim/sites/</xpath>
-  <post_template/>
   </command>
   <command name="UPDATE">
     <operation>{literal}{{/literal}
-"name": "{$params.object_id}",
-"status": "{$params.status}",
+&quot;name&quot;: &quot;{$params.object_id}&quot;,
+&quot;status&quot;: &quot;{$params.status}&quot;,
 {foreach $tenants item=tenant_object}
 {if $tenant_object.object_id eq $params.tenant}
-"tenant": "{$tenant_object.id}",
+&quot;tenant&quot;: &quot;{$tenant_object.id}&quot;,
 {/if}
 {/foreach}
-"slug": "{$params.slug}",
+&quot;slug&quot;: &quot;{$params.slug}&quot;,
 {if !empty($params.asn)}
-"asn": "{$params.asn}"
+&quot;asn&quot;: &quot;{$params.asn}&quot;
+{else}
+&quot;asn&quot;: 0
 {/if}
-{literal}}{/literal}
-</operation>
-    <rest>PATCH
-</rest>
-    <xpath>/api/dcim/sites/{$sites.$object_id.id}/
-</xpath>
+{literal}}{/literal}</operation>
+    <rest>PATCH</rest>
+    <xpath>/api/dcim/sites/{$sites.$object_id.id}/</xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <rest>POST
-</rest>
-    <xpath>/api/dcim/sites/
-</xpath>
-  <operation>{literal}{{/literal}
-"name": "{$params.object_id}"
-, "status": "{$params.status}"
+    <operation>{literal}{{/literal}
+&quot;name&quot;: &quot;{$params.object_id}&quot;
+, &quot;status&quot;: &quot;{$params.status}&quot;
 {foreach $tenants item=tenant_object}
 {if $tenant_object.object_id eq $params.tenant}
-, "tenant": "{$tenant_object.id}"
+, &quot;tenant&quot;: &quot;{$tenant_object.id}&quot;
 {/if}
 {/foreach}
 {if empty($params.slug)}
-, "slug": "{$params.object_id|replace:' ':'-'|lower}"
+, &quot;slug&quot;: &quot;{$params.object_id|replace:&apos; &apos;:&apos;-&apos;|lower}&quot;
 {else}
-, "slug": "{$params.slug}"
+, &quot;slug&quot;: &quot;{$params.slug}&quot;
 {/if}
 {if !empty($params.asn)}
-, "asn": "{$params.asn}"
+, &quot;asn&quot;: &quot;{$params.asn}&quot;
 {/if}
-{literal}}{/literal}
-</operation>
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>/api/dcim/sites/</xpath>
   </command>
   <command name="DELETE">
-    <rest>DELETE
-</rest>
-    <xpath>/api/dcim/sites/{$sites.$object_id.id}/
-</xpath>
     <operation>{literal}{{/literal}
-{literal}}{/literal}
-</operation>
+{literal}}{/literal}</operation>
+    <rest>DELETE</rest>
+    <xpath>/api/dcim/sites/{$sites.$object_id.id}/</xpath>
   </command>
-  <command name="READ">
-    <output>
-</output>
-  </command>
-  <command name="LIST">
-    <output>
-</output>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
