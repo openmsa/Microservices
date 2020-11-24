@@ -1,0 +1,97 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Ethernet port VLAN configuration</name>
+    <group>NEC|iPASOLINK</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="Access">access</values>
+        <values displayValue="Trunk">trunk</values>
+      </values>
+    </variable>
+    <variable displayName="VLAN ID List" name="params.vlan_list.0.id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>vlan</class>
+      </classes>
+    </variable>
+    <variable displayName="Raw vlan list" name="params.raw_vlan_list" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>show vlan config port</operation>
+    <post_template>{assign var=&quot;_vlan_list&quot; value=&quot;,&quot;|explode:$params.raw_vlan_list}
+{assign var=offset value = 0}
+{assign var=position value = 0}
+{foreach from=$_vlan_list item=id key=number}
+{assign var=position value = $number+$offset}
+{if $id|strstr:&quot;-&quot;}
+{assign var=temp value=&quot;-&quot;|explode:$id}
+{for $i=$temp.0 to $temp.1}
+{$offset = $offset + 1}
+{$position = $number+$offset}
+{assign_object_variable var=&quot;vlan_list.$position.id&quot; value=$i}
+{/for}
+{else}
+{$position = $number+$offset}
+{assign_object_variable var=&quot;vlan_list.$position.id&quot; value=$id}
+{/if}
+{/foreach}</post_template>
+    <parser>
+      <section>
+        <regexp>@^eth\s+?(?&lt;object_id&gt;\d/\d)\s+?(?&lt;type&gt;trunk|access)\s+?(?&lt;raw_vlan_list&gt;\S+?)\s*?$@</regexp>
+        <xpath/>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>interface eth {$ethernet_port_vlan.$object_id.object_id}
+{if $params.type == &apos;access&apos;}
+{foreach from=$ethernet_port_vlan.$object_id.vlan_list key=number item=ids}
+no vlan {$ids.id}
+{/foreach}
+vlan access {$params.vlan_list.0.id}
+{/if}
+{if $params.type == &apos;trunk&apos;}
+{foreach from=$ethernet_port_vlan.$object_id.vlan_list key=number item=ids}
+no vlan {$ids.id}
+{/foreach}
+{foreach from=$params.vlan_list key=number item=ids}
+vlan trunk {$ids.id}
+{/foreach}
+{/if}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE">
+    <operation>interface eth {$ethernet_port_vlan.$object_id.object_id}
+{foreach from=$ethernet_port_vlan.$object_id.vlan_list key=number item=ids}
+no vlan {$ids.id}
+{/foreach}</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

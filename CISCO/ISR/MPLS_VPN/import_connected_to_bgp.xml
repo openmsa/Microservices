@@ -53,10 +53,14 @@ router bgp {$params.local_asn}
  exit-address-family
 </operation>
   </command>
-  
-  
-  
-  
-  
-<command name="DELETE"/>
+ <command name="DELETE">
+    <operation>router bgp {$import_connected_to_bgp.$object_id.local_asn}
+address-family ipv4
+no redistribute connected route-map rm-connected-to-bgp-{$import_connected_to_bgp.$object_id.object_id}
+exit-address-family
+!
+no route-map rm-connected-to-bgp-{$import_connected_to_bgp.$object_id.object_id}</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
