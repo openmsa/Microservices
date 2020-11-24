@@ -1,103 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>Default</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Network</name>
+    <group>Default</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>CP Network</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="broadcast" displayOrder="0" maxLength="100" name="params.broadcast" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="Name" displayOrder="1" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Subnet" displayOrder="2" isMandatory="true" maxLength="100" name="params.subnet4" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
-    <variable displayName="Subnet Mask" displayOrder="2" isMandatory="true" maxLength="100" name="params.subnet_mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable displayName="object_display_var" displayOrder="3" keepOnImport="true" maxLength="100" name="params.object_display_var" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-    <variable displayName="UID" displayOrder="3" isUserLocked="true" maxLength="100" name="params.uuid" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-  </variables>  <example>
-    <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.
-</content>
+  </information>
+  <variables frozen="0">
+    <variable displayName="broadcast" name="params.broadcast" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Subnet" name="params.subnet4" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Subnet Mask" name="params.subnet_mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_display_var" name="params.object_display_var" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="UID" name="params.uuid" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>Click here and paste your configuration example that represent the Micro Service OR a complete existant Micro Service definition file.</content>
   </example>
-  <command name="CREATE">
-    <rest>add-network
-</rest>
-    <xpath>
-</xpath>
-    <operation>{literal}{{/literal}
-"name":"{$params.object_id}",
-"subnet4":"{$params.subnet4}",
-"subnet-mask":"{$params.subnet_mask}"
-{literal}}{/literal}
-</operation>
-  </command>
-  <command name="DELETE">
-    <rest>delete-network
-</rest>
-    <xpath>
-</xpath>
-    <operation>{literal}{{/literal}
-"name":"{$params.object_id}"
-{literal}}{/literal}
-</operation>
-  </command>
-<command name="IMPORT">
+  <command name="IMPORT">
     <operation>show-networks</operation>
-    <xpath/>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/objects/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>broadcast</xpath>
+          <array/>
           <regexp>@&lt;broadcast&gt;(?&lt;broadcast&gt;.*)&lt;/broadcast&gt;@</regexp>
+          <xpath>broadcast</xpath>
         </line>
         <line>
-          <xpath>subnet-mask</xpath>
+          <array/>
           <regexp>@&lt;subnet-mask&gt;(?&lt;subnet_mask&gt;.*)&lt;/subnet-mask&gt;@</regexp>
+          <xpath>subnet-mask</xpath>
         </line>
         <line>
-          <xpath>subnet4</xpath>
+          <array/>
           <regexp>@&lt;subnet4&gt;(?&lt;subnet4&gt;.*)&lt;/subnet4&gt;@</regexp>
+          <xpath>subnet4</xpath>
         </line>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
         <line>
-          <xpath>uid</xpath>
+          <array/>
           <regexp>@&lt;uid&gt;(?&lt;uuid&gt;.*)&lt;/uid&gt;@</regexp>
+          <xpath>uid</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
-<command name="UPDATE">
-    <rest>set-network
-</rest>
-    <xpath>
-</xpath>
+  <command name="UPDATE">
     <operation>{literal}{{/literal}
-"new-name":"{$params.object_id}",
-"uid":"{$params.uuid}",
-"subnet4":"{$params.subnet4}",
-"subnet-mask":"{$params.subnet_mask}"
-{literal}}{/literal}
-</operation>
+&quot;new-name&quot;:&quot;{$params.object_id}&quot;,
+&quot;uid&quot;:&quot;{$params.uuid}&quot;,
+&quot;subnet4&quot;:&quot;{$params.subnet4}&quot;,
+&quot;subnet-mask&quot;:&quot;{$params.subnet_mask}&quot;
+{literal}}{/literal}</operation>
+    <rest>set-network</rest>
+    <xpath></xpath>
   </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;,
+&quot;subnet4&quot;:&quot;{$params.subnet4}&quot;,
+&quot;subnet-mask&quot;:&quot;{$params.subnet_mask}&quot;
+{literal}}{/literal}</operation>
+    <rest>add-network</rest>
+    <xpath></xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;
+{literal}}{/literal}</operation>
+    <rest>delete-network</rest>
+    <xpath></xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
