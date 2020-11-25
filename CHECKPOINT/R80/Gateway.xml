@@ -1,0 +1,224 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>Simple Gateway</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Gateway</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4@" name="params.ip_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Version" name="params.version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Firewall" name="params.firewall" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="true">true</values>
+        <values displayValue="false">false</values>
+      </values>
+    </variable>
+    <variable displayName="VPN" name="params.vpn" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="true">true</values>
+        <values displayValue="false">false</values>
+      </values>
+    </variable>
+    <variable displayName="App Control" name="params.application_control" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="true">true</values>
+        <values displayValue="false">false</values>
+      </values>
+    </variable>
+    <variable displayName="IPS" name="params.ips" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="Content Awareness" name="params.content_awareness" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="URLF" name="params.url_filtering" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="Anti Virus" name="params.anti_virus" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="Anti Bot" name="params.anti_bot" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="Threat Emulation" name="params.threat_emulation" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="Threat Extraction" name="params.threat_extraction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>true</values>
+        <values>false</values>
+      </values>
+    </variable>
+    <variable displayName="OTP" name="params.one_time_password" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="UID" name="params.uid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>show-simple-gateways</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/objects/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;uid&gt;(?&lt;uid&gt;.*)&lt;/uid&gt;@</regexp>
+          <xpath>//uid</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;ipv4-address&gt;(?&lt;ip_address&gt;.*)&lt;/ipv4-address&gt;@</regexp>
+          <xpath>//ipv4-address</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;version&gt;(?&lt;version&gt;.*)&lt;/version&gt;@</regexp>
+          <xpath>//version</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;firewall&gt;(?&lt;firewall&gt;.*)&lt;/firewall&gt;@</regexp>
+          <xpath>//firewall</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vpn&gt;(?&lt;vpn&gt;.*)&lt;/vpn&gt;@</regexp>
+          <xpath>//vpn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;application-control&gt;(?&lt;application_control&gt;.*)&lt;/application-control&gt;@</regexp>
+          <xpath>//application-control</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;ips&gt;(?&lt;ips&gt;.*)&lt;/ips&gt;@</regexp>
+          <xpath>//ips</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;content-awareness&gt;(?&lt;content_awareness&gt;.*)&lt;/content-awareness&gt;@</regexp>
+          <xpath>//content-awareness</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;url-filtering&gt;(?&lt;url_filtering&gt;.*)&lt;/url-filtering&gt;@</regexp>
+          <xpath>//url-filtering</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;anti-virus&gt;(?&lt;anti_virus&gt;.*)&lt;/anti-virus&gt;@</regexp>
+          <xpath>//anti-virus</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;anti-bot&gt;(?&lt;anti_bot&gt;.*)&lt;/anti-bot&gt;@</regexp>
+          <xpath>//anti-bot</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;threat-emulation&gt;(?&lt;threat_emulation&gt;.*)&lt;/threat-emulation&gt;@</regexp>
+          <xpath>//threat-emulation</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;threat-extraction&gt;(?&lt;threat_extraction&gt;.*)&lt;/threat-extraction&gt;@</regexp>
+          <xpath>//threat-extraction</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>&quot;details-level&quot;:&quot;full&quot;</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;,
+&quot;ip-address&quot;:&quot;{$params.ip_address}&quot;,
+&quot;version&quot;:&quot;{$params.version}&quot;,
+&quot;one-time-password&quot;:&quot;{$params.one_time_password}&quot;,
+&quot;firewall&quot;:&quot;{$params.firewall}&quot;,
+&quot;vpn&quot;:&quot;{$params.vpn}&quot;,
+&quot;application-control&quot;:&quot;{$params.application_control}&quot;,
+&quot;ips&quot;:&quot;{$params.ips}&quot;,
+&quot;content-awareness&quot;:&quot;{$params.content_awareness}&quot;,
+&quot;url-filtering&quot;:&quot;{$params.url_filtering}&quot;,
+&quot;anti-virus&quot;:&quot;{$params.anti_virus}&quot;,
+&quot;anti-bot&quot;:&quot;{$params.anti_bot}&quot;,
+&quot;threat-emulation&quot;:&quot;{$params.threat_emulation}&quot;,
+&quot;threat-extraction&quot;:&quot;{$params.threat_extraction}&quot;
+{literal}}{/literal}</operation>
+    <rest>set-simple-gateway</rest>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;,
+&quot;ip-address&quot;:&quot;{$params.ip_address}&quot;,
+&quot;version&quot;:&quot;{$params.version}&quot;,
+&quot;one-time-password&quot;:&quot;{$params.one_time_password}&quot;,
+&quot;firewall&quot;:&quot;{$params.firewall}&quot;,
+&quot;vpn&quot;:&quot;{$params.vpn}&quot;,
+&quot;application-control&quot;:&quot;{$params.application_control}&quot;,
+&quot;ips&quot;:&quot;{$params.ips}&quot;,
+&quot;content-awareness&quot;:&quot;{$params.content_awareness}&quot;,
+&quot;url-filtering&quot;:&quot;{$params.url_filtering}&quot;,
+&quot;anti-virus&quot;:&quot;{$params.anti_virus}&quot;,
+&quot;anti-bot&quot;:&quot;{$params.anti_bot}&quot;,
+&quot;threat-emulation&quot;:&quot;{$params.threat_emulation}&quot;,
+&quot;threat-extraction&quot;:&quot;{$params.threat_extraction}&quot;
+{literal}}{/literal}</operation>
+    <rest>add-simple-gateway</rest>
+  </command>
+  <command name="DELETE">
+    <operation>{literal}{{/literal}
+&quot;name&quot;:&quot;{$params.object_id}&quot;
+{literal}}{/literal}</operation>
+    <rest>delete-simple-gateway</rest>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

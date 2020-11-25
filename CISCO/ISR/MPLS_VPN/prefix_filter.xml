@@ -100,9 +100,9 @@
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
-  <command name="LIST">
-    <output>
-</output>
+ <command name="DELETE">
+    <operation>no ip prefix-list {$prefix_filter.$object_id.object_id}</operation>
   </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
