@@ -5,7 +5,7 @@
     <displayField>name</displayField>
     <serviceTaskType/>
     <order>10000</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>Network</name>
+    <name>Networks</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
@@ -79,7 +79,6 @@
 &quot;subnet-mask&quot;:&quot;{$params.subnet_mask}&quot;
 {literal}}{/literal}</operation>
     <rest>set-network</rest>
-    <xpath></xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
@@ -89,14 +88,12 @@
 &quot;subnet-mask&quot;:&quot;{$params.subnet_mask}&quot;
 {literal}}{/literal}</operation>
     <rest>add-network</rest>
-    <xpath></xpath>
   </command>
   <command name="DELETE">
     <operation>{literal}{{/literal}
 &quot;name&quot;:&quot;{$params.object_id}&quot;
 {literal}}{/literal}</operation>
     <rest>delete-network</rest>
-    <xpath></xpath>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
