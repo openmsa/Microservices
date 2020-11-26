@@ -70,7 +70,6 @@
 &quot;shared&quot;:&quot;{$params.shared}&quot;
 {literal}}{/literal}</operation>
     <rest>set-access-layer</rest>
-    <xpath></xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
@@ -82,14 +81,12 @@
 &quot;shared&quot;:&quot;{$params.shared}&quot;
 {literal}}{/literal}</operation>
     <rest>add-access-layer</rest>
-    <xpath></xpath>
   </command>
   <command name="DELETE">
     <operation>{literal}{{/literal}
 &quot;uid&quot;:&quot;{$params.object_id}&quot;
 {literal}}{/literal}</operation>
     <rest>delete-access-layer</rest>
-    <xpath></xpath>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

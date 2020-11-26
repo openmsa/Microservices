@@ -47,12 +47,12 @@
         <section>Address Family </section>
       </sections>
     </variable>
-    <variable default="master" displayName="VRF" displayOrder="7" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable default="master" displayName="VRF" displayOrder="7" maxLength="100" name="params.vrf" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
         <class>vrf</class>
       </classes>
     </variable>
-    <variable displayName="Local ASN" displayOrder="8" maxLength="100" name="params.local_asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="OBMFRef">
+    <variable displayName="Local ASN" displayOrder="8" maxLength="100" name="params.local_asn" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
       <classes>
         <class>bgp_speaker</class>
       </classes>
