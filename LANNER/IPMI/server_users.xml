@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -52,18 +52,14 @@
   </command>
   <command name="UPDATE">
     <operation>user set name {$params.object_id} {$params.name}
-user set password {$params.object_id}
-{$params.password}
-{$params.password}
+user set password {$params.object_id} {$params.password}
 user priv {$params.object_id} {$params.role_id}
 user enable {$params.object_id}</operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>user set name {$params.object_id} {$params.name}
-user set password {$params.object_id}
-{$params.password}
-{$params.password}
+user set password {$params.object_id} {$params.password}
 user priv {$params.object_id} {$params.role_id}
 user enable {$params.object_id}</operation>
   </command>
