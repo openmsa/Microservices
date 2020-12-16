@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>object_id</displayField>
+    <dynamic>false</dynamic>
+    <group>v9|Orchestration|Policies</group>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <maxInstances>0</maxInstances>
+    <name>simple_firewall</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" maxLength="50" name="params.object_id" startIncrement="0" type="String"/>
+    <variable displayName="IP" displayOrder="1" maxLength="100" name="params.src_ip" startIncrement="0" type="String">
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable default="255.255.255.255" displayName="Mask" displayOrder="3" maxLength="100" name="params.src_mask" startIncrement="0" type="String">
+      <values>
+        <value>255.255.255.0</value>
+        <value>255.255.255.254</value>
+        <value>255.255.255.255</value>
+      </values>
+      <sections>
+        <section>Source</section>
+      </sections>
+    </variable>
+    <variable displayName="IP" displayOrder="4" maxLength="100" name="params.dst_ip" startIncrement="0" type="String">
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable default="255.255.255.255" displayName="Mask" displayOrder="5" maxLength="100" name="params.dst_mask" startIncrement="0" type="String">
+      <values>
+        <value>255.255.255.0</value>
+        <value>255.255.255.254</value>
+        <value>255.255.255.255</value>
+      </values>
+      <sections>
+        <section>Destination</section>
+      </sections>
+    </variable>
+    <variable displayName="service" displayOrder="6" maxLength="100" name="params.service" startIncrement="0" type="String"/>
+    <variable default="deny" displayName="Action" displayOrder="7" maxLength="100" name="params.action" startIncrement="0" type="String">
+      <values>
+        <value>allow</value>
+        <value>deny</value>
+      </values>
+    </variable>
+  </variables>  <example>
+    <content>
+</content>
+  </example>
+  <command name="CREATE">
+    <rest>type=config&amp;action=set
+</rest>
+    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
+</xpath>
+    <operation>&lt;from&gt;
+&lt;member&gt;external&lt;/member&gt;
+&lt;/from&gt;
+&lt;to&gt;
+&lt;member&gt;internal&lt;/member&gt;
+&lt;/to&gt;
+&lt;source&gt;
+&lt;member&gt;{$params.src_ip}/{get_mask_len mask=$params.src_mask}&lt;/member&gt;
+&lt;/source&gt;
+&lt;destination&gt;
+&lt;member&gt;{$params.dst_ip}/{get_mask_len mask=$params.dst_mask}&lt;/member&gt;
+&lt;/destination&gt;
+&lt;source-user&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/source-user&gt;
+&lt;category&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/category&gt;
+&lt;application&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/application&gt;
+&lt;service&gt;
+&lt;member&gt;{$params.service}&lt;/member&gt;
+&lt;/service&gt;
+&lt;hip-profiles&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/hip-profiles&gt;
+&lt;action&gt;{$params.action|default:'deny'}&lt;/action&gt;
+</operation>
+  </command>
+<command name="DELETE">
+    <rest>type=config&amp;action=delete
+</rest>
+    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
+</xpath>
+    <operation>
+</operation>
+  </command>
+<command name="CONSTRAINT">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
+  </command>
+<command name="UPDATE">
+    <rest>
+</rest>
+    <xpath>
+</xpath>
+    <operation>
+</operation>
+  </command>
+</ObjectDefinition>
