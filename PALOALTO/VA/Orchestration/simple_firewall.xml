@@ -1,75 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Orchestration|Policies</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>simple_firewall</name>
+    <group>Orchestration|Policies</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>simple_firewall</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" maxLength="50" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="IP" displayOrder="1" maxLength="100" name="params.src_ip" startIncrement="0" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Source IP" name="params.src_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Source</section>
+        <sections>Source</sections>
       </sections>
     </variable>
-    <variable default="255.255.255.255" displayName="Mask" displayOrder="3" maxLength="100" name="params.src_mask" startIncrement="0" type="String">
+    <variable displayName="Source Mask" name="params.src_mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="255.255.255.255" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Source</sections>
+      </sections>
       <values>
-        <value>255.255.255.0</value>
-        <value>255.255.255.254</value>
-        <value>255.255.255.255</value>
-      </values>
-      <sections>
-        <section>Source</section>
-      </sections>
-    </variable>
-    <variable displayName="IP" displayOrder="4" maxLength="100" name="params.dst_ip" startIncrement="0" type="String">
-      <sections>
-        <section>Destination</section>
-      </sections>
-    </variable>
-    <variable default="255.255.255.255" displayName="Mask" displayOrder="5" maxLength="100" name="params.dst_mask" startIncrement="0" type="String">
-      <values>
-        <value>255.255.255.0</value>
-        <value>255.255.255.254</value>
-        <value>255.255.255.255</value>
-      </values>
-      <sections>
-        <section>Destination</section>
-      </sections>
-    </variable>
-    <variable displayName="service" displayOrder="6" maxLength="100" name="params.service" startIncrement="0" type="String"/>
-    <variable default="deny" displayName="Action" displayOrder="7" maxLength="100" name="params.action" startIncrement="0" type="String">
-      <values>
-        <value>allow</value>
-        <value>deny</value>
+        <values>255.255.255.0</values>
+        <values>255.255.255.254</values>
+        <values>255.255.255.255</values>
       </values>
     </variable>
-  </variables>  <example>
-    <content>
-</content>
+    <variable displayName="Destination IP" name="params.dst_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Destination</sections>
+      </sections>
+    </variable>
+    <variable displayName="Destination Mask" name="params.dst_mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="255.255.255.255" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Destination</sections>
+      </sections>
+      <values>
+        <values>255.255.255.0</values>
+        <values>255.255.255.254</values>
+        <values>255.255.255.255</values>
+      </values>
+    </variable>
+    <variable displayName="Service" name="params.service" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="deny" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>allow</values>
+        <values>deny</values>
+      </values>
+    </variable>
+  </variables>
+  <example>
+    <content></content>
   </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath/>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation></operation>
+    <rest></rest>
+    <xpath></xpath>
+  </command>
+  <command name="CONSTRAINT">
+    <operation></operation>
+  </command>
   <command name="CREATE">
-    <rest>type=config&amp;action=set
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
-</xpath>
     <operation>&lt;from&gt;
 &lt;member&gt;external&lt;/member&gt;
 &lt;/from&gt;
@@ -97,31 +112,15 @@
 &lt;hip-profiles&gt;
 &lt;member&gt;any&lt;/member&gt;
 &lt;/hip-profiles&gt;
-&lt;action&gt;{$params.action|default:'deny'}&lt;/action&gt;
-</operation>
+&lt;action&gt;{$params.action|default:&apos;deny&apos;}&lt;/action&gt;</operation>
+    <rest>type=config&amp;action=set</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
   </command>
-<command name="DELETE">
-    <rest>type=config&amp;action=delete
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
-</xpath>
-    <operation>
-</operation>
+  <command name="DELETE">
+    <operation></operation>
+    <rest>type=config&amp;action=delete</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
   </command>
-<command name="CONSTRAINT">
-    <rest>
-</rest>
-    <xpath>
-</xpath>
-    <operation>
-</operation>
-  </command>
-<command name="UPDATE">
-    <rest>
-</rest>
-    <xpath>
-</xpath>
-    <operation>
-</operation>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
