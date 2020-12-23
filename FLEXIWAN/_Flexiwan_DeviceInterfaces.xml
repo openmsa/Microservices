@@ -1,0 +1,115 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[Flexiwan]DeviceInterfaces</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface ID" name="params.interfaces.0.id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface Name" name="params.interfaces.0.interface_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface Status" name="params.interfaces.0.isAssigned" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4" name="params.interfaces.0.IPv4" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="MAC" name="params.interfaces.0.mac" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="org" name="params.org" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;_id&gt;(?&lt;object_id&gt;.*)&lt;/_id&gt;@</regexp>
+          <xpath>_id</xpath>
+        </line>
+        <line>
+          <array name="interfaces">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;_id&gt;(?&lt;id&gt;.*)&lt;/_id&gt;@</regexp>
+                <xpath>//_id</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;name&gt;(?&lt;interface_name&gt;.*)&lt;/name&gt;@</regexp>
+                <xpath>//name</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;isAssigned&gt;(?&lt;isAssigned&gt;.*)&lt;/isAssigned&gt;@</regexp>
+                <xpath>//isAssigned</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;IPv4&gt;(?&lt;IPv4&gt;.*)&lt;/IPv4&gt;@</regexp>
+                <xpath>//IPv4</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;MAC&gt;(?&lt;mac&gt;.*)&lt;/MAC&gt;@</regexp>
+                <xpath>//MAC</xpath>
+              </line>
+            </lines>
+            <mregexp>@^\s \s*$@</mregexp>
+            <xpath>//interfaces/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
+          <xpath>//org</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/devices</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>{assign var=&apos;ints&apos; value=$_Flexiwan_DeviceInterfaces.$object_id.interfaces }
+{assign var=&apos;i&apos; value=0}
+{ldelim}&quot;name&quot;:&quot;SDWANVNF&quot;,&quot;description&quot;:&quot;&quot;,&quot;isApproved&quot;:true,&quot;interfaces&quot;:[
+{foreach $ints as $int}
+{if $i == &apos;0&apos;}
+{ldelim}&quot;IPv6&quot;:&quot;fe80::5054:ff:fe3f:b41e&quot;,&quot;PublicIP&quot;:&quot;89.101.112.38&quot;,&quot;PublicPort&quot;:&quot;&quot;,&quot;NatType&quot;:&quot;&quot;,&quot;useStun&quot;:true,&quot;gateway&quot;:&quot;192.168.0.10&quot;,&quot;metric&quot;:&quot;0&quot;,&quot;dhcp&quot;:&quot;no&quot;,&quot;IPv4&quot;:&quot;{$int.IPv4}&quot;,&quot;type&quot;:&quot;WAN&quot;,&quot;MAC&quot;:&quot;{$int.mac}&quot;,&quot;routing&quot;:&quot;NONE&quot;,&quot;IPv6Mask&quot;:&quot;64&quot;,&quot;isAssigned&quot;:true,&quot;driver&quot;:&quot;virtio-pci&quot;,&quot;IPv4Mask&quot;:&quot;24&quot;,&quot;name&quot;:&quot;ens2&quot;,&quot;pciaddr&quot;:&quot;0000:00:02.00&quot;,&quot;_id&quot;:&quot;{$int.id}&quot;,&quot;pathlabels&quot;:[]{rdelim},
+{else}
+{ldelim}&quot;IPv6&quot;:&quot;fe80::5054:ff:fedb:f379&quot;,&quot;PublicIP&quot;:&quot;&quot;,&quot;PublicPort&quot;:&quot;&quot;,&quot;NatType&quot;:&quot;&quot;,&quot;useStun&quot;:true,&quot;gateway&quot;:&quot;&quot;,&quot;metric&quot;:&quot;&quot;,&quot;dhcp&quot;:&quot;no&quot;,&quot;IPv4&quot;:&quot;192.168.1.1&quot;,&quot;type&quot;:&quot;LAN&quot;,&quot;MAC&quot;:&quot;{$int.mac}&quot;,&quot;routing&quot;:&quot;OSPF&quot;,&quot;IPv6Mask&quot;:&quot;64&quot;,&quot;isAssigned&quot;:true,&quot;driver&quot;:&quot;virtio-pci&quot;,&quot;IPv4Mask&quot;:&quot;24&quot;,&quot;name&quot;:&quot;ens3&quot;,&quot;pciaddr&quot;:&quot;0000:00:03.00&quot;,&quot;_id&quot;:&quot;{$int.id}&quot;,&quot;pathlabels&quot;:[]{rdelim}
+{/if}
+{assign var=&apos;i&apos; value=$i+1}
+{/foreach}
+],&quot;staticroutes&quot;:[],&quot;dhcp&quot;:[]{rdelim}</operation>
+    <rest>PUT</rest>
+    <xpath>/api/devices/{$params.object_id}?org={$_Flexiwan_DeviceInterfaces.$object_id.org}</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE"/>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
