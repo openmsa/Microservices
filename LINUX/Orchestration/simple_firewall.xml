@@ -1,69 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?><ObjectDefinition>
+<ObjectDefinition>
   <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description>IP/port based access filtering with iptables</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>true</defaultDisplay>
-    <description>IP/port based access filtering with iptables</description>
-    <displayField>object_id</displayField>
     <dynamic>true</dynamic>
-    <group>Orchestration|Policies</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Simple Firewall</name>
+    <group>Orchestration|Policies</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Simple Firewall</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <serviceTaskType/>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" isMandatory="true" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="AutoIncrement"/>
-    <variable displayName="Source IP" displayOrder="1" maxLength="100" name="params.src_ip" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Source IP" name="params.src_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="" displayOrder="1588682479796" maxLength="0" name="" numberOfRowMax="0" selectorValue="" startIncrement="0" type="String"/>
+        <behaviour displayName="" displayOrder="1588682479796" maxLength="0" name="" selectorValue="" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-    <variable displayName="Destination Port" displayOrder="2" maxLength="100" name="params.dst_port" numberOfRowMax="0" startIncrement="0" type="Integer"/>
+    <variable displayName="Destination Port" name="params.dst_port" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
-    <content>1    DROP       tcp  --  3.4.5.6              0.0.0.0/0           tcp dpt:90 </content>
+    <content>1    DROP       tcp  --  3.4.5.6              0.0.0.0/0           tcp dpt:90</content>
   </example>
   <command name="IMPORT">
     <operation>sudo iptables --line-numbers -L INPUT -n | grep -v Chain | grep -v num</operation>
     <parser>
       <section>
         <regexp>@(?&lt;object_id&gt;\d+)\s+DROP\s+tcp\s+--\s+(?&lt;src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})[^:]+:(?&lt;dst_port&gt;\d+)@</regexp>
+        <xpath/>
       </section>
       <lines/>
     </parser>
-  <post_template/>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
     <operation>sudo iptables -A INPUT -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP
-sudo iptables -A FORWARD -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP
-</operation>
+sudo iptables -A FORWARD -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP</operation>
   </command>
   <command name="DELETE">
     <operation>sudo iptables -D INPUT -p tcp --dport {$simple_firewall.$object_id.dst_port} -s {$simple_firewall.$object_id.src_ip} -j DROP
-sudo iptables -D FORWARD -p tcp --dport {$simple_firewall.$object_id.dst_port} -s {$simple_firewall.$object_id.src_ip} -j DROP
-</operation>
+sudo iptables -D FORWARD -p tcp --dport {$simple_firewall.$object_id.dst_port} -s {$simple_firewall.$object_id.src_ip} -j DROP</operation>
   </command>
-  <command name="READ">
-    <output>
-</output>
-  </command>
-  <command name="LIST">
-    <output>
-</output>
-  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
 </ObjectDefinition>
