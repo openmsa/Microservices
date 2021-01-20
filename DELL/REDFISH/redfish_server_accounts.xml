@@ -37,7 +37,7 @@
 
 <command name="IMPORT">
     <operation>GET</operation>
-    <xpath>{foreach from=$redfish_server_account_links item=user_link}{$user_link.object_id}##{/foreach}</xpath>
+    <xpath>{foreach from=$redfish_server_account_links item=user_link}{$user_link.object_id}#UBIQUBE_MSA_DELIMITER##UBIQUBE_MSA_DELIMITER#{/foreach}</xpath>
     <parser>
       <section>
         <xpath>//root</xpath>
