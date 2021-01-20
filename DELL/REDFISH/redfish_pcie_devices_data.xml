@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -17,7 +17,7 @@
     <name>PCIe Devices data</name>
     <group>Default</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>20</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -75,7 +75,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach from=$redfish_pcie_devices_links item=device_link}{$device_link.object_id}##{/foreach}</xpath>
+    <xpath>{foreach from=$redfish_pcie_devices_links item=device_link}{$device_link.object_id}#UBIQUBE_MSA_DELIMITER#{/foreach}</xpath>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>

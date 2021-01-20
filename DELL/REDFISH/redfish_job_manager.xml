@@ -60,7 +60,7 @@
       </lines>
     </parser>
   <operation>GET</operation>
-    <xpath>{foreach from=$service_redfish_job_manager item=job_link}{$job_link.object_id}##{/foreach}</xpath>
+    <xpath>{foreach from=$service_redfish_job_manager item=job_link}{$job_link.object_id}#UBIQUBE_MSA_DELIMITER##UBIQUBE_MSA_DELIMITER#{/foreach}</xpath>
     <post_template/>
   </command>
   <command name="CREATE">

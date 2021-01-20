@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>PCIe Devices Links</name>
+    <name>Virtual Media Links</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
@@ -33,17 +33,17 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//PCIeDevices/row</xpath>
+        <xpath>//root/Members/row</xpath>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@&lt;ATodataDOTid&gt;(?&lt;object_id&gt;.+?)&lt;/ATodataDOTid&gt;@</regexp>
-          <xpath>//row</xpath>
+          <xpath>//ATodataDOTid</xpath>
         </line>
       </lines>
     </parser>
-    <xpath>_CHASSIS</xpath>
+    <xpath>_MANAGER/VirtualMedia</xpath>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
