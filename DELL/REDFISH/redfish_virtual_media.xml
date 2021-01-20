@@ -1,0 +1,82 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Virtual Media</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>20</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Image Name" name="params.image_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Image" name="params.image" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Image Source" name="params.image_source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>GET</operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^&lt;Id&gt;(?&lt;object_id&gt;.+?)&lt;/Id&gt;@</regexp>
+          <xpath>//Id</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^&lt;Image&gt;(?&lt;image&gt;.+?)&lt;/Image&gt;@</regexp>
+          <xpath>//Image</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^&lt;ImageName&gt;(?&lt;image_name&gt;.+?)&lt;/ImageName&gt;@</regexp>
+          <xpath>//ImageName</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^&lt;ConnectedVia&gt;(?&lt;image_source&gt;.+?)&lt;/ConnectedVia&gt;@</regexp>
+          <xpath>//ConnectedVia</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{foreach from=$redfish_virtual_media_links item=media_link}{$media_link.object_id}#UBIQUBE_MSA_DELIMITER##UBIQUBE_MSA_DELIMITER#{/foreach}</xpath>
+  </command>
+  <command name="UPDATE">
+    <operation>{literal}{{/literal}
+&quot;Image&quot;: &quot;{$params.image_source}&quot;
+{literal}}{/literal}</operation>
+    <rest>POST</rest>
+    <xpath>_MANAGER/VirtualMedia/{$redfish_virtual_media.$object_id.object_id}/Actions/VirtualMedia.InsertMedia</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
+  <command name="DELETE">
+    <operation>{}</operation>
+    <rest>POST</rest>
+    <xpath>_MANAGER/VirtualMedia/{$redfish_virtual_media.$object_id.object_id}/Actions/VirtualMedia.EjectMedia</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
