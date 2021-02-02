@@ -470,8 +470,8 @@
                 <regexp>@&lt;mac_addr&gt;(?&lt;mac_addr&gt;.*)&lt;/mac_addr&gt;@</regexp>
               </line>
               <line>
-                <xpath>type</xpath>
-                <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+                <xpath>OS-EXT-IPS-type</xpath>
+                <regexp>@&lt;OS-EXT-IPS-type&gt;(?&lt;type&gt;.*)&lt;/OS-EXT-IPS-type&gt;@</regexp>
               </line>
             </lines>
           </array>
