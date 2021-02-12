@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
-    <visibility>5</visibility>
+    <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -25,6 +25,7 @@
     <sortvariable>param._order</sortvariable>
   </information>
   <variables frozen="0">
+    <variable displayName="VNF Name" name="params.dev_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Interface ID" name="params.interfaces.0.id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Interface Name" name="params.interfaces.0.interface_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -32,6 +33,22 @@
     <variable displayName="IPv4" name="params.interfaces.0.IPv4" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="MAC" name="params.interfaces.0.mac" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="org" name="params.org" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="PublicIP" name="params.interfaces.0.public_ip" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="PublicPort" name="params.interfaces.0.public_port" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="NatType" name="params.interfaces.0.nat_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="useStun" name="params.interfaces.0.useStun" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="internetAccess" name="params.interfaces.0.internetAccess" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="monitorInternet" name="params.interfaces.0.monitorInternet" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="gateway" name="params.interfaces.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="metric" name="params.interfaces.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="dhcp" name="params.interfaces.0.dhcp" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.interfaces.0.type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="routing" name="params.interfaces.0.routing" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv6Mask" name="params.interfaces.0.IPv6Mask" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="pciaddr" name="params.interfaces.0.pciaddr" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv6" name="params.interfaces.0.IPv6" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4Mask" name="params.interfaces.0.IPv4Mask" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4Mask" name="params.IPv4Mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -75,6 +92,86 @@
                 <regexp>@&lt;MAC&gt;(?&lt;mac&gt;.*)&lt;/MAC&gt;@</regexp>
                 <xpath>//MAC</xpath>
               </line>
+              <line>
+                <array/>
+                <regexp>@&lt;IPv6&gt;(?&lt;IPv6&gt;.*)&lt;/IPv6&gt;@</regexp>
+                <xpath>//IPv6</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;PublicIP&gt;(?&lt;public_ip&gt;.*)&lt;/PublicIP&gt;@</regexp>
+                <xpath>//PublicIP</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;PublicPort&gt;(?&lt;public_port&gt;.*)&lt;/PublicPort&gt;@</regexp>
+                <xpath>//PublicPort</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;NatType&gt;(?&lt;nat_type&gt;.*)&lt;/NatType&gt;@</regexp>
+                <xpath>//NatType</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;useStun&gt;(?&lt;useStun&gt;.*)&lt;/useStun&gt;@</regexp>
+                <xpath>//useStun</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;internetAccess&gt;(?&lt;internetAccess&gt;.*)&lt;/internetAccess&gt;@</regexp>
+                <xpath>//internetAccess</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;monitorInternet&gt;(?&lt;monitorInternet&gt;.*)&lt;/monitorInternet&gt;@</regexp>
+                <xpath>//monitorInternet</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;gateway&gt;(?&lt;gateway&gt;.*)&lt;/gateway&gt;@</regexp>
+                <xpath>//gateway</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;metric&gt;(?&lt;metric&gt;.*)&lt;/metric&gt;@</regexp>
+                <xpath>//metric</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;dhcp&gt;(?&lt;dhcp&gt;.*)&lt;/dhcp&gt;@</regexp>
+                <xpath>//dhcp</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+                <xpath>//type</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;routing&gt;(?&lt;routing&gt;.*)&lt;/routing&gt;@</regexp>
+                <xpath>//routing</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;IPv6Mask&gt;(?&lt;IPv6Mask&gt;.*)&lt;/IPv6Mask&gt;@</regexp>
+                <xpath>//IPv6Mask</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;pciaddr&gt;(?&lt;pciaddr&gt;.*)&lt;/pciaddr&gt;@</regexp>
+                <xpath>//pciaddr</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;metric&gt;(?&lt;metric&gt;.*)&lt;/metric&gt;@</regexp>
+                <xpath>//metric</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;IPv4Mask&gt;(?&lt;IPv4Mask&gt;.*)&lt;/IPv4Mask&gt;@</regexp>
+                <xpath>//IPv4Mask</xpath>
+              </line>
             </lines>
             <mregexp>@^\s \s*$@</mregexp>
             <xpath>//interfaces/row</xpath>
@@ -87,6 +184,11 @@
           <regexp>@&lt;org&gt;(?&lt;org&gt;.*)&lt;/org&gt;@</regexp>
           <xpath>//org</xpath>
         </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;dev_name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
       </lines>
     </parser>
     <xpath>/api/devices</xpath>
@@ -94,14 +196,9 @@
   <command name="UPDATE">
     <operation>{assign var=&apos;ints&apos; value=$_Flexiwan_DeviceInterfaces.$object_id.interfaces }
 {assign var=&apos;i&apos; value=0}
-{ldelim}&quot;name&quot;:&quot;SDWANVNF&quot;,&quot;description&quot;:&quot;&quot;,&quot;isApproved&quot;:true,&quot;interfaces&quot;:[
+{ldelim}&quot;name&quot;:&quot;{$_Flexiwan_DeviceInterfaces.$object_id.dev_name}&quot;,&quot;description&quot;:&quot;&quot;,&quot;isApproved&quot;:true,&quot;interfaces&quot;:[
 {foreach $ints as $int}
-{if $i == &apos;0&apos;}
-{ldelim}&quot;IPv6&quot;:&quot;fe80::5054:ff:fe3f:b41e&quot;,&quot;PublicIP&quot;:&quot;89.101.112.38&quot;,&quot;PublicPort&quot;:&quot;&quot;,&quot;NatType&quot;:&quot;&quot;,&quot;useStun&quot;:true,&quot;gateway&quot;:&quot;192.168.0.10&quot;,&quot;metric&quot;:&quot;0&quot;,&quot;dhcp&quot;:&quot;no&quot;,&quot;IPv4&quot;:&quot;{$int.IPv4}&quot;,&quot;type&quot;:&quot;WAN&quot;,&quot;MAC&quot;:&quot;{$int.mac}&quot;,&quot;routing&quot;:&quot;NONE&quot;,&quot;IPv6Mask&quot;:&quot;64&quot;,&quot;isAssigned&quot;:true,&quot;driver&quot;:&quot;virtio-pci&quot;,&quot;IPv4Mask&quot;:&quot;24&quot;,&quot;name&quot;:&quot;ens2&quot;,&quot;pciaddr&quot;:&quot;0000:00:02.00&quot;,&quot;_id&quot;:&quot;{$int.id}&quot;,&quot;pathlabels&quot;:[]{rdelim},
-{else}
-{ldelim}&quot;IPv6&quot;:&quot;fe80::5054:ff:fedb:f379&quot;,&quot;PublicIP&quot;:&quot;&quot;,&quot;PublicPort&quot;:&quot;&quot;,&quot;NatType&quot;:&quot;&quot;,&quot;useStun&quot;:true,&quot;gateway&quot;:&quot;&quot;,&quot;metric&quot;:&quot;&quot;,&quot;dhcp&quot;:&quot;no&quot;,&quot;IPv4&quot;:&quot;192.168.1.1&quot;,&quot;type&quot;:&quot;LAN&quot;,&quot;MAC&quot;:&quot;{$int.mac}&quot;,&quot;routing&quot;:&quot;OSPF&quot;,&quot;IPv6Mask&quot;:&quot;64&quot;,&quot;isAssigned&quot;:true,&quot;driver&quot;:&quot;virtio-pci&quot;,&quot;IPv4Mask&quot;:&quot;24&quot;,&quot;name&quot;:&quot;ens3&quot;,&quot;pciaddr&quot;:&quot;0000:00:03.00&quot;,&quot;_id&quot;:&quot;{$int.id}&quot;,&quot;pathlabels&quot;:[]{rdelim}
-{/if}
-{assign var=&apos;i&apos; value=$i+1}
+{if ($i &gt; 0)},{/if}{ldelim}&quot;IPv6&quot;:&quot;{$int.IPv6}&quot;,&quot;PublicIP&quot;:&quot;{$int.public_ip}&quot;,&quot;PublicPort&quot;:&quot;{$int.public_port}&quot;,&quot;NatType&quot;:&quot;{$int.NatType}&quot;,&quot;useStun&quot;:{$int.useStun},&quot;gateway&quot;:&quot;{$int.gateway}&quot;,&quot;metric&quot;:&quot;{$int.metric}&quot;,&quot;dhcp&quot;:&quot;{$int.dhcp}&quot;,&quot;IPv4&quot;:&quot;{$int.IPv4}&quot;,&quot;type&quot;:&quot;{$int.type}&quot;,&quot;MAC&quot;:&quot;{$int.mac}&quot;,&quot;routing&quot;:&quot;{$int.routing}&quot;,&quot;IPv6Mask&quot;:&quot;{$int.IPv6Mask}&quot;,&quot;isAssigned&quot;:true,&quot;driver&quot;:&quot;virtio-pci&quot;,&quot;IPv4Mask&quot;:&quot;{$int.IPv4Mask}&quot;,&quot;name&quot;:&quot;{$int.interface_name}&quot;,&quot;pciaddr&quot;:&quot;{$int.pciaddr}&quot;,&quot;_id&quot;:&quot;{$int.id}&quot;,&quot;pathlabels&quot;:[]{rdelim}{assign var=&apos;i&apos; value=$i+1}
 {/foreach}
 ],&quot;staticroutes&quot;:[],&quot;dhcp&quot;:[]{rdelim}</operation>
     <rest>PUT</rest>

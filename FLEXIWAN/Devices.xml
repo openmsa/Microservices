@@ -5,7 +5,7 @@
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>10000</order>
-    <visibility>0</visibility>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
@@ -162,8 +162,8 @@
   <command name="UPDATE">
     <operation>{literal}{{/literal}
 &quot;name&quot;:&quot;{$params.name}&quot;,
-&quot;description&quot;:&quot;&quot;,
-&quot;defaultRoute&quot;:&quot;{$params.defaultRoute}&quot;,
+&quot;description&quot;:&quot;&quot;,{if !empty($params.defaultRoute)}
+&quot;defaultRoute&quot;:&quot;{$params.defaultRoute}&quot;,{/if}
 &quot;isApproved&quot;:&quot;{$params.isApproved}&quot;
 {literal}}{/literal}</operation>
     <rest>PUT</rest>
