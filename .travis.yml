@@ -4,7 +4,7 @@ addons:
   apt:
     packages:
       # install xmllint
-      #- libxml2-utils
+      - libxml2-utils
 
 script:
-  #- ./.travis/check_xml_syntax.sh
+  - ./.travis/check_xml_syntax.sh
