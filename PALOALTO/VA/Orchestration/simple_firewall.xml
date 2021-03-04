@@ -1,0 +1,126 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>simple_firewall</name>
+    <group>Orchestration|Policies</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Source IP" name="params.src_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Source</sections>
+      </sections>
+    </variable>
+    <variable displayName="Source Mask" name="params.src_mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="255.255.255.255" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Source</sections>
+      </sections>
+      <values>
+        <values>255.255.255.0</values>
+        <values>255.255.255.254</values>
+        <values>255.255.255.255</values>
+      </values>
+    </variable>
+    <variable displayName="Destination IP" name="params.dst_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Destination</sections>
+      </sections>
+    </variable>
+    <variable displayName="Destination Mask" name="params.dst_mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="255.255.255.255" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Destination</sections>
+      </sections>
+      <values>
+        <values>255.255.255.0</values>
+        <values>255.255.255.254</values>
+        <values>255.255.255.255</values>
+      </values>
+    </variable>
+    <variable displayName="Service" name="params.service" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="deny" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>allow</values>
+        <values>deny</values>
+      </values>
+    </variable>
+  </variables>
+  <example>
+    <content></content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath/>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation></operation>
+    <rest></rest>
+    <xpath></xpath>
+  </command>
+  <command name="CONSTRAINT">
+    <operation></operation>
+  </command>
+  <command name="CREATE">
+    <operation>&lt;from&gt;
+&lt;member&gt;external&lt;/member&gt;
+&lt;/from&gt;
+&lt;to&gt;
+&lt;member&gt;internal&lt;/member&gt;
+&lt;/to&gt;
+&lt;source&gt;
+&lt;member&gt;{$params.src_ip}/{get_mask_len mask=$params.src_mask}&lt;/member&gt;
+&lt;/source&gt;
+&lt;destination&gt;
+&lt;member&gt;{$params.dst_ip}/{get_mask_len mask=$params.dst_mask}&lt;/member&gt;
+&lt;/destination&gt;
+&lt;source-user&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/source-user&gt;
+&lt;category&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/category&gt;
+&lt;application&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/application&gt;
+&lt;service&gt;
+&lt;member&gt;{$params.service}&lt;/member&gt;
+&lt;/service&gt;
+&lt;hip-profiles&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/hip-profiles&gt;
+&lt;action&gt;{$params.action|default:&apos;deny&apos;}&lt;/action&gt;</operation>
+    <rest>type=config&amp;action=set</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
+  </command>
+  <command name="DELETE">
+    <operation></operation>
+    <rest>type=config&amp;action=delete</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>

@@ -1,23 +1,23 @@
 <ObjectDefinition>
   <information>
     <icon>/images/eclipseIcons/page_obj.gif</icon>
-    <description>Firewall Policy</description>
+    <description/>
     <displayField>object_id</displayField>
     <serviceTaskType/>
-    <order>10</order>
+    <order>1</order>
     <visibility>0</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>true</defaultDisplay>
-    <dynamic>true</dynamic>
+    <dynamic>false</dynamic>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>Firewall Policy</name>
-    <group>Firewall Policy</group>
+    <name>Security Policies</name>
+    <group>Policies</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -26,7 +26,7 @@
   </information>
   <variables frozen="1">
     <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Zone" name="params.zone_from" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="external" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Zone" name="params.zone_from" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Source</sections>
       </sections>
@@ -43,10 +43,7 @@
         <class>address_ip_range</class>
       </classes>
     </variable>
-    <variable displayName="Zone" name="params.zone_to" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="internal" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>Destination</sections>
-      </sections>
+    <variable displayName="Zone" name="params.zone_to" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>zone</class>
       </classes>
@@ -75,9 +72,45 @@
     </variable>
   </variables>
   <example>
-    <content>&lt;rulebase>&lt;security>&lt;rules>&lt;entry name="Fw-Pascal">&lt;from>&lt;member>Trust&lt;/member>&lt;/from>&lt;to>&lt;member>untrust&lt;/member>&lt;/to>&lt;source>&lt;member>Ip_Lan_192.168.45.0&lt;/member>&lt;/source>&lt;destination>&lt;member>any&lt;/member>&lt;/destination>&lt;source-user>&lt;member>any&lt;/member>&lt;/source-user>&lt;category>&lt;member>any&lt;/member>&lt;/category>&lt;application>&lt;member>any&lt;/member>&lt;/application>&lt;service>&lt;member>service-http&lt;/member>&lt;member>service-https&lt;/member>&lt;/service>&lt;hip-profiles>&lt;member>any&lt;/member>&lt;/hip-profiles>&lt;action>allow&lt;/action>&lt;tag>&lt;member>Trust&lt;/member>&lt;/tag>&lt;/entry>&lt;/rules>&lt;/security>
-&lt;/rulebase>
-</content>
+    <content>&lt;rulebase&gt;
+&lt;security&gt;
+&lt;rules&gt;
+&lt;entry name=&quot;Fw-Pascal&quot;&gt;
+&lt;from&gt;
+&lt;member&gt;Trust&lt;/member&gt;
+&lt;/from&gt;
+&lt;to&gt;
+&lt;member&gt;untrust&lt;/member&gt;
+&lt;/to&gt;
+&lt;source&gt;
+&lt;member&gt;Ip_Lan_192.168.45.0&lt;/member&gt;
+&lt;/source&gt;
+&lt;destination&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/destination&gt;
+&lt;source-user&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/source-user&gt;
+&lt;category&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/category&gt;
+&lt;application&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/application&gt;
+&lt;service&gt;
+&lt;member&gt;service-http&lt;/member&gt;
+&lt;member&gt;service-https&lt;/member&gt;
+&lt;/service&gt;
+&lt;hip-profiles&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/hip-profiles&gt;&lt;action&gt;allow&lt;/action&gt;
+&lt;tag&gt;
+&lt;member&gt;Trust&lt;/member&gt;
+&lt;/tag&gt;
+&lt;/entry&gt;
+&lt;/rules&gt;
+&lt;/security&gt;
+&lt;/rulebase&gt;</content>
   </example>
   <command name="IMPORT">
     <operation>type=config&amp;action=show</operation>
@@ -89,32 +122,32 @@
       <lines>
         <line>
           <array/>
-          <regexp>@name="(?&lt;object_id>.*)"@</regexp>
+          <regexp>@name=&quot;(?&lt;object_id&gt;.*)&quot;@</regexp>
           <xpath>//entry/@name</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;member>(?&lt;zone_from>.*)&lt;/member>@</regexp>
+          <regexp>@&lt;member&gt;(?&lt;zone_from&gt;.*)&lt;/member&gt;@</regexp>
           <xpath>//entry/from/member</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;member>(?&lt;zone_to>.*)&lt;/member>@</regexp>
+          <regexp>@&lt;member&gt;(?&lt;zone_to&gt;.*)&lt;/member&gt;@</regexp>
           <xpath>//entry/to/member</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;member>(?&lt;src_address>.*)&lt;/member>@</regexp>
+          <regexp>@&lt;member&gt;(?&lt;src_address&gt;.*)&lt;/member&gt;@</regexp>
           <xpath>//entry/source/member</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;member>(?&lt;dst_address>.*)&lt;/member>@</regexp>
+          <regexp>@&lt;member&gt;(?&lt;dst_address&gt;.*)&lt;/member&gt;@</regexp>
           <xpath>//entry/destination/member</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;action>(?&lt;action>.*)&lt;/action>@</regexp>
+          <regexp>@&lt;action&gt;(?&lt;action&gt;.*)&lt;/action&gt;@</regexp>
           <xpath>//entry/action</xpath>
         </line>
         <line>
@@ -122,103 +155,95 @@
             <lines>
               <line>
                 <array/>
-                <regexp>@&lt;member>(?&lt;service>.*)&lt;/member>@</regexp>
+                <regexp>@&lt;member&gt;(?&lt;service&gt;.*)&lt;/member&gt;@</regexp>
                 <xpath>//member</xpath>
               </line>
             </lines>
             <mregexp>@^\s \s*$@</mregexp>
+            <xpath>//entry/service/member</xpath>
           </array>
           <regexp/>
           <xpath/>
         </line>
       </lines>
     </parser>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules</xpath>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules</xpath>
   </command>
   <command name="UPDATE">
-    <operation>&lt;entry name="{$params.object_id}">
-&lt;from>
-&lt;member>{$params.zone_from}&lt;/member>
-&lt;/from>
-&lt;to>
-&lt;member>{$params.zone_to}&lt;/member>
-&lt;/to>
-&lt;source>
-&lt;member>{$params.src_address}&lt;/member>
-&lt;/source>
-&lt;destination>
-&lt;member>{$params.dst_address}&lt;/member>
-&lt;/destination>
-&lt;source-user>
-&lt;member>any&lt;/member>
-&lt;/source-user>
-&lt;category>
-&lt;member>any&lt;/member>
-&lt;/category>
-&lt;application>
-&lt;member>any&lt;/member>
-&lt;/application>
-&lt;service>
+    <operation>&lt;entry name=&quot;{$params.object_id}&quot;&gt;
+&lt;from&gt;
+&lt;member&gt;{$params.zone_from}&lt;/member&gt;
+&lt;/from&gt;
+&lt;to&gt;
+&lt;member&gt;{$params.zone_to}&lt;/member&gt;
+&lt;/to&gt;
+&lt;source&gt;
+&lt;member&gt;{$params.src_address}&lt;/member&gt;
+&lt;/source&gt;
+&lt;destination&gt;
+&lt;member&gt;{$params.dst_address}&lt;/member&gt;
+&lt;/destination&gt;
+&lt;source-user&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/source-user&gt;
+&lt;category&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/category&gt;
+&lt;application&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/application&gt;
+&lt;service&gt;
 {foreach $params.services as $srv}
-&lt;member>{$srv.service}&lt;/member>
+&lt;member&gt;{$srv.service}&lt;/member&gt;
 {/foreach}
-&lt;/service>
-&lt;hip-profiles>
-&lt;member>any&lt;/member>
-&lt;/hip-profiles>
-&lt;action>{$params.action}&lt;/action>
-&lt;/entry>
-</operation>
-    <rest>type=config&amp;action=edit
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
-</xpath>
+&lt;/service&gt;
+&lt;hip-profiles&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/hip-profiles&gt;
+&lt;action&gt;{$params.action}&lt;/action&gt;
+&lt;/entry&gt;</operation>
+    <rest>type=config&amp;action=edit</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>&lt;from>
-&lt;member>{$params.zone_from}&lt;/member>
-&lt;/from>
-&lt;to>
-&lt;member>{$params.zone_to}&lt;/member>
-&lt;/to>
-&lt;source>
-&lt;member>{$params.src_address}&lt;/member>
-&lt;/source>
-&lt;destination>
-&lt;member>{$params.dst_address}&lt;/member>
-&lt;/destination>
-&lt;source-user>
-&lt;member>any&lt;/member>
-&lt;/source-user>
-&lt;category>
-&lt;member>any&lt;/member>
-&lt;/category>
-&lt;application>
-&lt;member>any&lt;/member>
-&lt;/application>
-&lt;service>
+    <operation>&lt;from&gt;
+&lt;member&gt;{$params.zone_from}&lt;/member&gt;
+&lt;/from&gt;
+&lt;to&gt;
+&lt;member&gt;{$params.zone_to}&lt;/member&gt;
+&lt;/to&gt;
+&lt;source&gt;
+&lt;member&gt;{$params.src_address}&lt;/member&gt;
+&lt;/source&gt;
+&lt;destination&gt;
+&lt;member&gt;{$params.dst_address}&lt;/member&gt;
+&lt;/destination&gt;
+&lt;source-user&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/source-user&gt;
+&lt;category&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/category&gt;
+&lt;application&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/application&gt;
+&lt;service&gt;
 {foreach $params.services as $srv}
-&lt;member>{$srv.service}&lt;/member>
+&lt;member&gt;{$srv.service}&lt;/member&gt;
 {/foreach}
-&lt;/service>
-&lt;hip-profiles>
-&lt;member>any&lt;/member>
-&lt;/hip-profiles>
-&lt;action>{$params.action}&lt;/action>
-</operation>
-    <rest>type=config&amp;action=set
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
-</xpath>
+&lt;/service&gt;
+&lt;hip-profiles&gt;
+&lt;member&gt;any&lt;/member&gt;
+&lt;/hip-profiles&gt;
+&lt;action&gt;{$params.action}&lt;/action&gt;</operation>
+    <rest>type=config&amp;action=set</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
   </command>
   <command name="DELETE">
-    <operation>
-</operation>
-    <rest>type=config&amp;action=delete
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/rulebase/security/rules/entry[@name='{$params.object_id}']
-</xpath>
+    <operation>&lt;!-- uuu --&gt;</operation>
+    <rest>type=config&amp;action=delete</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/rulebase/security/rules/entry[@name=&apos;{$params.object_id}&apos;]</xpath>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
