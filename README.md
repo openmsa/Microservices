@@ -26,7 +26,6 @@ Login to a live MSA as root and perform the following:
 	ln -s ../OpenMSA.MS/	OpenMSA
 
 
-Browse to the MSA GUI, open "Manage Repository".
 
 The new entry "OpenMSA" should be available and browsable
-under `Micro services > OpenMSA`.
+under `Infrasctucture > Microservices`.
