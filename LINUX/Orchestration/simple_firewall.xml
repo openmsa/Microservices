@@ -45,9 +45,9 @@
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{if $params.dst_port == &quot;null&quot;}
-sudo iptables -A INPUT -p tcp -s {$params.src_ip} -j DROP
-sudo iptables -A FORWARD -p tcp -s {$params.src_ip} -j DROP
+    <operation>{if $params.dst_port == &quot;null&quot; || $params.dst_port == &quot;&quot; }
+sudo iptables -A INPUT -p icmp -s {$params.src_ip} -j DROP
+sudo iptables -A FORWARD -p icmp -s {$params.src_ip} -j DROP
 {else}
 sudo iptables -A INPUT -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP
 sudo iptables -A FORWARD -p tcp --dport {$params.dst_port} -s {$params.src_ip} -j DROP
