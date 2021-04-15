@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>
+  <information>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <description/>
+    <displayField>none</displayField>
+    <dynamic>false</dynamic>
+    <group>Routing</group>
+    <icon>none</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Prefix Filter</name>
+    <order>0</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <serviceTaskType/>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+    <visibility>5</visibility>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Filter name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable default="permit" displayName="Action" displayOrder="1" editable="false" maxLength="100" name="params.rules_list.0.action" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <values>
+        <value>permit</value>
+        <value>deny</value>
+      </values>
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Number" displayOrder="2" maxLength="100" name="params.rules_list.0.number" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="AutoIncrement">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Prefix" displayOrder="3" maxLength="100" name="params.rules_list.0.prefix" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Prefex great or equal" displayOrder="4" maxLength="100" name="params.rules_list.0.ge" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+    <variable displayName="Prefix less or equal" displayOrder="5" maxLength="100" name="params.rules_list.0.le" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+      <sections>
+        <section>Rules</section>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <parser>
+      <section>
+        <regexp>@^ip\s+?prefix-list\s+?(?&lt;object_id&gt;\S+?):.+?$@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array name="rules_list">
+            <regexp>@^\s+?seq\s+?(?&lt;number&gt;\d+?)\s(?&lt;action&gt;permit|deny)\s+?(?&lt;prefix&gt;(\d{1,3}\.){3}\d{1,3}/\d{1,2})\s*?(ge)?\s*?(?&lt;ge&gt;\d*?)\s*?(le)?\s*?(?&lt;le&gt;\d*?)$@</regexp>
+            
+            
+          </array>
+        </line>
+      </lines>
+    </parser>
+  <operation>show ip prefix-list</operation>
+    <post_template/>
+  </command>
+  <command name="CREATE">
+    <operation>{foreach from=$params.rules_list item=details key=number}
+   {if $details.ge and !$details.le}
+   ip prefix-list {$params.object_id} seq {$details.number} permit {$details.prefix} ge {$details.ge}
+   {elseif !$details.ge and $details.le}
+   ip prefix-list {$params.object_id} seq {$details.number} permit {$details.prefix} le {$details.le}
+   {elseif $details.ge and $details.le}
+   ip prefix-list {$params.object_id} seq {$details.number} permit {$details.prefix} ge {$details.ge} le {$details.le}
+   {else}
+   ip prefix-list {$params.object_id} seq {$details.number} permit {$details.prefix}
+   {/if}
+{/foreach}
+</operation>
+  </command>
+  <command name="READ">
+    <output>
+</output>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+ <command name="DELETE">
+    <operation>no ip prefix-list {$prefix_filter.$object_id.object_id}</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
