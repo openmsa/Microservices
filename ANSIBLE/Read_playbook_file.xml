@@ -30,7 +30,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>cat /opt/playbooks/linux_firewall_creation.yml | tr "\n" "|"</operation>
+    <operation>cat /opt/playbooks/grenoble_server_route.yml | tr "\n" "|"</operation>
     <parser>
       <section>
         <regexp>@^(?&lt;text>.+?)$@</regexp>
