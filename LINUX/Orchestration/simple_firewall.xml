@@ -34,9 +34,12 @@
   </example>
   <command name="IMPORT">
     <operation>sudo iptables --line-numbers -L INPUT -n | grep -v Chain | grep -v num</operation>
+    <post_template>{if $params.dst_port == &quot;null&quot; || $params.dst_port == &quot;&quot; }
+  {assign_object_variable var=&quot;dst_port&quot; value=&quot;&quot;} 
+{/if}</post_template>
     <parser>
       <section>
-        <regexp>@(?&lt;object_id&gt;\d+)\s+DROP\s+tcp\s+--\s+(?&lt;src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})([^:]+:)?(?&lt;dst_port&gt;\d+)?@</regexp>
+        <regexp>@(?&lt;object_id&gt;\d+)\s+DROP.*--\s+(?&lt;src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})([^:]+:)?(?&lt;dst_port&gt;\d+)?@</regexp>
         <xpath/>
       </section>
       <lines/>
