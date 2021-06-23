@@ -28,12 +28,14 @@
     <variable displayName="Playbook file" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="MD5 hash" name="params.md5sum" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
-  <example/>
+  <example>
+    <content></content>
+  </example>
   <command name="IMPORT">
-    <operation>for file in /opt/playbooks/*.yml; do md5sum $file; done</operation>
+    <operation>for file in $(find /opt/playbooks/ -name &apos;*.yml&apos; | grep -v &apos;roles/&apos;); do md5sum $file; done</operation>
     <parser>
       <section>
-        <regexp>@^(?&lt;md5sum>\S+?)\s+?(?&lt;object_id>\S+?)$@</regexp>
+        <regexp>@^(?&lt;md5sum&gt;\S+?)\s+?(?&lt;object_id&gt;\S+?)$@</regexp>
         <xpath/>
       </section>
       <lines/>

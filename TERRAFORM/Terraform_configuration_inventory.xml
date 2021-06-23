@@ -32,7 +32,7 @@
 /opt/terraform/vm_on_openstack/openstack_create_server.tf</content>
   </example>
   <command name="IMPORT">
-    <operation>find /opt/terraform/ -name *.tf</operation>
+    <operation>find /opt/terraform/ -name *.tf | grep -v &apos;/.terraform/&apos;</operation>
     <parser>
       <section>
         <regexp>@^(?&lt;object_id&gt;[^\s*]+)$@</regexp>
