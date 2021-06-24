@@ -25,7 +25,7 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Service Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Service Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Protocol Type" name="params.proto" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="ICMP">icmp</values>
@@ -73,7 +73,7 @@
     <content>FGVM020000034713 # show full-configuration firewall service customconfig firewall service customedit &quot;ALL&quot;set explicit-proxy disableset category &quot;General&quot;set protocol IPset comment &apos;&apos;set color 0set visibility enableset protocol-number 0nextedit &quot;ALL_TCP&quot;set explicit-proxy disableset category &quot;General&quot;set protocol TCP/UDP/SCTPset check-reset-range defaultset comment &apos;&apos;set color 0set visibility enableset iprange 0.0.0.0set fqdn &apos;&apos;set tcp-portrange 1-65535unset udp-portrangeunset sctp-portrangeset tcp-halfclose-timer 0set tcp-halfopen-timer 0set tcp-timewait-timer 0set udp-idle-timer 0set session-ttl 0next</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration firewall service custom</operation>
+    <operation><![CDATA[show full-configuration firewall service custom]]></operation>
     <parser>
       <section>
         <regexp>@edit &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
@@ -120,48 +120,23 @@
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config firewall service custom
-edit &quot;{$params.object_id}&quot;
-{if $params.proto== &quot;tcp&quot; }
+    <operation><![CDATA[config firewall service custom
+edit "{$params.object_id}"
+{if $params.proto== "tcp" }
 set protocol TCP/UDP/SCTP
-set tcp-portrange {$params.destport}{if $params.srcport != &quot;&quot;}:{$params.srcport}{/if}
+set tcp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
 unset udp-portrange
-{elseif $params.proto == &quot;udp&quot;}
+{elseif $params.proto == "udp"}
 set protocol TCP/UDP/SCTP
-set udp-portrange {$params.destport}{if $params.srcport != &quot;&quot;}:{$params.srcport}{/if}
+set udp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
 unset tcp-portrange
-{elseif $params.proto==&quot;IP&quot;}
+{elseif $params.proto=="IP"}
 set protocol IP
 {if !empty($params.ipProtoNum)} 
-set protocol-number {$params.ipProtoNum}{/if}
-{elseif $params.proto== &quot;icmp&quot; }
-set protocol ICMP
-{if !empty($params.icmpType)}
-set icmptype {$params.icmpType}{/if}
-{if !empty($params.icmpCode)}
-set icmpcode {$params.icmpCode}{/if}
-{/if}
-set comment &quot;{$params.comment}&quot;
-end</operation>
-  </command>
-  <command name="CONSTRAINT"/>
-  <command name="CREATE">
-    <operation>config firewall service custom
-edit &quot;{$params.object_id}&quot;
-{if $params.proto== &quot;tcp&quot; }
-set protocol TCP/UDP/SCTP
-set tcp-portrange {$params.destport}{if $params.srcport != &quot;&quot;}:{$params.srcport}{/if}
-unset udp-portrange
-{elseif $params.proto == &quot;udp&quot;}
-set protocol TCP/UDP/SCTP
-set udp-portrange {$params.destport}{if $params.srcport != &quot;&quot;}:{$params.srcport}{/if}
-unset tcp-portrange
-{elseif $params.proto==&quot;IP&quot;}
-set protocol IP
-{if !empty($params.ipProtoNum)}
 set protocol-number {$params.ipProtoNum}
 {/if}
-{elseif $params.proto== &quot;icmp&quot; }set protocol ICMP
+{elseif $params.proto== "icmp" }
+set protocol ICMP
 {if !empty($params.icmpType)}
 set icmptype {$params.icmpType}
 {/if}
@@ -169,13 +144,43 @@ set icmptype {$params.icmpType}
 set icmpcode {$params.icmpCode}
 {/if}
 {/if}
-set comment &quot;{$params.comment}&quot;
-end</operation>
+set comment "{$params.comment}"
+end]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation><![CDATA[config firewall service custom
+edit "{$params.object_id}"
+{if $params.proto== "tcp" }
+set protocol TCP/UDP/SCTP
+set tcp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
+unset udp-portrange
+{elseif $params.proto == "udp"}
+set protocol TCP/UDP/SCTP
+set udp-portrange {$params.destport}{if $params.srcport != ""}:{$params.srcport}{/if}
+unset tcp-portrange
+{elseif $params.proto=="IP"}
+set protocol IP
+{if !empty($params.ipProtoNum)}
+set protocol-number {$params.ipProtoNum}
+{/if}
+{elseif $params.proto== "icmp" }
+set protocol ICMP
+{if !empty($params.icmpType)}
+set icmptype {$params.icmpType}
+{/if}
+{if !empty($params.icmpCode)}
+set icmpcode {$params.icmpCode}
+{/if}
+{/if}
+set comment "{$params.comment}"
+end
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config firewall service custom
-delete &quot;{$Service.$object_id.object_id}&quot;
-end</operation>
+    <operation><![CDATA[config firewall service custom
+delete "{$service.$object_id.object_id}"
+end]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
