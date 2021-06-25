@@ -1,0 +1,77 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>20</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>true</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>IPROUTE | Addresses</name>
+    <group>Networking</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Interface name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="eth0:" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4 address" name="params.ip_addr" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP prefix length" name="params.ip_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4 address/prefix" name="params.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content></content>
+  </example>
+  <command name="IMPORT">
+    <operation>sudo ip address show</operation>
+    <post_template>{if ($params.ip_addr) and (!$params.ip_prefix)}
+{$params.ip_prefix = &quot;32&quot;}
+{/if}
+{if $params.ip_addr}
+{assign_object_variable var=&quot;ip&quot; value = &quot;{$params.ip_addr}/{$params.ip_prefix}&quot;}
+{else}
+{assign_object_variable var=&quot;ip_addr&quot; value = &quot;N/A&quot;}
+{assign_object_variable var=&quot;ip_prefix&quot; value = &quot;N/A&quot;}
+{assign_object_variable var=&quot;ip&quot; value = &quot;N/A&quot;}
+{/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\d:\s+?(?&lt;object_id&gt;[a-zA-Z0-9\.]+).*?:.+?$@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s+?inet\s+?(?&lt;ip_addr&gt;(\d{1,3}\.){3}\d{1,3})\/(?&lt;ip_prefix&gt;\d{1,2}).+?$@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^\s.+?$@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}</operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}</operation>
+  </command>
+  <command name="DELETE">
+    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask} down</operation>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
