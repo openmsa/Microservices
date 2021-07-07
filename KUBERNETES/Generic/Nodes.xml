@@ -26,7 +26,15 @@
   </information>
   <variables frozen="0">
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="node" name="params.node" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Node" name="params.node" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="OS Image" name="params.osImage" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Kernel Version" name="params.kernelVersion" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Container Runtime Version" name="params.containerRuntimeVersion" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Kubelet Version" name="params.kubeletVersion" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="CPU" name="params.cpu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Ephemeral Storage" name="params.ephemeralStorage" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Memory" name="params.memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Pods" name="params.pods" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -42,14 +50,54 @@
           <regexp>@&lt;name&gt;(?&lt;node&gt;.*)&lt;/name&gt;@</regexp>
           <xpath>//row/metadata/name</xpath>
         </line>
+        <line>
+          <array/>
+          <regexp>@&lt;osImage&gt;(?&lt;osImage&gt;.*)&lt;/osImage&gt;@</regexp>
+          <xpath>//row/status/nodeInfo/osImage</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;kernelVersion&gt;(?&lt;kernelVersion&gt;.*)&lt;/kernelVersion&gt;@</regexp>
+          <xpath>//row/status/nodeInfo/kernelVersion</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;containerRuntimeVersion&gt;(?&lt;containerRuntimeVersion&gt;.*)&lt;/containerRuntimeVersion&gt;@</regexp>
+          <xpath>//row/status/nodeInfo/containerRuntimeVersion</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;kubeletVersion&gt;(?&lt;kubeletVersion&gt;.*)&lt;/kubeletVersion&gt;@</regexp>
+          <xpath>//row/status/nodeInfo/kubeletVersion</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;cpu&gt;(?&lt;cpu&gt;.*)&lt;/cpu&gt;@</regexp>
+          <xpath>//row/status/capacity/cpu</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;ephemeral-storage&gt;(?&lt;ephemeralStorage&gt;.*)&lt;/ephemeral-storage&gt;@</regexp>
+          <xpath>//row/status/capacity/ephemeral-storage</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;memory&gt;(?&lt;memory&gt;.*)&lt;/memory&gt;@</regexp>
+          <xpath>//row/status/capacity/memory</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;pods&gt;(?&lt;pods&gt;.*)&lt;/pods&gt;@</regexp>
+          <xpath>//row/status/capacity/pods</xpath>
+        </line>
       </lines>
     </parser>
     <xpath>/api/v1/nodes/</xpath>
   </command>
-  <command name="CREATE"/>
-  <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
+  <command name="CREATE"/>
   <command name="DELETE"/>
+  <command name="READ"/>
   <command name="LIST"/>
 </ObjectDefinition>
