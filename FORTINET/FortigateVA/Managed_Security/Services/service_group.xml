@@ -26,7 +26,7 @@
   </information>
   <variables frozen="0">
     <variable displayName="Group Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Members" name="params.members_0_member" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Members" name="params.members.0.member" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>service</class>
         <class>service_predefined</class>
@@ -39,7 +39,7 @@
 end</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration firewall service group</operation>
+    <operation><![CDATA[show full-configuration firewall service group]]></operation>
     <parser>
       <section>
         <regexp>@edit(?! (&quot;Email Access&quot;|&quot;Web Access&quot;|&quot;Windows AD&quot;|&quot;Exchange Server&quot;)) &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
@@ -63,28 +63,34 @@ end</content>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>{if !empty($params.members)}
+    <operation><![CDATA[{if !empty($params.members)}
 config firewall service group
-edit &quot;{$params.object_id}&quot;set comment &apos;{$params.comment}&apos;set member {foreach $params.members as $memberItem}&quot;{$memberItem.member}&quot; {/foreach}next
+edit "{$params.object_id}"
+set comment '{$params.comment}'
+set member {foreach $params.members as $memberItem}"{$memberItem.member}" {/foreach}
+next
 end
-{/if}</operation>
+{/if}]]></operation>
   </command>
   <command name="CONSTRAINT">
-    <operation>{if {$params.object_id} === &quot;Email Access&quot; or {$params.object_id} === &quot;Web Access&quot; or {$params.object_id} === &quot;Windows AD&quot; or {$params.object_id} === &quot;Exchange Server&quot;}
+    <operation><![CDATA[{if {$params.object_id} === "Email Access" or {$params.object_id} === "Web Access" or {$params.object_id} === "Windows AD" or {$params.object_id} === "Exchange Server"}
 This service group name is reserved, please change the service group to another one.
-{/if}</operation>
+{/if}]]></operation>
   </command>
   <command name="CREATE">
-    <operation>{if !empty($params.members)}
+    <operation><![CDATA[{if !empty($params.members)}
 config firewall service group
-edit &quot;{$params.object_id}&quot;set comment &apos;{$params.comment}&apos;set member {foreach $params.members as $memberItem}&quot;{$memberItem.member}&quot; {/foreach}next
+edit "{$params.object_id}"
+set comment '{$params.comment}'
+set member {foreach $params.members as $memberItem}"{$memberItem.member}" {/foreach}
+next
 end
-{/if}</operation>
+{/if}]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config firewall service group
-delete &quot;{$Service_Group.$object_id.object_id}&quot;
-end</operation>
+    <operation><![CDATA[config firewall service group
+delete "{$service_group.$object_id.object_id}"
+end]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
