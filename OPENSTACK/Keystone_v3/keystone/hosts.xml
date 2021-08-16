@@ -52,7 +52,16 @@
         <sections>Memory</sections>
       </sections>
     </variable>
-    <variable displayName="disk" name="params.disk" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Used" name="params.used_gb" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Local Storage in GB</sections>
+      </sections>
+    </variable>
+    <variable displayName="Total Disk" name="params.local_gb" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Local Storage in GB</sections>
+      </sections>
+    </variable>
     <variable displayName="State" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="host" name="params.host" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -91,7 +100,7 @@
 &lt;/root&gt;</content>
   </example>
   <command name="IMPORT">
-    <operation>nova</operation>
+    <operation><![CDATA[nova]]></operation>
     <post_template>{assign_object_variable var=&quot;host&quot; value=&quot;{$params.hypervisor_hostname} [ID: {$params.object_id} - State: {$params.state} - State: {$params.status}]&quot;}</post_template>
     <parser>
       <section>
@@ -143,6 +152,16 @@
           <array/>
           <regexp>@&lt;vcpus_used&gt;(?&lt;used_cpu&gt;.*)&lt;/vcpus_used&gt;@</regexp>
           <xpath>vcpus_used</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;local_gb&gt;(?&lt;local_gb&gt;.*)&lt;/local_gb&gt;@</regexp>
+          <xpath>//local_gb</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;local_gb_used&gt;(?&lt;used_gb&gt;.*)&lt;/local_gb_used&gt;@</regexp>
+          <xpath>//local_gb_used</xpath>
         </line>
       </lines>
     </parser>
