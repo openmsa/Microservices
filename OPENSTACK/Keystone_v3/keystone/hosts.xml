@@ -1,0 +1,151 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/www server.jpg</icon>
+    <description/>
+    <displayField>host</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>true</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Hosts</name>
+    <group>Nova</group>
+    <importonce>false</importonce>
+    <importrank>4</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Hypervisor Hostname" name="params.hypervisor_hostname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Total" name="params.tot_cpu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>CPU</sections>
+      </sections>
+    </variable>
+    <variable displayName="Used" name="params.used_cpu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>CPU</sections>
+      </sections>
+    </variable>
+    <variable displayName="Total Memory" name="params.tot_memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Memory</sections>
+      </sections>
+    </variable>
+    <variable displayName="Memory Used" name="params.used_memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Memory</sections>
+      </sections>
+    </variable>
+    <variable displayName="Free Memory" name="params.free_memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Memory</sections>
+      </sections>
+    </variable>
+    <variable displayName="disk" name="params.disk" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="State" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="host" name="params.host" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;root&gt;
+	&lt;hypervisors&gt;
+		&lt;row&gt;
+			&lt;status&gt;enabled&lt;/status&gt;
+			&lt;service&gt;
+				&lt;host&gt;dem-ubi-openstack-test.ubiqube.net&lt;/host&gt;
+				&lt;disabled_reason/&gt;
+				&lt;id&gt;7&lt;/id&gt;
+			&lt;/service&gt;
+			&lt;vcpus_used&gt;4&lt;/vcpus_used&gt;
+			&lt;hypervisor_type&gt;QEMU&lt;/hypervisor_type&gt;
+			&lt;local_gb_used&gt;3&lt;/local_gb_used&gt;
+			&lt;vcpus&gt;16&lt;/vcpus&gt;
+			&lt;hypervisor_hostname&gt;dem-ubi-openstack-test.ubiqube.net&lt;/hypervisor_hostname&gt;
+			&lt;memory_mb_used&gt;3584&lt;/memory_mb_used&gt;
+			&lt;memory_mb&gt;47103&lt;/memory_mb&gt;
+			&lt;current_workload&gt;0&lt;/current_workload&gt;
+			&lt;state&gt;up&lt;/state&gt;
+			&lt;host_ip&gt;10.31.1.41&lt;/host_ip&gt;
+			&lt;cpu_info&gt;{&quot;vendor&quot;: &quot;Intel&quot;, &quot;model&quot;: &quot;Broadwell-IBRS&quot;, &quot;arch&quot;: &quot;x86_64&quot;, &quot;features&quot;: [&quot;ospke&quot;, &quot;pge&quot;, &quot;avx&quot;, &quot;clflush&quot;, &quot;pku&quot;, &quot;rtm&quot;, &quot;tsc_adjust&quot;, &quot;tsc-deadline&quot;, &quot;avx512dq&quot;, &quot;stibp&quot;, &quot;invpcid&quot;, &quot;tsc&quot;, &quot;fsgsbase&quot;, &quot;xsave&quot;, &quot;smap&quot;, &quot;xsaveopt&quot;, &quot;erms&quot;, &quot;hle&quot;, &quot;cmov&quot;, &quot;avx512bw&quot;, &quot;smep&quot;, &quot;ssse3&quot;, &quot;clflushopt&quot;, &quot;pat&quot;, &quot;arat&quot;, &quot;lm&quot;, &quot;msr&quot;, &quot;adx&quot;, &quot;3dnowprefetch&quot;, &quot;nx&quot;, &quot;fxsr&quot;, &quot;syscall&quot;, &quot;sse4.1&quot;, &quot;pae&quot;, &quot;sse4.2&quot;, &quot;pclmuldq&quot;, &quot;pcid&quot;, &quot;fma&quot;, &quot;vme&quot;, &quot;mmx&quot;, &quot;osxsave&quot;, &quot;cx8&quot;, &quot;mce&quot;, &quot;de&quot;, &quot;avx512cd&quot;, &quot;aes&quot;, &quot;clwb&quot;, &quot;pse&quot;, &quot;lahf_lm&quot;, &quot;abm&quot;, &quot;rdseed&quot;, &quot;popcnt&quot;, &quot;mca&quot;, &quot;pdpe1gb&quot;, &quot;apic&quot;, &quot;sse&quot;, &quot;f16c&quot;, &quot;ds&quot;, &quot;mpx&quot;, &quot;invtsc&quot;, &quot;xsavec&quot;, &quot;pni&quot;, &quot;avx512f&quot;, &quot;avx2&quot;, &quot;sse2&quot;, &quot;ss&quot;, &quot;hypervisor&quot;, &quot;xsaves&quot;, &quot;bmi1&quot;, &quot;bmi2&quot;, &quot;spec-ctrl&quot;, &quot;sep&quot;, &quot;fpu&quot;, &quot;cx16&quot;, &quot;pse36&quot;, &quot;mtrr&quot;, &quot;movbe&quot;, &quot;rdrand&quot;, &quot;avx512vl&quot;, &quot;arch-facilities&quot;, &quot;rdtscp&quot;, &quot;x2apic&quot;], &quot;topology&quot;: {&quot;cores&quot;: 1, &quot;cells&quot;: 2, &quot;threads&quot;: 1, &quot;sockets&quot;: 8}}&lt;/cpu_info&gt;
+			&lt;running_vms&gt;4&lt;/running_vms&gt;
+			&lt;free_disk_gb&gt;122&lt;/free_disk_gb&gt;
+			&lt;hypervisor_version&gt;2012000&lt;/hypervisor_version&gt;
+			&lt;disk_available_least&gt;82&lt;/disk_available_least&gt;
+			&lt;local_gb&gt;125&lt;/local_gb&gt;
+			&lt;free_ram_mb&gt;43519&lt;/free_ram_mb&gt;
+			&lt;id&gt;1&lt;/id&gt;
+		&lt;/row&gt;
+	&lt;/hypervisors&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation>nova</operation>
+    <post_template>{assign_object_variable var=&quot;host&quot; value=&quot;{$params.hypervisor_hostname} [ID: {$params.object_id} - State: {$params.state} - State: {$params.status}]&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/hypervisors/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;hypervisor_hostname&gt;(?&lt;hypervisor_hostname&gt;.*)&lt;/hypervisor_hostname&gt;@</regexp>
+          <xpath>hypervisor_hostname</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+          <xpath>state</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;memory_mb&gt;(?&lt;tot_memory&gt;.*)&lt;/memory_mb&gt;@</regexp>
+          <xpath>memory_mb</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;memory_mb_used&gt;(?&lt;used_memory&gt;.*)&lt;/memory_mb_used&gt;@</regexp>
+          <xpath>memory_mb_used</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;free_ram_mb&gt;(?&lt;free_memory&gt;.*)&lt;/free_ram_mb&gt;@</regexp>
+          <xpath>free_ram_mb</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vcpus&gt;(?&lt;tot_cpu&gt;.*)&lt;/vcpus&gt;@</regexp>
+          <xpath>vcpus</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vcpus_used&gt;(?&lt;used_cpu&gt;.*)&lt;/vcpus_used&gt;@</regexp>
+          <xpath>vcpus_used</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/os-hypervisors/detail?q=with_servers</xpath>
+  </command>
+</ObjectDefinition>
