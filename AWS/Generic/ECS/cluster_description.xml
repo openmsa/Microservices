@@ -62,11 +62,23 @@
 "clusterName":"{$params.object_id}"
 {literal}}{/literal}]]></operation>
     <rest>Aws\Ecs\EcsClient</rest>
-    <xpath>CreateCluster</xpath>
+    <xpath>createCluster</xpath>
   </command>
   <command name="READ"/>
-  <command name="UPDATE"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
+"cluster":"{$params.object_id}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>updateCluster</xpath>
+  </command>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
+"cluster":"{$cluster_description.$object_id.arn}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>deleteCluster</xpath>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
