@@ -49,7 +49,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach $cluster_list as $cluster} listTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot;  {literal}}{/literal}# {/foreach}</xpath>
+    <xpath>{foreach $cluster_list as $cluster} listTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot;  {literal}}{/literal}{if  $cluster@last}{else}##{/if} {/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
