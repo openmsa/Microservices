@@ -67,7 +67,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach $cluster_list as $cluster} describeTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot; , &quot;tasks&quot;: [ {foreach $task_list as $task} &quot;{$task[&apos;name&apos;]}&quot; {if  $task@last}{else},{/if} {/foreach} ] {literal}}{/literal}# {/foreach}</xpath>
+    <xpath>{foreach $cluster_list as $cluster} describeTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot; , &quot;tasks&quot;: [ {foreach $task_list as $task} &quot;{$task[&apos;name&apos;]}&quot; {if  $task@last}{else},{/if} {/foreach} ] {literal}}{/literal}{if  !$cluster@last}##{/if} {/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
