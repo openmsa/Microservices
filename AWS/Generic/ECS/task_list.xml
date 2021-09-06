@@ -17,7 +17,7 @@
     <name>Task List</name>
     <group>ECS|Tasks</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>50</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,17 +25,31 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ARN" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[Aws\Ecs\EcsClient]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath></xpath>
+        <xpath>/root/taskArns/row</xpath>
       </section>
-      <lines/>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;row&gt;(?&lt;object_id&gt;.*)&lt;/row&gt;@</regexp>
+          <xpath>//row</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;row&gt;.*task/(?&lt;name&gt;.*)&lt;/row&gt;@</regexp>
+          <xpath>//row</xpath>
+        </line>
+      </lines>
     </parser>
+    <xpath>{foreach $cluster_list as $cluster} listTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot;  {literal}}{/literal}# {/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
