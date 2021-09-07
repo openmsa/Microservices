@@ -1,0 +1,118 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Latest Task Definition Description</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>3</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="family" name="params.family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Revision" name="params.revision" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="cpu" name="params.cpu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="memory" name="params.memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ARN" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Image" name="params.containers.0.image" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator=" | " groupDisplayName="Containers" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+    </variable>
+    <variable displayName="CPU" name="params.containers.0.cpu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator=" | " groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+    </variable>
+    <variable displayName="Memory" name="params.containers.0.memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator=" | " groupDisplayName="Containers" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[Aws\Ecs\EcsClient]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>/root/taskDefinition</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;taskDefinitionArn&gt;(?&lt;object_id&gt;.*)&lt;/taskDefinitionArn&gt;@</regexp>
+          <xpath>taskDefinitionArn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;family&gt;(?&lt;family&gt;.*)&lt;/family&gt;@</regexp>
+          <xpath>family</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;revision&gt;(?&lt;revision&gt;.*)&lt;/revision&gt;@</regexp>
+          <xpath>revision</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;cpu&gt;(?&lt;cpu&gt;.*)&lt;/cpu&gt;@</regexp>
+          <xpath>cpu</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;memory&gt;(?&lt;memory&gt;.*)&lt;/memory&gt;@</regexp>
+          <xpath>memory</xpath>
+        </line>
+        <line>
+          <array name="containers">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;image&gt;(?&lt;image&gt;.*)&lt;/image&gt;@</regexp>
+                <xpath>image</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;cpu&gt;(?&lt;cpu&gt;.*)&lt;/cpu&gt;@</regexp>
+                <xpath>cpu</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;memoryReservation&gt;(?&lt;memory&gt;.*)&lt;/memoryReservation&gt;@</regexp>
+                <xpath>memoryReservation</xpath>
+              </line>
+            </lines>
+            <mregexp/>
+            <xpath>//containerDefinitions/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{foreach $task_definition_families_list as $task_definition_families}  describeTaskDefinition#{literal}{{/literal}  &quot;taskDefinition&quot;: &quot;{$task_definition_families[&apos;object_id&apos;]}&quot;   {literal}}{/literal} {if !$task_definition_families@last}##{/if} {/foreach}</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
