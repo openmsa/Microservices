@@ -177,7 +177,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach $task_definition_list as $task_definition}  describeTaskDefinition#{literal}{{/literal}  &quot;taskDefinition&quot;: &quot;{$task_definition[&apos;object_id&apos;]}&quot;   {literal}}{/literal} {if !$task_definition_families@last}##{/if} {/foreach}</xpath>
+    <xpath>{foreach $task_definition_list as $task_definition}  describeTaskDefinition#{literal}{{/literal}  &quot;taskDefinition&quot;: &quot;{$task_definition[&apos;object_id&apos;]}&quot;   {literal}}{/literal} {if !$task_definition@last}##{/if} {/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
