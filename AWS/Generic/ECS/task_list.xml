@@ -17,7 +17,7 @@
     <name>Task List</name>
     <group>ECS|Tasks</group>
     <importonce>false</importonce>
-    <importrank>50</importrank>
+    <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -49,7 +49,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach $cluster_list as $cluster} listTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot;  {literal}}{/literal}{if  !$cluster@last}##{/if} {/foreach}</xpath>
+    <xpath>{if !empty($cluster_list)}{foreach $cluster_list as $cluster} listTasks#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot;  {literal}}{/literal}{if  !$cluster@last}##{/if} {/foreach}{/if}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>

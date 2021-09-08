@@ -17,7 +17,7 @@
     <name>Cluster Description</name>
     <group>ECS|Clusters</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>2</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -55,7 +55,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>describeClusters#{literal}{{/literal} &quot;clusters&quot; : [   {foreach $cluster_list as $cluster} &quot;{$cluster[&apos;name&apos;]}&quot; {if  $cluster@last}{else},{/if} {/foreach} ] {literal}}{/literal}</xpath>
+    <xpath>{if !empty($cluster_list)}describeClusters#{literal}{{/literal} &quot;clusters&quot; : [   {foreach $cluster_list as $cluster} &quot;{$cluster[&apos;name&apos;]}&quot; {if  $cluster@last}{else},{/if} {/foreach} ] {literal}}{/literal}{/if}</xpath>
   </command>
   <command name="CREATE">
     <operation><![CDATA[{literal}{{/literal}

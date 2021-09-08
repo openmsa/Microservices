@@ -31,9 +31,7 @@
         <class>task_definition_description</class>
       </classes>
     </variable>
-    <variable displayName="Launch Type" name="params.launch_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values/>
-    </variable>
+    <variable displayName="Launch Type" name="params.launch_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Number of tasks" name="params.desired_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Running Tasks" name="params.running_tasks" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Minimum Healthy Percent" name="params.minimum_healthy_percent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -113,7 +111,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach $cluster_list as $cluster} describeServices#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot; , &quot;services&quot;: [ {foreach $service_list as $service} &quot;{$service[&apos;name&apos;]}&quot; {if  $service@last}{else},{/if} {/foreach} ] {literal}}{/literal}{if  !$cluster@last}##{/if} {/foreach}</xpath>
+    <xpath>{foreach $cluster_list as $cluster} {if !empty($service_list)} describeServices#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot; , &quot;services&quot;: [ {foreach $service_list as $service} &quot;{$service[&apos;name&apos;]}&quot; {if !$service@last},{/if} {/foreach} ] {literal}}{/literal}{if  !$cluster@last}##{/if}  {/if} {/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>

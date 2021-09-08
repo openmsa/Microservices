@@ -17,7 +17,7 @@
     <name>Latest Task Definition Description</name>
     <group>ECS|Tasks</group>
     <importonce>false</importonce>
-    <importrank>3</importrank>
+    <importrank>100</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -26,7 +26,7 @@
   </information>
   <variables frozen="0">
     <variable displayName="family" name="params.family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Revision" name="params.revision" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Revision" name="params.revision" startIncrement="1" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="CPU" name="params.cpu" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="256" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue=".25 vCPU">256</values>
@@ -75,6 +75,7 @@
         <values displayValue="2 GB">2048</values>
       </values>
     </variable>
+    <variable displayName="launch_type" name="params.compatibilities.0.launch_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -140,9 +141,24 @@
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array name="compatibilities">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;row&gt;(?&lt;launch_type&gt;.*)&lt;/row&gt;@</regexp>
+                <xpath>.</xpath>
+              </line>
+            </lines>
+            <mregexp/>
+            <xpath>//compatibilities/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
       </lines>
     </parser>
-    <xpath>{foreach $task_definition_families_list as $task_definition_families}  describeTaskDefinition#{literal}{{/literal}  &quot;taskDefinition&quot;: &quot;{$task_definition_families[&apos;object_id&apos;]}&quot;   {literal}}{/literal} {if !$task_definition_families@last}##{/if} {/foreach}</xpath>
+    <xpath>{foreach $task_definition_list as $task_definition}  describeTaskDefinition#{literal}{{/literal}  &quot;taskDefinition&quot;: &quot;{$task_definition[&apos;object_id&apos;]}&quot;   {literal}}{/literal} {if !$task_definition_families@last}##{/if} {/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
@@ -151,19 +167,16 @@
 "containerDefinitions": {literal}[{/literal}
 {foreach $params.containers as $container}
   {literal}{{/literal}
-  {if !empty($container.name)}
   "name": "{$container.name}",
-  {/if}
-  {if !empty($container.image)}
   "image": "{$container.image}",
-  {/if}
-  {if !empty($container.cpu)}
   "cpu": {$container.cpu},
-  {/if}
-  {if !empty($container.memory)}
   "memory": {$container.memory}
-  {/if}
   {literal}}{/literal}
+{/foreach}
+{literal}]{/literal},
+"requiresCompatibilities" : {literal}[{/literal}
+{foreach $params.compatibilities as $compatibility}
+"{$compatibility.launch_type}"{if !$compatibility@last},{/if}
 {/foreach}
 {literal}]{/literal},
 "revision": "{$params.revision}",
@@ -175,6 +188,12 @@
     <xpath>RegisterTaskDefinition</xpath>
   </command>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
+"taskDefinition": "{$task_definition_description.$object_id.object_id}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>deregisterTaskDefinition</xpath>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
