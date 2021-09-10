@@ -120,7 +120,7 @@
 "service": "{$params.name}",
 "cluster": "{$params.cluster_arn}",
 "taskDefinition": "{$params.task_definition}",
-"desiredCount": "{$params.desired_count}",
+"desiredCount": {$params.desired_count},
 "deploymentConfiguration": 
     {literal}{{/literal}
         "maximumPercent": {$params.maximum_percent},
