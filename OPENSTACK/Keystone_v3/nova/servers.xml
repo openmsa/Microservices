@@ -466,12 +466,14 @@
                 <regexp>@&lt;version&gt;(?&lt;version&gt;.*)&lt;/version&gt;@</regexp>
               </line>
               <line>
-                <xpath>mac_addr</xpath>
-                <regexp>@&lt;mac_addr&gt;(?&lt;mac_addr&gt;.*)&lt;/mac_addr&gt;@</regexp>
+                <array/>
+                <regexp>@&lt;OS-EXT-IPS-MAC-mac_addr&gt;(?&lt;mac_addr&gt;.*)&lt;/OS-EXT-IPS-MAC-mac_addr&gt;@</regexp>
+                <xpath>OS-EXT-IPS-MAC-mac_addr</xpath>
               </line>
               <line>
-                <xpath>type</xpath>
-                <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+                <array/>
+                <regexp>@&lt;OS-EXT-IPS-type&gt;(?&lt;type&gt;.*)&lt;/OS-EXT-IPS-type&gt;@</regexp>
+                <xpath>OS-EXT-IPS-type</xpath>
               </line>
             </lines>
           </array>
