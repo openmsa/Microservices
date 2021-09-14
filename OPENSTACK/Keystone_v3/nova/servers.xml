@@ -472,8 +472,18 @@
               </line>
               <line>
                 <array/>
+                <regexp>@&lt;mac_addr&gt;(?&lt;mac_addr&gt;.*)&lt;/mac_addr&gt;@</regexp>
+                <xpath>mac_addr</xpath>
+              </line>
+              <line>
+                <array/>
                 <regexp>@&lt;OS-EXT-IPS-type&gt;(?&lt;type&gt;.*)&lt;/OS-EXT-IPS-type&gt;@</regexp>
                 <xpath>OS-EXT-IPS-type</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+                <xpath>type</xpath>
               </line>
             </lines>
           </array>
