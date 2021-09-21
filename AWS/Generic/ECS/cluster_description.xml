@@ -1,0 +1,84 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Cluster Description</name>
+    <group>ECS|Clusters</group>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ARN" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[Aws\Ecs\EcsClient]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>/root/clusters/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;clusterArn&gt;(?&lt;object_id&gt;.*)&lt;/clusterArn&gt;@</regexp>
+          <xpath>//row</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;clusterName&gt;(?&lt;name&gt;.*)&lt;/clusterName&gt;@</regexp>
+          <xpath>//row</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>//row</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{if !empty($cluster_list)}describeClusters#{literal}{{/literal} &quot;clusters&quot; : [   {foreach $cluster_list as $cluster} &quot;{$cluster[&apos;name&apos;]}&quot; {if  $cluster@last}{else},{/if} {/foreach} ] {literal}}{/literal}{/if}</xpath>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
+"clusterName":"{$params.name}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>createCluster</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
+"cluster":"{$params.name}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>updateCluster</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
+"cluster":"{$cluster_description.$object_id.name}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>deleteCluster</xpath>
+  </command>
+  <command name="LIST"/>
+</ObjectDefinition>
