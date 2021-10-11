@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description></description>
+    <description>for Cisco IOS XR emulation</description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>interface</name>
+    <name>interface - ios-xr</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
@@ -38,7 +38,7 @@
     <operation><![CDATA[cat /sample-config.interface.ios.txt]]></operation>
     <parser>
       <section>
-        <regexp>@interface\s+(?&lt;object_id&gt;\S+[0-9]+)@</regexp>
+        <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
         <xpath/>
       </section>
       <lines>
