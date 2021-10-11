@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>policy_map - ios-xr</name>
+    <name>class_map - ios-xr</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -26,21 +26,21 @@
   </information>
   <variables frozen="0">
     <variable displayName="name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="name" name="params.classes.0.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="match" name="params.matches.0.match" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /sample-config.policy-map.ios.txt]]></operation>
+    <operation><![CDATA[cat /sample-config.class-map.ios.txt]]></operation>
     <parser>
       <section>
-        <regexp>@policy-map\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@class-map match-any (?&lt;object_id&gt;\S+)\s*@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
-          <array name="classes">
+          <array name="matches">
             <lines/>
-            <regexp>@\s+class\s+(?&lt;name&gt;\S+)@</regexp>
+            <regexp>@\s+match\s(?&lt;match&gt;.+)@</regexp>
             <mregexp/>
             <xpath/>
           </array>
