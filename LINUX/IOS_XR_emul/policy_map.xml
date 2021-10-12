@@ -43,6 +43,11 @@
           <array name="classes">
             <lines>
               <line>
+                <array/>
+                <regexp>@\s+class\s+(?&lt;name&gt;\S+)@</regexp>
+                <xpath/>
+              </line>
+              <line>
                 <array name="bandwidth">
                   <lines>
                     <line>
@@ -56,11 +61,6 @@
                   <xpath/>
                 </array>
                 <regexp/>
-                <xpath/>
-              </line>
-              <line>
-                <array/>
-                <regexp>@\s+class\s+(?&lt;name&gt;\S+)@</regexp>
                 <xpath/>
               </line>
             </lines>
