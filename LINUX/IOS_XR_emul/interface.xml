@@ -36,7 +36,7 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /sample-config.interface.ios.txt]]></operation>
+    <operation><![CDATA[cat /sample-config.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -67,13 +67,13 @@
           <regexp>@!@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sno@</regexp>
+          <regexp>@\s+no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sppp@</regexp>
+          <regexp>@\s+ppp@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sshutdown@</regexp>
+          <regexp>@\s+shutdown@</regexp>
         </ignore>
       </lines>
     </parser>

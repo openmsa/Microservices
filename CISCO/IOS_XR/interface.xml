@@ -39,13 +39,13 @@
     <operation><![CDATA[show running-config all]]></operation>
     <parser>
       <section>
-        <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@\s*interface\s?(preconfigure)?\s(?&lt;object_id&gt;\S+)@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@\sipv4\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)@</regexp>
+          <regexp>@\s(ipv4)?\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -67,13 +67,13 @@
           <regexp>@!@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sno@</regexp>
+          <regexp>@\s+no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sppp@</regexp>
+          <regexp>@\s+ppp@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sshutdown@</regexp>
+          <regexp>@\s+shutdown@</regexp>
         </ignore>
       </lines>
     </parser>
