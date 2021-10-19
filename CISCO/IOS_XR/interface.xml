@@ -36,7 +36,7 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /sample-config.interface.ios.txt]]></operation>
+    <operation><![CDATA[show running-config all]]></operation>
     <parser>
       <section>
         <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -45,7 +45,7 @@
       <lines>
         <line>
           <array/>
-          <regexp>@\sip\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)@</regexp>
+          <regexp>@\sipv4\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
