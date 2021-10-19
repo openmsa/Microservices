@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description></description>
+    <description>for Cisco IOS XR emulation</description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>interface</name>
+    <name>interface - ios-xr</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
@@ -30,6 +30,7 @@
     <variable displayName="mask" name="params.mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="vrf" name="params.vrf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="policy_map" name="params.policy_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content></content>
@@ -38,7 +39,7 @@
     <operation><![CDATA[cat /sample-config.interface.ios.txt]]></operation>
     <parser>
       <section>
-        <regexp>@interface\s+(?&lt;object_id&gt;\S+[0-9]+)@</regexp>
+        <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
         <xpath/>
       </section>
       <lines>
@@ -57,17 +58,22 @@
           <regexp>@\sdescription\s(?&lt;description&gt;.*)@</regexp>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@\sservice-policy\soutput\s(?&lt;policy_map&gt;.*)@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@!@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s.no@</regexp>
+          <regexp>@\sno@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s.ppp@</regexp>
+          <regexp>@\sppp@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s.shutdown@</regexp>
+          <regexp>@\sshutdown@</regexp>
         </ignore>
       </lines>
     </parser>
