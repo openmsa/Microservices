@@ -25,16 +25,59 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="AS number" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_router_id" name="params.bgp_router_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="neighbor IP" name="params.neighbors.0.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="remote_as" name="params.neighbors.0.config.0.remote_as" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[cat /sample-config.router.ios.txt]]></operation>
     <parser>
       <section>
-        <regexp>@^\s \s*$@</regexp>
+        <regexp>@router\s(?&lt;type&gt;(bgp))\s(?&lt;object_id&gt;\d+)@</regexp>
         <xpath/>
       </section>
-      <lines/>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@\sbgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="neighbors">
+            <lines>
+              <line>
+                <array name="config">
+                  <lines/>
+                  <regexp>@^(?&lt;remote_as&gt;.*)$@</regexp>
+                  <mregexp/>
+                  <xpath/>
+                </array>
+                <regexp/>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@\s+neighbor\s+(?&lt;ip&gt;\S+)@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <mregexp/>
+            <xpath/>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@\s+no@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@\s+bgp@</regexp>
+        </ignore>
+      </lines>
     </parser>
   </command>
   <command name="CREATE"/>
