@@ -36,7 +36,7 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>

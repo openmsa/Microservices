@@ -32,7 +32,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /sample-config.interface-status.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.interface-status.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@(?&lt;object_id&gt;\S+)\s+(?&lt;status&gt;up|down|admin down)\s+(?&lt;protocol&gt;up|down)\s+(?&lt;description&gt;.+)@</regexp>

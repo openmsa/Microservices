@@ -33,7 +33,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /sample-config.vrf.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.vrf.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@ip\svrf\s(?&lt;object_id&gt;\S+)@</regexp>
