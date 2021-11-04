@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>vrf - ios-xr emulator</name>
+    <name>vrf - cisco ios - emulator</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
@@ -54,8 +54,6 @@
           <array name="route_target">
             <lines/>
             <regexp>@\sroute-target\simport\s(?&lt;rt&gt;[0-9]+:[0-9]+)@</regexp>
-            <mregexp/>
-            <xpath/>
           </array>
           <regexp/>
           <xpath/>

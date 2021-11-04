@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>router - ios-xr emulator</name>
+    <name>router - cisco ios - emulator</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -52,8 +52,6 @@
                 <array name="config">
                   <lines/>
                   <regexp>@^(?&lt;remote_as&gt;.*)$@</regexp>
-                  <mregexp/>
-                  <xpath/>
                 </array>
                 <regexp/>
                 <xpath/>
@@ -65,8 +63,6 @@
               </line>
             </lines>
             <lines/>
-            <mregexp/>
-            <xpath/>
           </array>
           <regexp/>
           <xpath/>

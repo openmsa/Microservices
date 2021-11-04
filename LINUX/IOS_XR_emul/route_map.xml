@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>route_map - ios-xr emulator</name>
+    <name>route_map - cisco ios - emulator</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>20</importrank>
@@ -56,8 +56,6 @@
           <array name="extcommunity">
             <lines/>
             <regexp>@\sset\sextcommunity\srt\s\s(?&lt;rt&gt;.+)@</regexp>
-            <mregexp/>
-            <xpath/>
           </array>
           <regexp/>
           <xpath/>
