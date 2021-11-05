@@ -26,12 +26,29 @@
   </information>
   <variables frozen="0">
     <variable displayName="name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="class name" name="params.classes.0.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="priority" name="params.classes.0.priority" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="class_name" name="params.class.0.class_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="queue_limit" name="params.class.0.queue_limit" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="service_policy" name="params.class.0.service_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bandwidth" name="params.class.0.bandwidth.0.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="priority" name="params.class.0.priority" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="police" name="params.class.0.police" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
-  <example/>
+  <example>
+    <content>!
+policy-map PHB/POS155/R33/B90/SXE
+  class IB
+    queue-limit 1200 packets
+    service-policy POLIIB-toCE-840
+  class JU
+    queue-limit 2345 packets
+policy-map toCE-0-384-0-640-840
+  class VD
+    priority 384
+    police 384000 conform-action set-dscp-transmit cs5 exceed-action drop
+!</content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.policy-map.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.policy-map.ios.simple.txt]]></operation>
     <parser>
       <section>
         <regexp>@policy-map\s+(?&lt;object_id&gt;\S+)\s*@</regexp>
@@ -39,20 +56,51 @@
       </section>
       <lines>
         <line>
-          <array name="classes">
+          <array name="class">
             <lines>
               <line>
+                <array name="bandwidth">
+                  <regexp>@^\s+bandwidth\s+(?&lt;bandwidth&gt;.*)@</regexp>
+                </array>
+                <regexp/>
+                <xpath/>
+              </line>
+              <line>
                 <array/>
-                <regexp>@\s+priority\s+(?&lt;priority&gt;\d+)@</regexp>
+                <regexp>@^\s+queue-limit\s+(?&lt;queue_limit&gt;.*)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s+service-policy\s+(?&lt;service_policy&gt;.*)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s+priority\s+(?&lt;priority&gt;.*)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s+police\s+(?&lt;police&gt;.*)@</regexp>
                 <xpath/>
               </line>
             </lines>
             <lines/>
-            <regexp>@\s+class\s+(?&lt;name&gt;\S+)@</regexp>
+            <regexp>@^\s+class\s+(?&lt;class_name&gt;\S+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
         </line>
+        <ignore>
+          <regexp>@^\spolice@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\spriority@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^!@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
