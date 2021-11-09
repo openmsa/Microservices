@@ -40,37 +40,62 @@
     <variable displayName="vrf" name="params.vrf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="policy_map" name="params.policy_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bandwidth" name="params.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="multilink" name="params.ppp.0.multilink" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="speed" name="params.speed" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="duplex" name="params.duplex" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="isis" name="params.isis.0.isis" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="route_cache" name="params.route_cache" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="encapsulation" name="params.encapsulation" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="direction" name="params.service_policy.0.direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator=" " groupDisplayName="service_policy" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="policy_map" name="params.service_policy.0.policy_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="frame_relay" name="params.frame_relay.0.frame_relay" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="frame_relay_class" name="params.frame_relay.0.fr_class.0.frame_relay_class" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>!
-interface Multilink4
- description By VPNSC: Job Id# = 247137 (Bco_Santander_Sao_Paulo_SP_713438)
- bandwidth 2048
- ip vrf forwarding V1622:VPN3_Santander_MPLS
- ip address 187.9.33.197 255.255.255.252
+interface Serial1/0/0.1/1/1/1:0
+ description interface
+ ip vrf forwarding INTRAGOV
+ ip address 201.61.124.105 255.255.255.252
  no ip redirects
- no ip unreachables
  no ip proxy-arp
+ encapsulation ppp
  shutdown
- ppp multilink
- ppp multilink interleave
- ppp multilink group 4
- ppp multilink fragment delay 10
+ no fair-queue
  no cdp enable
- service-policy output PREMIUM_2048K_VPN-IP-PE_VOICE
+ duplex full
+ speed 100
+ service-policy output toCE-0-0-0-1250-600
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.interface.ios.simple.txt]]></operation>
     <parser>
       <section>
         <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -79,23 +104,18 @@ interface Multilink4
       <lines>
         <line>
           <array/>
-          <regexp>@\sip\svrf\sforwarding\s(?&lt;vrf&gt;\S+)@</regexp>
+          <regexp>@^\s+ip\s+vrf\s+forwarding\s+(?&lt;vrf&gt;.*)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@\sdescription\s(?&lt;description&gt;.*)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@\sservice-policy\soutput\s(?&lt;policy_map&gt;.*)@</regexp>
+          <regexp>@^\s+description\s+(?&lt;description&gt;.*)@</regexp>
           <xpath/>
         </line>
         <line>
           <array name="addresses">
-            <regexp>@\sip\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)\s+(?&lt;type&gt;(secondary|/s*))@</regexp>
-            <regexp>@\sip\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)@</regexp>
+            <regexp>@^\s+ip\+saddress\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)\s+(?&lt;type&gt;(secondary|/s*))@</regexp>
+            <regexp>@^\s+ip\s+address\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -107,17 +127,70 @@ interface Multilink4
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s+bandwidth\s+(?&lt;bandwidth&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+encapsulation\s+(?&lt;encapsulation&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+speed\s+(?&lt;speed&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+duplex\s+(?&lt;duplex&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="isis">
+            <regexp>@^\s+isis\s+(?&lt;isis&gt;.*)$@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+ip\s+route-cache\s+(?&lt;route_cache&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="frame_relay">
+            <lines>
+              <line>
+                <array name="fr_class">
+                  <regexp>@^\s+class\s+(?&lt;frame_relay_class&gt;\S+)@</regexp>
+                </array>
+                <regexp/>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@^\s+frame-relay\s+(?&lt;frame_relay&gt;.*)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="service_policy">
+            <regexp>@^\s+service-policy\s+(?&lt;direction&gt;(input|output))\s+(?&lt;policy_map&gt;.*)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
         <ignore>
-          <regexp>@!@</regexp>
+          <regexp>@^\s*!.*@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s+no@</regexp>
+          <regexp>@^\s*no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s+ppp@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@\s+shutdown@</regexp>
+          <regexp>@^\s*shutdown@</regexp>
         </ignore>
       </lines>
     </parser>
