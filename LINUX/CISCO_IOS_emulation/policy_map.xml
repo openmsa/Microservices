@@ -67,12 +67,20 @@
     <variable displayName="set_value" name="params.pmap_class.0.set.0.set_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="bandwidth" name="params.pmap_class.0.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
-    <content>policy-map BUSINESS_PERFIL_512/512/0
-  class class-default
-    shape average 488000 3904 0
-   service-policy BUSINESS_512K_QOS
+    <content>policy-map toCE-0-1152-0-640-60
+  class BLL
+    bandwidth 640
+    random-detect dscp-based
+    random-detect dscp 12 53 159 1
+    random-detect dscp 19 596 600 1
+    random-detect dscp 20 596 600 1
+    queue-limit 1200 packets
+    service-policy POLIBLL-toCE-640
 !</content>
   </example>
   <command name="IMPORT">
@@ -86,13 +94,6 @@
         <line>
           <array name="pmap_class">
             <lines>
-              <line>
-                <array name="bandwidth">
-                  <regexp>@^\s+bandwidth\s+(?&lt;bandwidth&gt;.*)$@</regexp>
-                </array>
-                <regexp/>
-                <xpath/>
-              </line>
               <line>
                 <array/>
                 <regexp>@^\s+queue-limit\s+(?&lt;queue_limit&gt;.*)$@</regexp>
@@ -146,6 +147,11 @@
                   <regexp>@^\s+set\s+(?&lt;set_type&gt;\S+)\s+(?&lt;set_value&gt;.*)@</regexp>
                 </array>
                 <regexp/>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s+bandwidth\s+(?&lt;bandwidth&gt;.*)$@</regexp>
                 <xpath/>
               </line>
             </lines>
