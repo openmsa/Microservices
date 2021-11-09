@@ -79,13 +79,6 @@ interface Serial1/0/0.1/1/1/1:0
       </section>
       <lines>
         <line>
-          <array name="service_policy">
-            <regexp>@^\s+service-policy\s+(?&lt;direction&gt;(input|output))\s+(?&lt;policy_map&gt;.*)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array name="frame_relay">
             <lines>
               <line>
@@ -98,6 +91,13 @@ interface Serial1/0/0.1/1/1/1:0
             </lines>
             <lines/>
             <regexp>@^\s+frame-relay\s+(?&lt;frame_relay&gt;.*)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="service_policy">
+            <regexp>@^\s+service-policy\s+(?&lt;direction&gt;(input|output))\s+(?&lt;policy_map&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
