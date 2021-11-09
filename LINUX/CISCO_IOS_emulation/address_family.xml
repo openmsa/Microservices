@@ -46,7 +46,8 @@
     <operation><![CDATA[cat /config/cisco_ios/sample-config.adress-family.txt]]></operation>
     <parser>
       <section>
-        <regexp>@address-family\sipv4\svrf\s(?&lt;object_id&gt;\S+)\s*@</regexp>
+        <regexp>@^\s+address-family\s+ipv4\s+vrf\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^\s+address-family\s+(?&lt;object_id&gt;(ipv4))@</regexp>
         <xpath/>
       </section>
       <lines>
