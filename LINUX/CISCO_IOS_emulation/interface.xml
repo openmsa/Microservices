@@ -122,7 +122,7 @@ interface Serial1/0/0.1/1/1/1:0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.interface.ios.simple.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.interface.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
