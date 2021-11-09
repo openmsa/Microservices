@@ -58,39 +58,39 @@ route-map EXPORTA-INTRAGOV permit 10
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.route-map.simple.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.route-map.txt]]></operation>
     <post_template></post_template>
     <parser>
       <section>
-        <regexp>@\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;[^\s]+)\s+(?&lt;action&gt;[^\s+]+)\s+(?&lt;priority&gt;\d+))@</regexp>
+        <regexp>@\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+))$@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@^\smatch\sip\saddress\s(?&lt;match_ip&gt;\S+)@</regexp>
+          <regexp>@^\s+match\s+ip\s+address\s+(?&lt;match_ip&gt;\S+)$@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\sset\slocal-preference\s(?&lt;local_preference&gt;\d+)@</regexp>
+          <regexp>@^\s+set\slocal-preference\s+(?&lt;local_preference&gt;\d+)$@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s+set community\s+(?&lt;community&gt;\d+:\d+)@</regexp>
+          <regexp>@^\s+set\s+community\s+(?&lt;community&gt;\d+:\d+)$@</regexp>
           <xpath/>
         </line>
         <line>
           <array name="extcommunity">
             <lines/>
-            <regexp>@^\s+set\s+extcommunity\s+rt\s+(?&lt;extcommunity&gt;.*)$@</regexp>
+            <mregexp>@\s+(?&lt;extcommunity&gt;\d+:\d+)@</mregexp>
           </array>
           <regexp/>
           <xpath/>
         </line>
         <ignore>
-          <regexp>@^!@</regexp>
+          <regexp>@^\s*!.*$@</regexp>
         </ignore>
       </lines>
     </parser>
