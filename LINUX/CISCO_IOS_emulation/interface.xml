@@ -194,6 +194,13 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
+          <array name="tcp">
+            <regexp>@^\s+ip\s+tcp\s+(?&lt;tcp&gt;.*)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
           <array name="frame_relay">
             <lines>
               <line>
@@ -206,13 +213,6 @@ interface Serial1/0/0.1/1/1/1:0
             </lines>
             <lines/>
             <regexp>@^\s+frame-relay\s+(?&lt;frame_relay&gt;.*)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
-          <array name="tcp">
-            <regexp>@^\s+ip\s+tcp\s+(?&lt;tcp&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
