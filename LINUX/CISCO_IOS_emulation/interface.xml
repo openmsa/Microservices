@@ -121,13 +121,6 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="ppp">
-            <regexp>@^\s+ppp\s+(?&lt;multilink&gt;.*)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array/>
           <regexp>@^\s+bandwidth\s+(?&lt;bandwidth&gt;\S+)@</regexp>
           <xpath/>
@@ -148,6 +141,18 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
+          <array/>
+          <regexp>@^\s+ip\s+route-cache\s+(?&lt;route_cache&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="ppp">
+            <regexp>@^\s+ppp\s+(?&lt;multilink&gt;.*)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
           <array name="isis">
             <regexp>@^\s+isis\s+(?&lt;isis&gt;.*)$@</regexp>
           </array>
@@ -155,8 +160,10 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@^\s+ip\s+route-cache\s+(?&lt;route_cache&gt;\S+)@</regexp>
+          <array name="service_policy">
+            <regexp>@^\s+service-policy\s+(?&lt;direction&gt;(input|output))\s+(?&lt;policy_map&gt;.*)@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <line>
@@ -172,13 +179,6 @@ interface Serial1/0/0.1/1/1/1:0
             </lines>
             <lines/>
             <regexp>@^\s+frame-relay\s+(?&lt;frame_relay&gt;.*)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
-          <array name="service_policy">
-            <regexp>@^\s+service-policy\s+(?&lt;direction&gt;(input|output))\s+(?&lt;policy_map&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
