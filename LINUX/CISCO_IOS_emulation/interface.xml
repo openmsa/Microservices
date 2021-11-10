@@ -131,8 +131,11 @@ interface Serial1/0/0.1/1/1/1:0
       </section>
       <lines>
         <line>
-          <array/>
-          <regexp>@^\s+ip\s+vrf\s+forwarding\s+(?&lt;vrf&gt;.*)@</regexp>
+          <array name="addresses">
+            <regexp>@^\s+ip\+saddress\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)\s+(?&lt;type&gt;(secondary|/s*))@</regexp>
+            <regexp>@^\s+ip\s+address\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <line>
@@ -141,11 +144,8 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="addresses">
-            <regexp>@^\s+ip\+saddress\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)\s+(?&lt;type&gt;(secondary|/s*))@</regexp>
-            <regexp>@^\s+ip\s+address\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)@</regexp>
-          </array>
-          <regexp/>
+          <array/>
+          <regexp>@^\s+ip\s+vrf\s+forwarding\s+(?&lt;vrf&gt;.*)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -181,16 +181,8 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="isis">
-            <lines>
-              <line>
-                <array/>
-                <regexp>@^\s+isis\s+(network|metric|authentication mode|authentication key-chain|csnp-interval|\s*)(?&lt;value&gt;(bfd)|.*)@</regexp>
-                <xpath/>
-              </line>
-            </lines>
-            <lines/>
-            <regexp>@^\s+isis\s+circuit-type\s+(?&lt;level&gt;.*)@</regexp>
+          <array name="tcp">
+            <regexp>@^\s+ip\s+tcp\s+(?&lt;tcp&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -203,8 +195,16 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="tcp">
-            <regexp>@^\s+ip\s+tcp\s+(?&lt;tcp&gt;.*)@</regexp>
+          <array name="isis">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^\s+isis\s+(network|metric|authentication mode|authentication key-chain|csnp-interval|\s*)(?&lt;value&gt;(bfd)|.*)@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@^\s+isis\s+circuit-type\s+(?&lt;level&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
