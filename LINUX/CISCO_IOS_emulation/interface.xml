@@ -109,7 +109,7 @@
         <sections>isis</sections>
       </sections>
     </variable>
-    <variable displayName="value" name="params.isis.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="value" name="params.isis.0.isis_conf.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>isis</sections>
@@ -198,8 +198,10 @@ interface Serial1/0/0.1/1/1/1:0
           <array name="isis">
             <lines>
               <line>
-                <array/>
-                <regexp>@^\s+isis\s+(network|metric|authentication mode|authentication key-chain|csnp-interval|\s*)(?&lt;value&gt;(bfd)|.*)@</regexp>
+                <array name="isis_conf">
+                  <regexp>@^\s+isis\s+(network|metric|authentication mode|authentication key-chain|csnp-interval|\s*)(?&lt;value&gt;(bfd)|.*)@</regexp>
+                </array>
+                <regexp/>
                 <xpath/>
               </line>
             </lines>
