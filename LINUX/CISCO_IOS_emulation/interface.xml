@@ -206,21 +206,6 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="isis">
-            <lines>
-              <line>
-                <array/>
-                <regexp>@^\s+(?&lt;value&gt;.*)@</regexp>
-                <xpath/>
-              </line>
-            </lines>
-            <lines/>
-            <regexp>@^\s+isis\s+circuit-type\s+(?&lt;level&gt;.*)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array name="frame_relay">
             <lines>
               <line>
@@ -233,6 +218,21 @@ interface Serial1/0/0.1/1/1/1:0
             </lines>
             <lines/>
             <regexp>@^\s+frame-relay\s+(?&lt;frame_relay&gt;.*)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="isis">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^\s+(?&lt;value&gt;.*)@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@^\s+isis\s+circuit-type\s+(?&lt;level&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
