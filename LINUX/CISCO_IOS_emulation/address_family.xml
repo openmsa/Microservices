@@ -41,13 +41,20 @@
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content>!
+ address-family ipv4 vrf ACESSA-SP
+  no synchronization
+  redistribute static
+ exit-address-family
+ !</content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.adress-family.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.adress-family.simple.txt]]></operation>
     <parser>
       <section>
-        <regexp>@^\s+address-family\s+ipv4\s+vrf\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <regexp>@^\s+address-family\s+(?&lt;object_id&gt;(ipv4))@</regexp>
+        <regexp>@^\s+address-family\s+ipv4\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^\s+address-family\s+(ipv4|vpnv4)?\s+(vrf)?\s+(?&lt;object_id&gt;\S+)@</regexp>
         <xpath/>
       </section>
       <lines>
@@ -70,19 +77,22 @@
           <xpath/>
         </line>
         <ignore>
-          <regexp>@exit-address-family@</regexp>
+          <regexp>@^\s*exit-address-family@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sno@</regexp>
+          <regexp>@^\s*no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@ \sredistribute connected@</regexp>
+          <regexp>@ ^\s*redistribute connected@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\sredistribute static@</regexp>
+          <regexp>@^\s*redistribute static@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\sdefault-information@</regexp>
+          <regexp>@^\s*default-information@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
         </ignore>
       </lines>
     </parser>
