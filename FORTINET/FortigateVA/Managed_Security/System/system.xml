@@ -124,7 +124,8 @@ end</content>
   </example>
   <command name="IMPORT">
     <operation><![CDATA[show system global]]></operation>
-    <post_template>{assign_object_variable var=&quot;object_id&quot; value=&quot;0&quot;}
+    <post_template>
+{assign_object_variable var=&quot;object_id&quot; value=&quot;0&quot;}
 {if ($params.device_timezone == &quot;00&quot;)}
 {assign_object_variable var=&quot;timezone&quot; value=&quot;-1200&quot;}
 {elseif ($params.device_timezone == &quot;01&quot;)}
