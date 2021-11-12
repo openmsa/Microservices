@@ -1,0 +1,145 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>0</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>[dc_demo] Template_VMs</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>param._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="VM ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Source Template" name="params.template_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="36bb7175-4fb3-4ef8-bfd0-82db20de55dd" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>VM_Templates</class>
+      </classes>
+    </variable>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="cpu_count" name="params.cpu_count" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="2" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="memory" name="params.memory" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="4096" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="power_state" name="params.power_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Datastore" name="params.datastore" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>datastore</class>
+      </classes>
+    </variable>
+    <variable displayName="Host" name="params.host" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>host</class>
+      </classes>
+    </variable>
+    <variable displayName="Folder" name="params.folder" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>folder</class>
+      </classes>
+    </variable>
+    <variable displayName="Network" name="params.networks.0.network" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>network</class>
+      </classes>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>vcenter</operation>
+    <post_template>{assign_object_variable var=&quot;display_var&quot; value=&quot;{$params.name} - {$params.object_id} - {$params.cpu_count} - {$params.memory_size_MiB} - {$params.power_state}&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/value/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vm&gt;(?&lt;object_id&gt;.*)&lt;/vm&gt;@</regexp>
+          <xpath>//vm</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;cpu_count&gt;(?&lt;cpu_count&gt;.*)&lt;/cpu_count&gt;@</regexp>
+          <xpath>//cpu_count</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;memory_size_MiB&gt;(?&lt;memory&gt;.*)&lt;/memory_size_MiB&gt;@</regexp>
+          <xpath>//memory_size_MiB</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;power_state&gt;(?&lt;power_state&gt;.*)&lt;/power_state&gt;@</regexp>
+          <xpath>//power_state</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>vm</xpath>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation>{
+&quot;spec&quot;: {
+&quot;name&quot;: &quot;{$params.name}&quot;,
+&quot;powered_on&quot;: true,
+&quot;vm_home_storage&quot;: {
+&quot;datastore&quot;: &quot;{$params.datastore}&quot;,
+&quot;storage_policy&quot;: {
+&quot;type&quot;: &quot;USE_SOURCE_POLICY&quot;
+}
+},
+&quot;placement&quot;: {
+&quot;host&quot;: &quot;{$params.host}&quot;,
+&quot;folder&quot;:&quot;{$params.folder}&quot;
+},
+&quot;hardware_customization&quot;: {
+&quot;cpu_update&quot;: {
+&quot;num_cpus&quot;: {$params.cpu_count}
+},
+&quot;memory_update&quot;: {
+&quot;memory&quot;: {$params.memory}
+},
+&quot;nics&quot;: [ {{assign var=&quot;i&quot; value=0}}
+{foreach $params.networks as $item}
+{if $i &gt; 0},{/if}{
+&quot;key&quot;: &quot;400{$i}&quot;,
+&quot;value&quot;: {
+&quot;network&quot;: &quot;{$item.network}&quot;
+}
+}
+{assign var=&quot;i&quot; value=$i+1}
+{/foreach}
+]
+}
+}}</operation>
+    <rest>POST#vcenter</rest>
+    <xpath>vm-template/library-items/{$params.template_id}?action=deploy</xpath>
+  </command>
+  <command name="DELETE">
+    <operation>{}</operation>
+    <rest>vcenter</rest>
+    <xpath>vm/{$Template_VMs.$object_id.object_id}</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="LIST"/>
+</ObjectDefinition>
