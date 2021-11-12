@@ -1,0 +1,242 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Latest Task Definition Description</name>
+    <group>ECS|Tasks</group>
+    <importonce>false</importonce>
+    <importrank>24</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="family_revision" name="params.family_revision" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Family" name="params.family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator=":" groupDisplayName="Name" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="true" isUserLocked="true" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Revision" name="params.revision" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator=":" groupDisplayName="Name" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network Mode" name="params.network_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="bridge" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="bridge">bridge</values>
+        <values displayValue="awsvpc">awsvpc</values>
+        <values displayValue="host">host</values>
+        <values displayValue="none">none</values>
+      </values>
+    </variable>
+    <variable displayName="memory" name="params.memory" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="0.5 GB">512</values>
+        <values displayValue="1 GB">1024</values>
+        <values displayValue="2 GB">2048</values>
+        <values displayValue="3 GB">3072</values>
+        <values displayValue="4 GB">4096</values>
+      </values>
+    </variable>
+    <variable displayName="CPU" name="params.cpu" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue=".25 vCPU">256</values>
+        <values displayValue=".5 vCPU">512</values>
+        <values displayValue="1 vCPU">1024</values>
+        <values displayValue="2 vCPU">2048</values>
+      </values>
+    </variable>
+    <variable displayName="ARN" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="execution_role_arn" name="params.execution_role_arn" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="task_role_arn" name="params.task_role_arn" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.containers.0.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+    </variable>
+    <variable displayName="Image" name="params.containers.0.image" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator=" | " groupDisplayName="Containers" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="httpd:2.4" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+      <values>
+        <values displayValue="nginx:latest">nginx:latest</values>
+        <values displayValue="httpd:2.4">httpd:2.4</values>
+        <values displayValue="tomcat">tomcat</values>
+      </values>
+    </variable>
+    <variable displayName="CPU" name="params.containers.0.cpu" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="256" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+      <values>
+        <values displayValue=".25 vCPU">256</values>
+      </values>
+    </variable>
+    <variable displayName="Memory" name="params.containers.0.memory" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="512" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Containers</sections>
+      </sections>
+      <values>
+        <values displayValue="0.5 GB">512</values>
+        <values displayValue="1 GB">1024</values>
+        <values displayValue="2 GB">2048</values>
+      </values>
+    </variable>
+    <variable displayName="Launch Type" name="params.compatibilities.0.launch_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="FARGATE" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="EC2">EC2</values>
+        <values displayValue="FARGATE">FARGATE</values>
+        <values displayValue="EXTERNAL">EXTERNAL</values>
+      </values>
+    </variable>
+    <variable displayName="_order" name="params._order" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[Aws\Ecs\EcsClient]]></operation>
+    <post_template>{assign_object_variable var=&quot;family_revision&quot; value=&quot;{$params.family}:{$params.revision}&quot;}
+{assign_object_variable var=&quot;_order&quot; value=&quot;{$params.family_revision}&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>/root/taskDefinition</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;taskDefinitionArn&gt;(?&lt;object_id&gt;.*)&lt;/taskDefinitionArn&gt;@</regexp>
+          <xpath>taskDefinitionArn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;family&gt;(?&lt;family&gt;.*)&lt;/family&gt;@</regexp>
+          <xpath>family</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;revision&gt;(?&lt;revision&gt;.*)&lt;/revision&gt;@</regexp>
+          <xpath>revision</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;cpu&gt;(?&lt;cpu&gt;.*)&lt;/cpu&gt;@</regexp>
+          <xpath>cpu</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;memory&gt;(?&lt;memory&gt;.*)&lt;/memory&gt;@</regexp>
+          <xpath>memory</xpath>
+        </line>
+        <line>
+          <array name="containers">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;image&gt;(?&lt;image&gt;.*)&lt;/image&gt;@</regexp>
+                <xpath>image</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;cpu&gt;(?&lt;cpu&gt;.*)&lt;/cpu&gt;@</regexp>
+                <xpath>cpu</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;memory&gt;(?&lt;memory&gt;.*)&lt;/memory&gt;@</regexp>
+                <xpath>memory</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+                <xpath>name</xpath>
+              </line>
+            </lines>
+            <mregexp/>
+            <xpath>//containerDefinitions/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="compatibilities">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;row&gt;(?&lt;launch_type&gt;.*)&lt;/row&gt;@</regexp>
+                <xpath>.</xpath>
+              </line>
+            </lines>
+            <mregexp/>
+            <xpath>//compatibilities/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;networkMode&gt;(?&lt;network_mode&gt;.*)&lt;/networkMode&gt;@</regexp>
+          <xpath>networkMode</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;executionRoleArn&gt;(?&lt;execution_role_arn&gt;.*)&lt;/executionRoleArn&gt;@</regexp>
+          <xpath>executionRoleArn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;taskRoleArn&gt;(?&lt;task_role_arn&gt;.*)&lt;/taskRoleArn&gt;@</regexp>
+          <xpath>taskRoleArn</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{foreach $task_definition_list as $task_definition}  describeTaskDefinition#{literal}{{/literal}  &quot;taskDefinition&quot;: &quot;{$task_definition[&apos;object_id&apos;]}&quot;   {literal}}{/literal} {if !$task_definition@last}##{/if} {/foreach}</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
+"containerDefinitions": {literal}[{/literal}
+{foreach $params.containers as $container}
+  {literal}{{/literal}
+  "name": "{$container.name}",
+  "image": "{$container.image}",
+  "cpu": {$container.cpu},
+  "memory": {$container.memory}
+  {literal}}{/literal}{if !$container@last},{/if}
+{/foreach}
+
+{literal}]{/literal},
+"requiresCompatibilities" : {literal}[{/literal}
+{foreach $params.compatibilities as $compatibility}
+"{$compatibility.launch_type}"{if !$compatibility@last},{/if}
+{/foreach}
+{literal}]{/literal},
+"revision": {$params.revision},
+"family": "{$params.family}",
+"memory": {$params.memory},
+"cpu": {$params.cpu},
+"networkMode": "{$params.network_mode}",
+"executionRoleArn": "{$params.execution_role_arn}",
+"taskRoleArn": "{$params.task_role_arn}",
+"taskDefinitionArn": "{$params.object_id}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>RegisterTaskDefinition</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
+"taskDefinition": "{$task_definition_description.$object_id.object_id}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>deregisterTaskDefinition</xpath>
+  </command>
+  <command name="LIST"/>
+</ObjectDefinition>

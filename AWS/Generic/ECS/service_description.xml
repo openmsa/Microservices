@@ -1,0 +1,143 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Service Description</name>
+    <group>ECS|Services</group>
+    <importonce>false</importonce>
+    <importrank>25</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Task Definition" name="params.task_definition" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>task_definition_description</class>
+      </classes>
+    </variable>
+    <variable displayName="Launch Type" name="params.launch_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Number of tasks" name="params.desired_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Running Tasks" name="params.running_tasks" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Minimum Healthy Percent" name="params.minimum_healthy_percent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Maximum Percent" name="params.maximum_percent" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Cluster Name" name="params.cluster_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ARN" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Cluster ARN" name="params.cluster_arn" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>cluster_list</class>
+      </classes>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[Aws\Ecs\EcsClient]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>/root/services/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;clusterArn&gt;(?&lt;cluster_arn&gt;.*)&lt;/clusterArn&gt;@</regexp>
+          <xpath>clusterArn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;serviceArn&gt;(?&lt;object_id&gt;.*)&lt;/serviceArn&gt;@</regexp>
+          <xpath>serviceArn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;serviceName&gt;(?&lt;name&gt;.*)&lt;/serviceName&gt;@</regexp>
+          <xpath>serviceName</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;clusterArn&gt;.*cluster/(?&lt;cluster_name&gt;.*)&lt;/clusterArn&gt;@</regexp>
+          <xpath>clusterArn</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;taskDefinition&gt;.*task-definition/(?&lt;task_definition&gt;.*)&lt;/taskDefinition&gt;@</regexp>
+          <xpath>taskDefinition</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;maximumPercent&gt;(?&lt;maximum_percent&gt;.*)&lt;/maximumPercent&gt;@</regexp>
+          <xpath>deploymentConfiguration/maximumPercent</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;minimumHealthyPercent&gt;(?&lt;minimum_healthy_percent&gt;.*)&lt;/minimumHealthyPercent&gt;@</regexp>
+          <xpath>deploymentConfiguration/minimumHealthyPercent</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;desiredCount&gt;(?&lt;desired_count&gt;.*)&lt;/desiredCount&gt;@</regexp>
+          <xpath>desiredCount</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;runningCount&gt;(?&lt;running_tasks&gt;.*)&lt;/runningCount&gt;@</regexp>
+          <xpath>runningCount</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;launchType&gt;(?&lt;launch_type&gt;.*)&lt;/launchType&gt;@</regexp>
+          <xpath>launchType</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{foreach $cluster_list as $cluster} {if !empty($service_list)} describeServices#{literal}{{/literal} &quot;cluster&quot; : &quot;{$cluster[&apos;name&apos;]}&quot; , &quot;services&quot;: [ {foreach $service_list as $service} &quot;{$service[&apos;name&apos;]}&quot; {if !$service@last},{/if} {/foreach} ] {literal}}{/literal}{if  !$cluster@last}##{/if}  {/if} {/foreach}</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
+"service": "{$params.name}",
+"cluster": "{$params.cluster_arn}",
+"taskDefinition": "{$params.task_definition}",
+"desiredCount": {$params.desired_count},
+"deploymentConfiguration": 
+    {literal}{{/literal}
+        "maximumPercent": {$params.maximum_percent},
+        "minimumHealthyPercent": {$params.minimum_healthy_percent}
+    {literal}}{/literal}
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>updateService</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
+"cluster":"{$service_description.$object_id.cluster_name}",
+"service":"{$service_description.$object_id.name}"
+{literal}}{/literal}]]></operation>
+    <rest>Aws\Ecs\EcsClient</rest>
+    <xpath>deleteService</xpath>
+  </command>
+  <command name="LIST"/>
+</ObjectDefinition>

@@ -26,7 +26,7 @@
   </information>
   <variables frozen="0">
     <variable displayName="Group Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Members" name="params.members_0_member" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Members" name="params.members.0.member" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>service</class>
         <class>service_predefined</class>
@@ -35,24 +35,26 @@
     <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
-    <content>config firewall service groupedit "Email Access"set member "DNS" "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"set explicit-proxy disableset comment ''set color 0nextedit "Web Access"set member "DNS" "HTTP" "HTTPS"set explicit-proxy disableset comment ''set color 0nextedit "Windows AD"set member "DCE-RPC" "DNS" "KERBEROS" "LDAP" "LDAP_UDP" "SAMBA" "SMB"set explicit-proxy disableset comment ''set color 0nextedit "Exchange Server"set member "DCE-RPC" "DNS" "HTTPS"set explicit-proxy disableset comment ''set color 0next
-end
-</content>
+    <content>config firewall service groupedit &quot;Email Access&quot;set member &quot;DNS&quot; &quot;IMAP&quot; &quot;IMAPS&quot; &quot;POP3&quot; &quot;POP3S&quot; &quot;SMTP&quot; &quot;SMTPS&quot;set explicit-proxy disableset comment &apos;&apos;set color 0nextedit &quot;Web Access&quot;set member &quot;DNS&quot; &quot;HTTP&quot; &quot;HTTPS&quot;set explicit-proxy disableset comment &apos;&apos;set color 0nextedit &quot;Windows AD&quot;set member &quot;DCE-RPC&quot; &quot;DNS&quot; &quot;KERBEROS&quot; &quot;LDAP&quot; &quot;LDAP_UDP&quot; &quot;SAMBA&quot; &quot;SMB&quot;set explicit-proxy disableset comment &apos;&apos;set color 0nextedit &quot;Exchange Server&quot;set member &quot;DCE-RPC&quot; &quot;DNS&quot; &quot;HTTPS&quot;set explicit-proxy disableset comment &apos;&apos;set color 0next
+end</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration firewall service group</operation>
+    <operation><![CDATA[show full-configuration firewall service group]]></operation>
     <parser>
       <section>
-        <regexp>@edit(?! ("Email Access"|"Web Access"|"Windows AD"|"Exchange Server")) "(?&lt;object_id>[^"]+)"@</regexp>
+        <regexp>@edit(?! (&quot;Email Access&quot;|&quot;Web Access&quot;|&quot;Windows AD&quot;|&quot;Exchange Server&quot;)) &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array name="members">
             <lines/>
             <regexp>@^\s \s*$@</regexp>
-            <mregexp>@"(?&lt;member>[^"]+)"@</mregexp>
+            <mregexp>@&quot;(?&lt;member&gt;[^&quot;]+)&quot;@</mregexp>
+            <xpath/>
           </array>
           <regexp/>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@set @</regexp>
@@ -61,32 +63,34 @@ end
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>{if !empty($params.members)}
+    <operation><![CDATA[{if !empty($params.members)}
 config firewall service group
-edit "{$params.object_id}"set comment '{$params.comment}'set member {foreach $params.members as $memberItem}"{$memberItem.member}" {/foreach}next
+edit "{$params.object_id}"
+set comment '{$params.comment}'
+set member {foreach $params.members as $memberItem}"{$memberItem.member}" {/foreach}
+next
 end
-{/if}
-</operation>
+{/if}]]></operation>
   </command>
   <command name="CONSTRAINT">
-    <operation>{if {$params.object_id} === "Email Access" or {$params.object_id} === "Web Access" or {$params.object_id} === "Windows AD" or {$params.object_id} === "Exchange Server"}
+    <operation><![CDATA[{if {$params.object_id} === "Email Access" or {$params.object_id} === "Web Access" or {$params.object_id} === "Windows AD" or {$params.object_id} === "Exchange Server"}
 This service group name is reserved, please change the service group to another one.
-{/if}
-</operation>
+{/if}]]></operation>
   </command>
   <command name="CREATE">
-    <operation>{if !empty($params.members)}
+    <operation><![CDATA[{if !empty($params.members)}
 config firewall service group
-edit "{$params.object_id}"set comment '{$params.comment}'set member {foreach $params.members as $memberItem}"{$memberItem.member}" {/foreach}next
+edit "{$params.object_id}"
+set comment '{$params.comment}'
+set member {foreach $params.members as $memberItem}"{$memberItem.member}" {/foreach}
+next
 end
-{/if}
-</operation>
+{/if}]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config firewall service group
-delete "{$Service_Group.$object_id.object_id}"
-end
-</operation>
+    <operation><![CDATA[config firewall service group
+delete "{$service_group.$object_id.object_id}"
+end]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
