@@ -138,7 +138,7 @@
     </variable>
     <variable displayName="NAPT Object" name="params.napt_object" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.naptSelector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="napt_object" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.napt_object" selectorValue="@.*@" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="napt_object" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.napt_object" selectorValue="@.*@" startIncrement="0" type="String"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="NAPT Object" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.napt_object" selectorValue="use_napt" startIncrement="0" type="ObjectRef"/>
       </behaviors>
       <repositories/>
