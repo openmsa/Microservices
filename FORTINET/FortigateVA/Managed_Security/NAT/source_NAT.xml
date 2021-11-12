@@ -25,34 +25,45 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="NAT Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Start IP Address" name="params.startIp" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="End IP Address" name="params.endIp" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="NAT Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Start IP Address" name="params.startIp" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="End IP Address" name="params.endIp" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
-    <content>UBI-SITONECELL-MASTE~001 # show full-configuration firewall ippoolconfig firewall ippooledit "testPSM"set type overloadset startip 10.2.3.3set endip 10.2.3.3set arp-reply enableset arp-intf ''set comments "test"next
-end
-</content>
+    <content>UBI-SITONECELL-MASTE~001 # show full-configuration firewall ippoolconfig firewall ippooledit &quot;testPSM&quot;set type overloadset startip 10.2.3.3set endip 10.2.3.3set arp-reply enableset arp-intf &apos;&apos;set comments &quot;test&quot;next
+end</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration firewall ippool </operation>
+    <operation><![CDATA[show full-configuration firewall ippool ]]></operation>
     <parser>
       <section>
-        <regexp>@edit (!?")(?&lt;object_id>[^"]+)(!?")@</regexp>
+        <regexp>@edit (!?&quot;)(?&lt;object_id&gt;[^&quot;]+)(!?&quot;)@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@set startip (?&lt;startIp>\S+)@</regexp>
+          <regexp>@set startip (?&lt;startIp&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set endip (?&lt;endIp>\S+)@</regexp>
+          <regexp>@set endip (?&lt;endIp&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set comment "(?&lt;comment>[^"]+)"@</regexp>
+          <regexp>@set comment &quot;(?&lt;comment&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@set @</regexp>
@@ -61,7 +72,7 @@ end
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config firewall ippool
+    <operation><![CDATA[config firewall ippool
 edit "{$params.object_id}"
 set startip {$params.startIp}
 set endip {$params.endIp}
@@ -69,11 +80,11 @@ set arp-reply enable
 set comments '{$params.comment}'
 next
 end
-</operation>
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>config firewall ippool
+    <operation><![CDATA[config firewall ippool
 edit "{$params.object_id}"
 set startip {$params.startIp}
 set endip {$params.endIp}
@@ -81,13 +92,13 @@ set arp-reply enable
 set comments '{$params.comment}'
 next
 end
-</operation>
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config firewall ippool
+    <operation><![CDATA[config firewall ippool
 delete "{$Source_NAT.$object_id.object_id}"
 end
-</operation>
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

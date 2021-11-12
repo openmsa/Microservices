@@ -25,8 +25,11 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Service Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Service Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="Protocol Type" name="params.proto" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <values>
         <values displayValue="ICMP">icmp</values>
         <values displayValue="IP">IP</values>
@@ -39,17 +42,20 @@
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Source Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.srcport" selectorValue="tcp" startIncrement="0" type="String"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Source Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.srcport" selectorValue="udp" startIncrement="0" type="String"/>
       </behaviors>
+      <repositories/>
     </variable>
     <variable displayName="Destination Port" name="params.destport" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.destport" selectorValue="tcp" startIncrement="0" type="String"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.destport" selectorValue="udp" startIncrement="0" type="String"/>
       </behaviors>
+      <repositories/>
     </variable>
     <variable displayName="Type" name="params.icmpType" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Type" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.icmpType" selectorValue="icmp" startIncrement="0" type="String"/>
       </behaviors>
+      <repositories/>
       <sections>
         <sections>ICMP</sections>
       </sections>
@@ -58,6 +64,7 @@
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Code" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.icmpCode" selectorValue="icmp" startIncrement="0" type="String"/>
       </behaviors>
+      <repositories/>
       <sections>
         <sections>ICMP</sections>
       </sections>
@@ -66,8 +73,11 @@
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName=" Protocol Number " displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.ipProtoNum" selectorValue="IP" startIncrement="0" type="String"/>
       </behaviors>
+      <repositories/>
     </variable>
-    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>FGVM020000034713 # show full-configuration firewall service customconfig firewall service customedit &quot;ALL&quot;set explicit-proxy disableset category &quot;General&quot;set protocol IPset comment &apos;&apos;set color 0set visibility enableset protocol-number 0nextedit &quot;ALL_TCP&quot;set explicit-proxy disableset category &quot;General&quot;set protocol TCP/UDP/SCTPset check-reset-range defaultset comment &apos;&apos;set color 0set visibility enableset iprange 0.0.0.0set fqdn &apos;&apos;set tcp-portrange 1-65535unset udp-portrangeunset sctp-portrangeset tcp-halfclose-timer 0set tcp-halfopen-timer 0set tcp-timewait-timer 0set udp-idle-timer 0set session-ttl 0next</content>

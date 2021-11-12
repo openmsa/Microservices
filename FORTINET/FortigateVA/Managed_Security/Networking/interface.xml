@@ -25,65 +25,82 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Name" name="params.alias" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.alias" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="Port" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <values>
-        <value>port1</value>
-        <value>port8</value>
-        <value>port9</value>
-        <value>port6</value>
-        <value>port7</value>
-        <value>port4</value>
-        <value>port5</value>
-        <value>port2</value>
-        <value>port3</value>
-        <value>port10</value>
+        <values>port1</values>
+        <values>port8</values>
+        <values>port9</values>
+        <values>port6</values>
+        <values>port7</values>
+        <values>port4</values>
+        <values>port5</values>
+        <values>port2</values>
+        <values>port3</values>
+        <values>port10</values>
       </values>
     </variable>
-    <variable displayName="IP" name="params.addressIP" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="IP / Netmask" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Netmask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="IP / Netmask" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Mode" name="params.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP" name="params.addressIP" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="IP / Netmask" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Netmask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="IP / Netmask" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Mode" name="params.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="Up" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <values>
-        <value displayValue="Down">down</value>
-        <value displayValue="Up">up</value>
+        <values displayValue="Down">down</values>
+        <values displayValue="Up">up</values>
       </values>
     </variable>
-    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
-    <content>edit "port8"set vdom "root"set mode staticset dhcp-relay-service disableset ip 0.0.0.0 0.0.0.0unset allowaccessset fail-detect disableset pptp-client disableset arpforward enableset broadcast-forward disableset bfd globalset l2forward disableset icmp-redirect enableset vlanforward disableset stpforward disableset ips-sniffer-mode disableset ident-accept disableset ipmac disableset subst disableset status upset netbios-forward disableset wins-ip 0.0.0.0set type physicalset netflow-sampler disableset sflow-sampler disableset sample-rate 2000set polling-interval 20set sample-direction bothset explicit-web-proxy disableset explicit-ftp-proxy disableset tcp-mss 0set inbandwidth 0set outbandwidth 0set spillover-threshold 0set weight 0set external disableset description ''set alias ''set security-mode noneset device-identification disableset lldp-transmission vdomset listen-forticlient-connection disableset vrrp-virtual-mac disableset snmp-index 8set secondary-IP disableconfig ipv6set ip6-mode staticunset ip6-allowaccessset ip6-reachable-time 0set ip6-retrans-time 0set ip6-hop-limit 0set ip6-address ::/0set ip6-send-adv disableset autoconf disableset dhcp6-relay-service disableendunset dhcp-relay-ipset dhcp-relay-type regularunset macaddrset speed autoset mtu-override disableset wccp disableset drop-overlapped-fragment disableset drop-fragment disablenext
-</content>
+    <content>edit &quot;port8&quot;set vdom &quot;root&quot;set mode staticset dhcp-relay-service disableset ip 0.0.0.0 0.0.0.0unset allowaccessset fail-detect disableset pptp-client disableset arpforward enableset broadcast-forward disableset bfd globalset l2forward disableset icmp-redirect enableset vlanforward disableset stpforward disableset ips-sniffer-mode disableset ident-accept disableset ipmac disableset subst disableset status upset netbios-forward disableset wins-ip 0.0.0.0set type physicalset netflow-sampler disableset sflow-sampler disableset sample-rate 2000set polling-interval 20set sample-direction bothset explicit-web-proxy disableset explicit-ftp-proxy disableset tcp-mss 0set inbandwidth 0set outbandwidth 0set spillover-threshold 0set weight 0set external disableset description &apos;&apos;set alias &apos;&apos;set security-mode noneset device-identification disableset lldp-transmission vdomset listen-forticlient-connection disableset vrrp-virtual-mac disableset snmp-index 8set secondary-IP disableconfig ipv6set ip6-mode staticunset ip6-allowaccessset ip6-reachable-time 0set ip6-retrans-time 0set ip6-hop-limit 0set ip6-address ::/0set ip6-send-adv disableset autoconf disableset dhcp6-relay-service disableendunset dhcp-relay-ipset dhcp-relay-type regularunset macaddrset speed autoset mtu-override disableset wccp disableset drop-overlapped-fragment disableset drop-fragment disablenext</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration system interface</operation>
+    <operation><![CDATA[show full-configuration system interface]]></operation>
     <post_template>{if empty($params.alias)}
-{assign_object_variable var="alias" value=$params.object_id}
+{assign_object_variable var=&quot;alias&quot; value=$params.object_id}
 {/if}</post_template>
     <parser>
       <section>
-        <regexp>@edit "(?&lt;object_id>(port[1-9]|port10))"@</regexp>
+        <regexp>@edit &quot;(?&lt;object_id&gt;(port[1-9]|port10))&quot;@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@set ip (?&lt;addressIP>\S+) (?&lt;mask>\S+)@</regexp>
+          <regexp>@set ip (?&lt;addressIP&gt;\S+) (?&lt;mask&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set status (?&lt;status>\S+)@</regexp>
+          <regexp>@set status (?&lt;status&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set description "(?&lt;comment>[^"]+)"@</regexp>
+          <regexp>@set description &quot;(?&lt;comment&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set alias "(?&lt;alias>[^"]+)"@</regexp>
+          <regexp>@set alias &quot;(?&lt;alias&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set mode (?&lt;mode>\S+)@</regexp>
+          <regexp>@set mode (?&lt;mode&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@set @</regexp>
@@ -104,9 +121,9 @@
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config system interface
+    <operation><![CDATA[config system interface
 edit "{$params.object_id}"
-{if empty($params.addressIP) &amp;&amp; empty($params.mask)}
+{if empty($params.addressIP) && empty($params.mask)}
 unset ip
 {else}
 set ip {$params.addressIP} {$params.mask}
@@ -120,7 +137,7 @@ unset description
 set description "{$params.comment}"
 {/if}
 end
-</operation>
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE"/>
