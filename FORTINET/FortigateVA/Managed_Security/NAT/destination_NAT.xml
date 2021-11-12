@@ -26,43 +26,36 @@
   </information>
   <variables frozen="0">
     <variable displayName="NAT Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="External IP Address" name="params.extIP" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Mapped IP Address" name="params.mapIP" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="External IP Address" name="params.extIP" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Mapped IP Address" name="params.mapIP" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="External Interface" name="params.port" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <value displayValue="1">1</value>
-        <value displayValue="2">2</value>
-        <value displayValue="3">3</value>
-        <value displayValue="4">4</value>
-        <value displayValue="5">5</value>
-        <value displayValue="6">6</value>
-        <value displayValue="7">7</value>
-        <value displayValue="8">8</value>
-        <value displayValue="9">9</value>
-        <value displayValue="10">10</value>
-      </values>
       <classes>
         <class>interface</class>
       </classes>
     </variable>
     <variable displayName="Port Forward" name="params.portFor" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Protocol" name="params.proto" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Protocol" name="params.proto" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Protocol" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.proto" selectorValue="true" startIncrement="0" type="String">
+          <values>
+            <values>tcp</values>
+            <values>udp</values>
+          </values>
+        </behaviour>
+      </behaviors>
       <values>
-        <value displayValue="tcp">tcp</value>
-        <value displayValue="udp">udp</value>
+        <values displayValue="tcp">tcp</values>
+        <values displayValue="udp">udp</values>
       </values>
+    </variable>
+    <variable displayName="External Service Port" name="params.extPortProto" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour displayName="Protocol" displayOrder="0" maxLength="100" name="params.proto" selectorValue="true" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="External Service Port" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.extPortProto" selectorValue="true" startIncrement="0" type="Integer"/>
       </behaviors>
     </variable>
-    <variable displayName="External Service Port" name="params.extPortProto" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Mapped Port " name="params.mapPort" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour displayName="External Service Port" displayOrder="0" maxLength="200" name="params.extPortProto" selectorValue="true" startIncrement="0" type="String"/>
-      </behaviors>
-    </variable>
-    <variable displayName="Mapped Port " name="params.mapPort" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <behaviors>
-        <behaviour displayName="Mapped Port" displayOrder="0" maxLength="200" name="params.mapPort" selectorValue="true" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Mapped Port" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.mapPort" selectorValue="true" startIncrement="0" type="Integer"/>
       </behaviors>
     </variable>
     <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -70,53 +63,61 @@
   </variables>
   <example>
     <content>UBI-SITONECELL-MASTE~001 # show full-configuration firewall vip
-config firewall vipedit "testNatDMA"set id 0set comment "coucou"set type static-natset extip 10.0.0.1set extintf "port3"set arp-reply enableset nat-source-vip disableset portforward enableset gratuitous-arp-interval 0set color 0set mappedip 10.0.0.2set protocol tcpset extport 8888set mappedport 20set portmapping-type 1-to-1next
-end
-</content>
+config firewall vipedit &quot;testNatDMA&quot;set id 0set comment &quot;coucou&quot;set type static-natset extip 10.0.0.1set extintf &quot;port3&quot;set arp-reply enableset nat-source-vip disableset portforward enableset gratuitous-arp-interval 0set color 0set mappedip 10.0.0.2set protocol tcpset extport 8888set mappedport 20set portmapping-type 1-to-1next
+end</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration firewall vip</operation>
-    <post_template>{if ($params.statusPortForward=="disable") }
-{assign_object_variable var="portFor" value="false"}
+    <operation><![CDATA[show full-configuration firewall vip]]></operation>
+    <post_template>{if ($params.statusPortForward==&quot;disable&quot;) }
+{assign_object_variable var=&quot;portFor&quot; value=&quot;false&quot;}
 {else}
-{assign_object_variable var="portFor" value="true"}
+{assign_object_variable var=&quot;portFor&quot; value=&quot;true&quot;}
 {/if}</post_template>
     <parser>
       <section>
-        <regexp>@edit "(?&lt;object_id>[^"]+)"@</regexp>
+        <regexp>@edit &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@set comment "(?&lt;comment>[^"]+)"@</regexp>
+          <regexp>@set comment &quot;(?&lt;comment&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set extip (?&lt;extIP>\S+)@</regexp>
+          <regexp>@set extip (?&lt;extIP&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set extintf "(?&lt;port>[^"]+)"@</regexp>
+          <regexp>@set extintf &quot;(?&lt;port&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set portforward (?&lt;statusPortForward>\S+)@</regexp>
+          <regexp>@set portforward (?&lt;statusPortForward&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set mappedip (!?")(?&lt;mapIP>\S+)(!?")@</regexp>
+          <regexp>@set mappedip (!?&quot;)(?&lt;mapIP&gt;\S+)(!?&quot;)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set protocol (?&lt;proto>\S+)@</regexp>
+          <regexp>@set protocol (?&lt;proto&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set extport (?&lt;extPortProto>\S+)@</regexp>
+          <regexp>@set extport (?&lt;extPortProto&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@set mappedport (?&lt;mapPort>\S+)@</regexp>
+          <regexp>@set mappedport (?&lt;mapPort&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@set @</regexp>
@@ -125,7 +126,7 @@ end
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config firewall vip
+    <operation><![CDATA[config firewall vip
 edit "{$params.object_id}"
 set comment "{$params.comment}"
 set extip {$params.extIP}
@@ -140,12 +141,13 @@ set mappedport {$params.mapPort}
 {else}
 set portforward disable
 {/if}
-nextend
-</operation>
+next
+end
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>config firewall vip
+    <operation><![CDATA[config firewall vip
 edit "{$params.object_id}"
 set comment "{$params.comment}"
 set extip {$params.extIP}
@@ -160,14 +162,15 @@ set mappedport {$params.mapPort}
 {else}
 set portforward disable
 {/if}
-nextend
-</operation>
+next
+end
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config firewall vip
-delete "{$Destination_NAT.$object_id.object_id}"
+    <operation><![CDATA[config firewall vip
+delete "{$destination_NAT.$object_id.object_id}"
 end
-</operation>
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

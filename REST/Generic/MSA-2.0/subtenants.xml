@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>customers</name>
+    <name>subtenants</name>
     <group>REST API|MSA</group>
     <importonce>false</importonce>
     <importrank>20</importrank>
@@ -25,30 +25,24 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="prefix" name="params.prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="reference" name="params.reference" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <values displayValue="Customer">A</values>
-      </values>
-    </variable>
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Reference" name="params.reference" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root/row</xpath>
+        <xpath>//row</xpath>
       </section>
       <lines>
         <line>
@@ -58,7 +52,7 @@
         </line>
         <line>
           <array/>
-          <regexp>@&lt;prefix&gt;(?&lt;prefix&gt;.*)&lt;/prefix&gt;@</regexp>
+          <regexp>@&lt;prefix&gt;(?&lt;tenant_id&gt;.*)&lt;/prefix&gt;@</regexp>
           <xpath>//prefix</xpath>
         </line>
         <line>
@@ -71,19 +65,9 @@
           <regexp>@&lt;externalReference&gt;(?&lt;reference&gt;.*)&lt;/externalReference&gt;@</regexp>
           <xpath>//externalReference</xpath>
         </line>
-        <line>
-          <array/>
-          <regexp>@&lt;operatorId&gt;(?&lt;tenant_id&gt;.*)&lt;/operatorId&gt;@</regexp>
-          <xpath>//operatorId</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
-          <xpath>//type</xpath>
-        </line>
       </lines>
     </parser>
-    <xpath>/ubi-api-rest/lookup/customers</xpath>
+    <xpath>/ubi-api-rest/lookup/v1/customers</xpath>
   </command>
   <command name="UPDATE">
     <operation>{ &quot;name&quot;:&quot;{$params.name}&quot;,&quot;operatorPrefix&quot;:&quot;{$params.prefix}&quot;, &quot;externalReference&quot;:&quot;{$params.reference}&quot; }</operation>
@@ -91,8 +75,18 @@
     <xpath>/ubi-api-rest/customer/v1/{$params.$object_id.object_id}</xpath>
   </command>
   <command name="CONSTRAINT"/>
-  <command name="CREATE"/>
-  <command name="DELETE"/>
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
+{literal}}{/literal}]]></operation>
+    <rest>POST</rest>
+    <xpath>/ubi-api-rest/customer/{$params.tenant_id}?name={$params.name}</xpath>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
+{literal}}{/literal}]]></operation>
+    <rest>DELETE</rest>
+    <xpath>/ubi-api-rest/customer/id/{$subtenants.$object_id.object_id}</xpath>
+  </command>
   <command name="READ"/>
   <command name="LIST"/>
 </ObjectDefinition>

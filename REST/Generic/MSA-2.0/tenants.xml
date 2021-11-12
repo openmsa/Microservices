@@ -25,21 +25,15 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Prefix" name="params.prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Prefix" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ID" name="params.id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <values displayValue="Operator">O</values>
-      </values>
-    </variable>
   </variables>
   <example>
-    <content>
-</content>
+    <content></content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
@@ -48,23 +42,18 @@
       <lines>
         <line>
           <array/>
-          <regexp>@&lt;id>(?&lt;object_id>.*)&lt;/id>@</regexp>
+          <regexp>@&lt;id&gt;(?&lt;id&gt;.*)&lt;/id&gt;@</regexp>
           <xpath>//id</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;prefix>(?&lt;prefix>.*)&lt;/prefix>@</regexp>
+          <regexp>@&lt;prefix&gt;(?&lt;object_id&gt;.*)&lt;/prefix&gt;@</regexp>
           <xpath>//prefix</xpath>
         </line>
         <line>
           <array/>
-          <regexp>@&lt;name>(?&lt;name>.*)&lt;/name>@</regexp>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
           <xpath>//name</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;type>(?&lt;type>.*)&lt;/type>@</regexp>
-          <xpath>//type</xpath>
         </line>
       </lines>
     </parser>
@@ -72,8 +61,18 @@
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="CREATE"/>
-  <command name="DELETE"/>
+  <command name="CREATE">
+    <operation><![CDATA[ {literal}{{/literal}
+{literal}}{/literal}]]></operation>
+    <rest>POST</rest>
+    <xpath>/ubi-api-rest/operator/{$params.object_id}?name={$params.name}</xpath>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[ {literal}{{/literal}
+{literal}}{/literal}]]></operation>
+    <rest>DELETE</rest>
+    <xpath>/ubi-api-rest/operator/{$tenants.$object_id.object_id}</xpath>
+  </command>
   <command name="READ"/>
   <command name="LIST"/>
 </ObjectDefinition>

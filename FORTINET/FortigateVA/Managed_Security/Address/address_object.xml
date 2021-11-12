@@ -33,100 +33,91 @@
     <variable displayName="Address Name" displayOrder="0" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
     <variable default="ipmask" displayName="Type" displayOrder="1" editable="false" isMandatory="true" maxLength="100" name="params.type" startIncrement="0" type="String">
       <values>
-        <value displayValue="Subnet">ipmask</value>
-        <value displayValue="IP Range">iprange</value>
-        <value displayValue="FQDN">fqdn</value>
+        <values displayValue="Subnet">ipmask</values>
+        <values displayValue="IP Range">iprange</values>
       </values>
     </variable>
-    <variable displayName="Address" displayOrder="2" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.address" selector="params.type" startIncrement="0" type="Composite">
+    <variable displayName="Address" name="params.address" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Address" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="address" displayOrder="0" maxLength="100" name="params.address" selectorValue="fqdn" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="IP Address" displayOrder="0" maxLength="200" name="params.address" selectorValue="ipmask" startIncrement="0" type="IpMask"/>
-        <behavior displayName="address" displayOrder="0" maxLength="200" name="params.address" selectorValue="iprange" startIncrement="0" type="String" visible="false"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="IP Address" displayOrder="0" maxLength="0" isMandatory="false" isUserLocked="false" name="params.address" selectorValue="ipmask" startIncrement="0" type="IpAddress"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.address" selectorValue="iprange" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-    <variable displayName="NetMask" displayOrder="4" groupDisplayName="Address" groupSeparator="/" isGrouped="true" maxLength="200" name="params.netmask" selector="params.type" startIncrement="0" type="Composite">
+    <variable displayName="NetMask" name="params.netmask" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="Address" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="netmask" displayOrder="0" maxLength="100" name="params.netmask" selectorValue="fqdn" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="Subnet Mask" displayOrder="0" groupSeparator="/" maxLength="200" name="params.netmask" selectorValue="ipmask" startIncrement="0" type="IpMask"/>
-        <behavior displayName="netmask" displayOrder="0" maxLength="200" name="params.netmask" selectorValue="iprange" startIncrement="0" type="String" visible="false"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Subnet Mask" displayOrder="0" maxLength="200" isMandatory="true" isUserLocked="false" name="params.netmask" selectorValue="ipmask" startIncrement="0" type="IpMask"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="netmask" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.netmask" selectorValue="iprange" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
-    <variable displayName="Start Address" displayOrder="5" groupDisplayName="Address" isGrouped="true" maxLength="200" name="params.startIp" selector="params.type" startIncrement="0" type="Composite">
+    <variable displayName="Start Address" name="params.startIp" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Address" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="startIp" displayOrder="0" maxLength="100" name="params.startIp" selectorValue="fqdn" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="startIp" displayOrder="0" maxLength="200" name="params.startIp" selectorValue="ipmask" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="Start IP Address" displayOrder="0" maxLength="200" name="params.startIp" selectorValue="iprange" startIncrement="0" type="IpMask"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="startIp" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.startIp" selectorValue="ipmask" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Start IP Address" displayOrder="0" maxLength="0" isMandatory="false" isUserLocked="false" name="params.startIp" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="End Address" displayOrder="6" groupDisplayName="Address" groupSeparator="-" isGrouped="true" maxLength="200" name="params.endIp" selector="params.type" startIncrement="0" type="Composite">
+    <variable displayName="End Address" name="params.endIp" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Address" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behavior displayName="endIp" displayOrder="0" maxLength="100" name="params.endIp" selectorValue="fqdn" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="End IP Address" displayOrder="0" maxLength="200" name="params.endIp" selectorValue="ipmask" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="End IP Address" displayOrder="0" groupSeparator="-" maxLength="200" name="params.endIp" selectorValue="iprange" startIncrement="0" type="IpMask"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="End IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.endIp" selectorValue="ipmask" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="End IP Address" displayOrder="0" maxLength="0" isMandatory="false" isUserLocked="false" name="params.endIp" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
-    <variable displayName="Interface" displayOrder="7" editable="false" isMandatory="true" maxLength="100" name="params.port" selector="params.type" startIncrement="0" type="Composite">
-      <values>
-        <value displayValue="Port4">4</value>
-        <value displayValue="Port5">5</value>
-        <value displayValue="Port6">6</value>
-        <value displayValue="Port7">7</value>
-        <value displayValue="Port8">8</value>
-        <value displayValue="Port9">9</value>
-        <value displayValue="Port10">10</value>
-      </values>
-      <behaviors>
-        <behavior displayName="port" displayOrder="0" maxLength="100" name="params.port" selectorValue="fqdn" startIncrement="0" type="String" visible="false"/>
-        <behavior displayName="Port" displayOrder="0" maxLength="100" name="params.port" selectorValue="ipmask" startIncrement="0" type="ObjectRef">
-          <classes>
-            <class>interface</class>
-          </classes>
-        </behavior>
-        <behavior displayName="Port" displayOrder="0" maxLength="100" name="params.port" selectorValue="iprange" startIncrement="0" type="ObjectRef">
-          <classes>
-            <class>interface</class>
-          </classes>
-        </behavior>
-      </behaviors>
+    <variable displayName="Interface" name="params.port" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>interface</class>
+      </classes>
     </variable>
-    <variable cols="165" displayName="Comment" displayOrder="8" maxLength="200" name="params.comment" rows="1" startIncrement="0" type="String"/>
-  </variables>  <example>
-    <content>UFGVM020000034713 # show full-configuration firewall address 
-config firewall address
-    edit "SSLVPN_TUNNEL_ADDR1"
-        set uuid 29ce0164-ed79-51e4-44f7-44caf9470d3c
-        set type iprange
-        set comment ''
-        set visibility enable
-        set associated-interface ''
-        set color 0
-        set start-ip 10.212.134.200
-        set end-ip 10.212.134.210
-    next
-    edit "all"
-        set uuid 29ce1b36-ed79-51e4-d876-c2776882cb65
-        set type ipmask
-        set comment ''
-        set visibility enable
-        set associated-interface ''
-        set color 0
-        set subnet 0.0.0.0 0.0.0.0
-    next
-    edit "none"
-        set uuid 29ce214e-ed79-51e4-2e4f-8bac7268878a
-        set type ipmask
-        set comment ''
-        set visibility enable
-        set associated-interface ''
-        set color 0
-        set subnet 0.0.0.0 255.255.255.255
-    next
-</content>
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>UFGVM020000034713 # show full-configuration firewall addressconfig firewall addressedit &quot;SSLVPN_TUNNEL_ADDR1&quot;set uuid 29ce0164-ed79-51e4-44f7-44caf9470d3cset type iprangeset comment &apos;&apos;set visibility enableset associated-interface &apos;&apos;set color 0set start-ip 10.212.134.200set end-ip 10.212.134.210nextedit &quot;all&quot;set uuid 29ce1b36-ed79-51e4-d876-c2776882cb65set type ipmaskset comment &apos;&apos;set visibility enableset associated-interface &apos;&apos;set color 0set subnet 0.0.0.0 0.0.0.0nextedit &quot;none&quot;set uuid 29ce214e-ed79-51e4-2e4f-8bac7268878aset type ipmaskset comment &apos;&apos;set visibility enableset associated-interface &apos;&apos;set color 0set subnet 0.0.0.0 255.255.255.255next</content>
   </example>
-<command name="CREATE">
-    <operation>config firewall address
-edit "{$params.object_id}"
+  <command name="IMPORT">
+    <operation><![CDATA[show full-configuration firewall address | grep -f subnet ## show full-configuration firewall address | grep -f iprange]]></operation>
+    <parser>
+      <section>
+        <regexp>@edit(?! &quot;(none|SSLVPN_TUNNEL_ADDR1)&quot;) &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@set associated-interface &quot;(?&lt;port&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set type (?&lt;type&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set end-ip (?&lt;endIp&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set start-ip (?&lt;startIp&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set subnet (?&lt;address&gt;\S+) (?&lt;netmask&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set comment &quot;(?&lt;comment&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@set @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE">
+    <operation><![CDATA[config firewall address
+edit "{$address_object.$object_id.object_id}"
 set type {$params.type}
 
 {if !empty($params.comment)}
@@ -142,19 +133,13 @@ set subnet {$params.address} {$params.netmask}
 set start-ip {$params.startIp}
 set end-ip {$params.endIp}
 {/if}
-{/if}
-next 
+next
 end
-</operation>
+]]></operation>
   </command>
-<command name="DELETE">
-    <operation>config firewall address
-delete "{$AddressObject.$object_id.object_id}"
-end
-</operation>
-  </command>
-  <command name="UPDATE">
-    <operation>config firewall address
+  <command name="CONSTRAINT"/>
+  <command name="CREATE">
+    <operation><![CDATA[config firewall address
 edit "{$params.object_id}"
 set type {$params.type}
 {if !empty($params.comment)}
@@ -170,10 +155,15 @@ set subnet {$params.address} {$params.netmask}
 set start-ip {$params.startIp}
 set end-ip {$params.endIp}
 {/if}
-{/if}
-next 
+next
 end
-</operation>
+]]></operation>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[config firewall address
+delete "{$address_object.$object_id.object_id}"
+end
+]]></operation>
   </command>
 <command name="IMPORT">
     <operation>show full-configuration firewall address</operation>
@@ -214,6 +204,4 @@ end
     </parser>
     <post_template/>
   </command>
-
-
 </ObjectDefinition>

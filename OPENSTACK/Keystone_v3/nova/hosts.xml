@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ObjectDefinition>  <information>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>true</defaultDisplay>
+    <description/>
+    <displayField>host</displayField>
+    <dynamic>false</dynamic>
+    <group>Nova</group>
+    <icon>/images/repository/CommandDefinition/icons/www server.jpg</icon>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <importonce>false</importonce>
+    <importrank>4</importrank>
+    <maxInstances>0</maxInstances>
+    <name>Hosts</name>
+    <order>10000</order>
+    <relatedObjects/>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+    <visibility>5</visibility>
+  </information>  <variables frozen="0">
+    <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String"/>
+    <variable displayName="Hypervisor Hostname" displayOrder="1" isUserLocked="true" maxLength="200" name="params.hypervisor_hostname" numberOfRowMax="0" startIncrement="0" type="String"/>
+    <variable displayName="disk" displayOrder="2" maxLength="100" name="params.disk" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="State" displayOrder="2" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
+    <variable displayName="host" displayOrder="3" editable="false" maxLength="100" name="params.host" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
+    <variable displayName="Status" displayOrder="3" isUserLocked="true" maxLength="120" name="params.status" numberOfRowMax="0" type="String"/>
+  </variables>  <example>
+    <content>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;root&gt;
+  &lt;hypervisors&gt;
+    &lt;hypervisor_hostname&gt;host1&lt;/hypervisor_hostname&gt;
+    &lt;id&gt;2&lt;/id&gt;
+    &lt;state&gt;up&lt;/state&gt;
+    &lt;status&gt;enabled&lt;/status&gt;
+  &lt;/hypervisors&gt;
+  &lt;hypervisors_links&gt;
+    &lt;href&gt;http://openstack.example.com/v2.1/6f70656e737461636b20342065766572/hypervisors?limit=1&amp;amp;marker=2&lt;/href&gt;
+    &lt;rel&gt;next&lt;/rel&gt;
+  &lt;/hypervisors_links&gt;
+&lt;/root&gt;
+</content>
+  </example>
+<command name="IMPORT">
+    <operation>nova</operation>
+    <xpath>/os-hypervisors</xpath>
+    <parser>
+      <section>
+        <xpath>//root/hypervisors/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <xpath>id</xpath>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+        </line>
+         
+        
+        
+        
+        
+        
+        <line>
+          <xpath>hypervisor_hostname</xpath>
+          <regexp>@&lt;hypervisor_hostname&gt;(?&lt;hypervisor_hostname&gt;.*)&lt;/hypervisor_hostname&gt;@</regexp>
+        </line>
+        
+        <line>
+          <xpath>status</xpath>
+          <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+        </line>
+        <line>
+          <xpath>state</xpath>
+          <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+        </line>
+        
+        
+        
+        
+        
+        
+        
+        
+      </lines>
+    </parser>
+    <post_template>{assign_object_variable var="host" value="{$params.hypervisor_hostname} [ID: {$params.object_id} - State: {$params.state} - State: {$params.status}]"}</post_template>
+  </command>
+
+
+
+</ObjectDefinition>
