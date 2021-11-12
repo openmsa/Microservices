@@ -50,26 +50,20 @@
     <variable displayName="Enable" name="params.status" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="Incoming Interface" name="params.srcintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator=" - " groupDisplayName="Source" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Incoming Interface" name="params.srcintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator=" - " groupDisplayName="Source" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>Source</sections>
+      </sections>
       <classes>
         <class>interface</class>
       </classes>
-      <values>
-        <values displayValue="1">1</values>
-        <values displayValue="2">2</values>
-        <values displayValue="3">3</values>
-        <values displayValue="4">4</values>
-        <values displayValue="5">5</values>
-        <values displayValue="6">6</values>
-        <values displayValue="7">7</values>
-        <values displayValue="8">8</values>
-        <values displayValue="9">9</values>
-        <values displayValue="10">10</values>
-      </values>
     </variable>
-    <variable displayName="Source Address" name="params.srcaddr" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator=" - " groupDisplayName="Source" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="srcintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Source Address" name="params.srcaddr" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator=" - " groupDisplayName="Source" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="srcintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>Source</sections>
+      </sections>
       <classes>
         <class>address_object</class>
         <class>address_group</class>
@@ -77,24 +71,18 @@
     </variable>
     <variable displayName="Outgoing Interface" name="params.dstintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>Destination</sections>
+      </sections>
       <classes>
         <class>interface</class>
       </classes>
-      <values>
-        <values displayValue="1">1</values>
-        <values displayValue="2">2</values>
-        <values displayValue="3">3</values>
-        <values displayValue="4">4</values>
-        <values displayValue="5">5</values>
-        <values displayValue="6">6</values>
-        <values displayValue="7">7</values>
-        <values displayValue="8">8</values>
-        <values displayValue="9">9</values>
-        <values displayValue="10">10</values>
-      </values>
     </variable>
     <variable displayName="Destination Address Type" name="params.dstaddr_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="address" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>Destination</sections>
+      </sections>
       <values>
         <values displayValue="Address Object">address</values>
         <values displayValue="NAT Object">nat</values>
@@ -106,6 +94,9 @@
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="dstaddr" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="nat" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
+      <sections>
+        <sections>Destination</sections>
+      </sections>
     </variable>
     <variable displayName="Destination NAT" name="params.dst_nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
