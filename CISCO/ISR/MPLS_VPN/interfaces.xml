@@ -77,14 +77,24 @@ Inbound Common access list is not set</content>
 interface {$params.object_id}
 {if empty($params.ip_addr)}
 no ip address
-shut
 {else}
 ip address {$params.ip_addr} {$mask}
 no shut
 {/if}</operation>
   </command>
   <command name="CONSTRAINT"/>
-  <command name="CREATE"/>
+<command name="CREATE">
+    <operation>!{get_mask_from_len len=$params.ip_prefix var=&quot;_mask&quot;}
+{assign var=&quot;mask&quot; value=$_mask}
+!
+interface {$params.object_id}
+{if empty($params.ip_addr)}
+no ip address
+{else}
+ip address {$params.ip_addr} {$mask}
+no shut
+{/if}</operation>
+  </command>
   <command name="DELETE"/>
   <command name="READ"/>
   <command name="LIST"/>
