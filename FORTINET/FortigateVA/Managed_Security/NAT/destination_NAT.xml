@@ -17,7 +17,7 @@
     <name>Destination NAT</name>
     <group>NAT Object</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>50</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -47,10 +47,11 @@
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Protocol" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.proto" selectorValue="true" startIncrement="0" type="String">
           <values>
-            <values>tcp</values>
-            <values>udp</values>
+            <values displayValue="TCP">tcp</values>
+            <values displayValue="UDP">udp</values>
           </values>
         </behaviour>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="Protocol" displayOrder="5" maxLength="0" isMandatory="false" isUserLocked="false" name="params.proto" selectorValue="false" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
       <values>
@@ -61,12 +62,14 @@
     <variable displayName="External Service Port" name="params.extPortProto" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="External Service Port" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.extPortProto" selectorValue="true" startIncrement="0" type="Integer"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="External Service Port" displayOrder="6" maxLength="0" isMandatory="false" isUserLocked="false" name="params.extPortProto" selectorValue="false" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
     </variable>
     <variable displayName="Mapped Port " name="params.mapPort" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.portFor" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Mapped Port" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.mapPort" selectorValue="true" startIncrement="0" type="Integer"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="Mapped Port " displayOrder="7" maxLength="0" isMandatory="false" isUserLocked="false" name="params.mapPort" selectorValue="false" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
     </variable>

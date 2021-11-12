@@ -17,7 +17,7 @@
     <name>Firewall Policy</name>
     <group>Firewall Policy</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>100</importrank>
     <reorderinstances>true</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -69,7 +69,7 @@
         <class>address_group</class>
       </classes>
     </variable>
-    <variable displayName="Outgoing Interface" name="params.dstintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Outgoing Interface" name="params.dstintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>Destination</sections>
@@ -78,7 +78,7 @@
         <class>interface</class>
       </classes>
     </variable>
-    <variable displayName="Destination Address Type" name="params.dstaddr_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="address" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination Address Type" name="params.dstaddr_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="address" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>Destination</sections>
@@ -88,22 +88,25 @@
         <values displayValue="NAT Object">nat</values>
       </values>
     </variable>
-    <variable displayName="Destination Address" name="params.dstaddr" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="dstintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination Address" name="params.dstaddr" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="dstintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Address" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="address" startIncrement="0" type="ObjectRef"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="dstaddr" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="nat" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Address" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.dstaddr" selectorValue="address" startIncrement="0" type="ObjectRef"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="dstaddr" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="nat" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
       <sections>
         <sections>Destination</sections>
       </sections>
     </variable>
-    <variable displayName="Destination NAT" name="params.dst_nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination NAT" name="params.dst_nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="dst_nat" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dst_nat" selectorValue="address" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination NAT" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dst_nat" selectorValue="nat" startIncrement="0" type="ObjectRef"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="dst_nat" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dst_nat" selectorValue="address" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination NAT" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.dst_nat" selectorValue="nat" startIncrement="0" type="ObjectRef"/>
       </behaviors>
       <repositories/>
+      <sections>
+        <sections>Destination</sections>
+      </sections>
     </variable>
     <variable displayName="Service" name="params.service" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -122,13 +125,13 @@
     <variable displayName="NAT" name="params.nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.action" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="NAT" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.nat" selectorValue="accept" startIncrement="0" type="Boolean"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="nat" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.nat" selectorValue="deny" startIncrement="0" type="Boolean"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="nat" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.nat" selectorValue="deny" startIncrement="0" type="Boolean"/>
       </behaviors>
       <repositories/>
     </variable>
     <variable displayName="NAT mode" name="params.naptSelector" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.nat" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="naptSelector" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.naptSelector" selectorValue="false" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="naptSelector" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.naptSelector" selectorValue="false" startIncrement="0" type="String"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="NAT mode" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.naptSelector" selectorValue="true" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
@@ -175,20 +178,30 @@ end</content>
   </example>
   <command name="IMPORT">
     <operation><![CDATA[config firewall policy##show full-configuration##end]]></operation>
-    <post_template>{if $params.natVerify == &quot;disable&quot; }{assign_object_variable var=&quot;nat&quot; value=&quot;false&quot;}
-{else}{assign_object_variable var=&quot;nat&quot; value=&quot;true&quot;}
+    <post_template>{if $params.natVerify == &quot;disable&quot; }
+{assign_object_variable var=&quot;nat&quot; value=&quot;false&quot;}
+{else}
+{assign_object_variable var=&quot;nat&quot; value=&quot;true&quot;}
 {/if}
-{if $params.ippoolVerify ==&quot;disable&quot;}{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_address&quot;}
-{else}{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_napt&quot;}
+{if $params.ippoolVerify ==&quot;disable&quot;}
+{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_address&quot;}
+{else}
+{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_napt&quot;}
 {/if}
-{if $params.statusVerify == &quot;disable&quot;}{assign_object_variable var=&quot;status&quot; value=&quot;false&quot;}
-{else}{assign_object_variable var=&quot;status&quot; value=&quot;true&quot;}
+{if $params.statusVerify == &quot;disable&quot;}
+{assign_object_variable var=&quot;status&quot; value=&quot;false&quot;}
+{else}
+{assign_object_variable var=&quot;status&quot; value=&quot;true&quot;}
 {/if}
 {assign_object_variable var=&quot;_order&quot; value={$params.srcintf}*1000000+{$params.dstintf}*1000+{$params._order}}
 {unassign_object_variable var=&quot;move_selector&quot;}
 {unassign_object_variable var=&quot;move_index&quot;}
-{if isset($Destination_NAT.{$params.dstaddr})}{assign_object_variable var=&quot;dst_nat&quot; value={$params.dstaddr}}{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;nat&quot;}{unassign_object_variable var=&quot;dstaddr&quot;}
-{else}{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;address&quot;}
+{if isset($Destination_NAT.{$params.dstaddr})}
+{assign_object_variable var=&quot;dst_nat&quot; value={$params.dstaddr}}
+{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;nat&quot;}
+{unassign_object_variable var=&quot;dstaddr&quot;}
+{else}
+{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;address&quot;}
 {/if}</post_template>
     <parser>
       <section>
@@ -254,6 +267,11 @@ end</content>
         <line>
           <array/>
           <regexp>@set poolname &quot;(?&lt;napt_object&gt;[^&quot;]*)&quot;@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@set name &quot;(?&lt;name&gt;[^&quot;]+)&quot;@</regexp>
           <xpath/>
         </line>
         <ignore>
