@@ -68,14 +68,6 @@
   <example>
     <content>s</content>
   </example>
-  <command name="CREATE">
-    <operation><![CDATA[{literal}{{/literal}
-"VpcId":"{$params.vpc_id}"
-{literal}}{/literal}
-]]></operation>
-    <rest>Aws\Ec2\Ec2Client</rest>
-    <xpath>createNetworkAcl</xpath>
-  </command>
   <command name="IMPORT">
     <operation><![CDATA[Aws\Ec2\Ec2Client]]></operation>
     <post_template>{foreach $params.tags as $tag}
@@ -142,6 +134,14 @@
       </lines>
     </parser>
     <xpath>describeNetworkAcls</xpath>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
+"VpcId":"{$params.vpc_id}"
+{literal}}{/literal}
+]]></operation>
+    <rest>Aws\Ec2\Ec2Client</rest>
+    <xpath>createNetworkAcl</xpath>
   </command>
   <command name="DELETE">
     <operation><![CDATA[{literal}{{/literal}
