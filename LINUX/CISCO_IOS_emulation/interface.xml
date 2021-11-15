@@ -421,11 +421,6 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@^\s+ip\s+flow\s+(?&lt;ip_flow&gt;\S+)@</regexp>
-          <xpath/>
-        </line>
-        <line>
           <array name="switchport">
             <regexp>@^\s+switchport\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;.*)@</regexp>
           </array>
@@ -437,6 +432,11 @@ interface Serial1/0/0.1/1/1/1:0
             <regexp>@^\s+spanning-tree\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;\S+)@</regexp>
           </array>
           <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+ip\s+flow\s+(?&lt;ip_flow&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <ignore>
