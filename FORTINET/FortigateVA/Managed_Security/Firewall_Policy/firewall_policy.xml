@@ -25,13 +25,13 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ID" name="params.object_id" startIncrement="1" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="Move rule" name="params.move_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="Insert the current rule before or after the index specified.&#xa;The position is effective when the changes are applied to the device." groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Move rule" name="params.move_selector" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="Insert the current rule before or after the index specified.&#xa;The position is effective when the changes are applied to the device." groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <values>
         <values displayValue="No Move">none</values>
@@ -39,11 +39,11 @@
         <values displayValue="Move after">after</values>
       </values>
     </variable>
-    <variable displayName="Rule" name="params.move_index" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.move_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Rule" name="params.move_index" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.move_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="after" startIncrement="0" type="Integer"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="before" startIncrement="0" type="Integer"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="none" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="after" startIncrement="0" type="Integer"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="before" startIncrement="0" type="Integer"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="none" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
     </variable>
@@ -78,30 +78,28 @@
         <class>interface</class>
       </classes>
     </variable>
-    <variable displayName="Destination Address Type" name="params.dstaddr_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="address" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination Address" name="params.dstaddr" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>Destination</sections>
+      </sections>
+      <classes>
+        <class>address_object</class>
+        <class>address_object</class>
+      </classes>
+    </variable>
+    <variable displayName="Destination Address Type" name="params.dstaddr_selector" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="address" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>Destination</sections>
       </sections>
       <values>
         <values displayValue="Address Object">address</values>
-        <values displayValue="NAT Object">nat</values>
       </values>
     </variable>
-    <variable displayName="Destination Address" name="params.dstaddr" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="dstintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Address" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.dstaddr" selectorValue="address" startIncrement="0" type="ObjectRef"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="dstaddr" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="nat" startIncrement="0" type="String"/>
-      </behaviors>
-      <repositories/>
-      <sections>
-        <sections>Destination</sections>
-      </sections>
-    </variable>
-    <variable displayName="Destination NAT" name="params.dst_nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination NAT" name="params.dst_nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="dst_nat" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dst_nat" selectorValue="address" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination NAT" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.dst_nat" selectorValue="nat" startIncrement="0" type="ObjectRef"/>
       </behaviors>
       <repositories/>
       <sections>
@@ -129,24 +127,24 @@
         <values displayValue="Disable">disable</values>
       </values>
     </variable>
-    <variable displayName="NAT" name="params.nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.action" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="NAT" name="params.nat" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.action" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="NAT" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.nat" selectorValue="accept" startIncrement="0" type="Boolean"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="NAT" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.nat" selectorValue="accept" startIncrement="0" type="Boolean"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="nat" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.nat" selectorValue="deny" startIncrement="0" type="Boolean"/>
       </behaviors>
       <repositories/>
     </variable>
-    <variable displayName="NAT mode" name="params.naptSelector" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.nat" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="NAT mode" name="params.naptSelector" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.nat" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="naptSelector" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.naptSelector" selectorValue="false" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="NAT mode" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.naptSelector" selectorValue="true" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="NAT mode" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.naptSelector" selectorValue="true" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
     </variable>
-    <variable displayName="NAPT Object" name="params.napt_object" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.naptSelector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="NAPT Object" name="params.napt_object" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.naptSelector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="napt_object" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.napt_object" selectorValue="@.*@" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="NAPT Object" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.napt_object" selectorValue="use_napt" startIncrement="0" type="ObjectRef"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="napt_object" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.napt_object" selectorValue="use_napt" startIncrement="0" type="ObjectRef"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="NAPT Object" displayOrder="0" maxLength="0" isMandatory="false" isUserLocked="false" name="params.napt_object" selectorValue="@.*@" startIncrement="0" type="String"/>
       </behaviors>
       <repositories/>
     </variable>
@@ -301,7 +299,8 @@ set status enable
 {else}
 set status disable
 {/if}
-set schedule alwaysset service "{$params.service}"
+set schedule always
+set service "{$params.service}"
 set logtraffic {$params.logtraffic}
 set comments "{$params.comments}"
 set action {$params.action}
@@ -339,13 +338,22 @@ set name "{$params.name}"
 set srcintf {$params.srcintf}
 set dstintf {$params.dstintf}
 set srcaddr "{$params.srcaddr}"
-set match-vip disable{if empty($params.dstaddr)}
-set dstaddr "{$params.dst_nat}"{else}
-set dstaddr "{$params.dstaddr}"{if $params.dstaddr == "all"}
-set match-vip enable{/if}{/if}{if $params.status == "true"}
-set status enable{else}
-set status disable{/if}
-set schedule alwaysset service "{$params.service}"
+set match-vip disable
+{if empty($params.dstaddr)}
+set dstaddr "{$params.dst_nat}"
+{else}
+set dstaddr "{$params.dstaddr}"
+{if $params.dstaddr == "all"}
+set match-vip enable
+{/if}
+{/if}
+{if $params.status == "true"}
+set status enable
+{else}
+set status disable
+{/if}
+set schedule always
+set service "{$params.service}"
 set comments "{$params.comments}"
 set action {$params.action}
 set logtraffic {$params.logtraffic}
@@ -362,7 +370,8 @@ set ippool disable
 set nat disable
 {/if}
 {/if}next
-{if $params.move_selector === "before"}move {$params.object_id}before {$params.move_index}
+{if $params.move_selector === "before"}
+move {$params.object_id} before {$params.move_index}
 {elseif $params.move_selector === "after"}
 move {$params.object_id} after {$params.move_index}
 {/if}
