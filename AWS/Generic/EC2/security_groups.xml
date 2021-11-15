@@ -17,7 +17,7 @@
     <name>Security Groups</name>
     <group>EC2|Network &amp; Security</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -25,31 +25,54 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Name" name="params.group_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="From Port" name="params.ip_permissions.0.from_port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Name" name="params.group_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Protocol" name="params.ip_permissions.0.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <sections>
         <sections>Rule</sections>
       </sections>
     </variable>
-    <variable displayName="Protocol" name="params.ip_permissions.0.ip_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="From" name="params.ip_permissions.0.from_port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>Rule</sections>
+      </sections>
+    </variable>
+    <variable displayName="To" name="params.ip_permissions.0.to_port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <sections>
         <sections>Rule</sections>
       </sections>
     </variable>
     <variable displayName="VPC" name="params.vpcid" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <classes>
         <class>vpc</class>
       </classes>
     </variable>
-    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="security_group" name="params.security_group" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="security_group" name="params.security_group" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="tag_key" name="params.tags.0.tag_key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="tag_value" name="params.tags.0.tag_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation>Aws\Ec2\Ec2Client</operation>
+    <operation><![CDATA[Aws\Ec2\Ec2Client]]></operation>
     <post_template>{assign_object_variable var=&quot;security_group&quot; value=&quot;{$params.object_id} - {$params.group_name}&quot;}</post_template>
     <parser>
       <section>
@@ -77,6 +100,49 @@
           <regexp>@&lt;VpcId&gt;(?&lt;vpcid&gt;.*)&lt;/VpcId&gt;@</regexp>
           <xpath>VpcId</xpath>
         </line>
+        <line>
+          <array name="tags">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;Key&gt;(?&lt;tag_key&gt;.*)&lt;/Key&gt;@</regexp>
+                <xpath>Key</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;Value&gt;(?&lt;tag_value&gt;.*)&lt;/Value&gt;@</regexp>
+                <xpath>Value</xpath>
+              </line>
+            </lines>
+            <xpath>Tags/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="ip_permissions">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;IpProtocol&gt;(?&lt;protocol&gt;.*)&lt;/IpProtocol&gt;@</regexp>
+                <xpath>IpProtocol</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;FromPort&gt;(?&lt;from_port&gt;.*)&lt;/FromPort&gt;@</regexp>
+                <xpath>FromPort</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;ToPort&gt;(?&lt;to_port&gt;.*)&lt;/ToPort&gt;@</regexp>
+                <xpath>ToPort</xpath>
+              </line>
+            </lines>
+            <xpath>IpPermissions/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
       </lines>
     </parser>
     <xpath>describeSecurityGroups</xpath>
@@ -84,20 +150,20 @@
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{literal}{{/literal}
-&quot;Description&quot;:&quot;{$params.description}&quot;,
-&quot;GroupName&quot;:&quot;{$params.group_name}&quot;
+    <operation><![CDATA[{literal}{{/literal}
+"Description":"{$params.description}",
+"GroupName":"{$params.group_name}"
 {if !empty($params.vpcid)}
-,&quot;VpcId&quot;:&quot;{$params.vpcid}&quot;
+,"VpcId":"{$params.vpcid}"
 {/if}
-{literal}}{/literal}</operation>
+{literal}}{/literal}]]></operation>
     <rest>Aws\Ec2\Ec2Client</rest>
     <xpath>createSecurityGroup</xpath>
   </command>
   <command name="DELETE">
-    <operation>{literal}{{/literal}
-&quot;GroupId&quot;:&quot;{$security_groups.$object_id.object_id}&quot;
-{literal}}{/literal}</operation>
+    <operation><![CDATA[{literal}{{/literal}
+"GroupId":"{$security_groups.$object_id.object_id}"
+{literal}}{/literal}]]></operation>
     <rest>Aws\Ec2\Ec2Client</rest>
     <xpath>deleteSecurityGroup</xpath>
   </command>
