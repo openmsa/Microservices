@@ -50,28 +50,27 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.adress-family.simple.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.adress-family.txt]]></operation>
     <parser>
       <section>
-        <regexp>@^\s+address-family\s+ipv4\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <regexp>@^\s+address-family\s+(ipv4|vpnv4)?\s+(vrf)?\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^\s*address-family\s+(?&lt;object_id&gt;(ipv4|vpnv4)\s*(vrf)?.*)@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@^\s+redistribute\sstatic\sroute-map\s(?&lt;static_route_map&gt;\S+)@</regexp>
+          <regexp>@^\s+redistribute\s+static\s+route-map\s+(?&lt;static_route_map&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s+redistribute\sconnected\sroute-map\s(?&lt;connected_route_map&gt;\S+)@</regexp>
+          <regexp>@^\s+redistribute\s+connected\s+route-map\s(?&lt;connected_route_map&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array name="neighbor">
             <lines/>
-            <regexp>@^\s+neighbor\s(?&lt;ip&gt;\S+)\s(?&lt;config&gt;.*)@</regexp>
+            <regexp>@^\s+neighbor\s+(?&lt;ip&gt;\S+)\s+(?&lt;config&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -83,10 +82,10 @@
           <regexp>@^\s*no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@ ^\s*redistribute connected@</regexp>
+          <regexp>@^\s*redistribute\s+connected@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s*redistribute static@</regexp>
+          <regexp>@^\s*redistribute\s+static@</regexp>
         </ignore>
         <ignore>
           <regexp>@^\s*default-information@</regexp>
