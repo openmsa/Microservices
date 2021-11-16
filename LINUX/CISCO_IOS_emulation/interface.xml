@@ -133,9 +133,6 @@
     <variable displayName="load_interval" name="params.load_interval" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="mpls" name="params.mpls" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
     <variable displayName="flowcontrol" name="params.flowcontrol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -235,6 +232,105 @@
     <variable displayName="dampening" name="params.dampening" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="clns_mtu" name="params.clns_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="logging_event" name="params.logging_event.0.logging_event" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="max_reserved_bandwidth" name="params.max_reserved_bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="msl_qos_trust" name="params.msl_qos_trust" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="fair_queue" name="params.fair_queue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="group" name="params.channel_group.0.group" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>channel group</sections>
+      </sections>
+    </variable>
+    <variable displayName="mode" name="params.channel_group.0.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>channel group</sections>
+      </sections>
+    </variable>
+    <variable displayName="link" name="params.channel_group.0.link" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>channel group</sections>
+      </sections>
+    </variable>
+    <variable displayName="peer_ip" name="params.xconnect.0.peer_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>xconnect</sections>
+      </sections>
+    </variable>
+    <variable displayName="vc_id" name="params.xconnect.0.vc_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>xconnect</sections>
+      </sections>
+    </variable>
+    <variable displayName="mode" name="params.xconnect.0.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>xconnect</sections>
+      </sections>
+    </variable>
+    <variable displayName="command" name="params.mpls.0.command" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="mtu" name="params.mpls.0.mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="protocol_label" name="params.mpls.0.protocol_label" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="flowcontrol_send" name="params.mpls.0.flowcontrol_send" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="weight1" name="params.wrr_queue.0.weight1" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>wrr-queue</sections>
+      </sections>
+    </variable>
+    <variable displayName="weight2" name="params.wrr_queue.0.weight2" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>wrr-queue</sections>
+      </sections>
+    </variable>
+    <variable displayName="weight3" name="params.wrr_queue.0.weight3" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>wrr-queue</sections>
+      </sections>
+    </variable>
+    <variable displayName="weight4" name="params.wrr_queue.0.weight4" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>wrr-queue</sections>
+      </sections>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -243,7 +339,7 @@ interface Serial1/0/0.1/1/1/1:0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.interface.ios.simple.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.interface.ios.txt]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
@@ -257,7 +353,7 @@ interface Serial1/0/0.1/1/1/1:0
       <lines>
         <line>
           <array name="addresses">
-            <regexp>@^\s+ip\+saddress\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)\s+(?&lt;type&gt;(secondary|/s*))@</regexp>
+            <regexp>@^\s+ip\s+address\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)\s+(?&lt;type&gt;(secondary))@</regexp>
             <regexp>@^\s+ip\s+address\s+(?&lt;address&gt;\S+)\s+(?&lt;mask&gt;\S+)@</regexp>
           </array>
           <regexp/>
@@ -373,11 +469,6 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array/>
-          <regexp>@^\s+mpls\s+(?&lt;mpls&gt;\S+)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
           <regexp>@^\s+flowcontrol\s+(?&lt;flowcontrol&gt;.*)@</regexp>
           <xpath/>
         </line>
@@ -426,6 +517,7 @@ interface Serial1/0/0.1/1/1/1:0
         <line>
           <array name="switchport">
             <regexp>@^\s+switchport\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;.*)@</regexp>
+            <regexp>@^\s+(?&lt;key&gt;switchport)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -433,6 +525,7 @@ interface Serial1/0/0.1/1/1/1:0
         <line>
           <array name="spanning_tree">
             <regexp>@^\s+spanning-tree\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;\S+)@</regexp>
+            <regexp>@^\s+spanning-tree\s+(?&lt;key&gt;\S+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -445,6 +538,68 @@ interface Serial1/0/0.1/1/1/1:0
         <line>
           <array/>
           <regexp>@^\s+(?&lt;dampening&gt;(dampening))$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="logging_event">
+            <regexp>@^\s+logging\s+event\s+(?&lt;logging_event&gt;\S+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+max-reserved-bandwidth\s+(?&lt;max_reserved_bandwidth&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+(?&lt;fair_queue&gt;(fair-queue))@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="channel_group">
+            <regexp>@^\s+channel-group\s+(?&lt;group&gt;\d+)\s+mode\s+(?&lt;mode&gt;\S+)@</regexp>
+            <regexp>@^\s+channel-group\s+(?&lt;group&gt;\d+)\s+link\s+(?&lt;link&gt;\d+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="xconnect">
+            <regexp>@^\s+xconnect\s+(?&lt;peer_ip&gt;\S+)\s+(?&lt;vc_id&gt;\d+)\s+encapsulation\s+(?&lt;mode&gt;mpls|l2tpv3)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+clns\s+mtu\s+(?&lt;clns_mtu&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="mpls">
+            <regexp>@^\s+mpls\s+(?&lt;command&gt;mtu)\s+(?&lt;mtu&gt;\d+)@</regexp>
+            <regexp>@^\s+mpls\s+(?&lt;command&gt;label)\s+protocol\s+(?&lt;protocol_label&gt;\S+)@</regexp>
+            <regexp>@^\s+mpls\s+(?&lt;command&gt;ip)\s+flowcontrol\s+send\s+(?&lt;flowcontrol_send&gt;\S+)@</regexp>
+            <regexp>@^\s+mpls\s+(?&lt;command&gt;ip)$@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="wrr_queue">
+            <regexp>@^\s+wrr-queue\s+bandwidth\s+(?&lt;weight1&gt;\d+)\s+(?&lt;weight2&gt;\d+)\s+(?&lt;weight3&gt;\d+)\s+(?&lt;weight4&gt;\d+)@</regexp>
+            <regexp>@^\s+wrr-queue\s+bandwidth\s+(?&lt;weight1&gt;\d+)\s+(?&lt;weight2&gt;\d+)\s+(?&lt;weight3&gt;\d+)@</regexp>
+            <regexp>@^\s+wrr-queue\s+bandwidth\s+(?&lt;weight1&gt;\d+)\s+(?&lt;weight2&gt;\d+)@</regexp>
+            <regexp>@^\s+wrr-queue\s+bandwidth\s+(?&lt;weight1&gt;\d+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+mls\s+qos\s+trust\s+(?&lt;msl_qos_trust&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <ignore>
