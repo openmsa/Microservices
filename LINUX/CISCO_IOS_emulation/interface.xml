@@ -620,10 +620,10 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array name="switchport">
-            <regexp>@^\s+switchport\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;.*)@</regexp>
             <regexp>@^\s+switchport\s+access(?&lt;switchport_access_vlan&gt;.*)@</regexp>
             <regexp>@^\s+switchport\s+mode\s+(?&lt;switchport_mode&gt;\S+)@</regexp>
             <regexp>@^\s+switchport\s+block\s+(?&lt;switchport_block&gt;\S+)@</regexp>
+            <regexp>@^\s+switchport\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
