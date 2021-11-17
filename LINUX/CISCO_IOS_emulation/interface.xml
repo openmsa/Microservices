@@ -190,18 +190,6 @@
         <sections>frame relay</sections>
       </sections>
     </variable>
-    <variable displayName="source" name="params.ip_verify.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>ip verify</sections>
-      </sections>
-    </variable>
-    <variable displayName="via" name="params.ip_verify.0.via" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>ip verify</sections>
-      </sections>
-    </variable>
     <variable displayName="bfd_interval" name="params.bfd.0.bfd_interval" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -541,6 +529,9 @@
     <variable displayName="wrr_queue_bandwidth" name="params.wrr_queue_bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="ip_urpf" name="params.ip_urpf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -668,13 +659,6 @@ interface Serial1/0/0.1/1/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="ip_verify">
-            <regexp>@^\s+ip\s+verify\s+unicast\s+(?&lt;source&gt;\S+)\s+reachable-via\s+(?&lt;via&gt;\S+)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array name="bfd">
             <regexp>@^\s+bfd\s+interval\s+(?&lt;bfd_interval&gt;\d+)\s+min_rx\s+(?&lt;bfd_min&gt;\d+)\s+multiplier\s+(?&lt;bfd_multiplier&gt;\d+)@</regexp>
           </array>
@@ -721,7 +705,7 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array/>
-          <regexp>@^\s+ip\s+flow\s+(?&lt;ip_flow&gt;\S+)@</regexp>
+          <regexp>@^\s+ip\s+flow\s+(?&lt;ip_flow&gt;ingress)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -852,7 +836,12 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array/>
-          <regexp>@^\s*ip\s+flow\s+monitor\s+(?&lt;flow_monitor&gt;\S+)\s+sampler\s+(?&lt;ip_flow_sampler&gt;\S+)\s+(?&lt;ip_flow_direction&gt;\S+)@</regexp>
+          <regexp>@^\s*ip\s+flow\s+monitor\s+(?&lt;ip_flow_monitor&gt;\S+)\s+sampler\s+(?&lt;ip_flow_sampler&gt;\S+)\s+(?&lt;ip_flow_direction&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+ip\s+verify\s+(?&lt;ip_urpf&gt;.+)@</regexp>
           <xpath/>
         </line>
         <ignore>
