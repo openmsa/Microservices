@@ -207,13 +207,13 @@
       <sections>
         <sections>switchport</sections>
       </sections>
-     </variable>
+    </variable>
     <variable displayName="switchport_trunk_vlan" name="params.switchport.0.switchport_trunk_vlan" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>switchport</sections>
       </sections>
-     </variable>
+    </variable>
     <variable displayName="key" name="params.switchport.0.key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -486,6 +486,30 @@
     </variable>
     <variable displayName="wrr_queue_bandwidth" name="params.wrr_queue_bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+    </variable>
+    <variable displayName="ipv6_enable" name="params.ipv6_enable" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ipv6 address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv6_flow_monitor" name="params.ipv6_flow_monitor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ipv6 address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv6_flow_sampler" name="params.ipv6_flow_sampler" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ipv6 address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv6_flow_direction" name="params.ipv6_flow_direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ipv6 address</sections>
+      </sections>
     </variable>
   </variables>
   <example>
@@ -783,6 +807,16 @@ interface Serial1/0/0.1/1/1/1:0
         <line>
           <array/>
           <regexp>@^\s+wrr-queue\s+bandwidth\s+(?&lt;wrr_queue_bandwidth&gt;(\d+\s){1,4})@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*ipv6\s+(?&lt;ipv6_enable&gt;enable)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*ipv6\s+flow\s+monitor\s+(?&lt;ipv6_flow_monitor&gt;\S+)\s+sampler\s+(?&lt;ipv6_flow_sampler&gt;\S+)\s+(?&lt;ipv6_flow_direction&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <ignore>
