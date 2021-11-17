@@ -550,12 +550,40 @@
   </variables>
   <example>
     <content>!
-interface Serial1/0/0.1/1/1/1:0
-  ip pim sparse-mode
+interface GigabitEthernet0/0/0
+ description &quot;Conexao com i-br-sp-spo-msv-hl3-04 ge-0/0/0.654 LOCAL&quot;
+ mtu 8600
+ ip address 177.61.179.65 255.255.255.254
+ no ip redirects
+ no ip proxy-arp
+ ip router isis vivo
+ ip flow monitor MONITOR-IPV4 sampler SAMPLER-1-OUT-2 input
+ ip pim sparse-mode
+ load-interval 30
+ no negotiation auto
+ ipv6 flow monitor MONITOR-IPV6 sampler SAMPLER-1-OUT-2 input
+ ipv6 address 2001:12E0:B100:2E:177:61:179:65/127
+ ipv6 enable
+ no ipv6 redirects
+ ipv6 router isis vivo
+ mpls ip
+ mpls label protocol ldp
+ mpls ldp igp sync delay 30
+ bfd interval 100 min_rx 100 multiplier 3
+ cdp enable
+ isis circuit-type level-2-only
+ isis network point-to-point 
+ isis metric 100 level-1
+ isis metric 600 level-2
+ isis authentication mode md5
+ isis authentication key-chain ISIS-PWD
+ isis csnp-interval 10 level-2
+ isis bfd
+ service-policy output PHB_ONEGIGA_R33_B90
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/c-br-sp-spo-msv-rav-05.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/c-br-sp-spo-msv-rav-05.interface.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
