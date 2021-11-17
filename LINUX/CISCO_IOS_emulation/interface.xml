@@ -934,6 +934,9 @@ interface GigabitEthernet0/0/0
         <ignore>
           <regexp>@^\s*exit-vrrp@</regexp>
         </ignore>
+        <ignore>
+          <regexp>@^\s*mpls\s+ldp@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
