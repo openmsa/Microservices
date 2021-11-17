@@ -52,9 +52,6 @@
         <sections>ip address</sections>
       </sections>
     </variable>
-    <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
     <variable displayName="ipv6_address" name="params.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -66,6 +63,9 @@
       <sections>
         <sections>ipv6 address</sections>
       </sections>
+    </variable>
+    <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
     </variable>
     <variable displayName="pim_mode" name="params.pim_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -160,19 +160,19 @@
         <sections>ip verify</sections>
       </sections>
     </variable>
-    <variable displayName="interval" name="params.bfd.0.interval" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bfd_interval" name="params.bfd.0.bfd_interval" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>bfd</sections>
       </sections>
     </variable>
-    <variable displayName="min_rx" name="params.bfd.0.min_rx" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bfd_min" name="params.bfd.0.bfd_min" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>bfd</sections>
       </sections>
     </variable>
-    <variable displayName="multiplier" name="params.bfd.0.multiplier" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bfd_multiplier" name="params.bfd.0.bfd_multiplier" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>bfd</sections>
@@ -625,7 +625,7 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array name="bfd">
-            <regexp>@^\s+bfd\s+interval\s+(?&lt;interval&gt;\d+)\s+min_rx\s+(?&lt;min_rx&gt;\d+)\s+multiplier\s+(?&lt;multiplier&gt;\d+)@</regexp>
+            <regexp>@^\s+bfd\s+interval\s+(?&lt;bfd_interval&gt;\d+)\s+min_rx\s+(?&lt;bfd_min&gt;\d+)\s+multiplier\s+(?&lt;bfd_multiplier&gt;\d+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
