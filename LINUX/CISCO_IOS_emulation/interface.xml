@@ -60,6 +60,9 @@
     </variable>
     <variable displayName="int_speed" name="params.int_speed" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>speed</sections>
+      </sections>
     </variable>
     <variable displayName="duplex_mode" name="params.duplex_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -94,7 +97,7 @@
     <variable displayName="pim_mode" name="params.pim_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="mtu" name="params.mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="mtu_int" name="params.mtu_int" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="ip_router" name="params.ip_router" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -104,6 +107,9 @@
       <repositories/>
     </variable>
     <variable displayName="flowcontrol" name="params.flowcontrol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ip_flow" name="params.ip_flow" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="source" name="params.ip_verify.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -136,20 +142,11 @@
         <sections>bfd</sections>
       </sections>
     </variable>
-    <variable displayName="key" name="params.carrier_delay.0.key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="switchport" name="params.switchport.0.switchport" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
-        <sections>carrier-delay</sections>
+        <sections>switchport</sections>
       </sections>
-    </variable>
-    <variable displayName="value" name="params.carrier_delay.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>carrier-delay</sections>
-      </sections>
-    </variable>
-    <variable displayName="ip_flow" name="params.ip_flow" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
     </variable>
     <variable displayName="switchport_access_vlan" name="params.switchport.0.switchport_access_vlan" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -179,6 +176,12 @@
       <repositories/>
       <sections>
         <sections>switchport</sections>
+      </sections>
+    </variable>
+    <variable displayName="spanning_tree" name="params.spanning_tree.0.spanning_tree" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>spanning-tree</sections>
       </sections>
     </variable>
     <variable displayName="key" name="params.spanning_tree.0.key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -211,19 +214,19 @@
     <variable displayName="fair_queue" name="params.fair_queue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="group" name="params.channel_group.0.group" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="channel_group_id" name="params.channel_group.0.channel_group_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>channel group</sections>
       </sections>
     </variable>
-    <variable displayName="mode" name="params.channel_group.0.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="channel_group_mode" name="params.channel_group.0.channel_group_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>channel group</sections>
       </sections>
     </variable>
-    <variable displayName="link" name="params.channel_group.0.link" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="channel_group_link" name="params.channel_group.0.channel_group_link" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>channel group</sections>
@@ -463,6 +466,30 @@
         <sections>ip rtp</sections>
       </sections>
     </variable>
+    <variable displayName="carrier_delay_msec" name="params.carrier_delay.0.carrier_delay_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_up" name="params.carrier_delay.0.carrier_delay_up" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_down_msec" name="params.carrier_delay.0.carrier_delay_down_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="speed_negotiation" name="params.speed_negotiation" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>speed</sections>
+      </sections>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -508,7 +535,7 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array/>
-          <regexp>@^\s+speed\s+(?&lt;int_speed&gt;\S+)@</regexp>
+          <regexp>@^\s+speed\s+(?&lt;int_speed&gt;\d+)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -555,7 +582,7 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array/>
-          <regexp>@^\s+mtu\s+(?&lt;mtu&gt;\d+)@</regexp>
+          <regexp>@^\s+mtu\s+(?&lt;mtu_int&gt;\d+)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -577,7 +604,9 @@ interface Serial1/0/0.1/1/1/1:0
           <array name="carrier_delay">
             <lines/>
             <lines/>
-            <regexp>@^\s+carrier-delay\s+(?&lt;key&gt;(down\s+msec|msec|up))\s+(?&lt;value&gt;\d+)@</regexp>
+            <regexp>@^\s+carrier-delay\s+msec\s+(?&lt;carrier_delay_msec&gt;\d+)@</regexp>
+            <regexp>@^\s+carrier-delay\s+up\s+(?&lt;carrier_delay_up&gt;\d+)@</regexp>
+            <regexp>@^\s+carrier-delay\s+down\s+msec\s+(?&lt;carrier_delay_down_msec&gt;\d+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -620,9 +649,10 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array name="switchport">
-            <regexp>@^\s+switchport\s+access(?&lt;switchport_access_vlan&gt;.*)@</regexp>
+            <regexp>@^\s+(?&lt;switchport&gt;switchport)$@</regexp>
             <regexp>@^\s+switchport\s+mode\s+(?&lt;switchport_mode&gt;\S+)@</regexp>
             <regexp>@^\s+switchport\s+block\s+(?&lt;switchport_block&gt;\S+)@</regexp>
+            <regexp>@^\s+switchport\s+access(?&lt;switchport_access_vlan&gt;.*)@</regexp>
             <regexp>@^\s+switchport\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;.*)@</regexp>
           </array>
           <regexp/>
@@ -631,7 +661,7 @@ interface Serial1/0/0.1/1/1/1:0
         <line>
           <array name="spanning_tree">
             <regexp>@^\s+spanning-tree\s+(?&lt;key&gt;\S+)\s+(?&lt;value&gt;\S+)@</regexp>
-            <regexp>@^\s+spanning-tree\s+(?&lt;key&gt;\S+)@</regexp>
+            <regexp>@^\s+spanning-tree\s+(?&lt;spanning_tree&gt;portfast)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -665,8 +695,8 @@ interface Serial1/0/0.1/1/1/1:0
         </line>
         <line>
           <array name="channel_group">
-            <regexp>@^\s+channel-group\s+(?&lt;group&gt;\d+)\s+mode\s+(?&lt;mode&gt;\S+)@</regexp>
-            <regexp>@^\s+channel-group\s+(?&lt;group&gt;\d+)\s+link\s+(?&lt;link&gt;\d+)@</regexp>
+            <regexp>@^\s+channel-group\s+(?&lt;channel_group_id&gt;\d+)\s+mode\s+(?&lt;channel_group_mode&gt;\S+)@</regexp>
+            <regexp>@^\s+channel-group\s+(?&lt;channel_group_id&gt;\d+)\s+link\s+(?&lt;channel_group_link&gt;\d+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -754,6 +784,11 @@ interface Serial1/0/0.1/1/1/1:0
         <line>
           <array/>
           <regexp>@^\s+service-policy\s+output\s+(?&lt;service_policy_out&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+speed\s+(?&lt;speed_negotiation&gt;(nonegotiate))@</regexp>
           <xpath/>
         </line>
         <ignore>
