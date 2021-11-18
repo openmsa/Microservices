@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>ip_route</name>
+    <name>ip_route - cisco ios - emulator</name>
     <group>Default</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -34,6 +34,7 @@
     <operation><![CDATA[cat /sample-config.ios.V4815.txt]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath/>
       </section>
       <lines/>
