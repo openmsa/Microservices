@@ -78,6 +78,8 @@
       <lines>
         <line>
           <array name="access_list">
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))$@</regexp>
             <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;acl_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;acl_dest&gt;(any|host)?)$@</regexp>
             <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_host&gt;host)\s+(?&lt;acl_src&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;acl_dest&gt;(any|host)?)$@</regexp>
             <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;(any|host))?\s+(eq\s+(?&lt;acl_src_port&gt;)\S+|\d+)?\s+(?&lt;acl_dest&gt;(any|host))?\s+(eq?\s+(?&lt;acl_dest_port&gt;)\S+)?$@</regexp>
@@ -85,8 +87,6 @@
             <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;(any|host))?\s+((eq?\s+(?&lt;acl_src_port&gt;)\S+|\d+)|(range\s+(?&lt;acl_dest_range&gt;\d+\s\d+)))?\s+(?&lt;acl_dest&gt;(any|host))?$@</regexp>
             <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(icmp))?\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_imask&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})?)\s+(?&lt;acl_dest&gt;(any|host))?\s+(?&lt;acl_icmp_msg&gt;\S+)$@</regexp>
             <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(icmp))?\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_dest&gt;(any|host))?\s+(?&lt;acl_icmp_msg&gt;\S+)$@</regexp>
-            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})$@</regexp>
-            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))$@</regexp>
           </array>
           <regexp/>
           <xpath/>
