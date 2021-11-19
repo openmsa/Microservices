@@ -62,9 +62,12 @@
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content>ip access-list extended V4815:Sabesp_Intragov_VPNSC_GREY_MGMT_ACL
+ permit tcp host 200.204.1.121 any eq tacacs</content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.acl.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.acl.ios.simple.txt]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}

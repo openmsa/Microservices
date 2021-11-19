@@ -550,8 +550,17 @@
   </variables>
   <example>
     <content>!
-interface Serial1/0/0.1/1/1/1:0
-  ip pim sparse-mode
+interface Serial2/3/0.1/3/6/1:0
+ description SAO PAULO SECRETARIA DA EDUCACAO_ID_665774 
+ ip vrf forwarding EDUCACAO
+ ip address 201.61.58.5 255.255.255.252
+ no ip redirects
+ no ip unreachables
+ no ip proxy-arp
+ ip flow ingress
+ encapsulation ppp
+ shutdown
+ no cdp enable
 !</content>
   </example>
   <command name="IMPORT">
