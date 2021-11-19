@@ -1,0 +1,108 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>ip_access_list - cisco ios - emulator</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ip_access_list" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_rule" name="params.access_list.0.acl_rule" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_protocol" name="params.access_list.0.acl_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_host" name="params.access_list.0.acl_host" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_src" name="params.access_list.0.acl_src" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_imask" name="params.access_list.0.acl_imask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_src_port" name="params.access_list.0.acl_src_port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_dest_host" name="params.access_list.0.acl_dest" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_dest_port" name="params.access_list.0.acl_dest_port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_dest_range" name="params.access_list.0.acl_dest_range" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_icmp_msg" name="params.access_list.0.acl_icmp_msg" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.acl.ios.txt]]></operation>
+    <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
+      {assign_object_variable var=&quot;validated&quot; value=true}
+{else}
+      {assign_object_variable var=&quot;validated&quot; value=false}
+{/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s*ip\s+access-list\s+extended\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <xpath/>
+      </section>
+      <lines>
+        <line>
+          <array name="access_list">
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;acl_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;acl_dest&gt;(any|host)?)$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_host&gt;host)\s+(?&lt;acl_src&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;acl_dest&gt;(any|host)?)$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;(any|host))?\s+(eq\s+(?&lt;acl_src_port&gt;)\S+|\d+)?\s+(?&lt;acl_dest&gt;(any|host))?\s+(eq?\s+(?&lt;acl_dest_port&gt;)\S+)?$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;(any|host))?\s+(?&lt;acl_dest&gt;(any|host))?\s+((eq?\s+(?&lt;acl_dest_port&gt;)\S+|\d+)|(range\s+(?&lt;acl_dest_range&gt;\d+\s\d+)))?$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(ip|udp|tcp))?\s+(?&lt;acl_src&gt;(any|host))?\s+((eq?\s+(?&lt;acl_src_port&gt;)\S+|\d+)|(range\s+(?&lt;acl_dest_range&gt;\d+\s\d+)))?\s+(?&lt;acl_dest&gt;(any|host))?$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(icmp))?\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_imask&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})?)\s+(?&lt;acl_dest&gt;(any|host))?\s+(?&lt;acl_icmp_msg&gt;\S+)$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_protocol&gt;(icmp))?\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_dest&gt;(any|host))?\s+(?&lt;acl_icmp_msg&gt;\S+)$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s+(?&lt;acl_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s+(?&lt;acl_src&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))$@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*(?&lt;validated&gt;!)@</regexp>
+          <xpath/>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
