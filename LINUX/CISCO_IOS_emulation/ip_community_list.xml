@@ -40,7 +40,7 @@
     <operation><![CDATA[cat /config/cisco_ios/sample-config.ip.ios.txt]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;community&gt;\d+|\S+)\s+(permit|deny)\s+(?&lt;community_list&gt;((\d+(:\d+)?|gshut|internet|local-AS|no-advertise|no-export)\s+)+)@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;community&gt;\d+|\S+)\s+(permit|deny)\s+(?&lt;community_list&gt;((\d+(:\d+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
         <xpath/>
       </section>
       <lines/>
