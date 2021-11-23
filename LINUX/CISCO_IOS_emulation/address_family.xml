@@ -50,7 +50,7 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*address-family\s+(?&lt;object_id&gt;(ipv4|vpnv4)\s*(vrf)?.*)@</regexp>

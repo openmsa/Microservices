@@ -37,7 +37,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ip.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;community&gt;\d+|\S+)\s+(permit|deny)\s+(?&lt;community_list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
