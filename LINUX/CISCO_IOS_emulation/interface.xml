@@ -550,17 +550,36 @@
   </variables>
   <example>
     <content>!
-interface Serial2/3/0.1/3/6/1:0
- description SAO PAULO SECRETARIA DA EDUCACAO_ID_665774 
- ip vrf forwarding EDUCACAO
- ip address 201.61.58.5 255.255.255.252
+interface GigabitEthernet0/0/0
+ description &quot;Conexao com i-br-sp-spo-msv-hl3-04 ge-0/0/0.654 LOCAL&quot;
+ mtu 8600
+ ip address 177.61.179.65 255.255.255.254
  no ip redirects
- no ip unreachables
  no ip proxy-arp
- ip flow ingress
- encapsulation ppp
- shutdown
- no cdp enable
+ ip router isis vivo
+ ip flow monitor MONITOR-IPV4 sampler SAMPLER-1-OUT-2 input
+ ip pim sparse-mode
+ load-interval 30
+ no negotiation auto
+ ipv6 flow monitor MONITOR-IPV6 sampler SAMPLER-1-OUT-2 input
+ ipv6 address 2001:12E0:B100:2E:177:61:179:65/127
+ ipv6 enable
+ no ipv6 redirects
+ ipv6 router isis vivo
+ mpls ip
+ mpls label protocol ldp
+ mpls ldp igp sync delay 30
+ bfd interval 100 min_rx 100 multiplier 3
+ cdp enable
+ isis circuit-type level-2-only
+ isis network point-to-point 
+ isis metric 100 level-1
+ isis metric 600 level-2
+ isis authentication mode md5
+ isis authentication key-chain ISIS-PWD
+ isis csnp-interval 10 level-2
+ isis bfd
+ service-policy output PHB_ONEGIGA_R33_B90
 !</content>
   </example>
   <command name="IMPORT">
