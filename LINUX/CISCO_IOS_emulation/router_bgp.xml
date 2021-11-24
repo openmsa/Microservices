@@ -43,7 +43,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.router_bgp.txt]]></operation>
     <parser>
       <section>
         <regexp>@router\s(?&lt;type&gt;(bgp))\s(?&lt;object_id&gt;\d+)@</regexp>
