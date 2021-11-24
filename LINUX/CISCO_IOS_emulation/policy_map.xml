@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>policy_map - cisco ios - emulator</name>
-    <group>Default</group>
+    <name>policy_map</name>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -84,7 +84,7 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/c-br-sp-spo-msv-rav-05.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@\s*policy-map\s+(?&lt;object_id&gt;\S+).*$@</regexp>

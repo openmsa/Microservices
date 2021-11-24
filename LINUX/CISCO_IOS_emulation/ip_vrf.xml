@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>vrf - cisco ios - emulator</name>
-    <group>Default</group>
+    <name>ip_vrf</name>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
@@ -43,11 +43,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-<<<<<<< HEAD
-    <operation><![CDATA[cat /config/cisco_ios/c-br-sp-spo-msv-rav-05.conf]]></operation>
-=======
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
->>>>>>> caaeb97ea67f44018cbcaf1a9d0a2ed9acab7d5e
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+vrf\s+(?!forwarding)\s*(?&lt;object_id&gt;\S+)@</regexp>

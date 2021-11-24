@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>interface - cisco ios -  emulator</name>
-    <group>Default</group>
+    <name>interface</name>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
@@ -583,7 +583,7 @@ interface GigabitEthernet0/0/0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/c-br-sp-spo-msv-rav-05.interface.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}

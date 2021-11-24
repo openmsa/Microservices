@@ -14,8 +14,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>ip_access_list - cisco ios - emulator</name>
-    <group>Default</group>
+    <name>ip_access_list</name>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -79,7 +79,7 @@
  permit tcp host 200.204.1.121 any eq tacacs</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/c-br-sp-spo-msv-rav-05.acl.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
     <post_template></post_template>
     <parser>
       <section>
