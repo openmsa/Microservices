@@ -104,7 +104,7 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.adress_family.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.adress_family.simple.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)(\s+vrf)?\s*((?&lt;bgp_vrf_name&gt;\S+))?@</regexp>
@@ -136,12 +136,7 @@
         </line>
         <line>
           <array/>
-          <regexp>@^\s*redistribute\s+static\s+route-map\s+(?&lt;bgp_vrf_redistribute_static_policy&gt;\S+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistribute&gt;\S+)$@</regexp>
+          <regexp>@^\s+redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static)(\s+route-map\s+(?&lt;bgp_vrf_redistribute_static_policy&gt;\S+))?$@</regexp>
           <xpath/>
         </line>
         <line>
