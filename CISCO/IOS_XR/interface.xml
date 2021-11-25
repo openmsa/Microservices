@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS XR emulation</description>
+    <description></description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>Interface</name>
-    <group>Default</group>
+    <name>interface</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,74 +25,235 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="address" name="params.address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="mask" name="params.mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="int_description" name="params.int_description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="vrf" name="params.vrf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ipv4_address" name="params.addresses.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv4_mask" name="params.addresses.0.ipv4_mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv4_type" name="params.addresses.0.ipv4_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv6_address" name="params.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv6_prefix" name="params.ipv6_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
+    <variable displayName="ipv6_enable" name="params.ipv6_enable" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
+    <variable displayName="mtu_int" name="params.mtu_int" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="service_policy_out" name="params.service_policy_out" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>service policy</sections>
+      </sections>
+    </variable>
+    <variable displayName="service_policy_in" name="params.service_policy_in" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>service policy</sections>
+      </sections>
+    </variable>
+    <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="policy_map" name="params.policy_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ip_urpf" name="params.ip_urpf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="encapsulation_dot1q" name="params.encapsulation.0.encapsulation_dot1q" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="encapsulation_second_dot1q" name="params.encapsulation.0.encapsulation_second_dot1q" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="carrier_delay_msec" name="params.carrier_delay.0.carrier_delay_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_up" name="params.carrier_delay.0.carrier_delay_up" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_down_msec" name="params.carrier_delay.0.carrier_delay_down_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="int_speed" name="params.int_speed" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="duplex_mode" name="params.duplex_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
-  <example>
-    <content></content>
-  </example>
+  <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config all]]></operation>
+    <operation><![CDATA[show run]]></operation>
+    <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
+      {assign_object_variable var=&quot;validated&quot; value=true}
+{else}
+      {assign_object_variable var=&quot;validated&quot; value=false}
+{/if}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*interface\s?(preconfigure)?\s(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
-          <array/>
-          <regexp>@^\s(ipv4)?\saddress\s(?&lt;address&gt;\S+)\s(?&lt;mask&gt;\S+)@</regexp>
+          <array name="addresses">
+            <regexp>@^\s+ipv4\s+address\s+(?&lt;ipv4_address&gt;\S+)\s+(?&lt;ipv4_mask&gt;\S+)\s*(?&lt;ipv4_type&gt;secondary)?$@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\sip\svrf\sforwarding\s(?&lt;vrf&gt;\S+)@</regexp>
+          <regexp>@^\s+description\s+(?&lt;int_description&gt;.*)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\sdescription\s(?&lt;description&gt;.*)@</regexp>
+          <regexp>@^\s+mtu\s+(?&lt;mtu_int&gt;\d+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\sservice-policy\soutput\s(?&lt;policy_map&gt;.*)@</regexp>
+          <regexp>@^\s+ipv6\s+address\s+(?&lt;ipv6_address&gt;[^/]+)/(?&lt;ipv6_prefix&gt;\d{1,3})@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+service-policy\s+output\s+(?&lt;service_policy_out&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+service-policy\s+input\s+(?&lt;service_policy_in&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*(?&lt;validated&gt;!)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^.*vrf\s+(?&lt;vrf_name&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+ipv4\s+verify\s+(?&lt;ip_urpf&gt;.+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="encapsulation">
+            <regexp>@^\s+encapsulation\s+dot1q\s+(?&lt;encapsulation_dot1q&gt;\d+)\s*(second-dot1q\s+(?&lt;encapsulation_second_dot1q&gt;\d+))?@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*ipv6\s+(?&lt;ipv6_enable&gt;enable)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="carrier_delay">
+            <regexp>@^\s+carrier-delay\s+msec\s+(?&lt;carrier_delay_msec&gt;\d+)@</regexp>
+            <regexp>@^\s+carrier-delay\s+up\s+(?&lt;carrier_delay_up&gt;\d+)@</regexp>
+            <regexp>@^\s+carrier-delay\s+down\s+msec\s+(?&lt;carrier_delay_down_msec&gt;\d+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+speed\s+(?&lt;int_speed&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+duplex\s+(?&lt;duplex_mode&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <ignore>
-          <regexp>@!@</regexp>
+          <regexp>@^\s* logging@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s+no@</regexp>
+          <regexp>@^\s*no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s+ppp@</regexp>
+          <regexp>@^\s*shutdown@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s+shutdown@</regexp>
+          <regexp>@^\s*load-interval@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*attach@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*mac-address@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*dampening@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*allow@</regexp>
         </ignore>
       </lines>
     </parser>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
-  <command name="UPDATE"/>
+  <command name="UPDATE">
+    <operation><![CDATA[!
+interface {$params.object_id}
+ description {$params.int_description}
+ {foreach $params.addresses as $addresses}
+ ipv4 address {$addresses.ipv4_address} {$addresses.ipv4_mask}  {$addresses.ipv4_type}
+ {/foreach}
+ ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
+ ipv6 {$params.ipv6_enable}
+!]]></operation>
+  </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
   <command name="LIST"/>
