@@ -752,11 +752,6 @@ interface GigabitEthernet0/0/0
           <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@^\s+(?&lt;dampening&gt;(dampening))$@</regexp>
-          <xpath/>
-        </line>
-        <line>
           <array name="logging_event">
             <regexp>@^\s+logging\s+event\s+(?&lt;logging_event&gt;\S+)@</regexp>
           </array>
@@ -936,6 +931,15 @@ interface GigabitEthernet0/0/0
         </ignore>
         <ignore>
           <regexp>@^\s*mpls\s+ldp@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*logging@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*load-interval@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*dampening@</regexp>
         </ignore>
       </lines>
     </parser>
