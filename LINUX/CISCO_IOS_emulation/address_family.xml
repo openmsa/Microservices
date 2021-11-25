@@ -112,6 +112,16 @@
       </section>
       <lines>
         <line>
+          <array/>
+          <regexp>@^\s+redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static)(\s+route-map\s+(?&lt;bgp_vrf_redistribute_static_policy&gt;\S+))?$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+(?&lt;bgp_vrf_default_route&gt;default-information.*)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
           <array name="neighbor">
             <lines/>
             <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)@</regexp>
@@ -132,16 +142,6 @@
             <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+route-map\s+(?&lt;bgp_vrf_route_map_out&gt;\S+)\s+out$@</regexp>
           </array>
           <regexp/>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s+redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static)(\s+route-map\s+(?&lt;bgp_vrf_redistribute_static_policy&gt;\S+))?$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s+(?&lt;bgp_vrf_default_route&gt;default-information.*)$@</regexp>
           <xpath/>
         </line>
         <ignore>
