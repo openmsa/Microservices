@@ -46,6 +46,12 @@
         <sections>ip address</sections>
       </sections>
     </variable>
+    <variable displayName="ipv4_type" name="params.addresses.0.ipv4_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>ip address</sections>
+      </sections>
+    </variable>
     <variable displayName="ipv6_address" name="params.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -109,10 +115,16 @@
         <sections>carrier-delay</sections>
       </sections>
     </variable>
+    <variable displayName="int_speed" name="params.int_speed" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="duplex_mode" name="params.duplex_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/f-br-sp-spo-msvc-rsd-01.interface.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/ubiqube-10-30-19-214.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
@@ -126,7 +138,7 @@
       <lines>
         <line>
           <array name="addresses">
-            <regexp>@^\s+ipv4\s+address\s+(?&lt;ipv4_address&gt;\S+)\s+(?&lt;ipv4_mask&gt;\S+)(\s+?&lt;ipv4_type&gt;(secondary))?@</regexp>
+            <regexp>@^\s+ipv4\s+address\s+(?&lt;ipv4_address&gt;\S+)\s+(?&lt;ipv4_mask&gt;\S+)\s*(?&lt;ipv4_type&gt;secondary)?$@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -192,6 +204,16 @@
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s+speed\s+(?&lt;int_speed&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+duplex\s+(?&lt;duplex_mode&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s* logging@</regexp>
         </ignore>
@@ -213,12 +235,27 @@
         <ignore>
           <regexp>@^\s*dampening@</regexp>
         </ignore>
+        <ignore>
+          <regexp>@^\s*allow@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
-  <command name="UPDATE"/>
+  <command name="UPDATE">
+    <operation><![CDATA[rm -f /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+touch /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+echo > /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+echo " " >  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ "   /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ ! "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ interface {$params.object_id} "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ description {$params.int_description} "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ ! "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+]]></operation>
+  </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
   <command name="LIST"/>
