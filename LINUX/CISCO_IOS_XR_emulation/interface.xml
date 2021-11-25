@@ -124,7 +124,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show run]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/ubiqube-10-30-19-214.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
@@ -244,15 +244,17 @@
   <command name="CREATE"/>
   <command name="READ"/>
   <command name="UPDATE">
-    <operation><![CDATA[!
-interface {$params.object_id}
- description {$params.int_description}
- {foreach $params.addresses as $addresses}
- ipv4 address {$addresses.ipv4_address} {$addresses.ipv4_mask}  {$addresses.ipv4_type}
- {/foreach}
- ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
- ipv6 {$params.ipv6_enable}
-!]]></operation>
+    <operation><![CDATA[rm -f /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+touch /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+echo > /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+echo " " >  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ "   /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ ! "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ interface {$params.object_id} "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ description {$params.int_description} "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ ! "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+sed -i "$ a\ "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
