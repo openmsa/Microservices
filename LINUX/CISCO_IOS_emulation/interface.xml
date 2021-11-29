@@ -550,21 +550,21 @@
   </variables>
   <example>
     <content>!
-interface Serial2/3/0.1/3/6/1:0
- description SAO PAULO SECRETARIA DA EDUCACAO_ID_665774 
- ip vrf forwarding EDUCACAO
- ip address 201.61.58.5 255.255.255.252
+interface Serial1/0/0.1/3/1/1:0
+ description By VPNSC: Job Id# = 176159 (Sabesp_Braganca_Paulista_SP_582829)
+ ip vrf forwarding V4815:Sabesp_Intragov
+ ip address 186.239.4.165 255.255.255.252
  no ip redirects
- no ip unreachables
  no ip proxy-arp
- ip flow ingress
  encapsulation ppp
- shutdown
+ no fair-queue
  no cdp enable
+ max-reserved-bandwidth 95
+ service-policy output toCE-240-0-640-10-20
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.interface.txt]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
@@ -730,11 +730,6 @@ interface Serial2/3/0.1/3/6/1:0
         <line>
           <array/>
           <regexp>@^\s+ip\s+flow\s+(?&lt;ip_flow&gt;ingress)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s+(?&lt;dampening&gt;(dampening))$@</regexp>
           <xpath/>
         </line>
         <line>
@@ -917,6 +912,15 @@ interface Serial2/3/0.1/3/6/1:0
         </ignore>
         <ignore>
           <regexp>@^\s*mpls\s+ldp@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*logging@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*load-interval@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*dampening@</regexp>
         </ignore>
       </lines>
     </parser>
