@@ -52,7 +52,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample.vrf_bgp.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;vrf&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>

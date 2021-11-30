@@ -104,7 +104,7 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample.vrf_bgp.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)(\s+vrf)?\s*((?&lt;bgp_vrf_name&gt;\S+))?@</regexp>
