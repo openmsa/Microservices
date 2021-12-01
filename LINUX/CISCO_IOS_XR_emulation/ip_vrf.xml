@@ -60,7 +60,7 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample.vrf_bgp.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*vrf\s+(?&lt;object_id&gt;\S+)@</regexp>
