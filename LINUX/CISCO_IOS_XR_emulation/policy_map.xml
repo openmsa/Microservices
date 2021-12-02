@@ -31,8 +31,10 @@
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath/>
       </section>
       <lines/>

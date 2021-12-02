@@ -25,13 +25,10 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="router_bgp" name="params.router_bgp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bgp_address_family" name="params.bgp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -43,22 +40,16 @@
     <variable displayName="rd" name="params.rd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="bgp_address_family" name="params.bgp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="route_map" name="params.route_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="import_export" name="params.route_targets.0.import_export" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="import_rt" name="params.import_array_rt.0.import_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="route_target" name="params.route_targets.0.route_target" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bgp_vrf_redistribute" name="params.bgp_vrf_redistribute" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bgp_vrf_redistrib_policy" name="params.bgp_vrf_redistrib_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bgp_vrf_redistrib_static_policy" name="params.bgp_vrf_redistrib_static_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="export_rt" name="params.export_array_rt.0.export_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="bgp_neighbor" name="params.neighbor.0.bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -112,9 +103,36 @@
     <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-  </variables>  <example/>
+    <variable displayName="bgp_address_family" name="params.address_family.0.bgp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bgp_vrf_redistribute" name="params.address_family.0.bgp_vrf_redistribute" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bgp_vrf_redistrib_policy" name="params.address_family.0.bgp_vrf_redistrib_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bgp_vrf_redistrib_static_policy" name="params.address_family.0.bgp_vrf_redistrib_static_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+  </variables>
+  <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample.vrf_bgp.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
+    <post_template>{$import_index=0}
+{$export_index=0}
+{foreach $params.import_rt.0.rt_array as $key=&gt;$value}
+{assign_object_variable var=&quot;import_array_rt.{$import_index}.import_rt&quot; value=&quot;{$value.import_rt}&quot;}
+{$import_index=$import_index+1}
+{/foreach}
+{foreach $params.import_rt.1.rt_array as $key=&gt;$value}
+{assign_object_variable var=&quot;export_array_rt.{$export_index}.export_rt&quot; value=&quot;{$value.import_rt}&quot;}
+{$export_index=$export_index+1}
+{/foreach}
+{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}
+{foreach $router_bgp as $router}
+{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$router.router_bgp}&quot;}
+{/foreach}</post_template>
     <parser>
       <section>
         <regexp>@^\s*vrf\s*(?&lt;object_id&gt;(?&lt;customer_prefix&gt;[^:]+)\S+)$@</regexp>
@@ -133,12 +151,45 @@
         </line>
         <line>
           <array/>
-          <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static|connected)$@</regexp>
+          <regexp>@^\s*description\s+(?&lt;description&gt;.*)$@</regexp>
           <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistrib_policy&gt;static)\s+route-map\s+(?&lt;bgp_vrf_redistrib_static_policy&gt;\S+)$@</regexp>
+          <array name="import_rt">
+            <lines>
+              <line>
+                <array name="rt_array">
+                  <regexp>@^\s*(?&lt;import_rt&gt;\d+:\d+)$@</regexp>
+                </array>
+                <regexp/>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@import route-target@</regexp>
+            <regexp>@export route-target@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="address_family">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static|connected)$@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistrib_policy&gt;static)\s+route-policy\s+(?&lt;bgp_vrf_redistrib_static_policy&gt;\S+)$@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+unicast$@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <ignore>
@@ -150,9 +201,65 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[!
+vrf {$params.vrf_name}
+address-family ipv4 unicast
+{foreach $params.route_targets as $rt}
+    {if $rt.import_export == "import"}
+        import route-target
+        {$rt.route_target}
+        exit
+        !
+    {/if}
+{/foreach}
+{foreach $params.route_targets as $rt}
+    {if $rt.import_export == "export"}
+        export route-target
+        {$rt.route_target}
+        exit
+        !
+    {/if}
+{/foreach}
+export route-policy {$params.route_map}
+!
+router bgp {$params.router_bgp}
+  vrf {$params.vrf_name}
+  rd {$params.rd}
+  address-family ipv4 unicast
+  redistribute {$params.bgp_vrf_redistribute}
+  redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+!]]></operation>
+  </command>
   <command name="READ"/>
-  <command name="UPDATE"/>
+  <command name="UPDATE">
+    <operation><![CDATA[!
+vrf {$params.vrf_name}
+address-family ipv4 unicast
+{foreach $params.route_targets as $rt}
+    {if $rt.import_export == "import"}
+        import route-target
+        {$rt.route_target}
+        !
+    {/if}
+{/foreach}
+export route-policy {$params.route_map}
+{foreach $params.route_targets as $rt}
+    {if $rt.import_export == "export"}
+        export route-target
+        {$rt.route_target}
+        !
+    {/if}
+{/foreach}
+!
+router bgp {$params.router_bgp}
+  vrf {$params.vrf_name}
+  rd {$params.rd}
+  address-family ipv4 unicast
+  redistribute {$params.bgp_vrf_redistribute}
+  redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+!]]></operation>
+  </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
   <command name="LIST"/>

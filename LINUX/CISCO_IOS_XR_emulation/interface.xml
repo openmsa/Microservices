@@ -130,7 +130,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}

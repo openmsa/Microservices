@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>route_map</name>
- <group>EMULATION|CISCO|IOS-XR</group>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -81,12 +81,31 @@
   <command name="IMPORT">
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath/>
       </section>
       <lines/>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[!
+route-policy {$params.name}
+  {foreach $route_map.$object_id as $rm}
+    if ((tag eq $rm.tag)) then
+        set local preference 200
+
+  {/foreach}
+
+  if ((tag eq 200)) then
+    set local preference 200
+  elseif ((tag eq 250)) then
+    set weight 0
+  else
+   pass
+  endif
+end-policy
+!]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
