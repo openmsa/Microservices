@@ -113,7 +113,28 @@
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content>!
+ip vrf V4815:Sabesp_Intragov
+ description Description V4815:Sabesp_Intragov 
+ rd 10429:4765
+ export map grey_mgmt_vpn_Telefonica_Empresas_V4815:Sabesp_Intragov
+ route-target export 10429:11048
+ route-target import 10429:102
+ route-target import 10429:11048
+!
+address-family ipv4 vrf V4815:Sabesp_Intragov
+  no synchronization
+  redistribute connected
+  redistribute static route-map static_to_mpBGP
+  neighbor 186.238.60.58 remote-as 65393
+  neighbor 186.238.60.58 activate
+  neighbor 186.238.60.58 as-overrideneighbor 187.8.58.46 remote-as 65393
+  neighbor 187.8.58.46 activate
+  neighbor 187.8.58.46 as-override
+ exit-address-family
+!</content>
+  </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
     <post_template>{if isset($params.customer_prefix) &amp;&amp; (!isset($params.vrf_name) || $params.vrf_name==&quot;&quot;)}
