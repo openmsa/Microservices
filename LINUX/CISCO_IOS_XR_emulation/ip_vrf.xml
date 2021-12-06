@@ -25,81 +25,79 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="direction" name="params.addr_family_ipv4.0.import_rt.0.direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vrf" name="params.vrf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="direction" name="params.addr_family_ipv4.0.export_rt.0.direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="rt" name="params.addr_family_ipv4.0.import_rt.0.import_rt_array.0.rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="rt" name="params.addr_family_ipv4.0.export_rt.0.export_rt_array.0.rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="import_rt" name="params.import_array_rt.0.import_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="export_rt" name="params.export_array_rt.0.export_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="route_map" name="params.route_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="import_rt" name="params.import_rt.0.rt_array.0.import_rt" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
-    <content>vrf vrf_11
+    <content>vrf V4815:Sabesp_Intragov
  address-family ipv4 unicast
   import route-target
-   27699:11
-   27699:12
-   27699:13
+   10429:102
+   10429:11048
   !
+  export route-policy grey_mgmt_vpn_Telefonica_Empresas_V4815:Sabesp_Intragov
   export route-target
-   27699:2
-   27699:3
-   27699:4
-  !
- !</content>
+   10429:11048
+!</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample.vrf_bgp.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
+    <post_template>{$import_index=0}
+{$export_index=0}
+{foreach $params.import_rt.0.rt_array as $key=&gt;$value}
+{assign_object_variable var=&quot;import_array_rt.{$import_index}.import_rt&quot; value=&quot;{$value.import_rt}&quot;}
+{$import_index=$import_index+1}
+{/foreach}
+
+{foreach $params.import_rt.1.rt_array as $key=&gt;$value}
+{assign_object_variable var=&quot;export_array_rt.{$export_index}.export_rt&quot; value=&quot;{$value.import_rt}&quot;}
+{$export_index=$export_index+1}
+{/foreach}
+{assign_object_variable var=&quot;vrf&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*vrf\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^\s*vrf\s+(?&lt;object_id&gt;(?&lt;customer_prefix&gt;[^:]+)\S+)$@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
-          <array name="addr_family_ipv4">
+          <array/>
+          <regexp>@^\s*export\s+route-policy\s+(?&lt;route_map&gt;\S+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@address-family ipv4 unicast@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="import_rt">
             <lines>
               <line>
-                <array name="import_rt">
-                  <lines>
-                    <line>
-                      <array name="import_rt_array">
-                        <regexp>@^\s*(?&lt;rt&gt;\d+:\d+)$@</regexp>
-                      </array>
-                      <regexp/>
-                      <xpath/>
-                    </line>
-                  </lines>
-                  <lines/>
-                  <regexp>@^\s*(?&lt;direction&gt;import)\s+route-target$@</regexp>
-                </array>
-                <regexp/>
-                <xpath/>
-              </line>
-              <line>
-                <array name="export_rt">
-                  <lines>
-                    <line>
-                      <array name="export_rt_array">
-                        <regexp>@^\s*(?&lt;rt&gt;\d+:\d+)$@</regexp>
-                      </array>
-                      <regexp/>
-                      <xpath/>
-                    </line>
-                  </lines>
-                  <lines/>
-                  <regexp>@^\s*(?&lt;direction&gt;export)\s+route-target$@</regexp>
+                <array name="rt_array">
+                  <regexp>@^\s*(?&lt;import_rt&gt;\d+:\d+)$@</regexp>
                 </array>
                 <regexp/>
                 <xpath/>
@@ -110,14 +108,15 @@
                 <regexp>@^\s*!@</regexp>
               </ignore>
             </lines>
-            <regexp>@^\s*address-family\s+ipv4\s+unicast$@</regexp>
+            <regexp>@import route-target@</regexp>
+            <regexp>@export route-target@</regexp>
           </array>
           <regexp/>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*export\s+route-policy\s+(?&lt;route_map&gt;\S+)@</regexp>
+          <regexp>@^\s*description\s+(?&lt;description&gt;.*)@</regexp>
           <xpath/>
         </line>
         <ignore>

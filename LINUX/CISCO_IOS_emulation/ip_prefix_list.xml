@@ -49,7 +49,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+prefix-list\s+(?&lt;name&gt;\S+)\s+seq\s+(?&lt;sequence&gt;\d+)\s+(?&lt;action&gt;(permit|deny))\s+(?&lt;ip_prefix&gt;\S+)(\s+(?&lt;comp_prefix_length&gt;le|ge))?(\s+(?&lt;prefix_length&gt;\d+))?$@</regexp>
