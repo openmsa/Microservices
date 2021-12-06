@@ -101,12 +101,37 @@ route-map EXPORTA-INTRAGOV permit 10
       <lines>
         <line>
           <array/>
+          <regexp>@^\s*description\s+(?&lt;description&gt;.+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
           <regexp>@^\s*match\s+ip\s+address\s+prefix-list\s+(?&lt;match_ip_prefix_list&gt;.+)$@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s*match\s+ip\s+address\s+(?&lt;match_ip_access_list&gt;.+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*match\s+interface\s+(?&lt;match_interface&gt;.+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*match\s+community\s+(?&lt;match_community&gt;(\S+\s*)+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*match\s+as-path\s+(?&lt;as_path&gt;\d+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*match\s+tag\s+(?&lt;tag&gt;\S+)$@</regexp>
           <xpath/>
         </line>
         <line>
@@ -124,37 +149,12 @@ route-map EXPORTA-INTRAGOV permit 10
         </line>
         <line>
           <array/>
-          <regexp>@^\s*match\s+community\s+(?&lt;match_community&gt;(\S+\s*)+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
           <regexp>@^\s*set\s+(default\s+)?interface\s+(?&lt;output_interface&gt;(\S+\s*)+)$@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^\s*set\s+local-preference\s+(?&lt;local_preference&gt;\S+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s*match\s+as-path\s+(?&lt;as_path&gt;\d+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s*match\s+tag\s+(?&lt;tag&gt;\S+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s*description\s+(?&lt;description&gt;.+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s*match\s+interface\s+(?&lt;match_interface&gt;.+)$@</regexp>
           <xpath/>
         </line>
         <line>
