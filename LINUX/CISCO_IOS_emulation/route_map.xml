@@ -106,7 +106,13 @@ route-map EXPORTA-INTRAGOV permit 10
         </line>
         <line>
           <array name="matches">
-            <lines/>
+            <lines>
+              <line>
+                <array name="community"/>
+                <regexp/>
+                <xpath/>
+              </line>
+            </lines>
             <lines/>
             <regexp>@^\s*match\s+ip\s+address\s+prefix-list\s+(?&lt;ip_prefix_list&gt;.+)$@</regexp>
             <regexp>@^\s*match\s+ip\s+address\s+(?&lt;ip_access_list&gt;.+)$@</regexp>
@@ -128,20 +134,6 @@ route-map EXPORTA-INTRAGOV permit 10
             <regexp>@^\s*set\s+ip\s+precedence\s+(?&lt;ip_precedence&gt;\S+)$@</regexp>
             <regexp>@^\s*set\s+ip\s+tos\s+(?&lt;ip_tos&gt;\S+)$@</regexp>
             <regexp>@^\s+set\sextcommunity\srt\s(?&lt;extcommunity&gt;.*)$@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
-          <array name="matches_1">
-            <lines>
-              <line>
-                <array name="community"/>
-                <regexp/>
-                <xpath/>
-              </line>
-            </lines>
-            <lines/>
           </array>
           <regexp/>
           <xpath/>
