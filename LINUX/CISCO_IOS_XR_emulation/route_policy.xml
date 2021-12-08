@@ -85,7 +85,7 @@ end policy
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
     <parser>
       <section>
         <regexp>@\s*route-policy\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))$@</regexp>
@@ -118,9 +118,9 @@ end policy
                 <regexp>@!@</regexp>
               </ignore>
             </lines>
-            <regexp>@^\s+(?&lt;statement&gt;if|elseif)\s*([(]{0,2}destination in (?&lt;destination&gt;\S+)[)]{0,2})?\s*((?&lt;op1&gt;and|or)?\s*([(]{0,2}tag eq (?&lt;tag&gt;\d+)[)]{0,2}))?\s*then$@</regexp>
+            <regexp>@^\s+(?&lt;statement&gt;if|elseif)\s*([(]{0,2}destination in (?&lt;destination&gt;[^)]+)[)]{0,2})?\s*((?&lt;op1&gt;and|or)?\s*([(]{0,2}tag eq (?&lt;tag&gt;[^)]+)[)]{0,2}))?\s*then$@</regexp>
             <regexp>@^\s+(?&lt;statement&gt;else)$@</regexp>
-            <regexp>@^\s+(?&lt;statement&gt;if|elseif)\s*([(]{0,2}source in [(]{0,2}(?&lt;source&gt;[^)]+)[)]{0,2}[)]{0,2})?\s*((?&lt;op1&gt;and|or)?\s*([(]{0,2}tag eq (?&lt;tag&gt;\d+)[)]{0,2}))?\s*then$@</regexp>
+            <regexp>@^\s+(?&lt;statement&gt;if|elseif)\s*([(]{0,2}source in [(]{0,2}(?&lt;source&gt;[^)]+)[)]{0,2}[)]{0,2})?\s*((?&lt;op1&gt;and|or)?\s*([(]{0,2}tag eq (?&lt;tag&gt;[^)]+)[)]{0,2}))?\s*then$@</regexp>
           </array>
           <regexp/>
           <xpath/>
