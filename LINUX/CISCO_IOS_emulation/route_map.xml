@@ -148,54 +148,23 @@ route-map EXPORTA-INTRAGOV permit 10
         {/if}
         {$index=$index+1}
     {/foreach}
-    {sort($key_array)}
+    {rsort($key_array)}
 {/if}
 
 {* reorder matches based on key_array*}
-{$index=0}
-{foreach $key_array as $key}
-    {foreach $params.matches as $match}
+{foreach $params.matches as $match}
+    {foreach $key_array as $key}
     {if isset($match.$key) }
-    assign_object_variable {$key} ===&gt; {$match.$key}
         {assign_object_variable
-            var=&quot;sorted_matches.{$index}.$key&quot;
+            var=&quot;sorted_matches.0.$key&quot;
             value=&quot;{$match.$key}&quot;}
-        {if $key == &quot;community&quot;}
-       sorted_match community =&gt; {$sorted_matches.community}
-        {assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
-        {$match_community_set_idx=0}
-        {foreach $match_community_array as $community}
-            community =&gt; {$community}
-            
-            {assign_object_variable
-
-            var=&quot;sorted_matches.{$match@index}.community-set.{$match_community_set_idx}.community&quot;
-
-            value=&quot;{$community}&quot;}
-            
-            {$match_community_set_idx=$match_community_set_idx+1}
-        {/foreach}
-    {else if $key == &quot;ip_access_list&quot;}
-        {assign var=acl_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
-        {$match_acl_idx=0}
-
-        {foreach $acl_array as $acl}
-        
-        {assign_object_variable
-
-            var=&quot;sorted_matches.{$match@index}.acl-set.{$match_acl_idx}.acl&quot;
-
-            value=&quot;{$acl}&quot;}
-            
-            {$match_acl_idx=$match_acl_idx+1}
-        {/foreach}
-{/if}{break}
-        {/if}
-    {/foreach}{$index=$index+1}
+        {*break*}
+    {/if}
+    {/foreach}
 {/foreach}
 
 
-
+{*
 {$set_community_set_idx=0}
 {$set_extcommunity_set_idx=0}
 {foreach $params.sets as $sets}
@@ -213,7 +182,7 @@ route-map EXPORTA-INTRAGOV permit 10
     {$set_community_set_idx=$set_community_set_idx+1}{/foreach}
 {/if}
 {if isset($sets.extcommunity)}
-    {assign var=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
+    {assignvar=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
     {foreach $set_extcommunity_array as $extcommunity}
         {assign_object_variable
 
@@ -223,7 +192,8 @@ route-map EXPORTA-INTRAGOV permit 10
             
         {/foreach}
 {/if}
-{/foreach}</post_template>
+{/foreach}
+*}</post_template>
     <parser>
       <section>
         <regexp>@\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+))$@</regexp>

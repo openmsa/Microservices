@@ -31,16 +31,16 @@
     <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="statement" name="params.statements.0.statement" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="as_path" name="params.statements.0.as_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="destination" name="params.statements.0.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="source" name="params.statements.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community" name="params.statements.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="op1" name="params.statements.0.op1" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="source" name="params.statements.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="tag" name="params.statements.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -85,7 +85,7 @@ end policy
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
     <parser>
       <section>
         <regexp>@\s*route-policy\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))$@</regexp>
@@ -98,7 +98,7 @@ end policy
               <line>
                 <array name="block">
                   <regexp>@^\s+(?&lt;operator&gt;set) community [(]{0,2}(?&lt;community&gt;[^\)]+)[)]{0,2}\s*(?&lt;additive&gt;additive)?$@</regexp>
-                  <regexp>@^\s+(?&lt;operator&gt;set) local preference [(]{0,2}(?&lt;local_preference&gt;[^\)]+)[)]{0,2}$@</regexp>
+                  <regexp>@^\s+(?&lt;operator&gt;set) local-preference [(]{0,2}(?&lt;local_preference&gt;[^\)]+)[)]{0,2}$@</regexp>
                   <regexp>@^\s+(?&lt;operator&gt;set) weight [(]{0,2}(?&lt;weight&gt;[^\)]+)[)]{0,2}$@</regexp>
                   <regexp>@^\s+(?&lt;default&gt;(pass|drop))$@</regexp>
                   <regexp>@^\s+(?&lt;operator&gt;set) origin [(]{0,2}(?&lt;origin&gt;[^\)]+)[)]{0,2}$@</regexp>
@@ -117,10 +117,12 @@ end policy
               <ignore>
                 <regexp>@!@</regexp>
               </ignore>
+              <ignore>
+                <regexp>@^\s*endif@</regexp>
+              </ignore>
             </lines>
-            <regexp>@^\s+(?&lt;statement&gt;if|elseif)\s*([(]{0,2}destination in (?&lt;destination&gt;[^)]+)[)]{0,2})?\s*((?&lt;op1&gt;and|or)?\s*([(]{0,2}tag eq (?&lt;tag&gt;[^)]+)[)]{0,2}))?\s*then$@</regexp>
+            <regexp>@^\s*(if|elseif)\s*([(]{0,2}as-path in (?&lt;as_path&gt;[^)]+)[)]{0,2})?\s*([(]{0,2}community matches-any (?&lt;community&gt;[^)]+)[)]{0,2})?\s*(and)?\s*([(]{0,2}destination in (?&lt;destination&gt;[^)]+)[)]{0,2})?\s*(and)?\s*([(]{0,2}tag eq (?&lt;tag&gt;[^)]+)[)]{0,2})? then$@</regexp>
             <regexp>@^\s+(?&lt;statement&gt;else)$@</regexp>
-            <regexp>@^\s+(?&lt;statement&gt;if|elseif)\s*([(]{0,2}source in [(]{0,2}(?&lt;source&gt;[^)]+)[)]{0,2}[)]{0,2})?\s*((?&lt;op1&gt;and|or)?\s*([(]{0,2}tag eq (?&lt;tag&gt;[^)]+)[)]{0,2}))?\s*then$@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -139,29 +141,27 @@ end policy
   </command>
   <command name="CREATE">
     <operation><![CDATA[!
-route-policy {$route_policy.$object_id.object_id}
-{foreach $route_policy.$object_id.statements as $statements}
-{if isset($statements.tag)}
-if tag eq {$statements.tag}  then
-{elseif isset($statements.destination)}
-if destination in {$statements.destination} then
-{/if}
+route-policy {$params.object_id}
+{foreach $params.statements as $statements}
 
-{if isset($statements.block)}
-{foreach $statements.block as $block}
-{if isset($block.weight)}  
-  set weight {$block.weight}
-{elseif isset($block.extcommunity)}  
-  set extcommunity {$block.extcommunity} {if isset($block.additive)}{$block.additive}
-  {/if}
-{elseif isset($block.community)}  
-  set community {$block.community}
-{elseif isset($block.local_preference)}  
-  set local-preference {$block.local_preference}
-{/if}
+{$keys = array_keys($statements)}
+{foreach $keys as $key}
+KEY ==> {$key}
 {/foreach}
-{else}
-  pass
+
+{if $statements@first}if {else}elsif {/if}{if isset($statements.tag)} (tag eq {$statements.tag}) {/if}{if isset($statements.destination)} (destination in {$statements.destination}) {/if} then
+{if isset($statements.block)}
+    {foreach $statements.block as $block}
+
+        {if isset($block.community)} set community {$block.community}
+        {/if}
+        {if isset($block.extcommunity)} set extcommunity {$block.extcommunity}
+        {/if}
+        {if isset($block.local_preference)} set local-preference {$block.local_preference}
+        {/if}
+        {if isset($block.weight)} set weight {$block.weight}
+        {/if}
+    {/foreach}
 {/if}
 endif
 {/foreach}
