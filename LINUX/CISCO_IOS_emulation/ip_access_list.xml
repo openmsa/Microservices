@@ -82,15 +82,13 @@
  permit tcp host 200.204.1.121 any eq tacacs</content>
   </example>
   <command name="IMPORT">
-        <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
-  <post_template>
-  {foreach $params.access_list as $access}
+    <operation><![CDATA[cat    /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <post_template>{foreach $params.access_list as $access}
     {if isset($access.acl_src_ip)}
-      {convert_imask_to_lenght input={$access.acl_src_imask} var="mask_length"}
+      {convert_imask_to_length input={$access.acl_src_imask} var=&quot;mask_length&quot;}
       {assign_object_variable var=&quot;access_list.{$access@index}.acl_src_mask_length&quot; value=$mask_length}
     {/if}
-  {/foreach}
-  </post_template>
+  {/foreach}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
