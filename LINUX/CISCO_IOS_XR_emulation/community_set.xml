@@ -55,6 +55,24 @@
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array name="default_name">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@AA@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines>
+              <ignore>
+                <regexp>@IGNORE@</regexp>
+              </ignore>
+            </lines>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
