@@ -17,7 +17,7 @@
     <name>community_set</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -28,14 +28,60 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="community" name="params.community_list.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_community_list.txt]]></operation>
+    <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}
+
+{$filtered_ip_community_list=[]} 
+{$icl_idx=0}
+
+{foreach $ip_community_list as $icl}
+    {if (isset($icl.name) &amp;&amp; $params.object_id == $icl.name) || (isset($icl.number) &amp;&amp; $params.object_id == $icl.number)}
+        {$filtered_ip_community_list[$icl_idx]=$icl}
+    {/if}
+    {$icl_idx=$icl_idx+1}
+{/foreach}
+
+{$idx=0}
+{if isset($filtered_ip_community_list)}
+    {foreach $filtered_ip_community_list as $ficl}
+        {if isset($ficl.number)}
+{assign_object_variable
+var=&quot;name&quot;
+value=&quot;com-set-{$ficl.number}&quot;}
+{assign_object_variable
+var=&quot;object_id&quot;
+value=&quot;com-set-{$ficl.number}&quot;}
+        {/if}
+        {if isset($ficl.list)}
+            {assign var=list value=&quot; &quot;|explode:$ficl.list}
+            {foreach $list as $community}
+            {assign_object_variable
+                var=&quot;community_list.{$idx}.community&quot;
+                value=&quot;{$community}&quot;}
+            {$idx=$idx+1}
+            {/foreach}
+        {/if}
+    {/foreach}
+{/if}</post_template>
     <parser>
       <section>
+        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;object_id&gt;\S+).*$@</regexp>
         <xpath/>
       </section>
-      <lines/>
+      <lines>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+      </lines>
     </parser>
   </command>
   <command name="CREATE"/>
