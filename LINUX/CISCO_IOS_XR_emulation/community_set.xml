@@ -31,14 +31,15 @@
     <variable displayName="community" name="params.community_list.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="community" name="params.comm_list.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="community" name="params.community_list.0.list.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
   </variables>
-  <example/>
+  <example>
+    <content>community-set com-set-131
+  10429:131,
+  10429:132,
+  10429:133
+end-set
+!</content>
+  </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.community_set.txt]]></operation>
     <parser>
@@ -49,46 +50,7 @@
       <lines>
         <line>
           <array name="community_list">
-            <lines>
-              <line>
-                <array/>
-                <regexp>@$\s+(?&lt;community&gt;\d+:\d+).*$@</regexp>
-                <xpath/>
-              </line>
-              <line>
-                <array name="list">
-                  <lines>
-                    <line>
-                      <array/>
-                      <regexp>@DD@</regexp>
-                      <xpath/>
-                    </line>
-                  </lines>
-                  <lines>
-                    <ignore>
-                      <regexp>@LK@</regexp>
-                    </ignore>
-                  </lines>
-                  <regexp>@LL@</regexp>
-                </array>
-                <regexp/>
-                <xpath/>
-              </line>
-              <line>
-                <array/>
-                <regexp>@NN@</regexp>
-                <xpath/>
-              </line>
-            </lines>
-            <lines>
-              <ignore>
-                <regexp>@^\s*!@</regexp>
-              </ignore>
-              <ignore>
-                <regexp>@^\s*end-set@</regexp>
-              </ignore>
-            </lines>
-            <regexp>@$\s+(?&lt;community&gt;\d+:\d+).*$@</regexp>
+            <regexp>@\s+(?&lt;community&gt;\d+:\d+),?$@</regexp>
           </array>
           <regexp/>
           <xpath/>
