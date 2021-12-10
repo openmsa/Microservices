@@ -43,7 +43,13 @@
       <lines>
         <line>
           <array name="community_list">
-            <lines/>
+            <lines>
+            <line>
+                <array/>
+                <regexp>@AA@</regexp>
+                <xpath/>
+              </line>
+            </lineq>
             <lines>
               <ignore>
                 <regexp>@^\s*!@</regexp>
@@ -51,24 +57,6 @@
             </lines>
             <regexp>@$\s+(?&lt;community&gt;\d+:\d+).*$@</regexp>
             <regexp>@$\s+(?&lt;community&gt;local-AS).*$@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
-          <array name="default_name">
-            <lines>
-              <line>
-                <array/>
-                <regexp>@AA@</regexp>
-                <xpath/>
-              </line>
-            </lines>
-            <lines>
-              <ignore>
-                <regexp>@IGNORE@</regexp>
-              </ignore>
-            </lines>
           </array>
           <regexp/>
           <xpath/>
