@@ -104,9 +104,7 @@
                 value=&quot;{$match.community}&quot;}
             {/if}
             {if isset($match.ip_prefix_list)}
-                {assign_object_variable
-                
-                var=&quot;statements.{$statement_idx}.destination&quot;
+                {assign_object_variablevar=&quot;statements.{$statement_idx}.destination&quot;
                 
                 value=&quot;{$match.ip_prefix_list}&quot;}
             {/if}
@@ -117,8 +115,7 @@
             {if isset($match.tag)}
                 {assign_object_variable   
                 var=&quot;statements.{$statement_idx}.tag&quot;
-                value=&quot;{$match.tag}&quot;}{/if}
-        {/foreach}{/if}{$block_idx=0}
+                value=&quot;{$match.tag}&quot;}{/if}{/foreach}{/if}{$block_idx=0}
     {if isset($rm.sets)}
         {foreach $rm.sets as $set}
     
@@ -145,8 +142,7 @@
         
                 {$block_idx=$block_idx+1}
             {/if}
-            {if isset($set.extcommunity)}
-                {assign_object_variable
+            {if isset($set.extcommunity)}{assign_object_variable
                 
                 var=&quot;statements.{$statement_idx}.block.{$block_idx}.extcommunity&quot;
         

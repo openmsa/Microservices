@@ -85,7 +85,7 @@ end policy
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
     <parser>
       <section>
         <regexp>@\s*route-policy\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))$@</regexp>
@@ -144,27 +144,43 @@ end policy
 route-policy {$params.object_id}
 {foreach $params.statements as $statements}
 
-{$keys = array_keys($statements)}
-{foreach $keys as $key}
-KEY ==> {$key}
-{/foreach}
-
-{if $statements@first}if {else}elsif {/if}{if isset($statements.tag)} (tag eq {$statements.tag}) {/if}{if isset($statements.destination)} (destination in {$statements.destination}) {/if} then
-{if isset($statements.block)}
-    {foreach $statements.block as $block}
-
-        {if isset($block.community)} set community {$block.community}
-        {/if}
-        {if isset($block.extcommunity)} set extcommunity {$block.extcommunity}
-        {/if}
-        {if isset($block.local_preference)} set local-preference {$block.local_preference}
-        {/if}
-        {if isset($block.weight)} set weight {$block.weight}
+{if $statements@first}if {else}elsif {/if}
+    {$keys = array_keys($statements)}
+    {$first=true}
+    {foreach $keys as $key}
+        {if $key == "as_path"}
+            {if $first==false} and {else} {$first=false} {/if}
+            (as-path in {$statements.as_path})
+        {else if $key == "community"}
+            {if $first==false} and {else} {$first=false} {/if}
+            (community in {$statements.community})
+        {else if $key == "destination"}
+            {if $first==false} and {else} {$first=false} {/if}
+            (destination in {$statements.destination})
+        {else if $key == "tag"}
+            {if $first==false} and {else} {$first=false} {/if}
+            (tag eq {$statements.tag})
         {/if}
     {/foreach}
-{/if}
-endif
+
+    {if isset($statements.block)}
+        {foreach $statements.block as $block}
+    
+            {if isset($block.community)} set community {$block.community}
+            {/if}
+            {if isset($block.extcommunity)} set extcommunity {$block.extcommunity}
+            {/if}
+            {if isset($block.local_preference)} set local-preference {$block.local_preference}
+            {/if}
+            {if isset($block.weight)} set weight {$block.weight}
+            {/if}
+        {/foreach}
+    {/if}
+
 {/foreach}
+
+endif
+
 end-policy
 !
 ]]></operation>
