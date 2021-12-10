@@ -28,19 +28,28 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="community" name="params.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community_number" name="params.community_number" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="community_name" name="params.community_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="community_rule" name="params.community_rule" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="community_list" name="params.community_list" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content></content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_community_list.txt]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;community&gt;\d+|\S+)\s+(permit|deny)\s+(?&lt;community_list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)\s*(?&lt;community_name&gt;\S+)\s+(?&lt;community_rule&gt;permit|deny)\s+(?&lt;community_list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(?&lt;community_number&gt;\S+)\s+(?&lt;community_rule&gt;permit|deny)\s+(?&lt;community_list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
         <xpath/>
       </section>
       <lines/>

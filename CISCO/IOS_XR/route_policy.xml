@@ -15,9 +15,9 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>route_policy</name>
-    <group>EMULATION|CISCO|IOS-XR</group>
+    <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>50</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -140,50 +140,7 @@ end policy
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!
-route-policy {$params.object_id}
-{foreach $params.statements as $statements}
-
-{if $statements@first}if {else}elsif {/if}
-    {$keys = array_keys($statements)}
-    {$first=true}
-    {foreach $keys as $key}
-        {if $key == "as_path"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (as-path in {$statements.as_path})
-        {else if $key == "community"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (community in {$statements.community})
-        {else if $key == "destination"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (destination in {$statements.destination})
-        {else if $key == "tag"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (tag eq {$statements.tag})
-        {/if}
-    {/foreach}
-
-    {if isset($statements.block)}
-        {foreach $statements.block as $block}
-    
-            {if isset($block.community)} set community {$block.community}
-            {/if}
-            {if isset($block.extcommunity)} set extcommunity {$block.extcommunity}
-            {/if}
-            {if isset($block.local_preference)} set local-preference {$block.local_preference}
-            {/if}
-            {if isset($block.weight)} set weight {$block.weight}
-            {/if}
-        {/foreach}
-    {/if}
-
-{/foreach}
-
-endif
-
-end-policy
-!
-]]></operation>
+    <operation><![CDATA[]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
