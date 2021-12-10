@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description></description>
+    <description>Interface</description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -25,7 +25,13 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="link" name="params.link" startIncrement="0" type="Link" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="res.txt" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -124,12 +130,14 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/ubiqube-10-30-19-214.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
       {assign_object_variable var=&quot;validated&quot; value=false}
-{/if}</post_template>
+{/if}
+{assign_object_variable var=&quot;interface&quot; value=&quot;{$params.object_id}&quot;}
+{assign_object_variable var=&quot;link&quot; value=&quot;/opt/fmc_repository/Datafiles/{$SD-&gt;SDID}.interface.html&quot;}</post_template>
     <parser>
       <section>
         <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -241,20 +249,64 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
-  <command name="READ"/>
+  <command name="CREATE">
+    <operation><![CDATA[!###############################
+! Interface {$params.object_id}
+!###############################
+!
+
+interface {$params.object_id}
+{if isset($params.int_description) }description {$params.int_description}
+{/if}
+{foreach $params.addresses as $addr}
+{if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
+{if isset($addr.ipv4_type)}
+ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
+{else if}
+ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
+{/if}
+{/if}
+{/foreach}
+{if isset($params.ipv6_address) }
+ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
+{/if}
+{if isset($params.ipv6_enable) }ipv6 {$params.ipv6_enable}
+{/if}
+{if isset($params.vrf_name) }vrf {$params.vrf_name}
+{/if}
+{if isset($params.mtu_int) }mtu {$params.mtu_int}
+{/if}
+!]]></operation>
+  </command>
+  <command name="READ">
+    <operation><![CDATA[<pre>
+!
+interface {$interface.$object_id.object_id}
+{if isset($interface.$object_id.int_description) }description {$interface.$object_id.int_description}
+{/if}
+{foreach $interface.$object_id.addresses as $addr}
+{if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
+{if isset($addr.ipv4_type)}
+ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
+{else if}
+ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
+{/if}
+{/if}
+{/foreach}
+{if isset($interface.$object_id.ipv6_address) }
+ipv6 address {$interface.$object_id.ipv6_address}/{$interface.$object_id.ipv6_prefix}
+{/if}
+{if isset($interface.$object_id.ipv6_enable) }ipv6 {$interface.$object_id.ipv6_enable}
+{/if}
+{if isset($interface.$object_id.vrf_name) }vrf {$interface.$object_id.vrf_name}
+{/if}
+{if isset($interface.$object_id.mtu_int) }mtu {$interface.$object_id.mtu_int}
+{/if}
+!
+</pre>]]></operation>
+  </command>
   <command name="UPDATE">
-    <operation><![CDATA[rm -f /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-touch /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-echo > /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-echo " " >  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-sed -i "$ a\ "   /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-sed -i "$ a\ ! "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-sed -i "$ a\ interface {$params.object_id} "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-sed -i "$ a\ description {$params.int_description} "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-sed -i "$ a\ ! "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-sed -i "$ a\ "  /config/cisco_ios_xr/gen_conf/{$SD->SDID}.interface.conf
-]]></operation>
+    <operation><![CDATA[]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>

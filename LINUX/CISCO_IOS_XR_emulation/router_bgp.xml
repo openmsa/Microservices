@@ -15,9 +15,9 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>router_bgp</name>
-    <group>EMULATION|CISCO|IOS</group>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -61,46 +61,46 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@router\sbgp\s(?&lt;object_id&gt;\d+)@</regexp>
+        <regexp>@^\s*router\s+bgp\s+(?&lt;object_id&gt;\d+)$@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@\sbgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array name="neighbors">
-            <lines/>
-            <lines/>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+remote-as\s+(?&lt;bgp_neighbor_remote_as&gt;\d+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+description\s+(?&lt;bgp_neighbor_description&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+password\s+\d+\s+(?&lt;bgp_neighbor_password&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+update-source\s+(?&lt;bgp_source_interface&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+ebgp-multihop\s+(?&lt;bgp_multihop&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_neighbor_status&gt;shutdown)$@</regexp>
-          </array>
-          <regexp/>
+          <regexp>@^\s*rd\s+(?&lt;rd&gt;[0-9]+:[0-9]+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*bgp\s+graceful-restart\s+restart-time\s+(?&lt;bgp_graceful_restart&gt;\d+)$@</regexp>
+          <regexp>@^\s*vrf\s+(?&lt;bgp_vrf_name&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="address_family">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static|connected)$@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistrib_policy&gt;static)\s+route-policy\s+(?&lt;bgp_vrf_redistrib_static_policy&gt;\S+)$@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+unicast$@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <ignore>
-          <regexp>@\s+no@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@\s+bgp@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@^\s+neighbor@</regexp>
+          <regexp>@^\s*!@</regexp>
         </ignore>
       </lines>
     </parser>

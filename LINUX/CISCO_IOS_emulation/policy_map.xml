@@ -84,7 +84,7 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.policy_map.V4815.txt]]></operation>
     <parser>
       <section>
         <regexp>@\s*policy-map\s+(?&lt;object_id&gt;\S+).*$@</regexp>
