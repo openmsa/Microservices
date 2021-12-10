@@ -238,6 +238,9 @@
         <ignore>
           <regexp>@^\s*allow@</regexp>
         </ignore>
+        <ignore>
+          <regexp>@^\s*ipv\d\s+unreachables@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
