@@ -260,21 +260,21 @@ interface {$params.object_id}
 {/if}
 {foreach $params.addresses as $addr}
 {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
-{if isset($addr.ipv4_type)}
+{if isset($addr.ipv4_type) and $addr.ipv4_type}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
 {else if}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
 {/if}
 {/if}
 {/foreach}
-{if isset($params.ipv6_address) }
+{if isset($params.ipv6_address) and $params.ipv6_address}
 ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
-{if isset($params.ipv6_enable) }ipv6 {$params.ipv6_enable}
+{if isset($params.ipv6_enable) and $params.ipv6_enable }ipv6 {$params.ipv6_enable}
 {/if}
-{if isset($params.vrf_name) }vrf {$params.vrf_name}
+{if isset($params.vrf_name) and $params.vrf_name}vrf {$params.vrf_name}
 {/if}
-{if isset($params.mtu_int) }mtu {$params.mtu_int}
+{if isset($params.mtu_int) and $params.mtu_int}mtu {$params.mtu_int}
 {/if}
 !]]></operation>
   </command>
