@@ -85,7 +85,6 @@
 
 {foreach $route_map as $rm}
     {if $params.object_id == $rm.name}
-        MATCH rp object_id: {$params.object_id} -&gt; rm name: {$rm.name}
         {$filtered_route_map[$route_map_idx]=$rm}
     {/if}
     {$route_map_idx=$route_map_idx+1}
@@ -96,9 +95,9 @@
 {foreach $filtered_route_map as $rm}
     
     {if isset($rm.sorted_matches)}
-        {foreach $rm.sorted_matches as $match}{if isset($match.as_path)}
-                {assign_object_variable   
-                var=&quot;statements.{$statement_idx}.as_path&quot;
+        {foreach $rm.sorted_matches as $match}
+            {if isset($match.as_path)}
+                {assign_object_variablevar=&quot;statements.{$statement_idx}.as_path&quot;
                 value=&quot;{$match.as_path}&quot;}
             {/if}
             {if isset($match.community)}
@@ -107,8 +106,8 @@
                 value=&quot;{$match.community}&quot;}
             {/if}
             {if isset($match.ip_prefix_list)}
-                {assign_object_variablevar=&quot;statements.{$statement_idx}.destination&quot;
-                
+                {assign_object_variable
+                var=&quot;statements.{$statement_idx}.destination&quot;
                 value=&quot;{$match.ip_prefix_list}&quot;}
             {/if}
                 
@@ -118,9 +117,13 @@
             {if isset($match.tag)}
                 {assign_object_variable   
                 var=&quot;statements.{$statement_idx}.tag&quot;
-                value=&quot;{$match.tag}&quot;}{/if}{/foreach}{/if}{$block_idx=0}
+                value=&quot;{$match.tag}&quot;}
+            {/if}
+        {/foreach}
+    {/if}
+    {$block_idx=0}
     {if isset($rm.sets)}
-        {foreach $rm.sets as $set}
+        {foreach $rm.sets as$set}
     
             {if isset($set.operator)}
             {assign_object_variable
@@ -133,8 +136,7 @@
                 
                 var=&quot;statements.{$statement_idx}.block.{$block_idx}.weight&quot;
                 
-                value=&quot;{$set.weight}&quot;}
-                {$block_idx=$block_idx+1}
+                value=&quot;{$set.weight}&quot;}{$block_idx=$block_idx+1}
             {/if}
             {if isset($set.local_preference)}
                 {assign_object_variable

@@ -40,7 +40,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_as_path.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+as-path\s*access-list\s*(?&lt;access_list&gt;\d+)\s+(permit|deny)\s+(?&lt;as_path_regex&gt;.*)@</regexp>

@@ -43,7 +43,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.class_map.txt]]></operation>
     <parser>
       <section>
         <regexp>@class-map match-any (?&lt;object_id&gt;\S+)\s*@</regexp>

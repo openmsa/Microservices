@@ -37,7 +37,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.vlan.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*vlan\s+(?&lt;object_id&gt;\d+)$@</regexp>
@@ -50,7 +50,7 @@
           <xpath/>
         </line>
         <ignore>
-          <regexp>@^!@</regexp>
+          <regexp>@^\s*!@</regexp>
         </ignore>
       </lines>
     </parser>

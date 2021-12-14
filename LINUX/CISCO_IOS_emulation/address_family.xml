@@ -92,7 +92,7 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.adress_family.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)$@</regexp>
@@ -136,7 +136,7 @@
           <regexp>@^\s*default-information@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s*!@</regexp>
+          <regexp>@.*!@</regexp>
         </ignore>
         <ignore>
           <regexp>@.*send-community@</regexp>
@@ -155,6 +155,9 @@
         </ignore>
         <ignore>
           <regexp>@^\s*neighbor\s+to_route_reflector@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*address-family ipv4 vrf@</regexp>
         </ignore>
       </lines>
     </parser>

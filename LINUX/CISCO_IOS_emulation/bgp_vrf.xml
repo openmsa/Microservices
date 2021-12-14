@@ -142,7 +142,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_vrf.txt]]></operation>
     <post_template>{if isset($params.customer_prefix) &amp;&amp; (!isset($params.vrf_name) || $params.vrf_name==&quot;&quot;)}
 {assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.customer_prefix}&quot;}
 {assign_object_variable var=&quot;customer_prefix&quot; value=&quot;&quot;}

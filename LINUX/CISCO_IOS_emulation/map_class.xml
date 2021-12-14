@@ -43,7 +43,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.map_class.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*map-class\s+frame-relay\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -65,6 +65,12 @@
           <regexp>@^\s*service-policy\s+output\s+(?&lt;service_policy_output&gt;\S+)$@</regexp>
           <xpath/>
         </line>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*no@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
