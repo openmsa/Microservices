@@ -40,6 +40,9 @@
     <variable displayName="list" name="params.list" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="ios_regex" name="params.ios_regex" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content></content>
@@ -49,6 +52,7 @@
     <parser>
       <section>
         <regexp>@^\s*ip\s+community-list\s*(standard|expanded)\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;((\d+(:\d+\S+_)?)\s*)+)$@</regexp>
         <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
         <xpath/>
       </section>
