@@ -40,10 +40,25 @@
     <variable displayName="not" name="params.matches.0.not" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="match_cmd" name="params.matches.0.match_cmd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="match_any" name="params.matches.0.match_any" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="match" name="params.matches.0.match" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="match_cmd_dscp" name="params.matches.0.match_cmd_dscp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="match_cmd_precedence" name="params.matches.0.match_cmd_precedence" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="match_cmd_access_group" name="params.matches.0.match_cmd_access_group" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="match_cmd_mpls" name="params.matches.0.match_cmd_mpls" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="match_value" name="params.matches.0.match_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
@@ -53,20 +68,32 @@
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@class-map (?&lt;statement&gt;match-any|match-all) (?&lt;object_id&gt;\S+)\s*@</regexp>
+        <regexp>@^\s*class-map (?&lt;statement&gt;match-any|match-all) (?&lt;object_id&gt;\S+)$@</regexp>
         <xpath/>
       </section>
       <lines>
         <line>
           <array name="matches">
             <lines/>
-            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(?&lt;match_cmd&gt;(ip|dscp|precedence|access-group|mpls))\s*(?&lt;match&gt;.+)$@</regexp>
+            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_any&gt;any)\s*(?&lt;match_value&gt;.+)?$@</regexp>
+            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_dscp&gt;dscp)\s*(?&lt;match_value&gt;.+)?$@</regexp>
+            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_precedence&gt;precedence)\s*(?&lt;match_value&gt;.+)?$@</regexp>
+            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_access_group&gt;access-group (name)?)\s*(?&lt;match_value&gt;.+)?$@</regexp>
+            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_mpls&gt;mpls)\s*(?&lt;match_value&gt;.+)?$@</regexp>
           </array>
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s*description\s+(?&lt;description&gt;.*)$@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s*!@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*no@</regexp>
         </ignore>
       </lines>
     </parser>
