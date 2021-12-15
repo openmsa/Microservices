@@ -59,7 +59,11 @@
         <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;list&gt;((\d+(:\d+\S+)?|gshut|internet|local-AS|no-advertise|no-export)\s*)+)$@</regexp>
         <xpath/>
       </section>
-      <lines/>
+      <lines>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+      </lines>
     </parser>
   </command>
   <command name="CREATE"/>

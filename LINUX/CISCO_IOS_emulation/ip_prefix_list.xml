@@ -56,6 +56,7 @@
     <parser>
       <section>
         <regexp>@^\s*ip\s+prefix-list\s+(?&lt;name&gt;\S+)\s+seq\s+(?&lt;sequence&gt;\d+)\s+(?&lt;action&gt;(permit|deny))\s+(?&lt;ip_prefix&gt;\S+)(\s+(?&lt;comp_prefix_length&gt;le|ge))?(\s+(?&lt;prefix_length&gt;\d+))?$@</regexp>
+        <regexp>@^\s*ip\s+prefix-list\s+(?&lt;name&gt;\S+)\s+description\s+(?&lt;description&gt;.+)$@</regexp>
         <xpath/>
       </section>
       <lines>
