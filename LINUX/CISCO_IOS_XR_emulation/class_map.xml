@@ -37,9 +37,6 @@
     <variable displayName="match_any" name="params.matches.0.match_any" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="match_value" name="params.matches.0.match_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
     <variable displayName="match_cmd_dscp" name="params.matches.0.match_cmd_dscp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -50,6 +47,9 @@
       <repositories/>
     </variable>
     <variable displayName="match_cmd_mpls" name="params.matches.0.match_cmd_mpls" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="match_value" name="params.matches.0.match_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
@@ -83,15 +83,14 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!###############################
-class-map match-any {$params.object_id}
-{foreach $params.matches as $match1}
-  {if isset($match1.not) and $match1.not}
-    match not {$match1.match}
-  {else}
-  match {$match1.match_cmd} {$match1.match}
-  {/if}
-{/foreach}end-class-map
+    <operation><![CDATA[!
+class-map {$params.statement} {$params.object_id}
+{foreach $params.matches as $m}
+  match {if isset($m.not)} {$m.not} {/if}{if isset($m.match_any)} {$m.match_any} {else if isset($m.match_cmd_dscp)}{$m.match_cmd_dscp} {else if isset($m.match_cmd_precedence)}{$m.match_cmd_precedence} {else if isset($m.match_cmd_access_group)}{$m.match_cmd_access_group} ipv4 {else if isset($m.match_cmd_mpls)}{$m.match_cmd_mpls} {/if} {if isset($m.match_value)}{$m.match_value}  {/if}
+
+{/foreach}
+
+end-class-map
 !]]></operation>
   </command>
   <command name="READ"/>

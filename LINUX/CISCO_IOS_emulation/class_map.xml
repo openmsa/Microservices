@@ -78,7 +78,7 @@
             <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_any&gt;any)\s*(?&lt;match_value&gt;.+)?$@</regexp>
             <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_dscp&gt;dscp)\s*(?&lt;match_value&gt;.+)?$@</regexp>
             <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_precedence&gt;precedence)\s*(?&lt;match_value&gt;.+)?$@</regexp>
-            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_access_group&gt;access-group (name)?)\s*(?&lt;match_value&gt;.+)?$@</regexp>
+            <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_access_group&gt;access-group)\s?(name)?\s?(?&lt;match_value&gt;.+)?$@</regexp>
             <regexp>@^\s+match\s+(?&lt;not&gt;not)?\s*(ip)?\s*(?&lt;match_cmd_mpls&gt;mpls)\s*(?&lt;match_value&gt;.+)?$@</regexp>
           </array>
           <regexp/>
