@@ -94,13 +94,13 @@
     <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="encapsulation_dot1q" name="params.encapsulation_dot1q" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="encapsulation_second_dot1q" name="params.encapsulation_second_dot1q" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="ip_urpf" name="params.ip_urpf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="encapsulation_dot1q" name="params.encapsulation.0.encapsulation_dot1q" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="encapsulation_second_dot1q" name="params.encapsulation.0.encapsulation_second_dot1q" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="carrier_delay_msec" name="params.carrier_delay.0.carrier_delay_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -130,7 +130,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/f-br-sp-spo-msvc-rsd-01.interface.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/interface.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
@@ -190,13 +190,6 @@
           <xpath/>
         </line>
         <line>
-          <array name="encapsulation">
-            <regexp>@^\s+encapsulation\s+dot1q\s+(?&lt;encapsulation_dot1q&gt;\d+)\s*(second-dot1q\s+(?&lt;encapsulation_second_dot1q&gt;\d+))?@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array/>
           <regexp>@^\s*ipv6\s+(?&lt;ipv6_enable&gt;enable)$@</regexp>
           <xpath/>
@@ -218,6 +211,11 @@
         <line>
           <array/>
           <regexp>@^\s+duplex\s+(?&lt;duplex_mode&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+encapsulation\s+dot1q\s+(?&lt;encapsulation_dot1q&gt;\d+)\s*(second-dot1q\s+(?&lt;encapsulation_second_dot1q&gt;\d+))?@</regexp>
           <xpath/>
         </line>
         <ignore>
@@ -257,8 +255,7 @@ interface {$params.object_id}
 {if isset($params.int_description) }description {$params.int_description}
 {/if}
 {foreach $params.addresses as $addr}
-{if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
-{if isset($addr.ipv4_type) and $addr.ipv4_type}
+{if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }{if isset($addr.ipv4_type) and $addr.ipv4_type}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
 {else if}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
@@ -274,6 +271,9 @@ ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
 {if isset($params.mtu_int) and $params.mtu_int}mtu {$params.mtu_int}
 {/if}
+{if isset($params.encapsulation_dot1q) and $params.encapsulation_dot1q} encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  100{/if}
+{/if}
+
 !]]></operation>
   </command>
   <command name="READ">
