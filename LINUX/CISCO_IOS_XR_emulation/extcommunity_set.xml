@@ -40,7 +40,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/extcommunity_set.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/extcommunity_set.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*extcommunity-set\s*(?&lt;type&gt;cost|soo|rt)\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))@</regexp>
@@ -63,7 +63,19 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[!
+extcommunity-set {$params.type} {$params.object_id}
+{if isset($params.extcommunity_list)}
+{foreach $params.extcommunity_list as $comm_list}
+  {$comm_list.extcommunity}{if !$comm_list@last},
+  {/if}
+{/foreach}
+{/if}
+
+end-set
+!]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
