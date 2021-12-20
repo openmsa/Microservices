@@ -56,13 +56,12 @@
 {$idx=0}
 {if isset($filtered_ip_community_list)}
     {foreach $filtered_ip_community_list as $ficl}
-        {if isset($ficl.number)}
-{assign_object_variable
-var=&quot;name&quot;
-value=&quot;com-set-{$ficl.number}&quot;}
-{assign_object_variable
-var=&quot;object_id&quot;
-value=&quot;com-set-{$ficl.number}&quot;}
+        {if isset($ficl.number)}{assign_object_variable
+              var=&quot;name&quot;
+              value=&quot;com-set-{$ficl.number}&quot;}
+            {assign_object_variable
+              var=&quot;object_id&quot;
+              value=&quot;com-set-{$ficl.number}&quot;}
         {/if}
         {if isset($ficl.list)}
             {assign var=list value=&quot; &quot;|explode:$ficl.list}
@@ -70,15 +69,13 @@ value=&quot;com-set-{$ficl.number}&quot;}
             {assign_object_variable
                 var=&quot;community_list.{$idx}.community&quot;
                 value=&quot;{$community}&quot;}
-            {$idx=$idx+1}
-            {/foreach}
-        {/if}
-        {if isset($ficl.ios_regex)}{assign_object_variable
+            {$idx=$idx+1}{/foreach}{/if}
+        {if isset($ficl.ios_regex)}
+            {assign_object_variable
                 var=&quot;community_list.{$idx}.community&quot;
                 value=&quot;ios-regex &apos;{$ficl.ios_regex}&apos;&quot;}
             {$idx=$idx+1}
         {/if}
-
     {/foreach}
 {/if}</post_template>
     <parser>
