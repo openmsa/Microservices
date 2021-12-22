@@ -25,10 +25,10 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="1" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-        <variable displayName="ipv4_address" name="params.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ipv4_address" name="params.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="ipv4_mask_lenth" name="params.routes.0.ipv4_mask_lenth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -74,13 +74,28 @@
     <post_template>{$route_idx=0}
 {foreach $ip_route as $route}
 
+{*if !isset($route.vrf_name)*}
+{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_address&quot; value=&quot;{$route.ipv4_address}&quot;}
+{$mask=$route.ipv4_mask}
+{get_mask_len mask=$mask var=&quot;mask_length&quot;}
+{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_mask_lenth&quot; value=&quot;{$mask_length}&quot;}
+{assign_object_variable var=&quot;routes.{$route_idx}.interface&quot; value=&quot;{$route.interface}&quot;}
+{assign_object_variable var=&quot;routes.{$route_idx}.gateway&quot; value=&quot;{$route.gateway}&quot;}
+{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}
+{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}
+{*/if*}
+{$route_idx=$route_idx+1}
 {/foreach}</post_template>
     <parser>
       <section>
         <regexp>@ip route@</regexp>
         <xpath></xpath>
       </section>
-      <lines/>
+      <lines>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+      </lines>
     </parser>
   </command>
   <command name="CREATE"/>

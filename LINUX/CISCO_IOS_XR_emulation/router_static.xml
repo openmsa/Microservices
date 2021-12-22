@@ -71,6 +71,7 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios_xr/router_static.conf]]></operation>
+    <post_template>{assign_object_variable var=&quot;object_id&quot; value=&quot;1&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*router static@</regexp>
