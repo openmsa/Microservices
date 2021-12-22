@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>router_static</name>
+    <name>router_static-inter</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
@@ -31,9 +31,11 @@
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios/ip_route.conf]]></operation>
     <parser>
       <section>
-        <xpath/>
+        <regexp>@ip route@</regexp>
+        <xpath></xpath>
       </section>
       <lines/>
     </parser>
