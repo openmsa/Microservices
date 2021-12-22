@@ -32,6 +32,10 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/ip_route.conf]]></operation>
+    <post_template>{$route_idx=0}
+{foreach $ip_route as $route}
+
+{/foreach}</post_template>
     <parser>
       <section>
         <regexp>@ip route@</regexp>
