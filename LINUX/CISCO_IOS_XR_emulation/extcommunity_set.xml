@@ -44,7 +44,7 @@
     <parser>
       <section>
         <regexp>@^\s*extcommunity-set\s*(?&lt;type&gt;cost|soo|rt)\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -66,12 +66,12 @@
   <command name="CREATE">
     <operation><![CDATA[!
 extcommunity-set {$params.type} {$params.object_id}
-{if isset($params.extcommunity_list)}
+{*if isset($params.extcommunity_list)}
 {foreach $params.extcommunity_list as $comm_list}
   {$comm_list.extcommunity}{if !$comm_list@last},
   {/if}
 {/foreach}
-{/if}
+{/if*}
 
 end-set
 !]]></operation>

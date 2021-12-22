@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>community_set</name>
+    <name>community_set-inter</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>10</importrank>
@@ -81,7 +81,7 @@
     <parser>
       <section>
         <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;object_id&gt;\S+).*$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <ignore>

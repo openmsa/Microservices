@@ -25,7 +25,7 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="1" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="ipv4_address" name="params.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -74,7 +74,7 @@
     <parser>
       <section>
         <regexp>@^\s*router static@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -136,7 +136,26 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[!
+router static
+{foreach $params.routes as $route}
+ address-family ipv4 unicast
+ {$route.ipv4_address}/{$route.ipv4_mask_lenth} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+ {/if}
+{/foreach}
+!
+{foreach $params.vrf_routes as $vrf}
+{if isset($vrf.vrf_name)}{$vrf.vrf_name}
+{/if}
+ address-family ipv4 unicast
+{foreach $$vrf as $route}
+ {$route.ipv4_address}/{$route.ipv4_mask_lenth} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+ {/if}
+{/foreach}
+{/foreach}
+!]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
