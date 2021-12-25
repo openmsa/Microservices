@@ -12,12 +12,12 @@
     <defaultDisplay>false</defaultDisplay>
     <dynamic>false</dynamic>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
+    <maxInstances>1</maxInstances>
     <relatedObjects/>
     <name>router_static-inter</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -72,23 +72,62 @@
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/ip_route.conf]]></operation>
     <post_template>{$route_idx=0}
+
+{foreach $ip_route as $route}
+	{if $route.vrf_name &amp;&amp; isset($route.vrf_name) &amp;&amp; !isset($params.vrf_routes)}
+		{assign var=&quot;_vrf_routes.0.vrf_name&quot; value=&quot;{$route.vrf_name}&quot;}
+	{/if}
+{/foreach}
+
+{$vrf_idx=1}
+{foreach $ip_route as $route}
+	{if $route.vrf_name &amp;&amp; isset($route.vrf_name)}
+	
+		{if isset($_vrf_routes)}
+			{$found=false}
+			{foreach $_vrf_routes as $_vrf_route}
+				{if $_vrf_route.vrf_name == $route.vrf_name}
+					{$found=true}
+					{break}
+				{/if}
+			{/foreach}
+			{if $found == false}
+				TOTO
+				{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
+				{$vrf_idx=$vrf_idx+1}
+			{/if}
+		{else}
+			TITI
+			{$_vrf_routes=[]}
+			{$_vrf_routes.0.vrf_name=$route.vrf_name}
+		{/if}
+
+	{/if}
+{/foreach}
+
+
+{foreach $_vrf_routes as $_vrf_route}
+	{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.vrf_name&quot; value=&quot;{$_vrf_route.vrf_name}&quot;}
+{/foreach}
+
+
 {foreach $ip_route as $route}
 
-{*if !isset($route.vrf_name)*}
-{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_address&quot; value=&quot;{$route.ipv4_address}&quot;}
-{$mask=$route.ipv4_mask}
-{get_mask_len mask=$mask var=&quot;mask_length&quot;}
-{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_mask_lenth&quot; value=&quot;{$mask_length}&quot;}
-{assign_object_variable var=&quot;routes.{$route_idx}.interface&quot; value=&quot;{$route.interface}&quot;}
-{assign_object_variable var=&quot;routes.{$route_idx}.gateway&quot; value=&quot;{$route.gateway}&quot;}
-{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}
-{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}
-{*/if*}
-{$route_idx=$route_idx+1}
+	{if !$route.vrf_name}
+		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_address&quot; value=&quot;{$route.ipv4_address}&quot;}
+		{$mask=$route.ipv4_mask}
+		{get_mask_len mask=$mask var=&quot;mask_length&quot;}
+		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_mask_lenth&quot; value=&quot;{$mask_length}&quot;}
+		{if isset($route.interface)}{assign_object_variable var=&quot;routes.{$route_idx}.interface&quot; value=&quot;{$route.interface}&quot;}{/if}
+		{assign_object_variable var=&quot;routes.{$route_idx}.gateway&quot; value=&quot;{$route.gateway}&quot;}
+		{if isset($route.metric)}{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}{/if}
+		{if isset($route.tag)}{assign_object_variable var=&quot;routes.{$route_idx}.tag&quot; value=&quot;{$route.tag}&quot;}{/if}
+		{$route_idx=$route_idx+1}
+	{/if}
 {/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@ip route@</regexp>
+        <regexp>@(?&lt;object_id&gt;ip route)@</regexp>
         <xpath></xpath>
       </section>
       <lines>
