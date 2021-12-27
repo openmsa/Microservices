@@ -31,7 +31,7 @@
     <variable displayName="ipv4_address" name="params.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="ipv4_mask_lenth" name="params.routes.0.ipv4_mask_lenth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ipv4_mask_length" name="params.routes.0.ipv4_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="interface" name="params.routes.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -52,7 +52,7 @@
     <variable displayName="ipv4_address" name="params.vrf_routes.0.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="ipv4_mask_lenth" name="params.vrf_routes.0.routes.0.ipv4_mask_lenth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ipv4_mask_length" name="params.vrf_routes.0.routes.0.ipv4_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="interface" name="params.vrf_routes.0.routes.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -84,6 +84,8 @@
 {foreach $ip_route as $route}
 	{$vrf_idx=0}
 	{if $route.vrf_name &amp;&amp; isset($route.vrf_name)}
+	
+	GATEWAY =&gt; {$route.gateway}
 		{$found=false}
 		{foreach $_vrf_routes as $_vrf_route}
 			{if $_vrf_route.vrf_name == $route.vrf_name}
@@ -96,23 +98,25 @@
 			{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
 			{$_vrf_routes.{$vrf_idx}.routes=[]}
 			{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_address=$route.ipv4_address}
-	 		{$mask=$route.ipv4_mask}
-			{get_mask_len mask=$mask var=&quot;mask_length&quot;}
-			{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_mask_lenth=$mask_length}
+			{$_vrf_routes.{$vrf_idx}.routes.0.interface=$route.interface}
 			{$_vrf_routes.{$vrf_idx}.routes.0.gateway=$route.gateway}
 			{$_vrf_routes.{$vrf_idx}.routes.0.metric=$route.metric}
 			{$_vrf_routes.{$vrf_idx}.routes.0.tag=$route.tag}
+	 		{$mask=$route.ipv4_mask}
+			{get_mask_len mask=$mask var=&quot;mask_length&quot;}
+			{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_mask_length=$mask_length}
 		{else}
 			{foreach $_vrf_routes.{$vrf_idx}.routes as $_vrf_route}
 			{/foreach}
-			{$_vrf_routes.{$vrf_idx}.routes.{$_vrf_route@total}.ipv4_address=$route.ipv4_address}
-			{$_vrf_routes.{$vrf_idx}.routes.{$_vrf_route@total}.ipv4_address=$route.ipv4_address}
+			{$route_idx=$_vrf_route@total}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_address=$route.ipv4_address}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.interface=$route.interface}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.gateway=$route.gateway}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.metric=$route.metric}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.tag=$route.tag}
 	 		{$mask=$route.ipv4_mask}
 			{get_mask_len mask=$mask var=&quot;mask_length&quot;}
-			{$_vrf_routes.{$vrf_idx}.routes.{$_vrf_route@total}.ipv4_mask_lenth=$mask_length}
-			{$_vrf_routes.{$vrf_idx}.routes.{$_vrf_route@total}.gateway=$route.gateway}
-			{$_vrf_routes.{$vrf_idx}.routes.{$_vrf_route@total}.metric=$route.metric}
-			{$_vrf_routes.{$vrf_idx}.routes.{$_vrf_route@total}.tag=$route.tag}
+			{$_vrf_routes.{$vrf_idx}.routes.$route_idx}.ipv4_mask_lenth=$mask_length}
 		{/if}
 	{/if}
 {/foreach}
@@ -134,7 +138,7 @@ $ip_route as $route}
 		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_address&quot; value=&quot;{$route.ipv4_address}&quot;}
 		{$mask=$route.ipv4_mask}
         {get_mask_len mask=$mask var=&quot;mask_length&quot;}
-		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_mask_lenth&quot; value=&quot;{$mask_length}&quot;}
+		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_mask_length&quot; value=&quot;{$mask_length}&quot;}
 		{if isset($route.interface)}
 			{assign_object_variable var=&quot;routes.{$route_idx}.interface&quot; value=&quot;{$route.interface}&quot;}
 		{/if}
