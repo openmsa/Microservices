@@ -85,38 +85,47 @@
 	{$vrf_idx=0}
 	{if $route.vrf_name &amp;&amp; isset($route.vrf_name)}
 	
-	GATEWAY =&gt; {$route.gateway}
+	{$mask=$route.ipv4_mask}
+	{capture name=&quot;mask_length&quot;}{get_mask_len mask=$mask var=&quot;mask_length&quot;}{/capture}
 		{$found=false}
-		{foreach $_vrf_routes as $_vrf_route}
-			{if $_vrf_route.vrf_name == $route.vrf_name}
+		{foreach 
+        $_vrf_routes
+        as $_vrf_route}
+{if
+	$_vrf_route.vrf_name == $route.vrf_name}
 				{$found=true}
 				{break}
 			{/if}
 			{$vrf_idx=$vrf_idx+1}
 		{/foreach}
-		{if $found == false}
+		{if !$found}
 			{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
 			{$_vrf_routes.{$vrf_idx}.routes=[]}
-			{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_address=$route.ipv4_address}
 			{$_vrf_routes.{$vrf_idx}.routes.0.interface=$route.interface}
+			{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_address=$route.ipv4_address}
 			{$_vrf_routes.{$vrf_idx}.routes.0.gateway=$route.gateway}
-			{$_vrf_routes.{$vrf_idx}.routes.0.metric=$route.metric}
+			{if isset($route.metric)}
+			{$_vrf_routes.{$vrf_idx}.routes.0.metric=$route.metric}{/if}
+			{if isset($route.tag)}
 			{$_vrf_routes.{$vrf_idx}.routes.0.tag=$route.tag}
-	 		{$mask=$route.ipv4_mask}
-			{get_mask_len mask=$mask var=&quot;mask_length&quot;}
+			{/if}
 			{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_mask_length=$mask_length}
 		{else}
 			{foreach $_vrf_routes.{$vrf_idx}.routes as $_vrf_route}
 			{/foreach}
 			{$route_idx=$_vrf_route@total}
-			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_address=$route.ipv4_address}
+			{if isset($route.interface)}
 			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.interface=$route.interface}
+			{/if}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_address=$route.ipv4_address}
 			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.gateway=$route.gateway}
+			{if isset($route.metric)}
 			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.metric=$route.metric}
+			{/if}
+			{if isset($route.tag)}
 			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.tag=$route.tag}
-	 		{$mask=$route.ipv4_mask}
-			{get_mask_len mask=$mask var=&quot;mask_length&quot;}
-			{$_vrf_routes.{$vrf_idx}.routes.$route_idx}.ipv4_mask_lenth=$mask_length}
+			{/if}
+			{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_mask_length=$mask_length}
 		{/if}
 	{/if}
 {/foreach}
@@ -125,9 +134,21 @@
 
 $_vrf_routes as $_vrf_route}
 
-	{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.vrf_name&quot; value=&quot;{$_vrf_route.vrf_name}&quot;}
-	{foreach $_vrf_route.routes as $_route}
+	{assign_object_variable
+        var=&quot;vrf_routes.{$_vrf_route@index}.vrf_name&quot;
+        value=&quot;{$_vrf_route.vrf_name}&quot;}
+{foreach
+		$_vrf_route.routes as $_route}
 		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_address&quot; value=&quot;{$_route.ipv4_address}&quot;}
+		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_mask_length&quot; value=&quot;{$_route.ipv4_mask_length}&quot;}
+		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.interface&quot; value=&quot;{$_route.interface}&quot;}
+		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.gateway&quot; value=&quot;{$_route.gateway}&quot;}
+		{if isset($_route.metric)}
+		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.metric&quot; value=&quot;{$_route.metric}&quot;}
+		{/if}
+		{if isset($_route.tag)}
+		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.tag&quot; value=&quot;{$_route.tag}&quot;}
+		{/if}
 	{/foreach}
 {/foreach}
 
@@ -135,18 +156,19 @@ $_vrf_routes as $_vrf_route}
 
 $ip_route as $route}
 	{if !$route.vrf_name}
-		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_address&quot; value=&quot;{$route.ipv4_address}&quot;}
-		{$mask=$route.ipv4_mask}
-        {get_mask_len mask=$mask var=&quot;mask_length&quot;}
+	    {capture name=&quot;mask_length&quot;}{get_mask_len mask=$mask var=&quot;mask_length&quot;}{/capture}{$mask=$route.ipv4_mask}
+{assign_object_variable
+		var=&quot;routes.{$route_idx}.ipv4_address&quot; value=&quot;{$route.ipv4_address}&quot;}
 		{assign_object_variable var=&quot;routes.{$route_idx}.ipv4_mask_length&quot; value=&quot;{$mask_length}&quot;}
 		{if isset($route.interface)}
-			{assign_object_variable var=&quot;routes.{$route_idx}.interface&quot; value=&quot;{$route.interface}&quot;}
+		{assign_object_variable var=&quot;routes.{$route_idx}.interface&quot; value=&quot;{$route.interface}&quot;}
 		{/if}
 		{assign_object_variable var=&quot;routes.{$route_idx}.gateway&quot; value=&quot;{$route.gateway}&quot;}
 		{if isset($route.metric)}
-			{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}
+		{assign_object_variable var=&quot;routes.{$route_idx}.metric&quot; value=&quot;{$route.metric}&quot;}
 		{/if}
-		{if	isset($route.tag)}{assign_object_variable var=&quot;routes.{$route_idx}.tag&quot; value=&quot;{$route.tag}&quot;}
+		{if	isset($route.tag)}
+		{assign_object_variable var=&quot;routes.{$route_idx}.tag&quot; value=&quot;{$route.tag}&quot;}
 		{/if}
 		{$route_idx=$route_idx+1}
 	{/if}

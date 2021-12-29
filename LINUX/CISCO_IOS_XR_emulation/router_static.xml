@@ -70,7 +70,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/router_static.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/router_static.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;object_id&quot; value=&quot;1&quot;}</post_template>
     <parser>
       <section>
@@ -140,21 +140,28 @@
   <command name="CREATE">
     <operation><![CDATA[!
 router static
-{foreach $params.routes as $route}
+{if isset ($params.routes)}
  address-family ipv4 unicast
- {$route.ipv4_address}/{$route.ipv4_mask_lenth} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+{foreach $params.routes as $route}
+ {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
  {/if}
+ 
 {/foreach}
+{/if}
 !
+{if isset ($params.vrf_routes)}
 {foreach $params.vrf_routes as $vrf}
-{if isset($vrf.vrf_name)}{$vrf.vrf_name}
+{if isset($vrf.vrf_name)}
+{$vrf.vrf_name}
 {/if}
  address-family ipv4 unicast
-{foreach $$vrf as $route}
- {$route.ipv4_address}/{$route.ipv4_mask_lenth} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
- {/if}
+{foreach $vrf.routes as $route}
+ {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+{/if}
+ 
 {/foreach}
 {/foreach}
+{/if}
 !]]></operation>
   </command>
   <command name="READ"/>
