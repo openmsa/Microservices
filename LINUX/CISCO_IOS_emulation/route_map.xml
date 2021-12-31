@@ -127,7 +127,7 @@ route-map EXPORTA-INTRAGOV permit 10
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.route_map.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/route_map.conf]]></operation>
     <post_template>{if isset($params.matches)}
     {$index=0}
     {foreach $params.matches as $match}
@@ -200,7 +200,7 @@ route-map EXPORTA-INTRAGOV permit 10
     <parser>
       <section>
         <regexp>@\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+))$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
