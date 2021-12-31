@@ -85,11 +85,11 @@ end policy
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/route_policy.conf]]></operation>
     <parser>
       <section>
         <regexp>@\s*route-policy\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
