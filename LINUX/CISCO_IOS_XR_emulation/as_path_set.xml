@@ -17,7 +17,7 @@
     <name>as_path_set</name>
     <group>Default</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -59,9 +59,11 @@
 as-path-set {$params.object_id}
 {foreach $params.as_path_set as $as_path_set}
 {if isset($as_path_set.ios_regex)}
-  ios-regex '{$as_path_set.ios_regex}'{if !$as_path_set@last},{/if}
+  ios-regex '{$as_path_set.ios_regex}'{if !$as_path_set@last},
 {/if}
-{foreach}
+{/if}
+{/foreach}
+
 end-set
 !]]></operation>
   </command>

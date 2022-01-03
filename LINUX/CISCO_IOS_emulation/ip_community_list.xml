@@ -51,13 +51,13 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_community_list.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/ip_community_list.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\d+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;((\d+(:\d+\S+_)?)\s*)+)$@</regexp>
         <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\d+)\s+(?&lt;rule&gt;permit|deny)(?&lt;list&gt;(\s\S+)+)$@</regexp>
         <regexp>@^\s*ip\s+community-list\s?(standard|expanded)?\s?(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)(?&lt;list&gt;(\s\S+)+)$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <ignore>

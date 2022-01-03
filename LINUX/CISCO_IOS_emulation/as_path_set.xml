@@ -36,14 +36,18 @@
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/ip_as_path.conf]]></operation>
     <post_template>{$idx=0}
+{$object_id=$params.object_id}
 {foreach $ip_as_path as $as_path}
-	{if $as_path.access_list == $params.object_id}
+	{if $as_path.access_list == $object_id}
 		{assign_object_variable 
 		var=&quot;as_path_set.{$idx}.ios_regex&quot; 
 		value=&quot;{$as_path.as_path_regex}&quot;}
 		{$idx=$idx+1}
 	{/if}
-{/foreach}</post_template>
+{/foreach}
+{assign_object_variable 
+	var=&quot;object_id&quot; 
+	value=&quot;as_path_set_{$object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+as-path\s*access-list\s*(?&lt;object_id&gt;\d+)@</regexp>
