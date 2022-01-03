@@ -28,15 +28,32 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="ios_regex" name="params.as_path_set.0.ios_regex" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios/ip_as_path.conf]]></operation>
+    <post_template>{$idx=0}
+{foreach $ip_as_path as $as_path}
+	{if $as_path.access_list == $params.object_id}
+		{assign_object_variable 
+		var=&quot;as_path_set.{$idx}.ios_regex&quot; 
+		value=&quot;{$as_path.as_path_regex}&quot;}
+		{$idx=$idx+1}
+	{/if}
+{/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@^\s \s*$@</regexp>
+        <regexp>@^\s*ip\s+as-path\s*access-list\s*(?&lt;object_id&gt;\d+)@</regexp>
         <xpath></xpath>
       </section>
-      <lines/>
+      <lines>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+      </lines>
     </parser>
   </command>
   <command name="CREATE"/>

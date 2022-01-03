@@ -38,12 +38,17 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/ip_access_list.conf]]></operation>
-    <post_template>{foreach $ip_access_list as $ip_acl}
-	ACLID =&gt; {$ip_acl.object_id}
-	OBJECT_ID =&gt; {$params.object_id}
+    <post_template>{$idx=0}
+{foreach $ip_access_list as $ip_acl}
 	{if $ip_acl.object_id == $params.object_id}
 		{foreach $ip_acl.access_list as $acl}
-		=&gt; {$acl.acl_src_ip}/{$acl.acl_src_mask_length}		
+			{assign_object_variable 
+			var=&quot;prefix_set.{$idx}.src_ip&quot; 
+			value=&quot;{$acl.acl_src_ip}&quot;}
+			{assign_object_variable 
+			var=&quot;prefix_set.{$idx}.mask_length&quot; 
+			value=&quot;{$acl.acl_src_mask_length}&quot;}
+			{$idx=$idx+1}
 		{/foreach}
 	{/if}
 
