@@ -37,7 +37,7 @@
     <variable displayName="destination" name="params.statements.0.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="community" name="params.statements.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community_set" name="params.statements.0.community.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="source" name="params.statements.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -49,7 +49,7 @@
     <variable displayName="operator" name="params.statements.0.block.0.operator" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="community" name="params.statements.0.block.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community" name="params.statements.0.block.0.community.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="extcommunity" name="params.statements.0.block.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -142,31 +142,21 @@ end policy
   <command name="CREATE">
     <operation><![CDATA[!
 route-policy {$params.object_id}
+!
 {foreach $params.statements as $statements}
-
-{if $statements@first}if {else}elsif {/if}
+{if $statements@first}if {else}elseif {/if}
     {$keys = array_keys($statements)}
     {$first=true}
     {foreach $keys as $key}
-        {if $key == "as_path"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (as-path in {$statements.as_path})
-        {else if $key == "community"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (community in {$statements.community})
-        {else if $key == "destination"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (destination in {$statements.destination})
-        {else if $key == "tag"}
-            {if $first==false} and {else} {$first=false} {/if}
-            (tag eq {$statements.tag})
-        {/if}
+		{if $key == "block"}{continue}{/if}
+		{if $key == "as_path"}{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) {else if $key == "community"} {$first_com=true} {if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) {else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) {else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) {/if} then
     {/foreach}
-
     {if isset($statements.block)}
         {foreach $statements.block as $block}
-    
-            {if isset($block.community)} set community {$block.community}
+            {if isset($block.community)}
+    	        {foreach $block.community as $comm_set}
+        	    set community {$comm_set.community_set}
+	        	{/foreach}
             {/if}
             {if isset($block.extcommunity)} set extcommunity {$block.extcommunity}
             {/if}
@@ -175,12 +165,14 @@ route-policy {$params.object_id}
             {if isset($block.weight)} set weight {$block.weight}
             {/if}
         {/foreach}
+    {else}
+    pass
     {/if}
 
 {/foreach}
-
-endif
-
+  !
+  endif
+!
 end-policy
 !
 ]]></operation>
@@ -188,6 +180,8 @@ end-policy
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[no route-policy {$route_policy.$object_id.object_id}]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>

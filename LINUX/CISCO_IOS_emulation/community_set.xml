@@ -64,6 +64,14 @@
 				var=&quot;object_id&quot;
 				value=&quot;com_set_{$ficl.number}&quot;}
         {/if}
+        {if isset($ficl.name)}
+			{assign_object_variable
+				var=&quot;name&quot;
+				value=&quot;com_set_{$ficl.name}&quot;}
+            {assign_object_variable
+				var=&quot;object_id&quot;
+				value=&quot;com_set_{$ficl.name}&quot;}
+        {/if}
         {if isset($ficl.list)}
             {assign var=list value=&quot; &quot;|explode:$ficl.list}
             {foreach $list as $community}
