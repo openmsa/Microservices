@@ -46,7 +46,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/ip_prefix_list.conf]]></operation>
+    <operation><![CDATA[show prefix-list ]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ipv4\s+prefix-list\s+(?&lt;object_id&gt;\S+)$@</regexp>
@@ -79,6 +79,10 @@ ipv4 prefix-list {$params.object_id}
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[!
+no ipv4 prefix-list {$ipv4_prefix_list.$object_id.object_id}
+!]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
