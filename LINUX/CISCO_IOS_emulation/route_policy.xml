@@ -97,8 +97,7 @@
 {$statement_idx=0}
 {if isset($filtered_route_map)}
 {foreach $filtered_route_map as $rm}
-    
-    {if isset($rm.sorted_matches)}
+	{if isset($rm.sorted_matches)}
         {foreach $rm.sorted_matches as $match}
             {if isset($match.as_path)}
 				{assign_object_variable
@@ -125,9 +124,11 @@
 			{assign_object_variable
 				var=&quot;statements.{$statement_idx}.tag&quot;
 				value=&quot;{$match.tag}&quot;}{/if}
-		{/foreach}{/if}{$block_idx=0}
+		{/foreach}
+	{/if}
+	{$block_idx=0}
     {if isset($rm.sets)}
-        {foreach $rm.sets	as	$set}
+        {foreach $rm.sets	as$set}
         {if isset($set.operator)}
             {assign_object_variable
             var=&quot;statements.{$statement_idx}.block.{$block_idx}.operator&quot;
