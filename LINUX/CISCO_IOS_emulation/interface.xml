@@ -556,6 +556,9 @@
     <variable displayName="vrrp_address_family" name="params.vrrp.0.vrrp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="controller" name="params.controller" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="102" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -573,17 +576,22 @@ interface Serial1/0/0.1/3/1/1:0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/i-br-sp-spo-mb-rai-01-config.ios.interface.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/interface.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
       {assign_object_variable var=&quot;validated&quot; value=false}
-{/if}</post_template>
+{/if}
+
+{foreach $controller as $c}
+	
+{/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Serial|Multilink)\S+)@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Multilink)\S+)@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Serial)(?&lt;controller&gt;\d\/\d\/\d)\S+)@</regexp>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;[^\.]*(\.(?&lt;vlan&gt;\d+))?)@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
