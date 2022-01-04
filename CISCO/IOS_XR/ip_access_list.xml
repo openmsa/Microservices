@@ -28,7 +28,7 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="seq_number" name="params.access_list.0.seq_number" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="acl_seq_number" name="params.access_list.0.acl_seq_number" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="acl_rule" name="params.access_list.0.acl_rule" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -79,7 +79,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/ip_access_list.conf]]></operation>
+    <operation><![CDATA[show access-lists]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ipv4\s+access-list\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -88,8 +88,8 @@
       <lines>
         <line>
           <array name="access_list">
-            <regexp>@^\s*(?&lt;seq_number&gt;\d+)\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;ipv4|udp|tcp|pim|ospf|\d+)?\s*(?&lt;acl_src&gt;(any|host))?\s*(?&lt;acl_src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_src_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(eq?\s+(?&lt;acl_src_port&gt;)\S+)?\s*(?&lt;acl_dest&gt;(any|host))?\s*(?&lt;acl_dest_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_dest_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(((\s*eq?\s+(?&lt;acl_dest_port&gt;)\S+|\d+)|(\s*range\s+(?&lt;acl_dest_range&gt;\d+\s\d+))|(\s*(?&lt;acl_log&gt;log|log-input))|(\s*(?&lt;acl_fragments&gt;fragments))|(\s*dscp\s+(?&lt;acl_dscp&gt;\S+))))*$@</regexp>
-            <regexp>@^\s*(?&lt;seq_number&gt;\d+)\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;icmp|igmp)\s*(?&lt;acl_src_ip&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s*(?&lt;acl_src_imask&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})?)\s*(?&lt;acl_dest&gt;(any|host))?\s+((?&lt;acl_icmp_msg&gt;.*))*$@</regexp>
+            <regexp>@^\s*(?&lt;acl_seq_number&gt;\d+)\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;ipv4|udp|tcp|pim|ospf|\d+)?\s*(?&lt;acl_src&gt;(any|host))?\s*(?&lt;acl_src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_src_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(eq?\s+(?&lt;acl_src_port&gt;\S+))?\s*(?&lt;acl_dest&gt;(any|host))?\s*(?&lt;acl_dest_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_dest_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(((\s*eq?\s+(?&lt;acl_dest_port&gt;\S+|\d+))|(\s*range\s+(?&lt;acl_dest_range&gt;\d+\s\d+))|(\s*(?&lt;acl_log&gt;log|log-input))|(\s*(?&lt;acl_fragments&gt;fragments))|(\s*dscp\s+(?&lt;acl_dscp&gt;\S+))))*$@</regexp>
+            <regexp>@^\s*(?&lt;acl_seq_number&gt;\d+)\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;icmp|igmp)\s*(?&lt;acl_src_ip&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s*(?&lt;acl_src_imask&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})?)\s*(?&lt;acl_dest&gt;(any|host))?\s+((?&lt;acl_icmp_msg&gt;.*))*$@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -104,7 +104,7 @@
     <operation><![CDATA[!
 ipv4 access-list {$params.object_id}
 {foreach $params.access_list as $acl}
-{$acl.seq_number} {$acl.acl_rule} {$acl.acl_protocol} {$acl.acl_src} {$acl.acl_src_ip} {$acl.acl_src_imask} {$acl.acl_src_port} {$acl.acl_dest} {$acl.acl_dest_ip} {$acl.acl_dest_imask} {$acl.acl_dest_port} {$acl.acl_dest_range}
+{$acl.acl_seq_number} {$acl.acl_rule} {$acl.acl_protocol} {$acl.acl_src} {$acl.acl_src_ip} {$acl.acl_src_imask} {if isset($acl.acl_src_port) && $acl.acl_src_port} eq {$acl.acl_src_port}{/if} {$acl.acl_dest} {$acl.acl_dest_ip} {$acl.acl_dest_imask} {if isset($acl.acl_dest_port) && $acl.acl_dest_port} eq {$acl.acl_dest_port}{/if}{if $acl.acl_dest_range && isset($acl.acl_dest_range)} range {$acl.acl_dest_range}{/if} {$acl.acl_log} {$acl.acl_fragments} {$acl.acl_dscp} {$acl.acl_icmp_msg} 
 {/foreach}
 !]]></operation>
   </command>
