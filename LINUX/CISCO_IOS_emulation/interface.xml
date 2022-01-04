@@ -584,7 +584,11 @@ interface Serial1/0/0.1/3/1/1:0
 {/if}
 
 {foreach $controller as $c}
-	
+	{if $c.object_id = $params.controller}
+	{foreach $c.mode as $mode}
+		{assign_object_variable var=&quot;bandwidth&quot; value=$mode.bandwidth}
+	{/foreach}
+	{/if}
 {/foreach}</post_template>
     <parser>
       <section>
