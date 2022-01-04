@@ -25,7 +25,10 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="link" name="params.link" startIncrement="0" type="Link" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="res.txt" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+   <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -127,6 +130,24 @@
     <variable displayName="duplex_mode" name="params.duplex_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+        <variable displayName="peer_ip" name="params.xconnect.0.peer_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>xconnect</sections>
+      </sections>
+    </variable>
+    <variable displayName="vc_id" name="params.xconnect.0.vc_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>xconnect</sections>
+      </sections>
+    </variable>
+    <variable displayName="mode" name="params.xconnect.0.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>xconnect</sections>
+      </sections>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -135,7 +156,9 @@
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
       {assign_object_variable var=&quot;validated&quot; value=false}
-{/if}</post_template>
+{/if}
+{assign_object_variable var=&quot;interface&quot; value=&quot;{$params.object_id}&quot;}
+{assign_object_variable var=&quot;link&quot; value=&quot;/opt/fmc_repository/Datafiles/{$SD-&gt;SDID}.interface.html&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;[^\.]*(\.(?&lt;vlan&gt;\d+))?)@</regexp>
@@ -254,25 +277,50 @@
 interface {$params.object_id}
 {if isset($params.int_description) }description {$params.int_description}
 {/if}
+{if isset($params.vrf_name) and $params.vrf_name}vrf {$params.vrf_name}
+{/if}
 {foreach $params.addresses as $addr}
-{if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }{if isset($addr.ipv4_type) and $addr.ipv4_type}
+  {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
+    {if isset($addr.ipv4_type) and $addr.ipv4_type}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
-{else if}
+    {else if}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
-{/if}
-{/if}
+    {/if}
+  {/if}
 {/foreach}
 {if isset($params.ipv6_address) and $params.ipv6_address}
 ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
 {if isset($params.ipv6_enable) and $params.ipv6_enable }ipv6 {$params.ipv6_enable}
 {/if}
-{if isset($params.vrf_name) and $params.vrf_name}vrf {$params.vrf_name}
-{/if}
 {if isset($params.mtu_int) and $params.mtu_int}mtu {$params.mtu_int}
+{/if}
+{if isset($params.route_cache) and $params.route_cache}
+ip route-cache {$params.route_cache}
+{/if}
+{if isset($params.duplex_mode) and $params.duplex_mode}
+duplex  {$params.duplex_mode}
+{/if}
+{if isset($params.pim_mode) and $params.pim_mode}
+ip pim {$params.pim_mode}
 {/if}
 {if isset($params.encapsulation_dot1q) and $params.encapsulation_dot1q} encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  100{/if}
 {/if}
+{if isset($params.service_policy_out) and $params.service_policy_out}
+service-policy output {$params.service_policy_out}
+{/if}
+{if isset($params.service_policy_in) and $params.service_policy_in}
+service-policy input {$params.service_policy_in}
+{/if}
+{foreach $params.xconnect as $xconnect1}
+  {if isset($xconnect1.peer_ip) && isset($xconnect1.vc_id) }
+    {if isset($xconnect1.mode) and $xconnect1.mode}
+xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id} {$xconnect1.mode}
+    {else if}
+xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
+    {/if}
+  {/if}
+{/foreach}
 
 !]]></operation>
   </command>
