@@ -28,6 +28,12 @@
     <variable displayName="ip_access_list" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="acl_seq_number" name="params.access_list.0.acl_seq_number" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="acl_rule" name="params.access_list.0.acl_rule" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -78,27 +84,36 @@
     </variable>
   </variables>
   <example>
-    <content>ip access-list extended V4815:Sabesp_Intragov_VPNSC_GREY_MGMT_ACL
- permit tcp host 200.204.1.121 any eq tacacs</content>
+    <content>!
+ip access-list extended coppacl-gerencia-baixa-pri-icmp
+ permit icmp any any echo
+ permit icmp any any time-exceeded
+!</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat    /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
-    <post_template>{foreach $params.access_list as $access}
-    {if isset($access.acl_src_ip)}
-      {convert_imask_to_length input={$access.acl_src_imask} var=&quot;mask_length&quot;}
-      {assign_object_variable var=&quot;access_list.{$access@index}.acl_src_mask_length&quot; value=$mask_length}
+    <operation><![CDATA[cat    /config/cisco_ios/ip_access_list.conf]]></operation>
+    <post_template>{$seq_number=10}
+{foreach $params.access_list as $acl}
+    {if isset($acl.acl_src_ip)}
+    	{capture}{convert_imask_to_length input={$acl.acl_src_imask} var=&quot;mask_length&quot;}{/capture}
+		{assign_object_variable var=&quot;access_list.{$acl@index}.acl_src_mask_length&quot; value=$mask_length}
     {/if}
-  {/foreach}</post_template>
+    {if isset($acl.acl_protocol) &amp;&amp; $acl.acl_protocol == &quot;ip&quot;}
+    {assign_object_variable var=&quot;access_list.{$acl@index}.acl_protocol&quot; value=&quot;ipv4&quot;}
+	{/if}
+    {assign_object_variable var=&quot;access_list.{$acl@index}.acl_seq_number&quot; value=$seq_number}
+    {capture}{$seq_number=$seq_number+10}{/capture}
+{/foreach}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
           <array name="access_list">
-            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;ip|udp|tcp|pim|ospf|\d+)?\s*(?&lt;acl_src&gt;(any|host))?\s*(?&lt;acl_src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_src_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(eq?\s+(?&lt;acl_src_port&gt;)\S+)?\s*(?&lt;acl_dest&gt;(any|host))?\s*(?&lt;acl_dest_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_dest_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(((\s*eq?\s+(?&lt;acl_dest_port&gt;)\S+|\d+)|(\s*range\s+(?&lt;acl_dest_range&gt;\d+\s\d+))|(\s*(?&lt;acl_log&gt;log|log-input))|(\s*(?&lt;acl_fragments&gt;fragments))|(\s*dscp\s+(?&lt;acl_dscp&gt;\S+))))*$@</regexp>
-            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;icmp|igmp)\s*(?&lt;acl_src_ip&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s*(?&lt;acl_src_imask&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})?)\s*(?&lt;acl_dest&gt;(any|host))?\s+((?&lt;acl_icmp_msg&gt;.*))*$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;ip|udp|tcp|pim|ospf|\d+)?\s*(?&lt;acl_src&gt;(any|host))?\s*(?&lt;acl_src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_src_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(eq?\s+(?&lt;acl_src_port&gt;\S+))?\s*(?&lt;acl_dest&gt;(any|host))?\s*(?&lt;acl_dest_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_dest_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(((\s*eq?\s+(?&lt;acl_dest_port&gt;\S+|\d+))|(\s*range\s+(?&lt;acl_dest_range&gt;\d+\s\d+))|(\s*(?&lt;acl_log&gt;log|log-input))|(\s*(?&lt;acl_fragments&gt;fragments))|(\s*dscp\s+(?&lt;acl_dscp&gt;\S+))))*$@</regexp>
+            <regexp>@^\s*(?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;icmp|igmp)\s*(?&lt;acl_src_ip&gt;(any|host|(([0-9]{1,3}\.){3}[0-9]{1,3})))\s*(?&lt;acl_src_imask&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})?)\s*(?&lt;acl_dest&gt;(any|host))?\s+(?&lt;acl_icmp_msg&gt;.*)$@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -108,6 +123,9 @@
           <regexp>@^\s*(?&lt;validated&gt;!)@</regexp>
           <xpath/>
         </line>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>

@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS XR emulation</description>
+    <description>for Cisco IOS emulation</description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -28,10 +28,16 @@
     <variable displayName="validated" name="params.validated" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="interface" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="vlan" name="params.vlan" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="102" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="int_description" name="params.int_description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -544,13 +550,13 @@
     <variable displayName="int_negotiation" name="params.int_negotiation" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="int_ip_router_isis" name="params.int_ip_router_isis" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
     <variable displayName="vrrp_group" name="params.vrrp.0.vrrp_group" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="vrrp_address_family" name="params.vrrp.0.vrrp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="controller" name="params.controller" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="102" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
@@ -570,16 +576,26 @@ interface Serial1/0/0.1/3/1/1:0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/interface.conf]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
       {assign_object_variable var=&quot;validated&quot; value=false}
-{/if}</post_template>
+{/if}
+
+{foreach $controller as $c}
+	{if $c.object_id = $params.controller}
+	{foreach $c.mode as $mode}
+		{assign_object_variable var=&quot;bandwidth&quot; value=$mode.bandwidth}
+	{/foreach}
+	{/if}
+{/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@interface\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <xpath/>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Multilink)\S+)@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Serial)(?&lt;controller&gt;\d\/\d\/\d)\S+)@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;[^\.]*(\.(?&lt;vlan&gt;\d+))?)@</regexp>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -795,8 +811,8 @@ interface Serial1/0/0.1/3/1/1:0
             <lines>
               <line>
                 <array name="metric">
-                  <regexp>@^\s+isis\s+metric\s+(?&lt;isis_metric&gt;\d+)\s+(?&lt;isis_metric_level&gt;\S+)@</regexp>
-                  <regexp>@^\s+isis\s+ipv6\s+metric\s+(?&lt;isis_ipv6_metric&gt;\d+)\s+(?&lt;isis_ipv6_metric_level&gt;\S+)@</regexp>
+                  <regexp>@^\s*isis\s+metric\s+(?&lt;isis_metric&gt;\d+)( (?&lt;isis_metric_level&gt;\S+))?$@</regexp>
+                  <regexp>@^\s*isis\s*ipv6\s+metric\s+(?&lt;isis_metric&gt;\d+)( (?&lt;isis_metric_level&gt;\S+))?@</regexp>
                 </array>
                 <regexp/>
                 <xpath/>
@@ -807,7 +823,7 @@ interface Serial1/0/0.1/3/1/1:0
             <regexp>@^\s+isis\s+network\s+(?&lt;isis_network&gt;\S+)@</regexp>
             <regexp>@^\s+isis\s+authentication\s+mode\s+(?&lt;isis_auth_mode&gt;\S+)@</regexp>
             <regexp>@^\s+isis\s+authentication\s+key-chain\s+(?&lt;isis_auth_key&gt;\S+)@</regexp>
-            <regexp>@^\s+isis\s+csnp-interval\s+(?&lt;isis_csnp_interval&gt;\d+)\s+(?&lt;isis_csnp_level&gt;\S+)@</regexp>
+            <regexp>@^\s*isis\s+csnp-interval\s+(?&lt;isis_csnp_interval&gt;\d+)\s*(?&lt;isis_csnp_level&gt;\S+)?$@</regexp>
             <regexp>@^\s+isis\s+(?&lt;isis_bfd&gt;bfd)@</regexp>
             <regexp>@^\s+isis\s+tag\s+(?&lt;isis_tag&gt;\d+)@</regexp>
             <regexp>@^\s+isis\s+ipv6\s+tag\s+(?&lt;isis_ipv6_tag&gt;\d+)@</regexp>
@@ -881,11 +897,6 @@ interface Serial1/0/0.1/3/1/1:0
           <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@^\s+(?&lt;int_ip_router_isis&gt;ipv6\s+router\s+isis\s+vivo)@</regexp>
-          <xpath/>
-        </line>
-        <line>
           <array name="vrrp">
             <lines/>
             <lines>
@@ -927,6 +938,15 @@ interface Serial1/0/0.1/3/1/1:0
         </ignore>
         <ignore>
           <regexp>@^\s*dampening@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ipv6 router isis @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ip router isis @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@mac-address@</regexp>
         </ignore>
       </lines>
     </parser>

@@ -25,7 +25,7 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -44,7 +44,7 @@ end-set
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.community_set.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/community_set.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
@@ -54,9 +54,7 @@ end-set
       <lines>
         <line>
           <array name="community_list">
-            <regexp>@\s+(?&lt;community&gt;\d+:\d+),?$@</regexp>
-            <regexp>@\s+(?&lt;community&gt;local-AS),?$@</regexp>
-            <regexp>@\s+(?&lt;community&gt;no-export),?$@</regexp>
+            <regexp>@\s+(?&lt;community&gt;\S+),?$@</regexp>
           </array>
           <regexp/>
           <xpath/>
