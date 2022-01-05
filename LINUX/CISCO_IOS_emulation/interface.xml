@@ -576,7 +576,7 @@ interface Serial1/0/0.1/3/1/1:0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/interface.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.interface.simple.txt]]></operation>
     <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
       {assign_object_variable var=&quot;validated&quot; value=true}
 {else}
