@@ -91,7 +91,7 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat    /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$seq_number=10}
 {foreach $params.access_list as $acl}
     {if isset($acl.acl_src_ip)}

@@ -82,7 +82,7 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{assign var=filtered_route_map value=[]}
 {assign var=route_map_idx value=0}
 {$name=&quot;&quot;}
