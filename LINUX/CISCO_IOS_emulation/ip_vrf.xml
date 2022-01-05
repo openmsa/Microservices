@@ -55,12 +55,12 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_vrf.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
     <post_template>{assign_object_variable var=&quot;vrf&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+vrf\s+(forwarding)?\s*(?&lt;object_id&gt;(?&lt;customer_prefix&gt;[^:]+)\S+)$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>

@@ -64,12 +64,12 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.router_bgp.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.V4815.txt]]></operation>
     <post_template>{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@router\sbgp\s(?&lt;object_id&gt;\d+)@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
