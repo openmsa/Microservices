@@ -15,9 +15,9 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>as_path_set</name>
-    <group>EMULATION|CISCO|IOS-XR</group>
+    <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>5</importrank>
+    <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -34,11 +34,11 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/as_path_set.conf]]></operation>
+    <operation><![CDATA[show running-config ]]></operation>
     <parser>
       <section>
         <regexp>@^\s*as-path-set\s*(?&lt;object_id&gt;\S+)$@</regexp>
-        <xpath></xpath>
+        <xpath/>
       </section>
       <lines>
         <line>
@@ -71,6 +71,10 @@ end-set
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[!
+no as-path-set {$as_path_set.$object_id.object_id}
+!]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>

@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>as_path_set</name>
-    <group>EMULATION|CISCO|IOS-XR</group>
+    <name>prefix_set</name>
+    <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>5</importrank>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -28,22 +28,25 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="ios_regex" name="params.as_path_set.0.ios_regex" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="src_ip" name="params.prefix_set.0.src_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="mask_length" name="params.prefix_set.0.mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/as_path_set.conf]]></operation>
+    <operation><![CDATA[show running-config]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*as-path-set\s*(?&lt;object_id&gt;\S+)$@</regexp>
+        <regexp>@^\s*prefix-set\s*(?&lt;object_id&gt;\S+)@</regexp>
         <xpath></xpath>
       </section>
       <lines>
         <line>
-          <array name="as_path_set">
-            <regexp>@^\s*ios-regex\s*\&apos;(?&lt;ios_regex&gt;[^\&apos;]+),?@</regexp>
+          <array name="prefix_set">
+            <regexp>@^\s*(?&lt;src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\/(?&lt;mask_length&gt;\d+),?@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -56,14 +59,13 @@
   </command>
   <command name="CREATE">
     <operation><![CDATA[!
-as-path-set {$params.object_id}
-{foreach $params.as_path_set as $as_path_set}
-{if isset($as_path_set.ios_regex)}
-  ios-regex '{$as_path_set.ios_regex}'{if !$as_path_set@last},
-{/if}
+prefix-set {$params.object_id}
+{foreach $params.prefix_set as $prefix}
+ {$prefix.src_ip}/{$prefix.mask_length}{if !$prefix@last},
 {/if}
 {/foreach}
 
+!
 end-set
 !
 ]]></operation>
@@ -71,6 +73,11 @@ end-set
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[!
+no prefix-set {$prefix_set.$object_id.object_id}
+!
+]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>

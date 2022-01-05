@@ -60,16 +60,23 @@
   <command name="CREATE">
     <operation><![CDATA[!
 prefix-set {$params.object_id}
-{foreach $prefix_set as $prefix}
+{foreach $params.prefix_set as $prefix}
  {$prefix.src_ip}/{$prefix.mask_length}{if !$prefix@last},
 {/if}
 {/foreach}
+
+!
 end-set
-!]]></operation>
+!
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[!
+no prefix-set {$prefix_set.$object_id.object_id}
+!]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
