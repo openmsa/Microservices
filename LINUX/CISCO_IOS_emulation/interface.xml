@@ -34,10 +34,19 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="104" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="controller_module" name="params.controller_module" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="102" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="controller_submodule" name="params.controller_submodule" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="controller_channel" name="params.controller_channel" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="105" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bandwidth" name="params.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -143,9 +152,6 @@
       <repositories/>
     </variable>
     <variable displayName="ip_flow" name="params.ip_flow" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bandwidth" name="params.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="duplex_mode" name="params.duplex_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -580,24 +586,46 @@ interface Serial1/0/0.1/3/1/1:0
   </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;} 
-      {assign_object_variable var=&quot;validated&quot; value=true}
-{else}
-      {assign_object_variable var=&quot;validated&quot; value=false}
+    <post_template>{if $params.type == &quot;Serial&quot;}
+	{foreach $controller as $c}
+		{if $c.interface == $params.controller_module}
+			{if isset($c.channel_group) 
+				&amp;&amp; ($c.channel_group == $params.controller_channel)}
+				{assign_object_variable 
+					var=&quot;bandwidth&quot;
+					value=$c.bandwidth}
+				{break}
+			{/if}
+			{if isset($c.mode)}
+				{foreach $c.mode as $mode}
+					{foreach $mode.timeslots_array as $timeslots}
+						{if $timeslots.sub_interface ==  &quot;{$params.controller_submodule}:{$params.controller_channel}&quot;}
+							{assign_object_variable
+							var=&quot;bandwidth&quot;
+							value=$timeslots.bandwidth}
+						{/if}
+					{/foreach}
+				{/foreach}
+			{/if}
+			
+		{/if}
+	{/foreach}
 {/if}
 
-{foreach $controller as $c}
-	{if $c.object_id = $params.controller}
-	{foreach $c.mode as $mode}
-		{assign_object_variable var=&quot;bandwidth&quot; value=$mode.bandwidth}
-	{/foreach}
-	{/if}
-{/foreach}</post_template>
+{if isset($params.validated) &amp;&amp; $params.validated == &quot;!&quot;}
+	{assign_object_variable
+		var=&quot;validated&quot;
+		value=true}
+{else}
+	{assign_object_variable
+		var=&quot;validated&quot;
+		value=false}
+{/if}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Multilink)\S+)@</regexp>
-        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Serial)(?&lt;controller_module&gt;\d\/\d\/\d)\.(?&lt;controller_submodule&gt;(\d\/?)+:\d)(\.?(?&lt;vlan&gt;\d+)?))@</regexp>
-        <regexp>@^\s*interface\s+(?&lt;object_id&gt;[^\.]*(\.(?&lt;vlan&gt;\d+))?)@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Vlan|Port-channel|Multilink)\d+)$@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Serial)(?&lt;controller_module&gt;\d\/\d\/\d)(\.(?&lt;controller_submodule&gt;(\d\/?)+))?(:(?&lt;controller_channel&gt;\d))(\.?(?&lt;vlan&gt;\d+)?))@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;\S+(?&lt;type&gt;Ethernet)[^\.]*(\.(?&lt;vlan&gt;\d+))?)$@</regexp>
         <xpath></xpath>
       </section>
       <lines>
