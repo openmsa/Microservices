@@ -31,7 +31,10 @@
     <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="short_id" name="params.short_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="interface" name="params.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bandwidth" name="params.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="channel_group" name="params.channel_group" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -55,6 +58,12 @@
     <variable displayName="mode" name="params.mode.0.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="sub_interface" name="params.mode.0.timeslots_array.0.sub_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bandwidth" name="params.mode.0.timeslots_array.0.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="tug" name="params.mode.0.timeslots_array.0.tug" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -76,13 +85,45 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/controller.conf]]></operation>
-    <post_template>{assign_object_variable
-  var=&quot;short_id&quot;
-  value=&quot;{$params.object_id|substr:($params.object_id|strpos:&quot; &quot;+1)}&quot;}</post_template>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.txt]]></operation>
+    <post_template>{if isset($params.timeslots) &amp;&amp; $params.timeslots}
+	{$bd=64}
+	{if $params.timeslots == &quot;1-8&quot;}
+		{$bd=$bd*8}
+	{else if $params.timeslots == &quot;1-16&quot;}
+		{$bd=$bd*16}
+	{else if $params.timeslots == &quot;1-31&quot;}
+		{$bd=$bd*31}
+	{/if}
+	{assign_object_variable
+		var=&quot;bandwidth&quot;
+		value=&quot;{$bd}&quot;}
+{/if}
+
+{foreach $params.mode as $mode}
+	{foreach $mode.timeslots_array as $timeslots}
+			{assign_object_variable
+			var=&quot;mode.{$mode@index}.timeslots_array.{$timeslots@index}.sub_interface&quot;
+			value=&quot;{$mode.au_num}/{$mode.tug_num}/{$timeslots.tug_num}/{$timeslots.e_num}:{$timeslots.channel_group}&quot;}
+
+		{if isset($timeslots.timeslots) &amp;&amp; $timeslots.timeslots}
+			{$bd=64}
+		{if $timeslots.timeslots == &quot;1-8&quot;}
+			{$bd=$bd*8}
+		{else if $timeslots.timeslots == &quot;1-16&quot;}
+			{$bd=$bd*16}
+		{else if $timeslots.timeslots == &quot;1-31&quot;}
+			{$bd=$bd*31}
+		{/if}
+		{assign_object_variable
+			var=&quot;mode.{$mode@index}.timeslots_array.{$timeslots@index}.bandwidth&quot;
+			value=&quot;{$bd}&quot;}
+		{/if}
+	{/foreach}
+{/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*controller\s+(?&lt;object_id&gt;.+)$@</regexp>
+        <regexp>@^\s*controller\s+(?&lt;object_id&gt;\S+ (?&lt;interface&gt;(\d\/?)+))$@</regexp>
         <xpath></xpath>
       </section>
       <lines>
