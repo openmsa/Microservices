@@ -61,7 +61,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.controller.txt]]></operation>
     <post_template>{if isset($params.mode)}
   {$nbtimeslots=0}
   {foreach $params.mode as $mode}

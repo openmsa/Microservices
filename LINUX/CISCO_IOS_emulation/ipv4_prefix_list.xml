@@ -46,7 +46,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_prefix_list.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$idx=0}
 {foreach $ip_prefix_list as $ipl}
 {if ($ipl.name == $params.object_id)}
