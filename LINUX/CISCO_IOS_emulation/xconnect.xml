@@ -59,11 +59,9 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.interface.simple.txt]]></operation>
-    <post_template>
-		{assign_object_variable var=&quot;interface&quot; value=$params.object_id}
-		{assign_object_variable var=&quot;group&quot; value=$params.object_id}
-</post_template>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <post_template>{assign_object_variable var=&quot;interface&quot; value=$params.object_id}
+		{assign_object_variable var=&quot;group&quot; value=$params.object_id}</post_template>
     <parser>
       <section>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(Multilink)\S+)@</regexp>

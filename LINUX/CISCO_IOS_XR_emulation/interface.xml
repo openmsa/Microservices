@@ -34,10 +34,13 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="bandwidth" name="params.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="vlan" name="params.vlan" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="int_description" name="params.int_description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -241,6 +244,11 @@
           <regexp>@^\s+encapsulation\s+dot1q\s+(?&lt;encapsulation_dot1q&gt;\d+)\s*(second-dot1q\s+(?&lt;encapsulation_second_dot1q&gt;\d+))?@</regexp>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s+bandwidth\s+(?&lt;bandwidth&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s* logging@</regexp>
         </ignore>
@@ -275,9 +283,11 @@
 !
 
 interface {$params.object_id}
-{if isset($params.int_description) }description {$params.int_description}
+{if isset($params.int_description) }
+description {$params.int_description}
 {/if}
-{if isset($params.vrf_name) and $params.vrf_name}vrf {$params.vrf_name}
+{if isset($params.vrf_name) and $params.vrf_name}
+vrf {$params.vrf_name}
 {/if}
 {foreach $params.addresses as $addr}
   {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
@@ -304,7 +314,9 @@ duplex  {$params.duplex_mode}
 {if isset($params.pim_mode) and $params.pim_mode}
 ip pim {$params.pim_mode}
 {/if}
-{if isset($params.encapsulation_dot1q) and $params.encapsulation_dot1q} encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  100{/if}
+{if isset($params.encapsulation_dot1q) and $params.encapsulation_dot1q}
+encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  {$params.encapsulation_second_dot1q}
+	{/if}
 {/if}
 {if isset($params.service_policy_out) and $params.service_policy_out}
 service-policy output {$params.service_policy_out}
@@ -312,6 +324,7 @@ service-policy output {$params.service_policy_out}
 {if isset($params.service_policy_in) and $params.service_policy_in}
 service-policy input {$params.service_policy_in}
 {/if}
+{if isset($params.xconnect)}
 {foreach $params.xconnect as $xconnect1}
   {if isset($xconnect1.peer_ip) && isset($xconnect1.vc_id) }
     {if isset($xconnect1.mode) and $xconnect1.mode}
@@ -321,7 +334,7 @@ xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
     {/if}
   {/if}
 {/foreach}
-
+{/if}
 !]]></operation>
   </command>
   <command name="READ">

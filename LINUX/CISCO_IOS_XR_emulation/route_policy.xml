@@ -52,6 +52,9 @@
     <variable displayName="community" name="params.statements.0.block.0.community.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="extcommunity_type" name="params.statements.0.block.0.extcommunity_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="extcommunity" name="params.statements.0.block.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -149,7 +152,7 @@ route-policy {$params.object_id}
     {$first=true}
     {foreach $keys as $key}
 		{if $key == "block"}{continue}{/if}
-		{if $key == "as_path"}{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) {else if $key == "community"} {$first_com=true} {if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) {else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) {else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) {/if} then
+{if $key == "as_path"}{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) {else if $key == "community"} {$first_com=true} {if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) {else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) {else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) {/if} then
     {/foreach}
     {if isset($statements.block)}
         {foreach $statements.block as $block}
@@ -158,7 +161,7 @@ route-policy {$params.object_id}
         	    set community {$comm_set.community_set}
 	        	{/foreach}
             {/if}
-            {if isset($block.extcommunity)} set extcommunity {$block.extcommunity}
+{if isset($block.extcommunity) && isset($block.extcommunity_type)} set extcommunity {$block.extcommunity_type} {$block.extcommunity}
             {/if}
             {if isset($block.local_preference)} set local-preference {$block.local_preference}
             {/if}

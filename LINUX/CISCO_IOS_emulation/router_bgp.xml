@@ -37,28 +37,49 @@
     <variable displayName="bgp_router_id" name="params.bgp_router_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="bgp_graceful_restart" name="params.bgp_graceful_restart" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
     <variable displayName="bgp_neighbor" name="params.neighbors.0.bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
     </variable>
     <variable displayName="bgp_neighbor_remote_as" name="params.neighbors.0.bgp_neighbor_remote_as" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
     </variable>
     <variable displayName="bgp_neighbor_password" name="params.neighbors.0.bgp_neighbor_password" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
     </variable>
     <variable displayName="bgp_neighbor_description" name="params.neighbors.0.bgp_neighbor_description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
     </variable>
     <variable displayName="bgp_source_interface" name="params.neighbors.0.bgp_source_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
     </variable>
     <variable displayName="bgp_multihop" name="params.neighbors.0.bgp_multihop" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
     </variable>
     <variable displayName="bgp_neighbor_status" name="params.neighbors.0.bgp_neighbor_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
+    </variable>
+    <variable displayName="bgp_graceful_restart" name="params.bgp_graceful_restart" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
@@ -68,13 +89,13 @@
     <post_template>{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@router\sbgp\s(?&lt;object_id&gt;\d+)@</regexp>
+        <regexp>@^\s*router\sbgp\s(?&lt;object_id&gt;\d+)@</regexp>
         <xpath></xpath>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@\sbgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
+          <regexp>@^\s*bgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -97,13 +118,46 @@
           <xpath/>
         </line>
         <ignore>
-          <regexp>@\s+no@</regexp>
+          <regexp>@\s*no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@\s+bgp@</regexp>
+          <regexp>@\s*bgp@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s+neighbor@</regexp>
+          <regexp>@^\s*neighbor@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*template@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*route-@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*next-hop-self@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*send-@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*exit-peer-policy@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*remote-as@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*description@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*password@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*update-source@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*exit-peer-session@</regexp>
         </ignore>
       </lines>
     </parser>

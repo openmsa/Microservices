@@ -125,7 +125,35 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[vrf {$params.object_id}
+ address-family ipv4 unicast
+{$first=false}
+{foreach $params.route_targets as $rt}
+	{if $rt.import_export == "import"}
+		{if !$first}
+import route-target
+			{$first=true}
+		{/if}
+ {$rt.route_target}
+	{/if}
+{/foreach}
+  !
+{$first=false}
+{foreach $params.route_targets as $rt}
+	{if $rt.import_export == "export"}
+		{if !$first}
+export route-target
+			{$first=true}
+		{/if}
+ {$rt.route_target}
+	{/if}
+{/foreach}
+{if isset($params.route_map)}
+  export route-policy {$params.route_map}
+{/if}
+!]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
