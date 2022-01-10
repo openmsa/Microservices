@@ -17,7 +17,7 @@
     <name>address_family</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>11</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,10 +25,13 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
+    <variable displayName="Migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="Migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="router_bgp" name="params.router_bgp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="bgp_address_family" name="params.bgp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -198,6 +201,9 @@
   </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <post_template>{foreach $router_bgp as $r_bgp}
+{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$r_bgp.router_bgp}&quot;}
+{/foreach}</post_template>
     <parser>
       <section>
         <regexp>@^\s*address-family\s+(?&lt;object_id&gt;(?&lt;bgp_address_family&gt;ipv4|ipv6))$@</regexp>
@@ -212,24 +218,24 @@
         <line>
           <array name="neighbor">
             <lines/>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+route-map\s+(?&lt;bgp_ipv4_route_policy_in&gt;\S+)\s+in@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+route-map\s+(?&lt;bgp_ipv4_route_policy_out&gt;\S+)\s+out@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+maximum-prefix\s+(?&lt;bgp_vrf_maximum_prefix&gt;.+)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_ipv4_default_route&gt;default-originate)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+remote-as\s+(?&lt;bgp_vrf_neighbor_remote_as&gt;\d+)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_vrf_as_override&gt;as-override)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+prefix-list\s+(?&lt;bgp_vrf_prefix_list_out&gt;\S+)\s+out@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+prefix-list\s+(?&lt;bgp_vrf_route_map_in&gt;\S+)\s+in@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+version\s+(?&lt;bgp_vrf_version&gt;\d+)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_vrf_send_community&gt;send-community.*)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+advertisement-interval\s+(?&lt;bgp_vrf_advertisement_interval&gt;\d+)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+allowas-in\s+(?&lt;bgp_vrf_allow_as&gt;\d+)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+route-map\s+(?&lt;bgp_vrf_route_map_in&gt;\S+)\s+in$@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+route-map\s+(?&lt;bgp_vrf_route_map_out&gt;\S+)\s+out$@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+soft-reconfiguration\s+(?&lt;bgp_vrf_soft_reconfiguration&gt;\S+)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_vrf_activate&gt;activate)@</regexp>
-            <regexp>@^\s+neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+inherit peer-policy\s+(?&lt;bgp_vfr_inherit_peer_policy&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+route-map\s+(?&lt;bgp_ipv4_route_policy_in&gt;\S+)\s+in@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+route-map\s+(?&lt;bgp_ipv4_route_policy_out&gt;\S+)\s+out@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+maximum-prefix\s+(?&lt;bgp_vrf_maximum_prefix&gt;.+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_ipv4_default_route&gt;default-originate)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+remote-as\s+(?&lt;bgp_vrf_neighbor_remote_as&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_vrf_as_override&gt;as-override)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+prefix-list\s+(?&lt;bgp_vrf_prefix_list_out&gt;\S+)\s+out@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+prefix-list\s+(?&lt;bgp_vrf_route_map_in&gt;\S+)\s+in@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+version\s+(?&lt;bgp_vrf_version&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_vrf_send_community&gt;send-community.*)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+advertisement-interval\s+(?&lt;bgp_vrf_advertisement_interval&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+allowas-in\s+(?&lt;bgp_vrf_allow_as&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+route-map\s+(?&lt;bgp_vrf_route_map_in&gt;\S+)\s+in$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+route-map\s+(?&lt;bgp_vrf_route_map_out&gt;\S+)\s+out$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+soft-reconfiguration\s+(?&lt;bgp_vrf_soft_reconfiguration&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_vrf_activate&gt;activate)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+inherit peer-policy\s+(?&lt;bgp_vfr_inherit_peer_policy&gt;\S+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -284,10 +290,10 @@
           <regexp>@^\s*redistribute@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s*neighbor\s+to_route_reflector@</regexp>
+          <regexp>@^\s*address-family ipv4 vrf@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s*address-family ipv4 vrf@</regexp>
+          <regexp>@to_route_reflector@</regexp>
         </ignore>
       </lines>
     </parser>

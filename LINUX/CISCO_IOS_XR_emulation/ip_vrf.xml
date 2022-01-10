@@ -152,7 +152,8 @@ export route-target
 {if isset($params.route_map)}
   export route-policy {$params.route_map}
 {/if}
-!]]></operation>
+!
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>

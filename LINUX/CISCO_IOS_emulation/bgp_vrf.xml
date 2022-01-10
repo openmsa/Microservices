@@ -34,7 +34,7 @@
     <variable displayName="router_bgp" name="params.router_bgp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bgp_router_id" name="params.bgp_router_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -227,17 +227,14 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
   </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{if isset($params.customer_prefix) &amp;&amp; (!isset($params.vrf_name) || $params.vrf_name==&quot;&quot;)}
-{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.customer_prefix}&quot;}
-{assign_object_variable var=&quot;customer_prefix&quot; value=&quot;&quot;}
-{/if}
-
-{foreach $router_bgp as $router}
+    <post_template>{foreach $router_bgp as $router}
 {assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$router.router_bgp}&quot;}
+{assign_object_variable var=&quot;bgp_router_id&quot; value=&quot;{$router.bgp_router_id}&quot;}
+
 {/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+vrf\s+(forwarding)?\s*(?&lt;object_id&gt;(?&lt;customer_prefix&gt;[^:]+)\S+)$@</regexp>
+        <regexp>@^\s*ip\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
         <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;object_id&gt;(?&lt;customer_prefix&gt;([^:^\s]+)?):?(?&lt;vrf_name&gt;\S*))$@</regexp>
         <xpath></xpath>
       </section>
@@ -320,6 +317,40 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s*bgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="template">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^\s*route-.*@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*next-.*@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*send-.*@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines>
+              <ignore>
+                <regexp>@^\s*exit-.*@</regexp>
+              </ignore>
+            </lines>
+            <regexp>@^\s*template.*@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
@@ -334,6 +365,9 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
         </ignore>
         <ignore>
           <regexp>@^.*password@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*ip vrf forwarding@</regexp>
         </ignore>
       </lines>
     </parser>

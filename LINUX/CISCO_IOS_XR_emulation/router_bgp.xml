@@ -118,7 +118,16 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[!
+router bgp {$params.router_bgp}
+ bgp router-id {$params.bgp_router_id}
+ {if isset($params.bgp_graceful_restart)}
+ bgp graceful-restart {$params.bgp_graceful_restart}
+ bgp graceful-restart
+ {/if}
+!]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>

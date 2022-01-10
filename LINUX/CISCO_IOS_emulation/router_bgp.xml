@@ -102,12 +102,12 @@
           <array name="neighbors">
             <lines/>
             <lines/>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+remote-as\s+(?&lt;bgp_neighbor_remote_as&gt;\d+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+description\s+(?&lt;bgp_neighbor_description&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+password\s+\d+\s+(?&lt;bgp_neighbor_password&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+update-source\s+(?&lt;bgp_source_interface&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+ebgp-multihop\s+(?&lt;bgp_multihop&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;\S+)\s+(?&lt;bgp_neighbor_status&gt;shutdown)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+remote-as\s+(?&lt;bgp_neighbor_remote_as&gt;\d+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+description\s+(?&lt;bgp_neighbor_description&gt;.+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+password\s+\d+\s+(?&lt;bgp_neighbor_password&gt;.+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+update-source\s+(?&lt;bgp_source_interface&gt;.+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+ebgp-multihop\s+(?&lt;bgp_multihop&gt;.+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_neighbor_status&gt;shutdown)$@</regexp>
           </array>
           <regexp/>
           <xpath/>

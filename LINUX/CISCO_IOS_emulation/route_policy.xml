@@ -17,7 +17,7 @@
     <name>route_policy-inter</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>25</importrank>
+    <importrank>21</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -117,7 +117,7 @@
 				{if isset($match.ip_access_list)}
 					{assign_object_variable
 					var=&quot;statements.{$statement_idx}.destination&quot;
-					value=&quot;{$match.ip_access_list}&quot;}
+					value=&quot;prefix_set_{$match.ip_access_list}&quot;}
 				{/if}
 				{if isset($match.ip_prefix_list)}
 					{assign_object_variable
@@ -159,9 +159,7 @@
 					{assign_object_variable
 					var=&quot;statements.{$statement_idx}.block.{$block_idx}.extcommunity&quot;
 					value=&quot;{$set.extcommunity}&quot;}
-					{$block_idx=$block_idx+1}
-				{/if}
-				{if isset($set.community_set)}
+					{$block_idx=$block_idx+1}{/if}{if isset($set.community_set)}
 					{foreach $set.community_set as $comm_set}
 						{assign_object_variable
 							var=&quot;statements.{$statement_idx}.block.{$block_idx}.community.{$comm_set@index}.community_set&quot;

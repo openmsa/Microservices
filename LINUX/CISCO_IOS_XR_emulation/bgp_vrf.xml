@@ -31,7 +31,7 @@
     <variable displayName="router_bgp" name="params.router_bgp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="customer_prefix" name="params.customer_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bgp_router_id" name="params.bgp_router_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -195,32 +195,48 @@
   </command>
   <command name="CREATE">
     <operation><![CDATA[!
-vrf {$params.vrf_name}
-address-family ipv4 unicast
-{foreach $params.route_targets as $rt}
-    {if $rt.import_export == "import"}
-        import route-target
-        {$rt.route_target}
-        exit
-        !
-    {/if}
-{/foreach}
-{foreach $params.route_targets as $rt}
-    {if $rt.import_export == "export"}
-        export route-target
-        {$rt.route_target}
-        exit
-        !
-    {/if}
-{/foreach}
-export route-policy {$params.route_map}
-!
 router bgp {$params.router_bgp}
   vrf {$params.vrf_name}
   rd {$params.rd}
   address-family ipv4 unicast
+{if isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)}
   redistribute {$params.bgp_vrf_redistribute}
   redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+{/if}
+  !
+{if isset($params.neighbor)}
+{foreach $params.neighbor as $neighbor}
+{if isset($neighbor.bgp_ipv4_private_as)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_private_as}
+{/if}
+{if isset($neighbor.bgp_ipv4_route_policy_in)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_route_policy_in}
+{/if}
+{if isset($neighbor.bgp_ipv4_route_policy_out)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_route_policy_out}
+{/if}
+{if isset($neighbor.bgp_vrf_maximum_prefix)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_maximum_prefix}
+{/if}
+{if isset($neighbor.bgp_ipv4_default_route)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_default_route}
+{/if}
+{if isset($neighbor.bgp_vrf_neighbor_remote_as)}neighbor {$neighbor.bgp_neighbor} remote-as  {$neighbor.bgp_vrf_neighbor_remote_as}
+{/if}
+{if isset($neighbor.bgp_ipv4_activate)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_activate}
+{/if}
+{if isset($neighbor.bgp_vrf_route_map_in)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_route_map_in}
+{/if}
+{if isset($neighbor.bgp_vrf_as_override)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_as_override}
+{/if}
+{if isset($neighbor.bgp_vrf_prefix_list_out)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_prefix_list_out}
+{/if}
+{if isset($neighbor.bgp_vrf_send_community)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_send_community}
+{/if}
+{if isset($neighbor.bgp_vrf_advertisement_interval)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_advertisement_interval}
+{/if}
+{if isset($neighbor.bgp_vrf_allow_as)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_allow_as}
+{/if}
+{if isset($neighbor.bgp_vrf_route_map_out)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_vrf_route_map_out}
+{/if}
+{/foreach}
+{/if}
+  !
 !]]></operation>
   </command>
   <command name="READ"/>
