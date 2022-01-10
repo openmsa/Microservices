@@ -28,7 +28,13 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="_order" name="params.statements.0._order" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="action" name="params.statements.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="as_path" name="params.statements.0.as_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -146,13 +152,25 @@ end policy
     <operation><![CDATA[!
 route-policy {$params.object_id}
 !
-{foreach $params.statements as $statements}
-{if $statements@first}if {else}elseif {/if}
+{foreach $params.statements|@sortby:"_order" as $statements}
+	{if $statements.action == "deny" && !$statements@last}
+	{continue}
+	{/if}
+	ACTION: {$statements.action}   
     {$keys = array_keys($statements)}
     {$first=true}
+    {$first_key=true}
     {foreach $keys as $key}
-		{if $key == "block"}{continue}{/if}
-{if $key == "as_path"}{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) {else if $key == "community"} {$first_com=true} {if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) {else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) {else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) {/if} then
+    	{if $key == "block" || $key == "_order" || $key == "action"}{continue}{/if}
+		{if $statements@first}if {$first_key=false}{else}elseif {/if}
+		{if $key == "as_path"}
+			{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) 
+		{else if $key == "community"} 
+			{$first_com=true} 
+			{if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) 
+		{else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) 
+		{else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) 
+		{/if} then
     {/foreach}
     {if isset($statements.block)}
         {foreach $statements.block as $block}
@@ -161,7 +179,7 @@ route-policy {$params.object_id}
         	    set community {$comm_set.community_set}
 	        	{/foreach}
             {/if}
-{if isset($block.extcommunity) && isset($block.extcommunity_type)} set extcommunity {$block.extcommunity_type} {$block.extcommunity}
+			{if isset($block.extcommunity) && isset($block.extcommunity_type)} set extcommunity {$block.extcommunity_type} {$block.extcommunity}
             {/if}
             {if isset($block.local_preference)} set local-preference {$block.local_preference}
             {/if}
@@ -169,12 +187,23 @@ route-policy {$params.object_id}
             {/if}
         {/foreach}
     {else}
-    pass
+    	{if !$statements@last}
+    	pass
+    	{/if}
     {/if}
-
+    {if $statements@last}
+	else
+		{if $statements.action == "permit"}
+		pass
+		{else}
+		drop
+		{/if}
+	endif
+	{/if}
+----------------
 {/foreach}
   !
-  endif
+  
 !
 end-policy
 !

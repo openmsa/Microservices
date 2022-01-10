@@ -20,15 +20,18 @@
     <importrank>20</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
-    <sortauto>false</sortauto>
+    <sortauto>true</sortauto>
     <sortnumerical>false</sortnumerical>
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
+    <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="_order" name="params._order" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="30" increment="1" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -156,49 +159,51 @@ route-map EXPORTA-INTRAGOV permit 10
 
 {* reorder matches based on key_array*}
 {$match_community_set_idx=0}
-{foreach $params.matches as $match}
-    {foreach $key_array as $key}
-    	{if isset($match.$key) }
-        	{assign_object_variable
-            var=&quot;sorted_matches.0.$key&quot;
-            value=&quot;{$match.$key}&quot;}
-    	{/if}
-    	{if $key == &quot;community&quot;}
-			{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
-			{foreach $match_community_array as $community}
-				{assign_object_variable
-    			var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.community&quot;
-    			value=&quot;{$community}&quot;}
-			{$match_community_set_idx=$match_community_set_idx+1}
-			{/foreach}
-    	{/if}
-    {/foreach}
-{/foreach}
-
+{if isset($params.matches)}
+	{foreach $params.matches as $match}
+	    {foreach $key_array as $key}
+	    	{if isset($match.$key) }
+	        	{assign_object_variable
+	            var=&quot;sorted_matches.0.$key&quot;
+	            value=&quot;{$match.$key}&quot;}
+	    	{/if}{if$key == &quot;community&quot;}
+				{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
+				{foreach $match_community_array as $community}
+					{assign_object_variable
+	    			var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.community&quot;
+	    			value=&quot;{$community}&quot;}
+				{$match_community_set_idx=$match_community_set_idx+1}
+				{/foreach}
+	    	{/if}
+	    {/foreach}
+	{/foreach}
+{/if}
 {$set_community_set_idx=0}
 {$set_extcommunity_set_idx=0}
-{foreach $params.sets as $sets}
-	{if isset($sets.community)}
-		{assign var=set_community_array value=&quot; &quot;|explode:&quot;{$sets.community}&quot;}
-		{foreach $set_community_array as $community}
-			{assign_object_variable
-    		var=&quot;sets.{$sets@index}.community_set.{$set_community_set_idx}.community&quot;
-    		value=&quot;{$community}&quot;}
-			{$set_community_set_idx=$set_community_set_idx+1}
-		{/foreach}
-	{/if}
-	{if isset($sets.extcommunity)}
-		{assign	var=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
-		{foreach $set_extcommunity_array as $extcommunity}
-			{assign_object_variable
-			var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
-			value=&quot;{$extcommunity}&quot;}{$set_extcommunity_set_idx=$set_extcommunity_set_idx+1}
-		{/foreach}
-	{/if}
-{/foreach}</post_template>
+{if isset($params.sets)}
+	{foreach $params.sets as $sets}
+		{if isset($sets.community)}
+			{assign var=set_community_array value=&quot; &quot;|explode:&quot;{$sets.community}&quot;}
+			{foreach $set_community_array as $community}
+				{assign_object_variable
+	    		var=&quot;sets.{$sets@index}.community_set.{$set_community_set_idx}.community&quot;
+	    		value=&quot;{$community}&quot;}
+				{$set_community_set_idx=$set_community_set_idx+1}
+			{/foreach}
+		{/if}
+		{if isset($sets.extcommunity)}
+			{assign	var=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
+			{foreach $set_extcommunity_array as $extcommunity}
+				{assign_object_variable
+				var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
+				value=&quot;{$extcommunity}&quot;}{$set_extcommunity_set_idx=$set_extcommunity_set_idx+1}
+			{/foreach}
+		{/if}
+	{/foreach}
+{/if}</post_template>
     <parser>
       <section>
-        <regexp>@\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+))$@</regexp>
+        <regexp>@^\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+))$@</regexp>
         <xpath></xpath>
       </section>
       <lines>
@@ -240,6 +245,9 @@ route-map EXPORTA-INTRAGOV permit 10
         </ignore>
         <ignore>
           <regexp>@^\s*no@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*continue@</regexp>
         </ignore>
       </lines>
     </parser>
