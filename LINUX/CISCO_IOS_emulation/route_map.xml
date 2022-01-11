@@ -163,38 +163,36 @@ route-map EXPORTA-INTRAGOV permit 10
 	{foreach $params.matches as $match}
 	    {foreach $key_array as $key}
 	    	{if isset($match.$key) }
-	        	{assign_object_variable
-	            var=&quot;sorted_matches.0.$key&quot;
-	            value=&quot;{$match.$key}&quot;}
-	    	{/if}{if$key == &quot;community&quot;}
-				{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
-				{foreach $match_community_array as $community}
-					{assign_object_variable
-	    			var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.community&quot;
-	    			value=&quot;{$community}&quot;}
-				{$match_community_set_idx=$match_community_set_idx+1}
+				{assign_object_variable
+				var=&quot;sorted_matches.0.$key&quot;	
+				value=&quot;{$match.$key}&quot;}
+				{/if}
+				{if	$key == &quot;community&quot;}{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
+					{foreach $match_community_array as $community}
+						{assign_object_variable
+							var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.community&quot;
+							value=&quot;{$community}&quot;}
+						{$match_community_set_idx=$match_community_set_idx+1}
 				{/foreach}
-	    	{/if}
-	    {/foreach}
+			{/if}
+			{/foreach}
 	{/foreach}
 {/if}
 {$set_community_set_idx=0}
 {$set_extcommunity_set_idx=0}
 {if isset($params.sets)}
-	{foreach $params.sets as $sets}
-		{if isset($sets.community)}
+	{foreach	$params.sets as $sets}{if isset($sets.community)}
 			{assign var=set_community_array value=&quot; &quot;|explode:&quot;{$sets.community}&quot;}
 			{foreach $set_community_array as $community}
 				{assign_object_variable
-	    		var=&quot;sets.{$sets@index}.community_set.{$set_community_set_idx}.community&quot;
-	    		value=&quot;{$community}&quot;}
+					var=&quot;sets.{$sets@index}.community_set.{$set_community_set_idx}.community&quot;
+					value=&quot;{$community}&quot;}
 				{$set_community_set_idx=$set_community_set_idx+1}
 			{/foreach}
 		{/if}
 		{if isset($sets.extcommunity)}
 			{assign	var=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
-			{foreach $set_extcommunity_array as $extcommunity}
-				{assign_object_variable
+			{foreach $set_extcommunity_array as	$extcommunity}{assign_object_variable
 				var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
 				value=&quot;{$extcommunity}&quot;}{$set_extcommunity_set_idx=$set_extcommunity_set_idx+1}
 			{/foreach}

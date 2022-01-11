@@ -17,7 +17,7 @@
     <name>community_set-inter</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>5</importrank>
+    <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -40,7 +40,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/ip_community_list.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}
 
 {$filtered_ip_community_list=[]} 
