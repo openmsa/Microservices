@@ -162,7 +162,8 @@ route-policy {$params.object_id}
     {$first=true}
     {foreach $keys as $key}
     	{if $key == "block" || $key == "_order" || $key == "action"}{continue}{/if}
-		{if $statements@first && $first}if {else if ($statements@total>1 && !$statements@first && $first)} elseif {/if}	{if $key == "as_path"}	{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) 	{else if $key == "community"} 	{$first_com=true} 	{if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) 	{else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) 	{else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) {/if} {if $key@last}then {/if}
+		{if $statements@first && $first}if {else if ($statements@total>1 && !$statements@first && $first)} elseif {/if}	{if $key == "as_path"}	{if $first==false} and {else} {$first=false} {/if} (as-path in {$statements.as_path}) 	{else if $key == "community"} 	{$first_com=true} 	{if $first==false} and {else} {$first=false} {/if} ({foreach $statements.community as $commset} {if $first_com==false} and {else} {$first_com=false} {/if} community matches-any {$commset.community_set} {/foreach}) 	{else if $key == "destination"} {if $first==false} and {else} {$first=false} {/if} (destination in {$statements.destination}) 	{else if $key == "tag"} {if $first==false} and {else} {$first=false} {/if} (tag eq {$statements.tag}) {/if} {if $key@last}then 
+		{/if}
     {/foreach}
     {if isset($statements.block)}
     	{*CR Tto keep*}

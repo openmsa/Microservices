@@ -235,8 +235,8 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
     <parser>
       <section>
         <regexp>@^\s*ip\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
-        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;object_id&gt;(?&lt;customer_prefix&gt;([^:^\s]+)?):?(?&lt;vrf_name&gt;\S*))$@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
+        <xpath/>
       </section>
       <lines>
         <line>

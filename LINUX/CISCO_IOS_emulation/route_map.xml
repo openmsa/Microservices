@@ -115,6 +115,9 @@
     <variable displayName="ip_tos" name="params.sets.0.ip_tos" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="continue" name="params.sets.0.continue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -234,6 +237,7 @@ route-map EXPORTA-INTRAGOV permit 10
             <regexp>@^\s*set\s+ip\s+precedence\s+(?&lt;ip_precedence&gt;\S+)$@</regexp>
             <regexp>@^\s*set\s+ip\s+tos\s+(?&lt;ip_tos&gt;\S+)$@</regexp>
             <regexp>@^\s+set\s*extcommunity\s*(?&lt;extcommunity_type&gt;\S+)\s*(?&lt;extcommunity&gt;((?!additive).)*)\s?(?&lt;additive&gt;additive)?@</regexp>
+            <regexp>@^\s*(?&lt;continue&gt;continue.*)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -245,7 +249,7 @@ route-map EXPORTA-INTRAGOV permit 10
           <regexp>@^\s*no@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s*continue@</regexp>
+          <regexp>@@</regexp>
         </ignore>
       </lines>
     </parser>
