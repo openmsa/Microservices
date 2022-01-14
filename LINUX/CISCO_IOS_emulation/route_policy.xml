@@ -37,7 +37,13 @@
     <variable displayName="action" name="params.statements.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="priority" name="params.statements.0.priority" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="as_path" name="params.statements.0.as_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="community" name="params.statements.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="community_set" name="params.statements.0.community.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -107,7 +113,7 @@
 {/foreach}
 {$statement_idx=0}
 {if isset($filtered_route_map)}
-{ksort($filtered_route_map)}
+	{ksort($filtered_route_map)}
 	{foreach $filtered_route_map|@sortby:&quot;_order&quot; as $rm}
 {*==&gt; {$rm._order} - {$rm.name} {$rm.action} {$rm.priority}*}
 		{assign_object_variable
@@ -116,19 +122,29 @@
 		{assign_object_variable
 			var=&quot;statements.{$statement_idx}.action&quot;
 			value=&quot;{$rm.action}&quot;}
+		{assign_object_variable
+			var=&quot;statements.{$statement_idx}.priority&quot;
+			value=&quot;{$rm.priority}&quot;}
 		{if isset($rm.sorted_matches)}
 			{foreach $rm.sorted_matches	as	$match}
-				{if	isset($match.as_path)}
+				{if isset($match.as_path)}
 					{assign_object_variable
-					var=&quot;statements.{$statement_idx}.as_path&quot;
-					value=&quot;as_path_set_{$match.as_path}&quot;}
+						var=&quot;statements.{$statement_idx}.as_path&quot;
+						value=&quot;as_path_set_{$match.as_path}&quot;}
+				{/if}
+				{if isset($match.community)}
+					COMMUNITY: {$match.community}
+					{*assign_object_variable
+						var=&quot;statements.{$statement_idx}.community&quot;
+						value=&quot;{$match.community}&quot;*}
 				{/if}
 				{if isset($match.community_set)}
 					{foreach $match.community_set as $comm_set}
-						{assign_object_variable	
+						{assign_object_variable
 							var=&quot;statements.{$statement_idx}.community.{$comm_set@index}.community_set&quot;
 							value=&quot;comm_set_{$comm_set.community}&quot;}
-					{/foreach}{/if}
+					{/foreach}
+				{/if}
 				{if isset($match.ip_access_list)}
 					{assign_object_variable
 						var=&quot;statements.{$statement_idx}.destination&quot;
@@ -136,17 +152,13 @@
 				{/if}
 				{if isset($match.ip_prefix_list)}
 					{assign_object_variable
-					var=&quot;statements.{$statement_idx}.destination&quot;
-					value=&quot;{$match.ip_prefix_list}&quot;}
+						var=&quot;statements.{$statement_idx}.destination&quot;
+						value=&quot;{$match.ip_prefix_list}&quot;}
 				{/if}
 				{if isset($match.tag)}
-
-{assign_object_variable
-
-var=&quot;statements.{$statement_idx}.tag&quot;
-
-value=&quot;{$match.tag}&quot;}
-
+					{assign_object_variable
+						var=&quot;statements.{$statement_idx}.tag&quot;
+						value=&quot;{$match.tag}&quot;}
 				{/if}
 			{/foreach}
 		{/if}
@@ -161,7 +173,8 @@ value=&quot;{$match.tag}&quot;}
 				{/if}
 				{if	isset($set.continue)}
 					{assign_object_variable
-					var=&quot;statements.{$statement_idx}.block.{$block_idx}.continue&quot;value=&quot;{$set.continue}&quot;}
+					var=&quot;statements.{$statement_idx}.block.{$block_idx}.continue&quot;
+					value=&quot;{$set.continue}&quot;}
 					{$block_idx=$block_idx+1}
 				{/if}
 				{if isset($set.weight)}
@@ -179,9 +192,8 @@ value=&quot;{$match.tag}&quot;}
 						var=&quot;statements.{$statement_idx}.block.{$block_idx}.extcommunity_type&quot;
 						value=&quot;{$set.extcommunity_type}&quot;}
 					{assign_object_variable
-
-var=&quot;statements.{$statement_idx}.block.{$block_idx}.extcommunity&quot;
-value=&quot;{$set.extcommunity}&quot;}
+						var=&quot;statements.{$statement_idx}.block.{$block_idx}.extcommunity&quot;
+						value=&quot;{$set.extcommunity}&quot;}
 					{$block_idx=$block_idx+1}
 				{/if}
 				{if isset($set.community_set)}

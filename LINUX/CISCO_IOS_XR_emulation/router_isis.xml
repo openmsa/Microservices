@@ -80,7 +80,7 @@
   </command>
   <command name="CREATE">
     <operation><![CDATA[!
-router {$params.object_id}
+router {$params.object_id} 1
 {if isset($params.isis_net)} net {$params.isis_net}
 {/if}
 {if isset($params.isis_is_level)} is-type {$params.isis_is_level}

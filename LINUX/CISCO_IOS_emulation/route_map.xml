@@ -161,16 +161,18 @@ route-map EXPORTA-INTRAGOV permit 10
 {/if}
 
 {* reorder matches based on key_array*}
-{$match_community_set_idx=0}
 {if isset($params.matches)}
-	{foreach $params.matches as $match}
-	    {foreach $key_array as $key}
+	{$sorted_match_idx=0}
+    {foreach $key_array as $key}
+		{foreach $params.matches as $match}
 	    	{if isset($match.$key) }
 				{assign_object_variable
-				var=&quot;sorted_matches.0.$key&quot;	
-				value=&quot;{$match.$key}&quot;}
+					var=&quot;sorted_matches.{$match@index}.$key&quot;	
+					value=&quot;{$match.$key}&quot;}
 				{/if}
-				{if	$key == &quot;community&quot;}{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
+				{if	$key == &quot;community&quot;}
+					{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
+					{$match_community_set_idx=0}
 					{foreach $match_community_array as $community}
 						{assign_object_variable
 							var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.community&quot;
@@ -178,13 +180,15 @@ route-map EXPORTA-INTRAGOV permit 10
 						{$match_community_set_idx=$match_community_set_idx+1}
 				{/foreach}
 			{/if}
-			{/foreach}
+		{/foreach}
+		{$sorted_match_idx=$sorted_match_idx+1}
 	{/foreach}
 {/if}
 {$set_community_set_idx=0}
 {$set_extcommunity_set_idx=0}
 {if isset($params.sets)}
-	{foreach	$params.sets as $sets}{if isset($sets.community)}
+	{foreach $params.sets as $sets}
+		{if isset($sets.community)}
 			{assign var=set_community_array value=&quot; &quot;|explode:&quot;{$sets.community}&quot;}
 			{foreach $set_community_array as $community}
 				{assign_object_variable
@@ -237,7 +241,7 @@ route-map EXPORTA-INTRAGOV permit 10
             <regexp>@^\s*set\s+ip\s+precedence\s+(?&lt;ip_precedence&gt;\S+)$@</regexp>
             <regexp>@^\s*set\s+ip\s+tos\s+(?&lt;ip_tos&gt;\S+)$@</regexp>
             <regexp>@^\s+set\s*extcommunity\s*(?&lt;extcommunity_type&gt;\S+)\s*(?&lt;extcommunity&gt;((?!additive).)*)\s?(?&lt;additive&gt;additive)?@</regexp>
-            <regexp>@^\s*(?&lt;continue&gt;continue.*)@</regexp>
+            <regexp>@^\s*continue\s*(?&lt;continue&gt;\d+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -247,9 +251,6 @@ route-map EXPORTA-INTRAGOV permit 10
         </ignore>
         <ignore>
           <regexp>@^\s*no@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@@</regexp>
         </ignore>
       </lines>
     </parser>
