@@ -17,7 +17,7 @@
     <name>router_isis</name>
     <group>Default</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -33,6 +33,60 @@
     </variable>
     <variable displayName="isis_is_level" name="params.isis_is_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+    </variable>
+    <variable displayName="interface" name="params.interfaces.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="40" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_circuit_level" name="params.interfaces.0.isis_circuit_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="41" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_auth_mode" name="params.interfaces.0.isis_auth_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="42" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_auth_key" name="params.interfaces.0.isis_auth_key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="44" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_csnp_interval" name="params.interfaces.0.isis_csnp_interval" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="43" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_csnp_level" name="params.interfaces.0.isis_csnp_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="45" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_network" name="params.interfaces.0.isis_network" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="46" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_metric" name="params.interfaces.0.metric.0.isis_metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_metric_level" name="params.interfaces.0.metric.0.isis_metric_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
     </variable>
     <variable displayName="isis_advertise" name="params.isis_advertise" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -149,6 +203,67 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <post_template>{$itf_idx=0}
+{foreach $interface as $itf}
+	{if isset($itf.isis)}
+		{assign_object_variable
+			var=&quot;interfaces.{$itf_idx}.interface&quot;
+			value=&quot;{$itf.object_id}&quot;}
+		{foreach $itf.isis as $is}
+			{if isset($is.isis_circuit_level)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_circuit_level&quot;
+					value=&quot;{$is.isis_circuit_level}&quot;}
+			{/if}
+			{if isset($is.isis_auth_mode)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_auth_mode&quot;
+					value=&quot;{$is.isis_auth_mode}&quot;}
+			{/if}
+			{if isset($is.isis_auth_key)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_auth_key&quot;
+					value=&quot;{$is.isis_auth_key}&quot;}
+			{/if}
+			{if isset($is.isis_csnp_level)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_csnp_level&quot;
+					value=&quot;{$is.isis_csnp_level}&quot;}
+			{/if}
+			{if isset($is.isis_csnp_interval)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_csnp_interval&quot;
+					value=&quot;{$is.isis_csnp_interval}&quot;}
+			{/if}
+			{if isset($is.isis_bfd)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_bfd&quot;
+					value=&quot;{$is.isis_bfd}&quot;}
+			{/if}
+			{if isset($is.isis_network)}
+				{assign_object_variable
+					var=&quot;interfaces.{$itf_idx}.isis_network&quot;
+					value=&quot;{$is.isis_network}&quot;}
+			{/if}
+			{if isset($is.metric)}
+				{foreach $is.metric as $metric}
+					{if isset($metric.isis_metric)}
+						{assign_object_variable
+							var=&quot;interfaces.{$itf_idx}.metric.{$metric@index}.isis_metric&quot;
+							value=&quot;{$metric.isis_metric}&quot;}
+					{/if}
+					{if isset($metric.isis_metric_level)}
+						{assign_object_variable
+						var=&quot;interfaces.{$itf_idx}.metric.{$metric@index}.isis_metric_level&quot;
+						value=&quot;{$metric.isis_metric_level}&quot;}
+					{/if}
+				{/foreach}
+			{/if}
+			
+		{/foreach}
+	{/if}
+{$itf_idx=$itf_idx+1}
+{/foreach}</post_template>
     <parser>
       <section>
         <regexp>@^\s*router\s(?&lt;object_id&gt;isis\s?(?&lt;isis_routing_tag&gt;\S+)?)$@</regexp>

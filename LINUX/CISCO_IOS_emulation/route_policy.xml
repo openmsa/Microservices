@@ -133,7 +133,7 @@
 						value=&quot;as_path_set_{$match.as_path}&quot;}
 				{/if}
 				{if isset($match.community)}
-					COMMUNITY: {$match.community}
+					COMMUNIsssTY: {$match.community}
 					{*assign_object_variable
 						var=&quot;statements.{$statement_idx}.community&quot;
 						value=&quot;{$match.community}&quot;*}
