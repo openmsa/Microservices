@@ -37,7 +37,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.ip_prefix_list.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$idx=0}
 {foreach $ip_access_list as $ip_acl}
 	{if $ip_acl.object_id == $params.object_id}
@@ -51,8 +51,10 @@
 			{$idx=$idx+1}
 		{/foreach}
 	{/if}
-
-{/foreach}</post_template>
+{/foreach}
+{assign_object_variable 
+	var=&quot;object_id&quot; 
+	value=&quot;prefix_set_{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>

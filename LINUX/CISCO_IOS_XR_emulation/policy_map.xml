@@ -105,11 +105,11 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.policy_map.txt]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.policy_map.txt]]></operation>
     <parser>
       <section>
         <regexp>@\s*policy-map\s+(?&lt;object_id&gt;\S+).*$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>

@@ -64,12 +64,12 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.class_map.txt]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*class-map (?&lt;statement&gt;match-any|match-all) (?&lt;object_id&gt;\S+)$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>

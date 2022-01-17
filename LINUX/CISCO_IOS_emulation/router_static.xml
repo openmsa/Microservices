@@ -17,7 +17,7 @@
     <name>router_static-inter</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>5</importrank>
+    <importrank>11</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -70,7 +70,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/ip_route.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$route_idx=0}
 
 {foreach $ip_route as $route}

@@ -44,12 +44,12 @@ end-set
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/community_set.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/community_set.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*community-set\s*(?&lt;object_id&gt;\S+)@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>

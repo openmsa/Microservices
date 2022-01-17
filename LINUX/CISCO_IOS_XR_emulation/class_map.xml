@@ -55,11 +55,11 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.class_map.txt]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.class_map.txt]]></operation>
     <parser>
       <section>
         <regexp>@^\s*class-map (?&lt;statement&gt;match-any|match-all) (?&lt;object_id&gt;\S+)$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>

@@ -63,7 +63,7 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/sample-config.ios-xr.V4815.conf]]></operation>
     <post_template>{$import_index=0}
 {$export_index=0}
 {foreach $params.import_rt.0.rt_array as $key=&gt;$value}
@@ -79,7 +79,7 @@
     <parser>
       <section>
         <regexp>@^\s*vrf\s+(?&lt;object_id&gt;(?&lt;customer_prefix&gt;[^:]+)\S+)$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -125,7 +125,36 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[vrf {$params.object_id}
+ address-family ipv4 unicast
+{$first=false}
+{foreach $params.route_targets as $rt}
+	{if $rt.import_export == "import"}
+		{if !$first}
+import route-target
+			{$first=true}
+		{/if}
+ {$rt.route_target}
+	{/if}
+{/foreach}
+  !
+{$first=false}
+{foreach $params.route_targets as $rt}
+	{if $rt.import_export == "export"}
+		{if !$first}
+export route-target
+			{$first=true}
+		{/if}
+ {$rt.route_target}
+	{/if}
+{/foreach}
+{if isset($params.route_map)}
+  export route-policy {$params.route_map}
+{/if}
+!
+]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
