@@ -34,7 +34,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/as_path_set.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/as_path_set.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*as-path-set\s*(?&lt;object_id&gt;\S+)$@</regexp>
