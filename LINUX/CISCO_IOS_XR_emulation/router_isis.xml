@@ -124,6 +124,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[#]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
@@ -135,6 +136,11 @@
   <command name="CREATE">
     <operation><![CDATA[!
 router {$params.object_id} 1
+
+{foreach $params.interfaces as $itf}
+interface {$itf.interface}
+{/foreach}
+
 {if isset($params.isis_net)} net {$params.isis_net}
 {/if}
 {if isset($params.isis_is_level)} is-type {$params.isis_is_level}
