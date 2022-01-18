@@ -626,6 +626,7 @@ interface Serial1/0/0.1/3/1/1:0
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Vlan|Port-channel|Multilink)\d+)$@</regexp>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Serial)(?&lt;controller_module&gt;\d\/\d\/\d)(\.(?&lt;controller_submodule&gt;(\d\/?)+))?(:(?&lt;controller_channel&gt;\d))(\.?(?&lt;vlan&gt;\d+)?))@</regexp>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;\S+(?&lt;type&gt;Ethernet)[^\.]*(\.(?&lt;vlan&gt;\d+))?)$@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Loopback)\d+)$@</regexp>
         <xpath></xpath>
       </section>
       <lines>
