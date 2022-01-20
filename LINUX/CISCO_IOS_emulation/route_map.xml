@@ -286,10 +286,11 @@ KEY =&gt; {$key}
 			{/foreach}
 		{/if}
 		{if isset($sets.extcommunity)}
-			{assign	var=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
-			{foreach $set_extcommunity_array as	$extcommunity}{assign_object_variable
-				var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
-				value=&quot;{$extcommunity}&quot;}
+			{assign	var=set_extcommunity_array value=&quot; &quot;|explode:&quot;{$sets.extcommunity}&quot;}
+			{foreach $set_extcommunity_array as	$extcommunity}
+				{assign_object_variable
+					var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
+					value=&quot;{$extcommunity}&quot;}
 				{$set_extcommunity_set_idx=$set_extcommunity_set_idx+1}
 			{/foreach}
 		{/if}

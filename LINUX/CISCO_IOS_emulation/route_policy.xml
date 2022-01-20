@@ -49,13 +49,13 @@
         <sections>statements</sections>
       </sections>
     </variable>
-    <variable displayName="as_path" name="params.statements.0.as_path.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="as_path" name="params.statements.0.as_path.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>statements</sections>
       </sections>
     </variable>
-    <variable displayName="community" name="params.statements.0.communities.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community" name="params.statements.0.communities.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>statements</sections>
@@ -67,7 +67,7 @@
         <sections>statements</sections>
       </sections>
     </variable>
-    <variable displayName="destination" name="params.statements.0.destination.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="destination" name="params.statements.0.destination.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>statements</sections>
@@ -91,7 +91,7 @@
         <sections>statements</sections>
       </sections>
     </variable>
-    <variable displayName="tag" name="params.statements.0.tag.0.value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="tag" name="params.statements.0.tag.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>statements</sections>
@@ -166,13 +166,13 @@
 			{foreach $rm.sorted_matches	as $match}
 				{if isset($match.as_path)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.as_path.{$as_path_idx}.value&quot;
+						var=&quot;statements.{$statement_idx}.as_path.{$as_path_idx}.val&quot;
 						value=&quot;as_path_set_{$match.as_path}&quot;}
 					{$as_path_idx=$as_path_idx+1}
 				{/if}
 				{if isset($match.community)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.communities.{$comm_idx}.value&quot;
+						var=&quot;statements.{$statement_idx}.communities.{$comm_idx}.val&quot;
 						value=&quot;{$match.community}&quot;}
 					{$comm_idx=$comm_idx+1}
 				{/if}
@@ -185,18 +185,19 @@
 				{/if*}
 				{if isset($match.ip_access_list)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.value&quot;
+						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
 						value=&quot;prefix_set_{$match.ip_access_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.ip_prefix_list)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination&quot;
+						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
 						value=&quot;{$match.ip_prefix_list}&quot;}
+					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.tag)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.tag.{$tag_idx}.value&quot;
+						var=&quot;statements.{$statement_idx}.tag.{$tag_idx}.val&quot;
 						value=&quot;{$match.tag}&quot;}
 					{$tag_idx=$tag_idx+1}
 				{/if}
