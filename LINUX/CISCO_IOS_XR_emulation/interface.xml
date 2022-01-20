@@ -151,6 +151,9 @@
         <sections>xconnect</sections>
       </sections>
     </variable>
+    <variable displayName="mpls_command" name="params.mpls.0.mpls_command" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -318,10 +321,10 @@ ip pim {$params.pim_mode}
 encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  {$params.encapsulation_second_dot1q}
 	{/if}
 {/if}
-{if isset($params.service_policy)
-{foreach $params.service_policy as $sp}
-service-policy {$params.service_policy_direction} {$params.service_policy_name}
-{/foreach}
+{if isset($params.service_policy)}
+	{foreach $params.service_policy as $sp}
+service-policy {$sp.service_policy_direction} {$sp.service_policy_name}
+	{/foreach}
 {/if}
 {if isset($params.xconnect)}
 {foreach $params.xconnect as $xconnect1}
