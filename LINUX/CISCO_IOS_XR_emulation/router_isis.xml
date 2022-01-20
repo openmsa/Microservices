@@ -82,7 +82,19 @@
         <sections>interfaces</sections>
       </sections>
     </variable>
+    <variable displayName="isis_ipv6_metric" name="params.interfaces.0.metric.0.isis_ipv6_metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
     <variable displayName="isis_metric_level" name="params.interfaces.0.metric.0.isis_metric_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_ipv6_metric_level" name="params.interfaces.0.metric.0.isis_ipv6_metric_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>interfaces</sections>
@@ -121,6 +133,9 @@
     <variable displayName="isis_vrf" name="params.isis_vrf" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="isis_passive_interface" name="params.passive_interfaces.0.isis_passive_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -138,7 +153,27 @@
 router {$params.object_id} 1
 
 {foreach $params.interfaces as $itf}
-interface {$itf.interface}
+ interface {$itf.interface}
+ {if isset($itf.isis_circuit_level)} circuit-type {$params.isis_circuit_level}
+ {/if}
+  {if isset($itf.isis_auth_key)}  hello-padding disable
+   hello-password keychain  {$itf.isis_auth_key}
+  {/if}
+  {if isset($itf.isis_network)}  {$itf.isis_network}
+  {/if}
+  {if isset($itf.isis_csnp_interval) and isset($itf.isis_csnp_level)}  csnp-interval  {$itf.isis_csnp_interval} ($itf.isis_csnp_level)}  
+  {/if}
+  {foreach $itf.metric as $metric} 
+    {if isset($metric.isis_metric_level) and isset($metric.isis_metric)}   address-family ipv4 unicast
+    metric {$metric.isis_metric} {$metric.isis_metric_level}  
+    !
+    {/if}
+    {if isset($metric.isis_metric_ipv6_level) and isset($metric.isis_ipv6_metric)}    address-family ipv6 unicast
+    metric {$metric.isis_ipv6_metric} {$metric.isis_ipv6_metric_level}  
+    !
+    {/if}
+  {/foreach}
+
 {/foreach}
 
 {if isset($params.isis_net)} net {$params.isis_net}
