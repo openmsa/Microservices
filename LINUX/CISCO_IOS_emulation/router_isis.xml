@@ -100,6 +100,18 @@
         <sections>interfaces</sections>
       </sections>
     </variable>
+    <variable displayName="isis_tag" name="params.interfaces.0.isis.0.isis_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>    
+    <variable displayName="isis_ipv6_tag" name="params.interfaces.0.isis.0.isis_ipv6_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>      
     <variable displayName="isis_advertise" name="params.isis_advertise" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -279,13 +291,21 @@
 						var=&quot;interfaces.{$itf_idx}.metric.{$metric@index}.isis_ipv6_metric_level&quot;
 						value=&quot;{$metric.isis_ipv6_metric_level|replace:'-':' '}&quot;}
 					{/if}          
-
 				{/foreach}
 			{/if}
-			
+      {if isset($is.isis_tag)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.isis.{$is@index}.isis_tag&quot;
+          value=&quot;{$is.isis_tag}&quot;}
+      {/if}
+      {if isset($is.isis_ipv6_tag)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.isis.{$is@index}.isis_ipv6_tag&quot;
+          value=&quot;{$is.isis_ipv6_tag}&quot;}
+      {/if}
 		{/foreach}
 	{/if}
-{$itf_idx=$itf_idx+1}
+  {$itf_idx=$itf_idx+1}
 {/foreach}</post_template>
     <parser>
       <section>
