@@ -55,7 +55,7 @@
         <sections>sorted_matches</sections>
       </sections>
     </variable>
-    <variable displayName="community_set" name="params.sorted_matches.0.community_set.0.ommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community_set" name="params.sorted_matches.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>sorted_matches</sections>
@@ -92,6 +92,12 @@
       </sections>
     </variable>
     <variable displayName="community" name="params.matches.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
+    </variable>
+    <variable displayName="community_set" name="params.matches.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>matches</sections>
@@ -219,6 +225,9 @@ route-map EXPORTA-INTRAGOV permit 10
         {if isset($match.community)}
             {$key_array[$index]=&quot;community&quot;}
         {/if}
+        {if isset($match.community_set)}
+            {$key_array[$index]=&quot;community_set&quot;}
+        {/if}
         {if isset($match.interface)}
             {$key_array[$index]=&quot;interface&quot;}
         {/if}
@@ -233,19 +242,16 @@ route-map EXPORTA-INTRAGOV permit 10
         {/if}
         {$index=$index+1}
     {/foreach}
+	{capture}
     {sort($key_array)}
+	{/capture}
 {/if}
--------
-{foreach $key_array as $key}
-KEY=&gt;{$key}
-{/foreach}
--------
+
 {* reorder matches based on key_array*}
 {$sorted_match_idx=0}
 {if isset($params.matches)}
 	{foreach $params.matches as $match}
 	    {foreach $key_array as $key}
-KEY =&gt; {$key}
 	    	{if isset($match.$key)}
 				{assign_object_variable
 					var=&quot;sorted_matches.{$sorted_match_idx}.$key&quot;	
@@ -277,7 +283,9 @@ KEY =&gt; {$key}
 {if isset($params.sets)}
 	{foreach $params.sets as $sets}
 		{if isset($sets.community)}
+			{capture}
 			{assign var=set_community_array value=&quot; &quot;|explode:&quot;{$sets.community}&quot;}
+			{/capture}
 			{foreach $set_community_array as $community}
 				{assign_object_variable
 					var=&quot;sets.{$sets@index}.community_set.{$set_community_set_idx}.community&quot;
@@ -286,7 +294,9 @@ KEY =&gt; {$key}
 			{/foreach}
 		{/if}
 		{if isset($sets.extcommunity)}
+			{capture}
 			{assign	var=set_extcommunity_array value=&quot; &quot;|explode:&quot;{$sets.extcommunity}&quot;}
+			{/capture}
 			{foreach $set_extcommunity_array as	$extcommunity}
 				{assign_object_variable
 					var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
@@ -315,6 +325,7 @@ KEY =&gt; {$key}
             <regexp>@^\s*match\s+ip\s+address\s+(?&lt;ip_access_list&gt;.+)$@</regexp>
             <regexp>@^\s*match\s+interface\s+(?&lt;interface&gt;.+)$@</regexp>
             <regexp>@^\s*match\s+as-path\s+(?&lt;as_path&gt;\d+)$@</regexp>
+            <regexp>@^\s*match\s+community\s(?&lt;community_set&gt;(\d+ ?)+)$@</regexp>
             <regexp>@^\s*match\s+community\s+(?&lt;community&gt;.*)$@</regexp>
             <regexp>@^\s*match\s+as-path\s+(?&lt;as_path&gt;\d+)$@</regexp>
             <regexp>@^\s*match\s+tag\s+(?&lt;tag&gt;\S+)$@</regexp>

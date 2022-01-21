@@ -93,17 +93,30 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$seq_number=10}
+{$mask_length=&quot;&quot;}
+{if isset($params.access_list)}
 {foreach $params.access_list as $acl}
-    {if isset($acl.acl_src_ip)}
-    	{capture}{convert_imask_to_length input={$acl.acl_src_imask} var=&quot;mask_length&quot;}{/capture}
-		{assign_object_variable var=&quot;access_list.{$acl@index}.acl_src_mask_length&quot; value=$mask_length}
+    {if isset($acl.acl_src_imask)}
+		{capture}
+		{convert_imask_to_length input={$acl.acl_src_imask} var=&quot;mask_length&quot;}
+		{/capture}
+		{assign_object_variable 
+			var=&quot;access_list.{$acl@index}.acl_src_mask_length&quot; 
+			value=$mask_length}
     {/if}
     {if isset($acl.acl_protocol) &amp;&amp; $acl.acl_protocol == &quot;ip&quot;}
-    {assign_object_variable var=&quot;access_list.{$acl@index}.acl_protocol&quot; value=&quot;ipv4&quot;}
+    	{assign_object_variable 
+    		var=&quot;access_list.{$acl@index}.acl_protocol&quot; 
+    		value=&quot;ipv4&quot;}
 	{/if}
-    {assign_object_variable var=&quot;access_list.{$acl@index}.acl_seq_number&quot; value=$seq_number}
-    {capture}{$seq_number=$seq_number+10}{/capture}
-{/foreach}</post_template>
+    {assign_object_variable 
+    	var=&quot;access_list.{$acl@index}.acl_seq_number&quot;
+    	value=$seq_number}
+    {$seq_number=$seq_number+10}
+{/foreach}
+{/if}
+
+</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>

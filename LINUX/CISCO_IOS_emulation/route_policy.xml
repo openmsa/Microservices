@@ -61,7 +61,7 @@
         <sections>statements</sections>
       </sections>
     </variable>
-    <variable displayName="community_set" name="params.statements.0.communities.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="comm_set" name="params.statements.0.communities.0.comm_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>statements</sections>
@@ -146,7 +146,9 @@
 {/foreach}
 {$statement_idx=0}
 {if isset($filtered_route_map)}
+	{capture}
 	{ksort($filtered_route_map)}
+	{/capture}
 	{foreach $filtered_route_map|@sortby:&quot;priority&quot; as $rm}
 {*==&gt; {$rm._order} - {$rm.name} {$rm.action} {$rm.priority}*}
 		{assign_object_variable
@@ -159,10 +161,10 @@
 			var=&quot;statements.{$statement_idx}.priority&quot;
 			value=&quot;{$rm.priority}&quot;}
 		{if isset($rm.sorted_matches)}
-			{$comm_idx=0}
 			{$as_path_idx=0}
-			{$tag_idx=0}
+			{$comm_idx=0}					
 			{$dest_idx=0}
+			{$tag_idx=0}
 			{foreach $rm.sorted_matches	as $match}
 				{if isset($match.as_path)}
 					{assign_object_variable
@@ -176,13 +178,17 @@
 						value=&quot;{$match.community}&quot;}
 					{$comm_idx=$comm_idx+1}
 				{/if}
-				{*if isset($match.community_set)}
+				{if isset($match.community_set)}
 					{foreach $match.community_set as $comm_set}
-						{assign_object_variable
-							var=&quot;statements.{$statement_idx}.community.{$comm_set@index}.community_set&quot;
-							value=&quot;comm_set_{$comm_set.community}&quot;}
+					    {assign var=comm_list value=&quot; &quot;|explode:$comm_set}
+            			{foreach $comm_list as $comm}
+							{assign_object_variable
+								var=&quot;statements.{$statement_idx}.communities.{$comm_idx}.val&quot;
+								value=&quot;comm_set_{$comm}&quot;}
+							{$comm_idx=$comm_idx+1}
+						{/foreach}
 					{/foreach}
-				{/if*}
+				{/if}
 				{if isset($match.ip_access_list)}
 					{assign_object_variable
 						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
