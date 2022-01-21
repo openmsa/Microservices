@@ -359,7 +359,7 @@ mpls mtu {$mpls.mpls_mtu}
 {/foreach}
 {/if}
 {if isset($params.carrier_delay_up) || isset($params.carrier_delay_down)}
-carrier-delay {if isset($params.carrier_delay_up)} up {$params.carrier_delay_up} {/if} {if isset($params.carrier_delay_up)} down {$params.carrier_delay_down}
+carrier-delay {if isset($params.carrier_delay_up)} up {$params.carrier_delay_up}000 {/if} {if isset($params.carrier_delay_up)} down {$params.carrier_delay_down}
 {/if}
 {/if}
 !]]></operation>
