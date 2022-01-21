@@ -100,18 +100,18 @@
         <sections>interfaces</sections>
       </sections>
     </variable>
-        <variable displayName="isis_tag" name="params.interfaces.0.isis.0.isis_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="isis_tag" name="params.interfaces.0.isis.0.isis_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>interfaces</sections>
       </sections>
-    </variable>    
+    </variable>
     <variable displayName="isis_ipv6_tag" name="params.interfaces.0.isis.0.isis_ipv6_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>interfaces</sections>
       </sections>
-    </variable>  
+    </variable>
     <variable displayName="isis_overload_bit_on_startup" name="params.isis_overload_bit_on_startup" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -195,7 +195,7 @@ router {$params.object_id} 1
   {/foreach}
 {/foreach}
 
-{if isset($params.isis_net)} net {$params.isis_net}
+{*if isset($params.isis_net)} net {$params.isis_net}
 {/if}
 {if isset($params.isis_is_level)} is-type {$params.isis_is_level}
 {/if}
@@ -213,7 +213,7 @@ router {$params.object_id} 1
 {if isset($params.isis_nfs_method)} nsf {$params.isis_nfs_method}
 {/if}
 {if isset($params.isis_vrf)} vrf-context {$params.isis_vrf}
-{/if}
+{/if*}
 
 
 !
