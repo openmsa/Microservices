@@ -190,18 +190,6 @@
         <sections>speed</sections>
       </sections>
     </variable>
-    <variable displayName="service_policy_in" name="params.service_policy_in" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>service policy</sections>
-      </sections>
-    </variable>
-    <variable displayName="service_policy_out" name="params.service_policy_out" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>service policy</sections>
-      </sections>
-    </variable>
     <variable displayName="frame_relay" name="params.frame_relay.0.frame_relay" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -568,6 +556,18 @@
     <variable displayName="vrrp_address_family" name="params.vrrp.0.vrrp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="service_policy_direction" name="params.service_policy.0.service_policy_direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>service_policy</sections>
+      </sections>
+    </variable>
+    <variable displayName="service_policy_name" name="params.service_policy.0.service_policy_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>service_policy</sections>
+      </sections>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -870,16 +870,6 @@ interface Serial1/0/0.1/3/1/1:0
         </line>
         <line>
           <array/>
-          <regexp>@^\s+service-policy\s+input\s+(?&lt;service_policy_in&gt;.*)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s+service-policy\s+output\s+(?&lt;service_policy_out&gt;.*)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
           <regexp>@^\s+speed\s+(?&lt;speed_negotiation&gt;(nonegotiate))@</regexp>
           <xpath/>
         </line>
@@ -949,6 +939,13 @@ interface Serial1/0/0.1/3/1/1:0
         <line>
           <array/>
           <regexp>@^\s+encapsulation\s+(?&lt;encapsulation_fr&gt;frame-relay)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="service_policy">
+            <regexp>@^\s*service-policy\s+(?&lt;service_policy_direction&gt;input|output)\s+(?&lt;service_policy_name&gt;.*)@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <ignore>
