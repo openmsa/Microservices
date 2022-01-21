@@ -44,17 +44,17 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!
-{$found=false}
+    <operation><![CDATA[{capture}
 {foreach $interface as $itf}
 	{if $itf.object_id == $params.object_id}
 		{if isset($itf.mpls)}
 			{foreach $itf.mpls as $mpls}
 				{if isset($mpls.mpls_command)}
+{/capture}
 !
 mpls ldp interface {$itf.object_id}
 !
-				{$found=true}
+{capture}
 				{break}
 				{/if}
 			{/foreach}
@@ -64,7 +64,7 @@ mpls ldp interface {$itf.object_id}
 		{/if}
 	{/if}
 {/foreach}
-!]]></operation>
+{/capture}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
