@@ -163,6 +163,18 @@
         <sections>mpls</sections>
       </sections>
     </variable>
+    <variable displayName="carrier_delay_up" name="params.carrier_delay_up" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="30" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_down" name="params.carrier_delay_down" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="31" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -233,15 +245,6 @@
           <xpath/>
         </line>
         <line>
-          <array name="carrier_delay">
-            <regexp>@^\s+carrier-delay\s+msec\s+(?&lt;carrier_delay_msec&gt;\d+)@</regexp>
-            <regexp>@^\s+carrier-delay\s+up\s+(?&lt;carrier_delay_up&gt;\d+)@</regexp>
-            <regexp>@^\s+carrier-delay\s+down\s+msec\s+(?&lt;carrier_delay_down_msec&gt;\d+)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array/>
           <regexp>@^\s+speed\s+(?&lt;int_speed&gt;\d+)@</regexp>
           <xpath/>
@@ -301,6 +304,7 @@ description {$params.int_description}
 {if isset($params.vrf_name) and $params.vrf_name}
 vrf {$params.vrf_name}
 {/if}
+{if isset($params.addresses) and $params.addresses}
 {foreach $params.addresses as $addr}
   {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
     {if isset($addr.ipv4_type) and $addr.ipv4_type}
@@ -310,6 +314,7 @@ ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
     {/if}
   {/if}
 {/foreach}
+{/if}
 {if isset($params.ipv6_address) and $params.ipv6_address}
 ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
@@ -352,6 +357,10 @@ xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
 mpls mtu {$mpls.mpls_mtu}
     {/if}
 {/foreach}
+{/if}
+{if isset($params.carrier_delay_up) || isset($params.carrier_delay_down)}
+carrier-delay {if isset($params.carrier_delay_up)} up {$params.carrier_delay_up} {/if} {if isset($params.carrier_delay_up)} down {$params.carrier_delay_down}
+{/if}
 {/if}
 !]]></operation>
   </command>

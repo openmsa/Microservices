@@ -50,17 +50,13 @@
 		{if isset($itf.mpls)}
 			{foreach $itf.mpls as $mpls}
 				{if isset($mpls.mpls_command)}
-{/capture}
 !
 mpls ldp interface {$itf.object_id}
 !
-{capture}
 				{break}
 				{/if}
 			{/foreach}
-			{if $found}
-				{break}
-			{/if}
+			{break}
 		{/if}
 	{/if}
 {/foreach}

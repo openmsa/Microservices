@@ -112,6 +112,30 @@
         <sections>interfaces</sections>
       </sections>
     </variable>
+    <variable displayName="mpls_mtu" name="params.interfaces.0.mpls.0.mpls_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="mpls_command" name="params.interfaces.0.mpls.0.mpls_command" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="mpls_label_protocol" name="params.interfaces.0.mpls.0.mpls_label_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="mpls_flowcontrol" name="params.interfaces.0.mpls.0.mpls_flowcontrol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
     <variable displayName="isis_overload_bit_on_startup" name="params.isis_overload_bit_on_startup" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -181,7 +205,11 @@ router {$params.object_id} 1
     {foreach $itf.isis as $isis1} 
       {if isset($isis1.isis_tag) }  tag {$isis1.isis_tag}  
       {/if}
-    {/foreach}    
+    {/foreach}  
+    {foreach $itf.mpls as $mpls} 
+      {if isset($mpls.mpls_label_protocol) }  mpls {$mpls.mpls_label_protocol}  
+      {/if}
+    {/foreach}  
     !
     {/if}
     {if isset($metric.isis_ipv6_metric_level) and isset($metric.isis_ipv6_metric)}    address-family ipv6 unicast
@@ -189,7 +217,11 @@ router {$params.object_id} 1
     {foreach $itf.isis as $isis1} 
       {if isset($isis1.isis_ipv6_tag) }  tag {$isis1.isis_ipv6_tag}  
       {/if}
-    {/foreach}    
+    {/foreach}
+    {foreach $itf.mpls as $mpls} 
+      {if isset($mpls.mpls_label_protocol) }  mpls {$mpls.mpls_label_protocol}  
+      {/if}
+    {/foreach}     
     !
     {/if}
   {/foreach}

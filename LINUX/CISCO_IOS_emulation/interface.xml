@@ -520,19 +520,13 @@
         <sections>ip rtp</sections>
       </sections>
     </variable>
-    <variable displayName="carrier_delay_msec" name="params.carrier_delay.0.carrier_delay_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="carrier_delay_up" name="params.carrier_delay_up" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>carrier-delay</sections>
       </sections>
     </variable>
-    <variable displayName="carrier_delay_up" name="params.carrier_delay.0.carrier_delay_up" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>carrier-delay</sections>
-      </sections>
-    </variable>
-    <variable displayName="carrier_delay_down_msec" name="params.carrier_delay.0.carrier_delay_down_msec" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="carrier_delay_down" name="params.carrier_delay_down" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>carrier-delay</sections>
@@ -552,9 +546,15 @@
     </variable>
     <variable displayName="vrrp_group" name="params.vrrp.0.vrrp_group" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>vrrp</sections>
+      </sections>
     </variable>
     <variable displayName="vrrp_address_family" name="params.vrrp.0.vrrp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>vrrp</sections>
+      </sections>
     </variable>
     <variable displayName="service_policy_direction" name="params.service_policy.0.service_policy_direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -626,8 +626,6 @@ interface Serial1/0/0.1/3/1/1:0
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Vlan|Port-channel|Multilink)\d+)$@</regexp>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Serial)(?&lt;controller_module&gt;\d\/\d\/\d)(\.(?&lt;controller_submodule&gt;(\d\/?)+))?(:(?&lt;controller_channel&gt;\d))(\.?(?&lt;vlan&gt;\d+)?))@</regexp>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;\S+(?&lt;type&gt;Ethernet)[^\.]*(\.(?&lt;vlan&gt;\d+))?)$@</regexp>
-        <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Loopback)\d+)$@</regexp>
-        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -718,17 +716,6 @@ interface Serial1/0/0.1/3/1/1:0
         <line>
           <array/>
           <regexp>@^\s+flowcontrol\s+(?&lt;flowcontrol&gt;.*)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array name="carrier_delay">
-            <lines/>
-            <lines/>
-            <regexp>@^\s+carrier-delay\s+msec\s+(?&lt;carrier_delay_msec&gt;\d+)@</regexp>
-            <regexp>@^\s+carrier-delay\s+up\s+(?&lt;carrier_delay_up&gt;\d+)@</regexp>
-            <regexp>@^\s+carrier-delay\s+down\s+msec\s+(?&lt;carrier_delay_down_msec&gt;\d+)@</regexp>
-          </array>
-          <regexp/>
           <xpath/>
         </line>
         <line>
@@ -948,6 +935,16 @@ interface Serial1/0/0.1/3/1/1:0
           <regexp/>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s+carrier-delay\s+down\s+(msec)?\s*(?&lt;carrier_delay_down&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*carrier-delay\s+up\s+(msec)?\s*(?&lt;carrier_delay_up&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s*no@</regexp>
         </ignore>
@@ -986,6 +983,9 @@ interface Serial1/0/0.1/3/1/1:0
         </ignore>
         <ignore>
           <regexp>@mac-address@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@carrier-delay msec@</regexp>
         </ignore>
       </lines>
     </parser>
