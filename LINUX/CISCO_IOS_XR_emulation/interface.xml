@@ -153,6 +153,15 @@
     </variable>
     <variable displayName="mpls_command" name="params.mpls.0.mpls_command" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="mpls_mtu" name="params.mpls.0.mpls_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
     </variable>
   </variables>
   <example/>
@@ -335,6 +344,13 @@ xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id} {$xconnect1.mode}
 xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
     {/if}
   {/if}
+{/foreach}
+{/if}
+{if isset($params.mpls)}
+{foreach $params.mpls as $mpls}
+    {if isset($mpls.mpls_mtu) and $mpls.mpls_mtu}
+mpls mtu {$mpls.mpls_mtu}
+    {/if}
 {/foreach}
 {/if}
 !]]></operation>

@@ -41,9 +41,7 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}
-
-{$filtered_ip_community_list=[]} 
+    <post_template>{$filtered_ip_community_list=[]} 
 {$icl_idx=0}
 
 {foreach $ip_community_list as $icl}
@@ -67,10 +65,10 @@
         {if isset($ficl.name)}
 			{assign_object_variable
 				var=&quot;name&quot;
-				value=&quot;com_set_{$ficl.name}&quot;}
+				value=&quot;{$ficl.name}&quot;}
             {assign_object_variable
 				var=&quot;object_id&quot;
-				value=&quot;com_set_{$ficl.name}&quot;}
+				value=&quot;{$ficl.name}&quot;}
         {/if}
         {if isset($ficl.list)}
             {assign var=list value=&quot; &quot;|explode:$ficl.list}
