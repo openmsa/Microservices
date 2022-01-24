@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>mpls</name>
+    <name>key_chain</name>
     <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -28,14 +28,15 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="mpls_command" name="params.mpls_command" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="key" name="params.key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="key_string" name="params.key_string" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[#]]></operation>
-    <post_template></post_template>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
@@ -44,23 +45,11 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{capture}
-{foreach $interface as $itf}
-	{if $itf.object_id == $params.object_id}
-		{if isset($itf.mpls)}
-			{foreach $itf.mpls as $mpls}
-				{if isset($mpls.mpls_command)}
-!
-mpls ldp interface {$itf.object_id}
-!
-				{break}
-				{/if}
-			{/foreach}
-			{break}
-		{/if}
-	{/if}
-{/foreach}
-{/capture}]]></operation>
+    <operation><![CDATA[!
+key chain {$params.object_id}
+ key {$params.key}
+   key-string 7 {$params.key_string}
+!]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
