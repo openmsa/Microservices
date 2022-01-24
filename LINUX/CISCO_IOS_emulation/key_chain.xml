@@ -46,7 +46,7 @@ key chain ISIS-PWD
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*key\schain\s(?&lt;object_id&gt;\S+$@</regexp>
+        <regexp>@^\s*key\schain\s(?&lt;object_id&gt;\S+)$@</regexp>
       </section>
       <lines>
         <line>
