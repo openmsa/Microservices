@@ -237,9 +237,8 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
 {/foreach}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
-        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*ip\s+vrf\s+(?&lt;vrf_name&gt;(?&lt;object_id&gt;\S+))$@</regexp>
+        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;vrf_name&gt;(?&lt;object_id&gt;\S+))$@</regexp>
       </section>
       <lines>
         <line>
