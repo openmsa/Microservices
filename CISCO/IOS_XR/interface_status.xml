@@ -31,8 +31,11 @@
   </variables>
   <example/>
   <command name="IMPORT">
+    <operation><![CDATA[show interface]]></operation>
     <parser>
-      <section/>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
       <lines/>
     </parser>
   </command>
