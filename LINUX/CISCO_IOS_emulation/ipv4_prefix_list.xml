@@ -48,35 +48,36 @@
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$idx=0}
-{foreach $ip_prefix_list as $ipl}
-{if ($ipl.name == $params.object_id)}
-	{if isset($ipl.sequence)}
-	{assign_object_variable
-		var=&quot;ip_prefix_list.{$idx}.sequence&quot;
-		value=&quot;{$ipl.sequence}&quot;}
+{foreach $ip_prefix_list|@sortby_as_int:&quot;sequence&quot; as $ipl}
+	{if ($ipl.name == $params.object_id)}
+		{if isset($ipl.sequence)}
+			{assign_object_variable
+				var=&quot;ip_prefix_list.{$idx}.sequence&quot;
+				value=&quot;{$ipl.sequence}&quot;}
+		{/if}
+		{if isset($ipl.action)}
+			{assign_object_variable
+				var=&quot;ip_prefix_list.{$idx}.action&quot;
+				value=&quot;{$ipl.action}&quot;}
+		{/if}
+		{if isset($ipl.ip_prefix)}
+			{assign_object_variable
+				var=&quot;ip_prefix_list.{$idx}.ip_prefix&quot;
+				value=&quot;{$ipl.ip_prefix}&quot;}
+		{/if}
+		{if isset($ipl.comp_prefix_length)}
+			{assign_object_variable
+				var=&quot;ip_prefix_list.{$idx}.comp_prefix_length&quot;
+				value=&quot;{$ipl.comp_prefix_length}&quot;}
+		{/if}
+		{if isset($ipl.prefix_length)}
+			{assign_object_variable
+				var=&quot;ip_prefix_list.{$idx}.prefix_length&quot;
+				value=&quot;{$ipl.prefix_length}&quot;}
+		{/if}
+
+		{$idx=$idx+1}
 	{/if}
-	{if isset($ipl.action)}
-	{assign_object_variable
-		var=&quot;ip_prefix_list.{$idx}.action&quot;
-		value=&quot;{$ipl.action}&quot;}
-	{/if}
-	{if isset($ipl.ip_prefix)}
-	{assign_object_variable
-		var=&quot;ip_prefix_list.{$idx}.ip_prefix&quot;
-		value=&quot;{$ipl.ip_prefix}&quot;}
-	{/if}
-	{if isset($ipl.comp_prefix_length)}
-	{assign_object_variable
-		var=&quot;ip_prefix_list.{$idx}.comp_prefix_length&quot;
-		value=&quot;{$ipl.comp_prefix_length}&quot;}
-	{/if}
-	{if isset($ipl.prefix_length)}
-	{assign_object_variable
-		var=&quot;ip_prefix_list.{$idx}.prefix_length&quot;
-		value=&quot;{$ipl.prefix_length}&quot;}
-	{/if}
-	{$idx=$idx+1}
-{/if}
 {/foreach}</post_template>
     <parser>
       <section>
