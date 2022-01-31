@@ -93,13 +93,6 @@
   <command name="CREATE">
     <operation><![CDATA[!###############################
 !###############################
-!
-! xconnect group {$params.group}
-!  p2p ELINE_$CUSTOMER_NAME
-!  interface pw-ether$ID
-!  neighbor ipv4 $Lo0_HL4 pw-id $PSEUDOWIRE_ID
-!  pw-class $PWHE_CLASS
-!
 xconnect group {$params.object_id}
 {foreach $params.groups as $group}
   {if isset($group.interface)}
