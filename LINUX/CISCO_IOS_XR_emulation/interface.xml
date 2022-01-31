@@ -299,8 +299,11 @@
 ! Interface {$params.object_id}
 !###############################
 !
-
+{if $params.type == "Serial" || $params.type == "Multilink"}
+interface {$params.object_id}.{$params.encapsulation_dot1q}{$params.encapsulation_second_dot1q}
+{else}
 interface {$params.object_id}
+{/if}
 {if isset($params.int_description) }
 description {$params.int_description}
 {/if}
@@ -312,7 +315,7 @@ vrf {$params.vrf_name}
   {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
     {if isset($addr.ipv4_type) and $addr.ipv4_type}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
-    {else if}
+    {else}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
     {/if}
   {/if}
