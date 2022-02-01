@@ -214,16 +214,16 @@ policy-map  {$params.object_id}
   {if isset($pmap_class1.priority) and $pmap_class1.priority}
     priority level {$pmap_class1.priority} 
   {/if} 
-  {**** START police **}
   {if isset($pmap_class1.police_cir_burst) and $pmap_class1.police_cir_burst}police rate {$pmap_class1.police_cir_burst} {/if}{if isset($pmap_class1.police_bc_burst) and $pmap_class1.police_bc_burst}burst {$pmap_class1.police_bc_burst} {/if}{if isset($pmap_class1.police_be_burst) and $pmap_class1.police_be_burst} peak-burst {$pmap_class1.police_be_burst} 
   {/if}  
-  {**** END police **}
   {if isset($pmap_class1.service_policy) and $pmap_class1.service_policy}
     service-policy {$pmap_class1.service_policy}  
   {/if} 
+  {if isset($pmap_class1.random)}
   {foreach $pmap_class1.random as $random1}
   random-detect {if isset($random1.rd_service_codepoint)} {$random1.rd_service_codepoint} {/if}{if isset($random1.rd_min_threshold)} {$random1.rd_min_threshold} {/if}{if isset($random1.rd_max_threshold)} {$random1.rd_max_threshold} {/if}
   {/foreach}
+  {/if}
   {if isset($pmap_class1.shape) and $pmap_class1.shape}
     shape {$pmap_class1.shape}  
   {/if} 

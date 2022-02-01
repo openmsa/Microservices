@@ -82,12 +82,60 @@
         <sections>interfaces</sections>
       </sections>
     </variable>
+    <variable displayName="isis_ipv6_metric" name="params.interfaces.0.metric.0.isis_ipv6_metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
     <variable displayName="isis_metric_level" name="params.interfaces.0.metric.0.isis_metric_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>interfaces</sections>
       </sections>
     </variable>
+    <variable displayName="isis_ipv6_metric_level" name="params.interfaces.0.metric.0.isis_ipv6_metric_level" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>
+    <variable displayName="isis_tag" name="params.interfaces.0.isis.0.isis_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>    
+    <variable displayName="isis_ipv6_tag" name="params.interfaces.0.isis.0.isis_ipv6_tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>      
+    <variable displayName="mpls_mtu" name="params.interfaces.0.mpls.0.mpls_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>    
+    <variable displayName="mpls_command" name="params.interfaces.0.mpls.0.mpls_command" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable> 
+    <variable displayName="mpls_label_protocol" name="params.interfaces.0.mpls.0.mpls_label_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>     
+    <variable displayName="mpls_flowcontrol" name="params.interfaces.0.mpls.0.mpls_flowcontrol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="48" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>interfaces</sections>
+      </sections>
+    </variable>     
     <variable displayName="isis_advertise" name="params.isis_advertise" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -255,14 +303,57 @@
 					{if isset($metric.isis_metric_level)}
 						{assign_object_variable
 						var=&quot;interfaces.{$itf_idx}.metric.{$metric@index}.isis_metric_level&quot;
-						value=&quot;{$metric.isis_metric_level}&quot;}
+						value=&quot;{$metric.isis_metric_level|replace:'-':' '}&quot;}
 					{/if}
+					{if isset($metric.isis_ipv6_metric)}
+						{assign_object_variable
+							var=&quot;interfaces.{$itf_idx}.metric.{$metric@index}.isis_ipv6_metric&quot;
+							value=&quot;{$metric.isis_ipv6_metric}&quot;}
+					{/if}
+					{if isset($metric.isis_ipv6_metric_level)}
+						{assign_object_variable
+						var=&quot;interfaces.{$itf_idx}.metric.{$metric@index}.isis_ipv6_metric_level&quot;
+						value=&quot;{$metric.isis_ipv6_metric_level|replace:'-':' '}&quot;}
+					{/if}          
 				{/foreach}
 			{/if}
-			
+      {if isset($is.isis_tag)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.isis.{$is@index}.isis_tag&quot;
+          value=&quot;{$is.isis_tag}&quot;}
+      {/if}
+      {if isset($is.isis_ipv6_tag)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.isis.{$is@index}.isis_ipv6_tag&quot;
+          value=&quot;{$is.isis_ipv6_tag}&quot;}
+      {/if}
 		{/foreach}
 	{/if}
-{$itf_idx=$itf_idx+1}
+  {if isset($itf.mpls)}
+    {foreach $itf.mpls as $mpls}
+      {if isset($mpls.mpls_mtu)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.mpls.{$mpls@index}.mpls_mtu&quot;
+          value=&quot;{$mpls.mpls_mtu}&quot;}
+      {/if}  
+      {if isset($mpls.mpls_command)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.mpls.{$mpls@index}.mpls_command&quot;
+          value=&quot;{$mpls.mpls_command}&quot;}
+      {/if}
+      {if isset($mpls.mpls_label_protocol)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.mpls.{$mpls@index}.mpls_label_protocol&quot;
+          value=&quot;{$mpls.mpls_label_protocol}&quot;}
+      {/if}
+      {if isset($mpls.mpls_flowcontrol)}
+        {assign_object_variable
+          var=&quot;interfaces.{$itf_idx}.mpls.{$mpls@index}.mpls_flowcontrol&quot;
+          value=&quot;{$mpls.mpls_flowcontrol}&quot;}
+      {/if}
+ 		{/foreach}
+	{/if} 
+  {$itf_idx=$itf_idx+1}
 {/foreach}</post_template>
     <parser>
       <section>

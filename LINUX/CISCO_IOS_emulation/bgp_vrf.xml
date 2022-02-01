@@ -228,15 +228,18 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{foreach $router_bgp as $router}
-{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$router.router_bgp}&quot;}
-{assign_object_variable var=&quot;bgp_router_id&quot; value=&quot;{$router.bgp_router_id}&quot;}
-
-{/foreach}</post_template>
+	{if isset($router.router_bgp)}
+		{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$router.router_bgp}&quot;}
+	{/if}
+	{if isset($router.bgp_router_id)}
+		{assign_object_variable var=&quot;bgp_router_id&quot; value=&quot;{$router.bgp_router_id}&quot;}
+	{/if}
+{/foreach}
+   </post_template>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
-        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;object_id&gt;\S+)$@</regexp>
-        <xpath/>
+        <regexp>@^\s*ip\s+vrf\s+(?&lt;object_id&gt;(?&lt;vrf_name&gt;\S+))$@</regexp>
+        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;vrf_name&gt;(?&lt;object_id&gt;\S+))$@</regexp>
       </section>
       <lines>
         <line>

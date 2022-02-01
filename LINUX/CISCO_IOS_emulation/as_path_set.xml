@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>as_path_set-inter</name>
-    <group>Default</group>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
@@ -38,7 +38,7 @@
     <post_template>{$idx=0}
 {$object_id=$params.object_id}
 {foreach $ip_as_path as $as_path}
-	{if $as_path.access_list == $object_id}
+	{if $as_path.access_list_number == $object_id}
 		{assign_object_variable 
 		var=&quot;as_path_set.{$idx}.ios_regex&quot; 
 		value=&quot;{$as_path.as_path_regex}&quot;}

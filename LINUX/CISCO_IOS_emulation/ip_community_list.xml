@@ -25,10 +25,10 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="Migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -54,13 +54,12 @@
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;list&gt;((\d+:\d+)\s*)+)$@</regexp>
-        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;(\d+:\S+\s?)+)$@</regexp>
-        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;\S+)$@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;list&gt;((\d+:\d+)\s*)+)$@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;(\d+:\S+\s?)+)$@</regexp>
+        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;\S+)$@</regexp>
         <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\d+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;ios_regex&gt;((\d+(:\d+\S+_)?)\s*)+)$@</regexp>
         <regexp>@^\s*ip\s+community-list\s*(?&lt;number&gt;\d+)\s+(?&lt;rule&gt;permit|deny)(?&lt;list&gt;(\s\S+)+)$@</regexp>
         <regexp>@^\s*ip\s+community-list\s?(standard|expanded)?\s?(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)(?&lt;list&gt;(\s\S+)+)$@</regexp>
-        <xpath/>
       </section>
       <lines>
         <ignore>

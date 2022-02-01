@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>as_path_set</name>
-    <group>EMULATION|CISCO|IOS-XR</group>
+    <name>key_chain</name>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>5</importrank>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -28,24 +28,35 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="ios_regex" name="params.as_path_set.0.ios_regex" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="key" name="params.key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="key_string" name="params.key_string" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content>!
+key chain ISIS-PWD
+ key 1
+   key-string 7 01275508080D5601706F1A481B53273F383A
+!</content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[#cat /config/cisco_ios_xr/as_path_set.conf]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*as-path-set\s*(?&lt;object_id&gt;\S+)$@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*key\schain\s(?&lt;object_id&gt;\S+)$@</regexp>
       </section>
       <lines>
         <line>
-          <array name="as_path_set">
-            <regexp>@^\s*ios-regex\s*\&apos;(?&lt;ios_regex&gt;[^\&apos;]+),?@</regexp>
-          </array>
-          <regexp/>
+          <array/>
+          <regexp>@^\s*key\s(?&lt;key&gt;\d+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*key-string\s\d+\s(?&lt;key_string&gt;\S+)$@</regexp>
           <xpath/>
         </line>
         <ignore>
@@ -54,20 +65,7 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE">
-    <operation><![CDATA[!
-as-path-set {$params.object_id}
-{foreach $params.as_path_set as $as_path_set}
-{if isset($as_path_set.ios_regex)}
-  ios-regex '{$as_path_set.ios_regex}'{if !$as_path_set@last},
-{/if}
-{/if}
-{/foreach}
-
-end-set
-!
-]]></operation>
-  </command>
+  <command name="CREATE"/>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>

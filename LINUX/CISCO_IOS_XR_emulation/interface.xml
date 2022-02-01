@@ -46,6 +46,9 @@
     <variable displayName="int_description" name="params.int_description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="32" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="ipv4_address" name="params.addresses.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -85,13 +88,13 @@
     <variable displayName="mtu_int" name="params.mtu_int" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="service_policy_out" name="params.service_policy_out" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="service_policy_direction" name="params.service_policy.0.service_policy_direction" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>service policy</sections>
       </sections>
     </variable>
-    <variable displayName="service_policy_in" name="params.service_policy_in" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="service_policy_name" name="params.service_policy.0.service_policy_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>service policy</sections>
@@ -149,6 +152,30 @@
       <repositories/>
       <sections>
         <sections>xconnect</sections>
+      </sections>
+    </variable>
+    <variable displayName="mpls_command" name="params.mpls.0.mpls_command" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="mpls_mtu" name="params.mpls.0.mpls_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>mpls</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_up" name="params.carrier_delay_up" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="30" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
+      </sections>
+    </variable>
+    <variable displayName="carrier_delay_down" name="params.carrier_delay_down" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="31" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>carrier-delay</sections>
       </sections>
     </variable>
   </variables>
@@ -221,15 +248,6 @@
           <xpath/>
         </line>
         <line>
-          <array name="carrier_delay">
-            <regexp>@^\s+carrier-delay\s+msec\s+(?&lt;carrier_delay_msec&gt;\d+)@</regexp>
-            <regexp>@^\s+carrier-delay\s+up\s+(?&lt;carrier_delay_up&gt;\d+)@</regexp>
-            <regexp>@^\s+carrier-delay\s+down\s+msec\s+(?&lt;carrier_delay_down_msec&gt;\d+)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array/>
           <regexp>@^\s+speed\s+(?&lt;int_speed&gt;\d+)@</regexp>
           <xpath/>
@@ -281,23 +299,28 @@
 ! Interface {$params.object_id}
 !###############################
 !
-
+{if $params.type == "Serial" || $params.type == "Multilink"}
+interface {$params.object_id}.{$params.encapsulation_dot1q}{$params.encapsulation_second_dot1q}
+{else}
 interface {$params.object_id}
+{/if}
 {if isset($params.int_description) }
 description {$params.int_description}
 {/if}
 {if isset($params.vrf_name) and $params.vrf_name}
 vrf {$params.vrf_name}
 {/if}
+{if isset($params.addresses) and $params.addresses}
 {foreach $params.addresses as $addr}
   {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
     {if isset($addr.ipv4_type) and $addr.ipv4_type}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask} {$addr.ipv4_type}
-    {else if}
+    {else}
 ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
     {/if}
   {/if}
 {/foreach}
+{/if}
 {if isset($params.ipv6_address) and $params.ipv6_address}
 ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
@@ -318,11 +341,10 @@ ip pim {$params.pim_mode}
 encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  {$params.encapsulation_second_dot1q}
 	{/if}
 {/if}
-{if isset($params.service_policy_out) and $params.service_policy_out}
-service-policy output {$params.service_policy_out}
-{/if}
-{if isset($params.service_policy_in) and $params.service_policy_in}
-service-policy input {$params.service_policy_in}
+{if isset($params.service_policy)}
+	{foreach $params.service_policy as $sp}
+service-policy {$sp.service_policy_direction} {$sp.service_policy_name}
+	{/foreach}
 {/if}
 {if isset($params.xconnect)}
 {foreach $params.xconnect as $xconnect1}
@@ -334,6 +356,17 @@ xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
     {/if}
   {/if}
 {/foreach}
+{/if}
+{if isset($params.mpls)}
+{foreach $params.mpls as $mpls}
+    {if isset($mpls.mpls_mtu) and $mpls.mpls_mtu}
+mpls mtu {$mpls.mpls_mtu}
+    {/if}
+{/foreach}
+{/if}
+{if isset($params.carrier_delay_up) || isset($params.carrier_delay_down)}
+carrier-delay {if isset($params.carrier_delay_up)} up {$params.carrier_delay_up}000 {/if} {if isset($params.carrier_delay_up)} down {$params.carrier_delay_down}
+{/if}
 {/if}
 !]]></operation>
   </command>

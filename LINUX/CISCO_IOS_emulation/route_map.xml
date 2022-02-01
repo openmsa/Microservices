@@ -28,7 +28,7 @@
     <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="_order" name="params._order" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="30" increment="1" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -45,78 +45,159 @@
     </variable>
     <variable displayName="as_path" name="params.sorted_matches.0.as_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
     <variable displayName="community" name="params.sorted_matches.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
-    <variable displayName="community_set" name="params.sorted_matches.0.community_set.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community_set" name="params.sorted_matches.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
     <variable displayName="interface" name="params.sorted_matches.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
     <variable displayName="ip_access_list" name="params.sorted_matches.0.ip_access_list" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
     <variable displayName="ip_prefix_list" name="params.sorted_matches.0.ip_prefix_list" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
     <variable displayName="tag" name="params.sorted_matches.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
     </variable>
     <variable displayName="as_path" name="params.matches.0.as_path" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
     </variable>
     <variable displayName="community" name="params.matches.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
+    </variable>
+    <variable displayName="community_set" name="params.matches.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
     </variable>
     <variable displayName="interface" name="params.matches.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
     </variable>
     <variable displayName="ip_access_list" name="params.matches.0.ip_access_list" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
     </variable>
     <variable displayName="ip_prefix_list" name="params.matches.0.ip_prefix_list" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
     </variable>
     <variable displayName="tag" name="params.matches.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
     </variable>
     <variable displayName="community" name="params.sets.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
-    <variable displayName="community-set" name="params.sets.0.community_set.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community-set" name="params.sets.0.community_set.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="extcommunity" name="params.sets.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="extcommunity_type" name="params.sets.0.extcommunity_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="extcommunity_set" name="params.sets.0.extcommunity_set.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="local_preference" name="params.sets.0.local_preference" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="additive" name="params.sets.0.additive" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="output_interface" name="params.sets.0.output_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="weight" name="params.sets.0.weight" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="ip_precedence" name="params.sets.0.ip_precedence" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="ip_tos" name="params.sets.0.ip_tos" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="continue" name="params.sets.0.continue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>sets</sections>
+      </sections>
     </variable>
     <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -134,54 +215,67 @@ route-map EXPORTA-INTRAGOV permit 10
   </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{if isset($params.matches)}
+    <post_template>{$key_array=[]}
+{if isset($params.matches)}
     {$index=0}
     {foreach $params.matches as $match}
         {if isset($match.as_path)}
-            {$key_array[]=&quot;as_path&quot;}
+            {$key_array[$index]=&quot;as_path&quot;}
         {/if}
         {if isset($match.community)}
-            {$key_array[]=&quot;community&quot;}
+            {$key_array[$index]=&quot;community&quot;}
+        {/if}
+        {if isset($match.community_set)}
+            {$key_array[$index]=&quot;community_set&quot;}
         {/if}
         {if isset($match.interface)}
-            {$key_array[]=&quot;interface&quot;}
+            {$key_array[$index]=&quot;interface&quot;}
         {/if}
         {if isset($match.ip_access_list)}
-            {$key_array[]=&quot;ip_access_list&quot;}
+            {$key_array[$index]=&quot;ip_access_list&quot;}
         {/if}
         {if isset($match.ip_prefix_list)}
-            {$key_array[]=&quot;ip_prefix_list&quot;}
+            {$key_array[$index]=&quot;ip_prefix_list&quot;}
         {/if}
         {if isset($match.tag)}
-            {$key_array[]=&quot;tag&quot;}
+            {$key_array[$index]=&quot;tag&quot;}
         {/if}
         {$index=$index+1}
     {/foreach}
-    {rsort($key_array)}
+	{capture}
+    {sort($key_array)}
+	{/capture}
 {/if}
 
 {* reorder matches based on key_array*}
+{$sorted_match_idx=0}
 {if isset($params.matches)}
-	{$sorted_match_idx=0}
-    {foreach $key_array as $key}
-		{foreach $params.matches as $match}
-	    	{if isset($match.$key) }
+	{foreach $params.matches as $match}
+	    {foreach $key_array as $key}
+	    	{if isset($match.$key)}
 				{assign_object_variable
-					var=&quot;sorted_matches.{$match@index}.$key&quot;	
+					var=&quot;sorted_matches.{$sorted_match_idx}.$key&quot;	
 					value=&quot;{$match.$key}&quot;}
-				{/if}
-				{if	$key == &quot;community&quot;}
-					{assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
-					{$match_community_set_idx=0}
-					{foreach $match_community_array as $community}
-						{assign_object_variable
-							var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.community&quot;
-							value=&quot;{$community}&quot;}
-						{$match_community_set_idx=$match_community_set_idx+1}
+			{*
+			{else if $key == &quot;communities&quot;}
+				{assign_object_variable
+					var=&quot;sorted_matches.{$match@index}.communities.{$comm_idx}.value&quot;	
+					value=&quot;{$match.$key}&quot;}
+				{*assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
+				{$match_community_set_idx=0}
+				{foreach $match_community_array as $community}
+					{assign_object_variable
+						var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.value&quot;
+						value=&quot;{$community}&quot;}
+					{$match_community_set_idx=$match_community_set_idx+1}
+				
 				{/foreach}
+				{$comm_idx=$comm_idx+1}
+				*}
+				{$sorted_match_idx=$sorted_match_idx+1}
+				{break}
 			{/if}
 		{/foreach}
-		{$sorted_match_idx=$sorted_match_idx+1}
 	{/foreach}
 {/if}
 {$set_community_set_idx=0}
@@ -189,7 +283,9 @@ route-map EXPORTA-INTRAGOV permit 10
 {if isset($params.sets)}
 	{foreach $params.sets as $sets}
 		{if isset($sets.community)}
+			{capture}
 			{assign var=set_community_array value=&quot; &quot;|explode:&quot;{$sets.community}&quot;}
+			{/capture}
 			{foreach $set_community_array as $community}
 				{assign_object_variable
 					var=&quot;sets.{$sets@index}.community_set.{$set_community_set_idx}.community&quot;
@@ -198,10 +294,14 @@ route-map EXPORTA-INTRAGOV permit 10
 			{/foreach}
 		{/if}
 		{if isset($sets.extcommunity)}
-			{assign	var=set_extcommunity_array value=&quot;&quot;|explode:&quot;{$sets.extcommunity}&quot;}
-			{foreach $set_extcommunity_array as	$extcommunity}{assign_object_variable
-				var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
-				value=&quot;{$extcommunity}&quot;}{$set_extcommunity_set_idx=$set_extcommunity_set_idx+1}
+			{capture}
+			{assign	var=set_extcommunity_array value=&quot; &quot;|explode:&quot;{$sets.extcommunity}&quot;}
+			{/capture}
+			{foreach $set_extcommunity_array as	$extcommunity}
+				{assign_object_variable
+					var=&quot;sets.{$sets@index}.extcommunity_set.{$set_extcommunity_set_idx}.extcommunity&quot;
+					value=&quot;{$extcommunity}&quot;}
+				{$set_extcommunity_set_idx=$set_extcommunity_set_idx+1}
 			{/foreach}
 		{/if}
 	{/foreach}
@@ -209,7 +309,6 @@ route-map EXPORTA-INTRAGOV permit 10
     <parser>
       <section>
         <regexp>@^\s*route-map\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+))$@</regexp>
-        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -225,6 +324,7 @@ route-map EXPORTA-INTRAGOV permit 10
             <regexp>@^\s*match\s+ip\s+address\s+(?&lt;ip_access_list&gt;.+)$@</regexp>
             <regexp>@^\s*match\s+interface\s+(?&lt;interface&gt;.+)$@</regexp>
             <regexp>@^\s*match\s+as-path\s+(?&lt;as_path&gt;\d+)$@</regexp>
+            <regexp>@^\s*match\s+community\s(?&lt;community_set&gt;(\d+ ?)+)$@</regexp>
             <regexp>@^\s*match\s+community\s+(?&lt;community&gt;.*)$@</regexp>
             <regexp>@^\s*match\s+as-path\s+(?&lt;as_path&gt;\d+)$@</regexp>
             <regexp>@^\s*match\s+tag\s+(?&lt;tag&gt;\S+)$@</regexp>
