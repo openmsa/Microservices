@@ -17,7 +17,7 @@
     <name>xconnect</name>
     <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>60</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -99,7 +99,7 @@ xconnect group {$params.object_id}
   interface {$group.interface}
   {/if}
   {if isset($group.p2p)}
-  p2p {$group.p2p}
+  p2p ELINE_{$group.p2p}
   {/if}
   {if isset($group.pseudowire_ip) and isset($group.pseudowire_id) }
   neighbor ipv4 {$group.pseudowire_ip} pw-id {$group.pseudowire_id}
