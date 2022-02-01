@@ -256,22 +256,6 @@ route-map EXPORTA-INTRAGOV permit 10
 				{assign_object_variable
 					var=&quot;sorted_matches.{$sorted_match_idx}.$key&quot;	
 					value=&quot;{$match.$key}&quot;}
-			{*
-			{else if $key == &quot;communities&quot;}
-				{assign_object_variable
-					var=&quot;sorted_matches.{$match@index}.communities.{$comm_idx}.value&quot;	
-					value=&quot;{$match.$key}&quot;}
-				{*assign var=match_community_array value=&quot; &quot;|explode:&quot;{$match.$key}&quot;}
-				{$match_community_set_idx=0}
-				{foreach $match_community_array as $community}
-					{assign_object_variable
-						var=&quot;sorted_matches.{$match@index}.community_set.{$match_community_set_idx}.value&quot;
-						value=&quot;{$community}&quot;}
-					{$match_community_set_idx=$match_community_set_idx+1}
-				
-				{/foreach}
-				{$comm_idx=$comm_idx+1}
-				*}
 				{$sorted_match_idx=$sorted_match_idx+1}
 				{break}
 			{/if}
