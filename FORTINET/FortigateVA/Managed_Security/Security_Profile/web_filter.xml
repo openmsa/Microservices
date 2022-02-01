@@ -167,7 +167,7 @@ end
   <command name="IMPORT">
     <operation>show full-configuration webfilter profile</operation>
     <post_template>{assign_object_variable var="url_filter_status" value="false"}
-{foreach $URL_Filter|sortby:_orderas $filter}{if isset($params.filter_id) &amp;&amp; $params.filter_id == $filter.object_id}{assign_object_variable var="url_filter_status" value="true"}{assign_object_variable var="filter_id" value=$filter.object_id}{assign_object_variable var="filter_name" value=$filter.filter_name}{if !empty($filter.urls)}{foreach $filter.urls as$index => $url}{assign_object_variable var="urlfilter.{$index}.url_id" value=$url.url_id}{assign_object_variable var="urlfilter.{$index}.url" value=$url.url}{assign_object_variable var="urlfilter.{$index}.action" value=$url.action}{assign_object_variable var="urlfilter.{$index}.type" value=$url.type}{/foreach}{/if}{break}{/if}
+{foreach $URL_Filter|sortby:_order as $filter}{if isset($params.filter_id) &amp;&amp; $params.filter_id == $filter.object_id}{assign_object_variable var="url_filter_status" value="true"}{assign_object_variable var="filter_id" value=$filter.object_id}{assign_object_variable var="filter_name" value=$filter.filter_name}{if !empty($filter.urls)}{foreach $filter.urls as$index => $url}{assign_object_variable var="urlfilter.{$index}.url_id" value=$url.url_id}{assign_object_variable var="urlfilter.{$index}.url" value=$url.url}{assign_object_variable var="urlfilter.{$index}.action" value=$url.action}{assign_object_variable var="urlfilter.{$index}.type" value=$url.type}{/foreach}{/if}{break}{/if}
 {/foreach}
 {if $params.object_id == "default"}
 {assign_object_variable var="_readonly" value="true"}
