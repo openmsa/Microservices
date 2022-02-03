@@ -17,7 +17,7 @@
     <name>ip_access_list</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>6</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -115,12 +115,36 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
     {$seq_number=$seq_number+10}
 {/foreach}
 {/if}
-
+{* fetch the data from the access-list and convert to arrays *}
+{if isset($access_list)}
+	{$idx=0}
+	{$seq_number=10}
+	{foreach $access_list|@sortby_as_int:&quot;acl_id&quot; as $acl}
+		{if $acl.acl_id == $params.object_id}
+			{*if !isset($params.access_list)}
+			{assign_object_variable 
+				var=&quot;access_list.0.acl_seq_number&quot; 
+				value=&quot;10&quot;}
+			{/if*}
+			{$keys = array_keys($acl)}
+			{foreach $keys as $key}
+			{assign_object_variable 
+				var=&quot;access_list.{$idx}.{$key}&quot; 
+				value={$acl.$key}}
+			{/foreach}	
+			{assign_object_variable 
+				var=&quot;access_list.{$idx}.acl_seq_number&quot; 
+				value={$seq_number}}			
+			{$idx=$idx+1}
+		    {$seq_number=$seq_number+10}
+		{/if}
+	{/foreach}
+{/if}
 </post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*access-list\s+(?&lt;object_id&gt;\d+)@</regexp>
       </section>
       <lines>
         <line>
