@@ -234,7 +234,7 @@
         </line>
         <line>
           <array/>
-          <regexp>@^.*vrf\s+(?&lt;vrf_name&gt;(?&lt;customer_prefix&gt;[^:]+)\S+)@</regexp>
+          <regexp>@^\s*vrf\s+(?&lt;vrf_name&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -336,7 +336,7 @@ service-policy output {$params.customer_name}_{$params.bandwidth}
 service-policy output {$params.service_policy_out}
 {/if}
 {/if}
-{if isset($params.xconnect)}
+{*if isset($params.xconnect)}
 {foreach $params.xconnect as $xconnect1}
   {if isset($xconnect1.peer_ip) && isset($xconnect1.vc_id) }
     {if isset($xconnect1.mode) and $xconnect1.mode}
@@ -346,7 +346,7 @@ xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
     {/if}
   {/if}
 {/foreach}
-{/if}
+{/if*}
 {if isset($params.mpls)}
 {foreach $params.mpls as $mpls}
     {if isset($mpls.mpls_mtu) and $mpls.mpls_mtu}
@@ -370,7 +370,7 @@ ip pim {$params.pim_mode}
 !
 end
 ! 
-{if $params.type == "Serial"}
+{if $params.type == "Serial" || $params.type == "Multilink" }
 	{if isset($params.service_policy_out)}
 policy-map {$params.customer_name}_{$params.bandwidth}
 class class-default
