@@ -330,7 +330,11 @@ encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulatio
 service-policy input {$params.service_policy_in}
 {/if}
 {if isset($params.service_policy_out)}
+{if $params.type == "Serial"}
 service-policy output {$params.customer_name}_{$params.bandwidth}
+{else}
+service-policy output {$params.service_policy_out}
+{/if}
 {/if}
 {if isset($params.xconnect)}
 {foreach $params.xconnect as $xconnect1}
@@ -366,12 +370,14 @@ ip pim {$params.pim_mode}
 !
 end
 ! 
-{if isset($params.service_policy_out)}
+{if $params.type == "Serial"}
+	{if isset($params.service_policy_out)}
 policy-map {$params.customer_name}_{$params.bandwidth}
 class class-default
 service-policy {$params.service_policy_out}
 shape average {$params.bandwidth} kbps
 end policy-map
+	{/if}
 {/if}
 !]]></operation>
   </command>
