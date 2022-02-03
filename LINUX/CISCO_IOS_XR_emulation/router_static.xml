@@ -152,7 +152,7 @@ router static
 {if isset ($params.vrf_routes)}
 {foreach $params.vrf_routes as $vrf}
 {if isset($vrf.vrf_name)}
-{$vrf.vrf_name}
+vrf {$vrf.vrf_name}
 {/if}
  address-family ipv4 unicast
 {foreach $vrf.routes as $route}
