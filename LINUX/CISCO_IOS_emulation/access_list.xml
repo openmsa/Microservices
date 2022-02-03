@@ -83,12 +83,13 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>		{capture}
-		{convert_imask_to_length input={$params.acl_src_imask} var=&quot;mask_length&quot;}
-		{/capture}
-		{assign_object_variable 
-			var=&quot;acl_src_mask_length&quot; 
-			value=$mask_length}
+    <post_template>{* convertion of inverted mask to mask length for compatibility with IOS XR *}
+{capture}
+{convert_imask_to_length input={$params.acl_src_imask} var=&quot;mask_length&quot;}
+{/capture}
+{assign_object_variable 
+	var=&quot;acl_src_mask_length&quot; 
+	value=$mask_length}
 </post_template>
     <parser>
       <section>

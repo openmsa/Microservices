@@ -97,6 +97,8 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
 {if isset($params.access_list)}
 {foreach $params.access_list as $acl}
     {if isset($acl.acl_src_imask)}
+    	{* convert inverted mask to mask length for compatibility 
+    	with IOS XR ipv4 acccess-list *}
 		{capture}
 		{convert_imask_to_length input={$acl.acl_src_imask} var=&quot;mask_length&quot;}
 		{/capture}
@@ -109,29 +111,28 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
     		var=&quot;access_list.{$acl@index}.acl_protocol&quot; 
     		value=&quot;ipv4&quot;}
 	{/if}
+	{* allocate a sequence number for compatibility with IOS XR *}
     {assign_object_variable 
     	var=&quot;access_list.{$acl@index}.acl_seq_number&quot;
     	value=$seq_number}
     {$seq_number=$seq_number+10}
 {/foreach}
 {/if}
-{* fetch the data from the access-list and convert to arrays *}
+{* fetch the data from the access-list and convert to arrays to match 
+   the ip access-list format in both IOS and IOS XR *}
 {if isset($access_list)}
 	{$idx=0}
 	{$seq_number=10}
 	{foreach $access_list|@sortby_as_int:&quot;acl_id&quot; as $acl}
 		{if $acl.acl_id == $params.object_id}
-			{*if !isset($params.access_list)}
-			{assign_object_variable 
-				var=&quot;access_list.0.acl_seq_number&quot; 
-				value=&quot;10&quot;}
-			{/if*}
+
 			{$keys = array_keys($acl)}
 			{foreach $keys as $key}
 			{assign_object_variable 
 				var=&quot;access_list.{$idx}.{$key}&quot; 
 				value={$acl.$key}}
 			{/foreach}	
+			{* allocate a sequence number for compatibility with IOS XR *}
 			{assign_object_variable 
 				var=&quot;access_list.{$idx}.acl_seq_number&quot; 
 				value={$seq_number}}			
