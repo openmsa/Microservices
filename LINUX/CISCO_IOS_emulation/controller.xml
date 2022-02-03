@@ -125,7 +125,11 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{if isset($params.timeslots) &amp;&amp; $params.timeslots}
+    <post_template>{* based on the timeslot, calculate the bandwidth *}
+
+{* for E1 controllers, directly access to the timeslot  *}
+{if isset($params.timeslots) &amp;&amp; $params.timeslots}
+	{* 64kbps for 1 timeslot *}
 	{$bd=64}
 	{if $params.timeslots == &quot;1-8&quot;}
 		{$bd=$bd*8}
@@ -134,29 +138,37 @@
 	{else if $params.timeslots == &quot;1-31&quot;}
 		{$bd=$bd*31}
 	{/if}
+	{* allocate the bandwidth value to the variable $params.bandwidth *}
 	{assign_object_variable
 		var=&quot;bandwidth&quot;
 		value=&quot;{$bd}&quot;}
 {/if}
+{* for SONET controllers loop though the modes to access the timeslots*}
 {if isset($params.modes)}
 	{foreach $params.modes as $modes}
 		{foreach $modes.timeslots_array as $timeslots}
+				{* based on the mode and timeslot au, tug, e and channel group 
+				   a sub-interface ID will be assigned to the timeslot 
+				   This will be used in the interface microservice to find the matching timeslot 
+				   and allocate the bandwidth *}
 				{assign_object_variable
 				var=&quot;modes.{$modes@index}.timeslots_array.{$timeslots@index}.sub_interface&quot;
 				value=&quot;{$modes.au_num}/{$modes.tug_num}/{$timeslots.tug_num}/{$timeslots.e_num}:{$timeslots.channel_group}&quot;}
 	
 			{if isset($timeslots.timeslots) &amp;&amp; $timeslots.timeslots}
+				{* 64kbps for 1 timeslot *}
 				{$bd=64}
-			{if $timeslots.timeslots == &quot;1-8&quot;}
-				{$bd=$bd*8}
-			{else if $timeslots.timeslots == &quot;1-16&quot;}
-				{$bd=$bd*16}
-			{else if $timeslots.timeslots == &quot;1-31&quot;}
-				{$bd=$bd*31}
-			{/if}
-			{assign_object_variable
-				var=&quot;modes.{$modes@index}.timeslots_array.{$timeslots@index}.bandwidth&quot;
-				value=&quot;{$bd}&quot;}
+				{if $timeslots.timeslots == &quot;1-8&quot;}
+					{$bd=$bd*8}
+				{else if $timeslots.timeslots == &quot;1-16&quot;}
+					{$bd=$bd*16}
+				{else if $timeslots.timeslots == &quot;1-31&quot;}
+					{$bd=$bd*31}
+				{/if}
+				{* allocate the bandwidth value to the variable $params.modes.0.timeslots_array.0.bandwidth *}
+				{assign_object_variable
+					var=&quot;modes.{$modes@index}.timeslots_array.{$timeslots@index}.bandwidth&quot;
+					value=&quot;{$bd}&quot;}
 			{/if}
 		{/foreach}{/foreach}
 {/if}</post_template>
