@@ -17,7 +17,7 @@
     <name>xconnect</name>
     <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>60</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -93,20 +93,13 @@
   <command name="CREATE">
     <operation><![CDATA[!###############################
 !###############################
-!
-! xconnect group {$params.group}
-!  p2p ELINE_$CUSTOMER_NAME
-!  interface pw-ether$ID
-!  neighbor ipv4 $Lo0_HL4 pw-id $PSEUDOWIRE_ID
-!  pw-class $PWHE_CLASS
-!
 xconnect group {$params.object_id}
 {foreach $params.groups as $group}
   {if isset($group.interface)}
   interface {$group.interface}
   {/if}
   {if isset($group.p2p)}
-  p2p {$group.p2p}
+  p2p ELINE_{$group.p2p}
   {/if}
   {if isset($group.pseudowire_ip) and isset($group.pseudowire_id) }
   neighbor ipv4 {$group.pseudowire_ip} pw-id {$group.pseudowire_id}
