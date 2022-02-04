@@ -17,7 +17,7 @@
     <name>policy_map</name>
     <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>6</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -31,29 +31,65 @@
     <variable displayName="class_name" name="params.pmap_class.0.class_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="priority" name="params.pmap_class.0.priority" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="service_policy" name="params.pmap_class.0.service_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="bandwidth" name="params.pmap_class.0.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>bandwidth</sections>
+      </sections>
+    </variable>
+    <variable displayName="bandwidth_percent" name="params.pmap_class.0.bandwidth_percent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>bandwidth</sections>
+      </sections>
+    </variable>
+    <variable displayName="shape" name="params.pmap_class.0.shape" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>bandwidth</sections>
+      </sections>
     </variable>
     <variable displayName="police_cir_burst" name="params.pmap_class.0.police_cir_burst" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>police</sections>
+      </sections>
     </variable>
     <variable displayName="police_bc_burst" name="params.pmap_class.0.police_bc_burst" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>police</sections>
+      </sections>
     </variable>
     <variable displayName="police_be_burst" name="params.pmap_class.0.police_be_burst" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>police</sections>
+      </sections>
     </variable>
     <variable displayName="police_rate" name="params.pmap_class.0.police_rate" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>police</sections>
+      </sections>
     </variable>
     <variable displayName="police_rate_percent" name="params.pmap_class.0.police_rate_percent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>police</sections>
+      </sections>
     </variable>
-    <variable displayName="police_cir_percent" name="params.pmap_class.0.police_cir_percent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="police_cir_percent" name="params.pmap_class.0.police_cir_percent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="22" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>police</sections>
+      </sections>
     </variable>
     <variable displayName="conform_action" name="params.pmap_class.0.conform_action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -62,12 +98,6 @@
       <repositories/>
     </variable>
     <variable displayName="violate_action" name="params.pmap_class.0.violate_action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="priority" name="params.pmap_class.0.priority" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="shape" name="params.pmap_class.0.shape" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="queue_limit" name="params.pmap_class.0.queue_limit" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -82,14 +112,29 @@
     <variable displayName="set_value" name="params.pmap_class.0.set.0.set_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="rd_service_codepoint" name="params.pmap_class.0.random.0.rd_service_codepoint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="rd_service_codepoint" name="params.pmap_class.0.rd.0.rd_service_codepoint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>random-detect</sections>
+      </sections>
     </variable>
-    <variable displayName="rd_min_threshold" name="params.pmap_class.0.random.0.rd_min_threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="rd_min_threshold" name="params.pmap_class.0.rd.0.rd_min_threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>random-detect</sections>
+      </sections>
     </variable>
-    <variable displayName="rd_max_threshold" name="params.pmap_class.0.random.0.rd_max_threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="rd_max_threshold" name="params.pmap_class.0.rd.0.rd_max_threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>random-detect</sections>
+      </sections>
+    </variable>
+    <variable displayName="rd_wred_type" name="params.pmap_class.0.rd.0.rd_wred_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="23" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>random-detect</sections>
+      </sections>
     </variable>
   </variables>
   <example>
@@ -206,55 +251,57 @@
   <command name="CREATE">
     <operation><![CDATA[!
 policy-map  {$params.object_id} 
-{foreach $params.pmap_class as $pmap_class1}
-  class {$pmap_class1.class_name} 
-  {if isset($pmap_class1.queue_limit) and $pmap_class1.queue_limit}
-    queue-limit {$pmap_class1.queue_limit} 
+{foreach $params.pmap_class as $pmap_class}
+  class {$pmap_class.class_name} 
+  {if isset($pmap_class.queue_limit) && $pmap_class.queue_limit}
+    queue-limit {$pmap_class.queue_limit} 
   {/if}
-  {if isset($pmap_class1.priority) and $pmap_class1.priority}
-    priority level {$pmap_class1.priority} 
+  {if isset($pmap_class.priority) && $pmap_class.priority}
+    {$pmap_class.priority} 
   {/if} 
-  {if isset($pmap_class1.police_cir_burst) and $pmap_class1.police_cir_burst}police rate {$pmap_class1.police_cir_burst} {/if}{if isset($pmap_class1.police_bc_burst) and $pmap_class1.police_bc_burst}burst {$pmap_class1.police_bc_burst} {/if}{if isset($pmap_class1.police_be_burst) and $pmap_class1.police_be_burst} peak-burst {$pmap_class1.police_be_burst} 
-  {/if}  
-  {if isset($pmap_class1.service_policy) and $pmap_class1.service_policy}
-    service-policy {$pmap_class1.service_policy}  
-  {/if} 
-  {if isset($pmap_class1.random)}
-  {foreach $pmap_class1.random as $random1}
-  random-detect {if isset($random1.rd_service_codepoint)} {$random1.rd_service_codepoint} {/if}{if isset($random1.rd_min_threshold)} {$random1.rd_min_threshold} {/if}{if isset($random1.rd_max_threshold)} {$random1.rd_max_threshold} {/if}
+  {if isset($pmap_class.police_cir_burst) && $pmap_class.police_cir_burst}police rate {$pmap_class.police_cir_burst} {/if}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst} 
+  {/if}
+  {if isset($pmap_class.police_cir_percent)} police rate percent {$pmap_class.police_cir_percent}
+  {/if}
+  {if isset($pmap_class.service_policy) && $pmap_class.service_policy}
+    service-policy {$pmap_class.service_policy}  
+  {/if}
+  {* random-detect *}
+  {if isset($pmap_class.rd)}
+  {foreach $pmap_class.rd as $random1}
+  {if isset($random1.rd_wred_type) && $random1.rd_wred_type == "dscp"}
+  random-detect {if isset($random1.rd_wred_type)} {$random1.rd_wred_type} {/if}  {if isset($random1.rd_service_codepoint)} {$random1.rd_service_codepoint} {/if}{if isset($random1.rd_min_threshold)} {$random1.rd_min_threshold} {/if}{if isset($random1.rd_max_threshold)} {$random1.rd_max_threshold} {/if}
+  {/if}
   {/foreach}
   {/if}
-  {if isset($pmap_class1.shape) and $pmap_class1.shape}
-    shape {$pmap_class1.shape}  
+  {if isset($pmap_class.shape) && $pmap_class.shape}
+    shape average {$pmap_class.shape}  
   {/if} 
-  {if isset($pmap_class1.conform_action) and $pmap_class1.conform_action}
-    conform-action {$pmap_class1.conform_action|replace:'-':' '|replace:'transmit':''}  
+  {if isset($pmap_class.conform_action) && $pmap_class.conform_action}
+    conform-action {$pmap_class.conform_action|replace:'-':' '|replace:'transmit':''}  
   {/if} 
-  {if isset($pmap_class1.exceed_action) and $pmap_class1.exceed_action}
-    exceed-action {$pmap_class1.exceed_action|replace:'-':' '|replace:'transmit':''}  
+  {if isset($pmap_class.exceed_action) && $pmap_class.exceed_action}
+    exceed-action {$pmap_class.exceed_action|replace:'-':' '|replace:'transmit':''}  
   {/if} 
-  {if isset($pmap_class1.violate_action) and $pmap_class1.violate_action}
-    exceed-action {$pmap_class1.violate_action|replace:'-':' '|replace:'transmit':''}  
+  {if isset($pmap_class.violate_action) && $pmap_class.violate_action}
+    exceed-action {$pmap_class.violate_action|replace:'-':' '|replace:'transmit':''}  
   {/if} 
-  {if isset($pmap_class1.fair_queue) and $pmap_class1.fair_queue}
-    {$pmap_class1.fair_queue} fair-queue  
+  {if isset($pmap_class.fair_queue) && $pmap_class.fair_queue}
+    {$pmap_class.fair_queue} fair-queue  
   {/if}
-  {if isset($pmap_class1.set)}
-  {foreach $pmap_class1.set as $set1}
-  {if isset($set1.set_type) and $set1.set_type and isset($set1.set_value) and $set1.set_value}set {$set1.set_type} {$set1.set_value}
+  {if isset($pmap_class.set)}
+  {foreach $pmap_class.set as $set1}
+  {if isset($set1.set_type) && $set1.set_type && isset($set1.set_value) && $set1.set_value}set {$set1.set_type} {$set1.set_value}
   {/if}
   {/foreach}{/if}
-  {if isset($pmap_class1.bandwidth) and $pmap_class1.bandwidth}
-    bandwidth {$pmap_class1.bandwidth}  
+  {if isset($pmap_class.bandwidth) && $pmap_class.bandwidth}
+    bandwidth {$pmap_class.bandwidth}  
+  {/if}     
+  {if isset($pmap_class.bandwidth_percent) && $pmap_class.bandwidth_percent}
+    bandwidth percent {$pmap_class.bandwidth_percent}  
   {/if}     
 {/foreach}
 
-end-policy-map
-!
-policy-map CUSTOMER_V1234
-  class class-default
-    service-policy {$params.object_id} 
-    shape average 640000
 end-policy-map
 !]]></operation>
   </command>

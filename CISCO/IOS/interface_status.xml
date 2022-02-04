@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>interface_status</name>
-    <group>CISCO|IOS-XR</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -65,20 +65,53 @@
         </line>
         <line>
           <array/>
-          <regexp>@^\s*MTU (?&lt;mtu&gt;\d+) bytes, BW (?&lt;bandwidth&gt;\d+) Kbit \(Max: (?&lt;max_bandwidth&gt;\d+) Kbit\)@</regexp>
+          <regexp>@^\s*MTU (?&lt;mtu&gt;\d+) bytes, BW (?&lt;bandwidth&gt;\d+)@</regexp>
           <xpath/>
         </line>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
         <ignore>
-          <regexp>@Interface@</regexp>
-        </ignore>
-        <ignore>
           <regexp>@Hardware@</regexp>
         </ignore>
         <ignore>
+          <regexp>@Interface@</regexp>
+        </ignore>
+        <ignore>
           <regexp>@reliability@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Keepalive@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Full@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@output@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Output@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Carrier@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ARP@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Last@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Input@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Queueing@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*\d+@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Received@</regexp>
         </ignore>
         <ignore>
           <regexp>@Encapsulation@</regexp>
@@ -86,9 +119,7 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE">
-    <operation><![CDATA[!!]]></operation>
-  </command>
+  <command name="CREATE"/>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
