@@ -124,5 +124,16 @@
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
-  <command name="LIST"/>
+  <command name="LIST">
+    <output><![CDATA[#
+## interface status ##
+#
+{foreach $interface_status as $status}
+interface: {$status.object_id}
+  state:  {$status.state}
+  line_protocol:  {$status.line_protocol}
+  ip_address:  {$status.ip_address}
+{/foreach}
+]]></output>
+  </command>
 </ObjectDefinition>
