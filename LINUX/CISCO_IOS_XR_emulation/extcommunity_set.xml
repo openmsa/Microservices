@@ -66,12 +66,12 @@
   <command name="CREATE">
     <operation><![CDATA[!
 extcommunity-set {$params.type} {$params.object_id}
-{*if isset($params.extcommunity_list)}
+{if isset($params.extcommunity_list)}
 {foreach $params.extcommunity_list as $comm_list}
   {$comm_list.extcommunity}{if !$comm_list@last},
   {/if}
 {/foreach}
-{/if*}
+{/if}
 
 end-set
 !]]></operation>
