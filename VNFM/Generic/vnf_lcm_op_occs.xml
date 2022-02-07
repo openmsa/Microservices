@@ -1,38 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>MANO</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>vnf_lcm_op_occs</name>
+    <group>MANO</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>vnf_lcm_op_occs</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="VNF LCM Operation Occ. ID" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Operation State" displayOrder="1" maxLength="100" name="params.operationState" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="VNF Instance" displayOrder="2" maxLength="100" name="params.vnfInstanceId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="VNF LCM Operation Occ. ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Operation State" name="params.operationState" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNF Instance" name="params.vnfInstanceId" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>vnf_instances</class>
       </classes>
     </variable>
-    <variable displayName="Operation" displayOrder="3" maxLength="100" name="params.operation" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
-    <content>&lt;?xml version="1.0"?&gt;
+    <variable displayName="Operation" name="params.operation" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;root&gt;
 	&lt;row&gt;
 		&lt;id&gt;162579fb-ceaf-41cd-933b-66f61f33f2d5&lt;/id&gt;
@@ -202,31 +205,35 @@
 </content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>operationState</xpath>
+          <array/>
           <regexp>@&lt;operationState&gt;(?&lt;operationState&gt;.*)&lt;/operationState&gt;@</regexp>
+          <xpath>operationState</xpath>
         </line>
         <line>
-          <xpath>vnfInstanceId</xpath>
+          <array/>
           <regexp>@&lt;vnfInstanceId&gt;(?&lt;vnfInstanceId&gt;.*)&lt;/vnfInstanceId&gt;@</regexp>
+          <xpath>vnfInstanceId</xpath>
         </line>
         <line>
-          <xpath>operation</xpath>
+          <array/>
           <regexp>@&lt;operation&gt;(?&lt;operation&gt;.*)&lt;/operation&gt;@</regexp>
+          <xpath>operation</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
-  <xpath>/ubi-etsi-mano/sol003/vnflcm/v1/vnf_lcm_op_occs</xpath>
+    <xpath>/ubi-etsi-mano/sol003/vnflcm/v1/vnf_lcm_op_occs?all_fields=1</xpath>
   </command>
 </ObjectDefinition>
