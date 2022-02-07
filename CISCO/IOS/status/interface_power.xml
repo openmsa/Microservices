@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>neighbor_ipv4_icmp_status</name>
+    <name>interface_power</name>
     <group>Default</group>
     <importonce>false</importonce>
-    <importrank>15</importrank>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -31,11 +31,9 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[ping {}]]></operation>
+    <operation><![CDATA[show hw-module subslot 0/0 transceiver 3 status ]]></operation>
     <parser>
-      <section>
-        <regexp>@^\s \s*$@</regexp>
-      </section>
+      <section/>
       <lines/>
     </parser>
   </command>

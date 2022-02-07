@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>neighbor_ipv4_icmp_status</name>
+    <name>vrf_route_summary</name>
     <group>Default</group>
     <importonce>false</importonce>
-    <importrank>15</importrank>
+    <importrank>25</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -31,7 +31,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[ping {}]]></operation>
+    <operation><![CDATA[show ip route vrf {$params.object_id} summary ]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
