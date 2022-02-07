@@ -1,36 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>MANO</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>NS Instances</name>
+    <group>MANO</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>NS Instances</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="_color" displayOrder="0" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="nsInstanceId" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="nsdId" displayOrder="1" maxLength="100" name="params.nsdId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="operational_state" displayOrder="1" maxLength="100" name="params.operational_state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="nsState" displayOrder="2" maxLength="100" name="params.nsState" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="nsdInfoId" displayOrder="3" maxLength="100" name="params.nsdInfoId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
-    <content>&lt;?xml version="1.0"?&gt;
+  </information>
+  <variables frozen="0">
+    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="nsInstanceId" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="nsdId" name="params.nsdId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="operational_state" name="params.operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="nsState" name="params.nsState" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="nsdInfoId" name="params.nsdInfoId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;root&gt;
 	&lt;row&gt;
 		&lt;id&gt;598780c4-35fe-445b-968d-bbb9bc4f9b72&lt;/id&gt;
@@ -59,41 +62,45 @@
 			&lt;/heal&gt;
 		&lt;/_links&gt;
 	&lt;/row&gt;
-&lt;/root&gt;
-</content>
+&lt;/root&gt;</content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
+    <post_template>{if  $params.nsState== NOT_INSTANTIATED}
+      {assign_object_variable var=&quot;_color&quot; value=red}
+{/if}
+
+{if  $params.nsState== INSTANTIATED}
+      {assign_object_variable var=&quot;_color&quot; value=green}
+{/if}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>nsdId</xpath>
+          <array/>
           <regexp>@&lt;nsdId&gt;(?&lt;nsdId&gt;.*)&lt;/nsdId&gt;@</regexp>
+          <xpath>nsdId</xpath>
         </line>
         <line>
-          <xpath>nsdInfoId</xpath>
+          <array/>
           <regexp>@&lt;nsdInfoId&gt;(?&lt;nsdInfoId&gt;.*)&lt;/nsdInfoId&gt;@</regexp>
+          <xpath>nsdInfoId</xpath>
         </line>
         <line>
-          <xpath>nsState</xpath>
+          <array/>
           <regexp>@&lt;nsState&gt;(?&lt;nsState&gt;.*)&lt;/nsState&gt;@</regexp>
+          <xpath>nsState</xpath>
         </line>
       </lines>
     </parser>
-    <post_template>{if  $params.nsState== NOT_INSTANTIATED}
-      {assign_object_variable var="_color" value=red}
-{/if}
-
-{if  $params.nsState== INSTANTIATED}
-      {assign_object_variable var="_color" value=green}
-{/if}</post_template>
-  <xpath>/ubi-etsi-mano/sol005/nslcm/v1/ns_instances</xpath>
+    <xpath>/ubi-etsi-mano/sol005/nslcm/v1/ns_instances?all_fields=1</xpath>
   </command>
 </ObjectDefinition>

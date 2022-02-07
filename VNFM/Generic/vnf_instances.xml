@@ -1,39 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>MANO</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>VNF_Instances</name>
+    <group>MANO</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>VNF_Instances</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="_color" displayOrder="0" editable="false" maxLength="100" name="params._color" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="vnfinstanceId" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vnfdId" displayOrder="1" maxLength="100" name="params.vnfdId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vnfProvider" displayOrder="2" maxLength="100" name="params.vnfProvider" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vnfProductName" displayOrder="3" maxLength="100" name="params.vnfProductName" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vnfSoftwareVersion" displayOrder="4" maxLength="100" name="params.vnfSoftwareVersion" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vnfdVersion" displayOrder="5" maxLength="100" name="params.vnfdVersion" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vnfPkgId" displayOrder="6" maxLength="100" name="params.vnfPkgId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="instantiationState" displayOrder="7" maxLength="100" name="params.instantiationState" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-  </variables>  <example>
-    <content>&lt;?xml version="1.0"?&gt;
+  </information>
+  <variables frozen="0">
+    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfinstanceId" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfdId" name="params.vnfdId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfProvider" name="params.vnfProvider" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfProductName" name="params.vnfProductName" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfSoftwareVersion" name="params.vnfSoftwareVersion" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfdVersion" name="params.vnfdVersion" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfPkgId" name="params.vnfPkgId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="instantiationState" name="params.instantiationState" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;root&gt;
 	&lt;row&gt;
 		&lt;id&gt;20d2d1f2-d01d-4fd3-82af-b1fc160526b8&lt;/id&gt;
@@ -88,57 +91,65 @@
 			&lt;/changeExtConn&gt;
 		&lt;/_links&gt;
 	&lt;/row&gt;
-&lt;/root&gt;
-</content>
+&lt;/root&gt;</content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
+    <post_template>{if  $params.instantiationState == NOT_INSTANTIATED}
+      {assign_object_variable var=&quot;_color&quot; value=red}
+{/if}
+
+{if  $params.instantiationState == INSTANTIATED}
+      {assign_object_variable var=&quot;_color&quot; value=green}
+{/if}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>vnfdId</xpath>
+          <array/>
           <regexp>@&lt;vnfdId&gt;(?&lt;vnfdId&gt;.*)&lt;/vnfdId&gt;@</regexp>
+          <xpath>vnfdId</xpath>
         </line>
         <line>
-          <xpath>vnfProvider</xpath>
+          <array/>
           <regexp>@&lt;vnfProvider&gt;(?&lt;vnfProvider&gt;.*)&lt;/vnfProvider&gt;@</regexp>
+          <xpath>vnfProvider</xpath>
         </line>
         <line>
-          <xpath>vnfProductName</xpath>
+          <array/>
           <regexp>@&lt;vnfProductName&gt;(?&lt;vnfProductName&gt;.*)&lt;/vnfProductName&gt;@</regexp>
+          <xpath>vnfProductName</xpath>
         </line>
         <line>
-          <xpath>vnfSoftwareVersion</xpath>
+          <array/>
           <regexp>@&lt;vnfSoftwareVersion&gt;(?&lt;vnfSoftwareVersion&gt;.*)&lt;/vnfSoftwareVersion&gt;@</regexp>
+          <xpath>vnfSoftwareVersion</xpath>
         </line>
         <line>
-          <xpath>vnfdVersion</xpath>
+          <array/>
           <regexp>@&lt;vnfdVersion&gt;(?&lt;vnfdVersion&gt;.*)&lt;/vnfdVersion&gt;@</regexp>
+          <xpath>vnfdVersion</xpath>
         </line>
         <line>
-          <xpath>vnfPkgId</xpath>
+          <array/>
           <regexp>@&lt;vnfPkgId&gt;(?&lt;vnfPkgId&gt;.*)&lt;/vnfPkgId&gt;@</regexp>
+          <xpath>vnfPkgId</xpath>
         </line>
         <line>
-          <xpath>instantiationState</xpath>
+          <array/>
           <regexp>@&lt;instantiationState&gt;(?&lt;instantiationState&gt;.*)&lt;/instantiationState&gt;@</regexp>
+          <xpath>instantiationState</xpath>
         </line>
       </lines>
     </parser>
-    <post_template>{if  $params.instantiationState == NOT_INSTANTIATED}
-      {assign_object_variable var="_color" value=red}
-{/if}
-
-{if  $params.instantiationState == INSTANTIATED}
-      {assign_object_variable var="_color" value=green}
-{/if}</post_template>
-  <xpath>/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances</xpath>
+    <xpath>/ubi-etsi-mano/sol003/vnflcm/v1/vnf_instances?all_fields=1</xpath>
   </command>
 </ObjectDefinition>
