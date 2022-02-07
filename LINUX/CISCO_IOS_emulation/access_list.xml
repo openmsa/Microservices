@@ -84,13 +84,14 @@
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{* convertion of inverted mask to mask length for compatibility with IOS XR *}
-{capture}
-{convert_imask_to_length input={$params.acl_src_imask} var=&quot;mask_length&quot;}
-{/capture}
-{assign_object_variable 
-	var=&quot;acl_src_mask_length&quot; 
-	value=$mask_length}
-</post_template>
+{if isset($params.acl_src_imask)}
+	{capture}
+	{convert_imask_to_length input={$params.acl_src_imask} var=&quot;mask_length&quot;}
+	{/capture}
+	{assign_object_variable 
+		var=&quot;acl_src_mask_length&quot; 
+		value=$mask_length}
+{/if}</post_template>
     <parser>
       <section>
         <regexp>@^\s*access-list (?&lt;acl_id&gt;\d+) (?&lt;acl_rule&gt;permit|deny)\s*(?&lt;acl_protocol&gt;ip|udp|tcp|pim|ospf|\d+)?\s*(?&lt;acl_src&gt;(any|host))?\s*(?&lt;acl_src_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_src_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(eq?\s+(?&lt;acl_src_port&gt;\S+))?\s*(?&lt;acl_dest&gt;(any|host))?\s*(?&lt;acl_dest_ip&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(?&lt;acl_dest_imask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})?\s*(((\s*eq?\s+(?&lt;acl_dest_port&gt;\S+|\d+))|(\s*range\s+(?&lt;acl_dest_range&gt;\d+\s\d+))|(\s*(?&lt;acl_log&gt;log|log-input))|(\s*(?&lt;acl_fragments&gt;fragments))|(\s*dscp\s+(?&lt;acl_dscp&gt;\S+))))*$@</regexp>

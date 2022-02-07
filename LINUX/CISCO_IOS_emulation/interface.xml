@@ -604,7 +604,7 @@ interface Serial1/0/0.1/3/1/1:0
 {/if}
 {if $params.type == &quot;Multilink&quot;}
 	{foreach $interface as $itf}
-		{if $itf.type == &quot;Serial&quot; &amp;&amp; $itf.multilink_group == $params.multilink_group}
+		{if $itf.type == &quot;Serial&quot; &amp;&amp; (isset($itf.multilink_group)) &amp;&amp; (isset($params.multilink_group)) &amp;&amp; $itf.multilink_group == $params.multilink_group}
 			{assign_object_variable
 				var=&quot;bandwidth&quot;
 				value=$itf.bandwidth}
