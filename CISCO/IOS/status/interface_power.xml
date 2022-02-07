@@ -31,9 +31,11 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show hw-module subslot 0/0 transceiver 3 status ]]></operation>
+    <operation><![CDATA[show hw-module subslot {$params.subslot_num} transceiver {$params.interface_num}  status ]]></operation>
     <parser>
-      <section/>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
       <lines/>
     </parser>
   </command>

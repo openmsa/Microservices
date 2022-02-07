@@ -31,7 +31,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[ping {}]]></operation>
+    <operation><![CDATA[ping {$object_id}]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>

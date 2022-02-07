@@ -31,7 +31,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show ip bgp vpnv4 vrf V11011:SSII_SORIN summary ]]></operation>
+    <operation><![CDATA[show ip bgp vpnv4 vrf {$params.object_id} summary ]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
