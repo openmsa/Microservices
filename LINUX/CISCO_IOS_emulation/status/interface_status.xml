@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>interface_status</name>
-    <group>CISCO|IOS</group>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -120,9 +120,29 @@
     </parser>
   </command>
   <command name="CREATE"/>
-  <command name="READ"/>
+  <command name="READ">
+    <output><![CDATA[#
+## interface status ##
+#
+interface: {$interface_status.$object_id.object_id}
+  state:  {$interface_status.$object_id.state}
+  line_protocol:  {$interface_status.$object_id.line_protocol}
+  ip_address:  {$interface_status.$object_id.ip_address}
+]]></output>
+  </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
-  <command name="LIST"/>
+  <command name="LIST">
+    <output><![CDATA[#
+## interface status ##
+#
+{foreach $interface_status as $status}
+interface: {$status.object_id}
+  state:  {$status.state}
+  line_protocol:  {$status.line_protocol}
+  ip_address:  {$status.ip_address}
+{/foreach}
+]]></output>
+  </command>
 </ObjectDefinition>
