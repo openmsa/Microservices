@@ -39,19 +39,23 @@
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$idx=0}
-{foreach $ip_access_list as $ip_acl}
-	{if isset($ip_acl.access_list) &amp;&amp; ($ip_acl.object_id == $params.object_id)}
-		{foreach $ip_acl.access_list as $acl}
-			{assign_object_variable 
-				var=&quot;prefix_set.{$idx}.src_ip&quot; 
-				value=&quot;{$acl.acl_src_ip}&quot;}
-			{assign_object_variable 
-				var=&quot;prefix_set.{$idx}.mask_length&quot; 
-				value=&quot;{$acl.acl_src_mask_length}&quot;}
-			{$idx=$idx+1}
-		{/foreach}
-	{/if}
-{/foreach}
+{if isset($ip_access_list)}
+	{foreach $ip_access_list as $ip_acl}
+		{if isset($ip_acl.access_list) &amp;&amp; ($ip_acl.object_id == $params.object_id)}
+			{foreach $ip_acl.access_list as $acl}
+				{if isset($acl.acl_src_ip) &amp;&amp; isset($acl.acl_src_mask_length)}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.src_ip&quot; 
+						value=&quot;{$acl.acl_src_ip}&quot;}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.mask_length&quot; 
+						value=&quot;{$acl.acl_src_mask_length}&quot;}
+					{$idx=$idx+1}
+				{/if}
+			{/foreach}
+		{/if}
+	{/foreach}
+{/if}
 {assign_object_variable 
 	var=&quot;object_id&quot; 
 	value=&quot;prefix_set_{$params.object_id}&quot;}</post_template>

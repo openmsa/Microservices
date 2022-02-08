@@ -321,7 +321,8 @@ ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
 {if isset($params.mtu_int) and $params.mtu_int}mtu {$params.mtu_int}
 {/if}
-
+{if isset($params.bandwidth) and $params.bandwidth}bandwidth {$params.bandwidth}
+{/if}
 {if isset($params.encapsulation_dot1q) and $params.encapsulation_dot1q}
 encapsulation dot1q {$params.encapsulation_dot1q} {if isset($params.encapsulation_second_dot1q) and $params.encapsulation_second_dot1q} second-dot1q  {$params.encapsulation_second_dot1q}
 	{/if}
@@ -336,17 +337,6 @@ service-policy output {$params.customer_name}_{$params.bandwidth}
 service-policy output {$params.service_policy_out}
 {/if}
 {/if}
-{*if isset($params.xconnect)}
-{foreach $params.xconnect as $xconnect1}
-  {if isset($xconnect1.peer_ip) && isset($xconnect1.vc_id) }
-    {if isset($xconnect1.mode) and $xconnect1.mode}
-xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id} {$xconnect1.mode}
-    {else if}
-xconnect {$xconnect1.peer_ip} {$xconnect1.vc_id}
-    {/if}
-  {/if}
-{/foreach}
-{/if*}
 {if isset($params.mpls)}
 {foreach $params.mpls as $mpls}
     {if isset($mpls.mpls_mtu) and $mpls.mpls_mtu}
