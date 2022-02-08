@@ -1,0 +1,109 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description>for Cisco IOS device</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>ipv4_prefix_list-inter</name>
+    <group>CISCO|IOS|DEVICE</group>
+    <importonce>false</importonce>
+    <importrank>5</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="sequence" name="params.ip_prefix_list.0.sequence" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="action" name="params.ip_prefix_list.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ip_prefix" name="params.ip_prefix_list.0.ip_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="comp_prefix_length" name="params.ip_prefix_list.0.comp_prefix_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="prefix_length" name="params.ip_prefix_list.0.prefix_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation>show running-config</operation>
+    <post_template>{$idx=0}
+{foreach $ip_prefix_list|@sortby_as_int:&quot;sequence&quot; as $ipl}
+	{if isset($ipl.sequence)}
+		{if ($ipl.name == $params.object_id)}
+			{if isset($ipl.sequence)}
+				{assign_object_variable
+					var=&quot;ip_prefix_list.{$idx}.sequence&quot;
+					value=&quot;{$ipl.sequence}&quot;}
+			{/if}
+			{if isset($ipl.action)}
+				{assign_object_variable
+					var=&quot;ip_prefix_list.{$idx}.action&quot;
+					value=&quot;{$ipl.action}&quot;}
+			{/if}
+			{if isset($ipl.ip_prefix)}
+				{assign_object_variable
+					var=&quot;ip_prefix_list.{$idx}.ip_prefix&quot;
+					value=&quot;{$ipl.ip_prefix}&quot;}
+			{/if}
+			{if isset($ipl.comp_prefix_length)}
+				{assign_object_variable
+					var=&quot;ip_prefix_list.{$idx}.comp_prefix_length&quot;
+					value=&quot;{$ipl.comp_prefix_length}&quot;}
+			{/if}
+			{if isset($ipl.prefix_length)}
+				{assign_object_variable
+					var=&quot;ip_prefix_list.{$idx}.prefix_length&quot;
+					value=&quot;{$ipl.prefix_length}&quot;}
+			{/if}
+	
+			{$idx=$idx+1}
+		{/if}
+	{/if}
+{/foreach}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s*ip\s+prefix-list\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <xpath></xpath>
+      </section>
+      <lines>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[!
+ipv4 prefix-list {$params.object_id}
+{foreach $params.ip_prefix_list as $prefix}
+ {$prefix.sequence} {$prefix.action} {$prefix.ip_prefix} {if isset($prefix.comp_prefix_length) && $prefix.comp_prefix_length}{$prefix.comp_prefix_length} {$prefix.comp_prefix_length} {/if}
+{/foreach}
+! ]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
