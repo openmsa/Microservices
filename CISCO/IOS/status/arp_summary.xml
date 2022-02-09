@@ -53,8 +53,11 @@
   <command name="READ">
     <output><![CDATA[#
 ## IP arp summary  ##
-total: {$params.total}
-incomplete: {$params.incomplete}]]></output>
+{foreach $arp_summary as $arp}
+total: {$arp.total}
+incomplete: {$arp.incomplete}
+{/foreach}
+]]></output>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
