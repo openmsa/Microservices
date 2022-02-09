@@ -86,13 +86,20 @@
     </parser>
   </command>
   <command name="CREATE"/>
-  <command name="READ"/>
+  <command name="READ">
+    <output><![CDATA[# show ip bgp vpnv4 vrf V11011:SSII_SORIN summary 
+# BGP neighbor status
+#Neighbor; V; AS; MsgRcvd; MsgSent; TblVer; InQ; OutQ; Up/Down; State/PfxRcd
+{$bgp_neighbor_status.$object_id.ip_bgp_neighbor}; {$bgp_neighbor_status.$object_id.ip_bgp_v}; {$bgp_neighbor_status.$object_id.ip_bgp_as}; {$bgp_neighbor_status.$object_id.ip_bgp_msg_rcvd}; {$bgp_neighbor_status.$object_id.ip_bgp_msg_sent}; {$bgp_neighbor_status.$object_id.ip_bgp_tbl_ver}; {$bgp_neighbor_status.$object_id.ip_bgp_in_queue}; {$bgp_neighbor_status.$object_id.ip_bgp_out_queue}; {$bgp_neighbor_status.$object_id.ip_bgp_up_down}; {$bgp_neighbor_status.$object_id.ip_bgp_state_pfxrcd}; 
+]]>
+</output>
+  </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
   <command name="LIST">
     <output><![CDATA[##
-# BGP neighbot status
+# BGP neighbor status
 ##
 Neighbor; V; AS; MsgRcvd; MsgSent; TblVer; InQ; OutQ; Up/Down; State/PfxRcd
 {foreach $bgp_neighbor_status as $status}

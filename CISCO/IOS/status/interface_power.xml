@@ -78,7 +78,41 @@
     </parser>
   </command>
   <command name="CREATE"/>
-  <command name="READ"/>
+  <command name="READ">
+      <operation><![CDATA[show hw-module subslot {$params.subslot_num} transceiver {$params.interface_num}  status ]]></operation>
+    <post_template>{assign_object_variable 
+	var=&quot;object_id&quot;
+	value=&quot;{$params.subslot}/{$params.transceiver}&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s*show hw-module subslot (?&lt;subslot&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)  status@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*Transceiver Tx power\s*=\s*(?&lt;interface_power_tx&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*Transceiver Rx optical power\s*=\s*(?&lt;interface_power_rx&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@The Transceiver@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Module@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Transceiver Tx supply voltage@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Transceiver Tx bias current @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>

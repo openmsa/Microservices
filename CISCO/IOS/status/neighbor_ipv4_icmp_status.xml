@@ -40,7 +40,15 @@
     </parser>
   </command>
   <command name="CREATE"/>
-  <command name="READ"/>
+  <command name="READ">
+      <operation><![CDATA[ping {$object_id}]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
+      <lines/>
+    </parser>
+  </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
