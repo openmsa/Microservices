@@ -38,7 +38,9 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{$idx=0}
+    <post_template>{* loop over the ip_access_list instances and build the prefix_set array
+based on each  ip_access_list src IP and mask variables *}
+{$idx=0}
 {if isset($ip_access_list)}
 	{foreach $ip_access_list as $ip_acl}
 		{if isset($ip_acl.access_list) &amp;&amp; ($ip_acl.object_id == $params.object_id)}
@@ -51,18 +53,44 @@
 						var=&quot;prefix_set.{$idx}.mask_length&quot; 
 						value=&quot;{$acl.acl_src_mask_length}&quot;}
 					{$idx=$idx+1}
+				{else if isset($acl.acl_src) &amp;&amp; ($acl.acl_src == &quot;any&quot;)}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.src_ip&quot; 
+						value=&quot;0.0.0.0&quot;}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.mask_length&quot; 
+						value=&quot;0&quot;}				
+					{$idx=$idx+1}
 				{/if}
 			{/foreach}
 		{/if}
 	{/foreach}
 {/if}
+{$idx=0}
+{if isset($ip_prefix_list)}
+	{foreach $ip_prefix_list as $ip_pref_list}
+		{if isset($ip_pref_list.name) &amp;&amp; ($ip_pref_list.name == $params.object_id)}
+			{if isset($ip_pref_list.prefix_ip) &amp;&amp; isset($ip_pref_list.prefix_mask_length)}
+				{assign_object_variable 
+					var=&quot;prefix_set.{$idx}.src_ip&quot; 
+					value=&quot;{$ip_pref_list.prefix_ip}&quot;}
+				{assign_object_variable 
+					var=&quot;prefix_set.{$idx}.mask_length&quot; 
+					value=&quot;{$ip_pref_list.prefix_mask_length}&quot;}
+				{$idx=$idx+1}
+			{/if}
+		{/if}
+	{/foreach}
+{/if}
+{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
 {assign_object_variable 
 	var=&quot;object_id&quot; 
 	value=&quot;prefix_set_{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*access-list\s+(?&lt;object_id&gt;\d+)@</regexp>
+        <regexp>@^\s*ip\s+prefix-list\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <ignore>
