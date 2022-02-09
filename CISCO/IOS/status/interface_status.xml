@@ -121,11 +121,8 @@
   </command>
   <command name="CREATE"/>
   <command name="READ">
-    <output><![CDATA[#
-## interface status ##
-#
-interface: {$interface_status.$object_id.object_id} | state:  {$interface_status.$object_id.state} | line_protocol:  {$interface_status.$object_id.line_protocol} | ip_address:  {$interface_status.$object_id.ip_address}
-]]></output>
+    <output><![CDATA[## interface status ##
+interface: {$interface_status.$object_id.object_id} | state:  {$interface_status.$object_id.state} | line_protocol:  {$interface_status.$object_id.line_protocol} | ip_address:  {$interface_status.$object_id.ip_address}]]></output>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>

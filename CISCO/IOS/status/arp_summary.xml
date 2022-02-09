@@ -35,8 +35,12 @@
       <repositories/>
     </variable>
   </variables>
-  <example/>
-  <command name="IMPORT">
+  <example>
+    <content>!
+ show ip arp summary
+    7 IP ARP entries, with 0 of them incomplete
+!</content>
+  </example>  <command name="IMPORT">
     <operation><![CDATA[show ip arp summary]]></operation>
     <parser>
       <section>
@@ -49,10 +53,8 @@
   <command name="READ">
     <output><![CDATA[#
 ## IP arp summary  ##
-#
-total: {$arp_summary.$object_id.total}
-incomplete: {$arp_summary.$object_id.incomplete}
-]]></output>
+total: {$params.total}
+incomplete: {$params.incomplete}]]></output>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
