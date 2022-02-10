@@ -41,9 +41,22 @@
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content>DEV-NEC-CISCO-IOS# show hw-module subslot all transceiver all status
+                                               ^
+% Invalid input detected at &apos;^&apos; marker.
+
+DEV-NEC-CISCO-IOS# show hw-module subslot all ?
+  attribute     Show module attribute information
+  entity        entity MIB details - not intended for production use
+  oir           Show oir summary
+  sensors       Environmental sensor summary
+  subblock      subblock details - not intended for production use
+  tech-support  Show subslot information for Tech-Support
+</content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[show hw-module subslot all transceiver all status ]]></operation>
+    <operation><![CDATA[ show hw-module subslot all transceiver all status ]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
 	value=&quot;{$params.subslot}/{$params.transceiver}&quot;}</post_template>
@@ -79,7 +92,7 @@
   </command>
   <command name="CREATE"/>
   <command name="READ">
-      <operation><![CDATA[show hw-module subslot {$params.subslot_num} transceiver {$params.interface_num}  status ]]></operation>
+    <operation><![CDATA[show hw-module subslot {$params.subslot_num} transceiver {$params.interface_num}  status ]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
 	value=&quot;{$params.subslot}/{$params.transceiver}&quot;}</post_template>
