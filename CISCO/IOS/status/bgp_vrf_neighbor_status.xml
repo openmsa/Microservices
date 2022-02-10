@@ -46,7 +46,7 @@
   </variables>
   <example>
     <content>#show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor}
-show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30
+#show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30
 BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external link
   BGP version 4, remote router ID 0.0.0.0
   BGP state = Idle
@@ -104,73 +104,43 @@ BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external 
   </example>
   <command name="IMPORT">
     <operation><![CDATA[show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30]]></operation>
+    <post_template></post_template>
     <parser>
       <section>
-        <regexp>@^\s*BGP neighbor is (?&lt;bgp_neighbor&gt;.*) external link@</regexp>
+        <regexp>@^\s*BGP neighbor is (?&lt;bgp_neighbor&gt;.*) external link$@</regexp>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@^\s*Prefixes Current:\s+(?&lt;bgp_vrf_nghr_prefix_cur&gt;\S+)@</regexp>
+          <regexp>@\s*Prefixes Total:\s+(?&lt;bgp_vrf_nghr_prefix_total&gt;.*)$@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*Prefixes Total:\s+(?&lt;bgp_vrf_nghr_prefix_total&gt;.*)@</regexp>
+          <regexp>@\s*Neighbor (?&lt;neighbor&gt;.*):$@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*BGP state =\s+(?&lt;bgp_state&gt;\S+)@</regexp>
+          <regexp>@\s*Prefixes Current:\s+(?&lt;bgp_vrf_nghr_prefix_cur&gt;\S+)$@</regexp>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@\s+BGP state =(?&lt;bgp_state&gt;.*)$@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
         <ignore>
-          <regexp>@Hardware@</regexp>
+          <regexp>@^$@</regexp>
         </ignore>
         <ignore>
-          <regexp>@Interface@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@reliability@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Keepalive@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Full@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@output@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Output@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Carrier@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@ARP@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Last@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Input@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Queueing@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@^\s*\d+@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Received@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@Encapsulation@</regexp>
+          <regexp>@BGP version@</regexp>
         </ignore>
       </lines>
     </parser>
