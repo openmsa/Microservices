@@ -50,7 +50,28 @@
       <repositories/>
     </variable>
   </variables>
-  <example/>
+  <example>
+    <content>DEV-NEC-CISCO-IOS#show interface GigabitEthernet1
+GigabitEthernet1 is up, line protocol is up
+  Hardware is CSR vNIC, address is 0050.56b2.1dd8 (bia 0050.56b2.1dd8)
+  Internet address is 10.30.19.215/23
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 01:44:22, output hang never
+  Last clearing of &quot;show interface&quot; counters never
+  Input queue: 1/375/365/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 53000 bits/sec, 76 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     552647091 packets input, 102665094606 bytes, 0 no buffer
+</content>
+  </example>
   <command name="IMPORT">
     <operation><![CDATA[show interface {$params.object_id}]]></operation>
     <parser>
