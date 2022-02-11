@@ -31,9 +31,6 @@
     <variable displayName="bgp_neighbor" name="params.bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="neighbor" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
     <variable displayName="bgp_state" name="params.bgp_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -103,7 +100,7 @@ BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external 
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30]]></operation>
+    <operation><![CDATA[show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor}]]></operation>
     <post_template></post_template>
     <parser>
       <section>
@@ -112,22 +109,17 @@ BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external 
       <lines>
         <line>
           <array/>
-          <regexp>@\s*Prefixes Total:\s+(?&lt;bgp_vrf_nghr_prefix_total&gt;.*)$@</regexp>
+          <regexp>@\s*Prefixes Total:\s+(?&lt;bgp_vrf_nghr_prefix_total&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@\s*Neighbor (?&lt;neighbor&gt;.*):$@</regexp>
+          <regexp>@\s*Prefixes Current:\s+(?&lt;bgp_vrf_nghr_prefix_cur&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@\s*Prefixes Current:\s+(?&lt;bgp_vrf_nghr_prefix_cur&gt;\S+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@\s+BGP state =(?&lt;bgp_state&gt;.*)$@</regexp>
+          <regexp>@\s+BGP state =(?&lt;bgp_state&gt;.*)@</regexp>
           <xpath/>
         </line>
         <ignore>
@@ -141,6 +133,48 @@ BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external 
         </ignore>
         <ignore>
           <regexp>@BGP version@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Neighbor sessions@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@is not multisession@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Stateful switchove@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Do log neighbor@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Default minimum@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@For address@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Translates@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP table@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Output@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Index @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Overrides@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Slow-peer@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Sent\s+Rcvd@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Prefix activity@</regexp>
         </ignore>
       </lines>
     </parser>
