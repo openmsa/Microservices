@@ -108,6 +108,7 @@
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+update-source\s+(?&lt;bgp_source_interface&gt;.+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+ebgp-multihop\s+(?&lt;bgp_multihop&gt;.+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_neighbor_status&gt;shutdown)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+\d+\s+(?&lt;bgp_neighbor_password&gt;\S+)$@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -149,9 +150,6 @@
         </ignore>
         <ignore>
           <regexp>@^\s*description@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@^\s*password@</regexp>
         </ignore>
         <ignore>
           <regexp>@^\s*update-source@</regexp>

@@ -126,7 +126,8 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[vrf {$params.object_id}
+    <operation><![CDATA[!
+vrf {$params.object_id}
  address-family ipv4 unicast
 {$first=false}
 {foreach $params.route_targets as $rt}
