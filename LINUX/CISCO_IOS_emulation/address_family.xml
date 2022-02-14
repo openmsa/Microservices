@@ -245,15 +245,15 @@
           <xpath/>
         </line>
         <line>
-          <array/>
-          <regexp>@^\s*network\s+(?&lt;bgp_network&gt;\S+)$@</regexp>
-          <xpath/>
-        </line>
-        <line>
           <array name="redistribute">
             <regexp>@^\s*redistribute\s+(?&lt;bgp_redistribute_type&gt;connected|static) route-map (?&lt;bgp_redistribute_target&gt;\S+)$@</regexp>
           </array>
           <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*network\s+(?&lt;bgp_network&gt;\S+)$@</regexp>
           <xpath/>
         </line>
         <line>
