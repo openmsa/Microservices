@@ -34,7 +34,7 @@
     <variable displayName="interface_power_rx" name="params.interface_power_rx" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="subslot" name="params.subslot" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="subslot_num" name="params.subslot_num" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="transceiver" name="params.transceiver" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -42,27 +42,23 @@
     </variable>
   </variables>
   <example>
-    <content>DEV-NEC-CISCO-IOS# show hw-module subslot all transceiver all status
-                                               ^
-% Invalid input detected at &apos;^&apos; marker.
-
-DEV-NEC-CISCO-IOS# show hw-module subslot all ?
-  attribute     Show module attribute information
-  entity        entity MIB details - not intended for production use
-  oir           Show oir summary
-  sensors       Environmental sensor summary
-  subblock      subblock details - not intended for production use
-  tech-support  Show subslot information for Tech-Support
+    <content>DEV-NEC-CISCO-IOS#show hw-module subslot 0/0 transceiver 3 status 
+    The Transceiver in slot 0 subslot 0 port 3 is enabled.
+  Module temperature                        = +49.726 C
+  Transceiver Tx supply voltage             = 3265.8 mVolts
+  Transceiver Tx bias current               = 26536 uAmps
+  Transceiver Tx power                      = -5.9 dBm
+  Transceiver Rx optical power              = -6.5 dBm
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[ show hw-module subslot all transceiver all status ]]></operation>
+    <operation><![CDATA[ show hw-module subslot {$params.subslot_num} transceiver {$params.transceiver} status ]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
-	value=&quot;{$params.subslot}/{$params.transceiver}&quot;}</post_template>
+	value=&quot;{$params.subslot_num}_transceiver{$params.transceiver}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*show hw-module subslot (?&lt;subslot&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)  status@</regexp>
+        <regexp>@^\s*show hw-module subslot (?&lt;subslot_num&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)  status@</regexp>
       </section>
       <lines>
         <line>
@@ -95,10 +91,10 @@ DEV-NEC-CISCO-IOS# show hw-module subslot all ?
     <operation><![CDATA[show hw-module subslot {$params.subslot_num} transceiver {$params.interface_num}  status ]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
-	value=&quot;{$params.subslot}/{$params.transceiver}&quot;}</post_template>
+	value=&quot;{$params.subslot_num}/{$params.transceiver}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*show hw-module subslot (?&lt;subslot&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)  status@</regexp>
+        <regexp>@^\s*show hw-module subslot (?&lt;subslot_num&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)  status@</regexp>
       </section>
       <lines>
         <line>
