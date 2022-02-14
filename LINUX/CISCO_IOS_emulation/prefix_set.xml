@@ -90,7 +90,7 @@ based on each  ip_access_list src IP and mask variables *}
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
         <regexp>@^\s*access-list\s+(?&lt;object_id&gt;\d+)@</regexp>
-        <regexp>@^\s*ip\s+prefix-list\s+(?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^\s*(ip|ipv6)\s+prefix-list\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <ignore>
