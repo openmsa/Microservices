@@ -81,7 +81,7 @@ GigabitEthernet1 is up, line protocol is up
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show interface GigabitEthernet1]]></operation>
+    <operation><![CDATA[show interface {$params.object_id}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*(?&lt;object_id&gt;\S+) is (?&lt;interface_status&gt;up|administratively down), line protocol is (?&lt;line_protocol&gt;up|down|administratively down) @</regexp>
