@@ -194,7 +194,7 @@
  !</content>
   </example>
   <command name="IMPORT">
-    <operation>show running-config</operation>
+    <operation><![CDATA[show running-config]]></operation>
     <post_template>{foreach $router_bgp as $r_bgp}
 {assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$r_bgp.router_bgp}&quot;}
 {/foreach}</post_template>
