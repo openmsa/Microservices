@@ -184,7 +184,8 @@
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
-  </variables>  <example/>
+  </variables>
+  <example/>
   <command name="IMPORT">
     <operation><![CDATA[#cat /config/cisco_ios_xr/router_static.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;object_id&quot; value=&quot;1&quot;}</post_template>
@@ -265,6 +266,16 @@ router static
 {/foreach}
 {/if}
 !
+{if isset ($params.routes6)}
+ address-family ipv6 unicast
+{foreach $params.routes6 as $route}
+ {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+ {/if}
+ 
+{/foreach}
+{/if}
+!
+
 {if isset ($params.vrf_routes)}
 {foreach $params.vrf_routes as $vrf}
 {if isset($vrf.vrf_name)}
@@ -278,6 +289,22 @@ vrf {$vrf.vrf_name}
 {/foreach}
 {/foreach}
 {/if}
+!
+
+{if isset ($params.vrf_routes6)}
+{foreach $params.vrf_routes6 as $vrf}
+{if isset($vrf.vrf_name)}
+vrf {$vrf.vrf_name}
+{/if}
+ address-family ipv6 unicast
+{foreach $vrf.routes as $route}
+ {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+{/if}
+ 
+{/foreach}
+{/foreach}
+{/if}
+
 !]]></operation>
   </command>
   <command name="READ"/>
