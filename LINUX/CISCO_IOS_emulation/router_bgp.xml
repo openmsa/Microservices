@@ -64,13 +64,13 @@
         <sections>neighbor</sections>
       </sections>
     </variable>
-    <variable displayName="bgp_source_interface" name="params.neighbors.0.bgp_source_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bgp_neighbor_source_interface" name="params.neighbors.0.bgp_neighbor_source_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>neighbor</sections>
       </sections>
     </variable>
-    <variable displayName="bgp_multihop" name="params.neighbors.0.bgp_multihop" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bgp_neighbor_multihop" name="params.neighbors.0.bgp_neighbor_multihop" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>neighbor</sections>
@@ -105,8 +105,8 @@
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+remote-as\s+(?&lt;bgp_neighbor_remote_as&gt;\d+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+description\s+(?&lt;bgp_neighbor_description&gt;.+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+password\s+\d+\s+(?&lt;bgp_neighbor_password&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+update-source\s+(?&lt;bgp_source_interface&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+ebgp-multihop\s+(?&lt;bgp_multihop&gt;.+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+update-source\s+(?&lt;bgp_neighbor_source_interface&gt;.+)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+ebgp-multihop\s+(?&lt;bgp_neighbor_multihop&gt;.+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+(?&lt;bgp_neighbor_status&gt;shutdown)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+\d+\s+(?&lt;bgp_neighbor_password&gt;\S+)$@</regexp>
           </array>
