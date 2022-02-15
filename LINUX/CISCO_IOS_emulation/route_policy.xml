@@ -225,6 +225,12 @@
 						value=&quot;prefix_set_{$match.ip_access_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
+				{if isset($match.ipv6_access_list)}
+					{assign_object_variable
+						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
+						value=&quot;prefix_set_{$match.ipv6_access_list}&quot;}
+					{$dest_idx=$dest_idx+1}
+				{/if}
 				{if isset($match.ip_prefix_list)}
 					{assign_object_variable
 						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
