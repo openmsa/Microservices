@@ -231,12 +231,14 @@
           <regexp>@^\s*mdt data (?&lt;vrf_mdt_data&gt;\S+\s+\S+)@</regexp>
           <xpath/>
         </line>
-
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
         <ignore>
           <regexp>@^\s*ip vrf forwarding@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@exit-address-family@</regexp>
         </ignore>
       </lines>
     </parser>
