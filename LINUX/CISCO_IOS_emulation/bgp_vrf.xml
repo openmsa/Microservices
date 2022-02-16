@@ -297,6 +297,56 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp/>
           <xpath/>
         </line>
+                <line>
+          <array name="address_family">
+            <lines>
+              <line>
+                <array name="import_array_rt">
+                  <regexp>@\s*route-target\s+import\s+(?&lt;import_rt&gt;[0-9]+:[0-9]+)@</regexp>
+                </array>
+                <regexp/>
+                <xpath/>
+              </line>
+              <line>
+                <array name="export_array_rt">
+                  <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
+                </array>
+                <regexp/>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*(?&lt;route_map_import_export&gt;import|export)\s+map\s+(?&lt;route_map&gt;\S+)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*maximum routes (?&lt;vrf_max_routes&gt;\d+\s+\d+)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*(?&lt;vrf_interas_hybrid&gt;inter-as-hybrid)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*mdt default (?&lt;vrf_mdt_default&gt;\S+)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*mdt data (?&lt;vrf_mdt_data&gt;\S+\s+\S+)@</regexp>
+                <xpath/>
+              </line>
+            </lines>
+            <lines/>
+            <regexp>@^\s*address-family (?&lt;address_family&gt;ipv4|ipv6)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+
         <line>
           <array/>
           <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static|connected)$@</regexp>
