@@ -290,6 +290,13 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp/>
           <xpath/>
         </line>
+          <line>
+          <array name="export_array_rt">
+            <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
         <line>
           <array/>
           <regexp>@^\s*redistribute\s+(?&lt;bgp_vrf_redistribute&gt;static|connected)$@</regexp>
@@ -340,13 +347,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp>@^\s*description\s+(?&lt;description&gt;.*)$@</regexp>
           <xpath/>
         </line>
-        <line>
-          <array name="export_array_rt">
-            <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
+
         <line>
           <array/>
           <regexp>@^\s*bgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
