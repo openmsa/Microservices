@@ -320,7 +320,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
 	{/if}
 {/foreach}
 {assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}
-   </post_template>
+    </post_template>
     <parser>
       <section>
         <regexp>@^\s*(ip|ipv4)?\s*vrf\s*(definition)?\s*(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+)$@</regexp>
@@ -330,25 +330,6 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
         <line>
           <array/>
           <regexp>@^\s*rd\s+(?&lt;rd&gt;[0-9]+:[0-9]+)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@^\s*(?&lt;route_map_import_export&gt;import|export)\s+map\s+(?&lt;route_map&gt;\S+)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array name="import_array_rt">
-            <regexp>@\s*route-target\s+import\s+(?&lt;import_rt&gt;[0-9]+:[0-9]+)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
-          <array name="export_array_rt">
-            <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
-          </array>
-          <regexp/>
           <xpath/>
         </line>
         <line>
@@ -396,6 +377,25 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
             </lines>
             <lines/>
             <regexp>@^\s*address-family (?&lt;address_family&gt;ipv4|ipv6)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*(?&lt;route_map_import_export&gt;import|export)\s+map\s+(?&lt;route_map&gt;\S+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="import_array_rt">
+            <regexp>@\s*route-target\s+import\s+(?&lt;import_rt&gt;[0-9]+:[0-9]+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="export_array_rt">
+            <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
