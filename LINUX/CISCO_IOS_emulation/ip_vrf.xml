@@ -206,13 +206,20 @@
           <xpath/>
         </line>
         <line>
-          <array name="route_targets">
-            <lines/>
-            <regexp>@\s*route-target\s+(?&lt;import_export&gt;import|export)\s+(?&lt;route_target&gt;[0-9]+:[0-9]+)@</regexp>
+          <array name="import_array_rt">
+            <regexp>@\s*route-target\s+import\s+(?&lt;import_rt&gt;[0-9]+:[0-9]+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
         </line>
+          <line>
+          <array name="export_array_rt">
+            <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+
         <line>
           <array/>
           <regexp>@^\s*(?&lt;route_map_import_export&gt;import|export)\s+map\s+(?&lt;route_map&gt;\S+)@</regexp>
