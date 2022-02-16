@@ -40,7 +40,16 @@
     <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="vrf_id" name="params.vrf_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="customer_name" name="params.customer_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="bgp_address_family" name="params.bgp_address_family" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="route_map_import_export" name="params.route_map_import_export" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="route_map" name="params.route_map" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -241,10 +250,11 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
 		{assign_object_variable var=&quot;bgp_router_id&quot; value=&quot;{$router.bgp_router_id}&quot;}
 	{/if}
 {/foreach}
+{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}
    </post_template>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+vrf\s+(?&lt;object_id&gt;(?&lt;vrf_name&gt;\S+))$@</regexp>
+        <regexp>@^\s*(ip|ipv4)?\s*vrf\s*(definition)?\s*(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+)$@</regexp>
         <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ipv4)\s+vrf\s+(?&lt;vrf_name&gt;(?&lt;object_id&gt;\S+))$@</regexp>
       </section>
       <lines>
@@ -255,7 +265,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
         </line>
         <line>
           <array/>
-          <regexp>@^\s*export\s+map\s+(?&lt;route_map&gt;\S+)@</regexp>
+          <regexp>@^\s*(?&lt;route_map_import_export&gt;import|export)\s+map\s+(?&lt;route_map&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
