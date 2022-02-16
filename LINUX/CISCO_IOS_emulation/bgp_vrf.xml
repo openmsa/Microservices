@@ -270,7 +270,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
     <parser>
       <section>
         <regexp>@^\s*(ip|ipv4)?\s*vrf\s*(definition)?\s*(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+)$@</regexp>
-        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ip|ipv4)\s+vrf\s+(?&lt;vrf_name&gt;(?&lt;object_id&gt;\S+))$@</regexp>
+        <regexp>@^\s*address-family\s+(?&lt;bgp_address_family&gt;ip|ipv4)\s+vrf\s+(?&lt;vrf_name&gt;(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+))$@</regexp>
       </section>
       <lines>
         <line>
@@ -290,7 +290,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp/>
           <xpath/>
         </line>
-          <line>
+        <line>
           <array name="export_array_rt">
             <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
           </array>
@@ -393,7 +393,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp/>
           <xpath/>
         </line>
-          <line>
+        <line>
           <array name="export_array_rt">
             <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
           </array>
@@ -410,7 +410,6 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
           <regexp>@^\s*description\s+(?&lt;description&gt;.*)$@</regexp>
           <xpath/>
         </line>
-
         <line>
           <array/>
           <regexp>@^\s*bgp\srouter-id\s(?&lt;bgp_router_id&gt;\S+)@</regexp>
