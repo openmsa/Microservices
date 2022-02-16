@@ -24,7 +24,7 @@
     <sortnumerical>false</sortnumerical>
     <sortvariable>params._order</sortvariable>
   </information>
-    <variables frozen="0">
+  <variables frozen="0">
     <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
@@ -408,6 +408,8 @@ router bgp {$params.router_bgp}
 {if isset($neighbor.bgp_vrf_allow_as)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_allow_as}
 {/if}
 {if isset($neighbor.bgp_vrf_route_map_out)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_route_map_out}
+{/if}
+{if isset($neighbor.bgp_vrf_neighbor_password)}neighbor {$neighbor.bgp_vrf_neighbor} password 7 {$neighbor.bgp_vrf_neighbor_password}
 {/if}
 {/foreach}
 {/if}
