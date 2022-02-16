@@ -28,7 +28,7 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="bgp_neighbor" name="params.bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="bgp_state" name="params.bgp_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -43,8 +43,8 @@
   </variables>
   <example>
     <content>#show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor}
-#show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30
-BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external link
+  #show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30
+  BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external link
   BGP version 4, remote router ID 0.0.0.0
   BGP state = Idle
   Neighbor sessions:
@@ -104,9 +104,19 @@ BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external 
     <post_template></post_template>
     <parser>
       <section>
-        <regexp>@^\s*BGP neighbor is (?&lt;bgp_neighbor&gt;.*) external link$@</regexp>
+        <regexp>@^\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S+) neighbors @</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@\s*BGP neighbor is\s+(?&lt;neighbor&gt;\S+), @</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s+BGP state =(?&lt;bgp_state&gt;.*)@</regexp>
+          <xpath/>
+        </line>
         <line>
           <array/>
           <regexp>@\s*Prefixes Total:\s+(?&lt;bgp_vrf_nghr_prefix_total&gt;\S+)@</regexp>
@@ -115,11 +125,6 @@ BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external 
         <line>
           <array/>
           <regexp>@\s*Prefixes Current:\s+(?&lt;bgp_vrf_nghr_prefix_cur&gt;\S+)@</regexp>
-          <xpath/>
-        </line>
-        <line>
-          <array/>
-          <regexp>@\s+BGP state =(?&lt;bgp_state&gt;.*)@</regexp>
           <xpath/>
         </line>
         <ignore>

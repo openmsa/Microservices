@@ -28,15 +28,74 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="bgp_vrf_summary_state" name="params.bgp_vrf_summary_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="bgp_vrf_summary_state_value" name="params.bgp_vrf_summary_state_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
-  <example/>
+  <example>
+    <content>
+  DEV-NEC-CISCO-IOS#show ip bgp vpnv4 vrf {$params.object_id} summary ]
+DEV-NEC-CISCO-IOS# show ip bgp vpnv4 vrf INTRAGOV-SAPTELE summary
+c-br-sp-spo-mb-rav-04#show ip bgp vpnv4 vrf V11011:SSII_SORIN summary          
+BGP router identifier 187.100.28.53, local AS number 10429         
+BGP table version is 1139869906, main routing table version 1139869906         
+378 network entries using 54810 bytes of memory         
+687 path entries using 46716 bytes of memory         
+2294/2208 BGP path/bestpath attribute entries using 174344 bytes of memory         
+362 BGP rrinfo entries using 9520 bytes of memory         
+193 BGP AS-PATH entries using 5036 bytes of memory         
+151 BGP community entries using 4616 bytes of memory         
+349 BGP extended community entries using 14912 bytes of memory         
+0 BGP route-map cache entries using 0 bytes of memory         
+0 BGP filter-list cache entries using 0 bytes of memory         
+BGP using 309954 total bytes of memory         
+BGP activity 126943163/126725932 prefixes, 534731601/534425476 paths, scan interval 15 secs         
+Neighbor V AS MsgRcvd MsgSent TblVer  InQ OutQ Up/Down State/PfxRcd 
+186.238.126.58 4 65000 723 825 1139869906 0 0 10:56:2 3   4 
+</content>
+  </example>
   <command name="IMPORT">
     <operation><![CDATA[show ip bgp vpnv4 vrf {$params.object_id} summary ]]></operation>
     <parser>
       <section>
-        <regexp>@^\s \s*$@</regexp>
+        <regexp>@show ip bgp vpnv4 vrf\s+(?&lt;object_id&gt;.*)\s+summary@</regexp>
       </section>
-      <lines/>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^Neighbor .*\s+(?&lt;bgp_vrf_summary_state&gt;\S*)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;bgp_vrf_summary_state_value&gt;Idle|\d*\s+\d*)$@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>BGP router</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP table@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ entries @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP using@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP activity@</regexp>
+        </ignore>
+      </lines>
     </parser>
   </command>
   <command name="CREATE"/>
