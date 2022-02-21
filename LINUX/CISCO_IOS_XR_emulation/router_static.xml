@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>router_static</name>
+    <name>router_static-inter</name>
     <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>11</importrank>
@@ -181,7 +181,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/router_static.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/router_static.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;object_id&quot; value=&quot;1&quot;}</post_template>
     <parser>
       <section>
