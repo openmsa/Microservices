@@ -12,10 +12,10 @@
     <defaultDisplay>false</defaultDisplay>
     <dynamic>false</dynamic>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <maxInstances>0</maxInstances>
+    <maxInstances>1</maxInstances>
     <relatedObjects/>
-    <name>router_static-inter</name>
-    <group>EMULATION|CISCO|IOS-XR</group>
+    <name>router_static</name>
+    <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>11</importrank>
     <reorderinstances>false</reorderinstances>
@@ -181,7 +181,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[#cat /config/cisco_ios_xr/router_static.conf]]></operation>
+    <operation><![CDATA[show run]]></operation>
     <post_template>{assign_object_variable var=&quot;object_id&quot; value=&quot;1&quot;}</post_template>
     <parser>
       <section>

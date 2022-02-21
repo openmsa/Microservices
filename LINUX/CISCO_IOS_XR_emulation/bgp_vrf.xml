@@ -175,6 +175,18 @@
         <sections>neighbor</sections>
       </sections>
     </variable>
+    <variable displayName="bgp_vrf_route_map_in" name="params.neighbor.0.bgp_vrf_route_map_in" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
+    </variable>
+    <variable displayName="bgp_vrf_route_map_out" name="params.neighbor.0.bgp_vrf_route_map_out" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>neighbor</sections>
+      </sections>
+    </variable>
     <variable displayName="bgp_ipv4_route_policy_in" name="params.neighbor.0.bgp_ipv4_route_policy_in" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -211,12 +223,6 @@
         <sections>neighbor</sections>
       </sections>
     </variable>
-    <variable displayName="bgp_vrf_route_map_in" name="params.neighbor.0.bgp_vrf_route_map_in" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>neighbor</sections>
-      </sections>
-    </variable>
     <variable displayName="bgp_vrf_as_override" name="params.neighbor.0.bgp_vrf_as_override" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -248,12 +254,6 @@
       </sections>
     </variable>
     <variable displayName="bgp_vrf_allow_as" name="params.neighbor.0.bgp_vrf_allow_as" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>neighbor</sections>
-      </sections>
-    </variable>
-    <variable displayName="bgp_vrf_route_map_out" name="params.neighbor.0.bgp_vrf_route_map_out" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>neighbor</sections>
@@ -371,7 +371,7 @@
   <command name="CREATE">
     <operation><![CDATA[!
 router bgp {$params.router_bgp}
-  vrf {$params.vrf_name}
+ vrf {$params.vrf_name}
   rd {$params.rd}
   address-family ipv4 unicast
 {if isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)}
@@ -381,23 +381,25 @@ router bgp {$params.router_bgp}
   !
 {if isset($params.neighbor)}
 {foreach $params.neighbor as $neighbor}
-{if isset($neighbor.bgp_ipv4_private_as)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_ipv4_private_as}
+
+{if isset($neighbor.bgp_vrf_neighbor_remote_as)} neighbor {$neighbor.bgp_vrf_neighbor} remote-as  {$neighbor.bgp_vrf_neighbor_remote_as}
 {/if}
-{if isset($neighbor.bgp_ipv4_route_policy_in)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_ipv4_route_policy_in}
+{if isset($neighbor.bgp_vrf_neighbor_password)} neighbor {$neighbor.bgp_vrf_neighbor} password encrypted {$neighbor.bgp_vrf_neighbor_password}
 {/if}
-{if isset($neighbor.bgp_ipv4_route_policy_out)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_ipv4_route_policy_out}
+ 
+{if isset($neighbor.bgp_vrf_as_override)} neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast {$neighbor.bgp_vrf_as_override}
+{/if}
+{if isset($neighbor.bgp_ipv4_route_policy_in)} neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast  route-policy {$neighbor.bgp_ipv4_route_policy_in} in
+{/if}
+{if isset($neighbor.bgp_ipv4_route_policy_out)} neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast  route-policy {$neighbor.bgp_ipv4_route_policy_out} out
+{/if}
+
+{*
+{if isset($neighbor.bgp_ipv4_private_as)} {$neighbor.bgp_ipv4_private_as}
 {/if}
 {if isset($neighbor.bgp_vrf_maximum_prefix)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_maximum_prefix}
 {/if}
 {if isset($neighbor.bgp_ipv4_default_route)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_ipv4_default_route}
-{/if}
-{if isset($neighbor.bgp_vrf_neighbor_remote_as)}neighbor {$neighbor.bgp_vrf_neighbor} remote-as  {$neighbor.bgp_vrf_neighbor_remote_as}
-{/if}
-{if isset($neighbor.bgp_ipv4_activate)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_ipv4_activate}
-{/if}
-{if isset($neighbor.bgp_vrf_route_map_in)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_route_map_in}
-{/if}
-{if isset($neighbor.bgp_vrf_as_override)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_as_override}
 {/if}
 {if isset($neighbor.bgp_vrf_prefix_list_out)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_prefix_list_out}
 {/if}
@@ -407,10 +409,7 @@ router bgp {$params.router_bgp}
 {/if}
 {if isset($neighbor.bgp_vrf_allow_as)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_allow_as}
 {/if}
-{if isset($neighbor.bgp_vrf_route_map_out)}neighbor {$neighbor.bgp_vrf_neighbor} {$neighbor.bgp_vrf_route_map_out}
-{/if}
-{if isset($neighbor.bgp_vrf_neighbor_password)}neighbor {$neighbor.bgp_vrf_neighbor} password 7 {$neighbor.bgp_vrf_neighbor_password}
-{/if}
+*}
 {/foreach}
 {/if}
   !
