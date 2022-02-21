@@ -103,7 +103,7 @@
     <variable displayName="vrf_name" name="params.vrf_routes.0.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
-        <sections>vrf routes ipv4</sections>
+        <sections>VRF</sections>
       </sections>
     </variable>
     <variable displayName="ipv4_address" name="params.vrf_routes.0.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -142,43 +142,37 @@
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
-    <variable displayName="vrf_name" name="params.vrf_routes6.0.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ipv6_address" name="params.vrf_routes.0.routes6.0.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
-    <variable displayName="ipv6_address" name="params.vrf_routes6.0.routes.0.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="ipv6_mask_length" name="params.vrf_routes.0.routes6.0.ipv6_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
-    <variable displayName="ipv6_mask_length" name="params.vrf_routes6.0.routes.0.ipv6_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="interface" name="params.vrf_routes.0.routes6.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
-    <variable displayName="interface" name="params.vrf_routes6.0.routes.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="gateway" name="params.vrf_routes.0.routes6.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
-    <variable displayName="gateway" name="params.vrf_routes6.0.routes.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="metric" name="params.vrf_routes.0.routes6.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
-    <variable displayName="metric" name="params.vrf_routes6.0.routes.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>vrf routes ipv6</sections>
-      </sections>
-    </variable>
-    <variable displayName="tag" name="params.vrf_routes6.0.routes.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="tag" name="params.vrf_routes.0.routes6.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
@@ -191,12 +185,10 @@
     <post_template>{$route_idx=0}
 {$route6_idx=0}
 {$_vrf_routes=[]}
-{$_vrf_routes6=[]}
 
 {* loop through the ip route and process the VRF routes to build a local array $_vrf_routes with the VRF routes *}
 {foreach $ip_route as $route}
 	{$vrf_idx=0}
-	{$vrf6_idx=0}
 	{if $route.vrf_name &amp;&amp; isset($route.vrf_name)}
 		{* check if the VRF was already found *}
 		{$found=false}
@@ -213,18 +205,12 @@
 			{/if}
 			{$vrf_idx=$vrf_idx+1}
 		{/foreach}
-		{foreach $_vrf_routes6 as $_vrf_route6}
-			{if $_vrf_route6.vrf_name == $route.vrf_name}
-				{$found=true}
-				{break}
-			{/if}
-			{$vrf6_idx=$vrf6_idx+1}
-		{/foreach}
 		{if !$found}
 			{* if the VRF is a newly found one, initialize the VRF $routes array by adding data as the first element (index 0) *}
+			{$_vrf_routes.{$vrf_idx}.routes=[]}
+			{$_vrf_routes.{$vrf_idx}.routes6=[]}
 			{if $route.type == &quot;ip&quot;}
 				{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
-				{$_vrf_routes.{$vrf_idx}.routes=[]}
 				{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_address=$route.ipv4_address}
 				{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_mask_length=$mask_length}
 				{if isset($route.interface)}
@@ -240,29 +226,28 @@
 					{$_vrf_routes.{$vrf_idx}.routes.0.tag=$route.tag}
 				{/if}
 			{else if $route.type == &quot;ipv6&quot;}
-				{$_vrf_routes6.{$vrf6_idx}.vrf_name=$route.vrf_name}
-				{$_vrf_routes6.{$vrf6_idx}.routes=[]}
-				{$_vrf_routes6.{$vrf6_idx}.routes.0.ipv6_address=$route.ipv6_address}
-				{$_vrf_routes6.{$vrf6_idx}.routes.0.ipv6_mask_length=$route.ipv6_mask_length}
+				{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
+				{$_vrf_routes.{$vrf_idx}.routes6.0.ipv6_address=$route.ipv6_address}
+				{$_vrf_routes.{$vrf_idx}.routes6.0.ipv6_mask_length=$route.ipv6_mask_length}
 				{if isset($route.interface)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.0.interface=$route.interface}
+					{$_vrf_routes.{$vrf_idx}.routes6.0.interface=$route.interface}
 				{/if}
 				{if isset($route.gateway)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.0.gateway=$route.gateway}
+					{$_vrf_routes.{$vrf_idx}.routes6.0.gateway=$route.gateway}
 				{/if}
 				{if isset($route.metric)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.0.metric=$route.metric}
+					{$_vrf_routes.{$vrf_idx}.routes6.0.metric=$route.metric}
 				{/if}
 				{if isset($route.tag)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.0.tag=$route.tag}
+					{$_vrf_routes.{$vrf_idx}.routes6.0.tag=$route.tag}
 				{/if}
 			{/if}
 		{else}
 			{* if it&apos;s a VRF that was already processed, add the new route to the $routes array *}
 			{if $route.type == &quot;ip&quot;}
 				{* simple foreach to get the size of $_vrf_route array *}
-				{foreach $_vrf_routes.{$vrf_idx}.routes as $_vrf_route}
-					{$route_idx=$_vrf_route@total}
+				{foreach $_vrf_routes.{$vrf_idx}.routes as $_route}
+					{$route_idx=$_route@total}
 					{break}
 				{/foreach}
 				{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_address=$route.ipv4_address}
@@ -281,23 +266,23 @@
 				{/if}
 			{else if $route.type == &quot;ipv6&quot;}
 				{* simple foreach to get the size of $_vrf_route6 array *}
-				{foreach $_vrf_routes6.{$vrf6_idx}.routes as $_vrf_route6}
-					{$route6_idx=$_vrf_route6@total}
+				{foreach $_vrf_routes.{$vrf_idx}.routes6 as $_route6}
+					{$route6_idx=$_route6@total}
 					{break}
 				{/foreach}
-				{$_vrf_routes6.{$vrf6_idx}.routes.{$route6_idx}.ipv6_address=$route.ipv6_address}
-				{$_vrf_routes6.{$vrf6_idx}.routes.{$route6_idx}.ipv6_mask_length=$route.ipv6_mask_length}
+				{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.ipv6_address=$route.ipv6_address}
+				{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.ipv6_mask_length=$route.ipv6_mask_length}
 				{if isset($route.interface)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.{$route6_idx}.interface=$route.interface}
+					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.interface=$route.interface}
 				{/if}
 				{if isset($route.gateway)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.{$route6_idx}.gateway=$route.gateway}
+					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.gateway=$route.gateway}
 				{/if}
 				{if isset($route.metric)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.{$route6_idx}.metric=$route.metric}
+					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.metric=$route.metric}
 				{/if}
 				{if isset($route.tag)}
-					{$_vrf_routes6.{$vrf6_idx}.routes.{$route6_idx}.tag=$route.tag}
+					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.tag=$route.tag}
 				{/if}
 			{/if}
 		{/if}
@@ -308,56 +293,56 @@
 	{assign_object_variable
         var=&quot;vrf_routes.{$_vrf_route@index}.vrf_name&quot;
         value=&quot;{$_vrf_route.vrf_name}&quot;}
-	{foreach $_vrf_route.routes as $_route}
-		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_address&quot; 
-			value=&quot;{$_route.ipv4_address}&quot;}
-		{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_mask_length&quot; 
-			value=&quot;{$_route.ipv4_mask_length}&quot;}
-		{if isset($_route.interface)}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.interface&quot; 
-				value=&quot;{$_route.interface}&quot;}
-		{/if}
-		{if isset($_route.gateway)}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.gateway&quot; 
-				value=&quot;{$_route.gateway}&quot;}
-		{/if}
-		{if isset($_route.metric)}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.metric&quot; 
-				value=&quot;{$_route.metric}&quot;}
-		{/if}
-		{if isset($_route.tag)}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.tag&quot; 
-				value=&quot;{$_route.tag}&quot;}
-		{/if}
-	{/foreach}
+    {if isset($_vrf_route.routes)}
+		{foreach $_vrf_route.routes as $_route}
+			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_address&quot; 
+				value=&quot;{$_route.ipv4_address}&quot;}
+			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_mask_length&quot; 
+				value=&quot;{$_route.ipv4_mask_length}&quot;}
+			{if isset($_route.interface)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.interface&quot; 
+					value=&quot;{$_route.interface}&quot;}
+			{/if}
+			{if isset($_route.gateway)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.gateway&quot; 
+					value=&quot;{$_route.gateway}&quot;}
+			{/if}
+			{if isset($_route.metric)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.metric&quot; 
+					value=&quot;{$_route.metric}&quot;}
+			{/if}
+			{if isset($_route.tag)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.tag&quot; 
+					value=&quot;{$_route.tag}&quot;}
+			{/if}
+		{/foreach}
+	{/if}
+    {if isset($_vrf_route.routes6)}
+		{foreach $_vrf_route.routes6 as $_route}
+			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.ipv6_address&quot; 
+				value=&quot;{$_route.ipv6_address}&quot;}
+			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.ipv6_mask_length&quot; 
+				value=&quot;{$_route.ipv6_mask_length}&quot;}
+			{if isset($_route.interface)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.interface&quot; 
+					value=&quot;{$_route.interface}&quot;}
+			{/if}
+			{if isset($_route.gateway)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.gateway&quot; 
+					value=&quot;{$_route.gateway}&quot;}
+			{/if}
+			{if isset($_route.metric)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.metric&quot; 
+					value=&quot;{$_route.metric}&quot;}
+			{/if}
+			{if isset($_route.tag)}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.tag&quot; 
+					value=&quot;{$_route.tag}&quot;}
+			{/if}
+		{/foreach}
+	{/if}
 {/foreach}
-{foreach $_vrf_routes6 as $_vrf_route6}
-	{assign_object_variable
-        var=&quot;vrf_routes6.{$_vrf_route6@index}.vrf_name&quot;
-        value=&quot;{$_vrf_route6.vrf_name}&quot;}
-	{foreach $_vrf_route6.routes as $_route}
-		{assign_object_variable var=&quot;vrf_routes6.{$_vrf_route6@index}.routes.{$_route@index}.ipv6_address&quot; 
-			value=&quot;{$_route.ipv6_address}&quot;}
-		{assign_object_variable var=&quot;vrf_routes6.{$_vrf_route6@index}.routes.{$_route@index}.ipv6_mask_length&quot; 
-			value=&quot;{$_route.ipv6_mask_length}&quot;}
-		{if isset($_route.interface)}
-			{assign_object_variable var=&quot;vrf_routes6.{$_vrf_route6@index}.routes.{$_route@index}.interface&quot; 
-				value=&quot;{$_route.interface}&quot;}
-		{/if}
-		{if isset($_route.gateway)}
-			{assign_object_variable var=&quot;vrf_routes6.{$_vrf_route6@index}.routes.{$_route@index}.gateway&quot; 
-				value=&quot;{$_route.gateway}&quot;}
-		{/if}
-		{if isset($_route.metric)}
-			{assign_object_variable var=&quot;vrf_routes6.{$_vrf_route6@index}.routes.{$_route@index}.metric&quot; 
-				value=&quot;{$_route.metric}&quot;}
-		{/if}
-		{if isset($_route.tag)}
-			{assign_object_variable var=&quot;vrf_routes6.{$_vrf_route6@index}.routes.{$_route@index}.tag&quot; 
-				value=&quot;{$_route.tag}&quot;}
-		{/if}
-	{/foreach}
-{/foreach}
+
 {* process the routes that are not VRF routes *}
 {foreach $ip_route as $route}
 	{if !$route.vrf_name}
