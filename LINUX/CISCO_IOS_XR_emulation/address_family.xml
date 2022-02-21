@@ -303,29 +303,29 @@ router bgp {$params.router_bgp}
 {foreach $params.neighbor as $neighbor}
 {if isset($neighbor.bgp_ipv4_private_as)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_private_as}
 {/if}
-{if isset($neighbor.bgp_ipv4_route_policy_in)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_route_policy_in}
+{if isset($neighbor.bgp_ipv4_route_policy_in)}neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast route-policy {$neighbor.bgp_ipv4_route_policy_in} in
 {/if}
-{if isset($neighbor.bgp_ipv4_route_policy_out)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_route_policy_out}
+{if isset($neighbor.bgp_ipv4_route_policy_out)}neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast route-policy {$neighbor.bgp_ipv4_route_policy_out} out
 {/if}
-{if isset($neighbor.bgp_maximum_prefix)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_maximum_prefix}
+{if isset($neighbor.bgp_maximum_prefix)}neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast maximum-prefix  {$neighbor.bgp_maximum_prefix}
 {/if}
-{if isset($neighbor.bgp_ipv4_default_route)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_default_route}
+{if isset($neighbor.bgp_ipv4_default_route)}neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast default-originate {$neighbor.bgp_ipv4_default_route}
 {/if}
 {if isset($neighbor.bgp_neighbor_remote_as)}neighbor {$neighbor.bgp_neighbor} remote-as  {$neighbor.bgp_neighbor_remote_as}
 {/if}
-{if isset($neighbor.bgp_ipv4_activate)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_ipv4_activate}
-{/if}
-{if isset($neighbor.bgp_as_override)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_as_override}
+{if isset($neighbor.bgp_as_override)}neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast as-override {$neighbor.bgp_as_override}
 {/if}
 {if isset($neighbor.bgp_prefix_list_out)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_prefix_list_out}
 {/if}
 {if isset($neighbor.bgp_send_community)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_send_community}
 {/if}
-{if isset($neighbor.bgp_advertisement_interval)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_advertisement_interval}
-{/if}
-{if isset($neighbor.bgp_allow_as)}neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_allow_as}
+{if isset($neighbor.bgp_allow_as)}neighbor {$neighbor.bgp_neighbor} allowas-in  {$neighbor.bgp_allow_as}
 {/if}
 {if isset($neighbor.bgp_neighbor_password)}neighbor {$neighbor.bgp_neighbor} password 7 {$neighbor.bgp_neighbor_password}
+{/if}
+{if isset($neighbor.bgp_ebgp_multihop)}neighbor {$neighbor.bgp_neighbor} ebgp-multihop {$neighbor.bgp_ebgp_multihop}
+{/if}
+{if isset($neighbor.bgp_source_interface)}neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast update-source {$neighbor.bgp_ebgp_multihop}
 {/if}
 {/foreach}
 {/if}
