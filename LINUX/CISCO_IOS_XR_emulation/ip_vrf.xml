@@ -219,7 +219,8 @@ vrf {$params.object_id}
 {if isset($params.import_array_rt) 
 	|| isset($params.export_array_rt) 
 	|| isset($params.import_route_map) 
-	|| isset($params.export_route_map)} 
+	|| isset($params.export_route_map) 
+	|| isset($params.vrf_max_routes)} 
  address-family ipv4 unicast
 
 {if isset($params.import_route_map)}
@@ -246,6 +247,9 @@ vrf {$params.object_id}
 	{$export_array_rt.export_rt}
  {/foreach}
 
+{/if}
+{if isset($params.vrf_max_routes)}
+  maximum prefix {$params.vrf_max_routes}
 {/if}
 {/if}
 
@@ -286,8 +290,7 @@ vrf {$params.object_id}
 {/if}
 {/foreach}
 {/if}
-!
-    ]]></operation>
+!]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>

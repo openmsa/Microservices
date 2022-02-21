@@ -1,0 +1,77 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>multicast_routing</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
+    <importonce>false</importonce>
+    <importrank>21</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[#]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{if isset($ip_vrf)}
+{foreach $ip_vrf as $vrf}
+{if $vrf.object_id == $params.object_id}
+multicast-routing
+ vrf {$vrf.object_id}
+{if isset ($vrf.vrf_mdt_default)}
+  mdt default ipv4 {$vrf.vrf_mdt_default}
+{/if}
+{if isset($vrf.vrf_mdt_data)}
+  mdt data {$vrf.vrf_mdt_data}
+{/if}
+{if isset($vrf.address_family)}
+  {foreach $vrf.address_family as $af}
+  {if isset ($af.vrf_mdt_default) || isset($af.vrf_mdt_data)}
+  address-family {$af.address_family}
+  {if isset ($af.vrf_mdt_default)}
+   mdt default ipv4 {$af.vrf_mdt_default}
+  {/if}
+  {if isset($af.vrf_mdt_data)}
+   mdt data {$af.vrf_mdt_data}
+  {/if}
+  {/if}
+
+  {/foreach}
+{/if}
+{/if}
+{/foreach}
+{/if}]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
