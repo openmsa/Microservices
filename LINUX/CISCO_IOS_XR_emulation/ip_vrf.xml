@@ -253,6 +253,10 @@ vrf {$params.object_id}
 {if isset($params.address_family)}
 {foreach $params.address_family as $address_family}
 !
+{if isset($address_family.import_route_map)
+	|| isset($address_family.export_route_map)
+	|| isset($address_family.import_array_rt)
+	|| isset($address_family.export_array_rt)}
  address-family {$address_family.address_family} unicast
  
 {if isset($address_family.import_route_map)}
@@ -279,7 +283,7 @@ vrf {$params.object_id}
 	{$export_array_rt.export_rt}
  {/foreach}
  {/if}
-
+{/if}
 {/foreach}
 {/if}
 !
