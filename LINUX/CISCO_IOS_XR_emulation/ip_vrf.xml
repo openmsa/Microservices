@@ -212,29 +212,15 @@
   <command name="CREATE">
     <operation><![CDATA[!
 vrf {$params.object_id}
- 
-{if isset($params.import_array_rt) || isset($params.export_array_rt)} 
+{if isset($params.description)}
+ description {$params.description}
+{/if}
+
+{if isset($params.import_array_rt) 
+	|| isset($params.export_array_rt) 
+	|| isset($params.import_route_map) 
+	|| isset($params.export_route_map)} 
  address-family ipv4 unicast
-{/if}
- {if isset($params.import_array_rt)} 
- {foreach $params.import_array_rt as $import_array_rt}
- {if $import_array_rt@first}
- import route-target 
- {/if}
-	{$import_array_rt.import_rt}
- {/foreach}
-{/if}
-{if isset($params.export_array_rt)} 
-!
- {foreach $params.export_array_rt as $export_array_rt}
- {if $export_array_rt@first}
- export route-target 
- {/if}
-	{$export_array_rt.export_rt}
- {/foreach}
-
-{/if}
-
 
 {if isset($params.import_route_map)}
   import route-policy {$params.import_route_map}
@@ -242,29 +228,32 @@ vrf {$params.object_id}
 {if isset($params.export_route_map)}
   export route-policy {$params.export_route_map}
 {/if}
-
-
-{if isset($params.address_family)}
-{foreach $params.address_family as $address_family}
- address-family {$address_family.address_family} unicast
- 
- {if isset($address_family.import_array_rt)} 
- {foreach $address_family.import_array_rt as $import_array_rt}
+ {if isset($params.import_array_rt)} 
+ {foreach $params.import_array_rt as $import_array_rt}
  {if $import_array_rt@first}
+ !
  import route-target 
  {/if}
 	{$import_array_rt.import_rt}
  {/foreach}
- {/if}
- {if isset($address_family.export_array_rt)} 
- !
- {foreach $address_family.export_array_rt as $export_array_rt}
+{/if}
+{if isset($params.export_array_rt)} 
+ {foreach $params.export_array_rt as $export_array_rt}
  {if $export_array_rt@first}
+ !
  export route-target 
  {/if}
 	{$export_array_rt.export_rt}
  {/foreach}
- {/if}
+
+{/if}
+{/if}
+
+
+{if isset($params.address_family)}
+{foreach $params.address_family as $address_family}
+!
+ address-family {$address_family.address_family} unicast
  
 {if isset($address_family.import_route_map)}
   import route-policy {$address_family.import_route_map}
@@ -272,6 +261,24 @@ vrf {$params.object_id}
 {if isset($address_family.export_route_map)}
   export route-policy {$address_family.export_route_map}
 {/if}
+ {if isset($address_family.import_array_rt)} 
+ {foreach $address_family.import_array_rt as $import_array_rt}
+ {if $import_array_rt@first}
+ !
+ import route-target 
+ {/if}
+	{$import_array_rt.import_rt}
+ {/foreach}
+ {/if}
+ {if isset($address_family.export_array_rt)} 
+ {foreach $address_family.export_array_rt as $export_array_rt}
+ {if $export_array_rt@first}
+ !
+ export route-target 
+ {/if}
+	{$export_array_rt.export_rt}
+ {/foreach}
+ {/if}
 
 {/foreach}
 {/if}

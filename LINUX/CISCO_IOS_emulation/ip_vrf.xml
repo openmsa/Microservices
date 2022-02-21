@@ -143,7 +143,7 @@
     <post_template>{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*(ip|ipv4)?\s*vrf\s*(definition)?\s*(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+)$@</regexp>
+        <regexp>@^\s*(ip|ipv4|ipv6)?\s*vrf\s*(definition)?\s*(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+)$@</regexp>
       </section>
       <lines>
         <line>
@@ -205,7 +205,7 @@
               </line>
             </lines>
             <lines/>
-            <regexp>@^\s*address-family (?&lt;address_family&gt;ipv4|ipv6)$@</regexp>
+            <regexp>@^\s*address-family\s+(?&lt;address_family&gt;ipv4|ipv6)$@</regexp>
           </array>
           <regexp/>
           <xpath/>
