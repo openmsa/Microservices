@@ -163,6 +163,24 @@
         <sections>neighbors</sections>
       </sections>
     </variable>
+    <variable displayName="bgp_description" name="params.neighbors.0.bgp_description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>neighbors</sections>
+      </sections>
+    </variable>
+    <variable displayName="bgp_ebgp_multihop" name="params.neighbors.0.bgp_ebgp_multihop" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>neighbors</sections>
+      </sections>
+    </variable>
+    <variable displayName="bgp_source_interface" name="params.neighbors.0.bgp_source_interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>neighbors</sections>
+      </sections>
+    </variable>
     <variable displayName="bgp_redistribute_type" name="params.redistribute.0.bgp_redistribute_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -235,6 +253,9 @@
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+(?&lt;bgp_activate&gt;activate)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+inherit peer-policy\s+(?&lt;bgp_inherit_peer_policy&gt;\S+)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+password\s\d\s+(?&lt;bgp_password&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+description\s+(?&lt;bgp_description&gt;.*)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+ebgp-multihop\s+(?&lt;bgp_ebgp_multihop&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+update-source\s+(?&lt;bgp_source_interface&gt;\S+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
