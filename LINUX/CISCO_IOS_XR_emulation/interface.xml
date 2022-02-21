@@ -366,7 +366,7 @@ policy-map {$params.customer_name}_{$params.bandwidth}
 class class-default
 service-policy {$params.service_policy_out}
 shape average {$params.bandwidth} kbps
-end policy-map
+end-policy-map
 	{/if}
 {/if}
 !]]></operation>
