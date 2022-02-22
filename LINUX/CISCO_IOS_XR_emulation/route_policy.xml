@@ -355,7 +355,7 @@ set local-preference {$block.local_preference}
 set weight {$block.weight}
             {/if}
             {if isset($block.metric)}
-set metric {$block.metric}
+set med {$block.metric}
             {/if}
             {if isset($block.next_hop)}
 set next-hop {$block.next_hop}
