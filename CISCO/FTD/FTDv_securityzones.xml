@@ -1,0 +1,114 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>FTDv securityzones</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;root&gt;
+	&lt;items&gt;
+		&lt;row&gt;
+			&lt;version&gt;lwn7ogw35vsg4&lt;/version&gt;
+			&lt;name&gt;inside_zone&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;interfaces&gt;
+				&lt;row&gt;
+					&lt;version&gt;lcwdqy3z4yb7p&lt;/version&gt;
+					&lt;name&gt;inside&lt;/name&gt;
+					&lt;hardwareName&gt;GigabitEthernet0/1&lt;/hardwareName&gt;
+					&lt;id&gt;5cba8e82-491a-11ec-8f38-3d6d2d9f76be&lt;/id&gt;
+					&lt;type&gt;physicalinterface&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/interfaces&gt;
+			&lt;mode&gt;ROUTED&lt;/mode&gt;
+			&lt;id&gt;90c377e0-b3e5-11e5-8db8-651556da7898&lt;/id&gt;
+			&lt;type&gt;securityzone&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/securityzones/90c377e0-b3e5-11e5-8db8-651556da7898&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;kfnz7tmujafrs&lt;/version&gt;
+			&lt;name&gt;outside_zone&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;interfaces&gt;
+				&lt;row&gt;
+					&lt;version&gt;iyslngbioabro&lt;/version&gt;
+					&lt;name&gt;outside&lt;/name&gt;
+					&lt;hardwareName&gt;GigabitEthernet0/0&lt;/hardwareName&gt;
+					&lt;id&gt;8d6c41df-3e5f-465b-8e5a-d336b282f93f&lt;/id&gt;
+					&lt;type&gt;physicalinterface&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/interfaces&gt;
+			&lt;mode&gt;ROUTED&lt;/mode&gt;
+			&lt;id&gt;b1af33e1-b3e5-11e5-8db8-afdc0be5453e&lt;/id&gt;
+			&lt;type&gt;securityzone&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/securityzones/b1af33e1-b3e5-11e5-8db8-afdc0be5453e&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+	&lt;/items&gt;
+	&lt;paging&gt;
+		&lt;prev/&gt;
+		&lt;next/&gt;
+		&lt;limit&gt;10&lt;/limit&gt;
+		&lt;offset&gt;0&lt;/offset&gt;
+		&lt;count&gt;2&lt;/count&gt;
+		&lt;pages&gt;0&lt;/pages&gt;
+	&lt;/paging&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <post_template></post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/fdm/latest/object/securityzones?limit=10000</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

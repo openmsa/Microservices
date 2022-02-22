@@ -1,0 +1,146 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>FTDv tcpports</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;root&gt;
+	&lt;items&gt;
+		&lt;row&gt;
+			&lt;version&gt;l7do2ptkgw55h&lt;/version&gt;
+			&lt;name&gt;AOL&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;5190&lt;/port&gt;
+			&lt;id&gt;1834d812-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;tcpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/tcpports/1834d812-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;lfh6vjej6qsq7&lt;/version&gt;
+			&lt;name&gt;Bittorrent&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;&lt;port&gt;6881-6889&lt;/port&gt;
+			&lt;id&gt;1834e5f0-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;tcpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/tcpports/1834e5f0-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;lth6rt2as6uf6&lt;/version&gt;
+			&lt;name&gt;DNS over TCP&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;53&lt;/port&gt;
+			&lt;id&gt;1834e712-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;tcpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/tcpports/1834e712-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;fmkmzu4jv54ri&lt;/version&gt;
+			&lt;name&gt;FTP&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;21&lt;/port&gt;
+			&lt;id&gt;1834c674-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;tcpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/tcpports/1834c674-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;hwq46pk6uhd5a&lt;/version&gt;
+			&lt;name&gt;NTP-TCP&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;123&lt;/port&gt;
+			&lt;id&gt;1834cb92-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;tcpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/tcpports/1834cb92-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+	&lt;/items&gt;
+	&lt;paging&gt;
+		&lt;prev/&gt;
+		&lt;next&gt;
+			&lt;row&gt;https://10.31.1.186/api/fdm/latest/object/tcpports?limit=10&amp;amp;offset=10&lt;/row&gt;
+		&lt;/next&gt;
+		&lt;limit&gt;10&lt;/limit&gt;
+		&lt;offset&gt;0&lt;/offset&gt;
+		&lt;count&gt;19&lt;/count&gt;
+		&lt;pages&gt;0&lt;/pages&gt;
+	&lt;/paging&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
+          <xpath>port</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+          <xpath>type</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/fdm/latest/object/tcpports?limit=10000</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

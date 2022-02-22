@@ -1,0 +1,112 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>FTDv UserList</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="variable_name" name="params.variable_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;root&gt;
+	&lt;items&gt;
+		&lt;row&gt;
+			&lt;version&gt;ijxi5ejapdpg&lt;/version&gt;
+			&lt;name&gt;admin&lt;/name&gt;
+			&lt;password/&gt;
+			&lt;newPassword/&gt;
+			&lt;userPreferences&gt;
+				&lt;preferredTimeZone&gt;(UTC+00:00) UTC&lt;/preferredTimeZone&gt;
+				&lt;colorTheme&gt;NORMAL_CISCO_IDENTITY&lt;/colorTheme&gt;
+				&lt;type&gt;userpreferences&lt;/type&gt;
+			&lt;/userPreferences&gt;
+			&lt;userRole&gt;ROLE_ADMIN&lt;/userRole&gt;
+			&lt;identitySourceId&gt;e3e74c32-3c03-11e8-983b-95c21a1b6da9&lt;/identitySourceId&gt;
+			&lt;userServiceTypes&gt;
+				&lt;row&gt;MGMT&lt;/row&gt;
+			&lt;/userServiceTypes&gt;
+			&lt;id&gt;22666aac-4919-11ec-a157-b90bdfdfd065&lt;/id&gt;
+			&lt;type&gt;user&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/users/22666aac-4919-11ec-a157-b90bdfdfd065&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;hommyhtozfmvk&lt;/version&gt;
+			&lt;name&gt;test&lt;/name&gt;
+			&lt;password&gt;*********&lt;/password&gt;
+			&lt;newPassword/&gt;
+			&lt;userPreferences/&gt;
+			&lt;userRole/&gt;
+			&lt;identitySourceId&gt;e3e74c32-3c03-11e8-983b-95c21a1b6da9&lt;/identitySourceId&gt;
+			&lt;userServiceTypes&gt;
+				&lt;row&gt;RA_VPN&lt;/row&gt;
+			&lt;/userServiceTypes&gt;
+			&lt;id&gt;7e23214b-6408-11ec-8f38-abe42e1fff8f&lt;/id&gt;
+			&lt;type&gt;user&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/users/7e23214b-6408-11ec-8f38-abe42e1fff8f&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+	&lt;/items&gt;
+	&lt;paging&gt;
+		&lt;prev/&gt;
+		&lt;next/&gt;
+		&lt;limit&gt;10&lt;/limit&gt;
+		&lt;offset&gt;0&lt;/offset&gt;
+		&lt;count&gt;2&lt;/count&gt;
+		&lt;pages&gt;0&lt;/pages&gt;
+	&lt;/paging&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;variable_name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>//id</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/fdm/latest/object/users?limit=10000</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

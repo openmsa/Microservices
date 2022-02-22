@@ -1,0 +1,133 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>FTDv udpports</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;root&gt;
+	&lt;items&gt;
+		&lt;row&gt;
+			&lt;version&gt;mncfn7hru57ms&lt;/version&gt;
+			&lt;name&gt;DNS over UDP&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;53&lt;/port&gt;
+			&lt;id&gt;1834e8ca-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;udpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/udpports/1834e8ca-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;kd77f55ruhutj&lt;/version&gt;
+			&lt;name&gt;NFSD-UDP&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;2049&lt;/port&gt;
+			&lt;id&gt;1834caac-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;udpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/udpports/1834caac-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;mbayin5h4uqbz&lt;/version&gt;
+			&lt;name&gt;NTP-UDP&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;123&lt;/port&gt;
+			&lt;id&gt;1834cc96-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;udpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/udpports/1834cc96-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;version&gt;6sm25hlip4bx&lt;/version&gt;
+			&lt;name&gt;RADIUS&lt;/name&gt;
+			&lt;description/&gt;
+			&lt;isSystemDefined&gt;true&lt;/isSystemDefined&gt;
+			&lt;port&gt;1645&lt;/port&gt;
+			&lt;id&gt;1834ce94-38bb-11e2-86aa-62f0c593a59a&lt;/id&gt;
+			&lt;type&gt;udpportobject&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/udpports/1834ce94-38bb-11e2-86aa-62f0c593a59a&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+			&lt;/items&gt;
+	&lt;paging&gt;
+		&lt;prev/&gt;
+		&lt;next/&gt;
+		&lt;limit&gt;10&lt;/limit&gt;
+		&lt;offset&gt;0&lt;/offset&gt;
+		&lt;count&gt;10&lt;/count&gt;
+		&lt;pages&gt;0&lt;/pages&gt;
+	&lt;/paging&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
+          <xpath>port</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+          <xpath>type</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/fdm/latest/object/udpports?limit=10000</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

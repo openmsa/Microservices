@@ -1,0 +1,210 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>FTDv applications</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;root&gt;
+	&lt;items&gt;
+		&lt;row&gt;
+			&lt;name&gt;050plus&lt;/name&gt;
+			&lt;appId&gt;2325&lt;/appId&gt;
+			&lt;description&gt;VoIP smartphone app.&lt;/description&gt;
+			&lt;tags/&gt;
+			&lt;categories&gt;
+				&lt;row&gt;
+					&lt;version&gt;lspaisjlsg25y&lt;/version&gt;
+					&lt;name&gt;VoIP&lt;/name&gt;
+					&lt;appId&gt;85&lt;/appId&gt;
+					&lt;id&gt;24355eae-4919-11ec-a157-3755a806ab48&lt;/id&gt;
+					&lt;type&gt;applicationcategory&lt;/type&gt;
+				&lt;/row&gt;
+				&lt;row&gt;
+					&lt;version&gt;bf35kksaj7ysh&lt;/version&gt;
+					&lt;name&gt;mobile application&lt;/name&gt;
+					&lt;appId&gt;80&lt;/appId&gt;
+					&lt;id&gt;242de493-4919-11ec-a157-c1314db807bd&lt;/id&gt;
+					&lt;type&gt;applicationcategory&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/categories&gt;
+			&lt;deprecated&gt;false&lt;/deprecated&gt;
+			&lt;tagIds/&gt;
+			&lt;categoryIds&gt;
+				&lt;row&gt;80&lt;/row&gt;
+				&lt;row&gt;85&lt;/row&gt;
+			&lt;/categoryIds&gt;
+			&lt;id&gt;2921e5a2-4919-11ec-a157-bbd429cc0c6a&lt;/id&gt;
+			&lt;applicationTypes&gt;
+				&lt;row&gt;WEBAPP&lt;/row&gt;
+				&lt;row&gt;SERVER&lt;/row&gt;
+			&lt;/applicationTypes&gt;
+			&lt;productivity&gt;3&lt;/productivity&gt;
+			&lt;risk&gt;3&lt;/risk&gt;
+			&lt;type&gt;application&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/applications/2921e5a2-4919-11ec-a157-bbd429cc0c6a&lt;/self&gt;&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;name&gt;1&amp;amp;1 Internet&lt;/name&gt;
+			&lt;appId&gt;1553&lt;/appId&gt;
+			&lt;description&gt;Internet and Domain name service provider.&lt;/description&gt;
+			&lt;tags&gt;
+				&lt;row&gt;
+					&lt;version&gt;j7atydhqmukme&lt;/version&gt;
+					&lt;name&gt;displays ads&lt;/name&gt;
+					&lt;appId&gt;24&lt;/appId&gt;
+					&lt;id&gt;23cd26b3-4919-11ec-a157-05e2d902cee8&lt;/id&gt;
+					&lt;type&gt;applicationtag&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/tags&gt;
+			&lt;categories&gt;
+				&lt;row&gt;
+					&lt;version&gt;owgwzmqptehcz&lt;/version&gt;
+					&lt;name&gt;web services provider&lt;/name&gt;
+					&lt;appId&gt;2&lt;/appId&gt;
+					&lt;id&gt;24204ff8-4919-11ec-a157-516616259911&lt;/id&gt;
+					&lt;type&gt;applicationcategory&lt;/type&gt;
+				&lt;/row&gt;
+				&lt;row&gt;
+					&lt;version&gt;jvs7aqkoew6hp&lt;/version&gt;
+					&lt;name&gt;e-commerce&lt;/name&gt;
+					&lt;appId&gt;11&lt;/appId&gt;
+					&lt;id&gt;242a892e-4919-11ec-a157-21b66eeedf2c&lt;/id&gt;
+					&lt;type&gt;applicationcategory&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/categories&gt;
+			&lt;deprecated&gt;false&lt;/deprecated&gt;
+			&lt;tagIds&gt;
+				&lt;row&gt;24&lt;/row&gt;
+			&lt;/tagIds&gt;
+			&lt;categoryIds&gt;
+				&lt;row&gt;2&lt;/row&gt;
+				&lt;row&gt;11&lt;/row&gt;
+			&lt;/categoryIds&gt;
+			&lt;id&gt;27ef0b19-4919-11ec-a157-f38a45e03b24&lt;/id&gt;
+			&lt;applicationTypes&gt;
+				&lt;row&gt;WEBAPP&lt;/row&gt;
+			&lt;/applicationTypes&gt;
+			&lt;productivity&gt;2&lt;/productivity&gt;
+			&lt;risk&gt;1&lt;/risk&gt;
+			&lt;type&gt;application&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/applications/27ef0b19-4919-11ec-a157-f38a45e03b24&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;name&gt;1-800-Flowers&lt;/name&gt;
+			&lt;appId&gt;535&lt;/appId&gt;
+			&lt;description&gt;Online retailer of flowers and other gifts.&lt;/description&gt;
+			&lt;tags&gt;
+				&lt;row&gt;
+					&lt;version&gt;j7atydhqmukme&lt;/version&gt;
+					&lt;name&gt;displays ads&lt;/name&gt;
+					&lt;appId&gt;24&lt;/appId&gt;
+					&lt;id&gt;23cd26b3-4919-11ec-a157-05e2d902cee8&lt;/id&gt;
+					&lt;type&gt;applicationtag&lt;/type&gt;
+				&lt;/row&gt;
+				&lt;row&gt;
+					&lt;version&gt;edrybqtqfsb6b&lt;/version&gt;
+					&lt;name&gt;not work related&lt;/name&gt;
+					&lt;appId&gt;101&lt;/appId&gt;
+					&lt;id&gt;23ece3d6-4919-11ec-a157-53ab8b276955&lt;/id&gt;
+					&lt;type&gt;applicationtag&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/tags&gt;
+			&lt;categories&gt;
+				&lt;row&gt;
+					&lt;version&gt;jvs7aqkoew6hp&lt;/version&gt;
+					&lt;name&gt;e-commerce&lt;/name&gt;
+					&lt;appId&gt;11&lt;/appId&gt;
+					&lt;id&gt;242a892e-4919-11ec-a157-21b66eeedf2c&lt;/id&gt;
+					&lt;type&gt;applicationcategory&lt;/type&gt;
+				&lt;/row&gt;
+			&lt;/categories&gt;
+			&lt;deprecated&gt;false&lt;/deprecated&gt;
+			&lt;tagIds&gt;
+				&lt;row&gt;101&lt;/row&gt;
+				&lt;row&gt;24&lt;/row&gt;
+			&lt;/tagIds&gt;
+			&lt;categoryIds&gt;
+				&lt;row&gt;11&lt;/row&gt;
+			&lt;/categoryIds&gt;
+			&lt;id&gt;25ea3a99-4919-11ec-a157-c110859df0bf&lt;/id&gt;
+			&lt;applicationTypes&gt;
+				&lt;row&gt;WEBAPP&lt;/row&gt;
+			&lt;/applicationTypes&gt;
+			&lt;productivity&gt;1&lt;/productivity&gt;
+			&lt;risk&gt;2&lt;/risk&gt;
+			&lt;type&gt;application&lt;/type&gt;
+			&lt;links&gt;
+				&lt;self&gt;https://10.31.1.186/api/fdm/latest/object/applications/25ea3a99-4919-11ec-a157-c110859df0bf&lt;/self&gt;
+			&lt;/links&gt;
+		&lt;/row&gt;
+	&lt;/items&gt;
+	&lt;paging&gt;
+		&lt;prev/&gt;
+		&lt;next&gt;
+			&lt;row&gt;https://10.31.1.186/api/fdm/latest/object/applications?limit=10&amp;amp;offset=10&lt;/row&gt;
+		&lt;/next&gt;
+		&lt;limit&gt;10&lt;/limit&gt;
+		&lt;offset&gt;0&lt;/offset&gt;
+		&lt;count&gt;3567&lt;/count&gt;
+		&lt;pages&gt;0&lt;/pages&gt;
+	&lt;/paging&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <post_template></post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/items/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/fdm/latest/object/applications?limit=20</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
