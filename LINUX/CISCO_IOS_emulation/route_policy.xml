@@ -302,13 +302,13 @@
 							{if isset($loopback.ipv4_address) &amp;&amp; isset($loopback.ipv4_prefix)}
 								{assign_object_variable
 									var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
-									value=&quot;{$loopback.ipv4_address}/{$loopback.ipv4_prefix}&quot;}
+									value=&quot;({$loopback.ipv4_address}/{$loopback.ipv4_prefix})&quot;}
 								{$dest_idx=$dest_idx+1}
 								{break}
 							{else if isset($loopback.ipv6_address) &amp;&amp; isset($loopback.ipv6_prefix)}
 								{assign_object_variable
 									var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
-									value=&quot;{$loopback.ipv6_address}/{$loopback.ipv6_prefix}&quot;}
+									value=&quot;({$loopback.ipv6_address}/{$loopback.ipv6_prefix})&quot;}
 								{$dest_idx=$dest_idx+1}
 								{break}
 							{/if}

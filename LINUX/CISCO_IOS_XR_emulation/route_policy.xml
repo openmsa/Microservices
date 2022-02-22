@@ -275,8 +275,7 @@ route-policy {$params.object_id}
     {* clean up the list of keys *}
     {foreach $keys as $key}
         {if $key == "block" || $key == "_order" 
-        	|| $key == "priority" || $key == "action" 
-        	|| $key == "interface"}
+        	|| $key == "priority" || $key == "action"}
     		{continue}
     	{/if}
     	{$clean_keys[$idx]=$key}
@@ -306,7 +305,7 @@ if {else if ($statements@total>1 && !$statements@first && $first)} elseif {/if} 
 (
 	{foreach $statements.extcommunities as $extcommunities} 
 	{if $first_extcom==false} and {else} {$first_extcom=false} {/if} 
-( extcommunity matches-any {$extcommunities.val} )
+( extcommunity rt matches-any {$extcommunities.val} )
 	{/foreach}
 )
 {else if $key == "destination"} {$first_dest=true} {if $first==false} and {else} {$first=false} {/if} 
