@@ -250,7 +250,8 @@
   </command>
   <command name="CREATE">
     <operation><![CDATA[!
-policy-map  {$params.object_id} 
+policy-map  {$params.object_id}
+{if isset($params.pmap_class)}
 {foreach $params.pmap_class as $pmap_class}
   class {$pmap_class.class_name} 
   {if isset($pmap_class.queue_limit) && $pmap_class.queue_limit}
@@ -301,7 +302,7 @@ policy-map  {$params.object_id}
     bandwidth percent {$pmap_class.bandwidth_percent}  
   {/if}     
 {/foreach}
-
+{/if}
 end-policy-map
 !]]></operation>
   </command>

@@ -89,7 +89,7 @@ end policy
     <parser>
       <section>
         <regexp>@\s*route-policy\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))$@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -140,7 +140,107 @@ end policy
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[]]></operation>
+    <operation><![CDATA[!
+route-policy {$params.object_id}
+!
+{foreach $params.statements|@sortby_as_int:"priority" as $statements}
+{$continue=false}
+{$continue_is_set=false}
+{* first iteration on blocks to look for potential "continue" *}
+    {if isset($statements.block)}
+    {foreach $statements.block as $block}
+    {if isset($block.continue) && !$statements@last && !$continue_is_set}
+        {$continue=true}
+        {break}
+        {/if}
+{/foreach}
+    {/if}
+
+{if $statements.action == "deny" && !$statements@last}
+{continue}
+{/if}
+{*ACTION: {$statements.action}   
+	FIRST: {$statements@first} LAST: {$statements@last} INDEX: {$statements@index} TOTAL: {$statements@total}*}
+    {$keys = array_keys($statements)}
+    {$clean_keys=[]}
+    {$idx=0}
+    {* clean up the list of keys *}
+    {foreach $keys as $key}
+        {if $key == "block" || $key == "_order" 
+        || $key == "priority" || $key == "action"}
+    {continue}
+    {/if}
+    {$clean_keys[$idx]=$key}
+    {$idx=$idx+1}
+    {/foreach}
+    {$first=true}
+    {$last=false}
+    {foreach $clean_keys as $key}
+{if $statements@first && $first}
+{strip}
+ if {else if ($statements@total>1 && !$statements@first && $first)}   elseif {/if}
+ {if $continue==true && !$continue_is_set}{$continue_is_set=true} not {/if}
+ {if $key == "as_path"}{$first_as_path=true}{if $first==false} and {else}{$first=false}{/if} ({foreach $statements.as_path as $as_path}{if $first_as_path==false} and {else}{$first_as_path=false}{/if} (as-path in {$as_path.val}){/foreach})
+ {else if $key == "communities"}{$first_com=true}{if $first==false} and {else}{$first=false}{/if}({foreach $statements.communities as $community}{if $first_com==false} and {else}{$first_com=false}{/if} (community matches-any {$community.val}) {/foreach})
+ {else if $key == "extcommunities"}{$first_extcom=true}{if $first==false} and {else}{$first=false}{/if}({foreach $statements.extcommunities as $extcommunities}{if $first_extcom==false} and {else}{$first_extcom=false}{/if} (extcommunity rt matches-any {$extcommunities.val}) {/foreach})
+ {else if $key == "destination"}{$first_dest=true}{if $first==false} and {else}{$first=false}{/if} ({foreach $statements.destination as $destination}{if $first_dest==false} and {else}{$first_dest=false}{/if} (destination in {$destination.val}){/foreach})
+ {else if $key == "tag"}{$first_tag=true}{if $first==false} and {else}{$first=false}{/if} ({foreach $statements.tag as $tag}{if $first_tag==false} and {else}{$first_tag=false}{/if} (tag eq {$tag.val}) {/foreach})
+ {else if $key == "next_hop"}{$first_next_hop=true}{if $first==false} and {else}{$first=false}{/if} ({foreach $statements.next_hop as $next_hop}{if $first_next_hop==false} and {else}{$first_next_hop=false}{/if} (next-hop in {$next_hop.val}) {/foreach}){/if}
+ {if $key@last} then {/if}
+{/strip}
+{*new line*}
+
+    {/foreach}
+    {if isset($statements.block)}
+    {*CR to keep*}
+    
+        {foreach $statements.block as $block}
+            {if isset($block.community)}
+            {foreach $block.community as $comm_set}
+  set community {$comm_set.community_set}
+        {/foreach}
+            {/if}
+{if isset($block.extcommunity) && isset($block.extcommunity_type)} 
+  set extcommunity {$block.extcommunity_type} {$block.extcommunity}
+            {/if}
+            {if isset($block.local_preference)} 
+  set local-preference {$block.local_preference}
+            {/if}
+            {if isset($block.weight)}
+  set weight {$block.weight}
+            {/if}
+            {if isset($block.metric)}
+  set med {$block.metric}
+            {/if}
+            {if isset($block.next_hop)}
+  set next-hop {$block.next_hop}
+            {/if}
+            {if isset($block.continue)}
+  drop
+            {/if}
+        {/foreach}
+    {else}
+    {if !$statements@last}
+    
+pass
+    {/if}
+    {/if}
+    {if $statements@last}
+else
+{if $statements.action == "permit"}
+pass
+{else}
+drop
+{/if}
+endif
+{/if}
+{/foreach}
+  !
+  
+!
+end-policy
+!
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
