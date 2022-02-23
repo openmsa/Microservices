@@ -37,7 +37,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[#show running-config]]></operation>
     <parser>
       <section>
         <regexp>@^\s*prefix-set\s*(?&lt;object_id&gt;\S+)@</regexp>
@@ -76,8 +76,7 @@ end-set
   <command name="DELETE">
     <operation><![CDATA[!
 no prefix-set {$prefix_set.$object_id.object_id}
-!
-]]></operation>
+!]]></operation>
   </command>
   <command name="LIST"/>
 </ObjectDefinition>

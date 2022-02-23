@@ -46,7 +46,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show prefix-list ]]></operation>
+    <operation><![CDATA[#show prefix-list ]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ipv4\s+prefix-list\s+(?&lt;object_id&gt;\S+)$@</regexp>
@@ -69,7 +69,7 @@
   <command name="CREATE">
     <operation><![CDATA[!
 ipv4 prefix-list {$params.object_id}
-{foreach $params.ip_prefix_list as $prefix}
+{foreach $params.ip_prefix_list|@sortby_as_int:"sequence" as $prefix}
  {$prefix.sequence} {$prefix.action} {$prefix.ip_prefix} {if isset($prefix.comp_prefix_length) && $prefix.comp_prefix_length}{$prefix.comp_prefix_length} {$prefix.prefix_length} 
  {/if}
  
