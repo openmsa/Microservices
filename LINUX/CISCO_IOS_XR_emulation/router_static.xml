@@ -250,8 +250,8 @@ router static
 {if isset ($params.routes)}
  address-family ipv4 unicast
 {foreach $params.routes as $route}
- {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
- {/if}
+  {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+{/if}
  
 {/foreach}
 {/if}
@@ -259,8 +259,8 @@ router static
 {if isset ($params.routes6)}
  address-family ipv6 unicast
 {foreach $params.routes6 as $route}
- {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
- {/if}
+  {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+{/if}
  
 {/foreach}
 {/if}
@@ -273,14 +273,13 @@ vrf {$vrf.vrf_name}
 {/if}
  address-family ipv4 unicast
 {foreach $vrf.routes as $route}
- {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+  {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
  
 {/foreach}
 {/foreach}
 {/if}
 !
-
 {if isset ($params.vrf_routes6)}
 {foreach $params.vrf_routes6 as $vrf}
 {if isset($vrf.vrf_name)}
@@ -288,13 +287,12 @@ vrf {$vrf.vrf_name}
 {/if}
  address-family ipv6 unicast
 {foreach $vrf.routes as $route}
- {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+  {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
  
 {/foreach}
 {/foreach}
 {/if}
-
 !]]></operation>
   </command>
   <command name="READ"/>
