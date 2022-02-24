@@ -67,6 +67,12 @@
         <sections>sorted_matches</sections>
       </sections>
     </variable>
+    <variable displayName="extcommunity_set" name="params.sorted_matches.0.extcommunity_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>sorted_matches</sections>
+      </sections>
+    </variable>
     <variable displayName="interface" name="params.sorted_matches.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -139,6 +145,12 @@
         <sections>matches</sections>
       </sections>
     </variable>
+    <variable displayName="extcommunity_set" name="params.matches.0.extcommunity_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="46" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>matches</sections>
+      </sections>
+    </variable>
     <variable displayName="interface" name="params.matches.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
@@ -199,13 +211,13 @@
         <sections>sets</sections>
       </sections>
     </variable>
-    <variable displayName="extcommunity" name="params.sets.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="extcommunity_type" name="params.sets.0.extcommunity_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>sets</sections>
       </sections>
     </variable>
-    <variable displayName="extcommunity_type" name="params.sets.0.extcommunity_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="extcommunity" name="params.sets.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>sets</sections>
@@ -308,6 +320,9 @@ route-map EXPORTA-INTRAGOV permit 10
         {/if}
         {if isset($match.extcommunity)}
             {$key_array[$index]=&quot;extcommunity&quot;}
+        {/if}
+        {if isset($match.extcommunity_set)}
+            {$key_array[$index]=&quot;extcommunity_set&quot;}
         {/if}
         {if isset($match.interface)}
             {$key_array[$index]=&quot;interface&quot;}
@@ -422,7 +437,7 @@ route-map EXPORTA-INTRAGOV permit 10
             <regexp>@^\s*set\s+weight\s+(?&lt;weight&gt;\d+)$@</regexp>
             <regexp>@^\s*set\s+ip\s+precedence\s+(?&lt;ip_precedence&gt;\S+)$@</regexp>
             <regexp>@^\s*set\s+ip\s+tos\s+(?&lt;ip_tos&gt;\S+)$@</regexp>
-            <regexp>@^\s+set\s*extcommunity\s*(?&lt;extcommunity_type&gt;\S+)\s*(?&lt;extcommunity&gt;((?!additive).)*)\s?(?&lt;additive&gt;additive)?@</regexp>
+            <regexp>@^\s+set\s*extcommunity\s*(?&lt;extcommunity_type&gt;\S+)\s*(?&lt;extcommunity&gt;.*)@</regexp>
             <regexp>@^\s*continue\s*(?&lt;continue&gt;\d+)@</regexp>
             <regexp>@^\s*set\s+metric\s+(?&lt;metric&gt;.*)$@</regexp>
             <regexp>@^\s*set\sip\snext-hop\s(?&lt;ip_next_hop&gt;\S+)@</regexp>
