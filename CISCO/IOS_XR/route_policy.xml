@@ -17,7 +17,7 @@
     <name>route_policy</name>
     <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>50</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -28,41 +28,95 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="_order" name="params.statements.0._order" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="as_path" name="params.statements.0.as_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="action" name="params.statements.0.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
     </variable>
-    <variable displayName="destination" name="params.statements.0.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="as_path" name="params.statements.0.as_path.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
     </variable>
-    <variable displayName="community" name="params.statements.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="destination" name="params.statements.0.destination.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
     </variable>
-    <variable displayName="source" name="params.statements.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community" name="params.statements.0.communities.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
     </variable>
-    <variable displayName="tag" name="params.statements.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community_set" name="params.statements.0.community.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
+    </variable>
+    <variable displayName="source" name="params.statements.0.source" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
+    </variable>
+    <variable displayName="tag" name="params.statements.0.tag.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>statements</sections>
+      </sections>
     </variable>
     <variable displayName="operator" name="params.statements.0.block.0.operator" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
     </variable>
-    <variable displayName="community" name="params.statements.0.block.0.community" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="community" name="params.statements.0.block.0.community.0.community_set" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
+    </variable>
+    <variable displayName="extcommunity_type" name="params.statements.0.block.0.extcommunity_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
     </variable>
     <variable displayName="extcommunity" name="params.statements.0.block.0.extcommunity" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
     </variable>
     <variable displayName="additive" name="params.statements.0.block.0.additive" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
     </variable>
     <variable displayName="local_preference" name="params.statements.0.block.0.local_preference" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
     </variable>
     <variable displayName="weight" name="params.statements.0.block.0.weight" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
+      <sections>
+        <sections>block</sections>
+      </sections>
     </variable>
     <variable displayName="origin" name="params.statements.0.block.0.origin" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
@@ -85,7 +139,7 @@ end policy
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios_xr/sample-config.ios-xr.route_policy.conf]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/route_policy.conf]]></operation>
     <parser>
       <section>
         <regexp>@\s*route-policy\s+(?&lt;object_id&gt;(?&lt;name&gt;\S+))$@</regexp>
@@ -143,6 +197,7 @@ end policy
     <operation><![CDATA[!
 route-policy {$params.object_id}
 !
+<<<<<<< HEAD
 {foreach $params.statements|@sortby_as_int:"priority" as $statements}
 {$continue=false}
 {$continue_is_set=false}
@@ -160,22 +215,50 @@ route-policy {$params.object_id}
 {continue}
 {/if}
 {*ACTION: {$statements.action}   
+=======
+{foreach $params.statements|@sortby:"priority" as $statements}
+	{$continue=false}
+	{$continue_is_set=false}
+	{* first iteration on blocks to look for potential "continue" *}
+    {if isset($statements.block)}
+    	{foreach $statements.block as $block}
+	    	{if isset($block.continue) && !$statements@last && !$continue_is_set}
+	        	{$continue=true}
+	        	{break}
+	        {/if}
+		{/foreach}
+    {/if}
+
+	{if $statements.action == "deny" && !$statements@last}
+	{continue}
+	{/if}
+{*	ACTION: {$statements.action}   
+>>>>>>> vivo_cisco_emulation
 	FIRST: {$statements@first} LAST: {$statements@last} INDEX: {$statements@index} TOTAL: {$statements@total}*}
     {$keys = array_keys($statements)}
     {$clean_keys=[]}
     {$idx=0}
     {* clean up the list of keys *}
     {foreach $keys as $key}
+<<<<<<< HEAD
         {if $key == "block" || $key == "_order" 
         || $key == "priority" || $key == "action"}
     {continue}
     {/if}
     {$clean_keys[$idx]=$key}
     {$idx=$idx+1}
+=======
+        {if $key == "block" || $key == "_order" || $key == "priority" || $key == "action"}
+    		{continue}
+    	{/if}
+    	{$clean_keys[$idx]=$key}
+    	{$idx=$idx+1}
+>>>>>>> vivo_cisco_emulation
     {/foreach}
     {$first=true}
     {$last=false}
     {foreach $clean_keys as $key}
+<<<<<<< HEAD
 {if $statements@first && $first}
 {strip}
  if {else if ($statements@total>1 && !$statements@first && $first)}   elseif {/if}
@@ -234,6 +317,82 @@ drop
 {/if}
 endif
 {/if}
+=======
+		{if $statements@first && $first}
+if {else if ($statements@total>1 && !$statements@first && $first)} elseif {/if} {if $continue==true && !$continue_is_set}{$continue_is_set=true} not {/if} 
+
+{if $key == "as_path"}	{$first_as_path=true} {if $first==false} and {else} {$first=false} {/if}
+(
+	{foreach $statements.as_path as $as_path} 
+	{if $first_as_path==false} and {else} {$first_as_path=false} {/if} 
+(as-path in {$as_path.val}) 	
+	{/foreach}
+)
+{else if $key == "communities"} {$first_com=true} 	{if $first==false} and {else} {$first=false} {/if}
+(
+	{foreach $statements.communities as $community} 
+	{if $first_com==false} and {else} {$first_com=false} {/if} 
+( community matches-any {$community.val} )
+	{/foreach}
+)
+{else if $key == "destination"} {$first_dest=true} {if $first==false} and {else} {$first=false} {/if} 
+(
+	{foreach $statements.destination as $destination} 
+	{if $first_dest==false} and {else} {$first_dest=false} {/if} 
+(destination in {$destination.val}) 	
+	{/foreach}
+)
+{else if $key == "tag"}  {$first_tag=true} {if $first==false} and {else} {$first=false} {/if} 
+(
+	{foreach $statements.tag as $tag} 
+	{if $first_tag==false} and {else} {$first_tag=false} {/if} 
+(tag eq {$tag.val})
+	{/foreach}
+)
+{/if}
+{if $key@last}then 
+
+	{*new line*}
+		{/if}
+	{*new line*}
+    {/foreach}
+    {if isset($statements.block)}
+    	{*CR to keep*}
+    	
+        {foreach $statements.block as $block}
+            {if isset($block.community)}
+    	        {foreach $block.community as $comm_set}
+set community {$comm_set.community_set}
+	        	{/foreach}
+            {/if}
+			{if isset($block.extcommunity) && isset($block.extcommunity_type)} 
+set extcommunity {$block.extcommunity_type} {$block.extcommunity}
+            {/if}
+            {if isset($block.local_preference)} 
+set local-preference {$block.local_preference}
+            {/if}
+            {if isset($block.weight)}
+set weight {$block.weight}
+            {/if}
+            {if isset($block.continue)}
+drop
+            {/if}
+        {/foreach}
+    {else}
+    	{if !$statements@last}
+pass
+    	{/if}
+    {/if}
+    {if $statements@last}
+	else
+		{if $statements.action == "permit"}
+		pass
+		{else}
+		drop
+		{/if}
+	endif
+	{/if}
+>>>>>>> vivo_cisco_emulation
 {/foreach}
   !
   
@@ -245,6 +404,8 @@ end-policy
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[no route-policy {$route_policy.$object_id.object_id}]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
