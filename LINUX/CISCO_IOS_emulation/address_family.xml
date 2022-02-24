@@ -307,12 +307,6 @@
           <regexp>@^\s*maximum-paths@</regexp>
         </ignore>
         <ignore>
-          <regexp>@^\s*redistribute@</regexp>
-        </ignore>
-        <ignore>
-          <regexp>@^\s*address-family ipv4 vrf@</regexp>
-        </ignore>
-        <ignore>
           <regexp>@to_route_reflector@</regexp>
         </ignore>
       </lines>

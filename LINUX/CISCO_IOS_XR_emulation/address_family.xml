@@ -181,19 +181,13 @@
         <sections>neighbors</sections>
       </sections>
     </variable>
-    <variable displayName="bgp_redistribute" name="params.bgp_redistribute" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bgp_redistribute_type" name="params.redistribute.0.bgp_redistribute_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>redistribute</sections>
       </sections>
     </variable>
-    <variable displayName="bgp_redistrib_policy" name="params.bgp_redistrib_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-      <sections>
-        <sections>redistribute</sections>
-      </sections>
-    </variable>
-    <variable displayName="bgp_redistrib_static_policy" name="params.bgp_redistrib_static_policy" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="bgp_redistribute_target" name="params.redistribute.0.bgp_redistribute_target" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>redistribute</sections>
@@ -294,9 +288,10 @@
     <operation><![CDATA[!
 router bgp {$params.router_bgp}
   address-family {$params.bgp_address_family} unicast
-{if isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)}
-  redistribute {$params.bgp_vrf_redistribute}
-  redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+{if isset ($params.redistribute)}
+{foreach $params.redistribute as $redistribute}
+  redistribute {$redistribute.bgp_redistribute_type} route-policy {$redistribute.bgp_redistribute_target}
+{/foreach}
 {/if}
   !
 {if isset($params.neighbor)}

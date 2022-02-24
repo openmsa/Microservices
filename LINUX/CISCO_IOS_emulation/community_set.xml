@@ -57,7 +57,7 @@
         {if isset($ficl.number)}
 			{assign_object_variable
 				var=&quot;name&quot;
-				value=&quot;com_set_{$ficl.number}&quot;}
+				value=&quot;{$ficl.number}&quot;}
             {assign_object_variable
 				var=&quot;object_id&quot;
 				value=&quot;com_set_{$ficl.number}&quot;}

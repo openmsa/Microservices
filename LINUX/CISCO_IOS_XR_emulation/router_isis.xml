@@ -185,7 +185,8 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!
+    <operation><![CDATA[{if isset ($params.interfaces)}
+!
 router {$params.object_id} 1
 
 {foreach $params.interfaces as $itf}
@@ -246,10 +247,8 @@ router {$params.object_id} 1
 {/if}
 {if isset($params.isis_vrf)} vrf-context {$params.isis_vrf}
 {/if*}
-
-
 !
-]]></operation>
+{/if}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>

@@ -253,19 +253,19 @@
 policy-map  {$params.object_id}
 {if isset($params.pmap_class)}
 {foreach $params.pmap_class as $pmap_class}
-  class {$pmap_class.class_name} 
+ class {$pmap_class.class_name} 
   {if isset($pmap_class.queue_limit) && $pmap_class.queue_limit}
-    queue-limit {$pmap_class.queue_limit} 
+  queue-limit {$pmap_class.queue_limit} 
   {/if}
   {if isset($pmap_class.priority) && $pmap_class.priority}
-    {$pmap_class.priority} 
+  {$pmap_class.priority} 
   {/if} 
   {if isset($pmap_class.police_cir_burst) && $pmap_class.police_cir_burst}police rate {$pmap_class.police_cir_burst} {/if}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst} 
   {/if}
   {if isset($pmap_class.police_cir_percent)} police rate percent {$pmap_class.police_cir_percent}
   {/if}
   {if isset($pmap_class.service_policy) && $pmap_class.service_policy}
-    service-policy {$pmap_class.service_policy}  
+  service-policy {$pmap_class.service_policy}  
   {/if}
   {* random-detect *}
   {if isset($pmap_class.rd)}
@@ -276,16 +276,16 @@ policy-map  {$params.object_id}
   {/foreach}
   {/if}
   {if isset($pmap_class.shape) && $pmap_class.shape}
-    shape average {$pmap_class.shape}  
+  shape average {$pmap_class.shape}  
   {/if} 
   {if isset($pmap_class.conform_action) && $pmap_class.conform_action}
-    conform-action {$pmap_class.conform_action|replace:'-':' '|replace:'transmit':''}  
+  conform-action {$pmap_class.conform_action|replace:'-':' '|replace:'transmit':''}  
   {/if} 
   {if isset($pmap_class.exceed_action) && $pmap_class.exceed_action}
-    exceed-action {$pmap_class.exceed_action|replace:'-':' '|replace:'transmit':''}  
+  exceed-action {$pmap_class.exceed_action|replace:'-':' '|replace:'transmit':''}  
   {/if} 
   {if isset($pmap_class.violate_action) && $pmap_class.violate_action}
-    exceed-action {$pmap_class.violate_action|replace:'-':' '|replace:'transmit':''}  
+  exceed-action {$pmap_class.violate_action|replace:'-':' '|replace:'transmit':''}  
   {/if} 
   {if isset($pmap_class.fair_queue) && $pmap_class.fair_queue}
     {$pmap_class.fair_queue} fair-queue  
@@ -296,10 +296,10 @@ policy-map  {$params.object_id}
   {/if}
   {/foreach}{/if}
   {if isset($pmap_class.bandwidth) && $pmap_class.bandwidth}
-    bandwidth {$pmap_class.bandwidth}  
+  bandwidth {$pmap_class.bandwidth}  
   {/if}     
   {if isset($pmap_class.bandwidth_percent) && $pmap_class.bandwidth_percent}
-    bandwidth percent {$pmap_class.bandwidth_percent}  
+  bandwidth percent {$pmap_class.bandwidth_percent}  
   {/if}     
 {/foreach}
 {/if}
