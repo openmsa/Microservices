@@ -565,6 +565,9 @@
     <variable displayName="interface_num" name="params.interface_num" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="orig_object_id" name="params.orig_object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -633,7 +636,11 @@ interface Serial1/0/0.1/3/1/1:0
 	{assign_object_variable
 		var=&quot;validated&quot;
 		value=false}
-{/if}</post_template>
+{/if}
+{assign_object_variable
+		var=&quot;orig_object_id&quot;
+		value=$params.object_id}
+</post_template>
     <parser>
       <section>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Vlan|Port-channel|Multilink)\d+)$@</regexp>
