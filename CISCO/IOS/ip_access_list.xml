@@ -123,7 +123,8 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
 {if isset($access_list)}
 	{$idx=0}
 	{$seq_number=10}
-	{foreach $access_list|@sortby_as_int:&quot;acl_id&quot; as $acl}
+	{* foreach $access_list|@sortby_as_int:&quot;acl_id&quot; as $acl *}
+	{foreach $access_list|@sortby:&quot;acl_id&quot; as $acl}
 		{if $acl.acl_id == $params.object_id}
 
 			{$keys = array_keys($acl)}

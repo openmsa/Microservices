@@ -51,7 +51,8 @@
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$idx=0}
-{foreach $ip_prefix_list|@sortby_as_int:&quot;sequence&quot; as $ipl}
+{* foreach $ip_prefix_list|@sortby_as_int:&quot;sequence&quot; as $ipl *}
+{foreach $ip_prefix_list|@sortby:&quot;sequence&quot; as $ipl}
 	{if ($ipl.name == $params.object_id)}
 		{if isset($ipl.description)}
 			{assign_object_variable

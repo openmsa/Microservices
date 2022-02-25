@@ -75,7 +75,8 @@ ipv4 prefix-list {$params.object_id}
 {if isset($params.description)}
  # {$params.description}
 {/if}
-{foreach $params.ip_prefix_list|@sortby_as_int:"sequence" as $prefix}
+{* foreach $params.ip_prefix_list|@sortby_as_int:"sequence" as $prefix *}
+{foreach $params.ip_prefix_list|@sortby:"sequence" as $prefix}
  {$prefix.sequence} {$prefix.action} {$prefix.ip_prefix} {if isset($prefix.comp_prefix_length) && $prefix.comp_prefix_length}{$prefix.comp_prefix_length} {$prefix.prefix_length} 
  {/if}
  

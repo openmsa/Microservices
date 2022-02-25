@@ -256,7 +256,8 @@ end policy
   <command name="CREATE">
     <operation><![CDATA[!
 route-policy {$params.object_id}
-{foreach $params.statements|@sortby_as_int:"priority" as $statements}
+{* foreach $params.statements|@sortby_as_int:"priority" as $statements *}
+{foreach $params.statements|@sortby:"priority" as $statements}
 {$continue=false}
 {$continue_is_set=false}
 {* first iteration on blocks to look for potential "continue" *}

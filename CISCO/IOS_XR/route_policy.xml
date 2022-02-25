@@ -198,7 +198,8 @@ end policy
 route-policy {$params.object_id}
 !
 <<<<<<< HEAD
-{foreach $params.statements|@sortby_as_int:"priority" as $statements}
+{* foreach $params.statements|@sortby_as_int:"priority" as $statements *}
+{foreach $params.statements|@sortby:"priority" as $statements}
 {$continue=false}
 {$continue_is_set=false}
 {* first iteration on blocks to look for potential "continue" *}
