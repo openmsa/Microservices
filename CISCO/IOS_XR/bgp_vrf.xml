@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>bgp_vrf</name>
-    <group>EMULATION|CISCO|IOS-XR</group>
+    <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>30</importrank>
     <reorderinstances>false</reorderinstances>
@@ -371,7 +371,7 @@
   <command name="CREATE">
     <operation><![CDATA[!
 router bgp {$params.router_bgp}
-  vrf {$params.vrf_name}
+ vrf {$params.vrf_name}
   rd {$params.rd}
   address-family ipv4 unicast
 {if isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)}

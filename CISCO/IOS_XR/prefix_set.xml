@@ -40,7 +40,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[#show running-config]]></operation>
+    <operation><![CDATA[#cat /config/cisco_ios_xr/prefix_set.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*prefix-set\s*(?&lt;object_id&gt;\S+)@</regexp>

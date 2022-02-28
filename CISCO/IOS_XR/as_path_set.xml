@@ -71,10 +71,6 @@ end-set
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE">
-    <operation><![CDATA[!
-no as-path-set {$as_path_set.$object_id.object_id}
-!]]></operation>
-  </command>
+  <command name="DELETE"/>
   <command name="LIST"/>
 </ObjectDefinition>
