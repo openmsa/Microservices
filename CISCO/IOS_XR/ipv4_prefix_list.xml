@@ -43,6 +43,9 @@
     <variable displayName="prefix_length" name="params.ip_prefix_list.0.prefix_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -69,6 +72,9 @@
   <command name="CREATE">
     <operation><![CDATA[!
 ipv4 prefix-list {$params.object_id}
+{if isset($params.description)}
+ # {$params.description}
+{/if}
 {* foreach $params.ip_prefix_list|@sortby_as_int:"sequence" as $prefix *}
 {foreach $params.ip_prefix_list|@sortby:"sequence" as $prefix}
  {$prefix.sequence} {$prefix.action} {$prefix.ip_prefix} {if isset($prefix.comp_prefix_length) && $prefix.comp_prefix_length}{$prefix.comp_prefix_length} {$prefix.prefix_length} 
