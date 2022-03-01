@@ -37,7 +37,6 @@
   <command name="IMPORT">
     <operation><![CDATA[show running-config]]></operation>
     <post_template>{$idx=0}
-{* foreach $ip_prefix_list|@sortby_as_int:&quot;sequence&quot; as $ipl *}
 {foreach $ip_prefix_list|@sortby_typed:&quot;sequence:int&quot; as $ipl}
 	{if ($ipl.name == $params.object_id)}
 		{if isset($ipl.description)}
