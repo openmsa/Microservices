@@ -60,6 +60,7 @@
     </variable>
   </variables>
   <example>
+  <content>
   c-br-sp-spo-msv-rav-05#show ip bgp all summary
 For address family: IPv4 Unicast
 BGP router identifier 177.61.178.31, local AS number 27699
@@ -142,6 +143,8 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
 10.5.5.2        4        65001       0       0        1    0    0 never    Active
 10.5.5.2        4        65671       0       0        1    0    0 never    Idle
 10.5.5.3        4        65671       0       0        1    0    0 never    Active
+  </content>
+
 </example>
   <command name="IMPORT">
     <operation><![CDATA[show ip bgp all summary]]></operation>
