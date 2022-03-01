@@ -121,7 +121,7 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
 </content>
   </example>
   <command name="IMPORT">show bgp vrf USP neighbors 189.20.170.10 
-    <operation><![CDATA[show bgp vrf {$params.object_id} neighbors {$params.neighbor}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}show bgp vrf {$params.object_id} neighbors {$params.neighbor}{/if}]]></operation>
     <post_template></post_template>
     <parser>
       <section>

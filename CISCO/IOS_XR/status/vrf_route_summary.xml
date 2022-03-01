@@ -59,7 +59,7 @@ Total  2842  1  0  386648
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show route vrf {$params.object_id} summary ]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}show route vrf {$params.object_id} summary {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*show route vrf (?&lt;object_id&gt;\S+) summary @</regexp>

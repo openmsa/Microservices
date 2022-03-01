@@ -62,7 +62,7 @@ Neighbor  Spk  AS  MsgRcvd  MsgSent  TblVer  InQ  OutQ  Up/Down  St/PfxRcd
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show bgp vrf {$params.object_id} ipv4 unicast summary]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}show bgp vrf {$params.object_id} ipv4 unicast summary{/if}]]></operation>
     <parser>
       <section>
         <regexp>@show bgp vrf\s+(?&lt;object_id&gt;.*) ipv4 unicast summary@</regexp>
