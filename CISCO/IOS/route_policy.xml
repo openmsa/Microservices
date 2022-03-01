@@ -162,7 +162,7 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <operation><![CDATA[show running-config]]></operation>
     <post_template>{assign var=filtered_route_map value=[]}
 {assign var=route_map_idx value=0}
 {$name=&quot;&quot;}
@@ -179,7 +179,6 @@
 	{ksort($filtered_route_map)}
 	{/capture}
 	{foreach $filtered_route_map|@sortby_typed:&quot;priority:int&quot; as $rm}
-{*==&gt; {$rm._order} - {$rm.name} {$rm.action} {$rm.priority}*}
 		{assign_object_variable
 			var=&quot;statements.{$statement_idx}._order&quot;
 			value=&quot;{$rm._order}&quot;}
