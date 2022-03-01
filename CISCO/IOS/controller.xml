@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS device</description>
+    <description></description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>controller</name>
-    <group>CISCO|IOS|DEVICE</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -124,7 +124,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{* based on the timeslot, calculate the bandwidth *}
 
 {* for E1 controllers, directly access to the timeslot  *}

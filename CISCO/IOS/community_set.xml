@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>community_set-inter</name>
-    <group>EMULATION|CISCO|IOS</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
@@ -40,7 +40,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>    
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$filtered_ip_community_list=[]} 
 {$icl_idx=0}
 
@@ -57,7 +57,7 @@
         {if isset($ficl.number)}
 			{assign_object_variable
 				var=&quot;name&quot;
-				value=&quot;com_set_{$ficl.number}&quot;}
+				value=&quot;{$ficl.number}&quot;}
             {assign_object_variable
 				var=&quot;object_id&quot;
 				value=&quot;com_set_{$ficl.number}&quot;}

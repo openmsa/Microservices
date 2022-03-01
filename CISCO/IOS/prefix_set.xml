@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>prefix_set-inter</name>
-    <group>EMULATION|CISCO|IOS</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
@@ -28,37 +28,84 @@
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="src_ip" name="params.prefix_set.0.src_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="mask_length" name="params.prefix_set.0.mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>    
-    <post_template>{$idx=0}
-{foreach $ip_access_list as $ip_acl}
-	{if isset($ip_acl.access_list) &amp;&amp; ($ip_acl.object_id == $params.object_id)}
-		{foreach $ip_acl.access_list as $acl}
-			{assign_object_variable 
-				var=&quot;prefix_set.{$idx}.src_ip&quot; 
-				value=&quot;{$acl.acl_src_ip}&quot;}
-			{assign_object_variable 
-				var=&quot;prefix_set.{$idx}.mask_length&quot; 
-				value=&quot;{$acl.acl_src_mask_length}&quot;}
-			{$idx=$idx+1}
-		{/foreach}
-	{/if}
-{/foreach}
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <post_template>{* loop over the ip_access_list instances and build the prefix_set array
+based on each  ip_access_list src IP and mask variables *}
+{$idx=0}
+{if isset($ip_access_list)}
+	{foreach $ip_access_list as $ip_acl}
+		{if isset($ip_acl.access_list) &amp;&amp; ($ip_acl.object_id == $params.object_id)}
+			{foreach $ip_acl.access_list as $acl}
+				{if isset($acl.acl_src_ip) &amp;&amp; isset($acl.acl_src_mask_length)}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.src_ip&quot; 
+						value=&quot;{$acl.acl_src_ip}&quot;}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.mask_length&quot; 
+						value=&quot;{$acl.acl_src_mask_length}&quot;}
+					{$idx=$idx+1}
+				{else if isset($acl.acl_src) &amp;&amp; ($acl.acl_src == &quot;any&quot;)}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.src_ip&quot; 
+						value=&quot;0.0.0.0&quot;}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.mask_length&quot; 
+						value=&quot;0&quot;}				
+					{$idx=$idx+1}
+				{/if}
+			{/foreach}
+		{/if}
+	{/foreach}
+{/if}
+{$idx=0}
+{if isset($ip_prefix_list)}
+	{foreach $ip_prefix_list as $ip_pref_list}
+		{if isset($ip_pref_list.name) &amp;&amp; ($ip_pref_list.name == $params.object_id)}
+			{if isset($ip_pref_list.description)}
+				{assign_object_variable 
+					var=&quot;description&quot; 
+					value=&quot;{$ip_pref_list.description}&quot;}
+
+			{/if}
+			{if isset($ip_pref_list.prefix_ip) &amp;&amp; isset($ip_pref_list.prefix_mask_length)}
+				{assign_object_variable 
+					var=&quot;prefix_set.{$idx}.src_ip&quot; 
+					value=&quot;{$ip_pref_list.prefix_ip}&quot;}
+				{assign_object_variable 
+					var=&quot;prefix_set.{$idx}.mask_length&quot; 
+					value=&quot;{$ip_pref_list.prefix_mask_length}&quot;}
+				{$idx=$idx+1}
+			{/if}
+		{/if}
+	{/foreach}
+{/if}
+{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
+{assign_object_variable 
+	var=&quot;name&quot; 
+	value=&quot;{$params.object_id}&quot;}
 {assign_object_variable 
 	var=&quot;object_id&quot; 
 	value=&quot;prefix_set_{$params.object_id}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*access-list\s+(?&lt;object_id&gt;\d+)@</regexp>
+        <regexp>@^\s*(ip|ipv6)\s+prefix-list\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <ignore>

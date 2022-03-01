@@ -250,7 +250,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>    
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$itf_idx=0}
 {foreach $interface as $itf}
 	{if isset($itf.isis)}

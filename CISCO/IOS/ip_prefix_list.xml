@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS device</description>
+    <description></description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -15,9 +15,9 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>ip_prefix_list</name>
-    <group>CISCO|IOS|DEVICE</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>2</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -43,27 +43,37 @@
     <variable displayName="ip_prefix" name="params.ip_prefix" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="prefix_ip" name="params.prefix_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="prefix_mask_length" name="params.prefix_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
     <variable displayName="comp_prefix_length" name="params.comp_prefix_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
     <variable displayName="prefix_length" name="params.prefix_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
-    <variable displayName="description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template></post_template>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+prefix-list\s+(?&lt;name&gt;\S+)\s+seq\s+(?&lt;sequence&gt;\d+)\s+(?&lt;action&gt;(permit|deny))\s+(?&lt;ip_prefix&gt;\S+)(\s+(?&lt;comp_prefix_length&gt;le|ge))?(\s+(?&lt;prefix_length&gt;\d+))?$@</regexp>
-        <regexp>@^\s*ip\s+prefix-list\s+(?&lt;name&gt;\S+)\s+description\s+(?&lt;description&gt;.+)$@</regexp>
-        <xpath></xpath>
+        <regexp>@^\s*(?&lt;type&gt;ip|ipv6)\s+prefix-list\s+(?&lt;name&gt;\S+)\s+seq\s+(?&lt;sequence&gt;\d+)\s+(?&lt;action&gt;(permit|deny))\s+(?&lt;ip_prefix&gt;(?&lt;prefix_ip&gt;\S+)\/(?&lt;prefix_mask_length&gt;\d+))(\s+(?&lt;comp_prefix_length&gt;le|ge))?(\s+(?&lt;prefix_length&gt;\d+))?$@</regexp>
+        <regexp>@^\s*(?&lt;type&gt;ip|ipv6)\s+prefix-list\s+(?&lt;name&gt;\S+)\s+description\s+(?&lt;description&gt;.*)@</regexp>
       </section>
       <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*(?&lt;type&gt;ip|ipv6)\s+prefix-list\s+(?&lt;name&gt;\S+)\s+description\s+(?&lt;description&gt;.*)@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>

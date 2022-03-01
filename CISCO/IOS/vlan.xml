@@ -37,8 +37,8 @@
   </variables>
   <example/>
   <command name="IMPORT">
-      <operation>show running-config</operation>    
-      <parser>
+    <operation><![CDATA[cat /config/cisco_ios/sample-config.ios.vlan.txt]]></operation>
+    <parser>
       <section>
         <regexp>@^\s*vlan\s+(?&lt;object_id&gt;\d+)$@</regexp>
         <xpath></xpath>

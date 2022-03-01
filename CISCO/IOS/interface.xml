@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS device</description>
+    <description>for Cisco IOS emulation</description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>interface</name>
-    <group>CISCO|IOS|DEVICE</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
@@ -304,19 +304,19 @@
         <sections>channel group</sections>
       </sections>
     </variable>
-    <variable displayName="peer_ip" name="params.xconnect.0.peer_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="xconnect_peer_ip" name="params.xconnect_peer_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>xconnect</sections>
       </sections>
     </variable>
-    <variable displayName="vc_id" name="params.xconnect.0.vc_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="xconnect_vc_id" name="params.xconnect_vc_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>xconnect</sections>
       </sections>
     </variable>
-    <variable displayName="mode" name="params.xconnect.0.mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="xconnect_mode" name="params.xconnect_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
       <sections>
         <sections>xconnect</sections>
@@ -565,6 +565,9 @@
     <variable displayName="interface_num" name="params.interface_num" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <repositories/>
     </variable>
+    <variable displayName="orig_object_id" name="params.orig_object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>!
@@ -582,8 +585,10 @@ interface Serial1/0/0.1/3/1/1:0
 !</content>
   </example>
   <command name="IMPORT">
-    <operation>show running-config</operation>    
-    <post_template>{if $params.type == &quot;Serial&quot;}
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <post_template>
+{* get the Serial interface bandwidth from the matching controller timeslot *}
+{if $params.type == &quot;Serial&quot; &amp;&amp;  isset($controller)}
 	{foreach $controller as $c}
 		{if $c.interface == $params.controller_module}
 			{if isset($c.channel_group) 
@@ -608,9 +613,14 @@ interface Serial1/0/0.1/3/1/1:0
 		{/if}
 	{/foreach}
 {/if}
-{if $params.type == &quot;Multilink&quot;}
+{* get the bandwidth from the Serial interface based on the multilink group *}
+{if $params.type == &quot;Multilink&quot; &amp;&amp;  isset($interface)}
 	{foreach $interface as $itf}
-		{if $itf.type == &quot;Serial&quot; &amp;&amp; (isset($itf.multilink_group)) &amp;&amp; (isset($params.multilink_group)) &amp;&amp; $itf.multilink_group == $params.multilink_group}
+		{if isset($itf.bandwidth) 
+			&amp;&amp; $itf.type == &quot;Serial&quot; 
+			&amp;&amp; (isset($itf.multilink_group)) 
+			&amp;&amp; (isset($params.multilink_group)) 
+			&amp;&amp; ($itf.multilink_group == $params.multilink_group)}
 			{assign_object_variable
 				var=&quot;bandwidth&quot;
 				value=$itf.bandwidth}
@@ -626,12 +636,16 @@ interface Serial1/0/0.1/3/1/1:0
 	{assign_object_variable
 		var=&quot;validated&quot;
 		value=false}
-{/if}</post_template>
+{/if}
+{assign_object_variable
+		var=&quot;orig_object_id&quot;
+		value=$params.object_id}
+</post_template>
     <parser>
       <section>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Vlan|Port-channel|Multilink)\d+)$@</regexp>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;(?&lt;type&gt;Serial)(?&lt;controller_module&gt;\d\/\d\/\d)(\.(?&lt;controller_submodule&gt;(\d\/?)+))?(:(?&lt;controller_channel&gt;\d))(\.?(?&lt;vlan&gt;\d+)?))@</regexp>
-        <regexp>@^\s*interface\s+(?&lt;object_id&gt;\S+(?&lt;type&gt;Ethernet)((?&lt;subslot_num&gt;\d+\/\d+)\/)?(?&lt;interface_num&gt;\d+)(\.(?&lt;vlan&gt;\d+))?)$@</regexp>
+        <regexp>@^\s*interface\s+(?&lt;object_id&gt;\S+(?&lt;type&gt;Ethernet)((?&lt;subslot_num&gt;\d+(\/\d+)?)\/)?(?&lt;interface_num&gt;\d+)?(\.(?&lt;vlan&gt;\d+))?)$@</regexp>
       </section>
       <lines>
         <line>
@@ -795,13 +809,6 @@ interface Serial1/0/0.1/3/1/1:0
           <xpath/>
         </line>
         <line>
-          <array name="xconnect">
-            <regexp>@^\s+xconnect\s+(?&lt;peer_ip&gt;\S+)\s+(?&lt;vc_id&gt;\d+)\s+encapsulation\s+(?&lt;mode&gt;mpls|l2tpv3)@</regexp>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
-        <line>
           <array/>
           <regexp>@^\s+clns\s+mtu\s+(?&lt;clns_mtu&gt;\d+)@</regexp>
           <xpath/>
@@ -947,6 +954,11 @@ interface Serial1/0/0.1/3/1/1:0
         <line>
           <array/>
           <regexp>@^\s*ppp\s+multilink\s+group\s+(?&lt;multilink_group&gt;\d+)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s+xconnect\s+(?&lt;xconnect_peer_ip&gt;\S+)\s+(?&lt;xconnect_vc_id&gt;\d+)\s+encapsulation\s+(?&lt;xconnect_mode&gt;mpls|l2tpv3)@</regexp>
           <xpath/>
         </line>
         <ignore>

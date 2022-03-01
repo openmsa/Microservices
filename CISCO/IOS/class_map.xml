@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS device</description>
+    <description></description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>class_map</name>
-    <group>CISCO|IOS|DEVICE</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
@@ -64,7 +64,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>

@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>for Cisco IOS device</description>
+    <description></description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>ip_community_list</name>
-    <group>CISCO|IOS|DEVICE</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -51,7 +51,7 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation>show running-config</operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+community-list\s*(standard|expanded)\s*(?&lt;name&gt;\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;list&gt;((\d+:\d+)\s*)+)$@</regexp>

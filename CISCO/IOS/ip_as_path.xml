@@ -1,7 +1,7 @@
 <ObjectDefinition>
   <information>
     <icon>none</icon>
-    <description>BGP autonomous system path filter for Cisco IOS device</description>
+    <description>BGP autonomous system path filter</description>
     <displayField>object_id</displayField>
     <serviceTaskType/>
     <order>0</order>
@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>ip_as_path</name>
-    <group>CISCO|IOS|DEVICE</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
@@ -40,7 +40,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ip\s+as-path\s*access-list\s*(?&lt;access_list_number&gt;\d+)\s+(permit|deny)\s+(?&lt;as_path_regex&gt;.*)@</regexp>

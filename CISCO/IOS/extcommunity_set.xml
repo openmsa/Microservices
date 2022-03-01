@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>extcommunity_set-inter</name>
-    <group>EMULATION|CISCO|IOS</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
@@ -43,7 +43,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>    
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{assign_object_variable var=&quot;name&quot; value=&quot;{$params.object_id}&quot;}
 
 {$filtered_ip_extcommunity_list=[]} 

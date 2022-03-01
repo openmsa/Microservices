@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>as_path_set-inter</name>
-    <group>EMULATION|CISCO|IOS</group>
+    <group>CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
@@ -34,7 +34,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation>show running-config</operation>    
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <post_template>{$idx=0}
 {$object_id=$params.object_id}
 {foreach $ip_as_path as $as_path}
