@@ -17,7 +17,7 @@
     <name>bgp_vrf_neighbor_status</name>
     <group>CISCO|IOS|STATUS</group>
     <importonce>false</importonce>
-    <importrank>60</importrank>
+    <importrank>101</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -42,16 +42,9 @@
     </variable>
   </variables>
   <example>
-    <content>#show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor}
-  #show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30
-  BGP neighbor is 187.92.16.30,  vrf INTRAGOV-SAPTELE,  remote AS 65001, external link
-  BGP version 4, remote router ID 0.0.0.0
-  BGP state = Idle
-  Neighbor sessions:
-    0 active, is not multisession capable (disabled)
-    Stateful switchover support enabled: NO
-  Do log neighbor state changes (via global configuration)
-  Default minimum time between advertisement runs is 0 seconds
+    <content>
+    #show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor}
+    #show ip bgp vpnv4 vrf INTRAGOV-SAPTELE neighbors 187.92.16.30
 </content>
   </example>
   <command name="IMPORT">
