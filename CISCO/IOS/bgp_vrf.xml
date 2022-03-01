@@ -382,7 +382,7 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
             </lines>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+maximum-prefix\s+(?&lt;bgp_vrf_maximum_prefix&gt;.+)$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+(?&lt;bgp_ipv4_default_route&gt;default-originate)$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+default-originate\sroute-map\s(?&lt;bgp_ipv4_default_route&gt;\S+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+remote-as\s+(?&lt;bgp_vrf_neighbor_remote_as&gt;.+)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+(?&lt;bgp_vrf_as_override&gt;as-override)$@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_vrf_neighbor&gt;\S+)\s+prefix-list\s+(?&lt;bgp_vrf_prefix_list_out&gt;\S+)\s+out$@</regexp>
