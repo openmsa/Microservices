@@ -252,28 +252,30 @@ address-family ipv4 vrf V4815:Sabesp_Intragov
   </example>
   <command name="IMPORT">
     <operation><![CDATA[show running-config]]></operation>
-    <post_template>{foreach $router_bgp as $router}
-	{if isset($router.router_bgp)}
-		{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$router.router_bgp}&quot;}
-	{/if}
-	{if isset($router.bgp_router_id)}
-		{assign_object_variable var=&quot;bgp_router_id&quot; value=&quot;{$router.bgp_router_id}&quot;}
-	{/if}
-{/foreach}
-
-{foreach $params.neighbor as $neighbor}
-	{if isset($neighbor.bgp_vrf_route_map_in)}
-		{assign_object_variable 
-			var=&quot;neighbor.{$neighbor@index}.bgp_ipv4_route_policy_in&quot; 
-			value=&quot;{$neighbor.bgp_vrf_route_map_in}&quot;}
-	{/if}
-	{if isset($neighbor.bgp_vrf_route_map_out)}
-		{assign_object_variable 
-			var=&quot;neighbor.{$neighbor@index}.bgp_ipv4_route_policy_out&quot; 
-			value=&quot;{$neighbor.bgp_vrf_route_map_out}&quot;}
-	{/if}
-{/foreach}
-
+    <post_template>{if isset($router_bgp)}
+	{foreach $router_bgp as $router}
+		{if isset($router.router_bgp)}
+			{assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$router.router_bgp}&quot;}
+		{/if}
+		{if isset($router.bgp_router_id)}
+			{assign_object_variable var=&quot;bgp_router_id&quot; value=&quot;{$router.bgp_router_id}&quot;}
+		{/if}
+	{/foreach}
+{/if}
+{if isset($params.neighbor)}
+	{foreach $params.neighbor as $neighbor}
+		{if isset($neighbor.bgp_vrf_route_map_in)}
+			{assign_object_variable 
+				var=&quot;neighbor.{$neighbor@index}.bgp_ipv4_route_policy_in&quot; 
+				value=&quot;{$neighbor.bgp_vrf_route_map_in}&quot;}
+		{/if}
+		{if isset($neighbor.bgp_vrf_route_map_out)}
+			{assign_object_variable 
+				var=&quot;neighbor.{$neighbor@index}.bgp_ipv4_route_policy_out&quot; 
+				value=&quot;{$neighbor.bgp_vrf_route_map_out}&quot;}
+		{/if}
+	{/foreach}
+{/if}
 {assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}
     </post_template>
     <parser>
