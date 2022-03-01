@@ -162,7 +162,7 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <operation><![CDATA[show running-config]]></operation>
     <post_template>{assign var=filtered_route_map value=[]}
 {assign var=route_map_idx value=0}
 {$name=&quot;&quot;}
