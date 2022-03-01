@@ -53,23 +53,7 @@
   Do log neighbor state changes (via global configuration)
   Default minimum time between advertisement runs is 0 seconds
 
- For address family: VPNv4 Unicast
-  Translates address family IPv4 Unicast for VRF INTRAGOV-SAPTELE
-  BGP table version 1, neighbor version 1/0
-  Output queue size : 0
-  Index 0, Advertise bit 0
-  Overrides the neighbor AS with my AS before sending updates
-  Slow-peer detection is disabled
-  Slow-peer split-update-group dynamic is disabled
-                                 Sent       Rcvd
-  Prefix activity:               ----       ----
-    Prefixes Current:               0          0
-    Prefixes Total:                 0          0
-    Implicit Withdraw:              0          0
-    Explicit Withdraw:              0          0
-    Used as bestpath:             n/a          0
-    Used as multipath:            n/a          0
-    Used as secondary:            n/a          0
+
 </content>
   </example>
   <command name="IMPORT">
