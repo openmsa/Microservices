@@ -55,7 +55,7 @@ ip access-list extended coppacl-gerencia-baixa-pri-icmp
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <operation><![CDATA[show running-config]]></operation>
     <post_template>{$seq_number=10}
 {$mask_length=&quot;&quot;}
 {if isset($params.access_list)}
