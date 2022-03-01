@@ -196,23 +196,23 @@
         <line>
           <array name="neighbors">
             <lines/>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+remote-as\s+(?&lt;bgp_remote_as&gt;\d+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+maximum-prefix\s+(?&lt;bgp_maximum_prefix&gt;.+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+(?&lt;bgp_ipv4_default_route&gt;default-originate)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+(?&lt;bgp_as_override&gt;as-override)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+prefix-list\s+(?&lt;bgp_prefix_list_out&gt;\S+)\s+out@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+prefix-list\s+(?&lt;bgp_prefix_list_in&gt;\S+)\s+in@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+version\s+(?&lt;bgp_version&gt;\d+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+(?&lt;bgp_send_community&gt;send-community.*)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+advertisement-interval\s+(?&lt;bgp_advertisement_interval&gt;\d+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+allowas-in\s+(?&lt;bgp_allow_as&gt;\d+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+route-map\s+(?&lt;bgp_route_map_in&gt;\S+)\s+in$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+route-map\s+(?&lt;bgp_route_map_out&gt;\S+)\s+out$@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+soft-reconfiguration\s+(?&lt;bgp_soft_reconfiguration&gt;\S+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+(?&lt;bgp_activate&gt;activate)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+inherit peer-policy\s+(?&lt;bgp_inherit_peer_policy&gt;\S+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[a-f0-9]*))\s+password\s\d\s+(?&lt;bgp_password&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+remote-as\s+(?&lt;bgp_remote_as&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+maximum-prefix\s+(?&lt;bgp_maximum_prefix&gt;.+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_ipv4_default_route&gt;default-originate)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_as_override&gt;as-override)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+prefix-list\s+(?&lt;bgp_prefix_list_out&gt;\S+)\s+out@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+prefix-list\s+(?&lt;bgp_prefix_list_in&gt;\S+)\s+in@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+version\s+(?&lt;bgp_version&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_send_community&gt;send-community.*)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+advertisement-interval\s+(?&lt;bgp_advertisement_interval&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+allowas-in\s+(?&lt;bgp_allow_as&gt;\d+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+route-map\s+(?&lt;bgp_route_map_in&gt;\S+)\s+in$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+route-map\s+(?&lt;bgp_route_map_out&gt;\S+)\s+out$@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+soft-reconfiguration\s+(?&lt;bgp_soft_reconfiguration&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_activate&gt;activate)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+inherit peer-policy\s+(?&lt;bgp_inherit_peer_policy&gt;\S+)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+password\s\d\s+(?&lt;bgp_password&gt;\S+)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+description\s+(?&lt;bgp_description&gt;.*)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+ebgp-multihop\s+(?&lt;bgp_ebgp_multihop&gt;\S+)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s+update-source\s+(?&lt;bgp_source_interface&gt;\S+)@</regexp>
