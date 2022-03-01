@@ -178,7 +178,7 @@
                 <array name="routes6">
                   <lines/>
                   <lines/>
-                  <regexp>@^\s*(?&lt;ipv6_address&gt;([A-Fa-f0-9:]*:+)+[a-f0-9]*)\/(?&lt;ipv6_mask_length&gt;\d+)(\s(?&lt;interface&gt;\S+))?(\s(?&lt;gateway&gt;([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))?(\s(?&lt;metric&gt;\d+))?(\stag\s(?&lt;tag&gt;\d+))?$@</regexp>
+                  <regexp>@^\s*(?&lt;ipv6_address&gt;([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*)\/(?&lt;ipv6_mask_length&gt;\d+)(\s(?&lt;interface&gt;\S+))?(\s(?&lt;gateway&gt;([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))?(\s(?&lt;metric&gt;\d+))?(\stag\s(?&lt;tag&gt;\d+))?$@</regexp>
                 </array>
                 <regexp/>
                 <xpath/>
