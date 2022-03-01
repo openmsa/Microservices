@@ -17,7 +17,7 @@
     <name>neighbor_ipv4_icmp_status</name>
     <group>CISCO|IOS|STATUS</group>
     <importonce>false</importonce>
-    <importrank>100</importrank>
+    <importrank>15</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,28 +25,34 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip" name="params.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="neighbor_ipv4_icmp_status" name="params.neighbor_ipv4_icmp_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ip" name="params.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="neighbor_ipv4_icmp_status" name="params.neighbor_ipv4_icmp_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
     <content>
-    ping 187.8.71.178
-    Type escape sequence to abort.
-    Sending 5, 100-byte ICMP Echos to 187.8.71.178, timeout is 2 seconds:
-    .....
-    Success rate is 0 percent (0/5)
-    DEV-NEC-CISCO-IOS#
+ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#ping 187.100.7.161
+Tue Feb 22 13:22:54.672 BRSPO
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 187.100.7.161, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 3/5/8 ms
     </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.ip)}ping {$params.ip}{/if}]]></operation>
+    <operation><![CDATA[ping {$params.ip}]]></operation>
     <parser>
-      <section>
+    <section>
         <regexp>@^\s*ping (?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
-        <line>
+         <line>
           <array/>
           <regexp>@^\s*Success rate is (?&lt;neighbor_ipv4_icmp_status&gt;\S+) percent@</regexp>
           <xpath/>
@@ -60,12 +66,15 @@
         <ignore>
           <regexp>@....@</regexp>
         </ignore>
+        <ignore>
+          <regexp>@!!!!!@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
   <command name="CREATE"/>
   <command name="READ">
-    <operation><![CDATA[ping {$object_id}]]></operation>
+      <operation><![CDATA[ping {$object_id}]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>

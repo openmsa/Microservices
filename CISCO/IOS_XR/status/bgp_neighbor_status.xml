@@ -17,7 +17,7 @@
     <name>bgp_neighbor_status</name>
     <group>CISCO|IOS|STATUS</group>
     <importonce>false</importonce>
-    <importrank>100</importrank>
+    <importrank>35</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,116 +25,107 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_neighbor" name="params.ip_bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_v" name="params.ip_bgp_v" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_as" name="params.ip_bgp_as" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_msg_rcvd" name="params.ip_bgp_msg_rcvd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_msg_sent" name="params.ip_bgp_msg_sent" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_tbl_ver" name="params.ip_bgp_tbl_ver" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_in_queue" name="params.ip_bgp_in_queue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_out_queue" name="params.ip_bgp_out_queue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_up_down" name="params.ip_bgp_up_down" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="ip_bgp_state_pfxrcd" name="params.ip_bgp_state_pfxrcd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ip_bgp_neighbor" name="params.ip_bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="ip_bgp_state_pfxrcd" name="params.ip_bgp_state_pfxrcd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
   </variables>
   <example>
-    <content>
-  c-br-sp-spo-msv-rav-05#show ip bgp all summary
-For address family: IPv4 Unicast
-BGP router identifier 177.61.178.31, local AS number 27699
-BGP table version is 7, main routing table version 7
-6 network entries using 1488 bytes of memory
-6 path entries using 720 bytes of memory
-1/1 BGP path/bestpath attribute entries using 248 bytes of memory
-2 BGP community entries using 48 bytes of memory
-52 BGP extended community entries using 1280 bytes of memory
-0 BGP route-map cache entries using 0 bytes of memory
-0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 3784 total bytes of memory
-Dampening enabled. 0 history paths, 0 dampened paths
-BGP activity 1928/0 prefixes, 1928/0 paths, scan interval 60 secs
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show bgp ipv4 all summary
+Tue Feb 22 13:25:57.759 BRSPO
 
-Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-177.61.178.71   4        27699       1       2        1    0    0 00:00:05 OpenConfirm
-192.171.1.114   4        36100       0       0        1    0    0 never    Idle
-198.18.0.14     4        27699       0       0        1    0    0 never    Idle
-200.207.191.119 4        27699    5339    5868        7    0    0 3d16h           0
-200.207.195.61  4   4200000000       0       0        1    0    0 never    Active
+Address Family: VPNv4 Unicast
+-----------------------------
 
-For address family: IPv6 Unicast
-BGP router identifier 177.61.178.31, local AS number 27699
-BGP table version is 5, main routing table version 5
-4 network entries using 1088 bytes of memory
-4 path entries using 576 bytes of memory
-1/1 BGP path/bestpath attribute entries using 248 bytes of memory
-2 BGP community entries using 48 bytes of memory
-52 BGP extended community entries using 1280 bytes of memory
-0 BGP route-map cache entries using 0 bytes of memory
-0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 3240 total bytes of memory
-BGP activity 1928/0 prefixes, 1928/0 paths, scan interval 60 secs
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0x0   RD version: 2903485008
+BGP main routing table version 612950404
+BGP NSR Initial initsync version 760535 (Reached)
+BGP scan interval 60 secs
 
-Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-2001:12E0:B100:2E:200:207:195:61
-                4   4200000000       0       0        1    0    0 never    Idle
+BGP is operating in STANDALONE mode.
 
-For address family: IPv4 MDT
-BGP router identifier 177.61.178.31, local AS number 27699
-BGP table version is 19, main routing table version 19
-18 network entries using 4608 bytes of memory
-18 path entries using 2304 bytes of memory
-1/1 BGP path/bestpath attribute entries using 248 bytes of memory
-2 BGP community entries using 48 bytes of memory
-52 BGP extended community entries using 1280 bytes of memory
-0 BGP route-map cache entries using 0 bytes of memory
-0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 8488 total bytes of memory
-BGP activity 1928/0 prefixes, 1928/0 paths, scan interval 60 secs
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker       612950405  612950359  612950397  612950359   612950359   612950397
 
-Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-177.61.178.73   4        27699       1       2        1    0    0 00:00:08 OpenConfirm
-198.18.0.22     4        27699       0       0        1    0    0 never    Idle
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+200.205.253.42    0 10429 1982518713 4827214 612950359    0    0     1w0d     262224
+200.205.253.43    0 10429 1996410594 4833747 612950359    0    0     1w0d     262224
 
-For address family: VPNv4 Unicast
-BGP router identifier 177.61.178.31, local AS number 27699
-BGP table version is 88, main routing table version 88
-87 network entries using 22272 bytes of memory
-87 path entries using 10440 bytes of memory
-61/61 BGP path/bestpath attribute entries using 16104 bytes of memory
-2 BGP community entries using 48 bytes of memory
-52 BGP extended community entries using 1280 bytes of memory
-0 BGP route-map cache entries using 0 bytes of memory
-0 BGP filter-list cache entries using 0 bytes of memory
-BGP using 50144 total bytes of memory
-BGP activity 1928/0 prefixes, 1928/0 paths, scan interval 60 secs
+Address Family: IPv4 Labeled-unicast
+------------------------------------
 
-Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-10.1.17.2       4        65001       0       0        1    0    0 never    Active
-10.5.0.30       4        27699       0       0        1    0    0 never    Idle
-10.5.0.34       4        10429       0       0        1    0    0 never    Idle
-10.5.0.42       4        27699       0       0        1    0    0 never    Active
-10.5.0.44       4        10429       0       0        1    0    0 never    Active
-10.5.0.53       4        65101       0       0        1    0    0 never    Idle
-10.5.0.82       4        65444       0       0        1    0    0 never    Active
-10.5.1.22       4        65111       0       0        1    0    0 never    Active
-10.5.1.30       4        65222       0       0        1    0    0 never    Active
-10.5.5.2        4        65001       0       0        1    0    0 never    Active
-10.5.5.2        4        65671       0       0        1    0    0 never    Idle
-10.5.5.3        4        65671       0       0        1    0    0 never    Active
-  </content>
-  </example>
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 202
+BGP main routing table version 202
+BGP NSR Initial initsync version 11 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             202        202        202        202         202         202
+
+Address Family: IPv4 Unicast
+----------------------------
+
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 202
+BGP main routing table version 202
+BGP NSR Initial initsync version 11 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             202        202        202        202         202         202
+
+Some configured eBGP neighbors (under default or non-default vrfs)
+do not have both inbound and outbound policies configured for IPv4 Unicast
+address family. These neighbors will default to sending and/or
+receiving no routes and are marked with '!' in the output below.
+Use the 'show bgp neighbor <nbr_address>' command for details.
+
+Address Family: IPv4 MDT
+------------------------
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 48524
+BGP main routing table version 48524
+BGP NSR Initial initsync version 80 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker           48524      48524      48524      48524       48524       48524
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+200.205.253.42    0 10429 1982518719 4827214    48524    0    0     1w0d        806
+200.205.253.43    0 10429 1996410596 4833747    48524    0    0     1w0d        805
+</example>
   <command name="IMPORT">
-    <operation><![CDATA[show ip bgp all summary]]></operation>
+    <operation><![CDATA[show bgp ipv4 all summary]]></operation>
     <post_template>
-			{if isset($params.ip_bgp_neighbor) }
-				{assign_object_variable 
-					var=&quot;object_id&quot;
-					value=$params.ip_bgp_neighbor}
-		  {/if}
     </post_template>
     <parser>
       <section>
-        <regexp>@^\s*(?&lt;ip_bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s*(?&lt;ip_bgp_v&gt;\d*)\s*(?&lt;ip_bgp_as&gt;\d*)\s*(?&lt;ip_bgp_msg_rcvd&gt;\d*)\s*(?&lt;ip_bgp_msg_sent&gt;\d*)\s*(?&lt;ip_bgp_tbl_ver&gt;\d*)\s*(?&lt;ip_bgp_in_queue&gt;\d*)\s*(?&lt;ip_bgp_out_queue&gt;\d*)\s*(?&lt;ip_bgp_up_down&gt;\S*)\s*(?&lt;ip_bgp_state_pfxrcd&gt;\S*)@</regexp>
+        <regexp>@^\s*(?&lt;ip_bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s*.*(?&lt;ip_bgp_state_pfxrcd&gt;\d+)$@</regexp>
       </section>
       <lines>
         <ignore>
@@ -157,23 +148,13 @@ Neighbor        V           AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State
   </command>
   <command name="CREATE"/>
   <command name="READ">
-    <output><![CDATA[# show ip bgp vpnv4 vrf V11011:SSII_SORIN summary 
-# BGP neighbor status
-#Neighbor; V; AS; MsgRcvd; MsgSent; TblVer; InQ; OutQ; Up/Down; State/PfxRcd
-{$bgp_neighbor_status.$object_id.ip_bgp_neighbor}; {$bgp_neighbor_status.$object_id.ip_bgp_v}; {$bgp_neighbor_status.$object_id.ip_bgp_as}; {$bgp_neighbor_status.$object_id.ip_bgp_msg_rcvd}; {$bgp_neighbor_status.$object_id.ip_bgp_msg_sent}; {$bgp_neighbor_status.$object_id.ip_bgp_tbl_ver}; {$bgp_neighbor_status.$object_id.ip_bgp_in_queue}; {$bgp_neighbor_status.$object_id.ip_bgp_out_queue}; {$bgp_neighbor_status.$object_id.ip_bgp_up_down}; {$bgp_neighbor_status.$object_id.ip_bgp_state_pfxrcd}; 
-
-]]></output>
+    <output>
+    </output>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
   <command name="LIST">
-    <output><![CDATA[##
-# BGP neighbor status
-##
-Neighbor; V; AS; MsgRcvd; MsgSent; TblVer; InQ; OutQ; Up/Down; State/PfxRcd
-{foreach $bgp_neighbor_status as $status}
-{$status.ip_bgp_neighbor}; {$status.ip_bgp_v}; {$status.ip_bgp_as}; {$status.ip_bgp_msg_rcvd}; {$status.ip_bgp_msg_sent}; {$status.ip_bgp_tbl_ver}; {$status.ip_bgp_in_queue}; {$status.ip_bgp_out_queue}; {$status.ip_bgp_up_down}; {$status.ip_bgp_state_pfxrcd}; 
-{/foreach}]]></output>
+    <output></output>
   </command>
 </ObjectDefinition>
