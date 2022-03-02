@@ -42,7 +42,7 @@
     </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id) && isset($params.neighbor})}ping vrf {$params.object_id} {$params.neighbor}{/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id) && isset($params.neighbor)}ping vrf {$params.object_id} {$params.neighbor}{/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
