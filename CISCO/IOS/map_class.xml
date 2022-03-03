@@ -43,7 +43,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <operation><![CDATA[show running-conf]]></operation>
     <parser>
       <section>
         <regexp>@^\s*map-class\s+frame-relay\s+(?&lt;object_id&gt;\S+)@</regexp>
