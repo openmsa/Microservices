@@ -48,6 +48,7 @@
     </variable>
   </variables>
   <example>
+  <content>
 RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show route summary 				
 Tue Feb 22 14:10:36.731 BRSPO				
 Route Source	Routes	Backup	Deleted	Memory (bytes)
@@ -59,6 +60,7 @@ bgp 10429	0	0	0	0
 isis vivo	4951	0	0	2153596
 static	0	0	0	0
 Total	4967	1	0	2155908
+</content>
 </exemple>
   <command name="IMPORT">
     <operation><![CDATA[show route summary]]></operation>

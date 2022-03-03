@@ -36,6 +36,7 @@
     </variable>
   </variables>
   <example>
+  <content>
 RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show bgp ipv4 all summary
 Tue Feb 22 13:25:57.759 BRSPO
 
@@ -118,6 +119,7 @@ Speaker           48524      48524      48524      48524       48524       48524
 Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
 200.205.253.42    0 10429 1982518719 4827214    48524    0    0     1w0d        806
 200.205.253.43    0 10429 1996410596 4833747    48524    0    0     1w0d        805
+</content>
 </example>
   <command name="IMPORT">
     <operation><![CDATA[show bgp ipv4 all summary]]></operation>
