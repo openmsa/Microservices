@@ -46,7 +46,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-conf]]></operation>
+    <operation><![CDATA[show running-config | section access-list]]></operation>
     <post_template>{* convertion of inverted mask to mask length for compatibility with IOS XR *}
 {if isset($params.acl_src_imask)}
 	{capture}
