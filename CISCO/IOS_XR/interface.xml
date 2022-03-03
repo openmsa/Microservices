@@ -407,7 +407,10 @@ ipv6 address {$interface.$object_id.ipv6_address}/{$interface.$object_id.ipv6_pr
   <command name="CONSTRAINT"/>
   <command name="DELETE">
       <operation><![CDATA[!
-interface {$params.object_id} down
+interface {$params.object_id} 
+    shutdown
+end
+  
 ]]></operation>
   </command>
   <command name="LIST"/>

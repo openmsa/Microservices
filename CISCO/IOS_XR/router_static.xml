@@ -273,8 +273,8 @@ vrf {$vrf.vrf_name}
   <command name="CONSTRAINT"/>
   <command name="DELETE">
       <operation><![CDATA[!
-router static
 {if isset ($params.routes)}
+router static
  address-family ipv4 unicast
 {foreach $params.routes as $route}
     no {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
@@ -284,6 +284,7 @@ router static
 {/if}
 !
 {if isset ($params.routes6)}
+router static
  address-family ipv6 unicast
 {foreach $params.routes6 as $route}
   no {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
@@ -294,6 +295,7 @@ router static
 !
 
 {if isset ($params.vrf_routes)}
+router static
 {foreach $params.vrf_routes as $vrf}
 {if isset($vrf.vrf_name)}
 vrf {$vrf.vrf_name}
@@ -302,12 +304,12 @@ vrf {$vrf.vrf_name}
 {foreach $vrf.routes as $route}
     no {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
- 
 {/foreach}
 {/foreach}
 {/if}
 !
 {if isset ($params.vrf_routes6)}
+router static
 {foreach $params.vrf_routes6 as $vrf}
 {if isset($vrf.vrf_name)}
 vrf {$vrf.vrf_name}
@@ -316,7 +318,6 @@ vrf {$vrf.vrf_name}
 {foreach $vrf.routes as $route}
     no {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
- 
 {/foreach}
 {/foreach}
 {/if}]]></operation>

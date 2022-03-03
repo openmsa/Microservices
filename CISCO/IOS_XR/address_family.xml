@@ -329,6 +329,16 @@ router bgp {$params.router_bgp}
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
-  <command name="LIST"/>
+ <command name="DELETE">
+    <operation><![CDATA[!
+{if isset($params.neighbor)}
+router bgp {$params.router_bgp}
+  address-family {$params.bgp_address_family} unicast
+  {foreach $params.neighbor as $neighbor}
+    no neighbor {$neighbor.bgp_neighbor} 
+  {/foreach}
+{/if}
+!]]></operation>
+ </command>
+ <command name="LIST"/>
 </ObjectDefinition>

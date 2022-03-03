@@ -450,19 +450,9 @@ router bgp {$params.router_bgp}
 {if isset($params.neighbor)}
  router bgp {$params.router_bgp}
  vrf {$params.vrf_name}
-{foreach $params.neighbor as $neighbor}
-{if isset($neighbor.bgp_vrf_neighbor_remote_as)} no neighbor {$neighbor.bgp_vrf_neighbor} remote-as  {$neighbor.bgp_vrf_neighbor_remote_as}
-{/if}
-{if isset($neighbor.bgp_vrf_neighbor_password)} no neighbor {$neighbor.bgp_vrf_neighbor} password encrypted {$neighbor.bgp_vrf_neighbor_password}
-{/if}
-{if isset($neighbor.bgp_vrf_as_override)} no neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast {$neighbor.bgp_vrf_as_override}
-{/if}
-{if isset($neighbor.bgp_ipv4_route_policy_in)} no neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast  route-policy {$neighbor.bgp_ipv4_route_policy_in} in
-{/if}
-{if isset($neighbor.bgp_ipv4_route_policy_out)} no neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast  route-policy {$neighbor.bgp_ipv4_route_policy_out} out
-{/if}
-
-{/foreach}
+  {foreach $params.neighbor as $neighbor}
+    no neighbor {$neighbor.bgp_vrf_neighbor}
+  {/foreach}
 {/if}
   !]]></operation>
    </command>
