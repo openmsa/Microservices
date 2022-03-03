@@ -25,18 +25,10 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bgp_vrf_received_routes" name="params.bgp_vrf_received_routes" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bgp_vrf_received_routes_total" name="params.bgp_vrf_received_routes_total" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_received_routes" name="params.bgp_vrf_received_routes" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_received_routes_total" name="params.bgp_vrf_received_routes_total" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>
@@ -52,14 +44,14 @@ Table ID: 0xe000000b   RD version: 4294966806
 BGP main routing table version 612971298      
 BGP NSR Initial initsync version 760535 (Reached)      
       
-Status codes: s suppressed, d damped, h history, * valid, > best      
+Status codes: s suppressed, d damped, h history, * valid, &gt; best      
               i - internal, r RIB-failure, S stale      
 Origin codes: i - IGP, e - EGP, ? - incomplete      
 Network  Next Hop            Metric  LocPrf     Weight  Path
 Route Distinguisher: 2  7699:354188 (default for vrf USP)    
 *  0.0.0.0/0  189.20.170.10            0  0  65001 65001 65001 65001 65001 28571 1251 i
-*> 143.107.0.220/30  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
-*> 189.20.170.8/30  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
+*&gt; 143.107.0.220/30  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
+*&gt; 189.20.170.8/30  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
 *  201.60.23.6/32  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
 Processed 4 prefixes,  4 paths    
 RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#      
@@ -74,8 +66,7 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
       <lines>
         <line>
           <array/>
-          <regexp>@^\s*(?&lt;bgp_vrf_received_routes&gt;*\s+([0-9]{1,3}\.){3}[0-9]{1,3}\/\d+)()@</regexp>
-          <regexp>@^\s*(?&lt;bgp_vrf_received_routes&gt;*>\s+([0-9]{1,3}\.){3}[0-9]{1,3}\/\d+)()@</regexp>
+          <regexp>@^\s*(?&lt;bgp_vrf_received_routes&gt;\s+([0-9]{1,3}\.){3}[0-9]{1,3}\/\d+)@</regexp>
           <xpath/>
         </line>
         <line>
