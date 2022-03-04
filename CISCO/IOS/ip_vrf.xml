@@ -104,7 +104,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section vrf]]></operation>
     <post_template>{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
     <parser>
       <section>

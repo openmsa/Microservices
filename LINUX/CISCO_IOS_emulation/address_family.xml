@@ -159,6 +159,16 @@
         <sections>redistribute</sections>
       </sections>
     </variable>
+    <variable displayName="import_rt" name="params.import_array_rt.0.import_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>route targets</sections>
+      </sections>
+    </variable>
+    <variable displayName="export_rt" name="params.export_array_rt.0.export_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>route targets</sections>
+      </sections>
+    </variable>
     <variable displayName="bgp_dampening" name="params.bgp_dampening" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="bgp_network" name="params.bgp_network" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="bgp_max_path" name="params.bgp_max_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -240,6 +250,20 @@
         <line>
           <array/>
           <regexp>@^\s*maximum-paths\s*(?&lt;bgp_max_path&gt;\d*)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array name="import_array_rt">
+            <regexp>@\s*route-target\s+import\s+(?&lt;import_rt&gt;[0-9]+:[0-9]+)@</regexp>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="export_array_rt">
+            <regexp>@\s*route-target\s+export\s+(?&lt;export_rt&gt;[0-9]+:[0-9]+)@</regexp>
+          </array>
+          <regexp/>
           <xpath/>
         </line>
         <ignore>
