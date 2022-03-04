@@ -43,7 +43,7 @@
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[ show hw-module subslot {$params.subslot_num} transceiver {$params.transceiver} status ]]></operation>
+    <operation><![CDATA[ {if isset($params.subslot_num) && isset($params.transceiver) && isset($params.transceiver)}show hw-module subslot {$params.subslot_num} transceiver {$params.transceiver} status {/if}]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
 	value=&quot;{$params.subslot_num}_transceiver{$params.transceiver}&quot;}</post_template>
