@@ -38,13 +38,23 @@
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Source Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.srcport" selectorValue="tcp" startIncrement="0" type="String"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Source Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.srcport" selectorValue="udp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="Source Port" displayOrder="2" maxLength="0" isMandatory="false" isUserLocked="false" name="params.srcport" selectorValue="icmp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="Source Port" displayOrder="2" maxLength="0" isMandatory="false" isUserLocked="false" name="params.srcport" selectorValue="IP" startIncrement="0" type="String"/>
       </behaviors>
+      <sections>
+        <sections>TCP/UDP</sections>
+      </sections>
     </variable>
     <variable displayName="Destination Port" name="params.destport" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.destport" selectorValue="tcp" startIncrement="0" type="String"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Port" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.destport" selectorValue="udp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="Destination Port" displayOrder="3" maxLength="0" isMandatory="false" isUserLocked="false" name="params.destport" selectorValue="icmp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="Destination Port" displayOrder="3" maxLength="0" isMandatory="false" isUserLocked="false" name="params.destport" selectorValue="IP" startIncrement="0" type="String"/>
       </behaviors>
+      <sections>
+        <sections>TCP/UDP</sections>
+      </sections>
     </variable>
     <variable displayName="Type" name="params.icmpType" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
@@ -62,10 +72,16 @@
         <sections>ICMP</sections>
       </sections>
     </variable>
-    <variable displayName="Protocol Number " name="params.ipProtoNum" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Protocol Number " name="params.ipProtoNum" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.proto" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName=" Protocol Number " displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.ipProtoNum" selectorValue="IP" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Protocol Number " displayOrder="6" maxLength="0" isMandatory="true" isUserLocked="false" name="params.ipProtoNum" selectorValue="IP" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="Protocol Number " displayOrder="6" maxLength="0" isMandatory="false" isUserLocked="false" name="params.ipProtoNum" selectorValue="icmp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="Protocol Number " displayOrder="6" maxLength="0" isMandatory="false" isUserLocked="false" name="params.ipProtoNum" selectorValue="udp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="Protocol Number " displayOrder="6" maxLength="0" isMandatory="false" isUserLocked="false" name="params.ipProtoNum" selectorValue="tcp" startIncrement="0" type="String"/>
       </behaviors>
+      <sections>
+        <sections>IP</sections>
+      </sections>
     </variable>
     <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
@@ -77,7 +93,7 @@
     <parser>
       <section>
         <regexp>@edit &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -115,6 +131,15 @@
         </ignore>
         <ignore>
           <regexp>@unset @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set proxy disable@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set category@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@set helper@</regexp>
         </ignore>
       </lines>
     </parser>
