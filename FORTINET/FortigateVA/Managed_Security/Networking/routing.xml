@@ -25,26 +25,14 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Destination IP" name="params.ip_dest" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Destination IP" name="params.ip_dest" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Subnet Mask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="0.0.0.0" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Gateway" name="params.gw" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Interface" name="params.interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="port1" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Interface" name="params.interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>interface</class>
       </classes>
-      <values>
-        <values displayValue="port1">port1</values>
-        <values displayValue="port8">port8</values>
-        <values displayValue="port9">port9</values>
-        <values displayValue="port6">port6</values>
-        <values displayValue="port7">port7</values>
-        <values displayValue="port4">port4</values>
-        <values displayValue="port5">port5</values>
-        <values displayValue="port2">port2</values>
-        <values displayValue="port3">port3</values>
-        <values displayValue="port10">port10</values>
-      </values>
     </variable>
     <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
@@ -52,11 +40,11 @@
     <content>UBI-SITONECELL-MASTE~001 # show full-configuration route staticconfig router staticedit 1set blackhole disableset comment &apos;&apos;set device &quot;port1&quot;set distance 10set dst 0.0.0.0 0.0.0.0set dynamic-gateway disableset gateway 10.30.19.254set priority 0set weight 0next</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration router static</operation>
+    <operation><![CDATA[show full-configuration router static]]></operation>
     <parser>
       <section>
         <regexp>@edit (?&lt;object_id&gt;\d+)@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -81,7 +69,7 @@
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config router static
+    <operation><![CDATA[config router static
 edit {$params.object_id}
 set dst {$params.ip_dest} {$params.mask}
 set gateway {$params.gw}
@@ -89,16 +77,16 @@ set device {$params.interface}
 {if empty($params.comment)}
 unset comment
 {else}
-set comment &quot;{$params.comment}&quot;
+set comment "{$params.comment}"
 {/if}
 next
-end</operation>
+end]]></operation>
   </command>
   <command name="CONSTRAINT">
-    <operation></operation>
+    <operation><![CDATA[]]></operation>
   </command>
   <command name="CREATE">
-    <operation>config router static
+    <operation><![CDATA[config router static
 edit {$params.object_id}
 set dst {$params.ip_dest} {$params.mask}
 set gateway {$params.gw}
@@ -106,15 +94,15 @@ set device {$params.interface}
 {if empty($params.comment)}
 unset comment
 {else}
-set comment &quot;{$params.comment}&quot;
+set comment "{$params.comment}"
 {/if}
 next
-end</operation>
+end]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config router static
-delete &quot;{$params.object_id}&quot;
-end</operation>
+    <operation><![CDATA[config router static
+delete "{$routing.$object_id.object_id}"
+end]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

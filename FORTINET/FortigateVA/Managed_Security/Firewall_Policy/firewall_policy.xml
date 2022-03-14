@@ -17,7 +17,7 @@
     <name>Firewall Policy</name>
     <group>Firewall Policy</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>50</importrank>
     <reorderinstances>true</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -27,14 +27,14 @@
   <variables frozen="0">
     <variable displayName="ID" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Move rule" name="params.move_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="Insert the current rule before or after the index specified.&#xa;The position is effective when the changes are applied to the device." groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Move rule" name="params.move_selector" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="Insert the current rule before or after the index specified.&#xa;The position is effective when the changes are applied to the device." groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="none" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="No Move">none</values>
         <values displayValue="Move before">before</values>
         <values displayValue="Move after">after</values>
       </values>
     </variable>
-    <variable displayName="Rule" name="params.move_index" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.move_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Rule" name="params.move_index" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.move_selector" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="after" startIncrement="0" type="Integer"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="move_index" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.move_index" selectorValue="before" startIncrement="0" type="Integer"/>
@@ -46,18 +46,6 @@
       <classes>
         <class>interface</class>
       </classes>
-      <values>
-        <values displayValue="1">1</values>
-        <values displayValue="2">2</values>
-        <values displayValue="3">3</values>
-        <values displayValue="4">4</values>
-        <values displayValue="5">5</values>
-        <values displayValue="6">6</values>
-        <values displayValue="7">7</values>
-        <values displayValue="8">8</values>
-        <values displayValue="9">9</values>
-        <values displayValue="10">10</values>
-      </values>
     </variable>
     <variable displayName="Source Address" name="params.srcaddr" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator=" - " groupDisplayName="Source" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="srcintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <classes>
@@ -65,22 +53,10 @@
         <class>address_group</class>
       </classes>
     </variable>
-    <variable displayName="Outgoing Interface" name="params.dstintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Outgoing Interface" name="params.dstintf" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>interface</class>
       </classes>
-      <values>
-        <values displayValue="1">1</values>
-        <values displayValue="2">2</values>
-        <values displayValue="3">3</values>
-        <values displayValue="4">4</values>
-        <values displayValue="5">5</values>
-        <values displayValue="6">6</values>
-        <values displayValue="7">7</values>
-        <values displayValue="8">8</values>
-        <values displayValue="9">9</values>
-        <values displayValue="10">10</values>
-      </values>
     </variable>
     <variable displayName="Destination Address Type" name="params.dstaddr_selector" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Destination" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="address" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <values>
@@ -90,7 +66,7 @@
     </variable>
     <variable displayName="Destination Address" name="params.dstaddr" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Destination" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="dstintf" remoteVarNameMatch="port" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.dstaddr_selector" isMandatory="true" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Address" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="address" startIncrement="0" type="ObjectRef"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Destination Address" displayOrder="0" maxLength="100" isMandatory="true" isUserLocked="false" name="params.dstaddr" selectorValue="address" startIncrement="0" type="ObjectRef"/>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="dstaddr" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.dstaddr" selectorValue="nat" startIncrement="0" type="String"/>
       </behaviors>
     </variable>
@@ -149,26 +125,36 @@
 end</content>
   </example>
   <command name="IMPORT">
-    <operation>config firewall policy##show full-configuration##end</operation>
-    <post_template>{if $params.natVerify == &quot;disable&quot; }{assign_object_variable var=&quot;nat&quot; value=&quot;false&quot;}
-{else}{assign_object_variable var=&quot;nat&quot; value=&quot;true&quot;}
+    <operation><![CDATA[config firewall policy##show full-configuration##end]]></operation>
+    <post_template>{if $params.natVerify == &quot;disable&quot; }
+	{assign_object_variable var=&quot;nat&quot; value=&quot;false&quot;}
+{else}
+	{assign_object_variable var=&quot;nat&quot; value=&quot;true&quot;}
 {/if}
-{if $params.ippoolVerify ==&quot;disable&quot;}{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_address&quot;}
-{else}{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_napt&quot;}
+{if $params.ippoolVerify ==&quot;disable&quot;}
+	{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_address&quot;}
+{else}
+	{assign_object_variable var=&quot;naptSelector&quot; value=&quot;use_napt&quot;}
 {/if}
-{if $params.statusVerify == &quot;disable&quot;}{assign_object_variable var=&quot;status&quot; value=&quot;false&quot;}
-{else}{assign_object_variable var=&quot;status&quot; value=&quot;true&quot;}
+{if $params.statusVerify == &quot;disable&quot;}
+	{assign_object_variable var=&quot;status&quot; value=&quot;false&quot;}
+{else}
+	{assign_object_variable var=&quot;status&quot; value=&quot;true&quot;}
 {/if}
 {assign_object_variable var=&quot;_order&quot; value={$params.srcintf}*1000000+{$params.dstintf}*1000+{$params._order}}
 {unassign_object_variable var=&quot;move_selector&quot;}
 {unassign_object_variable var=&quot;move_index&quot;}
-{if isset($Destination_NAT.{$params.dstaddr})}{assign_object_variable var=&quot;dst_nat&quot; value={$params.dstaddr}}{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;nat&quot;}{unassign_object_variable var=&quot;dstaddr&quot;}
-{else}{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;address&quot;}
+{if isset($Destination_NAT.{$params.dstaddr})}
+	{assign_object_variable var=&quot;dst_nat&quot; value={$params.dstaddr}}
+	{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;nat&quot;}
+	{unassign_object_variable var=&quot;dstaddr&quot;}
+{else}
+	{assign_object_variable var=&quot;dstaddr_selector&quot; value=&quot;address&quot;}
 {/if}</post_template>
     <parser>
       <section>
         <regexp>@edit (?&lt;object_id&gt;\d+)@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
@@ -231,6 +217,11 @@ end</content>
           <regexp>@set poolname &quot;(?&lt;napt_object&gt;[^&quot;]*)&quot;@</regexp>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@set name &quot;(?&lt;name&gt;[^&quot;]+)&quot;@</regexp>
+          <xpath/>
+        </line>
         <ignore>
           <regexp>@set @</regexp>
         </ignore>
@@ -238,36 +229,36 @@ end</content>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config firewall policy
+    <operation><![CDATA[config firewall policy
 edit {$params.object_id}
-set name &quot;{$params.name}&quot;
+set name "{$params.name}"
 set srcintf {$params.srcintf}
 set dstintf {$params.dstintf}
-set srcaddr &quot;{$params.srcaddr}&quot;
+set srcaddr "{$params.srcaddr}"
 set match-vip disable
 {if empty($params.dstaddr)}
-set dstaddr &quot;{$params.dst_nat}&quot;
+set dstaddr "{$params.dst_nat}"
 {else}
-set dstaddr &quot;{$params.dstaddr}&quot;
-{if $params.dstaddr == &quot;all&quot;}
+set dstaddr "{$params.dstaddr}"
+{if $params.dstaddr == "all"}
 set match-vip enable
 {/if}
 {/if}
-{if $params.status == &quot;true&quot;}
+{if $params.status == "true"}
 set status enable
 {else}
 set status disable
 {/if}
-set schedule alwaysset service &quot;{$params.service}&quot;
+set schedule alwaysset service "{$params.service}"
 set logtraffic {$params.logtraffic}
-set comments &quot;{$params.comments}&quot;
+set comments "{$params.comments}"
 set action {$params.action}
 {if $params.action == accept}
 set utm-status disable
-{if $params.nat == &quot;true&quot;}
+{if $params.nat == "true"}
 set nat enableset fixedport disable
-{if $params.nat == &quot;true&quot; &amp;&amp; $params.naptSelector == &quot;use_napt&quot;}
-set ippool enableset poolname &quot;{$params.napt_object}&quot;
+{if $params.nat == "true" && $params.naptSelector == "use_napt"}
+set ippool enableset poolname "{$params.napt_object}"
 {else}
 set ippool disable
 {/if}
@@ -276,9 +267,9 @@ set nat disable
 {/if}
 {/if}
 next
-{if isset($params.move_selector) &amp;&amp; $params.move_selector === &quot;before&quot;}
+{if isset($params.move_selector) && $params.move_selector === "before"}
 move {$params.object_id} before {$params.move_index}
-{elseif isset($params.move_selector) &amp;&amp; $params.move_selector === &quot;after&quot;}
+{elseif isset($params.move_selector) && $params.move_selector === "after"}
 move {$params.object_id} after {$params.move_index}
 {/if}
 {if !empty($params._prev)}
@@ -286,32 +277,32 @@ move {$params.object_id} after {$params._prev}
 {elseif !empty($params._next)}
 move {$params.object_id} before {$params._next}
 {/if}
-end</operation>
+end]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>config firewall policy
+    <operation><![CDATA[config firewall policy
 edit {$params.object_id}
-set name &quot;{$params.name}&quot;
+set name "{$params.name}"
 set srcintf {$params.srcintf}
 set dstintf {$params.dstintf}
-set srcaddr &quot;{$params.srcaddr}&quot;
+set srcaddr "{$params.srcaddr}"
 set match-vip disable{if empty($params.dstaddr)}
-set dstaddr &quot;{$params.dst_nat}&quot;{else}
-set dstaddr &quot;{$params.dstaddr}&quot;{if $params.dstaddr == &quot;all&quot;}
-set match-vip enable{/if}{/if}{if $params.status == &quot;true&quot;}
+set dstaddr "{$params.dst_nat}"{else}
+set dstaddr "{$params.dstaddr}"{if $params.dstaddr == "all"}
+set match-vip enable{/if}{/if}{if $params.status == "true"}
 set status enable{else}
 set status disable{/if}
-set schedule alwaysset service &quot;{$params.service}&quot;
-set comments &quot;{$params.comments}&quot;
+set schedule alwaysset service "{$params.service}"
+set comments "{$params.comments}"
 set action {$params.action}
 set logtraffic {$params.logtraffic}
 {if $params.action == accept}
 set utm-status disable
-{if $params.nat == &quot;true&quot;}
+{if $params.nat == "true"}
 set nat enableset fixedport disable
-{if $params.nat == &quot;true&quot; &amp;&amp; $params.naptSelector == &quot;use_napt&quot;}
-set ippool enableset poolname &quot;{$params.napt_object}&quot;
+{if $params.nat == "true" && $params.naptSelector == "use_napt"}
+set ippool enableset poolname "{$params.napt_object}"
 {else}
 set ippool disable
 {/if}
@@ -319,16 +310,16 @@ set ippool disable
 set nat disable
 {/if}
 {/if}next
-{if $params.move_selector === &quot;before&quot;}move {$params.object_id}before {$params.move_index}
-{elseif $params.move_selector === &quot;after&quot;}
+{if $params.move_selector === "before"}move {$params.object_id}before {$params.move_index}
+{elseif $params.move_selector === "after"}
 move {$params.object_id} after {$params.move_index}
 {/if}
-end</operation>
+end]]></operation>
   </command>
   <command name="DELETE">
-    <operation>config firewall policy
+    <operation><![CDATA[config firewall policy
 delete {$params.object_id}
-end</operation>
+end]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
