@@ -17,7 +17,7 @@
     <name>Service Group</name>
     <group>Service</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>2</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -42,8 +42,7 @@ end</content>
     <operation><![CDATA[show full-configuration firewall service group]]></operation>
     <parser>
       <section>
-        <regexp>@edit(?! (&quot;Email Access&quot;|&quot;Web Access&quot;|&quot;Windows AD&quot;|&quot;Exchange Server&quot;)) &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
-        <xpath/>
+        <regexp>@edit &quot;(?&lt;object_id&gt;[^&quot;]+)&quot;@</regexp>
       </section>
       <lines>
         <line>
@@ -51,7 +50,6 @@ end</content>
             <lines/>
             <regexp>@^\s \s*$@</regexp>
             <mregexp>@&quot;(?&lt;member&gt;[^&quot;]+)&quot;@</mregexp>
-            <xpath/>
           </array>
           <regexp/>
           <xpath/>
