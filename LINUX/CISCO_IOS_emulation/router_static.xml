@@ -25,155 +25,128 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="1" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="1" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="ipv4_address" name="params.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="ipv4_mask_length" name="params.routes.0.ipv4_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="interface" name="params.routes.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="gateway" name="params.routes.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="metric" name="params.routes.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="tag" name="params.routes.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="ipv6_address" name="params.routes6.0.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="ipv6_mask_length" name="params.routes6.0.ipv6_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="interface" name="params.routes6.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="gateway" name="params.routes6.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="metric" name="params.routes6.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="tag" name="params.routes6.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="vrf_name" name="params.vrf_routes.0.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>VRF</sections>
       </sections>
     </variable>
     <variable displayName="ipv4_address" name="params.vrf_routes.0.routes.0.ipv4_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="ipv4_mask_length" name="params.vrf_routes.0.routes.0.ipv4_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="interface" name="params.vrf_routes.0.routes.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="gateway" name="params.vrf_routes.0.routes.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="metric" name="params.vrf_routes.0.routes.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="tag" name="params.vrf_routes.0.routes.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv4</sections>
       </sections>
     </variable>
     <variable displayName="ipv6_address" name="params.vrf_routes.0.routes6.0.ipv6_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="ipv6_mask_length" name="params.vrf_routes.0.routes6.0.ipv6_mask_length" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="interface" name="params.vrf_routes.0.routes6.0.interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="gateway" name="params.vrf_routes.0.routes6.0.gateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="metric" name="params.vrf_routes.0.routes6.0.metric" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
     </variable>
     <variable displayName="tag" name="params.vrf_routes.0.routes6.0.tag" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
       <sections>
         <sections>vrf routes ipv6</sections>
       </sections>
@@ -187,107 +160,109 @@
 {$_vrf_routes=[]}
 
 {* loop through the ip route and process the VRF routes to build a local array $_vrf_routes with the VRF routes *}
-{foreach $ip_route as $route}
-	{$vrf_idx=0}
-	{if $route.vrf_name &amp;&amp; isset($route.vrf_name)}
-		{* check if the VRF was already found *}
-		{$found=false}
-		{if isset($route.ipv4_mask)}
-			{$mask=$route.ipv4_mask}
-			{capture}
-			{get_mask_len mask=$mask var=&quot;mask_length&quot;}
-			{/capture}
-		{/if}
-		{foreach $_vrf_routes as $_vrf_route}
-			{if $_vrf_route.vrf_name == $route.vrf_name}
-				{$found=true}
-				{break}
+{if isset($ip_route)}
+	{foreach $ip_route as $route}
+		{$vrf_idx=0}
+		{if $route.vrf_name &amp;&amp; isset($route.vrf_name)}
+			{* check if the VRF was already found *}
+			{$found=false}
+			{if isset($route.ipv4_mask)}
+				{$mask=$route.ipv4_mask}
+				{capture}
+				{get_mask_len mask=$mask var=&quot;mask_length&quot;}
+				{/capture}
 			{/if}
-			{$vrf_idx=$vrf_idx+1}
-		{/foreach}
-		{if !$found}
-			{* if the VRF is a newly found one, initialize the VRF $routes array by adding data as the first element (index 0) *}
-			{$_vrf_routes.{$vrf_idx}.routes=[]}
-			{$_vrf_routes.{$vrf_idx}.routes6=[]}
-			{if $route.type == &quot;ip&quot;}
-				{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
-				{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_address=$route.ipv4_address}
-				{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_mask_length=$mask_length}
-				{if isset($route.interface)}
-					{$_vrf_routes.{$vrf_idx}.routes.0.interface=$route.interface}
-				{/if}
-				{if isset($route.gateway)}
-					{$_vrf_routes.{$vrf_idx}.routes.0.gateway=$route.gateway}
-				{/if}
-				{if isset($route.metric)}
-					{$_vrf_routes.{$vrf_idx}.routes.0.metric=$route.metric}
-				{/if}
-				{if isset($route.tag)}
-					{$_vrf_routes.{$vrf_idx}.routes.0.tag=$route.tag}
-				{/if}
-			{else if $route.type == &quot;ipv6&quot;}
-				{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
-				{$_vrf_routes.{$vrf_idx}.routes6.0.ipv6_address=$route.ipv6_address}
-				{$_vrf_routes.{$vrf_idx}.routes6.0.ipv6_mask_length=$route.ipv6_mask_length}
-				{if isset($route.interface)}
-					{$_vrf_routes.{$vrf_idx}.routes6.0.interface=$route.interface}
-				{/if}
-				{if isset($route.gateway)}
-					{$_vrf_routes.{$vrf_idx}.routes6.0.gateway=$route.gateway}
-				{/if}
-				{if isset($route.metric)}
-					{$_vrf_routes.{$vrf_idx}.routes6.0.metric=$route.metric}
-				{/if}
-				{if isset($route.tag)}
-					{$_vrf_routes.{$vrf_idx}.routes6.0.tag=$route.tag}
-				{/if}
-			{/if}
-		{else}
-			{* if it&apos;s a VRF that was already processed, add the new route to the $routes array *}
-			{if $route.type == &quot;ip&quot;}
-				{* simple foreach to get the size of $_vrf_route array *}
-				{foreach $_vrf_routes.{$vrf_idx}.routes as $_route}
-					{$route_idx=$_route@total}
+			{foreach $_vrf_routes as $_vrf_route}
+				{if $_vrf_route.vrf_name == $route.vrf_name}
+					{$found=true}
 					{break}
-				{/foreach}
-				{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_address=$route.ipv4_address}
-				{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_mask_length=$mask_length}
-				{if isset($route.interface)}
-					{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.interface=$route.interface}
 				{/if}
-				{if isset($route.gateway)}
-					{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.gateway=$route.gateway}
+				{$vrf_idx=$vrf_idx+1}
+			{/foreach}
+			{if !$found}
+				{* if the VRF is a newly found one, initialize the VRF $routes array by adding data as the first element (index 0) *}
+				{$_vrf_routes.{$vrf_idx}.routes=[]}
+				{$_vrf_routes.{$vrf_idx}.routes6=[]}
+				{if $route.type == &quot;ip&quot;}
+					{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
+					{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_address=$route.ipv4_address}
+					{$_vrf_routes.{$vrf_idx}.routes.0.ipv4_mask_length=$mask_length}
+					{if isset($route.interface)}
+						{$_vrf_routes.{$vrf_idx}.routes.0.interface=$route.interface}
+					{/if}
+					{if isset($route.gateway)}
+						{$_vrf_routes.{$vrf_idx}.routes.0.gateway=$route.gateway}
+					{/if}
+					{if isset($route.metric)}
+						{$_vrf_routes.{$vrf_idx}.routes.0.metric=$route.metric}
+					{/if}
+					{if isset($route.tag)}
+						{$_vrf_routes.{$vrf_idx}.routes.0.tag=$route.tag}
+					{/if}
+				{else if $route.type == &quot;ipv6&quot;}
+					{$_vrf_routes.{$vrf_idx}.vrf_name=$route.vrf_name}
+					{$_vrf_routes.{$vrf_idx}.routes6.0.ipv6_address=$route.ipv6_address}
+					{$_vrf_routes.{$vrf_idx}.routes6.0.ipv6_mask_length=$route.ipv6_mask_length}
+					{if isset($route.interface)}
+						{$_vrf_routes.{$vrf_idx}.routes6.0.interface=$route.interface}
+					{/if}
+					{if isset($route.gateway)}
+						{$_vrf_routes.{$vrf_idx}.routes6.0.gateway=$route.gateway}
+					{/if}
+					{if isset($route.metric)}
+						{$_vrf_routes.{$vrf_idx}.routes6.0.metric=$route.metric}
+					{/if}
+					{if isset($route.tag)}
+						{$_vrf_routes.{$vrf_idx}.routes6.0.tag=$route.tag}
+					{/if}
 				{/if}
-				{if isset($route.metric)}
-					{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.metric=$route.metric}
-				{/if}
-				{if isset($route.tag)}
-					{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.tag=$route.tag}
-				{/if}
-			{else if $route.type == &quot;ipv6&quot;}
-				{* simple foreach to get the size of $_vrf_route6 array *}
-				{foreach $_vrf_routes.{$vrf_idx}.routes6 as $_route6}
-					{$route6_idx=$_route6@total}
-					{break}
-				{/foreach}
-				{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.ipv6_address=$route.ipv6_address}
-				{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.ipv6_mask_length=$route.ipv6_mask_length}
-				{if isset($route.interface)}
-					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.interface=$route.interface}
-				{/if}
-				{if isset($route.gateway)}
-					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.gateway=$route.gateway}
-				{/if}
-				{if isset($route.metric)}
-					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.metric=$route.metric}
-				{/if}
-				{if isset($route.tag)}
-					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.tag=$route.tag}
+			{else}
+				{* if it&apos;s a VRF that was already processed, add the new route to the $routes array *}
+				{if $route.type == &quot;ip&quot;}
+					{* simple foreach to get the size of $_vrf_route array *}
+					{foreach $_vrf_routes.{$vrf_idx}.routes as $_route}
+						{$route_idx=$_route@total}
+						{break}
+					{/foreach}
+					{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_address=$route.ipv4_address}
+					{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.ipv4_mask_length=$mask_length}
+					{if isset($route.interface)}
+						{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.interface=$route.interface}
+					{/if}
+					{if isset($route.gateway)}
+						{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.gateway=$route.gateway}
+					{/if}
+					{if isset($route.metric)}
+						{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.metric=$route.metric}
+					{/if}
+					{if isset($route.tag)}
+						{$_vrf_routes.{$vrf_idx}.routes.{$route_idx}.tag=$route.tag}
+					{/if}
+				{else if $route.type == &quot;ipv6&quot;}
+					{* simple foreach to get the size of $_vrf_route6 array *}
+					{foreach $_vrf_routes.{$vrf_idx}.routes6 as $_route6}
+						{$route6_idx=$_route6@total}
+						{break}
+					{/foreach}
+					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.ipv6_address=$route.ipv6_address}
+					{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.ipv6_mask_length=$route.ipv6_mask_length}
+					{if isset($route.interface)}
+						{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.interface=$route.interface}
+					{/if}
+					{if isset($route.gateway)}
+						{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.gateway=$route.gateway}
+					{/if}
+					{if isset($route.metric)}
+						{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.metric=$route.metric}
+					{/if}
+					{if isset($route.tag)}
+						{$_vrf_routes.{$vrf_idx}.routes6.{$route6_idx}.tag=$route.tag}
+					{/if}
 				{/if}
 			{/if}
 		{/if}
-	{/if}
-{/foreach}
+	{/foreach}
+{/if}
 {* iterate through the local array $_vrf_routes and assign the values to the microservice variable $vrf_routes *}
 {foreach $_vrf_routes as $_vrf_route}
 	{assign_object_variable
