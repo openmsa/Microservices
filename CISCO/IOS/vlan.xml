@@ -31,7 +31,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section vlan]]></operation>
     <parser>
       <section>
         <regexp>@^\s*vlan\s+(?&lt;object_id&gt;\d+)$@</regexp>

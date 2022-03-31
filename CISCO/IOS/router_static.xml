@@ -154,7 +154,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section ip route]]></operation>
     <post_template>{$route_idx=0}
 {$route6_idx=0}
 {$_vrf_routes=[]}

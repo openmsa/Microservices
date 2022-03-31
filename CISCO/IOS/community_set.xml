@@ -32,7 +32,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section community-list]]></operation>
     <post_template>{$filtered_ip_community_list=[]} 
 {$icl_idx=0}
 

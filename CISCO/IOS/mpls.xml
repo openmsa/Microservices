@@ -30,7 +30,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section interface]]></operation>
     <parser>
       <section>
         <regexp>@^\s*interface\s+(?&lt;object_id&gt;\S+)$@</regexp>

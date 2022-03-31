@@ -33,7 +33,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section access-list##show running-config | section prefix-list]]></operation>
     <post_template>{* loop over the ip_access_list instances and build the prefix_set array
 based on each  ip_access_list src IP and mask variables *}
 {$idx=0}

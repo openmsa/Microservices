@@ -37,7 +37,7 @@ key chain ISIS-PWD
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section key chain]]></operation>
     <parser>
       <section>
         <regexp>@^\s*key\schain\s(?&lt;object_id&gt;\S+)$@</regexp>

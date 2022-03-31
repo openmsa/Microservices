@@ -30,7 +30,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config]]></operation>
+    <operation><![CDATA[show running-config | section as-path]]></operation>
     <post_template>{$idx=0}
 {$object_id=$params.object_id}
 {foreach $ip_as_path as $as_path}
