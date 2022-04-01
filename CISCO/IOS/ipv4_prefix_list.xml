@@ -35,7 +35,7 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config | section ip prefix-list]]></operation>
+    <operation><![CDATA[show running-config | section prefix-list]]></operation>
     <post_template>{$idx=0}
 {if isset($ip_prefix_list)}
 	{foreach $ip_prefix_list|@sortby_typed:&quot;sequence:int&quot; as $ipl}
@@ -46,11 +46,9 @@
 					value=&quot;{$ipl.description}&quot;}
 			{/if}
 			{if isset($ipl.sequence)}
-				{if isset($ipl.sequence)}
-					{assign_object_variable
-						var=&quot;ip_prefix_list.{$idx}.sequence&quot;
-						value=&quot;{$ipl.sequence}&quot;}
-				{/if}
+				{assign_object_variable
+					var=&quot;ip_prefix_list.{$idx}.sequence&quot;
+					value=&quot;{$ipl.sequence}&quot;}
 				{if isset($ipl.action)}
 					{assign_object_variable
 						var=&quot;ip_prefix_list.{$idx}.action&quot;
