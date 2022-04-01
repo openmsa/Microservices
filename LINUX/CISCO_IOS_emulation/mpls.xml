@@ -41,6 +41,9 @@
           <regexp>@^\s+mpls\s+(?&lt;mpls_command&gt;ip)$@</regexp>
           <xpath/>
         </line>
+        <ignore>
+          <regexp>@^\s*((?!(mpls ip)|(interface)).)*$@</regexp>
+        </ignore>
       </lines>
     </parser>
   </command>
