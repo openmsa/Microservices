@@ -1,32 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
-    <configType>xml</configType>
-    <defaultDisplay>false</defaultDisplay>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/androgenous person.jpg</icon>
     <description>Users management</description>
     <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Device|Local User Database</group>
-    <icon>/images/repository/CommandDefinition/icons/androgenous person.jpg</icon>
-    <importIfMandatoryPresent>true</importIfMandatoryPresent>
-    <importrank>10</importrank>
-    <name>Users</name>
+    <serviceTaskType/>
     <order>100</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>true</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>Users</name>
+    <group>Device|Local User Database</group>
+    <importonce>false</importonce>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-    <visible>true</visible>
-  </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" isMandatory="true" maxLength="250" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Password Hash" displayOrder="0" maxLength="200" name="params.password" startIncrement="0" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="250" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Password Hash" name="params.password" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>&lt;mgt-config&gt;
     &lt;users&gt;
-      &lt;entry name="admin"&gt;
+      &lt;entry name=&quot;admin&quot;&gt;
         &lt;phash&gt;fnRL/G5lXVMug&lt;/phash&gt;
         &lt;permissions&gt;
           &lt;role-based&gt;
@@ -38,44 +43,42 @@
 &lt;/mgt-config&gt;
 </content>
   </example>
-<command name="CREATE">
+  <command name="CREATE">
+    <operation><![CDATA[<phash>{$params.password}</phash>
+]]></operation>
     <rest>type=config&amp;action=set
 </rest>
-    <xpath>/config/shared/local-user-database/user/entry[@name='{$params.object_id}']
+    <xpath>/config/shared/local-user-database/user/entry[@name=&apos;{$params.object_id}&apos;]
 </xpath>
-    <operation>&lt;phash&gt;{$params.password}&lt;/phash&gt;
-</operation>
   </command>
-
   <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>type=config&amp;action=delete
 </rest>
-    <xpath>/config/shared/local-user-database/user/entry[@name='{$params.object_id}']
+    <xpath>/config/shared/local-user-database/user/entry[@name=&apos;{$params.object_id}&apos;]
 </xpath>
-    <operation>
-</operation>
   </command>
-<command name="IMPORT">
-    <operation>type=config&amp;action=show</operation>
-    <xpath>/config/shared/local-user-database/user</xpath>
+  <command name="IMPORT">
+    <operation><![CDATA[type=config&action=show]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//user/entry</xpath>
       </section>
       <lines>
         <line>
-            <regexp>@name="(?&lt;object_id&gt;.*)"@</regexp>
-            <xpath>//entry/@name</xpath>
+          <array/>
+          <regexp>@name=&quot;(?&lt;object_id&gt;.*)&quot;@</regexp>
+          <xpath>//entry/@name</xpath>
         </line>
         <line>
-          <xpath>//phash</xpath>
+          <array/>
           <regexp>@&lt;phash&gt;(?&lt;password&gt;.*)&lt;/phash@</regexp>
+          <xpath>//phash</xpath>
         </line>
-        
-        
-        
       </lines>
     </parser>
-  <post_template/>
+    <xpath>/config/shared/local-user-database/user</xpath>
   </command>
 </ObjectDefinition>
