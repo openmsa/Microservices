@@ -1,272 +1,277 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
-    <configType>xml</configType>
-    <defaultDisplay>false</defaultDisplay>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/lan to lan.jpg</icon>
     <description/>
     <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Objects|Security Profiles</group>
-    <icon>/images/repository/CommandDefinition/icons/lan to lan.jpg</icon>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importrank>1</importrank>
-    <name>URL Filtering Profile</name>
+    <serviceTaskType/>
     <order>5</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>URL Filtering Profile</name>
+    <group>Objects|Security Profiles</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-    <visible>true</visible>
-  </information>  <variables frozen="1">
-    <variable numberOfRowMax="3000" displayName="Profile name" displayOrder="0" maxLength="200" name="params.object_id" type="String"/>
-    <variable numberOfRowMax="3000" displayName="license expired" displayOrder="1" editable="false" maxLength="150" name="params.license_expired" type="String" visible="false">
+  </information>
+  <variables frozen="1">
+    <variable displayName="Profile name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="license expired" name="params.license_expired" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="allow">allow</value>
-        <value displayValue="block">block</value>
+        <values displayValue="allow">allow</values>
+        <values displayValue="block">block</values>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" default="no" displayName="enable container page" displayOrder="2" maxLength="150" name="params.enable_container_page" type="String" visible="false">
+    <variable displayName="enable container page" name="params.enable_container_page" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="no" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="no">no</value>
-        <value displayValue="yes">yes</value>
+        <values displayValue="no">no</values>
+        <values displayValue="yes">yes</values>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" default="no" displayName="dynamic_url" displayOrder="3" editable="false" maxLength="150" name="params.dynamic_url" type="String" visible="false">
+    <variable displayName="dynamic_url" name="params.dynamic_url" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="no" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="no">no</value>
-        <value displayValue="yes">yes</value>
+        <values displayValue="no">no</values>
+        <values displayValue="yes">yes</values>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" default="no" displayName="log container page only" displayOrder="4" editable="false" maxLength="150" name="params.log_container_page_only" type="String" visible="false">
+    <variable displayName="log container page only" name="params.log_container_page_only" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="no" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="no">no</value>
-        <value displayValue="yes">yes</value>
+        <values displayValue="no">no</values>
+        <values displayValue="yes">yes</values>
       </values>
     </variable>
-    <variable numberOfRowMax="3000" displayName="Description" displayOrder="5" maxLength="150" name="params.description" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Alert" displayOrder="6" editable="false" maxLength="220" name="params.alert.0.member" type="Index">
-      <values>
-        <value>abortion</value>
-        <value>abused-drugs</value>
-        <value>adult</value>
-        <value>alcohol-and-tobacco</value>
-        <value>auctions</value>
-        <value>business-and-economy</value>
-        <value>computer-and-internet-info</value>
-        <value>content-delivery-networks</value>
-        <value>dating</value>
-        <value>educational-institutions</value>
-        <value>entertainment-and-arts</value>
-        <value>financial-services</value>
-        <value>gambling</value>
-        <value>games</value>
-        <value>government</value>
-        <value>hacking</value>
-        <value>health-and-medicine</value>
-        <value>home-and-garden</value>
-        <value>hunting-and-fishing</value>
-        <value>internet-communications-and-telephony</value>
-        <value>internet-portals</value>
-        <value>job-search</value>
-        <value>legal</value>
-        <value>malware</value>
-        <value>military</value>
-        <value>motor-vehicles</value>
-        <value>music</value>
-        <value>news</value>
-        <value>not-resolved</value>
-        <value>nudity</value>
-        <value>online-storage-and-backup</value>
-        <value>parked</value>
-        <value>peer-to-peer</value>
-        <value>personal-sites-and-blogs</value>
-        <value>philosophy-and-political-advocacy</value>
-        <value>phishing</value>
-        <value>private-ip-addresses</value>
-        <value>proxy-avoidance-and-anonymizers</value>
-        <value>questionable</value>
-        <value>real-estate</value>
-        <value>recreation-and-hobbies</value>
-        <value>reference-and-research</value>
-        <value>religion</value>
-        <value>search-engines</value>
-        <value>sex-education</value>
-        <value>shareware-and-freeware</value>
-        <value>shopping</value>
-        <value>social-networking</value>
-        <value>society</value>
-        <value>sports</value>
-        <value>stock-advice-and-tools</value>
-        <value>streaming-media</value>
-        <value>swimsuits-and-intimate-apparel</value>
-        <value>training-and-tools</value>
-        <value>translation</value>
-        <value>travel</value>
-        <value>unknown</value>
-        <value>weapons</value>
-        <value>web-advertisements</value>
-        <value>web-based-email</value>
-        <value>web-hosting</value>
-      </values>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Alert" name="params.alert.0.member" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="220" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <indexVariables>
         <var>params.block.0.member</var>
         <var>params.continue.0.member</var>
       </indexVariables>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="Block" displayOrder="8" editable="false" maxLength="220" name="params.block.0.member" type="Index">
       <values>
-        <value>abortion</value>
-        <value>abused-drugs</value>
-        <value>adult</value>
-        <value>alcohol-and-tobacco</value>
-        <value>auctions</value>
-        <value>business-and-economy</value>
-        <value>computer-and-internet-info</value>
-        <value>content-delivery-networks</value>
-        <value>dating</value>
-        <value>educational-institutions</value>
-        <value>entertainment-and-arts</value>
-        <value>financial-services</value>
-        <value>gambling</value>
-        <value>games</value>
-        <value>government</value>
-        <value>hacking</value>
-        <value>health-and-medicine</value>
-        <value>home-and-garden</value>
-        <value>hunting-and-fishing</value>
-        <value>internet-communications-and-telephony</value>
-        <value>internet-portals</value>
-        <value>job-search</value>
-        <value>legal</value>
-        <value>malware</value>
-        <value>military</value>
-        <value>motor-vehicles</value>
-        <value>music</value>
-        <value>news</value>
-        <value>not-resolved</value>
-        <value>nudity</value>
-        <value>online-storage-and-backup</value>
-        <value>parked</value>
-        <value>peer-to-peer</value>
-        <value>personal-sites-and-blogs</value>
-        <value>philosophy-and-political-advocacy</value>
-        <value>phishing</value>
-        <value>private-ip-addresses</value>
-        <value>proxy-avoidance-and-anonymizers</value>
-        <value>questionable</value>
-        <value>real-estate</value>
-        <value>recreation-and-hobbies</value>
-        <value>reference-and-research</value>
-        <value>religion</value>
-        <value>search-engines</value>
-        <value>sex-education</value>
-        <value>shareware-and-freeware</value>
-        <value>shopping</value>
-        <value>social-networking</value>
-        <value>society</value>
-        <value>sports</value>
-        <value>stock-advice-and-tools</value>
-        <value>streaming-media</value>
-        <value>swimsuits-and-intimate-apparel</value>
-        <value>training-and-tools</value>
-        <value>translation</value>
-        <value>travel</value>
-        <value>unknown</value>
-        <value>weapons</value>
-        <value>web-advertisements</value>
-        <value>web-based-email</value>
-        <value>web-hosting</value>
+        <values>abortion</values>
+        <values>abused-drugs</values>
+        <values>adult</values>
+        <values>alcohol-and-tobacco</values>
+        <values>auctions</values>
+        <values>business-and-economy</values>
+        <values>computer-and-internet-info</values>
+        <values>content-delivery-networks</values>
+        <values>dating</values>
+        <values>educational-institutions</values>
+        <values>entertainment-and-arts</values>
+        <values>financial-services</values>
+        <values>gambling</values>
+        <values>games</values>
+        <values>government</values>
+        <values>hacking</values>
+        <values>health-and-medicine</values>
+        <values>home-and-garden</values>
+        <values>hunting-and-fishing</values>
+        <values>internet-communications-and-telephony</values>
+        <values>internet-portals</values>
+        <values>job-search</values>
+        <values>legal</values>
+        <values>malware</values>
+        <values>military</values>
+        <values>motor-vehicles</values>
+        <values>music</values>
+        <values>news</values>
+        <values>not-resolved</values>
+        <values>nudity</values>
+        <values>online-storage-and-backup</values>
+        <values>parked</values>
+        <values>peer-to-peer</values>
+        <values>personal-sites-and-blogs</values>
+        <values>philosophy-and-political-advocacy</values>
+        <values>phishing</values>
+        <values>private-ip-addresses</values>
+        <values>proxy-avoidance-and-anonymizers</values>
+        <values>questionable</values>
+        <values>real-estate</values>
+        <values>recreation-and-hobbies</values>
+        <values>reference-and-research</values>
+        <values>religion</values>
+        <values>search-engines</values>
+        <values>sex-education</values>
+        <values>shareware-and-freeware</values>
+        <values>shopping</values>
+        <values>social-networking</values>
+        <values>society</values>
+        <values>sports</values>
+        <values>stock-advice-and-tools</values>
+        <values>streaming-media</values>
+        <values>swimsuits-and-intimate-apparel</values>
+        <values>training-and-tools</values>
+        <values>translation</values>
+        <values>travel</values>
+        <values>unknown</values>
+        <values>weapons</values>
+        <values>web-advertisements</values>
+        <values>web-based-email</values>
+        <values>web-hosting</values>
       </values>
+    </variable>
+    <variable displayName="Block" name="params.block.0.member" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="220" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <indexVariables>
         <var>params.alert.0.member</var>
         <var>params.continue.0.member</var>
       </indexVariables>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="Continue" displayOrder="9" editable="false" maxLength="220" name="params.continue.0.member" type="Index">
       <values>
-        <value>abortion</value>
-        <value>abused-drugs</value>
-        <value>adult</value>
-        <value>alcohol-and-tobacco</value>
-        <value>auctions</value>
-        <value>business-and-economy</value>
-        <value>computer-and-internet-info</value>
-        <value>content-delivery-networks</value>
-        <value>dating</value>
-        <value>educational-institutions</value>
-        <value>entertainment-and-arts</value>
-        <value>financial-services</value>
-        <value>gambling</value>
-        <value>games</value>
-        <value>government</value>
-        <value>hacking</value>
-        <value>health-and-medicine</value>
-        <value>home-and-garden</value>
-        <value>hunting-and-fishing</value>
-        <value>internet-communications-and-telephony</value>
-        <value>internet-portals</value>
-        <value>job-search</value>
-        <value>legal</value>
-        <value>malware</value>
-        <value>military</value>
-        <value>motor-vehicles</value>
-        <value>music</value>
-        <value>news</value>
-        <value>not-resolved</value>
-        <value>nudity</value>
-        <value>online-storage-and-backup</value>
-        <value>parked</value>
-        <value>peer-to-peer</value>
-        <value>personal-sites-and-blogs</value>
-        <value>philosophy-and-political-advocacy</value>
-        <value>phishing</value>
-        <value>private-ip-addresses</value>
-        <value>proxy-avoidance-and-anonymizers</value>
-        <value>questionable</value>
-        <value>real-estate</value>
-        <value>recreation-and-hobbies</value>
-        <value>reference-and-research</value>
-        <value>religion</value>
-        <value>search-engines</value>
-        <value>sex-education</value>
-        <value>shareware-and-freeware</value>
-        <value>shopping</value>
-        <value>social-networking</value>
-        <value>society</value>
-        <value>sports</value>
-        <value>stock-advice-and-tools</value>
-        <value>streaming-media</value>
-        <value>swimsuits-and-intimate-apparel</value>
-        <value>training-and-tools</value>
-        <value>translation</value>
-        <value>travel</value>
-        <value>unknown</value>
-        <value>weapons</value>
-        <value>web-advertisements</value>
-        <value>web-based-email</value>
-        <value>web-hosting</value>
+        <values>abortion</values>
+        <values>abused-drugs</values>
+        <values>adult</values>
+        <values>alcohol-and-tobacco</values>
+        <values>auctions</values>
+        <values>business-and-economy</values>
+        <values>computer-and-internet-info</values>
+        <values>content-delivery-networks</values>
+        <values>dating</values>
+        <values>educational-institutions</values>
+        <values>entertainment-and-arts</values>
+        <values>financial-services</values>
+        <values>gambling</values>
+        <values>games</values>
+        <values>government</values>
+        <values>hacking</values>
+        <values>health-and-medicine</values>
+        <values>home-and-garden</values>
+        <values>hunting-and-fishing</values>
+        <values>internet-communications-and-telephony</values>
+        <values>internet-portals</values>
+        <values>job-search</values>
+        <values>legal</values>
+        <values>malware</values>
+        <values>military</values>
+        <values>motor-vehicles</values>
+        <values>music</values>
+        <values>news</values>
+        <values>not-resolved</values>
+        <values>nudity</values>
+        <values>online-storage-and-backup</values>
+        <values>parked</values>
+        <values>peer-to-peer</values>
+        <values>personal-sites-and-blogs</values>
+        <values>philosophy-and-political-advocacy</values>
+        <values>phishing</values>
+        <values>private-ip-addresses</values>
+        <values>proxy-avoidance-and-anonymizers</values>
+        <values>questionable</values>
+        <values>real-estate</values>
+        <values>recreation-and-hobbies</values>
+        <values>reference-and-research</values>
+        <values>religion</values>
+        <values>search-engines</values>
+        <values>sex-education</values>
+        <values>shareware-and-freeware</values>
+        <values>shopping</values>
+        <values>social-networking</values>
+        <values>society</values>
+        <values>sports</values>
+        <values>stock-advice-and-tools</values>
+        <values>streaming-media</values>
+        <values>swimsuits-and-intimate-apparel</values>
+        <values>training-and-tools</values>
+        <values>translation</values>
+        <values>travel</values>
+        <values>unknown</values>
+        <values>weapons</values>
+        <values>web-advertisements</values>
+        <values>web-based-email</values>
+        <values>web-hosting</values>
       </values>
+    </variable>
+    <variable displayName="Continue" name="params.continue.0.member" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="220" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <indexVariables>
         <var>params.block.0.member</var>
         <var>params.alert.0.member</var>
       </indexVariables>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="Allow URL list" displayOrder="11" maxLength="150" name="params.allow_list.0.url" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Block URL list" displayOrder="12" maxLength="150" name="params.block_list.0.url" type="String"/>
-    <variable numberOfRowMax="3000" default="block" displayName="Action" displayOrder="14" editable="false" isMandatory="true" maxLength="150" name="params.action" type="String">
       <values>
-        <value>alert</value>
-        <value>block</value>
-        <value>continue</value>
-        <value>override</value>
+        <values>abortion</values>
+        <values>abused-drugs</values>
+        <values>adult</values>
+        <values>alcohol-and-tobacco</values>
+        <values>auctions</values>
+        <values>business-and-economy</values>
+        <values>computer-and-internet-info</values>
+        <values>content-delivery-networks</values>
+        <values>dating</values>
+        <values>educational-institutions</values>
+        <values>entertainment-and-arts</values>
+        <values>financial-services</values>
+        <values>gambling</values>
+        <values>games</values>
+        <values>government</values>
+        <values>hacking</values>
+        <values>health-and-medicine</values>
+        <values>home-and-garden</values>
+        <values>hunting-and-fishing</values>
+        <values>internet-communications-and-telephony</values>
+        <values>internet-portals</values>
+        <values>job-search</values>
+        <values>legal</values>
+        <values>malware</values>
+        <values>military</values>
+        <values>motor-vehicles</values>
+        <values>music</values>
+        <values>news</values>
+        <values>not-resolved</values>
+        <values>nudity</values>
+        <values>online-storage-and-backup</values>
+        <values>parked</values>
+        <values>peer-to-peer</values>
+        <values>personal-sites-and-blogs</values>
+        <values>philosophy-and-political-advocacy</values>
+        <values>phishing</values>
+        <values>private-ip-addresses</values>
+        <values>proxy-avoidance-and-anonymizers</values>
+        <values>questionable</values>
+        <values>real-estate</values>
+        <values>recreation-and-hobbies</values>
+        <values>reference-and-research</values>
+        <values>religion</values>
+        <values>search-engines</values>
+        <values>sex-education</values>
+        <values>shareware-and-freeware</values>
+        <values>shopping</values>
+        <values>social-networking</values>
+        <values>society</values>
+        <values>sports</values>
+        <values>stock-advice-and-tools</values>
+        <values>streaming-media</values>
+        <values>swimsuits-and-intimate-apparel</values>
+        <values>training-and-tools</values>
+        <values>translation</values>
+        <values>travel</values>
+        <values>unknown</values>
+        <values>weapons</values>
+        <values>web-advertisements</values>
+        <values>web-based-email</values>
+        <values>web-hosting</values>
       </values>
     </variable>
-  </variables>  <example>
+    <variable displayName="Allow URL list" name="params.allow_list.0.url" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Block URL list" name="params.block_list.0.url" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="block" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>alert</values>
+        <values>block</values>
+        <values>continue</values>
+        <values>override</values>
+      </values>
+    </variable>
+  </variables>
+  <example>
     <content>&lt;url-filtering&gt;
-   &lt;entry name="USER_URL_Config_VM-vFW"&gt;
+   &lt;entry name=&quot;USER_URL_Config_VM-vFW&quot;&gt;
      &lt;license-expired&gt;allow&lt;/license-expired&gt;
      &lt;enable-container-page&gt;yes&lt;/enable-container-page&gt;
      &lt;dynamic-url&gt;yes&lt;/dynamic-url&gt;
@@ -375,206 +380,224 @@
 </content>
   </example>
   <command name="IMPORT">
-    <operation>type=config&amp;action=show</operation>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profiles/url-filtering</xpath>
+    <operation><![CDATA[type=config&action=show]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//url-filtering/entry</xpath>
       </section>
       <lines>
         <line>
+          <array/>
+          <regexp>@name=&quot;(?&lt;object_id&gt;.*)&quot;@</regexp>
           <xpath>//entry/@name</xpath>
-          <regexp>@name="(?&lt;object_id&gt;.*)"@</regexp>
         </line>
-        
         <line>
-          <xpath>//entry/dynamic-url</xpath>
+          <array/>
           <regexp>@&lt;dynamic-url&gt;(?&lt;dynamic_url&gt;[^&lt;]+)&lt;/dynamic-url&gt;@</regexp>
+          <xpath>//entry/dynamic-url</xpath>
         </line>
         <line>
-          <xpath>//entry/enable-container-page</xpath>
+          <array/>
           <regexp>@&lt;enable-container-page&gt;(?&lt;enable_container_page&gt;[^&lt;]+)&lt;/enable-container-page&gt;@</regexp>
+          <xpath>//entry/enable-container-page</xpath>
         </line>
-        
         <line>
-          <xpath>//entry/license-expired</xpath>
+          <array/>
           <regexp>@&lt;license-expired&gt;(?&lt;license_expired&gt;[^&lt;]+)&lt;/license-expired&gt;@</regexp>
+          <xpath>//entry/license-expired</xpath>
         </line>
         <line>
-          <xpath>//entry/log-container-page-only</xpath>
+          <array/>
           <regexp>@&lt;log-container-page-only&gt;(?&lt;log_container_page_only&gt;[^&lt;]+)&lt;/log-container-page-only&gt;@</regexp>
+          <xpath>//entry/log-container-page-only</xpath>
         </line>
         <line>
-          <xpath>//entry/description</xpath>
+          <array/>
           <regexp>@&lt;description&gt;(?&lt;description&gt;[^&lt;]+)&lt;/description&gt;@</regexp>
+          <xpath>//entry/description</xpath>
         </line>
         <line>
-          <xpath>//entry/action</xpath>
+          <array/>
           <regexp>@&lt;action&gt;(?&lt;action&gt;[^&lt;]+)&lt;/action&gt;@</regexp>
+          <xpath>//entry/action</xpath>
         </line>
         <line>
           <array name="allow_list">
-            <xpath>//entry/allow-list/member</xpath>
             <lines>
               <line>
-                <xpath>//member</xpath>
+                <array/>
                 <regexp>@&lt;member&gt;(?&lt;url&gt;[^&lt;]+)&lt;/member&gt;@</regexp>
+                <xpath>//member</xpath>
               </line>
             </lines>
+            <xpath>//entry/allow-list/member</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
           <array name="block_list">
-            <xpath>//entry/block-list/member</xpath>
             <lines>
               <line>
-                <xpath>//member</xpath>
+                <array/>
                 <regexp>@&lt;member&gt;(?&lt;url&gt;[^&lt;]+)&lt;/member&gt;@</regexp>
+                <xpath>//member</xpath>
               </line>
             </lines>
+            <xpath>//entry/block-list/member</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
-        
-        
         <line>
           <array name="continue">
-            <xpath>//entry/continue/member</xpath>
             <lines>
               <line>
-                <xpath>//member</xpath>
+                <array/>
                 <regexp>@&lt;member&gt;(?&lt;member&gt;[^&lt;]+)&lt;/member&gt;@</regexp>
+                <xpath>//member</xpath>
               </line>
             </lines>
+            <xpath>//entry/continue/member</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
           <array name="block">
-            <xpath>//entry/block/member</xpath>
             <lines>
               <line>
-                <xpath>//member</xpath>
+                <array/>
                 <regexp>@&lt;member&gt;(?&lt;member&gt;[^&lt;]+)&lt;/member&gt;@</regexp>
+                <xpath>//member</xpath>
               </line>
             </lines>
+            <xpath>//entry/block/member</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
           <array name="alert">
-            <xpath>//entry/alert/member</xpath>
             <lines>
               <line>
-                <xpath>//member</xpath>
+                <array/>
                 <regexp>@&lt;member&gt;(?&lt;member&gt;[^&lt;]+)&lt;/member&gt;@</regexp>
+                <xpath>//member</xpath>
               </line>
             </lines>
+            <xpath>//entry/alert/member</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
       </lines>
     </parser>
-  <post_template/>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profiles/url-filtering</xpath>
   </command>
-<command name="CREATE">
+  <command name="CREATE">
+    <operation><![CDATA[<entry name='{$params.object_id}'>
+{if !empty($params.description) }
+<description>{$params.description}</description>
+{/if}
+{if !empty($params.alert) }
+<alert>
+{foreach $params.alert as $alert}
+<member>{$alert.member}</member>
+{/foreach}
+</alert>
+{/if}
+{if !empty($params.block) }
+<block>
+{foreach $params.block as $block}
+<member>{$block.member}</member>
+{/foreach}
+</block>
+{/if}
+{if !empty($params.continue) }
+<continue>
+{foreach $params.continue as $continue}
+<member>{$continue.member}</member>
+{/foreach}
+</continue>
+{/if}
+{if !empty($params.block_list) }
+<block-list>
+{foreach $params.block_list as $block_list}
+<member>{$block_list.url}</member>
+{/foreach}
+</block-list>
+{/if}
+{if !empty($params.allow_list) }
+<allow-list>
+{foreach $params.allow_list as $allow_list}
+<member>{$allow_list.url}</member>
+{/foreach}
+</allow-list>
+{/if}
+<action>{$params.action}</action>
+</entry>
+]]></operation>
     <rest>type=config&amp;action=set
 </rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profiles/url-filtering
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profiles/url-filtering
 </xpath>
-    <operation>&lt;entry name='{$params.object_id}'&gt;
-{if !empty($params.description) }
-&lt;description&gt;{$params.description}&lt;/description&gt;
-{/if}
-{if !empty($params.alert) }
-&lt;alert&gt;
-{foreach $params.alert as $alert}
-&lt;member&gt;{$alert.member}&lt;/member&gt;
-{/foreach}
-&lt;/alert&gt;
-{/if}
-{if !empty($params.block) }
-&lt;block&gt;
-{foreach $params.block as $block}
-&lt;member&gt;{$block.member}&lt;/member&gt;
-{/foreach}
-&lt;/block&gt;
-{/if}
-{if !empty($params.continue) }
-&lt;continue&gt;
-{foreach $params.continue as $continue}
-&lt;member&gt;{$continue.member}&lt;/member&gt;
-{/foreach}
-&lt;/continue&gt;
-{/if}
-{if !empty($params.block_list) }
-&lt;block-list&gt;
-{foreach $params.block_list as $block_list}
-&lt;member&gt;{$block_list.url}&lt;/member&gt;
-{/foreach}
-&lt;/block-list&gt;
-{/if}
-{if !empty($params.allow_list) }
-&lt;allow-list&gt;
-{foreach $params.allow_list as $allow_list}
-&lt;member&gt;{$allow_list.url}&lt;/member&gt;
-{/foreach}
-&lt;/allow-list&gt;
-{/if}
-&lt;action&gt;{$params.action}&lt;/action&gt;
-&lt;/entry&gt;
-</operation>
   </command>
   <command name="UPDATE">
-    <rest>type=config&amp;action=edit
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profiles/url-filtering/entry[@name='{$params.object_id}']
-</xpath>
-    <operation>&lt;entry name='{$params.object_id}'&gt;
+    <operation><![CDATA[<entry name='{$params.object_id}'>
 {if !empty($params.description) }
-&lt;description&gt;{$params.description}&lt;/description&gt;
+<description>{$params.description}</description>
 {/if}
 {if !empty($params.alert) }
-&lt;alert&gt;
+<alert>
 {foreach $params.alert as $alert}
-&lt;member&gt;{$alert.member}&lt;/member&gt;
+<member>{$alert.member}</member>
 {/foreach}
-&lt;/alert&gt;
+</alert>
 {/if}
 {if !empty($params.block) }
-&lt;block&gt;
+<block>
 {foreach $params.block as $block}
-&lt;member&gt;{$block.member}&lt;/member&gt;
+<member>{$block.member}</member>
 {/foreach}
-&lt;/block&gt;
+</block>
 {/if}
 {if !empty($params.continue) }
-&lt;continue&gt;
+<continue>
 {foreach $params.continue as $continue}
-&lt;member&gt;{$continue.member}&lt;/member&gt;
+<member>{$continue.member}</member>
 {/foreach}
-&lt;/continue&gt;
+</continue>
 {/if}
 {if !empty($params.block_list) }
-&lt;block-list&gt;
+<block-list>
 {foreach $params.block_list as $block_list}
-&lt;member&gt;{$block_list.url}&lt;/member&gt;
+<member>{$block_list.url}</member>
 {/foreach}
-&lt;/block-list&gt;
+</block-list>
 {/if}
 {if !empty($params.allow_list) }
-&lt;allow-list&gt;
+<allow-list>
 {foreach $params.allow_list as $allow_list}
-&lt;member&gt;{$allow_list.url}&lt;/member&gt;
+<member>{$allow_list.url}</member>
 {/foreach}
-&lt;/allow-list&gt;
+</allow-list>
 {/if}
-&lt;action&gt;{$params.action}&lt;/action&gt;
-&lt;/entry&gt;
-</operation>
+<action>{$params.action}</action>
+</entry>
+]]></operation>
+    <rest>type=config&amp;action=edit
+</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profiles/url-filtering/entry[@name=&apos;{$params.object_id}&apos;]
+</xpath>
   </command>
   <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>type=config&amp;action=delete
 </rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profiles/url-filtering/entry[@name='{$params.object_id}']
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profiles/url-filtering/entry[@name=&apos;{$params.object_id}&apos;]
 </xpath>
-    <operation>
-</operation>
   </command>
 </ObjectDefinition>
