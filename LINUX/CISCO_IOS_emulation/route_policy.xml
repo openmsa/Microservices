@@ -383,8 +383,7 @@
 </post_template>
     <parser>
       <section>
-        <regexp>@^\s*route-map\s+(?&lt;object_id&gt;\S+).*$@</regexp>
-        <xpath></xpath>
+        <regexp>@^route-map\s+(?&lt;object_id&gt;\S+)\s+(permit|deny)\s+\d+$@</regexp>
       </section>
       <lines>
         <ignore>
