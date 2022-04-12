@@ -264,128 +264,132 @@
 	{/foreach}
 {/if}
 {* iterate through the local array $_vrf_routes and assign the values to the microservice variable $vrf_routes *}
-{foreach $_vrf_routes as $_vrf_route}
-	{assign_object_variable
-        var=&quot;vrf_routes.{$_vrf_route@index}.vrf_name&quot;
-        value=&quot;{$_vrf_route.vrf_name}&quot;}
-    {if isset($_vrf_route.routes)}
-		{foreach $_vrf_route.routes as $_route}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_address&quot; 
-				value=&quot;{$_route.ipv4_address}&quot;}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_mask_length&quot; 
-				value=&quot;{$_route.ipv4_mask_length}&quot;}
-			{if isset($_route.interface)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.interface&quot; 
-					value=&quot;{$_route.interface}&quot;}
-			{/if}
-			{if isset($_route.gateway)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.gateway&quot; 
-					value=&quot;{$_route.gateway}&quot;}
-			{/if}
-			{if isset($_route.metric)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.metric&quot; 
-					value=&quot;{$_route.metric}&quot;}
-			{/if}
-			{if isset($_route.tag)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.tag&quot; 
-					value=&quot;{$_route.tag}&quot;}
-			{/if}
-		{/foreach}
-	{/if}
-    {if isset($_vrf_route.routes6)}
-		{foreach $_vrf_route.routes6 as $_route}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.ipv6_address&quot; 
-				value=&quot;{$_route.ipv6_address}&quot;}
-			{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.ipv6_mask_length&quot; 
-				value=&quot;{$_route.ipv6_mask_length}&quot;}
-			{if isset($_route.interface)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.interface&quot; 
-					value=&quot;{$_route.interface}&quot;}
-			{/if}
-			{if isset($_route.gateway)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.gateway&quot; 
-					value=&quot;{$_route.gateway}&quot;}
-			{/if}
-			{if isset($_route.metric)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.metric&quot; 
-					value=&quot;{$_route.metric}&quot;}
-			{/if}
-			{if isset($_route.tag)}
-				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.tag&quot; 
-					value=&quot;{$_route.tag}&quot;}
-			{/if}
-		{/foreach}
-	{/if}
-{/foreach}
-
-{* process the routes that are not VRF routes *}
-{foreach $ip_route as $route}
-	{if !$route.vrf_name}
-		{if isset($route.type) &amp;&amp; $route.type == &quot;ip&quot;}
-			{assign_object_variable
-				var=&quot;routes.{$route_idx}.ipv4_address&quot; 
-				value=&quot;{$route.ipv4_address}&quot;}
-			{if isset($route.ipv4_mask)}
-			    {$mask=$route.ipv4_mask}
-			    {capture} {* transform the mask to the mask length for compatibility with XR *}
-			    {get_mask_len mask=$mask var=&quot;mask_length&quot;}
-			    {/capture}		
-				{assign_object_variable 
-					var=&quot;routes.{$route_idx}.ipv4_mask_length&quot; 
-					value=&quot;{$mask_length}&quot;}
-			{/if}
-			{if isset($route.interface)}
-				{assign_object_variable 
-					var=&quot;routes.{$route_idx}.interface&quot; 
-					value=&quot;{$route.interface}&quot;}
-			{/if}
-			{if isset($route.gateway)}
-				{assign_object_variable 
-					var=&quot;routes.{$route_idx}.gateway&quot; 
-					value=&quot;{$route.gateway}&quot;}
-			{/if}
-			{if isset($route.metric)}
-				{assign_object_variable 
-					var=&quot;routes.{$route_idx}.metric&quot; 
-					value=&quot;{$route.metric}&quot;}
-			{/if}
-			{if	isset($route.tag)}
-				{assign_object_variable 
-					var=&quot;routes.{$route_idx}.tag&quot; 
-					value=&quot;{$route.tag}&quot;}
-			{/if}
-			{$route_idx=$route_idx+1}
-		{else if isset($route.type) &amp;&amp; $route.type == &quot;ipv6&quot;}
-			{assign_object_variable
-				var=&quot;routes6.{$route6_idx}.ipv6_address&quot; 
-				value=&quot;{$route.ipv6_address}&quot;}
-			{assign_object_variable 
-				var=&quot;routes6.{$route6_idx}.ipv6_mask_length&quot; 
-				value=&quot;{$route.ipv6_mask_length}&quot;}
-			{if isset($route.interface)}
-				{assign_object_variable 
-					var=&quot;routes6.{$route6_idx}.interface&quot; 
-					value=&quot;{$route.interface}&quot;}
-			{/if}
-			{if isset($route.gateway)}
-				{assign_object_variable 
-					var=&quot;routes6.{$route6_idx}.gateway&quot; 
-					value=&quot;{$route.gateway}&quot;}
-			{/if}
-			{if isset($route.metric)}
-				{assign_object_variable 
-					var=&quot;routes6.{$route6_idx}.metric&quot; 
-					value=&quot;{$route.metric}&quot;}
-			{/if}
-			{if	isset($route.tag)}
-				{assign_object_variable 
-					var=&quot;routes6.{$route6_idx}.tag&quot; 
-					value=&quot;{$route.tag}&quot;}
-			{/if}
-			{$route6_idx=$route6_idx+1}
+{if isset($_vrf_routes)}
+	{foreach $_vrf_routes as $_vrf_route}
+		{assign_object_variable
+	        var=&quot;vrf_routes.{$_vrf_route@index}.vrf_name&quot;
+	        value=&quot;{$_vrf_route.vrf_name}&quot;}
+	    {if isset($_vrf_route.routes)}
+			{foreach $_vrf_route.routes as $_route}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_address&quot; 
+					value=&quot;{$_route.ipv4_address}&quot;}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.ipv4_mask_length&quot; 
+					value=&quot;{$_route.ipv4_mask_length}&quot;}
+				{if isset($_route.interface)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.interface&quot; 
+						value=&quot;{$_route.interface}&quot;}
+				{/if}
+				{if isset($_route.gateway)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.gateway&quot; 
+						value=&quot;{$_route.gateway}&quot;}
+				{/if}
+				{if isset($_route.metric)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.metric&quot; 
+						value=&quot;{$_route.metric}&quot;}
+				{/if}
+				{if isset($_route.tag)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes.{$_route@index}.tag&quot; 
+						value=&quot;{$_route.tag}&quot;}
+				{/if}
+			{/foreach}
 		{/if}
-	{/if}
-{/foreach}</post_template>
+	    {if isset($_vrf_route.routes6)}
+			{foreach $_vrf_route.routes6 as $_route}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.ipv6_address&quot; 
+					value=&quot;{$_route.ipv6_address}&quot;}
+				{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.ipv6_mask_length&quot; 
+					value=&quot;{$_route.ipv6_mask_length}&quot;}
+				{if isset($_route.interface)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.interface&quot; 
+						value=&quot;{$_route.interface}&quot;}
+				{/if}
+				{if isset($_route.gateway)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.gateway&quot; 
+						value=&quot;{$_route.gateway}&quot;}
+				{/if}
+				{if isset($_route.metric)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.metric&quot; 
+						value=&quot;{$_route.metric}&quot;}
+				{/if}
+				{if isset($_route.tag)}
+					{assign_object_variable var=&quot;vrf_routes.{$_vrf_route@index}.routes6.{$_route@index}.tag&quot; 
+						value=&quot;{$_route.tag}&quot;}
+				{/if}
+			{/foreach}
+		{/if}
+	{/foreach}
+{/if}
+{* process the routes that are not VRF routes *}
+{if isset($ip_route)}
+	{foreach $ip_route as $route}
+		{if !$route.vrf_name}
+			{if isset($route.type) &amp;&amp; $route.type == &quot;ip&quot;}
+				{assign_object_variable
+					var=&quot;routes.{$route_idx}.ipv4_address&quot; 
+					value=&quot;{$route.ipv4_address}&quot;}
+				{if isset($route.ipv4_mask)}
+				    {$mask=$route.ipv4_mask}
+				    {capture} {* transform the mask to the mask length for compatibility with XR *}
+				    {get_mask_len mask=$mask var=&quot;mask_length&quot;}
+				    {/capture}		
+					{assign_object_variable 
+						var=&quot;routes.{$route_idx}.ipv4_mask_length&quot; 
+						value=&quot;{$mask_length}&quot;}
+				{/if}
+				{if isset($route.interface)}
+					{assign_object_variable 
+						var=&quot;routes.{$route_idx}.interface&quot; 
+						value=&quot;{$route.interface}&quot;}
+				{/if}
+				{if isset($route.gateway)}
+					{assign_object_variable 
+						var=&quot;routes.{$route_idx}.gateway&quot; 
+						value=&quot;{$route.gateway}&quot;}
+				{/if}
+				{if isset($route.metric)}
+					{assign_object_variable 
+						var=&quot;routes.{$route_idx}.metric&quot; 
+						value=&quot;{$route.metric}&quot;}
+				{/if}
+				{if	isset($route.tag)}
+					{assign_object_variable 
+						var=&quot;routes.{$route_idx}.tag&quot; 
+						value=&quot;{$route.tag}&quot;}
+				{/if}
+				{$route_idx=$route_idx+1}
+			{else if isset($route.type) &amp;&amp; $route.type == &quot;ipv6&quot;}
+				{assign_object_variable
+					var=&quot;routes6.{$route6_idx}.ipv6_address&quot; 
+					value=&quot;{$route.ipv6_address}&quot;}
+				{assign_object_variable 
+					var=&quot;routes6.{$route6_idx}.ipv6_mask_length&quot; 
+					value=&quot;{$route.ipv6_mask_length}&quot;}
+				{if isset($route.interface)}
+					{assign_object_variable 
+						var=&quot;routes6.{$route6_idx}.interface&quot; 
+						value=&quot;{$route.interface}&quot;}
+				{/if}
+				{if isset($route.gateway)}
+					{assign_object_variable 
+						var=&quot;routes6.{$route6_idx}.gateway&quot; 
+						value=&quot;{$route.gateway}&quot;}
+				{/if}
+				{if isset($route.metric)}
+					{assign_object_variable 
+						var=&quot;routes6.{$route6_idx}.metric&quot; 
+						value=&quot;{$route.metric}&quot;}
+				{/if}
+				{if	isset($route.tag)}
+					{assign_object_variable 
+						var=&quot;routes6.{$route6_idx}.tag&quot; 
+						value=&quot;{$route.tag}&quot;}
+				{/if}
+				{$route6_idx=$route6_idx+1}
+			{/if}
+		{/if}
+	{/foreach}
+{/if}
+</post_template>
     <parser>
       <section>
         <regexp>@(?&lt;object_id&gt;ip route)@</regexp>
