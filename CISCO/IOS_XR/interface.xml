@@ -249,8 +249,6 @@
   </command>
   <command name="CREATE">
     <operation><![CDATA[!
-! Antoine testing
-!
 interface {$params.object_id}
 {if isset($params.int_description) }
  description {$params.int_description}
