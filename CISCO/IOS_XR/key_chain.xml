@@ -39,11 +39,13 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!
+    <operation><![CDATA[{if isset($params.key_string)}
+!
 key chain {$params.object_id}
  key {$params.key}
    key-string 7 {$params.key_string}
-!]]></operation>
+!
+{/if}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
