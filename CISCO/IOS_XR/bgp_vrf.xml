@@ -300,8 +300,7 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($params.router_bgp)}
-!
+    <operation><![CDATA[!
 router bgp {$params.router_bgp}
  vrf {$params.vrf_name}
   rd {$params.rd}
@@ -345,8 +344,7 @@ router bgp {$params.router_bgp}
 {/foreach}
 {/if}
   !
-!
-{/if}]]></operation>
+!]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE">
