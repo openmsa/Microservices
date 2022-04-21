@@ -58,6 +58,11 @@ based on each  ip_access_list src IP and mask variables *}
 					{$idx=$idx+1}
 				{/if}
 			{/foreach}
+			{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
+			{assign_object_variable 
+				var=&quot;object_id&quot; 
+				value=&quot;pfx_{$params.object_id}&quot;}
+			{break}
 		{/if}
 	{/foreach}
 {/if}
@@ -81,12 +86,10 @@ based on each  ip_access_list src IP and mask variables *}
 				{$idx=$idx+1}
 			{/if}
 		{/if}
+		{break}
 	{/foreach}
 {/if}
-{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
-{assign_object_variable 
-	var=&quot;object_id&quot; 
-	value=&quot;pfx_{$params.object_id}&quot;}</post_template>
+</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>
