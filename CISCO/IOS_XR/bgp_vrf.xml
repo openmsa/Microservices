@@ -300,10 +300,14 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!
+    <operation><![CDATA[{if isset($params.vrf_name) && isset($params.router_bgp)}
+!
 router bgp {$params.router_bgp}
  vrf {$params.vrf_name}
+ {if isset($params.rd)}
   rd {$params.rd}
+ {/if}
+{if (isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)) || isset($params.neighbor)}
   address-family ipv4 unicast
 {if isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)}
   redistribute {$params.bgp_vrf_redistribute}
@@ -343,8 +347,9 @@ router bgp {$params.router_bgp}
 *}
 {/foreach}
 {/if}
-  !
-!]]></operation>
+{/if}
+!
+{/if}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE">

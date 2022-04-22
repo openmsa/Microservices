@@ -79,14 +79,18 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($params.xconnect_group)}
+    <operation><![CDATA[{if isset($params.xconnect_group) 
+  && isset($params.p2p) 
+  && isset($params.neighbor) 
+  && isset($params.pseudowire_id)
+  && isset($params.pseudowire_class)}
 !
 l2vpn
 xconnect group {$params.xconnect_group}
 {if isset($params.p2p)}
   p2p {$params.p2p}
 {/if}
-{if isset($params.neighbor) and isset($params.pseudowire_id) }
+{if isset($params.neighbor) && isset($params.pseudowire_id) }
   neighbor ipv4 {$params.neighbor} pw-id {$params.pseudowire_id}
 {/if}
 {if isset($params.pseudowire_class)}
@@ -97,7 +101,8 @@ xconnect group {$params.xconnect_group}
    description {$params.int_description}
 {/if}
 !
-{/if}]]></operation>
+{/if}
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>

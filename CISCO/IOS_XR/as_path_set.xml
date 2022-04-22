@@ -52,7 +52,8 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[!
+    <operation><![CDATA[{if isset($params.as_path_set)}
+!
 as-path-set {$params.object_id}
 {foreach $params.as_path_set as $as_path_set}
 {if isset($as_path_set.ios_regex)}
@@ -63,7 +64,7 @@ as-path-set {$params.object_id}
 
 end-set
 !
-]]></operation>
+{/if}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
