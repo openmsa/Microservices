@@ -218,12 +218,17 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset ($params.routes) || isset ($params.routes6) || isset ($params.vrf_routes) || isset ($params.vrf_routes6)}
+    <operation><![CDATA[{if (isset($params.routes) && count($params.routes) > 0)
+  || (isset($params.routes6) && count($params.routes6) > 0)
+  || (isset($params.vrf_routes) && count($params.vrf_routes) > 0)
+  || (isset($params.vrf_routes6) && count($params.vrf_routes6) > 0) }
 !
 router static
 {if isset ($params.routes)}
- address-family ipv4 unicast
 {foreach $params.routes as $route}
+  {if $route@first}
+ address-family ipv4 unicast
+  {/if}
 
   {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
@@ -232,9 +237,10 @@ router static
 !
 {/if}
 {if isset ($params.routes6)}
- address-family ipv6 unicast
 {foreach $params.routes6 as $route}
-
+  {if $route@first}
+ address-family ipv6 unicast
+  {/if}
   {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}`
 {/if}
 {/foreach}
