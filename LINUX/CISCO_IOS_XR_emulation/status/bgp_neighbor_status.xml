@@ -1,0 +1,186 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>bgp_neighbor_status</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
+    <importonce>false</importonce>
+    <importrank>35</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ip_bgp_neighbor" name="params.ip_bgp_neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ip_bgp_state_pfxrcd" name="params.ip_bgp_state_pfxrcd" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_order" name="params._order" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show bgp ipv4 all summary
+Tue Feb 22 13:25:57.759 BRSPO
+
+Address Family: VPNv4 Unicast
+-----------------------------
+
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0x0   RD version: 2903485008
+BGP main routing table version 612950404
+BGP NSR Initial initsync version 760535 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker       612950405  612950359  612950397  612950359   612950359   612950397
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+200.205.253.42    0 10429 1982518713 4827214 612950359    0    0     1w0d     262224
+200.205.253.43    0 10429 1996410594 4833747 612950359    0    0     1w0d     262224
+
+Address Family: IPv4 Labeled-unicast
+------------------------------------
+
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 202
+BGP main routing table version 202
+BGP NSR Initial initsync version 11 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             202        202        202        202         202         202
+
+Address Family: IPv4 Unicast
+----------------------------
+
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 202
+BGP main routing table version 202
+BGP NSR Initial initsync version 11 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             202        202        202        202         202         202
+
+Some configured eBGP neighbors (under default or non-default vrfs)
+do not have both inbound and outbound policies configured for IPv4 Unicast
+address family. These neighbors will default to sending and/or
+receiving no routes and are marked with &apos;!&apos; in the output below.
+Use the &apos;show bgp neighbor &lt;nbr_address&gt;&apos; command for details.
+
+Address Family: IPv4 MDT
+------------------------
+BGP router identifier 187.100.0.11, local AS number 10429
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 48524
+BGP main routing table version 48524
+BGP NSR Initial initsync version 80 (Reached)
+BGP scan interval 60 secs
+
+BGP is operating in STANDALONE mode.
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker           48524      48524      48524      48524       48524       48524
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+200.205.253.42    0 10429 1982518719 4827214    48524    0    0     1w0d        806
+200.205.253.43    0 10429 1996410596 4833747    48524    0    0     1w0d        805
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios_xr/test-status-IR.txt]]></operation>
+    <post_template>
+    </post_template>
+    <parser>
+      <section>
+        <regexp>@#show bgp ipv4 all summary@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*(?&lt;ip_bgp_neighbor&gt;([0-9]{1,3}\.){3}[0-9]{1,3})\s*.*(?&lt;ip_bgp_state_pfxrcd&gt;\d+)$@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^\s*\d*\s*BGP@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@For@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Neighbor@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@show@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Dampening@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*----------@</regexp>
+        </ignore> 
+        <ignore>
+          <regexp>@\s*BRSPO@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@\s*Address Family@</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@\s*Non-stop @</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@\s*Table ID@</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@\s*Process @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@\s*Speaker @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ">
+    <output><![CDATA[
+    ]]></output>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST">
+    <output><![CDATA[]]></output>
+  </command>
+</ObjectDefinition>

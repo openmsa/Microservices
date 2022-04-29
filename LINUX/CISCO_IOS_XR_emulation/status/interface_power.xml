@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>interface_power</name>
-    <group>CISCO|IOS|STATUS</group>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -96,13 +96,15 @@ int Gig0/0/0:
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)}show controllers {$params.object_id} phy {/if}]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios_xr/test-status-IR.txt]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
 	value=&quot;{$params.subslot_num}_transceiver{$params.transceiver}&quot;}</post_template>
     <parser>
-      <section>
-        <regexp>@^\s*show controllers (?&lt;object_id&gt;.*) phy@</regexp>
+      <section>  
+        <regexp>@^\s*show\s+controllers\s+(?&lt;object_id&gt;.*)\s+phy\s*$@</regexp>
+        <regexp>@#\s*show\s+controllers\s+(?&lt;object_id&gt;.*)\s+phy\s*$@</regexp>
+        <regexp>@#\s*sho\s+controllers\s+(?&lt;object_id&gt;.*)\s+phy\s*$@</regexp>
       </section>
       <lines>
         <line>
@@ -156,8 +158,68 @@ int Gig0/0/0:
         </ignore>
         <ignore>
           <regexp>@fiber @</regexp>
+        </ignore> 
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>     
+        <ignore>
+          <regexp>@ BRSPO$@</regexp>
+        </ignore>   
+       <ignore>
+          <regexp>@^\s*int @</regexp>
+        </ignore>   
+        <ignore>
+          <regexp>@^\s*ID: @</regexp>
+        </ignore>   
+        <ignore>
+          <regexp>@^\s*Xcvr Type@</regexp>
+        </ignore>   
+        <ignore>
+          <regexp>@^\s*supported @</regexp>
+        </ignore>   
+        <ignore>
+          <regexp>@^\s*Options @</regexp>
+        </ignore>   
+        <ignore>
+          <regexp>@Enhanced options@</regexp>
+        </ignore>  
+                <ignore>
+          <regexp>@Signal@</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@ Monitoring@</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@ monitoring@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ Flags@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ Calibrated@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@\s*Idprom@</regexp>
+        </ignore> 
+        <ignore>
+          <regexp>@\s*\dx\d\d: @</regexp>
+        </ignore> 
+        <ignore>
+          <regexp>@\s*State:@</regexp>
+        </ignore>         
+        <ignore>
+          <regexp>@\s*Environmental @</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@\s*Temperature:@</regexp>
+        </ignore>  
+        <ignore>
+          <regexp>@\s*Supply voltage:@</regexp>
+        </ignore>      
+        <ignore>
+          <regexp>@\s*Tx bias:@</regexp>
         </ignore>        
-      </lines>
+     </lines>
     </parser>
   </command>
   <command name="CREATE"/>

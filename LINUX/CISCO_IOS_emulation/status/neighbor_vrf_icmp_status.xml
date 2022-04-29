@@ -1,0 +1,95 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>neighbor_vrf_icmp_status</name>
+    <group>EMULATION|CISCO|IOS</group>
+    <importonce>false</importonce>
+    <importrank>103</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="neighbor_vrf_icmp_status" name="params.neighbor_vrf_icmp_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+     ping vrf TRIBUNAL-JUSTICA 187.93.7.58
+        % VRF TRIBUNAL-JUSTICA does not have a usable source address
+     DEV-NEC-CISCO-IOS#
+     Type escape sequence to abort.
+     Sending 5, 100-byte ICMP Echos to 187.8.71.178, timeout is 2 seconds:
+     .....
+     Success rate is 0 percent (0/5)
+     DEV-NEC-CISCO-IOS#
+     {if isset($params.object_id) && isset($params.neighbor)}ping vrf {$params.object_id} {$params.neighbor}{/if}
+    </content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios/test-status.txt]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
+        <regexp>@#\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
+        <regexp>@^\s*PING vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
+        <regexp>@#\s*PING vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*Success rate is (?&lt;neighbor_vrf_icmp_status&gt;\S+) percent@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;neighbor_vrf_icmp_status&gt;does not have a usable source address)@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@Type escape@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Sending@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@....@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@!!!@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ">
+    <output><![CDATA[#
+## neighbor VRF ICMP status ##
+#
+VRF:{$neighbor_vrf_icmp_status.$object_id.object_id}
+Neighbor: {$neighbor_vrf_icmp_status.$object_id.neighbor}
+Status:  {$neighbor_vrf_icmp_status.$object_id.neighbor_vrf_icmp_status}]]></output>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

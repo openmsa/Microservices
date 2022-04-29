@@ -1,0 +1,123 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>bgp_vrf_received_routes</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
+    <importonce>false</importonce>
+    <importrank>50</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_received_routes" name="params.bgp_vrf_received_routes" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_received_routes_total" name="params.bgp_vrf_received_routes_total" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show bgp vrf USP neighbors 189.20.170.10 routes      
+Tue Feb 22 14:15:26.360 BRSPO      
+BGP VRF USP, state: Active      
+BGP Route Distinguisher: 27699:354188      
+VRF ID: 0x6000000b      
+BGP router identifier 187.100.0.11, local AS number 10429      
+Non-stop routing is enabled      
+BGP table state: Active      
+Table ID: 0xe000000b   RD version: 4294966806      
+BGP main routing table version 612971298      
+BGP NSR Initial initsync version 760535 (Reached)      
+      
+Status codes: s suppressed, d damped, h history, * valid, &gt; best      
+              i - internal, r RIB-failure, S stale      
+Origin codes: i - IGP, e - EGP, ? - incomplete      
+Network  Next Hop            Metric  LocPrf     Weight  Path
+Route Distinguisher: 2  7699:354188 (default for vrf USP)    
+*  0.0.0.0/0  189.20.170.10            0  0  65001 65001 65001 65001 65001 28571 1251 i
+*&gt; 143.107.0.220/30  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
+*&gt; 189.20.170.8/30  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
+*  201.60.23.6/32  189.20.170.10            0  0  65001 65001 65001 65001 65001 ?
+Processed 4 prefixes,  4 paths    
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#      
+ </content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[cat /config/cisco_ios_xr/test-status-IR.txt]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors (?&lt;neighbor&gt;\S*) routes@</regexp>
+        <regexp>@#\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors (?&lt;neighbor&gt;\S*) routes@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*(?&lt;bgp_vrf_received_routes&gt;\s+([0-9]{1,3}\.){3}[0-9]{1,3}\/\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*Processed (?&lt;bgp_vrf_received_routes_prefix&gt;\d+ prefixes), @</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>BGP table version</regexp>
+        </ignore>
+        <ignore>
+          <regexp>codes:</regexp>
+        </ignore>
+        <ignore>
+          <regexp>^\s*$</regexp>
+        </ignore>
+        <ignore>
+          <regexp>Network</regexp>
+        </ignore>
+        <ignore>
+          <regexp>RIB-failure</regexp>
+        </ignore>
+        <ignore>
+          <regexp>Route Distinguisher</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s+$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Level@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@External@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Internal@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@internal@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Route@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

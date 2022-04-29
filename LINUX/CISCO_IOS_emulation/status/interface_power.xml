@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>interface_power</name>
-    <group>CISCO|IOS|STATUS</group>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>100</importrank>
     <reorderinstances>false</reorderinstances>
@@ -40,16 +40,18 @@
   Transceiver Tx bias current               = 26536 uAmps
   Transceiver Tx power                      = -5.9 dBm
   Transceiver Rx optical power              = -6.5 dBm
+ 
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[ {if isset($params.subslot_num) && isset($params.transceiver) && isset($params.transceiver)}show hw-module subslot {$params.subslot_num} transceiver {$params.transceiver} status {/if}]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test-status.txt]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
 	value=&quot;{$params.subslot_num}_transceiver{$params.transceiver}&quot;}</post_template>
     <parser>
-      <section>
+      <section>  
         <regexp>@^\s*show hw-module subslot (?&lt;subslot_num&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)\s+status@</regexp>
+        <regexp>@#\s*show hw-module subslot (?&lt;subslot_num&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)\s+status@</regexp>
       </section>
       <lines>
         <line>
