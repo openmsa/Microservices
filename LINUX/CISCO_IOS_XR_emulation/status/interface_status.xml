@@ -15,9 +15,9 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>interface_status</name>
-    <group>CISCO|IOS-XR</group>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,60 +25,144 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="state" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="line_protocol" name="params.line_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="ip_address" name="params.ip_address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="mask_number" name="params.mask_number" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="mtu" name="params.mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="bandwidth" name="params.bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
-    <variable displayName="max_bandwidth" name="params.max_bandwidth" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <repositories/>
-    </variable>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface_status" name="params.interface_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="line_protocol" name="params.line_protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_status_input_queue" name="params.interface_status_input_queue" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_input_rate" name="params.interface_input_rate" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_output_rate" name="params.interface_output_rate" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_packet_input" name="params.interface_packet_input" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_status_input_drop" name="params.interface_status_input_drop" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_input_errors" name="params.interface_input_errors" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_packet_output" name="params.interface_packet_output" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface_output_errors" name="params.interface_output_errors" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
-  <example/>
+  <example>
+    <content>RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show interfaces GigabitEthernet0/0/0/0
+Tue Feb 22 13:18:40.376 BRSPO
+GigabitEthernet0/0/0/0 is up, line protocol is up 
+  Interface state transitions: 1
+  Dampening enabled: penalty 0, not suppressed
+    half-life:        1        reuse:             250     
+    suppress:         950      max-suppress-time: 1       
+    restart-penalty:  0       
+  Hardware is GigabitEthernet/IEEE 802.3 interface(s), address is 0024.c3e1.3800 (bia 0024.c3e1.3800)
+  Description: IP_ULK#1G#c-br-sp-spo-mb-rc-01#Gi0/7/0/5#LOCAL
+  Internet address is 187.100.7.162/30
+  MTU 1560 bytes, BW 1000000 Kbit (Max: 1000000 Kbit)
+     reliability 255/255, txload 30/255, rxload 46/255
+  Encapsulation ARPA,
+  Full-duplex, 1000Mb/s, LX, link type is force-up
+  output flow control is off, input flow control is off
+  Carrier delay (up) is 2000 msec
+  loopback not set,
+  ARP type ARPA, ARP timeout 04:00:00
+  Last input 00:00:00, output 00:00:00
+  Last clearing of &quot;show interface&quot; counters 30w3d
+  30 second input rate 184199000 bits/sec, 25890 packets/sec
+  30 second output rate 120250000 bits/sec, 23548 packets/sec
+     251107172561 packets input, 185224177500394 bytes, 193 total input drops
+
+     0 drops for unrecognized upper-level protocol
+     Received 0 broadcast packets, 39857896 multicast packets
+              0 runts, 0 giants, 0 throttles, 0 parity
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     203892797800 packets output, 123967775966498 bytes, 4 total output drops
+
+     Output 0 broadcast packets, 11706298 multicast packets
+     0 output errors, 0 underruns, 0 applique, 0 resets
+     0 output buffer failures, 0 output buffers swapped out
+     0 carrier transitions
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
+</content>
+  </example>
   <command name="IMPORT">
-    <operation><![CDATA[show interface {$params.object_id}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}show interface {$params.object_id}{/if}]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*(?&lt;object_id&gt;\S+) is (?&lt;state&gt;up|administratively down), line protocol is (?&lt;line_protocol&gt;up|down|administratively down) @</regexp>
+        <regexp>@^\s*(?&lt;object_id&gt;\S+) is (?&lt;interface_status&gt;up|administratively down), line protocol is (?&lt;line_protocol&gt;up|down|administratively down) @</regexp>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@^\s*Internet address is (?&lt;ip_address&gt;\S+)\/(?&lt;mask_number&gt;\d+)@</regexp>
+          <regexp>@^\s*Input queue: (?&lt;interface_status_input_queue&gt;.*)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*MTU (?&lt;mtu&gt;\d+) bytes, BW (?&lt;bandwidth&gt;\d+) Kbit \(Max: (?&lt;max_bandwidth&gt;\d+) Kbit\)@</regexp>
+          <regexp>@ input rate (?&lt;interface_input_rate&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@ output rate (?&lt;interface_output_rate&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;interface_packet_input&gt;\d+) packets input,\d+ bytes, (?&lt;interface_status_input_drop&gt;\d+) total input drops@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;interface_input_errors&gt;\d+) input errors, @</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;interface_packet_output&gt;\d+) packets output, \d+  bytes, (?&lt;interface_output_errors&gt;\d+) total output drops@</regexp>
           <xpath/>
         </line>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
         <ignore>
-          <regexp>@Interface@</regexp>
+          <regexp>@MTU@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Internet address is@</regexp>
         </ignore>
         <ignore>
           <regexp>@Hardware@</regexp>
         </ignore>
         <ignore>
+          <regexp>@Interface@</regexp>
+        </ignore>
+        <ignore>
           <regexp>@reliability@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Keepalive@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Full@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@output flow-control@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Output queue@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Carrier@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ARP@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Last@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Input@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Queueing@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*\d+@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Received@</regexp>
         </ignore>
         <ignore>
           <regexp>@Encapsulation@</regexp>
@@ -86,10 +170,12 @@
       </lines>
     </parser>
   </command>
-  <command name="CREATE">
-    <operation><![CDATA[!!]]></operation>
+  <command name="CREATE"/>
+  <command name="READ">
+    <output><![CDATA[
+## interface status ##
+interface: {$interface_status.$object_id.object_id} | interface_status:  {$interface_status.$object_id.interface_status} | line_protocol:  {$interface_status.$object_id.line_protocol} | ip_address:  {$interface_status.$object_id.ip_address}]]></output>
   </command>
-  <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="DELETE"/>
@@ -99,9 +185,10 @@
 #
 {foreach $interface_status as $status}
 interface: {$status.object_id}
-  state:  {$status.state}
+  interface_status:  {$status.interface_status}
   line_protocol:  {$status.line_protocol}
   ip_address:  {$status.ip_address}
-{/foreach}]]></output>
+{/foreach}
+]]></output>
   </command>
 </ObjectDefinition>
