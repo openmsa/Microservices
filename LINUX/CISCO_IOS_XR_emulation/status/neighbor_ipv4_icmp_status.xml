@@ -46,7 +46,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 3/5/8 ms
     </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.ip)}ping {$params.ip}{/if}]]></operation>
+    <operation><![CDATA[{if isset($params.ip)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "ping {$params.ip}" {/if}]]></operation>
     <parser>
     <section>
         <regexp>@^\s*ping (?&lt;object_id&gt;\S+)@</regexp>

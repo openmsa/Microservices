@@ -46,7 +46,7 @@ Processed 2831 prefixes, 2831 paths
  </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}show bgp vrf {$params.object_id} neighbors {$params.neighbor} advertised-routes{/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show bgp vrf {$params.object_id} neighbors {$params.neighbor} advertised-routes" {/if}]]></operation>
     <post_template>
     </post_template>
     <parser>

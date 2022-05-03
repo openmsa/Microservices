@@ -36,7 +36,7 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show ip arp summary]]></operation>
+    <operation><![CDATA[/config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip arp summary"]]></operation>
     <parser>
       <section>
         <regexp>@^\s*(?&lt;total&gt;\d+) IP ARP entries, with (?&lt;incomplete&gt;\d+) of them incomplete@</regexp>

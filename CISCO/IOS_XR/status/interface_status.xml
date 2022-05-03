@@ -80,7 +80,7 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
     <operation><![CDATA[{if isset($params.object_id)}show interface {$params.object_id}{/if}]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*(?&lt;object_id&gt;\S+) is (?&lt;interface_status&gt;up|administratively down), line protocol is (?&lt;line_protocol&gt;up|down|administratively down) @</regexp>
+        <regexp>@^\s*(?&lt;object_id&gt;\S+) is (?&lt;interface_status&gt;up|administratively down), line protocol is (?&lt;line_protocol&gt;up|down|administratively down)@</regexp>
       </section>
       <lines>
         <line>
@@ -124,6 +124,9 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
         </ignore>
         <ignore>
           <regexp>@Hardware@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Description:@</regexp>
         </ignore>
         <ignore>
           <regexp>@Interface@</regexp>

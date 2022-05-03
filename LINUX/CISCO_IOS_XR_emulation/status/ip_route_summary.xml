@@ -61,7 +61,7 @@
      </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show ip route summary]]></operation>
+    <operation><![CDATA[/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show ip route summary" ]]></operation>
     <parser>
       <section>
         <regexp>@^\s*Route\s+Source@</regexp>

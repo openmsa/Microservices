@@ -96,7 +96,7 @@ int Gig0/0/0:
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)}show controllers {$params.object_id} phy {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show controllers {$params.object_id} phy" {/if}]]></operation>
     <post_template>{assign_object_variable 
 	var=&quot;object_id&quot;
 	value=&quot;{$params.subslot_num}_transceiver{$params.transceiver}&quot;}</post_template>

@@ -58,7 +58,7 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
  </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor} routes{/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor} routes" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors (?&lt;neighbor&gt;\S*) routes@</regexp>

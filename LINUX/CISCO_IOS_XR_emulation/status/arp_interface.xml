@@ -41,7 +41,7 @@ Address         Age  Hardware Addr  State  Type  Interface
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show arp ]]></operation>
+    <operation><![CDATA[/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show arp" ]]></operation>
     <parser>
       <section>
         <regexp>@Dynamic\s+\S* (?&lt;object_id&gt;.*)@</regexp>
