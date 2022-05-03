@@ -63,7 +63,7 @@ Total	4967	1	0	2155908
 </content>
 </example>
   <command name="IMPORT">
-    <operation><![CDATA[show route summary]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} show route summary {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*connected\s+(?&lt;route_summary_connected&gt;\d+)@</regexp>

@@ -36,7 +36,10 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[/config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip arp summary"]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip arp summary" {/if}]]></operation>
+    <post_template>{assign_object_variable 
+	var=&quot;object_id&quot;
+	value=&quot;{$params.total}-{$params.incomplete}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*(?&lt;total&gt;\d+) IP ARP entries, with (?&lt;incomplete&gt;\d+) of them incomplete@</regexp>

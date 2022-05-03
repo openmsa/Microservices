@@ -64,7 +64,7 @@
     </content>
 </example>
   <command name="IMPORT">
-    <operation><![CDATA[/config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip bgp all summary"]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} /config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip bgp all summary"  {/if}]]></operation>
     <post_template>
 			{if isset($params.ip_bgp_neighbor) }
 				{assign_object_variable 

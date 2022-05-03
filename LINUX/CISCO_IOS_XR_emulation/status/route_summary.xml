@@ -63,7 +63,7 @@ Total	4967	1	0	2155908
 </content>
 </example>
   <command name="IMPORT">
-    <operation><![CDATA[/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show route summary"]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} /config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show route summary" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*connected\s+(?&lt;route_summary_connected&gt;\d+)@</regexp>
