@@ -47,13 +47,13 @@
     <variable displayName="Start Address" name="params.startIp" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Address" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="startIp" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.startIp" selectorValue="ipmask" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Start IP Address" displayOrder="0" maxLength="0" isMandatory="false" isUserLocked="false" name="params.startIp" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Start IP Address" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.startIp" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
     <variable displayName="End Address" name="params.endIp" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Address" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.type" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
         <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="false" displayName="End IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.endIp" selectorValue="ipmask" startIncrement="0" type="String"/>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="End IP Address" displayOrder="0" maxLength="0" isMandatory="false" isUserLocked="false" name="params.endIp" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="End IP Address" displayOrder="0" maxLength="0" isMandatory="true" isUserLocked="false" name="params.endIp" selectorValue="iprange" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
     <variable displayName="Interface" name="params.port" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
@@ -149,6 +149,20 @@ delete "{$address_object.$object_id.object_id}"
 end
 ]]></operation>
   </command>
-  <command name="READ"/>
+  <command name="READ">
+    <output><![CDATA[config firewall address
+  edit "{$address_object.$object_id.object_id}"
+    set type {$address_object.$object_id.type}
+    set comment '{$address_object.$object_id.comment}'
+    set associated-interface "{$address_object.$object_id.port}"
+{if $address_object.$object_id.type=="ipmask"}
+    set subnet {$address_object.$object_id.address} {$address_object.$object_id.netmask}
+{else}
+    set start-ip {$address_object.$object_id.startIp}
+    set end-ip {$address_object.$object_id.endIp}
+{/if}
+  next
+end]]></output>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
