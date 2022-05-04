@@ -1,0 +1,208 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>bgp_vrf_neighbor_status</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
+    <importonce>false</importonce>
+    <importrank>60</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="_order" name="params._order" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="neighbor" name="params.neighbor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_state" name="params.bgp_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_prefix_accept" name="params.bgp_vrf_prefix_accept" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_nghr_prefix_adv" name="params.bgp_vrf_nghr_prefix_adv" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_max_prefix_allow" name="params.bgp_vrf_max_prefix_allow" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+    RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show bgp vrf USP neighbors 189.20.170.10                   
+Tue Feb 22 13:28:47.304 BRSPO
+
+BGP neighbor is 189.20.170.10, vrf USP
+ Remote AS 65001, local AS 10429, external link
+ Remote router ID 201.60.23.6
+  BGP state = Established, up for 16w6d
+  NSR State: NSR Ready
+  Last read 00:00:59, Last read before reset 16w6d
+  Hold time is 180, keepalive interval is 60 seconds
+  Configured hold time: 180, keepalive: 60, min acceptable hold time: 3
+  Last write 00:00:18, attempted 19, written 19
+  Second last write 00:01:18, attempted 19, written 19
+  Last write before reset 16w6d, attempted 33, written 33
+  Second last write before reset 16w6d, attempted 96, written 96
+  Last write pulse rcvd  Feb 22 13:28:28.748 last full not set pulse count 3379021
+  Last write pulse rcvd before reset 16w6d
+  Socket not armed for io, armed for read, armed for write
+  Last write thread event before reset 16w6d, second last 16w6d
+  Last KA expiry before reset 00:00:00, second last 00:00:00
+  Last KA error before reset 00:00:00, KA not sent 00:00:00
+  Last KA start before reset 16w6d, second last 16w6d
+  Precedence: internet
+  Non-stop routing is enabled
+  Graceful restart is enabled
+  Restart time is 120 seconds
+  Stale path timeout time is 360 seconds
+  Enforcing first AS is enabled
+  Multi-protocol capability received
+  Neighbor capabilities:
+    Route refresh: advertised (old + new) and received (new)
+    4-byte AS: advertised and received
+    Address family IPv4 Unicast: advertised and received
+  Received 986526 messages, 4 notifications, 0 in queue
+  Sent 2565332 messages, 6 notifications, 0 in queue
+  Minimum time between advertisement runs is 0 secs
+
+ For Address Family: IPv4 Unicast
+  BGP neighbor version 612951648
+  Update group: 0.3 Filter-group: 0.1  No Refresh request being processed
+  AF-dependent capabilities:
+    Graceful Restart capability advertised
+      Local restart time is 120, RIB purge time is 600 seconds
+      Maximum stalepath time is 360 seconds
+  Route refresh request: received 4, sent 0
+  Policy for incoming advertisements is IscDefaultPassAll
+  Policy for outgoing advertisements is IscDefaultPassAll
+  4 accepted prefixes, 2 are bestpaths
+  Cumulative no. of prefixes denied: 0. 
+  Prefix advertised 119802, suppressed 378, withdrawn 86980
+  Maximum prefixes allowed 1048576
+  Threshold for warning message 75%, restart interval 0 min
+  AS override is set
+  An EoR was received during read-only mode
+  Last ack version 612951648, Last synced ack version 612951617
+  Outstanding version objects: current 0, max 25
+  Additional-paths operation: None
+
+  Connections established 34; dropped 33
+  Local host: 189.20.170.9, Local port: 179
+  Foreign host: 189.20.170.10, Foreign port: 4956
+  Last reset 16w6d, due to Peer closing down the session
+  Peer reset reason: Remote closed the session (Connection timed out)
+  Time since last notification sent to neighbor: 19w5d
+  Error Code: hold time expired
+  Notification data sent:
+    None
+  Time since last notification received from neighbor: 1y03w
+  Error Code: connection collision resolution
+  Notification data received:
+    None
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#  
+    </content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show bgp vrf {$params.object_id} neighbors {$params.neighbor}" {/if}]]></operation>
+    <post_template></post_template>
+    <parser>
+      <section>
+        <regexp>@^\s*show bgp vrf (?&lt;object_id&gt;\S+) neighbors @</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@\s*BGP neighbor is\s+(?&lt;neighbor&gt;\S+), @</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s+BGP state =(?&lt;bgp_state&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s*(?&lt;bgp_vrf_prefix_accept&gt;\d+) accepted prefixes,@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s*Prefix advertised\s+(?&lt;bgp_vrf_nghr_prefix_adv&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s*Maximum prefixes allowed\s+(?&lt;bgp_vrf_max_prefix_allow&gt;\d+)@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP version@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Neighbor sessions@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@is not multisession@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Stateful switchove@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Do log neighbor@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Default minimum@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@For address@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Translates@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP table@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Output@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Index @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Overrides@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Slow-peer@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Sent\s+Rcvd@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Prefix activity@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

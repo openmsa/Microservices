@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>route_summary</name>
-    <group>CISCO|IOS-XR</group>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
@@ -63,7 +63,7 @@ Total	4967	1	0	2155908
 </content>
 </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)} show route summary {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} /config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show route summary" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*connected\s+(?&lt;route_summary_connected&gt;\d+)@</regexp>

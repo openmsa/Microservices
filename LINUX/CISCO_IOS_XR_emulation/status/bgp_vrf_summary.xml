@@ -1,0 +1,111 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>bgp_vrf_summary</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
+    <importonce>false</importonce>
+    <importrank>30</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_summary_state" name="params.bgp_vrf_summary_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_summary_state_value" name="params.bgp_vrf_summary_state_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show bgp vrf USP ipv4 unicast summary                       
+Tue Feb 22 13:59:46.336 BRSPO                  
+BGP VRF USP, state: Active                  
+BGP Route Distinguisher: 27699:354188                  
+VRF ID: 0x6000000b                  
+BGP router identifier 187.100.0.11, local AS number 10429                  
+Non-stop routing is enabled                  
+BGP table state: Active                  
+Table ID: 0xe000000b   RD version: 4294966806                  
+BGP main routing table version 612964521                  
+BGP NSR Initial initsync version 760535 (Reached)                  
+                  
+BGP is operating in STANDALONE mode.                  
+                  
+                  
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer                  
+Speaker       612964521  612964484  612964521  612964484   612964484   612964521                  
+                  
+Some configured eBGP neighbors (under default or non-default vrfs)                  
+do not have both inbound and outbound policies configured for IPv4 Unicast                  
+address family. These neighbors will default to sending and/or                  
+receiving no routes and are marked with '!' in the output below.                  
+Use the 'show bgp neighbor &lt;nbr_address&gt;' command for details.                  
+                  
+Neighbor  Spk  AS  MsgRcvd  MsgSent  TblVer  InQ  OutQ  Up/Down  St/PfxRcd
+186.239.60.110  0  65001  0  0  0  0  0  0:00:00  Idle
+186.239.64.146  0  65001  0  0  0  0  0  0:00:00  Idle
+189.20.170.10  0  65001  986553  2565369  612964484  0  0  16w6d  4
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show bgp vrf {$params.object_id} ipv4 unicast summary" {/if}]]></operation>
+    <parser>
+      <section>
+        <regexp>@show bgp vrf\s+(?&lt;object_id&gt;.*) ipv4 unicast summary@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^Neighbor .*\s+(?&lt;bgp_vrf_summary_state&gt;\S*)$@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;bgp_vrf_summary_state_value&gt;Idle|\d+\s+\d+)$@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@^\s*!@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@^\s*$@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>BGP router</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP table@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ entries @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP using@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@BGP activity@</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

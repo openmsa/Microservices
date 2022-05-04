@@ -14,10 +14,10 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>arp_interface</name>
-    <group>CISCO|IOS|STATUS</group>
+    <name>arp_summary</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>20</importrank>
+    <importrank>100</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -25,35 +25,35 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
+    <variable displayName="_order" name="params._order" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="total" name="params.total" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="incomplete" name="params.incomplete" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>!
-RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show arp        
-------------------------  -----------------  ------------  ------  --------------------
-0/7/CPU0        
-------------------------  -----------------  ------------  ------  --------------------
-Address         Age  Hardware Addr  State  Type  Interface
-187.100.7.165   02:50:20  4055.397d.20d2  Dynamic  ARPA  GigabitEthernet0/7/0/0
-187.100.7.166   -  0024.c3e1.3a6f  Interface  ARPA  GigabitEthernet0/7/0/0
+ show ip arp summary
+    7 IP ARP entries, with 0 of them incomplete
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)} show arp {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} /config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show ip arp summary"  {/if}]]></operation>
     <parser>
       <section>
-        <regexp>@Dynamic\s+\S* (?&lt;object_id&gt;.*)@</regexp>
-        <regexp>@Interface\s+\S* (?&lt;object_id&gt;.*)@</regexp>
-        <regexp>@Dynamic\s+\S* (?&lt;object_id&gt;.*)@</regexp>
+        <regexp>@^\s*(?&lt;total&gt;\d+) IP ARP entries, with (?&lt;incomplete&gt;\d+) of them incomplete@</regexp>
       </section>
       <lines/>
     </parser>
   </command>
   <command name="CREATE"/>
   <command name="READ">
-    <output><![CDATA[]]></output>
+    <output><![CDATA[#
+## IP arp summary  ##
+{foreach $arp_summary as $arp}
+total: {$arp.total}
+incomplete: {$arp.incomplete}
+{/foreach}
+]]></output>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>

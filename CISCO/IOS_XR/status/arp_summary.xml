@@ -37,7 +37,7 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show ip arp summary]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} show ip arp summary {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*(?&lt;total&gt;\d+) IP ARP entries, with (?&lt;incomplete&gt;\d+) of them incomplete@</regexp>

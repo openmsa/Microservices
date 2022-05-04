@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>bgp_neighbor_status</name>
-    <group>CISCO|IOS|STATUS</group>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>35</importrank>
     <reorderinstances>false</reorderinstances>
@@ -64,7 +64,7 @@
     </content>
 </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)} show ip bgp all summary {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} /config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip bgp all summary"  {/if}]]></operation>
     <post_template>
 			{if isset($params.ip_bgp_neighbor) }
 				{assign_object_variable 
