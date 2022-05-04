@@ -138,7 +138,7 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset ($params.interfaces)}
+    <operation><![CDATA[{if isset($params.interfaces) && $params.interfaces|@count > 0}
 !
 router {$params.object_id} 1
 
@@ -180,27 +180,6 @@ router {$params.object_id} 1
     {/if}
   {/foreach}
 {/foreach}
-
-{*if isset($params.isis_net)} net {$params.isis_net}
-{/if}
-{if isset($params.isis_is_level)} is-type {$params.isis_is_level}
-{/if}
-{if isset($params.isis_overload_bit)} {$params.isis_overload_bit} {if isset($params.isis_overload_bit_on_startup)} on-startup {$params.isis_overload_bit_on_startup} {/if} {if isset($params.isis_overload_bit_suppress)} suppress {$params.isis_overload_bit_suppress} {/if}
-{/if}
-{if isset($params.isis_max_lsp_lifetime)} max-lsp-lifetime {$params.isis_max_lsp_lifetime} 
-{/if}
-{if isset($params.isis_lsp_refresh_interval)} lsp-refresh-interval {$params.isis_lsp_refresh_interval} 
-{/if}
-{if isset($params.isis_lsp_gen_interval)} lsp-gen-interval{if isset($params.isis_lsp_gen_interval_level)} {$params.isis_lsp_gen_interval_level} {/if}{if isset($params.isis_lsp_gen_interval)} {$params.isis_lsp_gen_interval} {/if}{if isset($params.isis_lsp_gen_initial_wait)} {$params.isis_lsp_gen_initial_wait}{/if}{if isset($params.isis_prc_min_wait)} {$params.isis_prc_min_wait} 
-{/if}
-{/if}
-{if isset($params.isis_log_adjacency_change)} log adjacency changes
-{/if}
-{if isset($params.isis_nfs_method)} nsf {$params.isis_nfs_method}
-{/if}
-{if isset($params.isis_vrf)} vrf-context {$params.isis_vrf}
-{/if*}
-!
 {/if}
 
 ]]></operation>
