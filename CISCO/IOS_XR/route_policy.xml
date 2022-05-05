@@ -286,9 +286,8 @@ route-policy {$params.object_id}
     
     {foreach $statements.block as $block}
       {if isset($block.community)}
-        {foreach $block.community|@sortby:"community_set" as $comm_set}
-     set community {$comm_set.community_set}
-        {/foreach}
+     set community ({foreach $block.community|@sortby:"community_set" as $comm_set}{$comm_set.community_set}{if !$comm_set@last}, {/if} {/foreach})
+     
       {/if}
       {if isset($block.extcommunity) && isset($block.extcommunity_type)}
      set extcommunity {$block.extcommunity_type} {foreach $block.extcommunity|@sortby:"extcommunity_set" as $extcomm_set} {$extcomm_set.extcommunity_set} {/foreach}
