@@ -1,0 +1,203 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>interface_power</name>
+    <group>EMULATION|CISCO|IOS-XR</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="interface_num" name="params.interface_num" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="interface_power_tx" name="params.interface_power_tx" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="interface_power_rx" name="params.interface_power_rx" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="transceiver" name="params.transceiver" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+  </variables>
+  <example>
+    <content>
+    RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#show controllers GigabitEthernet0/0/0/0 phy              
+Tue Feb 22 13:19:36.192 BRSPO
+
+int Gig0/0/0: 
+        ID: SFP
+        Extended ID: 4
+        Xcvr Type: GE LX (14)
+        Connector: LC
+        Encoding: 8B10B
+        Bit Rate: 1300 Mbps
+        Single mode fiber supported length: 10 km
+        Single mode fiber supported length: 100 m
+        50 micron-multimode fiber supported length: 550 m
+        62.5 micron-multimode fiber supported length: 550 m
+        Upper bit rate limit: not specified
+        Lower bit rate limit: not specified
+        Date code (yy/mm/dd): 07/08/25
+        Vendor name: CISCO-FINISAR   
+        Vendor OUI: 36965
+        Vendor Part Number (PN): FTRJ1319P1BTL-C6
+        Vendor Rev: A   
+        Vendor SN (SN): FNS11340X5Y     
+        Options implemented:
+                LOS Signal
+                TX Fault Signal
+                TX Disable Signal
+        Enhanced options implemented:
+                SW RX LOS Monitoring
+                Alarm/Warning Flags
+        Diagnostic monitoring implemented:
+                Exernally Calibrated
+                Digital Diagnostic Monitoring
+        Idprom contents (hex):
+        0x00:   03 04 07 00 00 00 02 00 00 00 00 01 0D 00 0A 64 
+        0x10:   37 37 00 00 43 49 53 43 4F 2D 46 49 4E 49 53 41 
+        0x20:   52 20 20 20 00 00 90 65 46 54 52 4A 31 33 31 39 
+        0x30:   50 31 42 54 4C 2D 43 36 41 20 20 20 05 1E 00 CA 
+        0x40:   00 1A 00 00 46 4E 53 31 31 33 34 30 58 35 59 20 
+        0x50:   20 20 20 20 30 37 30 38 32 35 20 20 58 90 01 DF 
+        0x60:   00 00 02 F6 5C 42 31 AE 7A A5 82 D1 D0 BE 9F EC 
+        0x70:   7C B6 2B 00 00 00 00 00 00 00 00 00 EE 12 C3 D1 
+        0x80:   FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
+        0x90:   FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
+        State: Enabled
+        Environmental Information - raw values
+                Temperature: 55.128 C
+                Supply voltage: 32818 in units of 100uVolt
+                Tx bias: 13660 in units of 2uAmp
+                Tx power: -4 dBm (3292 in units of 0.1 uW)
+                Rx power: -6 dBm (1916 in units of 0.1 uW)
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show controllers {$params.object_id} phy" {/if}]]></operation>
+    <post_template>{assign_object_variable 
+	var=&quot;object_id&quot;
+	value=&quot;{$params.subslot_num}_transceiver{$params.transceiver}&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s*show controllers (?&lt;object_id&gt;.*) phy@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*Tx power: (?&lt;interface_power_tx&gt;.*dBm )@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*Tx power: (?&lt;interface_power_rx&gt;.*dBm )@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@The Transceiver@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Module@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Transceiver Tx supply voltage@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@D:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Xcvr Type:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Connector:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Encoding:@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Bit Rate:@</regexp>
+        </ignore>        
+        <ignore>
+          <regexp>@Single @</regexp>
+        </ignore> 
+        <ignore>
+          <regexp>@fiber @</regexp>
+        </ignore> 
+        <ignore>
+          <regexp>@rate @</regexp>
+        </ignore>    
+        <ignore>
+          <regexp>@Date code@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Vendor @</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@fiber @</regexp>
+        </ignore>        
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ">
+    <operation><![CDATA[show hw-module subslot {$params.subslot_num} transceiver {$params.interface_num}  status ]]></operation>
+    <post_template>{assign_object_variable 
+	var=&quot;object_id&quot;
+	value=&quot;{$params.subslot_num}/{$params.transceiver}&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s*show hw-module subslot (?&lt;subslot_num&gt;\d+\/\d+) transceiver (?&lt;transceiver&gt;\d+)  status@</regexp>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^\s*Transceiver Tx power\s*=\s*(?&lt;interface_power_tx&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^\s*Transceiver Rx optical power\s*=\s*(?&lt;interface_power_rx&gt;.*)@</regexp>
+          <xpath/>
+        </line>
+        <ignore>
+          <regexp>@The Transceiver@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Module@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Transceiver Tx supply voltage@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@Transceiver Tx bias current @</regexp>
+        </ignore>
+      </lines>
+    </parser>
+  </command>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

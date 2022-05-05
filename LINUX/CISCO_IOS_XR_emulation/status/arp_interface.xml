@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>arp_interface</name>
-    <group>CISCO|IOS|STATUS</group>
+    <group>EMULATION|CISCO|IOS-XR</group>
     <importonce>false</importonce>
     <importrank>20</importrank>
     <reorderinstances>false</reorderinstances>
@@ -41,7 +41,7 @@ Address         Age  Hardware Addr  State  Type  Interface
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)} show arp {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)} /config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show arp" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@Dynamic\s+\S* (?&lt;object_id&gt;.*)@</regexp>

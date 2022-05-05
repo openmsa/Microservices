@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>arp_summary</name>
-    <group>CISCO|IOS|STATUS</group>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>105</importrank>
     <reorderinstances>false</reorderinstances>
@@ -36,7 +36,10 @@
 !</content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)} show ip arp summary {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "show ip arp summary" {/if}]]></operation>
+    <post_template>{assign_object_variable 
+	var=&quot;object_id&quot;
+	value=&quot;{$params.total}-{$params.incomplete}&quot;}</post_template>
     <parser>
       <section>
         <regexp>@^\s*(?&lt;total&gt;\d+) IP ARP entries, with (?&lt;incomplete&gt;\d+) of them incomplete@</regexp>

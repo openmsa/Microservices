@@ -15,7 +15,7 @@
     <maxInstances>0</maxInstances>
     <relatedObjects/>
     <name>neighbor_ipv4_icmp_status</name>
-    <group>CISCO|IOS|STATUS</group>
+    <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
     <importrank>104</importrank>
     <reorderinstances>false</reorderinstances>
@@ -40,7 +40,7 @@
     </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset ($params.ip)} ping {$params.ip}{/if}]]></operation>
+    <operation><![CDATA[{if isset ($params.ip)} /config/extract_part_of_simulated_file.py /config/cisco_ios/test-status.txt "ping {$params.ip}" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ping (?&lt;object_id&gt;\S+)@</regexp>

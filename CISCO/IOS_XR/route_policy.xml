@@ -287,33 +287,32 @@ route-policy {$params.object_id}
     {foreach $statements.block as $block}
       {if isset($block.community)}
         {foreach $block.community|@sortby:"community_set" as $comm_set}
-    set community {$comm_set.community_set}
+     set community {$comm_set.community_set}
         {/foreach}
       {/if}
       {if isset($block.extcommunity) && isset($block.extcommunity_type)}
-        {foreach $block.extcommunity|@sortby:"extcommunity_set" as $extcomm_set}
-    set extcommunity {$block.extcommunity_type} {$extcomm_set.extcommunity_set}
-        {/foreach}
+     set extcommunity {$block.extcommunity_type} {foreach $block.extcommunity|@sortby:"extcommunity_set" as $extcomm_set} {$extcomm_set.extcommunity_set} {/foreach}
+        
       {/if}
       {if isset($block.local_preference)} 
-    set local-preference {$block.local_preference}
+     set local-preference {$block.local_preference}
       {/if}
       {if isset($block.weight)}
-    set weight {$block.weight}
+     set weight {$block.weight}
       {/if}
       {if isset($block.metric)}
-    set med {$block.metric}
+     set med {$block.metric}
       {/if}
       {if isset($block.next_hop)}
-    set next-hop {$block.next_hop}
+     set next-hop {$block.next_hop}
       {/if}
       {if isset($block.continue)}
-    drop
+     drop
       {/if}
     {/foreach}
   {else}
     {if !$statements@last}
-  pass
+      pass
 	 
     {/if}
   {/if}
