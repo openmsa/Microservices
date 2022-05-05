@@ -210,13 +210,32 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($params.bgp_graceful_restart)}
+    <operation><![CDATA[{if isset($params.neighbors) 
+    || isset($params.bgp_graceful_restart)}
 !
 router bgp {$params.router_bgp}
  bgp router-id {$params.bgp_router_id}
  {if isset($params.bgp_graceful_restart)}
  bgp graceful-restart {$params.bgp_graceful_restart}
  bgp graceful-restart
+ {/if}
+ {if isset($params.neighbors)}
+	{foreach $params.neighbors as $neighbor}
+	neighbor {$neighbor.bgp_neighbor}
+	{if isset($neighbor.bgp_remote_as)}
+	 remote-as {$neighbor.bgp_remote_as}
+	 exit
+	{else if isset($neighbor.bgp_description)}
+	 description {$neighbor.bgp_description}
+	 exit
+	{else if isset($neighbor.bgp_ebgp_multihop)}
+	 ebgp-multihop {$neighbor.bgp_ebgp_multihop}
+	 exit
+	{else if isset($neighbor.bgp_source_interface)}
+	 update-source {$neighbor.bgp_source_interface}
+	 exit
+	{/if}
+	{/foreach}
  {/if}
 !
 {/if}]]></operation>
