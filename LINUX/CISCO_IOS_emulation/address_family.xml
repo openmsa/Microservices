@@ -17,7 +17,7 @@
     <name>address_family</name>
     <group>EMULATION|CISCO|IOS</group>
     <importonce>false</importonce>
-    <importrank>11</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -208,7 +208,7 @@
           <array name="neighbors">
             <lines/>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+remote-as\s+(?&lt;bgp_remote_as&gt;\d+)@</regexp>
-            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as)@</regexp>
+            <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_ipv4_private_as&gt;remove-private-as.*)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+maximum-prefix\s+(?&lt;bgp_maximum_prefix&gt;.+)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_ipv4_default_route&gt;default-originate)@</regexp>
             <regexp>@^\s*neighbor\s+(?&lt;bgp_neighbor&gt;(([0-9]{1,3}\.){3}[0-9]{1,3})|(([A-Fa-f0-9:]*:+)+[A-Fa-f0-9]*))\s+(?&lt;bgp_as_override&gt;as-override)@</regexp>
