@@ -17,7 +17,7 @@
     <name>route_policy</name>
     <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>7</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -283,7 +283,6 @@ route-policy {$params.object_id}
   {if isset($statements.block)}
   
   {*CR to keep*}
-    
     {foreach $statements.block as $block}
       {if isset($block.community)}
      set community ({foreach $block.community|@sortby:"community_set" as $comm_set}{$comm_set.community_set}{if !$comm_set@last}, {/if} {/foreach})
@@ -310,7 +309,7 @@ route-policy {$params.object_id}
       {/if}
     {/foreach}
   {else}
-    {if !$statements@last}
+    {if $statements@total == 1 || !$statements@last}
       pass
 	 
     {/if}
