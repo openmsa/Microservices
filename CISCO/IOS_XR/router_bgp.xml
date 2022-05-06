@@ -17,7 +17,7 @@
     <name>router_bgp</name>
     <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>0</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -214,29 +214,23 @@
     || isset($params.bgp_graceful_restart)}
 !
 router bgp {$params.router_bgp}
+ {if isset($params.bgp_router_id)}
  bgp router-id {$params.bgp_router_id}
+ {/if}
  {if isset($params.bgp_graceful_restart)}
  bgp graceful-restart {$params.bgp_graceful_restart}
  bgp graceful-restart
  {/if}
- {if isset($params.neighbors)}
-	{foreach $params.neighbors as $neighbor}
-	neighbor {$neighbor.bgp_neighbor}
-	{if isset($neighbor.bgp_remote_as)}
-	 remote-as {$neighbor.bgp_remote_as}
-	 exit
-	{else if isset($neighbor.bgp_description)}
-	 description {$neighbor.bgp_description}
-	 exit
-	{else if isset($neighbor.bgp_ebgp_multihop)}
-	 ebgp-multihop {$neighbor.bgp_ebgp_multihop}
-	 exit
-	{else if isset($neighbor.bgp_source_interface)}
-	 update-source {$neighbor.bgp_source_interface}
-	 exit
-	{/if}
-	{/foreach}
- {/if}
+{if isset($params.neighbors)}
+{foreach $params.neighbors as $neighbor}
+ {if isset($neighbor.bgp_remote_as)} neighbor {$neighbor.bgp_neighbor} remote-as {$neighbor.bgp_remote_as}	
+ {else if isset($neighbor.bgp_description)} neighbor {$neighbor.bgp_neighbor} description {$neighbor.bgp_description}
+ {else if isset($neighbor.bgp_ebgp_multihop)} neighbor {$neighbor.bgp_neighbor} ebgp-multihop {$neighbor.bgp_ebgp_multihop}
+ {else if isset($neighbor.bgp_source_interface)} neighbor {$neighbor.bgp_neighbor} update-source {$neighbor.bgp_source_interface}
+ {else if isset($neighbor.bgp_password)} neighbor {$neighbor.bgp_neighbor} password {$neighbor.bgp_password}
+{/if}
+{/foreach}
+{/if}
 !
 {/if}]]></operation>
   </command>

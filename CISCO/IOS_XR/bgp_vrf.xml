@@ -17,7 +17,7 @@
     <name>bgp_vrf</name>
     <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>30</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -307,13 +307,17 @@ router bgp {$params.router_bgp}
  {if isset($params.rd)}
   rd {$params.rd}
  {/if}
-{if (isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)) || isset($params.neighbor)}
-  address-family ipv4 unicast
-{if isset ($params.bgp_vrf_redistribute) && isset ($params.bgp_vrf_redistrib_static_policy)}
-  redistribute {$params.bgp_vrf_redistribute}
-  redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+{if isset($params.bgp_vrf_redistribute) 
+    || isset ($params.bgp_vrf_redistrib_static_policy) 
+    || isset($params.neighbor)}
+  
+{if isset ($params.bgp_vrf_redistribute)}
+  address-family ipv4 unicast redistribute {$params.bgp_vrf_redistribute}
 {/if}
-  !
+{if isset($params.bgp_vrf_redistrib_static_policy)}
+  address-family ipv4 unicast redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+{/if}
+ !
 {if isset($params.neighbor)}
 {foreach $params.neighbor as $neighbor}
 
@@ -321,7 +325,6 @@ router bgp {$params.router_bgp}
 {/if}
 {if isset($neighbor.bgp_vrf_neighbor_password)} neighbor {$neighbor.bgp_vrf_neighbor} password encrypted {$neighbor.bgp_vrf_neighbor_password}
 {/if}
- 
 {if isset($neighbor.bgp_vrf_as_override)} neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast {$neighbor.bgp_vrf_as_override}
 {/if}
 {if isset($neighbor.bgp_ipv4_route_policy_in)} neighbor {$neighbor.bgp_vrf_neighbor} address-family ipv4 unicast  route-policy {$neighbor.bgp_ipv4_route_policy_in} in
