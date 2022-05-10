@@ -77,7 +77,7 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show interface {$params.object_id}" {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test.status "show interface {$params.object_id}" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*(?&lt;object_id&gt;\S+) is (?&lt;interface_status&gt;up|administratively down), line protocol is (?&lt;line_protocol&gt;up|down|administratively down)@</regexp>

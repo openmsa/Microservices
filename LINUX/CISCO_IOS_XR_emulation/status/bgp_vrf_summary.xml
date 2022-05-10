@@ -25,9 +25,9 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="bgp_vrf_summary_state" name="params.bgp_vrf_summary_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="bgp_vrf_summary_state_value" name="params.bgp_vrf_summary_state_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_summary_state" name="params.bgp_vrf_summary_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="bgp_vrf_summary_state_value" name="params.bgp_vrf_summary_state_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>
@@ -52,8 +52,8 @@ Speaker       612964521  612964484  612964521  612964484   612964484   612964521
 Some configured eBGP neighbors (under default or non-default vrfs)                  
 do not have both inbound and outbound policies configured for IPv4 Unicast                  
 address family. These neighbors will default to sending and/or                  
-receiving no routes and are marked with '!' in the output below.                  
-Use the 'show bgp neighbor &lt;nbr_address&gt;' command for details.                  
+receiving no routes and are marked with &apos;!&apos; in the output below.                  
+Use the &apos;show bgp neighbor &lt;nbr_address&gt;&apos; command for details.                  
                   
 Neighbor  Spk  AS  MsgRcvd  MsgSent  TblVer  InQ  OutQ  Up/Down  St/PfxRcd
 186.239.60.110  0  65001  0  0  0  0  0  0:00:00  Idle
@@ -62,7 +62,7 @@ Neighbor  Spk  AS  MsgRcvd  MsgSent  TblVer  InQ  OutQ  Up/Down  St/PfxRcd
 </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "show bgp vrf {$params.object_id} ipv4 unicast summary" {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test.status "show bgp vrf {$params.object_id} ipv4 unicast summary" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@show bgp vrf\s+(?&lt;object_id&gt;.*) ipv4 unicast summary@</regexp>

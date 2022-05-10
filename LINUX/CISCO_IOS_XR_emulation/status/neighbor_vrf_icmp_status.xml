@@ -40,7 +40,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 5/7/10 ms
     </content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test-status-XR.txt "ping vrf {$params.object_id} {$params.neighbor}" {/if}]]></operation>
+    <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test.status "ping vrf {$params.object_id} {$params.neighbor}" {/if}]]></operation>
     <parser>
       <section>
         <regexp>@^\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
