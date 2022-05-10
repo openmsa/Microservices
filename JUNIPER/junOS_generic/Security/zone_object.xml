@@ -1,96 +1,100 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ObjectDefinition>
-<information>
-    <configType>cli</configType>
-    <defaultDisplay>false</defaultDisplay>
-    <definitionOrder>10</definitionOrder>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
     <description/>
     <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Security</group>
-    <icon>/images/repository/CommandDefinition/icons/web cluster.jpg</icon>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importrank>1</importrank>
-    <name>Zones</name>
+    <serviceTaskType/>
     <order>10000</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>Zones</name>
+    <group>Security</group>
+    <importonce>false</importonce>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-    <visible>true</visible>
   </information>
-<variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String"/>
-    <variable displayName="Services" displayOrder="1" maxLength="150" name="params.service_list.0.service" type="String">
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="interface" name="params.interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>interface</class>
+      </classes>
+    </variable>
+    <variable displayName="Services" name="params.service_list.0.service" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>all</value>
-        <value>any-service</value>
-        <value>dns</value>
-        <value>finger</value>
-        <value>ftp</value>
-        <value>http</value>
-        <value>https</value>
-        <value>ident-reset</value>
-        <value>ike</value>
-        <value>lsping</value>
-        <value>netconf</value>
-        <value>ntp</value>
-        <value>ping</value>
-        <value>r2cp</value>
-        <value>reverse-ssh</value>
-        <value>reverse-telnet</value>
-        <value>rlogin</value>
-        <value>rpm</value>
-        <value>rsh</value>
-        <value>sip</value>
-        <value>snmp</value>
-        <value>snmp-trap</value>
-        <value>ssh</value>
-        <value>telnet</value>
-        <value>tftp</value>
-        <value>traceroute</value>
-        <value>xnm-clear-text</value>
-        <value>xnm-ssl</value>
+        <values>all</values>
+        <values>any-service</values>
+        <values>dns</values>
+        <values>finger</values>
+        <values>ftp</values>
+        <values>http</values>
+        <values>https</values>
+        <values>ident-reset</values>
+        <values>ike</values>
+        <values>lsping</values>
+        <values>netconf</values>
+        <values>ntp</values>
+        <values>ping</values>
+        <values>r2cp</values>
+        <values>reverse-ssh</values>
+        <values>reverse-telnet</values>
+        <values>rlogin</values>
+        <values>rpm</values>
+        <values>rsh</values>
+        <values>sip</values>
+        <values>snmp</values>
+        <values>snmp-trap</values>
+        <values>ssh</values>
+        <values>telnet</values>
+        <values>tftp</values>
+        <values>traceroute</values>
+        <values>xnm-clear-text</values>
+        <values>xnm-ssl</values>
       </values>
     </variable>
-    <variable displayName="Protocols" displayOrder="2" maxLength="150" name="params.protocol_list.0.protocol" type="String">
+    <variable displayName="Protocols" name="params.protocol_list.0.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>all</value>
-        <value>vrrp</value>
-        <value>sap</value>
-        <value>rsvp</value>
-        <value>router-discovery</value>
-        <value>ripng</value>
-        <value>rip</value>
-        <value>pim</value>
-        <value>pgm</value>
-        <value>ospf3</value>
-        <value>ospf</value>
-        <value>nhrp</value>
-        <value>ndp</value>
-        <value>msdp</value>
-        <value>ldp</value>
-        <value>igmp</value>
-        <value>dvmrp</value>
-        <value>bgp</value>
-        <value>bfd</value>
+        <values>all</values>
+        <values>vrrp</values>
+        <values>sap</values>
+        <values>rsvp</values>
+        <values>router-discovery</values>
+        <values>ripng</values>
+        <values>rip</values>
+        <values>pim</values>
+        <values>pgm</values>
+        <values>ospf3</values>
+        <values>ospf</values>
+        <values>nhrp</values>
+        <values>ndp</values>
+        <values>msdp</values>
+        <values>ldp</values>
+        <values>igmp</values>
+        <values>dvmrp</values>
+        <values>bgp</values>
+        <values>bfd</values>
       </values>
     </variable>
-    <variable displayName="Tcp Rst" displayOrder="3" editable="false" maxLength="150" name="params.tcpRst" type="String">
+    <variable displayName="Tcp Rst" name="params.tcpRst" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>tcp-rst</value>
+        <values>tcp-rst</values>
       </values>
     </variable>
-    <variable displayName="Screen" displayOrder="4" maxLength="150" name="params.screen" type="String"/>
-    <variable displayName="Description" displayOrder="5" maxLength="150" name="params.description" type="String"/>
+    <variable displayName="Screen" name="params.screen" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
-
-
-<example>
+  <example>
     <content>root&gt; show configuration security zones | display set 
 set security zones security-zone trust host-inbound-traffic system-services all
 set security zones security-zone trust host-inbound-traffic protocols all
@@ -109,10 +113,11 @@ set security zones security-zone testDemo host-inbound-traffic system-services n
 set security zones security-zone testDemo host-inbound-traffic protocols ospf
 </content>
   </example>
-<command name="IMPORT">
-    <operation>show configuration security zones | display set</operation>
+  <command name="IMPORT">
+    <operation><![CDATA[show configuration security zones | display set]]></operation>
     <parser>
-      <section name="zone_object">
+      <section>
+        <regexp>@^set\s+security\s+zones\s+security-zone\s+(?&lt;object_id&gt;\S+)\sinterfaces\s(?&lt;interface&gt;\S+)@</regexp>
         <regexp>@^set\s+security\s+zones\s+security-zone\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
@@ -120,32 +125,40 @@ set security zones security-zone testDemo host-inbound-traffic protocols ospf
           <array name="service_list">
             <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+host-inbound-traffic\s+system-services\s+(?&lt;service&gt;\S+)@</regexp>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
           <array name="protocol_list">
             <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+host-inbound-traffic\s+protocols\s+(?&lt;protocol&gt;\S+)@</regexp>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
+          <array/>
           <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+(?&lt;tcpRst&gt;tcp-rst)@</regexp>
+          <xpath/>
         </line>
         <line>
+          <array/>
           <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+screen\s+(?&lt;screen&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
-          <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+description\s+"?(?&lt;description&gt;[^"]*)"?@</regexp>
+          <array/>
+          <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+description\s+&quot;?(?&lt;description&gt;[^&quot;]*)&quot;?@</regexp>
+          <xpath/>
         </line>
       </lines>
     </parser>
-  <post_template/>
   </command>
-
-<command name="DELETE">
-    <operation>delete security zones security-zone {$object_id}
-</operation>
+  <command name="DELETE">
+    <operation><![CDATA[delete security zones security-zone {$object_id}
+]]></operation>
   </command>
-<command name="CREATE">
-    <operation>{if !empty($params.description)}
+  <command name="CREATE">
+    <operation><![CDATA[{if !empty($params.description)}
 set security zones security-zone {$object_id} description "{$params.description}"
 {/if}
 {if !empty($params.service_list)}
@@ -164,10 +177,10 @@ set security zones security-zone {$object_id} {$params.tcpRst}
 {if !empty($params.screen)}
 set security zones security-zone {$object_id} screen {$params.screen}
 {/if}
-</operation>
+]]></operation>
   </command>
-<command name="UPDATE">
-    <operation>{if !empty($params.description)}
+  <command name="UPDATE">
+    <operation><![CDATA[{if !empty($params.description)}
 set security zones security-zone {$object_id} description "{$params.description}"
 {/if}
 {if !empty($params.tcpRst)}
@@ -220,6 +233,7 @@ delete security zones security-zone {$object_id} host-inbound-traffic protocols 
 set security zones security-zone {$object_id} host-inbound-traffic protocols {$protocol.protocol}
 {/foreach}
 {/if}
-</operation>
+]]></operation>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
