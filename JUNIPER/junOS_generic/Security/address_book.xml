@@ -75,18 +75,21 @@ set security address-book book1 address-set addressSet3 description addSet3descr
         </line>
         <line>
           <array name="zone_list">
-            <regexp class="zoneName:zone_object;">@^set\s+security\s+address-book\s+\S+\s+attach\s+zone\s+(?&lt;zoneName&gt;\S+)@</regexp>
+            <regexp>@^set\s+security\s+address-book\s+\S+\s+attach\s+zone\s+(?&lt;zoneName&gt;\S+)@</regexp>
           </array>
+          <regexp/>
         </line>
         <line>
           <array name="address_list">
             <regexp>@^set\s+security\s+address-book\s+\S+\s+address\s+(?&lt;addressName&gt;\S+)@</regexp>
           </array>
+          <regexp/>
         </line>
         <line>
           <array name="addressSet_list">
             <regexp>@^set\s+security\s+address-book\s+\S+\s+address-set\s+(?&lt;addressSetName&gt;\S+)@</regexp>
           </array>
+          <regexp/>
         </line>
       </lines>
     </parser>

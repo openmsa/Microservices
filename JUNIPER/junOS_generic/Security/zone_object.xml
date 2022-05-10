@@ -126,29 +126,24 @@ set security zones security-zone testDemo host-inbound-traffic protocols ospf
             <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+host-inbound-traffic\s+system-services\s+(?&lt;service&gt;\S+)@</regexp>
           </array>
           <regexp/>
-          <xpath/>
         </line>
         <line>
           <array name="protocol_list">
             <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+host-inbound-traffic\s+protocols\s+(?&lt;protocol&gt;\S+)@</regexp>
           </array>
           <regexp/>
-          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+(?&lt;tcpRst&gt;tcp-rst)@</regexp>
-          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+screen\s+(?&lt;screen&gt;\S+)@</regexp>
-          <xpath/>
         </line>
         <line>
           <array/>
           <regexp>@^set\s+security\s+zones\s+security-zone\s+\S+\s+description\s+&quot;?(?&lt;description&gt;[^&quot;]*)&quot;?@</regexp>
-          <xpath/>
         </line>
       </lines>
     </parser>
