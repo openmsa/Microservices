@@ -315,7 +315,7 @@ interface {$params.object_id}
  ip pim {$params.pim_mode}
 {/if}
 
-end
+exit
 ! 
 {if $params.type == "Serial" || $params.type == "Multilink" }
 {if isset($params.service_policy_out)}
