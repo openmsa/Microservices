@@ -85,7 +85,7 @@ Neighbor  Spk  AS  MsgRcvd  MsgSent  TblVer  InQ  OutQ  Up/Down  St/PfxRcd
           <regexp>@^\s*$@</regexp>
         </ignore>
         <ignore>
-          <regexp>BGP router</regexp>
+          <regexp>@BGP router@</regexp>
         </ignore>
         <ignore>
           <regexp>@BGP table@</regexp>
