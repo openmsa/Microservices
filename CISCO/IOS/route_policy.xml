@@ -57,12 +57,22 @@
         <sections>statements</sections>
       </sections>
     </variable>
-    <variable displayName="destination" name="params.statements.0.destination.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>statements</sections>
-      </sections>
-    </variable>
-    <variable displayName="extcommunity" name="params.statements.0.extcommunities.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="destination_acl" name="params.statements.0.destination_acl.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+		<sections>
+		  <sections>statements</sections>
+		</sections>
+	  </variable>
+	  <variable displayName="destination_pfx" name="params.statements.0.destination_pfx.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="28" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+		<sections>
+		  <sections>statements</sections>
+		</sections>
+	  </variable>
+	  <variable displayName="destination_itf" name="params.statements.0.destination_itf.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="29" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+		<sections>
+		  <sections>statements</sections>
+		</sections>
+	  </variable>
+	  <variable displayName="extcommunity" name="params.statements.0.extcommunities.0.val" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>statements</sections>
       </sections>
@@ -240,25 +250,25 @@
 				{/if}
 				{if isset($match.ip_access_list)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
+						var=&quot;statements.{$statement_idx}.destination_acl.{$dest_idx}.val&quot;
 						value=&quot;pfx_{$match.ip_access_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.ipv6_access_list)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
-						value=&quot;{$match.ipv6_access_list}&quot;}
+						var=&quot;statements.{$statement_idx}.destination_acl.{$dest_idx}.val&quot;
+						value=&quot;pfx_{$match.ipv6_access_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.ip_prefix_list)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
+						var=&quot;statements.{$statement_idx}.destination_pfx.{$dest_idx}.val&quot;
 						value=&quot;{$match.ip_prefix_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.ipv6_prefix_list)}
 					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
+						var=&quot;statements.{$statement_idx}.destination_pfx.{$dest_idx}.val&quot;
 						value=&quot;{$match.ipv6_prefix_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
@@ -287,13 +297,13 @@
 						{if ($loopback.object_id == $match.interface)}
 							{if isset($loopback.ipv4_address) &amp;&amp; isset($loopback.ipv4_prefix)}
 								{assign_object_variable
-									var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
+									var=&quot;statements.{$statement_idx}.destination_itf.{$dest_idx}.val&quot;
 									value=&quot;({$loopback.ipv4_address}/{$loopback.ipv4_prefix})&quot;}
 								{$dest_idx=$dest_idx+1}
 								{break}
 							{else if isset($loopback.ipv6_address) &amp;&amp; isset($loopback.ipv6_prefix)}
 								{assign_object_variable
-									var=&quot;statements.{$statement_idx}.destination.{$dest_idx}.val&quot;
+									var=&quot;statements.{$statement_idx}.destination_itf.{$dest_idx}.val&quot;
 									value=&quot;({$loopback.ipv6_address}/{$loopback.ipv6_prefix})&quot;}
 								{$dest_idx=$dest_idx+1}
 								{break}
