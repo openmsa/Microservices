@@ -253,33 +253,23 @@ router bgp {$params.router_bgp}
  !
 {if isset($params.neighbors)}
 {foreach $params.neighbors|@sortby_typed:"bgp_neighbor:string" as $neighbor}
-{if isset($neighbor.bgp_ipv4_private_as)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast {$neighbor.bgp_ipv4_private_as}
+{if isset($neighbor.bgp_ipv4_private_as)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast {$neighbor.bgp_ipv4_private_as}
 {/if}
-{if isset($neighbor.bgp_route_map_in)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast route-policy {$neighbor.bgp_route_map_in} in
+{if isset($neighbor.bgp_route_map_in)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast route-policy {$neighbor.bgp_route_map_in} in
 {/if}
-{if isset($neighbor.bgp_route_map_out)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast route-policy {$neighbor.bgp_route_map_out} out
+{if isset($neighbor.bgp_route_map_out)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast route-policy {$neighbor.bgp_route_map_out} out
 {/if}
-{if isset($neighbor.bgp_maximum_prefix)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast maximum-prefix  {$neighbor.bgp_maximum_prefix}
+{if isset($neighbor.bgp_maximum_prefix)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast maximum-prefix  {$neighbor.bgp_maximum_prefix}
 {/if}
-{if isset($neighbor.bgp_ipv4_default_route)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast {$neighbor.bgp_ipv4_default_route}
+{if isset($neighbor.bgp_ipv4_default_route)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast {$neighbor.bgp_ipv4_default_route}
 {/if}
-{if isset($neighbor.bgp_neighbor_remote_as)} neighbor {$neighbor.bgp_neighbor} remote-as  {$neighbor.bgp_neighbor_remote_as}
+{if isset($neighbor.bgp_as_override)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast as-override {$neighbor.bgp_as_override}
 {/if}
-{if isset($neighbor.bgp_as_override)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast as-override {$neighbor.bgp_as_override}
-{/if}
-{if isset($neighbor.bgp_prefix_list_out)} neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_prefix_list_out}
-{/if}
-{if isset($neighbor.bgp_send_community)} neighbor {$neighbor.bgp_neighbor} {$neighbor.bgp_send_community}
-{/if}
-{if isset($neighbor.bgp_allow_as)} neighbor {$neighbor.bgp_neighbor} allowas-in  {$neighbor.bgp_allow_as}
-{/if}
-{if isset($neighbor.bgp_neighbor_password)} neighbor {$neighbor.bgp_neighbor} password 7 {$neighbor.bgp_neighbor_password}
+{if isset($neighbor.bgp_allow_as)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast allowas-in  {$neighbor.bgp_allow_as}
 {/if}
 {if isset($neighbor.bgp_ebgp_multihop)} neighbor {$neighbor.bgp_neighbor} ebgp-multihop {$neighbor.bgp_ebgp_multihop}
 {/if}
-{if isset($neighbor.bgp_source_interface)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast update-source {$neighbor.bgp_ebgp_multihop}
-{/if}
-{if isset($neighbor.bgp_soft_reconfiguration)} neighbor {$neighbor.bgp_neighbor} address-family ipv4 unicast soft-reconfiguration {$neighbor.bgp_soft_reconfiguration}
+{if isset($neighbor.bgp_soft_reconfiguration)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast soft-reconfiguration {$neighbor.bgp_soft_reconfiguration}
 {/if}
 {/foreach}
 {/if}
