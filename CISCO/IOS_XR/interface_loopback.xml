@@ -35,7 +35,20 @@
   </variables>
   <example/>
   <command name="IMPORT"/>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <operation><![CDATA[!
+interface {$params.object_id}
+{if isset($params.description) }
+ description {$params.description}
+{/if}
+{if isset($params.ipv4_address) && isset($params.ipv4_mask)}
+ ipv4 address {$params.ipv4_address} {$params.ipv4_mask} 
+{/if}
+{if isset($params.ipv6_address) && isset($params.ipv6_prefix)}
+ ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
+{/if}
+]]></operation>
+  </command>
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
