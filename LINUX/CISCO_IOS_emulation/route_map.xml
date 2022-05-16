@@ -345,7 +345,7 @@ route-map EXPORTA-INTRAGOV permit 10
 {/if}</post_template>
     <parser>
       <section>
-        <regexp>@^route-map\s+(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+)$@</regexp>
+        <regexp>@^\s*route-map\s+(?&lt;name&gt;\S+)\s+(?&lt;action&gt;\S+)\s+(?&lt;priority&gt;\d+)$@</regexp>
       </section>
       <lines>
         <line>

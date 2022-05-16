@@ -57,8 +57,18 @@ based on each  ip_access_list src IP and mask variables *}
 						var=&quot;prefix_set.{$idx}.mask_length&quot; 
 						value=&quot;0&quot;}				
 					{$idx=$idx+1}
+				{else if isset($acl.acl_src_ip) &amp;&amp; !isset($acl.acl_src_mask_length)}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.src_ip&quot; 
+						value=&quot;{$acl.acl_src_ip}&quot;}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.mask_length&quot; 
+						value=&quot;32&quot;}				
+					{$idx=$idx+1}
 				{/if}
 			{/foreach}
+			{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
+			{break}
 		{/if}
 	{/foreach}
 {/if}
@@ -84,13 +94,10 @@ based on each  ip_access_list src IP and mask variables *}
 		{/if}
 	{/foreach}
 {/if}
-{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
-{assign_object_variable 
-	var=&quot;name&quot; 
-	value=&quot;{$params.object_id}&quot;}
 {assign_object_variable 
 	var=&quot;object_id&quot; 
-	value=&quot;prefix_set_{$params.object_id}&quot;}</post_template>
+	value=&quot;pfx_{$params.object_id}&quot;}
+</post_template>
     <parser>
       <section>
         <regexp>@^\s*ip\s+access-list\s+(extended|standard)\s+(?&lt;object_id&gt;\S+)@</regexp>

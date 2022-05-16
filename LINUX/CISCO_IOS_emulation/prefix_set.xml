@@ -56,6 +56,14 @@ based on each  ip_access_list src IP and mask variables *}
 						var=&quot;prefix_set.{$idx}.mask_length&quot; 
 						value=&quot;0&quot;}				
 					{$idx=$idx+1}
+				{else if isset($acl.acl_src_ip) &amp;&amp; !isset($acl.acl_src_mask_length)}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.src_ip&quot; 
+						value=&quot;{$acl.acl_src_ip}&quot;}
+					{assign_object_variable 
+						var=&quot;prefix_set.{$idx}.mask_length&quot; 
+						value=&quot;32&quot;}				
+					{$idx=$idx+1}
 				{/if}
 			{/foreach}
 			{* update the object_id by adding &quot;prefix_set_&quot; prefix *}
@@ -96,9 +104,6 @@ based on each  ip_access_list src IP and mask variables *}
         <regexp>@^\s*(ip|ipv6)\s+prefix-list\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
-        <ignore>
-          <regexp>@^\s+\S*@</regexp>
-        </ignore>
         <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
