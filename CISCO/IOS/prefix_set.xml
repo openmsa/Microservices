@@ -106,9 +106,6 @@ based on each  ip_access_list src IP and mask variables *}
       </section>
       <lines>
         <ignore>
-          <regexp>@^\s+\S*@</regexp>
-        </ignore>
-        <ignore>
           <regexp>@^\s*!@</regexp>
         </ignore>
       </lines>
