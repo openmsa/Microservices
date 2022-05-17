@@ -301,8 +301,29 @@ route-policy {$params.object_id}
      
       {/if}
       {if isset($block.extcommunity) && isset($block.extcommunity_type)}
-     set extcommunity {$block.extcommunity_type} ({foreach $block.extcommunity|@sortby:"extcommunity_set" as $extcomm_set}{$extcomm_set.extcommunity_set}{if !$extcomm_set@last},{/if}{/foreach})
-        
+      {$additive=false}
+       {foreach $block.extcommunity as $extcomm_set}
+         {if $extcomm_set.extcommunity_set == "additive"}{$additive=true}{break}{/if}
+       {/foreach}
+       {strip}
+       set extcommunity {$block.extcommunity_type}{literal} {/literal}
+       ({foreach $block.extcommunity|@sortby:"extcommunity_set" as $extcomm_set}
+         {if $extcomm_set.extcommunity_set != "additive"}
+         {$extcomm_set.extcommunity_set}
+         {/if}
+         {if ($additive && $extcomm_set@iteration < ($extcomm_set@total-1)) && ($extcomm_set != "additive")}, 
+         {else if (!$additive && !$extcomm_set@last)}, 
+       {/if}
+      {/foreach}
+     ) 
+     {if $additive}
+     {foreach $block.extcommunity as $extcomm_set}
+       {if $extcomm_set.extcommunity_set == "additive"} {$extcomm_set.extcommunity_set}
+       {/if}
+     {/foreach}
+     {/if}
+     {/strip}
+     
       {/if}
       {if isset($block.local_preference)} 
      set local-preference {$block.local_preference}
@@ -327,6 +348,7 @@ route-policy {$params.object_id}
     {/if}
   {/if}
   {if $statements@last}
+  
 else 
     {if $statements.action == "permit"}
   pass
