@@ -17,7 +17,7 @@
     <name>Services</name>
     <group>Objects</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>5</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -25,44 +25,45 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="1">
-    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Protocol" name="params.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Protocol" name="params.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>tcp</value>
-        <value>udp</value>
-        <value>tcp-udp</value>
-        <value>ip</value>
+        <values>tcp</values>
+        <values>udp</values>
+        <values>tcp-udp</values>
+        <values>ip</values>
       </values>
     </variable>
-    <variable displayName="port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>CREATEobject service mySer1service tcp source eq ssh destination eq sshIMPORTshow running-config object service in-lineobject service sms service tcp destination eq 28169
 </content>
   </example>
   <command name="IMPORT">
-    <operation>show running-config object service in-line</operation>
+    <operation><![CDATA[show running-config object service in-line]]></operation>
     <parser>
       <section>
-        <regexp>@^object service (?&lt;object_id>\S+) service (?&lt;protocol>\S+) destination eq (?&lt;port>\S+)\s*$@</regexp>
+        <regexp>@^object service (?&lt;object_id&gt;\S+) service (?&lt;protocol&gt;\S+) destination eq (?&lt;port&gt;\S+)\s*$@</regexp>
       </section>
       <lines/>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>object service {$params.object_id}
+    <operation><![CDATA[object service {$params.object_id}
+
 service {$params.protocol} destination eq {$params.port}
-</operation>
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>object service {$params.object_id}
+    <operation><![CDATA[object service {$params.object_id}
 service {$params.protocol} destination eq {$params.port}
-</operation>
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>no object service {$object_id}
-</operation>
+    <operation><![CDATA[no object service {$object_id}
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

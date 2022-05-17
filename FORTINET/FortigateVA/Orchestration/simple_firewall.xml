@@ -183,10 +183,15 @@ end
 ]]></operation>
   </command>
   <command name="DELETE">
-    <operation><![CDATA[config firewall policydelete {$params.object_id}
-endconfig firewall addressdelete "{$simple_object.$object_id.src_ip}"
-endconfig firewall addressdelete "{$simple_object.$object_id.dst_ip}"
+    <operation><![CDATA[config firewall policy
+delete {$simple_firewall.$object_id.object_id}
 end
+#config firewall address
+#delete "{$simple_firewall.$object_id.src_ip}"
+#end
+#config firewall address
+#delete "{$simple_firewall.$object_id.dst_ip}"
+#end
 ]]></operation>
   </command>
   <command name="READ"/>

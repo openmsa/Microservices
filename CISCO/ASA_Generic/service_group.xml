@@ -17,7 +17,7 @@
     <name>Services groups</name>
     <group>Objects</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -25,63 +25,73 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Group name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Services" name="params.ObjectList_0_serviceObject" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <value>serviceObject</value>
-        <value>PredefinedServiceObject</value>
-      </values>
+    <variable displayName="Group name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Service Object" name="params.ObjectList.0.serviceObject" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
-        <class>service_object</class>
         <class>predefined_service_object</class>
+        <class>service_object</class>
       </classes>
     </variable>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>sho run object-groupobject-group service MyServersGroupnetwork-object object obj-10_101_65_0-255_255_255_0network-object object WebServer01
 </content>
   </example>
   <command name="IMPORT">
-    <operation>sho object-group</operation>
+    <operation><![CDATA[show object-group]]></operation>
     <parser>
       <section>
-        <regexp>@^object-group service (?&lt;object_id>\S+)@</regexp>
+        <regexp>@^object-group service (?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@^\sdescription: (?&lt;description>.*)@</regexp>
+          <regexp>@^\sdescription: (?&lt;description&gt;.*)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array name="ObjectList">
             <lines/>
-            <regexp>@^\sservice-object object (?&lt;serviceObject>\S+)\s*$@</regexp>
+            <regexp>@^\sservice-object object (?&lt;serviceObject&gt;\S+)\s*@</regexp>
             <mregexp>@^\s \s*$@</mregexp>
           </array>
           <regexp/>
+          <xpath/>
         </line>
       </lines>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>object-group service {$object_id}description {$params.description}
-{foreach $serviceGroup.$object_id.ObjectList as $oldObject}no service-object object {$oldObject.serviceObject}
+    <operation><![CDATA[object-group service {$object_id} {if isset($params.description)}description {$params.description}
+{/if}
+
+{if isset($service_group)}
+{foreach $service_group.$object_id.ObjectList as $oldObject} 
+no service-object object {$oldObject.serviceObject}
 {/foreach}
-{foreach $params.ObjectList as $Object}service-object object {$Object.serviceObject}
+{/if}
+
+{if isset($params.ObjectList)}
+{foreach $params.ObjectList as $Object}
+service-object object {$Object.serviceObject}
 {/foreach}
-</operation>
+{/if}
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>object-group service {$object_id}description {$params.description}
-{foreach $params.ObjectList as $Object}service-object object {$Object.serviceObject}
+    <operation><![CDATA[object-group service {$object_id} {if isset($params.description)} description {$params.description} 
+{/if}
+
+{if isset($params.ObjectList)}
+{foreach $params.ObjectList as $object} service-object object {$object.serviceObject}
 {/foreach}
-</operation>
+{/if}]]></operation>
   </command>
   <command name="DELETE">
-    <operation>no object-group service {$objectGroup.$object_id.object_id}
-</operation>
+    <operation><![CDATA[no object-group service {$service_group.$object_id.object_id}
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

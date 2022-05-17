@@ -29,6 +29,11 @@
     <variable displayName="Address" name="params.address" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Monitor" name="params.monitor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="State" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Pool" name="params.pool" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>f5_rest_ltm_pool_general</class>
+      </classes>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -59,13 +64,20 @@
           <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
           <xpath>//row/state</xpath>
         </line>
+        <line>
+          <array/>
+          <regexp>@&lt;selfLink&gt;https://localhost/mgmt/tm/ltm/pool/~Common~(?&lt;pool&gt;.*)/members/.*&lt;/selfLink&gt;@</regexp>
+          <xpath>//row/selfLink</xpath>
+        </line>
       </lines>
     </parser>
     <xpath>{foreach from=$f5_rest_ltm_pool_general item=pool}{$pool.members_link}##{/foreach}</xpath>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="CREATE"/>
+  <command name="CREATE">
+    <rest>POST</rest>
+  </command>
   <command name="DELETE"/>
   <command name="READ"/>
   <command name="LIST"/>
