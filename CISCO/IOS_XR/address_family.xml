@@ -252,7 +252,7 @@ router bgp {$params.router_bgp}
 {/if}
  !
 {if isset($params.neighbors)}
-{foreach $params.neighbors|@sortby_typed:"bgp_neighbor:string" as $neighbor}
+{foreach $params.neighbors  as $neighbor}
 {if isset($neighbor.bgp_ipv4_private_as)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast {$neighbor.bgp_ipv4_private_as}
 {/if}
 {if isset($neighbor.bgp_route_map_in)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast route-policy {$neighbor.bgp_route_map_in} in
