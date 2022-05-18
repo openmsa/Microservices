@@ -297,8 +297,29 @@ route-policy {$params.object_id}
   {*CR to keep*}
     {foreach $statements.block as $block}
       {if isset($block.community)}
-     set community ({foreach $block.community|@sortby:"community_set" as $comm_set}{$comm_set.community_set}{if !$comm_set@last},{/if}{/foreach})
-     
+      {$additive=false}
+       {foreach $block.community as $comm_set}
+         {if $comm_set.community_set == "additive"}{$additive=true}{break}{/if}
+       {/foreach}
+       {strip}
+       set community{literal} {/literal}
+       ({foreach $block.community|@sortby:"community_set" as $comm_set}
+         {if $comm_set.community_set != "additive"}
+         {$comm_set.community_set}
+         {/if}
+         {if ($additive && $comm_set@iteration < ($comm_set@total-1)) && ($comm_set != "additive")}, 
+         {else if (!$additive && !$comm_set@last)}, 
+       {/if}
+      {/foreach}
+     ) 
+     {if $additive}
+     {foreach $block.community as $comm_set}
+       {if $comm_set.community == "additive"} {$comm_set.community}
+       {/if}
+     {/foreach}
+     {/if}
+     {/strip}
+       
       {/if}
       {if isset($block.extcommunity) && isset($block.extcommunity_type)}
       {$additive=false}
