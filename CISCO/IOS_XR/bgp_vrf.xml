@@ -17,7 +17,7 @@
     <name>bgp_vrf</name>
     <group>CISCO|IOS-XR</group>
     <importonce>false</importonce>
-    <importrank>10</importrank>
+    <importrank>30</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -316,6 +316,9 @@ router bgp {$params.router_bgp}
 {/if}
 {if isset($params.bgp_vrf_redistrib_static_policy)}
   address-family ipv4 unicast redistribute static route-policy {$params.bgp_vrf_redistrib_static_policy}
+{/if}
+{if isset($params.bgp_dampening)}
+  address-family ipv4 unicast {$params.bgp_dampening}
 {/if}
  !
 {if isset($params.neighbor)}
