@@ -17,7 +17,7 @@
     <name>LTM | Virtual Servers</name>
     <group>Default</group>
     <importonce>false</importonce>
-    <importrank>20</importrank>
+    <importrank>60</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>false</sortascending>
     <sortauto>false</sortauto>
@@ -31,7 +31,15 @@
         <class>f5_rest_ltm_pool_general</class>
       </classes>
     </variable>
-    <variable displayName="destination" name="params.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="destination" name="params.destination" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ip" name="params.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="mask" name="params.mask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="255.255.255.255" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="255.255.255.255">255.255.255.255</values>
+        <values displayValue="255.255.255.240">255.255.255.240</values>
+      </values>
+    </variable>
+    <variable displayName="port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -54,8 +62,13 @@
         </line>
         <line>
           <array/>
-          <regexp>@&lt;destination&gt;(?&lt;destination&gt;.*)&lt;/destination&gt;@</regexp>
+          <regexp>@&lt;destination&gt;(?&lt;destination&gt;\/Common\/(?&lt;ip&gt;[^:]+):(?&lt;port&gt;\d+))&lt;/destination&gt;@</regexp>
           <xpath>//row/destination</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;mask&gt;(?&lt;mask&gt;\S+)&lt;/mask&gt;@</regexp>
+          <xpath>//mask</xpath>
         </line>
       </lines>
     </parser>
@@ -63,8 +76,30 @@
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="CREATE"/>
-  <command name="DELETE"/>
+  <command name="CREATE">
+    <operation><![CDATA[
+
+{literal}{{/literal}
+"name":"{$params.object_id}",
+"destination":"{$params.ip}:{$params.port}",
+"mask":"{$params.mask}",
+"ipProtocol":"tcp",
+"profiles":"/Common/fastL4",
+"sourceAddressTranslation": {literal}{{/literal} "type":"automap" {literal}}{/literal},
+"pool":"{$params.pool}"
+{literal}}{/literal}
+
+]]></operation>
+    <rest>POST</rest>
+    <xpath>/mgmt/tm/ltm/virtual</xpath>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[
+{literal}{{/literal}
+{literal}}{/literal}]]></operation>
+    <rest>DELETE</rest>
+    <xpath>/mgmt/tm/ltm/virtual/{$f5_rest_ltm_virtual_servers.$object_id.object_id}</xpath>
+  </command>
   <command name="READ"/>
   <command name="LIST"/>
 </ObjectDefinition>
