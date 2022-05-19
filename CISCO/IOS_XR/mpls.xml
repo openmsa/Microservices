@@ -40,23 +40,10 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($interface)}
-{foreach $interface as $itf}
-	{if $itf.object_id == $params.object_id}
-		{if isset($itf.mpls)}
-			{foreach $itf.mpls as $mpls}
-				{if isset($mpls.mpls_command)}
+    <operation><![CDATA[{if isset($params.object_id)}
 !
-mpls ldp interface {$itf.object_id}
+mpls ldp interface {$params.object_id}
 !
-				{break}
-				{/if}
-			{/foreach}
-			{break}
-		{/if}
-	{break}
-	{/if}
-{/foreach}
 {/if}
 ]]></operation>
   </command>
