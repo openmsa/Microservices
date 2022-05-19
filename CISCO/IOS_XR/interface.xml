@@ -252,10 +252,10 @@ interface {$params.object_id}
 {if isset($params.int_description) }
  description {$params.int_description}
 {/if}
-{if isset($params.vrf_name) and $params.vrf_name}
+{if isset($params.vrf_name)}
  vrf {$params.vrf_name}
 {/if}
-{if isset($params.addresses) and $params.addresses}
+{if isset($params.addresses)}
 {foreach $params.addresses as $addr}
 {if isset($addr.ipv4_address) && isset($addr.ipv4_mask) }
 {if isset($addr.ipv4_type) and $addr.ipv4_type}
@@ -264,18 +264,20 @@ interface {$params.object_id}
  ipv4 address {$addr.ipv4_address} {$addr.ipv4_mask}
 {/if}
 {/if}
+{foreachelse}
+ no ip address
 {/foreach}
 {/if}
-{if isset($params.ipv6_address) and $params.ipv6_address}
+{if isset($params.ipv6_address)}
  ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
-{if isset($params.ipv6_enable) and $params.ipv6_enable }
+{if isset($params.ipv6_enable)}
  ipv6 {$params.ipv6_enable}
 {/if}
-{if isset($params.mtu_int) and $params.mtu_int}
+{if isset($params.mtu_int)}
  mtu {$params.mtu_int}
 {/if}
-{if isset($params.bandwidth) and $params.bandwidth}
+{if isset($params.bandwidth)}
  bandwidth {$params.bandwidth}
 {/if}
 {if isset($params.encapsulation_dot1q) && isset($params.encapsulation_second_dot1q)}
@@ -313,8 +315,11 @@ interface {$params.object_id}
 {if isset($params.pim_mode) and $params.pim_mode}
  ip pim {$params.pim_mode}
 {/if}
-
+{if ($params.type == "Serial" || $params.type == "Multilink") && isset($params.service_policy_out)}
 exit
+{else}
+end
+{/if}
 ! 
 {if $params.type == "Serial" || $params.type == "Multilink" }
 {if isset($params.service_policy_out)}

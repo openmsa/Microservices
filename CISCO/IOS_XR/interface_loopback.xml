@@ -43,6 +43,8 @@ interface {$params.object_id}
 {/if}
 {if isset($params.ipv4_address) && isset($params.ipv4_mask)}
  ipv4 address {$params.ipv4_address} {$params.ipv4_mask} 
+{else}
+ no ip address
 {/if}
 {if isset($params.ipv6_address) && isset($params.ipv6_prefix)}
  ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
