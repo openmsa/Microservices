@@ -214,9 +214,6 @@
     || isset($params.bgp_graceful_restart)}
 !
 router bgp {$params.router_bgp}
- {if isset($params.bgp_router_id)}
- bgp router-id {$params.bgp_router_id}
- {/if}
  {if isset($params.bgp_graceful_restart)}
  bgp graceful-restart {$params.bgp_graceful_restart}
  bgp graceful-restart
