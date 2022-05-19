@@ -43,7 +43,7 @@
     </variable>
     <variable displayName="Pool Monitors" name="params.monitor.0.name" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
-        <class>f5_ltm_monitor_list</class>
+        <class>f5_rest_ltm_monitor_general</class>
       </classes>
     </variable>
     <variable displayName="Members link" name="params.members_link" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -102,12 +102,14 @@
     <operation><![CDATA[{literal}{{/literal}
 "name" : "{$params.object_id}",
 "description" : "{$params.description}",
-"monitor" : "{foreach $params.monitor as $monitor}{$monitor.name}{if !$monitor@last} and {/if}{/foreach}"{if isset($members)},{/if}
-{if isset($members)}
-{literal}[{/literal}
-{foreach $members as  $member}
+{if isset($params.monitor)}
+"monitor" : "{foreach $params.monitor as $monitor}{$monitor.name}{if !$monitor@last} and {/if}{/foreach}"{if isset($params.members)},{/if}
+{/if}
+{if isset($params.members)}
+"members" : {literal}[{/literal}
+{foreach $params.members as  $member}
   {literal}{{/literal}
-	"name":"{$member.name}:{$member.port}","address":"{$member.ip}"}{if !$member@last},{/if}
+	"name":"{$member.name}:{$member.port}","address":"{$member.ip}"{if !$member@last},{/if}
   {literal}}{/literal}
 {/foreach}
 {literal}]{/literal}
