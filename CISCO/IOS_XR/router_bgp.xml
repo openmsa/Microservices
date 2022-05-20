@@ -210,15 +210,14 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($params.neighbors) 
-    || isset($params.bgp_graceful_restart)}
-!
-router bgp {$params.router_bgp}
- {if isset($params.bgp_graceful_restart)}
+    <operation><![CDATA[{*if isset($params.neighbors)  || isset($params.bgp_graceful_restart) *}
+ {*if isset($params.bgp_graceful_restart)}
  bgp graceful-restart {$params.bgp_graceful_restart}
  bgp graceful-restart
- {/if}
-{if isset($params.neighbors)}
+ {/if*}
+{if isset($params.neighbors) && (count($params.neighbors)>0)}
+!
+router bgp {$params.router_bgp}
 {foreach $params.neighbors as $neighbor}
  {if isset($neighbor.bgp_remote_as)} neighbor {$neighbor.bgp_neighbor} remote-as {$neighbor.bgp_remote_as}	
  {else if isset($neighbor.bgp_description)} neighbor {$neighbor.bgp_neighbor} description {$neighbor.bgp_description}
@@ -227,9 +226,9 @@ router bgp {$params.router_bgp}
  {else if isset($neighbor.bgp_password)} neighbor {$neighbor.bgp_neighbor} password {$neighbor.bgp_password}
 {/if}
 {/foreach}
-{/if}
 !
-{/if}]]></operation>
+{/if}
+{*/if*}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
