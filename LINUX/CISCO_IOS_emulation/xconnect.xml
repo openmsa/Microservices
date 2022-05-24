@@ -69,8 +69,55 @@ interface GigabitEthernet4/9
           <regexp>@^\s*xconnect\s+(?&lt;neighbor&gt;\S+)\s(?&lt;pseudowire_id&gt;\d+)@</regexp>
           <xpath/>
         </line>
+        <line>
+          <array/>
+          <regexp>@^\s*description (?&lt;int_description&gt;.*)@</regexp>
+          <xpath/>
+        </line>
         <ignore>
-          <regexp>@^\s*((?!(xconnect)).)*$@</regexp>
+          <regexp>@description@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@no@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@mtu@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@encapsulation@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@shutdown@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ip@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ppp@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@service-policy@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@bandwidth@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@ipv6@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@snmp@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@vrf@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@mpls@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@isis@</regexp>
+        </ignore>
+        <ignore>
+          <regexp>@clns@</regexp>
         </ignore>
       </lines>
     </parser>
