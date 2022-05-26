@@ -241,10 +241,9 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset ($params.router_bgp)}
+    <operation><![CDATA[{if isset ($params.router_bgp) && isset($params.neighbors)}
 !
 router bgp {$params.router_bgp}
-{if isset($params.neighbors)}
 {foreach $params.neighbors  as $neighbor}
 {if isset($neighbor.bgp_ipv4_private_as)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast {$neighbor.bgp_ipv4_private_as}
 {/if}
@@ -265,7 +264,6 @@ router bgp {$params.router_bgp}
 {if isset($neighbor.bgp_soft_reconfiguration)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast soft-reconfiguration {$neighbor.bgp_soft_reconfiguration}
 {/if}
 {/foreach}
-{/if}
 !
 {/if}
 ]]></operation>
