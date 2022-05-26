@@ -242,15 +242,8 @@
   </command>
   <command name="CREATE">
     <operation><![CDATA[{if isset ($params.router_bgp)}
-{if isset ($params.redistribute) || isset($params.neighbors)}
 !
 router bgp {$params.router_bgp}
-{if isset ($params.redistribute)}
-{foreach $params.redistribute as $redistribute}
- address-family {$params.bgp_address_family} unicast redistribute {$redistribute.bgp_redistribute_type} route-policy {$redistribute.bgp_redistribute_target}
-{/foreach}
-{/if}
- !
 {if isset($params.neighbors)}
 {foreach $params.neighbors  as $neighbor}
 {if isset($neighbor.bgp_ipv4_private_as)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast {$neighbor.bgp_ipv4_private_as}
@@ -274,7 +267,6 @@ router bgp {$params.router_bgp}
 {/foreach}
 {/if}
 !
-{/if}
 {/if}
 ]]></operation>
   </command>
