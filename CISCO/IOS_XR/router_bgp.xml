@@ -210,12 +210,7 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{*if isset($params.neighbors)  || isset($params.bgp_graceful_restart) *}
- {*if isset($params.bgp_graceful_restart)}
- bgp graceful-restart {$params.bgp_graceful_restart}
- bgp graceful-restart
- {/if*}
-{if isset($params.neighbors) && (count($params.neighbors)>0)}
+    <operation><![CDATA[{if isset($params.neighbors) && (count($params.neighbors)>0)}
 !
 router bgp {$params.router_bgp}
 {foreach $params.neighbors as $neighbor}
@@ -227,8 +222,7 @@ router bgp {$params.router_bgp}
 {/if}
 {/foreach}
 !
-{/if}
-{*/if*}]]></operation>
+{/if}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
