@@ -178,7 +178,18 @@
     <operation><![CDATA[show running-config]]></operation>
     <post_template>{foreach $router_bgp as $r_bgp}
 {assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$r_bgp.router_bgp}&quot;}
-{/foreach}</post_template>
+{/foreach}
+
+{if isset($params.neighbors)}
+{foreach $params.neighbors as $neighbor}
+{if isset($neighbor.bgp_route_map_out)}
+{assign_object_variable var=&quot;neighbors.{$neighbor@index}.bgp_route_map_out&quot; value=&quot;{$neighbor.bgp_route_map_out|replace:&apos;+&apos;:&apos;_&apos;}&quot;}
+{/if}
+{if isset($neighbor.bgp_route_map_in)}
+{assign_object_variable var=&quot;neighbors.{$neighbor@index}.bgp_route_map_in&quot; value=&quot;{$neighbor.bgp_route_map_in|replace:&apos;+&apos;:&apos;_&apos;}&quot;}
+{/if}
+{/foreach}
+{/if}</post_template>
     <parser>
       <section>
         <regexp>@^\s*address-family\s+(?&lt;object_id&gt;(?&lt;bgp_address_family&gt;ipv4|ipv6))$@</regexp>

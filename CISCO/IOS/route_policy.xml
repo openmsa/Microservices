@@ -263,13 +263,13 @@
 				{if isset($match.ip_prefix_list)}
 					{assign_object_variable
 						var=&quot;statements.{$statement_idx}.destination_pfx.{$dest_idx}.val&quot;
-						value=&quot;{$match.ip_prefix_list}&quot;}
+						value=&quot;pfx_{$match.ip_prefix_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.ipv6_prefix_list)}
 					{assign_object_variable
 						var=&quot;statements.{$statement_idx}.destination_pfx.{$dest_idx}.val&quot;
-						value=&quot;{$match.ipv6_prefix_list}&quot;}
+						value=&quot;pfx_{$match.ipv6_prefix_list}&quot;}
 					{$dest_idx=$dest_idx+1}
 				{/if}
 				{if isset($match.tag)}
