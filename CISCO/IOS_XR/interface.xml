@@ -315,11 +315,8 @@ interface {$params.object_id}
 {if isset($params.pim_mode) and $params.pim_mode}
  ip pim {$params.pim_mode}
 {/if}
-{if ($params.type == "Serial" || $params.type == "Multilink") && isset($params.service_policy_out)}
-exit
-{else}
 end
-{/if}
+root
 ! 
 {if $params.type == "Serial" || $params.type == "Multilink" }
 {if isset($params.service_policy_out)}
@@ -328,6 +325,7 @@ policy-map {$params.customer_name}_{$params.bandwidth}
  service-policy {$params.service_policy_out}
  shape average {$params.bandwidth} kbps
 end-policy-map
+root
 !
 {/if}
 {/if}

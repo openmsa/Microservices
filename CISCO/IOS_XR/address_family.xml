@@ -264,6 +264,7 @@ router bgp {$params.router_bgp}
 {if isset($neighbor.bgp_soft_reconfiguration)} neighbor {$neighbor.bgp_neighbor} address-family {$params.bgp_address_family} unicast soft-reconfiguration {$neighbor.bgp_soft_reconfiguration}
 {/if}
 {/foreach}
+end
 !
 {/if}
 ]]></operation>
