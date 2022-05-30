@@ -101,6 +101,11 @@
         <sections>random-detect</sections>
       </sections>
     </variable>
+    <variable displayName="police_rate_unit" name="params.pmap_class.0.police_rate_unit" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>police</sections>
+      </sections>
+    </variable>
   </variables>
   <example>
     <content>policy-map toCE-0-1152-0-640-60
@@ -225,10 +230,16 @@ policy-map  {$params.object_id}
   {if isset($pmap_class.priority) && $pmap_class.priority}
   {$pmap_class.priority} 
   {/if} 
+  {* police CIR *}
   {if isset($pmap_class.police_cir_burst) && $pmap_class.police_cir_burst}police rate {$pmap_class.police_cir_burst} {/if}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst} 
   {/if}
+  {* police rate *}
   {if isset($pmap_class.police_cir_percent)} police rate percent {$pmap_class.police_cir_percent}
   {/if}
+  {if isset($pmap_class.police_rate)} police rate {$pmap_class.police_rate} {if isset($pmap_class.police_rate_unit)}{$pmap_class.police_rate_unit) {/if}
+  {/if}
+
+  {* service policy *}
   {if isset($pmap_class.service_policy) && $pmap_class.service_policy}
   service-policy {$pmap_class.service_policy}  
   {/if}
