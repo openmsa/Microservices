@@ -134,7 +134,82 @@
     <variable displayName="_next" name="params._next" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="23" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
-    <content>show</content>
+    <content>config firewall policy
+edit 7
+set srcintf &quot;testVPNNav&quot;
+set dstintf &quot;port2&quot;
+set srcaddr &quot;Remote_LAN&quot;
+set dstaddr &quot;Internal_LAN&quot;
+set action accept
+set schedule &quot;always&quot;
+set service &quot;ALL&quot;
+set logtraffic all
+set comments &quot;VPN incoming policy&quot;
+next
+edit 6
+set src
+intf &quot;port2&quot;
+set dstintf &quot;testVPNNav&quot;
+set srcaddr &quot;Internal_LAN&quot;
+set dstaddr &quot;Remote_LAN&quot;
+set action accept
+set schedule &quot;always&quot;
+set service &quot;ALL&quot;
+set logtraffic all
+set comments &quot;VPN outgoing poilicy&quot;
+next
+edit 1
+set srcintf &quot;port1&quot;
+set dstintf &quot;port2&quot;
+set srcaddr &quot;all&quot;
+set dstaddr &quot;all&quot;
+set action accept
+set schedule &quot;always&quot;
+set service &quot;ALL&quot;
+set utm-status enable
+set av-profile &quot;default&quot;
+set webfilter-profile &quot;default&quot;
+set ips-sensor &quot;all_default&quot;
+set application-list &quot;default&quot;
+set profile-protocol-options &quot;default&quot;
+set deep-inspection-options &quot;default&quot;
+nextedit 3
+set srcintf &quot;port2&quot;
+set dstintf &quot;port1&quot;
+set srcaddr &quot;all&quot;
+set dstaddr &quot;all&quot;
+set action accept
+set schedule &quot;always&quot;
+set service &quot;ALL&quot;
+set utm-status enable
+set logtraffic disable
+set ips-sensor &quot;IPS_Block&quot;
+set profile-protocol-options &quot;ScanPorts&quot;
+next
+edit 4
+set srcintf &quot;port1&quot;
+set dstintf &quot;port2&quot;
+set srcaddr &quot;all&quot;
+set dstaddr &quot;all&quot;
+set action accept
+set schedule &quot;always&quot;
+set service &quot;ALL&quot;
+set utm-status enable
+set logtraffic all
+set logtraffic-start enable
+set capture-packet enable
+set ips-sensor &quot;IPS_Block&quot;
+set profile-protocol-options &quot;ScanPorts&quot;
+nextedit 5
+set srcintf &quot;port1&quot;
+set dstintf &quot;any&quot;
+set srcaddr &quot;Antoine123&quot;
+set dstaddr &quot;all&quot;
+set schedule &quot;always&quot;
+set service &quot;HTTP&quot;
+set logtraffic all
+next
+end</content>
   </example>
   <command name="IMPORT">
     <operation><![CDATA[
