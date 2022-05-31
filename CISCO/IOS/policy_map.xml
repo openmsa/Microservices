@@ -143,11 +143,10 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation><![CDATA[show running-config | section policy-map]]></operation>
+    <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
     <parser>
       <section>
-        <regexp>@\s*policy-map\s+(?&lt;object_id&gt;\S+).*$@</regexp>
-        <xpath></xpath>
+        <regexp>@\s*policy-map\s+(?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
@@ -155,82 +154,83 @@
             <lines>
               <line>
                 <array/>
-                <regexp>@^\s+queue-limit\s+(?&lt;queue_limit&gt;.*)$@</regexp>
+                <regexp>@\s+queue-limit\s+(?&lt;queue_limit&gt;.*)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*(?&lt;priority&gt;priority)\s*(?&lt;priority_bw&gt;\d+)?\s*(level (?&lt;priority_level&gt;\d+))?\s*(percent (?&lt;priority_percent&gt;\d+))?\s*(?&lt;priority_burst&gt;\d+)?$@</regexp>
+                <regexp>@\s*(?&lt;priority&gt;priority)\s*(?&lt;priority_bw&gt;\d+)?\s*(level (?&lt;priority_level&gt;\d+))?\s*(percent (?&lt;priority_percent&gt;\d+))?\s*(?&lt;priority_burst&gt;\d+)?@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*police\s*((cir)?\s*(?&lt;police_cir_burst&gt;\d+))?\s*((bc)?\s*(?&lt;police_bc_burst&gt;\d+))?\s*((be)? (?&lt;police_be_burst&gt;\d+))?\s*(conform-action (?&lt;conform_action&gt;((?!exceed-action).)*))?\s*(exceed-action\s*(?&lt;exceed_action&gt;((?!violate-action).)*))?\s*(violate-action\s*(?&lt;violate_action&gt;.*))?$@</regexp>
+                <regexp>@\s*police (((rate)?\s*(?&lt;police_rate&gt;\d+)(\s?(?&lt;police_rate_unit&gt;bps )?))?|(rate percent\s*(?&lt;police_rate_percent&gt;\d+))?|(cir percent\s*(?&lt;police_cir_percent&gt;\d+))?)\s*(conform-action (?&lt;conform_action&gt;((?!exceed-action).)*))?\s*(exceed-action (?&lt;exceed_action&gt;((?!violate-action).)*))?\s*(violate-action (?&lt;violate_action&gt;.*))?@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*police ((rate\s*(?&lt;police_rate&gt;\d+))?|(rate percent\s*(?&lt;police_rate_percent&gt;\d+))?|(cir percent\s*(?&lt;police_cir_percent&gt;\d+))?)\s*(conform-action (?&lt;conform_action&gt;((?!exceed-action).)*))?\s*(exceed-action (?&lt;exceed_action&gt;((?!violate-action).)*))?\s*(violate-action (?&lt;violate_action&gt;.*))?$@</regexp>
+                <regexp>@\s*police\s*((cir)?\s*(?&lt;police_cir_burst&gt;\d+))?\s*((bc)?\s*(?&lt;police_bc_burst&gt;\d+))?\s*((be)? (?&lt;police_be_burst&gt;\d+))?\s*(conform-action (?&lt;conform_action&gt;((?!exceed-action).)*))?\s*(exceed-action\s*(?&lt;exceed_action&gt;((?!violate-action).)*))?\s*(violate-action\s*(?&lt;violate_action&gt;.*))?
+@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s+service-policy\s+(?&lt;service_policy&gt;.*)$@</regexp>
+                <regexp>@\s+service-policy\s+(?&lt;service_policy&gt;.*)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array name="rd">
-                  <regexp>@^\s*random-detect\s*dscp\s*(?&lt;rd_service_codepoint&gt;\d+)\s*(?&lt;rd_min_threshold&gt;\d+)\s*(?&lt;rd_max_threshold&gt;\d+).*$@</regexp>
-                  <regexp>@^\s*random-detect (?&lt;rd_wred_type&gt;\S+)-based.*@</regexp>
+                  <regexp>@\s*random-detect\s*dscp\s*(?&lt;rd_service_codepoint&gt;\d+)\s*(?&lt;rd_min_threshold&gt;\d+)\s*(?&lt;rd_max_threshold&gt;\d+).*@</regexp>
+                  <regexp>@\s*random-detect (?&lt;rd_wred_type&gt;\S+)-based.*@</regexp>
                 </array>
                 <regexp/>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s+shape\s+(?&lt;shape&gt;.*)@</regexp>
+                <regexp>@\s*shape\s+(?&lt;shape&gt;.*)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s+(?&lt;fair_queue&gt;(fair-queue))$@</regexp>
+                <regexp>@\s*(?&lt;fair_queue&gt;(fair-queue))@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array name="set">
-                  <regexp>@^\s+set\s+(?&lt;set_type&gt;\S+)\s+(?&lt;set_value&gt;.*)@</regexp>
+                  <regexp>@\s+set\s+(?&lt;set_type&gt;\S+)\s+(?&lt;set_value&gt;.*)@</regexp>
                 </array>
                 <regexp/>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s+bandwidth\s+((percent (?&lt;bandwidth_percent&gt;\d+))|(?&lt;bandwidth&gt;.*))$@</regexp>
+                <regexp>@\s+bandwidth\s+((percent (?&lt;bandwidth_percent&gt;\d+))|(?&lt;bandwidth&gt;.*))@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*conform-action (?&lt;conform_action&gt;.*)$@</regexp>
+                <regexp>@\s*conform-action (?&lt;conform_action&gt;.*)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*exceed-action (?&lt;exceed_action&gt;.*)$@</regexp>
+                <regexp>@\s*exceed-action (?&lt;exceed_action&gt;.*)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*violate-action (?&lt;violate_action&gt;.*)$@</regexp>
+                <regexp>@\s*violate-action (?&lt;violate_action&gt;.*)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*(?&lt;priority&gt;priority)$@</regexp>
+                <regexp>@\s*(?&lt;priority&gt;priority)@</regexp>
                 <xpath/>
               </line>
             </lines>
             <lines/>
-            <regexp>@^\s+class\s+(?&lt;class_name&gt;\S+)@</regexp>
+            <regexp>@\s*class\s+(?&lt;class_name&gt;\S+)@</regexp>
           </array>
           <regexp/>
           <xpath/>
