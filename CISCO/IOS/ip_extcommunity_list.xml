@@ -37,8 +37,7 @@
     <operation><![CDATA[show running-config | section community-list]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+extcommunity-list\s*(standard|expanded)?\s*(?&lt;name&gt;\d+|\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;type&gt;cost|soo|rt)\s+(?&lt;list&gt;(\S+)\S?)+$@</regexp>
-        <xpath></xpath>
+        <regexp>@\s*ip\s+extcommunity-list\s*(standard|expanded)?\s*(?&lt;name&gt;\d+|\S+)\s+(?&lt;rule&gt;permit|deny)\s+(?&lt;type&gt;cost|soo|rt)\s+(?&lt;list&gt;(\S+)\S?)+@</regexp>
       </section>
       <lines>
         <ignore>

@@ -39,13 +39,14 @@
 {$filtered_ip_extcommunity_list=[]} 
 {$icl_idx=0}
 
+{if isset($ip_extcommunity_list)}
 {foreach $ip_extcommunity_list as $icl}
     {if (isset($icl.name) &amp;&amp; $params.object_id == $icl.name) || (isset($icl.number) &amp;&amp; $params.object_id == $icl.number)}
         {$filtered_ip_extcommunity_list[$icl_idx]=$icl}
     {/if}
     {$icl_idx=$icl_idx+1}
 {/foreach}
-
+{/if}
 {$idx=0}
 {if isset($filtered_ip_extcommunity_list)}
     {foreach $filtered_ip_extcommunity_list as $ficl}
