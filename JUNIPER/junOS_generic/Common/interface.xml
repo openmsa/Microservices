@@ -1,0 +1,94 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>2000</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Interfaces</name>
+    <group>Network</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP Address" name="params.address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network mask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="enable" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>disable</values>
+        <values>enable</values>
+      </values>
+    </variable>
+    <variable displayName="_masklen" name="params._masklen" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[show configuration interfaces | display set]]></operation>
+    <post_template>{if isset($params._masklen)}
+{get_mask_from_len var=&quot;m&quot; len=$params._masklen}
+{assign_object_variable var=&quot;mask&quot; value=$m}
+{/if}
+{if empty($params.status)}
+{assign_object_variable var=&quot;status&quot; value=&quot;enable&quot;}
+{/if}
+</post_template>
+    <parser>
+      <section>
+        <regexp>@^set\s+interfaces\s+(?&lt;object_id&gt;\S+)\s+unit\s+0\s+family\s+inet\s+(?&lt;type&gt;address|dhcp)\s?((?&lt;address&gt;[\d\.]+)\/(?&lt;_masklen&gt;\d+))?@</regexp>
+        <regexp>@^set\s+interfaces\s+(?&lt;object_id&gt;\S+)\s+(?&lt;status&gt;disable)\s*$@</regexp>
+        <regexp>@^set\s+interfaces\s+(?&lt;object_id&gt;\S+)@</regexp>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{if !empty($params.address)}
+set interfaces {$params.object_id} unit 0 family inet address {$params.address}/{get_mask_len mask=$params.mask}
+{/if}
+{if $params.status=="disable"}
+set interfaces {$params.object_id} disable
+{/if}
+]]></operation>
+  </command>
+  <command name="UPDATE">
+    <operation><![CDATA[{if !empty($params.address)}
+set interfaces {$params.object_id} unit 0 family inet address {$params.address}/{get_mask_len mask=$params.mask}
+{else}
+delete interfaces {$params.object_id} unit 0 family inet address {$interface.$object_id.address}/{get_mask_len mask=$interface.$object_id.mask}
+{/if}
+{if $params.status=="disable"}
+set interfaces {$params.object_id} disable
+{else}
+delete interfaces {$params.object_id} disable
+{/if}
+]]></operation>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[{assign var="params" value=$route.$object_id}
+{if !empty($params.address)}
+delete interfaces {$params.object_id} unit 0 family inet address {$params.address}}/{get_mask_len mask=$params.mask}
+{/if}
+]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+</ObjectDefinition>

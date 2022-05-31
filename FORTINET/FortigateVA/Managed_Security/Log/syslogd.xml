@@ -25,19 +25,22 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="syslogd" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="Syslog" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Status" name="params.syslogd3_status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Syslogd3" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="disable" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <values displayValue="Enable">enable</values>
-        <values displayValue="Disable">disable</values>
-      </values>
+    <variable displayName="Syslogd" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="50" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="Syslog" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.syslogd_status" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="75" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Port" name="params.syslogd_port" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.syslogd_status" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Port" displayOrder="8" maxLength="0" isMandatory="true" isUserLocked="false" name="params.syslogd_port" selectorValue="true" startIncrement="0" type="Integer" default="514"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="Port" displayOrder="8" maxLength="0" isMandatory="false" isUserLocked="false" name="params.syslogd_port" selectorValue="false" startIncrement="0" type="String"/>
+      </behaviors>
     </variable>
-    <variable displayName="Port" name="params.syslogd3_port" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="514" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <values>514</values>
-      </values>
+    <variable displayName="Server IP Address" name="params.syslogd_server_ip" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.syslogd_status" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <behaviors>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="true" displayName="Server IP Address" displayOrder="12" maxLength="0" isMandatory="true" isUserLocked="false" name="params.syslogd_server_ip" selectorValue="true" startIncrement="0" type="IpAddress"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="false" visible="false" displayName="Server IP Address" displayOrder="12" maxLength="0" isMandatory="false" isUserLocked="false" name="params.syslogd_server_ip" selectorValue="false" startIncrement="0" type="String"/>
+      </behaviors>
     </variable>
-    <variable displayName="Server IP Address" name="params.syslogd3_server_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_syslogd_server_ip" name="params._syslogd_server_ip" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_syslogd_status" name="params._syslogd_status" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>FGTAWS0003E6099A # show full-configuration log syslogd3 setting
@@ -52,26 +55,36 @@ set format default
 end</content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration log syslogd3 setting</operation>
+    <operation><![CDATA[show full-configuration log syslogd setting##show full-configuration log syslogd2 setting##show full-configuration log syslogd3 setting##show full-configuration log syslogd4 setting]]></operation>
+    <post_template>{if $params._syslogd_status == &quot;enable&quot;}
+{assign_object_variable var=&quot;syslogd_status&quot; value=true}
+{else}
+{assign_object_variable var=&quot;syslogd_status&quot; value=false}
+
+{/if}
+{if isset($params.syslogd_server_ip) &amp;&amp; $params.syslogd_server_ip != &quot;&quot;}
+      {assign_object_variable var=&quot;_syslogd_server_ip&quot; value=&quot;{$params.syslogd_server_ip}&quot;}
+{/if}
+</post_template>
     <parser>
       <section>
         <regexp>@config log (?&lt;object_id&gt;\S+) setting@</regexp>
-        <xpath/>
+        <xpath></xpath>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@\s*set status (?&lt;syslogd3_status&gt;\S+)@</regexp>
+          <regexp>@\s*set status (?&lt;_syslogd_status&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@\s*set port (?&lt;syslogd3_port&gt;\d+)@</regexp>
+          <regexp>@\s*set port (?&lt;syslogd_port&gt;\d+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@\s*set server &quot;(?&lt;syslogd3_server_ip&gt;[^&quot;]+)&quot;@</regexp>
+          <regexp>@\s*set server &quot;(?&lt;syslogd_server_ip&gt;[^&quot;]+)&quot;@</regexp>
           <xpath/>
         </line>
         <ignore>
@@ -81,37 +94,28 @@ end</content>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config log syslogd3 setting
-{if $params.syslogd3_status==&quot;enable&quot;}
-set status enable{if !empty($params.syslogd3_facility_name)}
-set facility {$params.syslogd3_facility_name}
-{/if}
-{if !empty($params.syslogd3_port)}
-set port {$params.syslogd3_port}
-{else}
+    <operation><![CDATA[{if $params.syslogd_status == "1" || $params.syslogd_status == true}
+config log {$syslogd.$object_id.object_id} setting
+set status enable
+  {if !empty($params.syslogd_facility_name)}
+set facility {$params.syslogd_facility_name}
+  {/if}
+  {if !empty($params.syslogd_port)}
+set port {$params.syslogd_port}
+  {else}
 set port 514
-{/if}
-set server {$params.syslogd3_server_ip}
+  {/if}
+set server {$params.syslogd_server_ip}
+end
 {else}
+config log {$syslogd.$object_id.object_id} setting
 set status disable
-{/if}
-end</operation>
+end
+{/if}]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{if $params.syslogd3_status==&quot;enable&quot;}
-config log syslogd3 setting
-set status {$params.syslogd3_status}
-{if !empty($params.syslogd3_facility_name)}
-set facility {$params.syslogd3_facility_name}
-{/if}
-{if !empty($params.syslogd3_port)}
-set port {$params.syslogd3_port}
-{else}
-set port 514
-{/if}set server {$params.syslogd3_server_ip}
-end
-{/if}</operation>
+    <operation><![CDATA[]]></operation>
   </command>
   <command name="DELETE"/>
   <command name="READ"/>

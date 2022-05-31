@@ -1,45 +1,50 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
-    <configType>xml</configType>
-    <defaultDisplay>false</defaultDisplay>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
     <description/>
     <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/Shield.png</icon>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importrank>2</importrank>
-    <name>Security Profile Group</name>
+    <serviceTaskType/>
     <order>1</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>Security Profile Group</name>
+    <group>Objects</group>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Name" displayOrder="0" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Antivirus" displayOrder="1" maxLength="200" name="params.virus" startIncrement="0" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Anti-Spyware" displayOrder="2" maxLength="200" name="params.spyware" startIncrement="0" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Vulnerability Protection" displayOrder="3" maxLength="200" name="params.vulnerability" startIncrement="0" type="String"/>
-    <variable numberOfRowMax="3000" displayName="URL Filtering" displayOrder="4" maxLength="200" name="params.url_filtering" startIncrement="0" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Antivirus" name="params.virus" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Anti-Spyware" name="params.spyware" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Vulnerability Protection" name="params.vulnerability" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="URL Filtering" name="params.url_filtering" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>urlf_user_profile</class>
       </classes>
     </variable>
-    <variable numberOfRowMax="3000" displayName="File Blocking" displayOrder="5" maxLength="200" name="params.file_blocking" startIncrement="0" type="String"/>
+    <variable displayName="File Blocking" name="params.file_blocking" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>Rest API Url
-/api/?type=config&amp;action=get&amp;xpath=/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profile-group
+/api/?type=config&amp;action=get&amp;xpath=/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profile-group
 
 &lt;profile-group &gt;
-&lt;entry name="HGU"&gt;
+&lt;entry name=&quot;HGU&quot;&gt;
 
 &lt;virus&gt;
-&lt;member admin="admin" time="2015/08/03 07:28:46"&gt;default&lt;/member&gt;
+&lt;member admin=&quot;admin&quot; time=&quot;2015/08/03 07:28:46&quot;&gt;default&lt;/member&gt;
 &lt;/virus&gt;
 
 &lt;spyware&gt;
@@ -62,114 +67,120 @@
 &lt;/profile-group&gt;
 </content>
   </example>
-<command name="CREATE">
+  <command name="CREATE">
+    <operation><![CDATA[{if !empty($params.virus)}
+<virus>
+<member>{$params.virus}</member>
+</virus>
+{/if}
+{if !empty($params.spyware)}
+<spyware>
+<member>{$params.spyware}</member>
+</spyware>
+{/if}
+{if !empty($params.vulnerability)}
+<vulnerability>
+<member>{$params.vulnerability}</member>
+</vulnerability>
+{/if}
+{if !empty($params.url_filtering)}
+<url-filtering>
+<member>{$params.url_filtering}</member>
+</url-filtering>
+{/if}
+{if !empty($params.file_blocking)}
+<file-blocking>
+<member>{$params.file_blocking}</member>
+</file-blocking>
+{/if}
+]]></operation>
     <rest>type=config&amp;action=set
 </rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profile-group/entry[@name='{$params.object_id}']
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profile-group/entry[@name=&apos;{$params.object_id}&apos;]
 </xpath>
-    <operation>{if !empty($params.virus)}
-&lt;virus&gt;
-&lt;member&gt;{$params.virus}&lt;/member&gt;
-&lt;/virus&gt;
-{/if}
-{if !empty($params.spyware)}
-&lt;spyware&gt;
-&lt;member&gt;{$params.spyware}&lt;/member&gt;
-&lt;/spyware&gt;
-{/if}
-{if !empty($params.vulnerability)}
-&lt;vulnerability&gt;
-&lt;member&gt;{$params.vulnerability}&lt;/member&gt;
-&lt;/vulnerability&gt;
-{/if}
-{if !empty($params.url_filtering)}
-&lt;url-filtering&gt;
-&lt;member&gt;{$params.url_filtering}&lt;/member&gt;
-&lt;/url-filtering&gt;
-{/if}
-{if !empty($params.file_blocking)}
-&lt;file-blocking&gt;
-&lt;member&gt;{$params.file_blocking}&lt;/member&gt;
-&lt;/file-blocking&gt;
-{/if}
-</operation>
   </command>
   <command name="UPDATE">
-    <rest>type=config&amp;action=edit
-</rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profile-group/entry[@name='{$params.object_id}']
-</xpath>
-    <operation>&lt;entry name="{$params.object_id}"&gt;
+    <operation><![CDATA[<entry name="{$params.object_id}">
 {if !empty($params.virus)}
-&lt;virus&gt;
-&lt;member&gt;{$params.virus}&lt;/member&gt;
-&lt;/virus&gt;
+<virus>
+<member>{$params.virus}</member>
+</virus>
 {/if}
 {if !empty($params.spyware)}
-&lt;spyware&gt;
-&lt;member&gt;{$params.spyware}&lt;/member&gt;
-&lt;/spyware&gt;
+<spyware>
+<member>{$params.spyware}</member>
+</spyware>
 {/if}
 {if !empty($params.vulnerability)}
-&lt;vulnerability&gt;
-&lt;member&gt;{$params.vulnerability}&lt;/member&gt;
-&lt;/vulnerability&gt;
+<vulnerability>
+<member>{$params.vulnerability}</member>
+</vulnerability>
 {/if}
 {if !empty($params.url_filtering)}
-&lt;url-filtering&gt;
-&lt;member&gt;{$params.url_filtering}&lt;/member&gt;
-&lt;/url-filtering&gt;
+<url-filtering>
+<member>{$params.url_filtering}</member>
+</url-filtering>
 {/if}
 {if !empty($params.file_blocking)}
-&lt;file-blocking&gt;
-&lt;member&gt;{$params.file_blocking}&lt;/member&gt;
-&lt;/file-blocking&gt;
+<file-blocking>
+<member>{$params.file_blocking}</member>
+</file-blocking>
 {/if}
-&lt;/entry&gt;
-</operation>
+</entry>
+]]></operation>
+    <rest>type=config&amp;action=edit
+</rest>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profile-group/entry[@name=&apos;{$params.object_id}&apos;]
+</xpath>
   </command>
   <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>type=config&amp;action=delete
 </rest>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profile-group/entry[@name='{$params.object_id}']
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profile-group/entry[@name=&apos;{$params.object_id}&apos;]
 </xpath>
-    <operation>
-</operation>
   </command>
   <command name="IMPORT">
-    <operation>type=config&amp;action=show</operation>
-    <xpath>/config/devices/entry[@name='localhost.localdomain']/vsys/entry[@name='vsys1']/profile-group</xpath>
+    <operation><![CDATA[type=config&action=show]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//profile-group/entry</xpath>
       </section>
       <lines>
         <line>
-          <xpath>//entry/file-blocking</xpath>
+          <array/>
           <regexp>@&lt;member&gt;(?&lt;file_blocking&gt;.*)&lt;/member&gt;@</regexp>
+          <xpath>//entry/file-blocking</xpath>
         </line>
         <line>
-          <xpath>//entry/url-filtering</xpath>
+          <array/>
           <regexp>@&lt;member&gt;(?&lt;url_filtering&gt;.*)&lt;/member&gt;@</regexp>
+          <xpath>//entry/url-filtering</xpath>
         </line>
         <line>
-          <xpath>//entry/vulnerability</xpath>
+          <array/>
           <regexp>@&lt;member&gt;(?&lt;vulnerability&gt;.*)&lt;/member&gt;@</regexp>
+          <xpath>//entry/vulnerability</xpath>
         </line>
         <line>
-          <xpath>//entry/spyware</xpath>
+          <array/>
           <regexp>@&lt;member&gt;(?&lt;spyware&gt;.*)&lt;/member&gt;@</regexp>
+          <xpath>//entry/spyware</xpath>
         </line>
         <line>
+          <array/>
+          <regexp>@name=&quot;(?&lt;object_id&gt;.*)&quot;@</regexp>
           <xpath>//entry/@name</xpath>
-          <regexp>@name="(?&lt;object_id&gt;.*)"@</regexp>
         </line>
         <line>
-          <xpath>//entry/virus</xpath>
+          <array/>
           <regexp>@&lt;member&gt;(?&lt;virus&gt;.*)&lt;/member&gt;@</regexp>
+          <xpath>//entry/virus</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/config/devices/entry[@name=&apos;localhost.localdomain&apos;]/vsys/entry[@name=&apos;vsys1&apos;]/profile-group</xpath>
   </command>
 </ObjectDefinition>

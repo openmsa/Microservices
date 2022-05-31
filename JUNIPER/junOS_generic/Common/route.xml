@@ -1,0 +1,91 @@
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>subnet</displayField>
+    <serviceTaskType/>
+    <order>2100</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Routes</name>
+    <group>Network</group>
+    <importonce>false</importonce>
+    <importrank>1</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>true</sortascending>
+    <sortauto>true</sortauto>
+    <sortnumerical>true</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="id" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Subnet" name="params.subnet" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Mask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Gateway" name="params.gateway" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface" name="params.interface" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>interface</class>
+      </classes>
+    </variable>
+    <variable displayName="Metric" name="params.metric" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_masklen" name="params._masklen" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>set routing-options static route 10.11.11.0/24 next-hop 10.11.11.254
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[show configuration routing-options | display set]]></operation>
+    <post_template>{if isset($params._masklen)}
+{get_mask_from_len var=&quot;m&quot; len=$params._masklen}
+{assign_object_variable var=&quot;mask&quot; value=$m}
+{else}
+{assign_object_variable var=&quot;mask&quot; value=&quot;0.0.0.0&quot;}
+{/if}</post_template>
+    <parser>
+      <section>
+        <regexp>@^set\s+routing-options\s+static\s+route\s+(?&lt;subnet&gt;[^/]+)/(?&lt;_masklen&gt;\d+)\s+(qualified-)?next-hop\s+(?&lt;gateway&gt;\S+)@</regexp>
+        <regexp>@^set\s+routing-options\s+static\s+route\s+(?&lt;subnet&gt;[^/]+)/(?&lt;_masklen&gt;\d+)\s+(qualified-)?next-hop\s+(?&lt;gateway&gt;\S+)\s+preference\s+(?&lt;metric&gt;\d+)@</regexp>
+        <regexp>@^set\s+routing-options\s+static\s+route\s+(?&lt;subnet&gt;[^/]+)/(?&lt;_masklen&gt;\d+)\s+(qualified-)?next-hop\s+(?&lt;gateway&gt;\S+)@</regexp>
+      </section>
+      <lines/>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{if isset($params.metric)}
+set routing-options static route {$params.subnet}/{get_mask_len mask=$params.mask} qualified-next-hop {$params.gateway} preference {$params.metric}
+{else}
+set routing-options static route {$params.subnet}/{get_mask_len mask=$params.mask} next-hop {$params.gateway}
+{/if}
+]]></operation>
+  </command>
+  <command name="UPDATE">
+    <operation><![CDATA[{if isset($route.$object_id.metric)}
+delete routing-options static route {$route.$object_id.subnet}/{get_mask_len mask=$route.$object_id.mask} qualified-next-hop {$route.$object_id.gateway}
+{else}
+delete routing-options static route {$route.$object_id.subnet}/{get_mask_len mask=$route.$object_id.mask} next-hop {$route.$object_id.gateway}
+{/if}
+{if isset($params.metric)}
+set routing-options static route {$params.subnet}/{get_mask_len mask=$params.mask} qualified-next-hop {$params.gateway} preference {$params.metric}
+{else}
+set routing-options static route {$params.subnet}/{get_mask_len mask=$params.mask} next-hop {$params.gateway}
+{/if}
+]]></operation>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[{assign var="params" value=$route.$object_id}
+{if isset($params.metric)}
+delete routing-options static route {$params.subnet}/{get_mask_len mask=$params.mask} qualified-next-hop {$params.gateway}
+{else}
+delete routing-options static route {$params.subnet}/{get_mask_len mask=$params.mask} next-hop {$params.gateway}
+{/if}
+]]></operation>
+  </command>
+</ObjectDefinition>

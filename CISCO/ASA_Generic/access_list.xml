@@ -25,78 +25,78 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Index" name="params.index" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Format" name="params.sourceformat" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <value>host</value>
-      </values>
+    <variable displayName="Index" name="params.index" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Format" name="params.sourceformat" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Source</section>
+        <sections>Source</sections>
       </sections>
+      <values>
+        <values>host</values>
+      </values>
     </variable>
-    <variable displayName="IP" name="params.sourceip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="any" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="IP" name="params.sourceip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="any" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Source</section>
+        <sections>Source</sections>
       </sections>
       <classes>
         <class>addressObject</class>
       </classes>
     </variable>
-    <variable displayName="Mask" name="params.sourcemask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <value>255.255.255.255</value>
-      </values>
+    <variable displayName="Mask" name="params.sourcemask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Source</section>
+        <sections>Source</sections>
+      </sections>
+      <values>
+        <values>255.255.255.255</values>
+      </values>
+    </variable>
+    <variable displayName="Format" name="params.destformat" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Destination</sections>
+      </sections>
+      <values>
+        <values>host</values>
+      </values>
+    </variable>
+    <variable displayName="IP" name="params.destip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="any" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Destination</sections>
       </sections>
     </variable>
-    <variable displayName="Format" name="params.destformat" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <value>host</value>
-      </values>
+    <variable displayName="Mask" name="params.destmask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Destination</section>
+        <sections>Destination</sections>
       </sections>
-    </variable>
-    <variable displayName="IP" name="params.destip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="any" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <section>Destination</section>
-      </sections>
-    </variable>
-    <variable displayName="Mask" name="params.destmask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>255.255.255.255</value>
-      </values>
-      <sections>
-        <section>Destination</section>
-      </sections>
-    </variable>
-    <variable displayName="Protocol" name="params.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <values>
-        <value>TCP</value>
-        <value>UDP</value>
-        <value>IP</value>
-        <value>ICMP</value>
+        <values>255.255.255.255</values>
       </values>
     </variable>
-    <variable displayName="Action" name="params.right" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="permit" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Protocol" name="params.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>deny</value>
-        <value>permit</value>
+        <values>TCP</values>
+        <values>UDP</values>
+        <values>IP</values>
+        <values>ICMP</values>
       </values>
     </variable>
-    <variable displayName="Options" name="params.options" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="log" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.right" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="permit" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>deny</values>
+        <values>permit</values>
+      </values>
+    </variable>
+    <variable displayName="Options" name="params.options" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="log" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>access-list 300 line 1 extended deny object ftp 30.0.0.0 255.255.255.0 host 192.168.10.10 log informational interval 300 (hitcnt=0) 0x7927d9e4
 </content>
   </example>
   <command name="IMPORT">
-    <operation>show access-list</operation>
+    <operation><![CDATA[show running-config | inc access-list]]></operation>
     <parser>
       <section name="interfaces">
-        <regexp>@^access-list (?&lt;object_id>\S+) line (?&lt;index>\d+) extended (?&lt;right>\S+) object (?&lt;protocol>\S+) (?&lt;sourceip>[0-9.]+) (?&lt;sourcemask>[0-9.]+) (?&lt;destip>[0-9.]+) (?&lt;destmask>[0-9.]+) (?&lt;options>[^\(]+)?+(\()?+.*$@</regexp>
+        <regexp>@^access-list (?&lt;object_id&gt;\S+) line (?&lt;index&gt;\d+) extended (?&lt;right&gt;\S+) object (?&lt;protocol&gt;\S+) (?&lt;sourceip&gt;[0-9.]+) (?&lt;sourcemask&gt;[0-9.]+) (?&lt;destip&gt;[0-9.]+) (?&lt;destmask&gt;[0-9.]+) (?&lt;options&gt;[^\(]+)?+(\()?+.*$@</regexp>
       </section>
       <lines>
         <ignore>
@@ -112,15 +112,15 @@
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>{if $params.sourceip == 'any' &amp;&amp; $params.destip == 'any'}
+    <operation><![CDATA[{if $params.sourceip == 'any' && $params.destip == 'any'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip}{$params.options|default:'log'}
-{else if $params.sourceip == 'any' &amp;&amp; $params.destformat == 'host'}
+{else if $params.sourceip == 'any' && $params.destformat == 'host'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destformat} {$params.destip}{$params.options|default:'log'}
 {else if $params.sourceip == 'any'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} {$params.destmask}{$params.options|default:'log'}
-{else if $params.sourceformat == 'host' &amp;&amp; $params.destip == 'any'}
+{else if $params.sourceformat == 'host' && $params.destip == 'any'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip}{$params.options|default:'log'}
-{else if $params.sourceformat == 'host' &amp;&amp; $params.destformat == 'host'}
+{else if $params.sourceformat == 'host' && $params.destformat == 'host'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destformat} {$params.destip}{$params.options|default:'log'}
 {else if $params.sourceformat == 'host'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip} {$params.destmask}{$params.options|default:'log'}
@@ -131,22 +131,22 @@ access-list {$object_id} extended {$params.right|default:'permit'} {$params.prot
 {else}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destip} {$params.destmask}{$params.options|default:'log'}
 {/if}
-</operation>
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{*
-&lt;variables>&lt;variable name="params.sourceformat" type="String">&lt;values>&lt;value>host&lt;/value>&lt;/values>&lt;/variable>&lt;variable name="params.options" type="String">&lt;values>&lt;value>log&lt;/value>&lt;value>eq domain log&lt;/value>&lt;value>eq www log&lt;/value>&lt;value>eq https&lt;/value>&lt;value>eq pop3&lt;/value>&lt;/values>&lt;/variable>&lt;variable name="params.destformat" type="String">&lt;values>&lt;value>host&lt;/value>&lt;/values>&lt;/variable>&lt;variable name="params.destip" type="String">&lt;/variable>&lt;variable name="params.protocol" type="String">&lt;values>&lt;value>ip&lt;/value>&lt;value>tcp&lt;/value>&lt;value>udp&lt;/value>&lt;value>icmp&lt;/value>&lt;/values>&lt;/variable>&lt;variable name="params.destmask" type="IpMask">&lt;/variable>&lt;variable name="params.sourcemask" type="IpMask">&lt;/variable>&lt;variable name="params.right" type="String">&lt;values>&lt;value>permit&lt;/value>&lt;value>deny&lt;/value>&lt;/values>&lt;/variable>&lt;variable name="params.sourceip" type="String">&lt;/variable>
-&lt;/variables>
+    <operation><![CDATA[{*
+<variables><variable name="params.sourceformat" type="String"><values><value>host</value></values></variable><variable name="params.options" type="String"><values><value>log</value><value>eq domain log</value><value>eq www log</value><value>eq https</value><value>eq pop3</value></values></variable><variable name="params.destformat" type="String"><values><value>host</value></values></variable><variable name="params.destip" type="String"></variable><variable name="params.protocol" type="String"><values><value>ip</value><value>tcp</value><value>udp</value><value>icmp</value></values></variable><variable name="params.destmask" type="IpMask"></variable><variable name="params.sourcemask" type="IpMask"></variable><variable name="params.right" type="String"><values><value>permit</value><value>deny</value></values></variable><variable name="params.sourceip" type="String"></variable>
+</variables>
 *}
-{if $params.sourceip == 'any' &amp;&amp; $params.destip == 'any'}
+{if $params.sourceip == 'any' && $params.destip == 'any'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} {$params.options|default:'log'}
-{else if $params.sourceip == 'any' &amp;&amp; $params.destformat == 'host'}
+{else if $params.sourceip == 'any' && $params.destformat == 'host'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destformat} {$params.destip} {$params.options|default:'log'}
 {else if $params.sourceip == 'any'}
-access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} {$params.destmask} {$params.options|default:'log'}{else if $params.sourceformat == 'host' &amp;&amp; $params.destip == 'any'}
+access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.destip} {$params.destmask} {$params.options|default:'log'}{else if $params.sourceformat == 'host' && $params.destip == 'any'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip} {$params.options|default:'log'}
-{else if $params.sourceformat == 'host' &amp;&amp; $params.destformat == 'host'}
+{else if $params.sourceformat == 'host' && $params.destformat == 'host'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destformat} {$params.destip}{$params.options|default:'log'}
 {else if $params.sourceformat == 'host'}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceformat} {$params.sourceip} {$params.destip} {$params.destmask} {$params.options|default:'log'}{else if $params.destip == 'any'}
@@ -156,17 +156,17 @@ access-list {$object_id} extended {$params.right|default:'permit'} {$params.prot
 {else}
 access-list {$object_id} extended {$params.right|default:'permit'} {$params.protocol|default:'ip'} {$params.sourceip} {$params.sourcemask} {$params.destip} {$params.destmask} {$params.options|default:'log'}
 {/if}
-</operation>
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>{if $accesslist.$object_id.sourceip == 'any' &amp;&amp; $accesslist.$object_id.destip == 'any'}
+    <operation><![CDATA[{if $accesslist.$object_id.sourceip == 'any' && $accesslist.$object_id.destip == 'any'}
 no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip}{$params.options|default:'log'}
-{else if $accesslist.$object_id.sourceip == 'any' &amp;&amp; $accesslist.$object_id.destformat == 'host'}
+{else if $accesslist.$object_id.sourceip == 'any' && $accesslist.$object_id.destformat == 'host'}
 no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip}{$params.options|default:'log'}
 {else if $accesslist.$object_id.sourceip == 'any'}
-access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}{$params.options|default:'log'}{else if $accesslist.$object_id.sourceformat == 'host' &amp;&amp; $accesslist.$object_id.destip == 'any'}
+access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}{$params.options|default:'log'}{else if $accesslist.$object_id.sourceformat == 'host' && $accesslist.$object_id.destip == 'any'}
 no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip}{$params.options|default:'log'}
-{else if $accesslist.$object_id.sourceformat == 'host' &amp;&amp; $accesslist.$object_id.destformat == 'host'}
+{else if $accesslist.$object_id.sourceformat == 'host' && $accesslist.$object_id.destformat == 'host'}
 no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destformat} {$accesslist.$object_id.destip}{$params.options|default:'log'}
 {else if $accesslist.$object_id.destformat == 'host'}
 no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceformat} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}{$params.options|default:'log'}{else if $accesslist.$object_id.destip == 'any'}
@@ -176,7 +176,7 @@ no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist
 {else}
 no access-list {$object_id} extended {$accesslist.$object_id.right} {$accesslist.$object_id.protocol} {$accesslist.$object_id.sourceip} {$accesslist.$object_id.sourcemask} {$accesslist.$object_id.destip} {$accesslist.$object_id.destmask}{$params.options|default:'log'}
 {/if}
-</operation>
+]]></operation>
   </command>
   <command name="READ"/>
   <command name="LIST"/>

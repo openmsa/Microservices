@@ -1,240 +1,245 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
-    <configType>xml</configType>
-    <defaultDisplay>true</defaultDisplay>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <description/>
     <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Filtering</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importrank>2</importrank>
-    <name>Filtering Policies</name>
+    <serviceTaskType/>
     <order>1</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>true</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>Filtering Policies</name>
+    <group>Filtering</group>
+    <importonce>false</importonce>
+    <importrank>2</importrank>
     <reorderinstances>true</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable numberOfRowMax="3000" displayName="Alert categories" displayOrder="6" editable="false" maxLength="220" name="params.alert.0.member" type="Index">
-      <values>
-        <value>abortion</value>
-        <value>abused-drugs</value>
-        <value>adult</value>
-        <value>alcohol-and-tobacco</value>
-        <value>auctions</value>
-        <value>business-and-economy</value>
-        <value>computer-and-internet-info</value>
-        <value>content-delivery-networks</value>
-        <value>dating</value>
-        <value>educational-institutions</value>
-        <value>entertainment-and-arts</value>
-        <value>financial-services</value>
-        <value>gambling</value>
-        <value>games</value>
-        <value>government</value>
-        <value>hacking</value>
-        <value>health-and-medicine</value>
-        <value>home-and-garden</value>
-        <value>hunting-and-fishing</value>
-        <value>internet-communications-and-telephony</value>
-        <value>internet-portals</value>
-        <value>job-search</value>
-        <value>legal</value>
-        <value>malware</value>
-        <value>military</value>
-        <value>motor-vehicles</value>
-        <value>music</value>
-        <value>news</value>
-        <value>not-resolved</value>
-        <value>nudity</value>
-        <value>online-storage-and-backup</value>
-        <value>parked</value>
-        <value>peer-to-peer</value>
-        <value>personal-sites-and-blogs</value>
-        <value>philosophy-and-political-advocacy</value>
-        <value>phishing</value>
-        <value>private-ip-addresses</value>
-        <value>proxy-avoidance-and-anonymizers</value>
-        <value>questionable</value>
-        <value>real-estate</value>
-        <value>recreation-and-hobbies</value>
-        <value>reference-and-research</value>
-        <value>religion</value>
-        <value>search-engines</value>
-        <value>sex-education</value>
-        <value>shareware-and-freeware</value>
-        <value>shopping</value>
-        <value>social-networking</value>
-        <value>society</value>
-        <value>sports</value>
-        <value>stock-advice-and-tools</value>
-        <value>streaming-media</value>
-        <value>swimsuits-and-intimate-apparel</value>
-        <value>training-and-tools</value>
-        <value>translation</value>
-        <value>travel</value>
-        <value>unknown</value>
-        <value>weapons</value>
-        <value>web-advertisements</value>
-        <value>web-based-email</value>
-        <value>web-hosting</value>
-      </values>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Alert categories" name="params.alert.0.member" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="220" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <indexVariables>
         <var>params.block.0.member</var>
         <var>params.continue.0.member</var>
       </indexVariables>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="Block categories" displayOrder="8" editable="false" maxLength="220" name="params.block.0.member" type="Index">
       <values>
-        <value>abortion</value>
-        <value>abused-drugs</value>
-        <value>adult</value>
-        <value>alcohol-and-tobacco</value>
-        <value>auctions</value>
-        <value>business-and-economy</value>
-        <value>computer-and-internet-info</value>
-        <value>content-delivery-networks</value>
-        <value>dating</value>
-        <value>educational-institutions</value>
-        <value>entertainment-and-arts</value>
-        <value>financial-services</value>
-        <value>gambling</value>
-        <value>games</value>
-        <value>government</value>
-        <value>hacking</value>
-        <value>health-and-medicine</value>
-        <value>home-and-garden</value>
-        <value>hunting-and-fishing</value>
-        <value>internet-communications-and-telephony</value>
-        <value>internet-portals</value>
-        <value>job-search</value>
-        <value>legal</value>
-        <value>malware</value>
-        <value>military</value>
-        <value>motor-vehicles</value>
-        <value>music</value>
-        <value>news</value>
-        <value>not-resolved</value>
-        <value>nudity</value>
-        <value>online-storage-and-backup</value>
-        <value>parked</value>
-        <value>peer-to-peer</value>
-        <value>personal-sites-and-blogs</value>
-        <value>philosophy-and-political-advocacy</value>
-        <value>phishing</value>
-        <value>private-ip-addresses</value>
-        <value>proxy-avoidance-and-anonymizers</value>
-        <value>questionable</value>
-        <value>real-estate</value>
-        <value>recreation-and-hobbies</value>
-        <value>reference-and-research</value>
-        <value>religion</value>
-        <value>search-engines</value>
-        <value>sex-education</value>
-        <value>shareware-and-freeware</value>
-        <value>shopping</value>
-        <value>social-networking</value>
-        <value>society</value>
-        <value>sports</value>
-        <value>stock-advice-and-tools</value>
-        <value>streaming-media</value>
-        <value>swimsuits-and-intimate-apparel</value>
-        <value>training-and-tools</value>
-        <value>translation</value>
-        <value>travel</value>
-        <value>unknown</value>
-        <value>weapons</value>
-        <value>web-advertisements</value>
-        <value>web-based-email</value>
-        <value>web-hosting</value>
+        <values>abortion</values>
+        <values>abused-drugs</values>
+        <values>adult</values>
+        <values>alcohol-and-tobacco</values>
+        <values>auctions</values>
+        <values>business-and-economy</values>
+        <values>computer-and-internet-info</values>
+        <values>content-delivery-networks</values>
+        <values>dating</values>
+        <values>educational-institutions</values>
+        <values>entertainment-and-arts</values>
+        <values>financial-services</values>
+        <values>gambling</values>
+        <values>games</values>
+        <values>government</values>
+        <values>hacking</values>
+        <values>health-and-medicine</values>
+        <values>home-and-garden</values>
+        <values>hunting-and-fishing</values>
+        <values>internet-communications-and-telephony</values>
+        <values>internet-portals</values>
+        <values>job-search</values>
+        <values>legal</values>
+        <values>malware</values>
+        <values>military</values>
+        <values>motor-vehicles</values>
+        <values>music</values>
+        <values>news</values>
+        <values>not-resolved</values>
+        <values>nudity</values>
+        <values>online-storage-and-backup</values>
+        <values>parked</values>
+        <values>peer-to-peer</values>
+        <values>personal-sites-and-blogs</values>
+        <values>philosophy-and-political-advocacy</values>
+        <values>phishing</values>
+        <values>private-ip-addresses</values>
+        <values>proxy-avoidance-and-anonymizers</values>
+        <values>questionable</values>
+        <values>real-estate</values>
+        <values>recreation-and-hobbies</values>
+        <values>reference-and-research</values>
+        <values>religion</values>
+        <values>search-engines</values>
+        <values>sex-education</values>
+        <values>shareware-and-freeware</values>
+        <values>shopping</values>
+        <values>social-networking</values>
+        <values>society</values>
+        <values>sports</values>
+        <values>stock-advice-and-tools</values>
+        <values>streaming-media</values>
+        <values>swimsuits-and-intimate-apparel</values>
+        <values>training-and-tools</values>
+        <values>translation</values>
+        <values>travel</values>
+        <values>unknown</values>
+        <values>weapons</values>
+        <values>web-advertisements</values>
+        <values>web-based-email</values>
+        <values>web-hosting</values>
       </values>
+    </variable>
+    <variable displayName="Block categories" name="params.block.0.member" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="220" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <indexVariables>
         <var>params.alert.0.member</var>
         <var>params.continue.0.member</var>
       </indexVariables>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="Continue categories" displayOrder="9" editable="false" maxLength="220" name="params.continue.0.member" type="Index">
       <values>
-        <value>abortion</value>
-        <value>abused-drugs</value>
-        <value>adult</value>
-        <value>alcohol-and-tobacco</value>
-        <value>auctions</value>
-        <value>business-and-economy</value>
-        <value>computer-and-internet-info</value>
-        <value>content-delivery-networks</value>
-        <value>dating</value>
-        <value>educational-institutions</value>
-        <value>entertainment-and-arts</value>
-        <value>financial-services</value>
-        <value>gambling</value>
-        <value>games</value>
-        <value>government</value>
-        <value>hacking</value>
-        <value>health-and-medicine</value>
-        <value>home-and-garden</value>
-        <value>hunting-and-fishing</value>
-        <value>internet-communications-and-telephony</value>
-        <value>internet-portals</value>
-        <value>job-search</value>
-        <value>legal</value>
-        <value>malware</value>
-        <value>military</value>
-        <value>motor-vehicles</value>
-        <value>music</value>
-        <value>news</value>
-        <value>not-resolved</value>
-        <value>nudity</value>
-        <value>online-storage-and-backup</value>
-        <value>parked</value>
-        <value>peer-to-peer</value>
-        <value>personal-sites-and-blogs</value>
-        <value>philosophy-and-political-advocacy</value>
-        <value>phishing</value>
-        <value>private-ip-addresses</value>
-        <value>proxy-avoidance-and-anonymizers</value>
-        <value>questionable</value>
-        <value>real-estate</value>
-        <value>recreation-and-hobbies</value>
-        <value>reference-and-research</value>
-        <value>religion</value>
-        <value>search-engines</value>
-        <value>sex-education</value>
-        <value>shareware-and-freeware</value>
-        <value>shopping</value>
-        <value>social-networking</value>
-        <value>society</value>
-        <value>sports</value>
-        <value>stock-advice-and-tools</value>
-        <value>streaming-media</value>
-        <value>swimsuits-and-intimate-apparel</value>
-        <value>training-and-tools</value>
-        <value>translation</value>
-        <value>travel</value>
-        <value>unknown</value>
-        <value>weapons</value>
-        <value>web-advertisements</value>
-        <value>web-based-email</value>
-        <value>web-hosting</value>
+        <values>abortion</values>
+        <values>abused-drugs</values>
+        <values>adult</values>
+        <values>alcohol-and-tobacco</values>
+        <values>auctions</values>
+        <values>business-and-economy</values>
+        <values>computer-and-internet-info</values>
+        <values>content-delivery-networks</values>
+        <values>dating</values>
+        <values>educational-institutions</values>
+        <values>entertainment-and-arts</values>
+        <values>financial-services</values>
+        <values>gambling</values>
+        <values>games</values>
+        <values>government</values>
+        <values>hacking</values>
+        <values>health-and-medicine</values>
+        <values>home-and-garden</values>
+        <values>hunting-and-fishing</values>
+        <values>internet-communications-and-telephony</values>
+        <values>internet-portals</values>
+        <values>job-search</values>
+        <values>legal</values>
+        <values>malware</values>
+        <values>military</values>
+        <values>motor-vehicles</values>
+        <values>music</values>
+        <values>news</values>
+        <values>not-resolved</values>
+        <values>nudity</values>
+        <values>online-storage-and-backup</values>
+        <values>parked</values>
+        <values>peer-to-peer</values>
+        <values>personal-sites-and-blogs</values>
+        <values>philosophy-and-political-advocacy</values>
+        <values>phishing</values>
+        <values>private-ip-addresses</values>
+        <values>proxy-avoidance-and-anonymizers</values>
+        <values>questionable</values>
+        <values>real-estate</values>
+        <values>recreation-and-hobbies</values>
+        <values>reference-and-research</values>
+        <values>religion</values>
+        <values>search-engines</values>
+        <values>sex-education</values>
+        <values>shareware-and-freeware</values>
+        <values>shopping</values>
+        <values>social-networking</values>
+        <values>society</values>
+        <values>sports</values>
+        <values>stock-advice-and-tools</values>
+        <values>streaming-media</values>
+        <values>swimsuits-and-intimate-apparel</values>
+        <values>training-and-tools</values>
+        <values>translation</values>
+        <values>travel</values>
+        <values>unknown</values>
+        <values>weapons</values>
+        <values>web-advertisements</values>
+        <values>web-based-email</values>
+        <values>web-hosting</values>
       </values>
+    </variable>
+    <variable displayName="Continue categories" name="params.continue.0.member" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="220" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <indexVariables>
         <var>params.block.0.member</var>
         <var>params.alert.0.member</var>
       </indexVariables>
-    </variable>
-    <variable numberOfRowMax="3000" displayName="Allow URL List" displayOrder="11" maxLength="150" name="params.allow_list.0.url" type="String"/>
-    <variable numberOfRowMax="3000" displayName="Block URL List" displayOrder="12" maxLength="150" name="params.block_list.0.url" type="String"/>
-    <variable numberOfRowMax="3000" default="block" displayName="Action" displayOrder="14" editable="false" isMandatory="true" maxLength="150" name="params.action" type="String">
       <values>
-        <value>alert</value>
-        <value>block</value>
-        <value>continue</value>
-        <value>override</value>
+        <values>abortion</values>
+        <values>abused-drugs</values>
+        <values>adult</values>
+        <values>alcohol-and-tobacco</values>
+        <values>auctions</values>
+        <values>business-and-economy</values>
+        <values>computer-and-internet-info</values>
+        <values>content-delivery-networks</values>
+        <values>dating</values>
+        <values>educational-institutions</values>
+        <values>entertainment-and-arts</values>
+        <values>financial-services</values>
+        <values>gambling</values>
+        <values>games</values>
+        <values>government</values>
+        <values>hacking</values>
+        <values>health-and-medicine</values>
+        <values>home-and-garden</values>
+        <values>hunting-and-fishing</values>
+        <values>internet-communications-and-telephony</values>
+        <values>internet-portals</values>
+        <values>job-search</values>
+        <values>legal</values>
+        <values>malware</values>
+        <values>military</values>
+        <values>motor-vehicles</values>
+        <values>music</values>
+        <values>news</values>
+        <values>not-resolved</values>
+        <values>nudity</values>
+        <values>online-storage-and-backup</values>
+        <values>parked</values>
+        <values>peer-to-peer</values>
+        <values>personal-sites-and-blogs</values>
+        <values>philosophy-and-political-advocacy</values>
+        <values>phishing</values>
+        <values>private-ip-addresses</values>
+        <values>proxy-avoidance-and-anonymizers</values>
+        <values>questionable</values>
+        <values>real-estate</values>
+        <values>recreation-and-hobbies</values>
+        <values>reference-and-research</values>
+        <values>religion</values>
+        <values>search-engines</values>
+        <values>sex-education</values>
+        <values>shareware-and-freeware</values>
+        <values>shopping</values>
+        <values>social-networking</values>
+        <values>society</values>
+        <values>sports</values>
+        <values>stock-advice-and-tools</values>
+        <values>streaming-media</values>
+        <values>swimsuits-and-intimate-apparel</values>
+        <values>training-and-tools</values>
+        <values>translation</values>
+        <values>travel</values>
+        <values>unknown</values>
+        <values>weapons</values>
+        <values>web-advertisements</values>
+        <values>web-based-email</values>
+        <values>web-hosting</values>
+      </values>
+    </variable>
+    <variable displayName="Allow URL List" name="params.allow_list.0.url" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Block URL List" name="params.block_list.0.url" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="block" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values>alert</values>
+        <values>block</values>
+        <values>continue</values>
+        <values>override</values>
       </values>
     </variable>
   </variables>
