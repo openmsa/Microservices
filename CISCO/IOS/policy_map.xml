@@ -99,6 +99,21 @@
         <sections>police</sections>
       </sections>
     </variable>
+    <variable displayName="police_target_bit_rate" name="params.pmap_class.0.police_target_bit_rate" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>police</sections>
+      </sections>
+    </variable>
+    <variable displayName="police_conform_action" name="params.pmap_class.0.police_conform_action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>police</sections>
+      </sections>
+    </variable>
+    <variable displayName="police_rate_exceed_action" name="params.pmap_class.0.police_exceed_action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>police</sections>
+      </sections>
+    </variable>
     <variable displayName="conform_action" name="params.pmap_class.0.conform_action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>action</sections>
@@ -256,6 +271,11 @@
               <line>
                 <array/>
                 <regexp>@^\s*police rate\s*(?&lt;police_rate&gt;\d+)\s?(?&lt;police_rate_unit&gt;bps)?(\s?burst\s(?&lt;police_rate_burst&gt;\d+)\s?(?&lt;police_rate_burst_unit&gt;bytes))?(\s?peak-burst\s(?&lt;police_rate_peak_burst&gt;\d+)\s?(?&lt;police_rate_peak_burst_unit&gt;bytes))?@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^\s*police\s*(?&lt;police_target_bit_rate&gt;\d+)(\s?conform-action\s(?&lt;police_conform_action&gt;(set-(\S+)|drop|transmit)\s?(af\d+|cs\d+|\d+|default)?))?(\s?exceed-action\s(?&lt;police_exceed_action&gt;\S+))?@</regexp>
                 <xpath/>
               </line>
             </lines>
