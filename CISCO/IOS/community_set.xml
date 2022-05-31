@@ -36,13 +36,14 @@
     <post_template>{$filtered_ip_community_list=[]} 
 {$icl_idx=0}
 
+{if isset($ip_community_list)}
 {foreach $ip_community_list as $icl}
     {if (isset($icl.name) &amp;&amp; $params.object_id == $icl.name) || (isset($icl.number) &amp;&amp; $params.object_id == $icl.number)}
         {$filtered_ip_community_list[$icl_idx]=$icl}
     {/if}
     {$icl_idx=$icl_idx+1}
 {/foreach}
-
+{/if}
 {$idx=0}
 {if isset($filtered_ip_community_list)}
     {foreach $filtered_ip_community_list as $ficl}
