@@ -53,20 +53,20 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($params.prefix_set)}
-!
+    <operation><![CDATA[!
 prefix-set {$params.object_id}
 {if isset($params.description)}
  # {$params.description}
 {/if}
+{if isset($params.prefix_set)}
 {foreach $params.prefix_set as $prefix}
  {$prefix.src_ip}/{$prefix.mask_length}{if !$prefix@last},
 {/if}
 {/foreach}
+{/if}
 
 end-set
 !
-{/if}
 ]]></operation>
   </command>
   <command name="READ"/>
