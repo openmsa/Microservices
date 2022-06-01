@@ -54,7 +54,7 @@ Total number of prefixes 375
     </post_template>
     <parser>
       <section>
-        <regexp>@^\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors\s+(?&lt;neighbor&gt;.*)\s+advertised-routes@</regexp>
+        <regexp>@\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors\s+(?&lt;neighbor&gt;.*)\s+advertised-routes@</regexp>
       </section>
       <lines>
         <line>

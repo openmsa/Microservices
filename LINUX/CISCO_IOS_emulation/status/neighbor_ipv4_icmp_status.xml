@@ -43,7 +43,7 @@
     <operation><![CDATA[{if isset ($params.ip)} /config/extract_part_of_simulated_file.py /config/cisco_ios/test.status "ping {$params.ip}" {/if}]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ping (?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@\s*ping (?&lt;object_id&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
