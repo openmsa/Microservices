@@ -53,7 +53,7 @@ Total number of prefixes 4
     <operation><![CDATA[{if isset($params.object_id) && isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios/test.status "show ip bgp vpnv4 vrf {$params.object_id} neighbors {$params.neighbor} routes" {/if}]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors (?&lt;neighbor&gt;\S*) routes@</regexp>
+        <regexp>@\s*show ip bgp vpnv4 vrf (?&lt;object_id&gt;\S*) neighbors (?&lt;neighbor&gt;\S*) routes@</regexp>
       </section>
       <lines>
         <line>

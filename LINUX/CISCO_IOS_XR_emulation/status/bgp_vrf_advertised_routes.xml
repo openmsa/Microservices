@@ -51,7 +51,7 @@ Processed 2831 prefixes, 2831 paths
     </post_template>
     <parser>
       <section>
-        <regexp>@^\s*show bgp vrf (?&lt;object_id&gt;\S*) neighbors\s+(?&lt;neighbor&gt;.*)\s+advertised-routes@</regexp>
+        <regexp>@\s*show bgp vrf (?&lt;object_id&gt;\S*) neighbors\s+(?&lt;neighbor&gt;.*)\s+advertised-routes@</regexp>
       </section>
       <lines>
         <line>

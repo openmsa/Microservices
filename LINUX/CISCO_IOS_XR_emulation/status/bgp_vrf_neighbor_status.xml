@@ -114,7 +114,7 @@ RP/0/8/CPU0:c-br-sp-spo-mb-rav-01#
     <post_template></post_template>
     <parser>
       <section>
-        <regexp>@^\s*show bgp vrf (?&lt;object_id&gt;\S+) neighbors @</regexp>
+        <regexp>@\s*show bgp vrf (?&lt;object_id&gt;\S+) neighbors @</regexp>
       </section>
       <lines>
         <line>

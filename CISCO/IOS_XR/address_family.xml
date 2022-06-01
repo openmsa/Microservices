@@ -241,7 +241,7 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset ($params.router_bgp) && isset($params.neighbors)}
+    <operation><![CDATA[{if isset ($params.router_bgp) && (isset($params.neighbors) && count($params.neighbors) > 0)}
 !
 router bgp {$params.router_bgp}
 {foreach $params.neighbors  as $neighbor}

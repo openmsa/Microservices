@@ -43,7 +43,7 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 5/7/10 ms
     <operation><![CDATA[{if isset($params.object_id) and isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios_xr/test.status "ping vrf {$params.object_id} {$params.neighbor}" {/if}]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
+        <regexp>@\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
