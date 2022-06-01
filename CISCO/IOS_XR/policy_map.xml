@@ -269,11 +269,11 @@ policy-map  {$params.object_id}
   {/if} 
   {if isset($pmap_class.police_cir_burst) && $pmap_class.police_cir_burst}police rate {$pmap_class.police_cir_burst} bps {if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
-  {if isset($pmap_class.police_cir_percent)} police rate percent {$pmap_class.police_cir_percent}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst} burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
+  {if isset($pmap_class.police_cir_percent) && $pmap_class.police_cir_percent} police rate percent {$pmap_class.police_cir_percent}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst} burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
-  {if isset($pmap_class.police_rate)} police rate {$pmap_class.police_rate_percent} bps {if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
+  {if isset($pmap_class.police_rate) && $pmap_class.police_rate} police rate {$pmap_class.police_rate} bps {if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
-  {if isset($pmap_class.police_rate_percent)} police rate percent {$pmap_class.police_rate_percent}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst} burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
+  {if isset($pmap_class.police_rate_percent) && $pmap_class.police_rate_percent} police rate percent {$pmap_class.police_rate_percent}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst} burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
   {if isset($pmap_class.service_policy) && $pmap_class.service_policy}
   service-policy {$pmap_class.service_policy}  
