@@ -45,7 +45,7 @@
     <operation><![CDATA[{if isset($params.object_id) && isset($params.neighbor)}/config/extract_part_of_simulated_file.py /config/cisco_ios/test.status "ping vrf {$params.object_id} {$params.neighbor}" {/if}]]></operation>
     <parser>
       <section>
-        <regexp>@^\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
+        <regexp>@\s*ping vrf (?&lt;object_id&gt;\S+) (?&lt;neighbor&gt;\S+)@</regexp>
       </section>
       <lines>
         <line>
