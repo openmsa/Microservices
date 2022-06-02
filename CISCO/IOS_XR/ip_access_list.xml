@@ -78,6 +78,8 @@ ipv4 access-list {$params.object_id}
 {$acl.acl_seq_number} {if isset($acl.acl_rule)}{$acl.acl_rule}{/if} {if isset($acl.acl_protocol)}{$acl.acl_protocol}{/if} {if isset($acl.acl_src)}{$acl.acl_src}{/if} {if isset($acl.acl_src_ip)}{$acl.acl_src_ip}{/if} {if isset($acl.acl_src_imask)}{$acl.acl_src_imask}{/if} {if isset($acl.acl_src_port) && $acl.acl_src_port} eq {$acl.acl_src_port}{/if} {if isset($acl.acl_dest)}{$acl.acl_dest}{/if} {if isset($acl.acl_dest_ip)}{$acl.acl_dest_ip}{/if} {if isset($acl.acl_dest_imask)}{$acl.acl_dest_imask}{/if} {if isset($acl.acl_dest_port) && $acl.acl_dest_port} eq {$acl.acl_dest_port}{/if} {if isset($acl.acl_dest_range) && $acl.acl_dest_range} range {$acl.acl_dest_range}{/if} {if isset($acl.acl_log)}{$acl.acl_log}{/if} {if isset($acl.acl_fragments)}{$acl.acl_fragments}{/if} {if isset($acl.acl_dscp)}{$acl.acl_dscp}{/if} {if isset($acl.acl_icmp_msg)}{$acl.acl_icmp_msg}{/if} 
 {/foreach}
 !
+end
+root
 {/if}
 ]]></operation>
   </command>

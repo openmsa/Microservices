@@ -68,6 +68,8 @@ ipv4 prefix-list {$params.object_id}
  
 {/foreach}
 !
+end
+root
 {/if}]]></operation>
   </command>
   <command name="READ"/>

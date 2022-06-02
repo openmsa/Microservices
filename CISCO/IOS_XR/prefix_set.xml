@@ -67,8 +67,10 @@ prefix-set {$params.object_id}
 {/foreach}
 {/if}
 
-end-set
+
 !
+root
+{/if}
 ]]></operation>
   </command>
   <command name="READ"/>

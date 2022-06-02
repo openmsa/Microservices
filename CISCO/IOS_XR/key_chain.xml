@@ -45,6 +45,8 @@ key chain {$params.object_id}
  key {$params.key}
    key-string 7 {$params.key_string}
 !
+end
+root
 {/if}]]></operation>
   </command>
   <command name="READ"/>

@@ -49,7 +49,9 @@ interface {$params.object_id}
 {if isset($params.ipv6_address) && isset($params.ipv6_prefix)}
  ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
 {/if}
-]]></operation>
+end
+root
+!]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>

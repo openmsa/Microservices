@@ -51,6 +51,9 @@ multicast-routing
 {if isset($vrf.vrf_mdt_data)}
   mdt data {$vrf.vrf_mdt_data}
 {/if}
+!
+end
+root
 {/if}
 {if isset($vrf.address_family)}
   {foreach $vrf.address_family as $af}
@@ -62,9 +65,13 @@ multicast-routing
   {if isset($af.vrf_mdt_data)}
    mdt data {$af.vrf_mdt_data}
   {/if}
+  !
+  end
+  root
   {/if}
 
   {/foreach}
+
 {/if}
 {break}
 {/if}

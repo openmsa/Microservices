@@ -313,8 +313,9 @@ policy-map  {$params.object_id}
   bandwidth percent {$pmap_class.bandwidth_percent}  
   {/if}     
 {/foreach}
-end-policy-map
 !
+end-policy-map
+root
 {/if}
 ]]></operation>
   </command>
