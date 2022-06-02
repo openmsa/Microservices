@@ -64,6 +64,8 @@ extcommunity-set {$params.type} {$params.object_id}
   {/if}
 {/foreach}
 
+!
+end-set 
 root
 !
 {/if}
