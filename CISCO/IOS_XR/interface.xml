@@ -319,7 +319,7 @@ end
 root
 ! 
 {if $params.type == "Serial" || $params.type == "Multilink" }
-{if isset($params.service_policy_out)}
+{if isset($params.service_policy_out) && isset($params.customer_name) && isset($params.bandwidth)}
 policy-map {$params.customer_name}_{$params.bandwidth}
  class class-default
  service-policy {$params.service_policy_out}

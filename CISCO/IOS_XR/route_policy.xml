@@ -313,10 +313,12 @@ route-policy {$params.object_id}
       {/foreach}
      ) 
      {if $additive}
+     {if isset($block.community)}
      {foreach $block.community as $comm_set}
        {if $comm_set.community == "additive"} {$comm_set.community}
        {/if}
      {/foreach}
+     {/if}
      {/if}
      {/strip}
        

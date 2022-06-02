@@ -82,8 +82,7 @@
 {/if}</post_template>
     <parser>
       <section>
-        <regexp>@^\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;object_id&gt;\S+).*$@</regexp>
-        <xpath></xpath>
+        <regexp>@\s*ip\s+community-list\s*(standard|expanded)?\s*(?&lt;object_id&gt;\S+).*@</regexp>
       </section>
       <lines>
         <ignore>
