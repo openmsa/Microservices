@@ -52,7 +52,6 @@ multicast-routing
   mdt data {$vrf.vrf_mdt_data}
 {/if}
 !
-end
 root
 {/if}
 {if isset($vrf.address_family)}
@@ -66,7 +65,6 @@ root
    mdt data {$af.vrf_mdt_data}
   {/if}
   !
-  end
   root
   {/if}
 

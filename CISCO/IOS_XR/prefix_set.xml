@@ -62,15 +62,17 @@ prefix-set {$params.object_id}
 {/if}
 {if isset($params.prefix_set)}
 {foreach $params.prefix_set as $prefix}
- {$prefix.src_ip}/{$prefix.mask_length}{if isset($prefix.comp_prefix_length) && isset($prefix.prefix_length)} {$prefix.comp_prefix_length} {$prefix.prefix_length}{/if}{if !$prefix@last},
- {/if}
+ {strip}
+ {$prefix.src_ip}/{$prefix.mask_length}
+ {if isset($prefix.comp_prefix_length) && isset($prefix.prefix_length)} {$prefix.comp_prefix_length} {$prefix.prefix_length}{/if}
+ {if !$prefix@last},{/if}
+ {/strip}
+ 
 {/foreach}
 {/if}
-
-
 !
 root
-{/if}
+!
 ]]></operation>
   </command>
   <command name="READ"/>
