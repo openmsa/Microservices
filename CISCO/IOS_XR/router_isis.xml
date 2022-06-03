@@ -181,8 +181,10 @@ router {$params.object_id} 1
   {/foreach}
 {/foreach}
 !
-root
+{else}
+!
 {/if}
+root
 
 ]]></operation>
   </command>

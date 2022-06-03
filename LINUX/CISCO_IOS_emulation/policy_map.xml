@@ -149,6 +149,11 @@
   </example>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
+    <post_template>{foreach $params.pmap_class as $pmap_class}
+{if isset($pmap_class.police_rate) &amp;&amp; (!isset($pmap_class.police_rate_unit) || $pmap_class.police_rate_unit==&quot;&quot;)}
+	{assign_object_variable var=&quot;pmap_class.{$pmap_class@index}.police_rate_unit&quot; value=&quot;bps&quot;}
+{/if}
+{/foreach}</post_template>
     <parser>
       <section>
         <regexp>@\s*policy-map\s+(?&lt;object_id&gt;\S+)@</regexp>
@@ -169,7 +174,7 @@
               </line>
               <line>
                 <array/>
-                <regexp>@\s*police (((rate)?\s*(?&lt;police_rate&gt;\d+)(\s?(?&lt;police_rate_unit&gt;bps )?))?|(rate percent\s*(?&lt;police_rate_percent&gt;\d+))?|(cir percent\s*(?&lt;police_cir_percent&gt;\d+))?)\s*(conform-action (?&lt;conform_action&gt;((?!exceed-action).)*))?\s*(exceed-action (?&lt;exceed_action&gt;((?!violate-action).)*))?\s*(violate-action (?&lt;violate_action&gt;.*))?@</regexp>
+                <regexp>@\s*police (((rate)?\s*(?&lt;police_rate&gt;\d+)(\s?(?&lt;police_rate_unit&gt;bps)?))?|(rate percent\s*(?&lt;police_rate_percent&gt;\d+))?|(cir percent\s*(?&lt;police_cir_percent&gt;\d+))?)\s*(conform-action (?&lt;conform_action&gt;((?!(\s*exceed-action\s*)).)*))?\s*(exceed-action (?&lt;exceed_action&gt;((?!(\s*violate-action\s*)).)*))?\s*(violate-action (?&lt;violate_action&gt;.*))?@</regexp>
                 <xpath/>
               </line>
               <line>

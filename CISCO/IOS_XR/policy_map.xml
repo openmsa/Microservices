@@ -270,8 +270,12 @@ policy-map  {$params.object_id}
   {/if}
   {if isset($pmap_class.police_cir_percent) && $pmap_class.police_cir_percent} police rate percent {$pmap_class.police_cir_percent}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst} burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
-  {if isset($pmap_class.police_rate) && $pmap_class.police_rate} police rate {$pmap_class.police_rate} bps {if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
+  {strip}
+  {if isset($pmap_class.police_rate) && $pmap_class.police_rate} police rate {$pmap_class.police_rate} bps 
+  {if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst}burst {$pmap_class.police_bc_burst} {/if}
+  {if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
+  {/strip}
   {if isset($pmap_class.police_rate_percent) && $pmap_class.police_rate_percent} police rate percent {$pmap_class.police_rate_percent}{if isset($pmap_class.police_bc_burst) && $pmap_class.police_bc_burst} burst {$pmap_class.police_bc_burst} {/if}{if isset($pmap_class.police_be_burst) && $pmap_class.police_be_burst} peak-burst {$pmap_class.police_be_burst}{/if}
   {/if}
   {if isset($pmap_class.service_policy) && $pmap_class.service_policy}
@@ -289,14 +293,16 @@ policy-map  {$params.object_id}
   shape {$pmap_class.shape}  
   {/if} 
   {if isset($pmap_class.conform_action)}
-  conform-action {$pmap_class.conform_action|replace:'-':' '|replace:'transmit':''}  
+  conform-action {$pmap_class.conform_action|replace:'-':' '|replace:'transmit':''}
   {/if} 
   {if isset($pmap_class.exceed_action)}
-  exceed-action {$pmap_class.exceed_action|replace:'-':' '|replace:'transmit':''}  
+    {if (!isset($pmap_class.conform_action)) || (isset($pmap_class.conform_action) && $pmap_class.conform_action !== "drop")}
+  exceed-action {$pmap_class.exceed_action|replace:'-':' '|replace:'transmit':''}
+    {/if}
   {/if} 
-  {if isset($pmap_class.violate_action)}
+  {*if isset($pmap_class.violate_action) && (isset($pmap_class.conform_action) && $pmap_class.conform_action != "drop") && (isset($pmap_class.exceed_action) && $pmap_class.exceed_action != "drop")}
   exceed-action {$pmap_class.violate_action|replace:'-':' '|replace:'transmit':''}  
-  {/if} 
+  {/if*} 
   {if isset($pmap_class.fair_queue)}
     {$pmap_class.fair_queue} fair-queue  
   {/if}
