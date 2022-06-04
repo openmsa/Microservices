@@ -198,7 +198,7 @@
               </line>
               <line>
                 <array/>
-                <regexp>@\s*shape\s+(?&lt;shape&gt;.*)@</regexp>
+                <regexp>@\s*shape\s+(?&lt;shape&gt;(average )(\d+(\s?\d+)))@</regexp>
                 <xpath/>
               </line>
               <line>
