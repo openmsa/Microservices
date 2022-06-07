@@ -51,12 +51,15 @@ multicast-routing
 {if isset($vrf.vrf_mdt_data)}
   mdt data {$vrf.vrf_mdt_data}
 {/if}
-!
+ !
 root
 {/if}
 {if isset($vrf.address_family)}
   {foreach $vrf.address_family as $af}
   {if isset ($af.vrf_mdt_default) || isset($af.vrf_mdt_data)}
+!
+multicast-routing
+ vrf {$vrf.object_id}
   address-family {$af.address_family}
   {if isset ($af.vrf_mdt_default)}
    mdt default ipv4 {$af.vrf_mdt_default}
@@ -64,8 +67,8 @@ root
   {if isset($af.vrf_mdt_data)}
    mdt data {$af.vrf_mdt_data}
   {/if}
-  !
-  root
+ !
+root
   {/if}
 
   {/foreach}

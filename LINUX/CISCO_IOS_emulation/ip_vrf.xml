@@ -25,7 +25,7 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="Migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="vrf_name" name="params.vrf_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="vrf_id" name="params.vrf_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
@@ -40,6 +40,16 @@
       </sections>
     </variable>
     <variable displayName="vrf_mdt_data" name="params.vrf_mdt_data" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>MDT</sections>
+      </sections>
+    </variable>
+    <variable displayName="vrf_mdt_data_ip" name="params.vrf_mdt_data_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>MDT</sections>
+      </sections>
+    </variable>
+    <variable displayName="vrf_mdt_data_imask" name="params.vrf_mdt_data_imask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>MDT</sections>
       </sections>
@@ -104,6 +114,16 @@
         <sections>address_family</sections>
       </sections>
     </variable>
+    <variable displayName="vrf_mdt_data_ip" name="params.address_family.0.vrf_mdt_data_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>address_family</sections>
+      </sections>
+    </variable>
+    <variable displayName="vrf_mdt_data_imask" name="params.address_family.0.vrf_mdt_data_imask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>address_family</sections>
+      </sections>
+    </variable>
     <variable displayName="import_rt" name="params.address_family.0.import_array_rt.0.import_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>address_family</sections>
@@ -123,7 +143,20 @@
   <example/>
   <command name="IMPORT">
     <operation><![CDATA[cat /config/cisco_ios/test.conf]]></operation>
-    <post_template>{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}</post_template>
+    <post_template>{assign_object_variable var=&quot;vrf_name&quot; value=&quot;{$params.object_id}&quot;}
+{if isset($params.address_family)}
+{foreach $params.address_family as $af}
+	{if isset($af.vrf_mdt_data_ip) &amp;&amp; isset($af.vrf_mdt_data_imask)}
+		{$mask_length=&quot;&quot;}
+		{capture}
+		{convert_imask_to_length input={$af.vrf_mdt_data_imask} var=&quot;mask_length&quot;}
+		{/capture}
+		{$mdt_data=&quot;{$af.vrf_mdt_data_ip}/{$mask_length}&quot;}
+		VAL : {$mdt_data}
+		{assign_object_variable var=&quot;address_family.{$af@index}.vrf_mdt_data&quot; value=&quot;{$mdt_data}&quot;}
+	{/if}
+{/foreach}
+{/if}</post_template>
     <parser>
       <section>
         <regexp>@^\s*(ip|ipv4|ipv6)?\s*vrf\s*(definition)?\s*(?&lt;object_id&gt;(V(?&lt;vrf_id&gt;\d+):(?&lt;customer_name&gt;\S+))|\S+)$@</regexp>
@@ -178,7 +211,7 @@
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*mdt data (?&lt;vrf_mdt_data&gt;\S+\s+\S+)@</regexp>
+                <regexp>@^\s*mdt data (?&lt;vrf_mdt_data_ip&gt;\S+) (?&lt;vrf_mdt_data_imask&gt;\S+)@</regexp>
                 <xpath/>
               </line>
               <line>
@@ -234,7 +267,7 @@
         </line>
         <line>
           <array/>
-          <regexp>@^\s*mdt data (?&lt;vrf_mdt_data&gt;\S+\s+\S+)@</regexp>
+          <regexp>@^\s*mdt data (?&lt;vrf_mdt_data_ip&gt;\S+) (?&lt;vrf_mdt_data_imask&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
