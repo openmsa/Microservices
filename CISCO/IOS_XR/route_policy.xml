@@ -364,12 +364,14 @@ route-policy {$params.object_id}
      drop
       {/if}
     {/foreach}
-  {else}
-    {if $statements@total == 1 || !$statements@last}
+  {else}  {* ELSE {if isset($statements.block)} *}
+    {if $statements.action == "permit" && ($statements@total == 1 || !$statements@last)}
       pass
-	 
     {/if}
-  {/if}
+    {if $statements.action == "permit" && ($statements@total >1 && $statements@last)}
+      pass
+    {/if}
+  {/if} {* END {if isset($statements.block)} *}
   {if $statements@last}
   
 else 
@@ -379,12 +381,12 @@ else
   drop
     {/if}
 endif
-  {/if}
-{/foreach}
+  {/if} {* end {if $statements@last} *}
+{/foreach} {* end {foreach $params.statements|@sortby_typed:"priority:int" as $statements} *}
 !
 end-policy  
 root
-{/if}]]></operation>
+{/if} {* end {if isset($params.statements)} *}]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
