@@ -25,7 +25,7 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="migrate" name="params.migrate" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
     <variable displayName="_order" name="params.statements.0._order" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
@@ -189,6 +189,7 @@
 	{ksort($filtered_route_map)}
 	{/capture}
 	{foreach $filtered_route_map|@sortby_typed:&quot;priority:int&quot; as $rm}
+{*==&gt; {$rm._order} - {$rm.name} {$rm.action} {$rm.priority}*}
 		{assign_object_variable
 			var=&quot;statements.{$statement_idx}._order&quot;
 			value=&quot;{$rm._order}&quot;}
@@ -249,10 +250,15 @@
 					{/foreach}
 				{/if}
 				{if isset($match.ip_access_list)}
-					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination_acl.{$dest_idx}.val&quot;
-						value=&quot;pfx_{$match.ip_access_list}&quot;}
-					{$dest_idx=$dest_idx+1}
+					{assign var=ip_access_list value=&quot; &quot;|explode:$match.ip_access_list}
+					{$transformed_acl=&quot;&quot;}
+					{foreach $ip_access_list as $ip_acl}
+						{$transformed_acl=&quot;pfx_{$ip_acl}&quot;}
+						{assign_object_variable
+							var=&quot;statements.{$statement_idx}.destination_acl.{$dest_idx}.val&quot;
+							value=&quot;{$transformed_acl}&quot;}
+						{$dest_idx=$dest_idx+1}
+					{/foreach}
 				{/if}
 				{if isset($match.ipv6_access_list)}
 					{assign_object_variable
@@ -392,7 +398,7 @@
 </post_template>
     <parser>
       <section>
-        <regexp>@^\s*route-map\s+(?&lt;object_id&gt;\S+)\s+(permit|deny)\s+\d+$@</regexp>
+        <regexp>@^route-map\s+(?&lt;object_id&gt;\S+)\s+(permit|deny)\s+\d+$@</regexp>
       </section>
       <lines>
         <ignore>
