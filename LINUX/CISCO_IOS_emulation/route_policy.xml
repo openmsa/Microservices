@@ -250,10 +250,15 @@
 					{/foreach}
 				{/if}
 				{if isset($match.ip_access_list)}
-					{assign_object_variable
-						var=&quot;statements.{$statement_idx}.destination_acl.{$dest_idx}.val&quot;
-						value=&quot;pfx_{$match.ip_access_list}&quot;}
-					{$dest_idx=$dest_idx+1}
+					{assign var=ip_access_list value=&quot; &quot;|explode:$match.ip_access_list}
+					{$transformed_acl=&quot;&quot;}
+					{foreach $ip_access_list as $ip_acl}
+						{$transformed_acl=&quot;pfx_{$ip_acl}&quot;}
+						{assign_object_variable
+							var=&quot;statements.{$statement_idx}.destination_acl.{$dest_idx}.val&quot;
+							value=&quot;{$transformed_acl}&quot;}
+						{$dest_idx=$dest_idx+1}
+					{/foreach}
 				{/if}
 				{if isset($match.ipv6_access_list)}
 					{assign_object_variable
