@@ -130,6 +130,21 @@
         <sections>carrier-delay</sections>
       </sections>
     </variable>
+    <variable displayName="ip_flow_monitor" name="params.ip_flow_monitor" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="33" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>flow</sections>
+      </sections>
+    </variable>
+    <variable displayName="ip_flow_sampler" name="params.ip_flow_sampler" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="34" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>flow</sections>
+      </sections>
+    </variable>
+    <variable displayName="ip_flow" name="params.ip_flow" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="35" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>flow</sections>
+      </sections>
+    </variable>
   </variables>
   <example/>
   <command name="IMPORT">
@@ -267,6 +282,9 @@ interface {$params.object_id}
 {foreachelse}
  no ip address
 {/foreach}
+{if isset($params.ip_flow_monitor) && isset($params.ip_flow_sampler) && isset($params.ip_flow)}
+ flow ipv4 monitor {$params.ip_flow_monitor} sampler {$params.ip_flow_sampler} {$params.ip_flow}
+{/if}
 {/if}
 {if isset($params.ipv6_address)}
  ipv6 address {$params.ipv6_address}/{$params.ipv6_prefix}
