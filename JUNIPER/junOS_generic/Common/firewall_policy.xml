@@ -1,122 +1,114 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>1000</order>
+    <visibility>5</visibility>
     <configType>cli</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Firewall</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importonce>false</importonce>
-    <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>Firewall Policies</name>
-    <order>1000</order>
     <relatedObjects/>
+    <name>Firewall Policies</name>
+    <group>Firewall</group>
+    <importonce>false</importonce>
+    <importrank>20</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="id" displayOrder="0" maxLength="200" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Address" displayOrder="1" maxLength="200" name="params.source_ip" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Address" name="params.source_ip" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Source</section>
+        <sections>Source</sections>
       </sections>
       <classes>
         <class>address</class>
         <class>address_object</class>
       </classes>
     </variable>
-    <variable displayName="Interface/Zone" displayOrder="2" maxLength="200" name="params.source_int_zone" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Interface/Zone" name="params.source_int_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Source</section>
+        <sections>Source</sections>
       </sections>
       <classes>
         <class>zone</class>
       </classes>
     </variable>
-    <variable displayName="Address" displayOrder="3" maxLength="200" name="params.dest_ip" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Address" name="params.dest_ip" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Destination</section>
+        <sections>Destination</sections>
       </sections>
       <classes>
         <class>address</class>
         <class>address_object</class>
       </classes>
     </variable>
-    <variable displayName="Interface/Zone" displayOrder="4" maxLength="200" name="params.dest_int_zone" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Interface/Zone" name="params.dest_int_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Destination</section>
+        <sections>Destination</sections>
       </sections>
       <classes>
         <class>zone</class>
       </classes>
     </variable>
-    <variable displayName="Service/Application" displayOrder="5" maxLength="200" name="params.service" numberOfRowMax="0" startIncrement="0" type="ObjectRef">
+    <variable displayName="Service/Application" name="params.service" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>service</class>
       </classes>
     </variable>
-    <variable displayName="Action" displayOrder="6" maxLength="200" name="params.action" numberOfRowMax="0" startIncrement="0" type="String">
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="Allow">permit</value>
-        <value displayValue="Deny">deny</value>
+        <values displayValue="Allow">permit</values>
+        <values displayValue="Deny">deny</values>
       </values>
     </variable>
-    <variable displayName="Options" displayOrder="7" isUserLocked="true" maxLength="100" name="params.options" numberOfRowMax="0" startIncrement="0" type="String"/>
-  </variables>  <example>
+    <variable displayName="Options" name="params.options" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Description" name="params.description" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
-<command name="IMPORT">
-    <operation>show configuration security policies | display set</operation>
+  <command name="IMPORT">
+    <operation><![CDATA[show configuration security policies | display set]]></operation>
     <parser>
       <section>
-        <regexp>@^set security policies from-zone (?&lt;source_int_zone&gt;\S+) to-zone (?&lt;dest_int_zone&gt;\S+) policy (?&lt;object_id&gt;\S+)@</regexp>
+        <regexp>@^set security policies from-zone (?&lt;source_int_zone&gt;\S+) to-zone (?&lt;dest_int_zone&gt;\S+) policy (?&lt;object_id&gt;\S+) then (?&lt;action&gt;\S+)@</regexp>
+        <regexp>@^set security policies from-zone (?&lt;source_int_zone&gt;\S+) to-zone (?&lt;dest_int_zone&gt;\S+) policy (?&lt;object_id&gt;\S+) match destination-address (?&lt;dest_ip&gt;\S+)@</regexp>
+        <regexp>@^set security policies from-zone (?&lt;source_int_zone&gt;\S+) to-zone (?&lt;dest_int_zone&gt;\S+) policy (?&lt;object_id&gt;\S+) match source-address (?&lt;source_ip&gt;\S+)@</regexp>
+        <regexp>@^set security policies from-zone (?&lt;source_int_zone&gt;\S+) to-zone (?&lt;dest_int_zone&gt;\S+) policy (?&lt;object_id&gt;\S+) match application (?&lt;service&gt;\S+)@</regexp>
+        <regexp>@^set security policies from-zone (?&lt;source_int_zone&gt;\S+) to-zone (?&lt;dest_int_zone&gt;\S+) policy (?&lt;object_id&gt;\S+) description (?&lt;description&gt;\S+)@</regexp>
       </section>
-      <lines>
-        <ignore>
-          <regexp>@^set security policies from-zone \S+ to-zone \S+ policy \S+ description@</regexp>
-        </ignore>
-	<line>
-        <regexp>@^set security policies from-zone \S+ to-zone \S+ policy \S+ then (?&lt;action&gt;\S+)@</regexp>
-	</line>
-	<line>
-        <regexp>@^set security policies from-zone \S+ to-zone \S+ policy \S+ match destination-address (?&lt;dest_ip&gt;\S+)@</regexp>
-	</line>
-	<line>
-        <regexp>@^set security policies from-zone \S+ to-zone \S+ policy \S+ match source-address (?&lt;source_ip&gt;\S+)@</regexp>
-	</line>
-	<line>
-        <regexp>@^set security policies from-zone \S+ to-zone \S+ policy \S+ match application (?&lt;service&gt;\S+)@</regexp>
-	</line>
-      </lines>
+      <lines/>
     </parser>
-    <post_template/>
   </command>
-<command name="CREATE">
-    <operation>set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} then {$params.action}
+  <command name="CREATE">
+    <operation><![CDATA[set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} then {$params.action}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} match source-address {$params.source_ip}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} match destination-address {$params.dest_ip}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} match application {$params.service}
-</operation>
+]]></operation>
   </command>
   <command name="UPDATE">
-    <operation>delete security policies from-zone {$policy.$object_id.source_int_zone} to-zone {$policy.$object_id.dest_int_zone} policy {$policy.$object_id.object_id}
+    <operation><![CDATA[delete security policies from-zone {$policy.$object_id.source_int_zone} to-zone {$policy.$object_id.dest_int_zone} policy {$policy.$object_id.object_id}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} then {$params.action}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} match source-address {$params.source_ip}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} match destination-address {$params.dest_ip}
 set security policies from-zone {$params.source_int_zone} to-zone {$params.dest_int_zone} policy {$object_id} match application {$params.service}
-</operation>
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>delete security policies from-zone {$policy.$object_id.source_int_zone} to-zone {$policy.$object_id.dest_int_zone} policy {$policy.$object_id.object_id}
-</operation>
+    <operation><![CDATA[delete security policies from-zone {$policy.$object_id.source_int_zone} to-zone {$policy.$object_id.dest_int_zone} policy {$policy.$object_id.object_id}
+]]></operation>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>

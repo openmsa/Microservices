@@ -1,139 +1,154 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description>Network ACL</description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>90</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description>Network ACL</description>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>VPC|Security</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Network ACL</name>
+    <group>VPC|Security</group>
     <importonce>false</importonce>
     <importrank>40</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Network ACL</name>
-    <order>90</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="acl_ref" displayOrder="0" editable="false" maxLength="100" name="params.acl_ref" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable arrayCanAdd="false" arrayCanEdit="false" arrayCanMove="false" arrayCanRemove="false" displayName="Name" displayOrder="0" isUserLocked="true" maxLength="80" name="params.name" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Network ACL ID" displayOrder="1" editable="false" isMandatory="true" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableUniqueValue="true" type="String"/>
-    <variable default="false" displayName="Default" displayOrder="2" isUserLocked="true" maxLength="50" name="params.default" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Boolean"/>
-    <variable displayName="VPC" displayOrder="3" maxLength="150" name="params.vpc_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="acl_ref" name="params.acl_ref" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="false" arrayCanRemove="false" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Network ACL ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="Default" name="params.default" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
+    </variable>
+    <variable displayName="VPC" name="params.vpc_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <classes>
         <class>vpc</class>
       </classes>
     </variable>
-    <variable displayName="Subnet" displayOrder="4" maxLength="150" name="params.associations.0.subnet_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="ObjectRef">
+    <variable displayName="Subnet" name="params.associations.0.subnet_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <sections>
-        <section>Associations</section>
+        <sections>Associations</sections>
       </sections>
       <classes>
         <class>subnets</class>
       </classes>
     </variable>
-    <variable arrayCanEdit="false" arrayCanMove="false" default="Name" displayName="Key" displayOrder="5" isUserLocked="true" maxLength="70" name="params.tags.0.tag_key" numberOfRowMax="1" startIncrement="0" type="String">
+    <variable displayName="Key" name="params.tags.0.tag_key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="false" arrayCanEdit="false" default="Name" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <sections>
-        <section>Tags</section>
+        <sections>Tags</sections>
       </sections>
     </variable>
-    <variable arrayCanEdit="false" arrayCanMove="false" displayName="Value" displayOrder="6" maxLength="70" name="params.tags.0.tag_value" numberOfRowMax="1" startIncrement="0" type="String">
+    <variable displayName="Value" name="params.tags.0.tag_value" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="false" arrayCanEdit="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <repositories/>
       <sections>
-        <section>Tags</section>
+        <sections>Tags</sections>
       </sections>
     </variable>
-  </variables>  <example>
-    <content>
-</content>
+  </variables>
+  <example>
+    <content>s</content>
   </example>
-<command name="CREATE">
-    <rest>Aws\Ec2\Ec2Client
-</rest>
-    <xpath>createNetworkAcl
-</xpath>
-    <operation>{literal}{{/literal}
-"VpcId":"{$params.vpc_id}"
-{literal}}{/literal}
-</operation>
-  </command>
+  <command name="IMPORT">
+    <operation><![CDATA[Aws\Ec2\Ec2Client]]></operation>
+    <post_template>{foreach $params.tags as $tag}
+{if $tag.tag_key == &quot;Name&quot;}
+{assign_object_variable var=&quot;name&quot; value=$tag.tag_value}
+{/if}
+{/foreach}
 
-<command name="IMPORT">
-    <operation>Aws\Ec2\Ec2Client</operation>
-    <xpath>describeNetworkAcls</xpath>
+{assign_object_variable var=&quot;acl_ref&quot; value=&quot;{$params.object_id} - {$params.vpc_id}&quot;}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/NetworkAcls/row</xpath>
       </section>
       <lines>
         <line>
           <array name="associations">
-            <xpath>Associations/row</xpath>
             <lines>
               <line>
-                <xpath>SubnetId</xpath>
+                <array/>
                 <regexp>@&lt;SubnetId&gt;(?&lt;subnet_id&gt;.*)&lt;/SubnetId&gt;@</regexp>
+                <xpath>SubnetId</xpath>
               </line>
             </lines>
+            <xpath>Associations/row</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
-          <xpath>VpcId</xpath>
+          <array/>
           <regexp>@&lt;VpcId&gt;(?&lt;vpc_id&gt;.*)&lt;/VpcId&gt;@</regexp>
+          <xpath>VpcId</xpath>
         </line>
         <line>
-          <xpath>NetworkAclId</xpath>
+          <array/>
           <regexp>@&lt;NetworkAclId&gt;(?&lt;object_id&gt;.*)&lt;/NetworkAclId&gt;@</regexp>
+          <xpath>NetworkAclId</xpath>
         </line>
         <line>
-          <xpath>IsDefault
-</xpath>
+          <array/>
           <regexp>@&lt;IsDefault&gt;(?&lt;default&gt;.*)&lt;/IsDefault&gt;@</regexp>
+          <xpath>IsDefault</xpath>
         </line>
         <line>
           <array name="tags">
-            <xpath>Tags/row</xpath>
             <lines>
               <line>
-                <xpath>Key</xpath>
+                <array/>
                 <regexp>@&lt;Key&gt;(?&lt;tag_key&gt;.*)&lt;/Key&gt;@</regexp>
+                <xpath>Key</xpath>
               </line>
               <line>
-                <xpath>Value</xpath>
+                <array/>
                 <regexp>@&lt;Value&gt;(?&lt;tag_value&gt;.*)&lt;/Value&gt;@</regexp>
+                <xpath>Value</xpath>
               </line>
             </lines>
+            <xpath>Tags/row</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
-        
       </lines>
     </parser>
-    <post_template>{foreach $params.tags as $tag}
-{if $tag.tag_key == "Name"}
-{assign_object_variable var="name" value=$tag.tag_value}
-{/if}
-{/foreach}
-
-{assign_object_variable var="acl_ref" value="{$params.object_id} - {$params.vpc_id}"}</post_template>
+    <xpath>describeNetworkAcls</xpath>
   </command>
-
-<command name="DELETE">
-    <rest>Aws\Ec2\Ec2Client
-</rest>
-    <xpath>deleteNetworkAcl
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
+"VpcId":"{$params.vpc_id}"
+{literal}}{/literal}
+]]></operation>
+    <rest>Aws\Ec2\Ec2Client</rest>
+    <xpath>createNetworkAcl</xpath>
+  </command>
+  <command name="DELETE">
+    <operation><![CDATA[{literal}{{/literal}
 "NetworkAclId":"{$network_acl.$object_id.object_id}"
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>Aws\Ec2\Ec2Client</rest>
+    <xpath>deleteNetworkAcl</xpath>
   </command>
-
-
 </ObjectDefinition>

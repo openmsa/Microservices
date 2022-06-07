@@ -1,0 +1,211 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>vm</name>
+    <group>OUTSCALE|VM</group>
+    <importonce>false</importonce>
+    <importrank>10</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.Name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Vm ID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="State" name="params.State" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="PublicDnsName" name="params.PublicDnsName" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="private_ip" name="params.private_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="keyPair" name="params.keyPair" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Imade Id" name="params.imageId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" default="ami-0dd0ab23" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;root&gt;
+	&lt;ResponseContext&gt;
+		&lt;RequestId&gt;58a57628-f6a9-4314-9d9b-d1417c6d7a02&lt;/RequestId&gt;
+	&lt;/ResponseContext&gt;
+	&lt;Vms&gt;
+		&lt;row&gt;
+			&lt;Architecture&gt;x86_64&lt;/Architecture&gt;
+			&lt;BlockDeviceMappings&gt;
+				&lt;row&gt;
+					&lt;Bsu&gt;
+						&lt;DeleteOnVmDeletion&gt;false&lt;/DeleteOnVmDeletion&gt;
+						&lt;LinkDate&gt;2021-12-03T12:29:05.889Z&lt;/LinkDate&gt;
+						&lt;State&gt;attached&lt;/State&gt;
+						&lt;VolumeId&gt;vol-e731f10c&lt;/VolumeId&gt;
+					&lt;/Bsu&gt;
+					&lt;DeviceName&gt;/dev/sda1&lt;/DeviceName&gt;
+				&lt;/row&gt;
+			&lt;/BlockDeviceMappings&gt;
+			&lt;BsuOptimized&gt;false&lt;/BsuOptimized&gt;&lt;ClientToken&gt;0612839137741638533361367&lt;/ClientToken&gt;
+			&lt;CreationDate&gt;2021-12-03T12:09:22.016Z&lt;/CreationDate&gt;
+			&lt;DeletionProtection&gt;false&lt;/DeletionProtection&gt;
+			&lt;Hypervisor&gt;xen&lt;/Hypervisor&gt;
+			&lt;ImageId&gt;ami-b651a7a1&lt;/ImageId&gt;
+			&lt;IsSourceDestChecked&gt;true&lt;/IsSourceDestChecked&gt;
+			&lt;KeypairName&gt;MSA-KEYPAIR&lt;/KeypairName&gt;
+			&lt;LaunchNumber&gt;0&lt;/LaunchNumber&gt;
+			&lt;Performance&gt;high&lt;/Performance&gt;
+			&lt;Placement&gt;
+				&lt;SubregionName&gt;eu-west-2a&lt;/SubregionName&gt;
+				&lt;Tenancy&gt;default&lt;/Tenancy&gt;
+			&lt;/Placement&gt;
+			&lt;PrivateDnsName&gt;ip-10-9-8-72.eu-west-2.compute.internal&lt;/PrivateDnsName&gt;
+			&lt;PrivateIp&gt;10.9.8.72&lt;/PrivateIp&gt;
+			&lt;ProductCodes&gt;
+				&lt;row&gt;0001&lt;/row&gt;
+			&lt;/ProductCodes&gt;
+			&lt;PublicDnsName&gt;ows-148-253-101-147.eu-west-2.compute.outscale.com&lt;/PublicDnsName&gt;
+			&lt;PublicIp&gt;148.253.101.147&lt;/PublicIp&gt;
+			&lt;ReservationId&gt;r-ad232068&lt;/ReservationId&gt;
+			&lt;RootDeviceName&gt;/dev/sda1&lt;/RootDeviceName&gt;
+			&lt;RootDeviceType&gt;ebs&lt;/RootDeviceType&gt;
+			&lt;SecurityGroups&gt;
+				&lt;row&gt;
+					&lt;SecurityGroupId&gt;sg-edbd3b52&lt;/SecurityGroupId&gt;
+					&lt;SecurityGroupName&gt;MSA  OWS&lt;/SecurityGroupName&gt;
+				&lt;/row&gt;
+			&lt;/SecurityGroups&gt;
+			&lt;State&gt;running&lt;/State&gt;
+			&lt;StateReason/&gt;
+			&lt;Tags&gt;
+				&lt;row&gt;
+					&lt;Key&gt;Name&lt;/Key&gt;
+					&lt;Value&gt;MSA&lt;/Value&gt;
+				&lt;/row&gt;
+			&lt;/Tags&gt;
+			&lt;UserData/&gt;
+			&lt;VmId&gt;i-09b83e3a&lt;/VmId&gt;
+			&lt;VmInitiatedShutdownBehavior&gt;stop&lt;/VmInitiatedShutdownBehavior&gt;
+			&lt;VmType&gt;tinav4.c8r16p2&lt;/VmType&gt;
+		&lt;/row&gt;
+		&lt;row&gt;
+			&lt;Architecture&gt;x86_64&lt;/Architecture&gt;
+			&lt;BlockDeviceMappings/&gt;
+			&lt;BsuOptimized&gt;false&lt;/BsuOptimized&gt;
+			&lt;ClientToken&gt;0612839137741638527339968&lt;/ClientToken&gt;&lt;CreationDate&gt;2021-12-03T10:29:00.618Z&lt;/CreationDate&gt;
+			&lt;DeletionProtection&gt;false&lt;/DeletionProtection&gt;
+			&lt;Hypervisor&gt;xen&lt;/Hypervisor&gt;
+			&lt;ImageId&gt;ami-b0d57010&lt;/ImageId&gt;
+			&lt;IsSourceDestChecked&gt;true&lt;/IsSourceDestChecked&gt;
+			&lt;KeypairName&gt;MSA-KEYPAIR&lt;/KeypairName&gt;
+			&lt;LaunchNumber&gt;0&lt;/LaunchNumber&gt;
+			&lt;Performance&gt;high&lt;/Performance&gt;
+			&lt;Placement&gt;
+				&lt;SubregionName&gt;eu-west-2a&lt;/SubregionName&gt;
+				&lt;Tenancy&gt;default&lt;/Tenancy&gt;
+			&lt;/Placement&gt;
+			&lt;ProductCodes&gt;
+				&lt;row&gt;0001&lt;/row&gt;
+			&lt;/ProductCodes&gt;
+			&lt;ReservationId&gt;r-5579d6ea&lt;/ReservationId&gt;
+			&lt;RootDeviceName&gt;/dev/sda1&lt;/RootDeviceName&gt;
+			&lt;RootDeviceType&gt;ebs&lt;/RootDeviceType&gt;
+			&lt;State&gt;terminated&lt;/State&gt;
+			&lt;StateReason/&gt;
+			&lt;Tags&gt;
+				&lt;row&gt;
+					&lt;Key&gt;Name&lt;/Key&gt;
+					&lt;Value&gt;MSA OWS&lt;/Value&gt;
+				&lt;/row&gt;
+			&lt;/Tags&gt;
+			&lt;UserData/&gt;
+			&lt;VmId&gt;i-3a90053c&lt;/VmId&gt;
+			&lt;VmInitiatedShutdownBehavior&gt;stop&lt;/VmInitiatedShutdownBehavior&gt;
+			&lt;VmType&gt;tinav4.c8r24p2&lt;/VmType&gt;
+		&lt;/row&gt;
+	&lt;/Vms&gt;
+&lt;/root&gt;</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[POST]]></operation>
+    <post_template>{assign_object_variable var=&quot;_order&quot; value=&quot;{$params.Name|substr:0:1}&quot;}</post_template>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>/root/Vms/row</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;PrivateIp&gt;(?&lt;private_ip&gt;\S+)&lt;/PrivateIp&gt;@</regexp>
+          <xpath>//PrivateIp</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;VmId&gt;(?&lt;object_id&gt;.*)&lt;/VmId&gt;@</regexp>
+          <xpath>//VmId</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;Value&gt;(?&lt;Name&gt;.*)&lt;/Value&gt;@</regexp>
+          <xpath>//Tags/row/Value</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;KeypairName&gt;(?&lt;keyPair&gt;\S+)&lt;/KeypairName&gt;@</regexp>
+          <xpath>//KeypairName</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;PublicDnsName&gt;(?&lt;PublicDnsName&gt;\S+)&lt;/PublicDnsName&gt;@</regexp>
+          <xpath>//PublicDnsName</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;ImageId&gt;(?&lt;imageId&gt;\S+)&lt;/ImageId&gt;@</regexp>
+          <xpath>//ImageId</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;State&gt;(?&lt;State&gt;\S+)&lt;/State&gt;@</regexp>
+          <xpath>State</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/api/v1/ReadVms</xpath>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{  
+"BootOnCreation": true,
+"BsuOptimized": true,
+"DeletionProtection": false,
+"DryRun": false,
+"ImageId": "{$params.imageId}",
+"MaxVmsCount": 1,
+"MinVmsCount": 1,
+"Performance": "medium" 
+}]]></operation>
+    <rest>POST</rest>
+    <xpath>/api/v1/CreateVms</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{ 
+  "DryRun": false, 
+  "VmIds": [
+    "{$params.object_id}"
+  ] 
+}]]></operation>
+    <rest>POST</rest>
+    <xpath>/api/v1/DeleteVms</xpath>
+  </command>
+  <command name="LIST"/>
+</ObjectDefinition>

@@ -1,98 +1,100 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ObjectDefinition>
-<information>
-    <configType>cli</configType>
-    <defaultDisplay>false</defaultDisplay>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
     <description/>
     <displayField>object_id</displayField>
-    <dynamic>false</dynamic>
-    <group>Objects</group>
-    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
-    <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importrank>1</importrank>
-    <name>Addresses</name>
+    <serviceTaskType/>
     <order>10000</order>
+    <visibility>5</visibility>
+    <configType>cli</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <name>Addresses</name>
+    <group>Objects</group>
+    <importonce>false</importonce>
+    <importrank>15</importrank>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-    <visible>true</visible>
   </information>
-<variables frozen="1">
-    <variable displayName="Name" displayOrder="0" isMandatory="true" maxLength="150" name="params.object_id" type="String"/>
-    <variable displayName="Book name" displayOrder="1" isMandatory="true" maxLength="150" name="params.addressBookName" type="ObjectRef">
+  <variables frozen="1">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Book name" name="params.addressBookName" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>addressBook</class>
       </classes>
     </variable>
-    <variable displayName="Network address" displayOrder="2" groupDisplayName="Address" groupSeparator="/" isGrouped="true" maxLength="250" name="params.addressNetworkIP" type="IpAddress"/>
-    <variable displayName="Network Prefix" displayOrder="3" groupDisplayName="Address" groupSeparator="/" isGrouped="true" maxLength="250" name="params.addressNetworkPrefix" type="Integer">
+    <variable displayName="Network address" name="params.addressNetworkIP" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="Address" maxLength="250" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network Prefix" name="params.addressNetworkPrefix" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="Address" maxLength="250" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>32</value>
-        <value>31</value>
-        <value>30</value>
-        <value>29</value>
-        <value>28</value>
-        <value>27</value>
-        <value>26</value>
-        <value>25</value>
-        <value>24</value>
-        <value>23</value>
-        <value>22</value>
-        <value>21</value>
-        <value>20</value>
-        <value>19</value>
-        <value>18</value>
-        <value>17</value>
-        <value>16</value>
-        <value>15</value>
-        <value>14</value>
-        <value>13</value>
-        <value>12</value>
-        <value>11</value>
-        <value>10</value>
-        <value>9</value>
-        <value>8</value>
-        <value>7</value>
-        <value>6</value>
-        <value>5</value>
-        <value>4</value>
-        <value>3</value>
-        <value>2</value>
-        <value>1</value>
+        <values>32</values>
+        <values>31</values>
+        <values>30</values>
+        <values>29</values>
+        <values>28</values>
+        <values>27</values>
+        <values>26</values>
+        <values>25</values>
+        <values>24</values>
+        <values>23</values>
+        <values>22</values>
+        <values>21</values>
+        <values>20</values>
+        <values>19</values>
+        <values>18</values>
+        <values>17</values>
+        <values>16</values>
+        <values>15</values>
+        <values>14</values>
+        <values>13</values>
+        <values>12</values>
+        <values>11</values>
+        <values>10</values>
+        <values>9</values>
+        <values>8</values>
+        <values>7</values>
+        <values>6</values>
+        <values>5</values>
+        <values>4</values>
+        <values>3</values>
+        <values>2</values>
+        <values>1</values>
       </values>
     </variable>
-    <variable displayName="Network mask" displayOrder="4" groupDisplayName="Address" groupSeparator="/" isGrouped="true" maxLength="250" name="params.addressNetworkMask" type="IpAddress"/>
-    <variable displayName="Range First IP" displayOrder="5" groupDisplayName="Address" groupSeparator="-" isGrouped="true" maxLength="250" name="params.addressRangeFirstIP" type="IpAddress"/>
-    <variable displayName="Range Last IP" displayOrder="6" groupDisplayName="Address" groupSeparator="-" isGrouped="true" maxLength="250" name="params.addressRangeLastIP" type="IpAddress"/>
-    <variable displayName="FQDN" displayOrder="7" groupDisplayName="Address" isGrouped="true" maxLength="250" name="params.addressDnsName" type="String"/>
-    <variable displayName="IPv4 only" displayOrder="8" maxLength="150" name="params.addressIPv4onlyOption" type="String">
+    <variable displayName="Network mask" name="params.addressNetworkMask" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="/" groupDisplayName="Address" maxLength="250" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Range First IP" name="params.addressRangeFirstIP" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Address" maxLength="250" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Range Last IP" name="params.addressRangeLastIP" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Address" maxLength="250" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="FQDN" name="params.addressDnsName" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Address" maxLength="250" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="true" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IPv4 only" name="params.addressIPv4onlyOption" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>ipv4-only</value>
+        <values>ipv4-only</values>
       </values>
     </variable>
-    <variable displayName="IPv6 only" displayOrder="9" maxLength="150" name="params.addressIPv6onlyOption" type="String">
+    <variable displayName="IPv6 only" name="params.addressIPv6onlyOption" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>ipv6-only</value>
+        <values>ipv6-only</values>
       </values>
     </variable>
-    <variable displayName="IPv6 only" displayOrder="10" maxLength="150" name="params.ipv6-only" type="String" visible="false">
+    <variable displayName="IPv6 only" name="params.ipv6-only" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>ipv6-only</value>
+        <values>ipv6-only</values>
       </values>
     </variable>
-    <variable displayName="IPv4 only" displayOrder="11" maxLength="150" name="params.ipv4-only" type="String" visible="false">
+    <variable displayName="IPv4 only" name="params.ipv4-only" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>ipv4-only</value>
+        <values>ipv4-only</values>
       </values>
     </variable>
-    <variable displayName="Description" displayOrder="12" keepOnImport="true" maxLength="150" name="params.addressDescription" type="String"/>
+    <variable displayName="Description" name="params.addressDescription" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="12" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
-<example>
+  <example>
     <content>root&gt; show configuration security zones | display set 
 set security zones security-zone trust host-inbound-traffic system-services all
 set security zones security-zone trust host-inbound-traffic protocols all
@@ -111,27 +113,23 @@ set security zones security-zone testDemo host-inbound-traffic system-services n
 set security zones security-zone testDemo host-inbound-traffic protocols ospf
 </content>
   </example>
-<command name="IMPORT">
-    <operation>show configuration security address-book | display set</operation>
+  <command name="IMPORT">
+    <operation><![CDATA[show configuration security address-book | display set]]></operation>
     <parser>
       <section name="address_object">
         <regexp>@^set security address-book \S+ address (?&lt;object_id&gt;\S*)@</regexp>
       </section>
       <lines>
         <line>
-            <regexp>@^set security address-book (?&lt;addressBookName&gt;\S*) address (?&lt;object_id&gt;\S*) description "?(?&lt;addressDescription&gt;[^"]+)"?@</regexp>
-            <regexp>@^set security address-book (?&lt;addressBookName&gt;\S*) address (?&lt;object_id&gt;\S*) dns-name (?&lt;addressDnsName&gt;\S*)\s*(?&lt;addressIPv4onlyOption&gt;ipv4-only)?\s*(?&lt;addressIPv6onlyOption&gt;ipv6-only)?@</regexp>
-            <regexp>@^set security address-book (?&lt;addressBookName&gt;\S*) address (?&lt;object_id&gt;\S*) range-address (?&lt;addressRangeFirstIP&gt;([0-9]{1,3}\.){3}[0-9]{1,3}) to (?&lt;addressRangeLastIP&gt;([0-9]{1,3}\.){3}[0-9]{1,3})@</regexp>
-            <regexp>@^set security address-book (?&lt;addressBookName&gt;\S*) address (?&lt;object_id&gt;\S*) wildcard-address (?&lt;addressNetworkIP&gt;([0-9]{1,3}\.){3}[0-9]{1,3})/(?&lt;addressNetworkMask&gt;([0-9]{1,3}\.){3}[0-9]{1,3})@</regexp>
-            <regexp>@^set security address-book (?&lt;addressBookName&gt;\S*) address (?&lt;object_id&gt;\S*) (?&lt;addressNetworkIP&gt;([0-9]{1,3}\.){3}[0-9]{1,3})/(?&lt;addressNetworkPrefix&gt;(\d){1,2})@</regexp>
-            <regexp>@^set security address-book {$addressBookName} address {$object_id} dns-name (?&lt;addressDnsName&gt;\S*)\s*(?&lt;addressIPv4onlyOption&gt;ipv4-only)?\s*(?&lt;addressIPv6onlyOption&gt;ipv6-only)?@</regexp>
+          <array/>
+          <regexp>@^set security address-book {$addressBookName} address {$object_id} dns-name (?&lt;addressDnsName&gt;\S*)\s*(?&lt;addressIPv4onlyOption&gt;ipv4-only)?\s*(?&lt;addressIPv6onlyOption&gt;ipv6-only)?@</regexp>
+          <xpath/>
         </line>
       </lines>
     </parser>
-  <post_template/>
   </command>
-<command name="CREATE">
-    <operation>{if !empty($params.addressNetworkPrefix)}
+  <command name="CREATE">
+    <operation><![CDATA[{if !empty($params.addressNetworkPrefix)}
 set security address-book {$params.addressBookName} address {$object_id} {$params.addressNetworkIP}/{$params.addressNetworkPrefix}
 {/if}  
 {if !empty($params.addressNetworkMask)}
@@ -147,15 +145,14 @@ set security address-book {$params.addressBookName} address {$object_id} dns-nam
 {elseif !empty($params.addressDnsName)}
 set security address-book {$params.addressBookName} address {$object_id} dns-name {$params.addressDnsName}
 {/if}
-</operation>
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>delete security address-book {$address_object.$object_id.addressBookName} address {$object_id}
-</operation>
+    <operation><![CDATA[delete security address-book {$address_object.$object_id.addressBookName} address {$object_id}
+]]></operation>
   </command>
-
-<command name="UPDATE">
-    <operation>{if !empty($params.addressNetworkPrefix)}
+  <command name="UPDATE">
+    <operation><![CDATA[{if !empty($params.addressNetworkPrefix)}
 set security address-book {$params.addressBookName} address {$object_id} {$params.addressNetworkIP}/{$params.addressNetworkPrefix}
 {/if}  
 {if !empty($params.addressNetworkMask)}
@@ -171,6 +168,6 @@ set security address-book {$params.addressBookName} address {$object_id} dns-nam
 {elseif !empty($params.addressDnsName)}
 set security address-book {$params.addressBookName} address {$object_id} dns-name {$params.addressDnsName}
 {/if}
-</operation>
+]]></operation>
   </command>
 </ObjectDefinition>
