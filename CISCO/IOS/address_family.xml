@@ -176,9 +176,11 @@
   </example>
   <command name="IMPORT">
     <operation><![CDATA[show running-config]]></operation>
-    <post_template>{foreach $router_bgp as $r_bgp}
+    <post_template>{if isset($router_bgp)}
+{foreach $router_bgp as $r_bgp}
 {assign_object_variable var=&quot;router_bgp&quot; value=&quot;{$r_bgp.router_bgp}&quot;}
 {/foreach}
+{/if}
 
 {if isset($params.neighbors)}
 {foreach $params.neighbors as $neighbor}
