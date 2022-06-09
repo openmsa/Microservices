@@ -390,13 +390,13 @@ router bgp {$params.router_bgp}
   <command name="CONSTRAINT"/>
   <command name="DELETE">
     <operation><![CDATA[
-{if isset($params.neighbor)}
+{if isset($params.neighbor) && count($params.neighbor)>1}
 !
- router bgp {$bgp_vrf.$object_id.router_bgp}
+router bgp {$bgp_vrf.$object_id.router_bgp}
  vrf {$params.vrf_name}
-  {foreach $params.neighbor as $neighbor}
+{foreach $params.neighbor as $neighbor}
     no neighbor {$neighbor.bgp_vrf_neighbor}
-  {/foreach}
+{/foreach}
 root
 !
 {/if}]]></operation>

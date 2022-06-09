@@ -305,6 +305,7 @@ router static
  address-family ipv6 unicast
 {foreach $params.routes6 as $route}
   no {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
+
 {/if}
  
 {/foreach}
@@ -323,6 +324,7 @@ vrf {$vrf.vrf_name}
 {foreach $vrf.routes as $route}
     no {$route.ipv4_address}/{$route.ipv4_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
+
 {/foreach}
 {/foreach}
 root
@@ -340,6 +342,7 @@ vrf {$vrf.vrf_name}
 {foreach $vrf.routes as $route}
     no {$route.ipv6_address}/{$route.ipv6_mask_length} {if isset($route.interface)}{$route.interface}{/if} {$route.gateway} {if isset($route.metric)}{$route.metric}{/if}{if isset($route.tag)} tag {$route.tag}
 {/if}
+
 {/foreach}
 {/foreach}
 root
