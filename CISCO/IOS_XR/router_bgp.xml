@@ -228,6 +228,16 @@ root
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[{if isset($params.neighbors) && (count($params.neighbors)>0)}
+!
+router bgp {$params.router_bgp}
+{foreach $params.neighbors as $neighbor}
+ no neighbor {$neighbor.bgp_neighbor}
+{/foreach}
+!
+root
+{/if}]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
