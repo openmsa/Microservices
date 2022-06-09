@@ -54,7 +54,17 @@
         <sections>MDT</sections>
       </sections>
     </variable>
+    <variable displayName="vrf_mdt_data_threshold" name="params.vrf_mdt_data_threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>MDT</sections>
+      </sections>
+    </variable>
     <variable displayName="vrf_mdt_log_reuse" name="params.vrf_mdt_log_reuse" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>MDT</sections>
+      </sections>
+    </variable>
+    <variable displayName="vrf_mdt_mtu" name="params.vrf_mdt_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>MDT</sections>
       </sections>
@@ -124,6 +134,16 @@
         <sections>address_family</sections>
       </sections>
     </variable>
+    <variable displayName="vrf_mdt_data_threshold" name="params.address_family.0.vrf_mdt_data_threshold" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>address_family</sections>
+      </sections>
+    </variable>
+    <variable displayName="vrf_mdt_mtu" name="params.address_family.0.vrf_mdt_mtu" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>address_family</sections>
+      </sections>
+    </variable>
     <variable displayName="import_rt" name="params.address_family.0.import_array_rt.0.import_rt" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>address_family</sections>
@@ -164,12 +184,12 @@
       <lines>
         <line>
           <array/>
-          <regexp>@^\s*description\s+(?&lt;description&gt;.*)@</regexp>
+          <regexp>@\s*description\s+(?&lt;description&gt;.*)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*rd\s+(?&lt;rd&gt;[0-9]+:[0-9]+)@</regexp>
+          <regexp>@\s*rd\s+(?&lt;rd&gt;[0-9]+:[0-9]+)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -191,42 +211,47 @@
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*export\s+map\s+(?&lt;export_route_map&gt;\S+)@</regexp>
+                <regexp>@\s*export\s+map\s+(?&lt;export_route_map&gt;\S+)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*maximum routes (?&lt;vrf_max_routes&gt;\d+\s+\d+)@</regexp>
+                <regexp>@\s*maximum routes (?&lt;vrf_max_routes&gt;\d+\s+\d+)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*(?&lt;vrf_interas_hybrid&gt;inter-as-hybrid)@</regexp>
+                <regexp>@\s*(?&lt;vrf_interas_hybrid&gt;inter-as-hybrid)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*mdt default (?&lt;vrf_mdt_default&gt;\S+)@</regexp>
+                <regexp>@\s*mdt default (?&lt;vrf_mdt_default&gt;\S+)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*mdt data (?&lt;vrf_mdt_data_ip&gt;\S+) (?&lt;vrf_mdt_data_imask&gt;\S+)@</regexp>
+                <regexp>@\s*mdt data (?&lt;vrf_mdt_data_ip&gt;\S+) (?&lt;vrf_mdt_data_imask&gt;\S+)(\s*threshold (?&lt;vrf_mdt_data_threshold&gt;\d+))@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*import\s+map\s+(?&lt;import_route_map&gt;\S+)@</regexp>
+                <regexp>@\s*import\s+map\s+(?&lt;import_route_map&gt;\S+)@</regexp>
                 <xpath/>
               </line>
               <line>
                 <array/>
-                <regexp>@^\s*mdt (?&lt;vrf_mdt_log_reuse&gt;log-reuse.*)@</regexp>
+                <regexp>@\s*mdt (?&lt;vrf_mdt_log_reuse&gt;log-reuse.*)@</regexp>
+                <xpath/>
+              </line>
+              <line>
+                <array/>
+                <regexp>@\s*mdt mtu (?&lt;vrf_mdt_mtu&gt;\d+)@</regexp>
                 <xpath/>
               </line>
             </lines>
             <lines/>
-            <regexp>@^\s*address-family\s+(?&lt;address_family&gt;ipv4|ipv6)$@</regexp>
+            <regexp>@\s*address-family\s+(?&lt;address_family&gt;ipv4|ipv6)$@</regexp>
           </array>
           <regexp/>
           <xpath/>
@@ -247,37 +272,42 @@
         </line>
         <line>
           <array/>
-          <regexp>@^\s*export\s+map\s+(?&lt;export_route_map&gt;\S+)@</regexp>
+          <regexp>@\s*export\s+map\s+(?&lt;export_route_map&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*maximum routes (?&lt;vrf_max_routes&gt;\d+\s+\d+)@</regexp>
+          <regexp>@\s*maximum routes (?&lt;vrf_max_routes&gt;\d+\s+\d+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*(?&lt;vrf_interas_hybrid&gt;inter-as-hybrid)@</regexp>
+          <regexp>@\s*(?&lt;vrf_interas_hybrid&gt;inter-as-hybrid)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*mdt default (?&lt;vrf_mdt_default&gt;\S+)@</regexp>
+          <regexp>@\s*mdt default (?&lt;vrf_mdt_default&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*mdt data (?&lt;vrf_mdt_data_ip&gt;\S+) (?&lt;vrf_mdt_data_imask&gt;\S+)@</regexp>
+          <regexp>@\s*mdt data (?&lt;vrf_mdt_data_ip&gt;\S+) (?&lt;vrf_mdt_data_imask&gt;\S+)(\s*threshold (?&lt;vrf_mdt_data_threshold&gt;\d+))@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*import\s+map\s+(?&lt;import_route_map&gt;\S+)@</regexp>
+          <regexp>@\s*import\s+map\s+(?&lt;import_route_map&gt;\S+)@</regexp>
           <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s*mdt (?&lt;vrf_mdt_log_reuse&gt;log-reuse.*)@</regexp>
+          <regexp>@\s*mdt (?&lt;vrf_mdt_log_reuse&gt;log-reuse.*)@</regexp>
+          <xpath/>
+        </line>
+        <line>
+          <array/>
+          <regexp>@\s*mdt mtu (?&lt;vrf_mdt_mtu&gt;\d+)@</regexp>
           <xpath/>
         </line>
         <ignore>

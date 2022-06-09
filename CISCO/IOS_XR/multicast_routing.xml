@@ -49,9 +49,13 @@ multicast-routing
   mdt default ipv4 {$vrf.vrf_mdt_default}
 {/if}
 {if isset($vrf.vrf_mdt_data)}
-  mdt data {$vrf.vrf_mdt_data}
+  mdt data {$vrf.vrf_mdt_data}{if isset($vrf.vrf_mdt_data_threshold)} threshold {$vrf.vrf_mdt_data_threshold}
 {/if}
- !
+{/if}
+{if isset($vrf.vrf_mdt_mtu)}
+  mdt mtu {$vrf.vrf_mdt_mtu}
+{/if}
+!
 root
 {/if}
 {if isset($vrf.address_family)}
@@ -65,7 +69,11 @@ multicast-routing
    mdt default ipv4 {$af.vrf_mdt_default}
   {/if}
   {if isset($af.vrf_mdt_data)}
-   mdt data {$af.vrf_mdt_data}
+   mdt data {$af.vrf_mdt_data}{if isset($af.vrf_mdt_data_threshold)} threshold {$af.vrf_mdt_data_threshold}
+   {/if}
+  {/if}
+  {if isset($af.vrf_mdt_mtu)}
+   mdt mtu {$af.vrf_mdt_mtu}
   {/if}
  !
 root
