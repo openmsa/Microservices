@@ -138,7 +138,7 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[{if isset($params.interfaces) && $params.interfaces|@count > 0}
+    <operation><![CDATA[{if isset($params.interfaces) && count($params.interfaces) > 0}
 !
 router {$params.object_id} 1
 
@@ -180,11 +180,9 @@ router {$params.object_id} 1
     {/if}
   {/foreach}
 {/foreach}
-!
-{else}
+root
 !
 {/if}
-root
 
 ]]></operation>
   </command>
