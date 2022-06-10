@@ -290,7 +290,7 @@ policy-map  {$params.object_id}
   {/foreach}
   {/if}
   {if isset($pmap_class.shape)}
-  shape {$pmap_class.shape}  bytes
+  shape {$pmap_class.shape} bps
   {/if} 
   {if isset($pmap_class.conform_action)}
   conform-action {$pmap_class.conform_action|replace:'-':' '|replace:'transmit':''}
