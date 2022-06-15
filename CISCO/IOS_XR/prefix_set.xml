@@ -67,14 +67,13 @@ prefix-set {$params.object_id}
  {if isset($prefix.comp_prefix_length) && isset($prefix.prefix_length)} {$prefix.comp_prefix_length} {$prefix.prefix_length}{/if}
  {if !$prefix@last},{/if}
  {/strip}
- 
+
 {/foreach}
 {/if}
 !
 end-set 
 root
-!
-]]></operation>
+!]]></operation>
   </command>
   <command name="READ"/>
   <command name="UPDATE"/>
