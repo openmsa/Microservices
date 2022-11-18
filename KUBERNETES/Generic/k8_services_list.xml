@@ -1,126 +1,245 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Contrainer|K8</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Services</name>
+    <group>Contrainer|K8</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Services</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Creation Date" displayOrder="1" maxLength="100" name="params.creation_date" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Creation Date" name="params.creation_date" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="Type" displayOrder="2" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="Cluster Ip" displayOrder="3" maxLength="100" name="params.cluster_ip" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Cluster Ip" name="params.cluster_ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="External IPs" displayOrder="4" maxLength="100" name="params.external_ips" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="External IPs" name="params.external_ips" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="Protocol" displayOrder="5" maxLength="100" name="params.protocol" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Protocol" name="params.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="Port" displayOrder="6" maxLength="100" name="params.port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="Target Port" displayOrder="7" maxLength="100" name="params.target_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Target Port" name="params.target_port" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-    <variable displayName="Node Port" displayOrder="8" maxLength="100" name="params.node_port" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Node Port" name="params.node_port" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Service</section>
+        <sections>Service</sections>
       </sections>
     </variable>
-  </variables>  <example>
+    <variable displayName="Name" name="params.ports.0.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ports</sections>
+      </sections>
+    </variable>
+    <variable displayName="Port" name="params.ports.0.port" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ports</sections>
+      </sections>
+    </variable>
+    <variable displayName="Protocol" name="params.ports.0.protocol" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ports</sections>
+      </sections>
+    </variable>
+    <variable displayName="Target Port" name="params.ports.0.target_port" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ports</sections>
+      </sections>
+    </variable>
+    <variable displayName="Node Port" name="params.ports.0.node_port" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ports</sections>
+      </sections>
+    </variable>
+    <variable displayName="IP Address" name="params.ingress.0.ip" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="120" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" validationRegex="" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ingress</sections>
+      </sections>
+    </variable>
+    <variable displayName="Hostname" name="params.ingress.0.hostname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ingress</sections>
+      </sections>
+    </variable>
+    <variable displayName="Endpoint" name="params.ingress.0.endpoints.0.link" startIncrement="0" type="Link" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="350" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Ingress</sections>
+      </sections>
+    </variable>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
-    <xpath>/api/v1/services</xpath>
+    <operation><![CDATA[GET]]></operation>
+    <post_template>{foreach $params.ingress as $ingress_index =&gt; $ing}
+	{foreach $params.ports as $port_index =&gt; $port}
+		{if isset($ing.hostname)}
+			{assign var=&quot;host&quot; value=$ing.hostname}
+		{else}
+			{assign var=&quot;host&quot; value=$ing.ip}
+		{/if}
+		{if $port.port == 443} 
+			{assign_object_variable var=&quot;ingress.{$ingress_index}.endpoints.{$port_index}.link&quot; value=&quot;https://{$host}&quot;}
+		{else}
+			{assign_object_variable var=&quot;ingress.{$ingress_index}.endpoints.{$port_index}.link&quot; value=&quot;http://{$host}:{$port.port}&quot;}
+		{/if}
+	{/foreach}
+{/foreach}
+</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/items/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>metadata/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>metadata/name</xpath>
         </line>
         <line>
-          <xpath>metadata/creationTimestamp</xpath>
+          <array/>
           <regexp>@&lt;creationTimestamp&gt;(?&lt;creation_date&gt;.*)&lt;/creationTimestamp&gt;@</regexp>
+          <xpath>metadata/creationTimestamp</xpath>
         </line>
         <line>
-          <xpath>spec/type</xpath>
+          <array/>
           <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
+          <xpath>spec/type</xpath>
         </line>
         <line>
-          <xpath>spec/clusterIP</xpath>
+          <array/>
           <regexp>@&lt;clusterIP&gt;(?&lt;cluster_ip&gt;.*)&lt;/clusterIP&gt;@</regexp>
+          <xpath>spec/clusterIP</xpath>
         </line>
         <line>
-          <xpath>spec/externalIPs/row</xpath>
+          <array/>
           <regexp>@&lt;row&gt;(?&lt;external_ips&gt;.*)&lt;/row&gt;@</regexp>
+          <xpath>spec/externalIPs/row</xpath>
         </line>
         <line>
-          <xpath>spec/ports/row/protocol</xpath>
+          <array/>
           <regexp>@&lt;protocol&gt;(?&lt;protocol&gt;.*)&lt;/protocol&gt;@</regexp>
+          <xpath>spec/ports/row/protocol</xpath>
         </line>
         <line>
-          <xpath>spec/ports/row/port</xpath>
+          <array/>
           <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
+          <xpath>spec/ports/row/port</xpath>
         </line>
         <line>
-          <xpath>spec/ports/row/targetPort</xpath>
+          <array/>
           <regexp>@&lt;targetPort&gt;(?&lt;target_port&gt;.*)&lt;/targetPort&gt;@</regexp>
+          <xpath>spec/ports/row/targetPort</xpath>
         </line>
         <line>
-          <xpath>spec/ports/row/nodePort</xpath>
+          <array/>
           <regexp>@&lt;nodePort&gt;(?&lt;node_port&gt;.*)&lt;/nodePort&gt;@</regexp>
+          <xpath>spec/ports/row/nodePort</xpath>
         </line>
-        
-        
-        
-        
-        
-        
+        <line>
+          <array/>
+          <regexp>@&lt;hostname&gt;(?&lt;hostname&gt;.*)&lt;/hostname&gt;@</regexp>
+          <xpath>status/loadBalancer/ingress/row/hostname</xpath>
+        </line>
+        <line>
+          <array name="ports">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+                <xpath>name</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;protocol&gt;(?&lt;protocol&gt;.*)&lt;/protocol&gt;@</regexp>
+                <xpath>protocol</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
+                <xpath>port</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;targetPort&gt;(?&lt;target_port&gt;.*)&lt;/targetPort&gt;@</regexp>
+                <xpath>targetPort</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;nodePort&gt;(?&lt;node_port&gt;.*)&lt;/nodePort&gt;@</regexp>
+                <xpath>nodePort</xpath>
+              </line>
+            </lines>
+            <xpath>spec/ports/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="ingress">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;hostname&gt;(?&lt;hostname&gt;.*)&lt;/hostname&gt;@</regexp>
+                <xpath>hostname</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;ip&gt;(?&lt;ip&gt;.*)&lt;/ip&gt;@</regexp>
+                <xpath>ip</xpath>
+              </line>
+            </lines>
+            <xpath>status/loadBalancer/ingress/row</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/api/v1/services</xpath>
   </command>
-
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
