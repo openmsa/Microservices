@@ -1,62 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>MANO</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>NFVI Resources</name>
+    <group>MANO</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>NFVI Resources</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Id" displayOrder="0" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="vimType" displayOrder="1" maxLength="100" name="params.vimType" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="endpoint" displayOrder="2" maxLength="100" name="params.interfaceInfo.0.endpoint" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vimType" name="params.vimType" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="endpoint" name="params.interfaceInfo.0.endpoint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>interfaceInfo</section>
+        <sections>interfaceInfo</sections>
       </sections>
     </variable>
-    <variable displayName="username" displayOrder="3" maxLength="100" name="params.accessInfo.0.username" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="sdn_endpoint" name="params.interfaceInfo.0.sdn_endpoint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>accessInfo</section>
+        <sections>interfaceInfo</sections>
       </sections>
     </variable>
-    <variable displayName="password" displayOrder="4" maxLength="100" name="params.accessInfo.0.password" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Password">
+    <variable displayName="username" name="params.accessInfo.0.username" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>accessInfo</section>
+        <sections>accessInfo</sections>
       </sections>
     </variable>
-    <variable displayName="projectDomain" displayOrder="5" maxLength="100" name="params.accessInfo.0.projectDomain" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="password" name="params.accessInfo.0.password" startIncrement="0" type="Password" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>accessInfo</section>
+        <sections>accessInfo</sections>
       </sections>
     </variable>
-    <variable displayName="projectId" displayOrder="6" maxLength="100" name="params.accessInfo.0.projectId" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="projectDomain" name="params.accessInfo.0.projectDomain" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>accessInfo</section>
+        <sections>accessInfo</sections>
       </sections>
     </variable>
-    <variable displayName="userDomain" displayOrder="7" maxLength="100" name="params.accessInfo.0.userDomain" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="projectId" name="params.accessInfo.0.projectId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>accessInfo</section>
+        <sections>accessInfo</sections>
       </sections>
     </variable>
-  </variables>  <example>
-    <content>&lt;?xml version="1.0"?&gt;
+    <variable displayName="userDomain" name="params.accessInfo.0.userDomain" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>accessInfo</sections>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;root&gt;
 	&lt;row&gt;
 		&lt;id&gt;81268288-4f34-4a9b-94ad-d9666d75449c&lt;/id&gt;
@@ -83,64 +91,80 @@
 </content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>vimType</xpath>
+          <array/>
           <regexp>@&lt;vimType&gt;(?&lt;vimType&gt;.*)&lt;/vimType&gt;@</regexp>
+          <xpath>vimType</xpath>
         </line>
         <line>
           <array name="accessInfo">
-            <xpath>accessInfo</xpath>
             <lines>
               <line>
-                <xpath>username</xpath>
+                <array/>
                 <regexp>@&lt;username&gt;(?&lt;username&gt;.*)&lt;/username&gt;@</regexp>
+                <xpath>username</xpath>
               </line>
               <line>
-                <xpath>password</xpath>
+                <array/>
                 <regexp>@&lt;password&gt;(?&lt;password&gt;.*)&lt;/password&gt;@</regexp>
+                <xpath>password</xpath>
               </line>
               <line>
-                <xpath>projectId</xpath>
+                <array/>
                 <regexp>@&lt;projectId&gt;(?&lt;projectId&gt;.*)&lt;/projectId&gt;@</regexp>
+                <xpath>projectId</xpath>
               </line>
               <line>
-                <xpath>projectDomain</xpath>
+                <array/>
                 <regexp>@&lt;projectDomain&gt;(?&lt;projectDomain&gt;.*)&lt;/projectDomain&gt;@</regexp>
+                <xpath>projectDomain</xpath>
               </line>
               <line>
-                <xpath>userDomain</xpath>
+                <array/>
                 <regexp>@&lt;userDomain&gt;(?&lt;userDomain&gt;.*)&lt;/userDomain&gt;@</regexp>
+                <xpath>userDomain</xpath>
               </line>
             </lines>
+            <xpath>accessInfo</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
         <line>
           <array name="interfaceInfo">
-            <xpath>interfaceInfo</xpath>
             <lines>
               <line>
-                <xpath>endpoint</xpath>
+                <array/>
                 <regexp>@&lt;endpoint&gt;(?&lt;endpoint&gt;.*)&lt;/endpoint&gt;@</regexp>
+                <xpath>endpoint</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@&lt;sdn_endpoint&gt;(?&lt;sdn_endpoint&gt;.*)&lt;/sdn_endpoint&gt;@</regexp>
+                <xpath>sdn_endpoint</xpath>
               </line>
             </lines>
+            <xpath>interfaceInfo</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
       </lines>
     </parser>
-    <post_template/>
-  <xpath>/ubi-etsi-mano/admin/vim</xpath>
+    <xpath>/ubi-etsi-mano/admin/vim</xpath>
   </command>
-<command name="READ">
-    <output/>
-  </command>
+  <command name="READ"/>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
