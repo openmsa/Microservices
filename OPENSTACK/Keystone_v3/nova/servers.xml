@@ -113,7 +113,11 @@
         <class>keypairs</class>
       </classes>
     </variable>
-    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="kvdc-ngv" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>tenants</class>
+      </classes>
+    </variable>
     <variable displayName="Availability Zone" name="params.availability_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>availability_zones</class>
@@ -192,6 +196,11 @@
         <values displayValue="swap">swap</values>
       </values>
     </variable>
+    <variable displayName="volume_size" name="params.block_device_mapping_v2.0.volume_size" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="46" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Block Device Mapping V2</sections>
+      </sections>
+    </variable>
     <variable displayName="Boot Index" name="params.block_device_mapping_v2.0.boot_index" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="36" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
@@ -200,6 +209,11 @@
         <values displayValue="0">0</values>
         <values displayValue="-1">-1</values>
       </values>
+    </variable>
+    <variable displayName="uuid" name="params.block_device_mapping_v2.0.uuid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Block Device Mapping V2</sections>
+      </sections>
     </variable>
     <variable displayName="rel" name="params.links.0.rel" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="37" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
@@ -991,21 +1005,27 @@
 {literal}}{/literal}
 {/if}
 {if !empty($params.config_drive)}
-,"config_drive": "{$params.config_drive}"
+,"config_drive": {$params.config_drive}
 {/if}
 {if !empty($params.block_device_mapping_v2)}
 ,"block_device_mapping_v2":[
 {foreach $params.block_device_mapping_v2 as $block_device_mapping}
 {if $block_device_mapping@iteration > 1},{/if}
 {literal}{{/literal}
-"device_name": "{$block_device_mapping.device_name}",
+"uuid": "{$block_device_mapping.uuid}",
+"volume_size":"{$block_device_mapping.volume_size}",
+{if !empty($block_device_mapping.source_type)}
 "source_type": "{$block_device_mapping.source_type}",
-"delete_on_termination": "{$block_device_mapping.delete_on_termination}",
-"guest_format": "{$block_device_mapping.guest_format}",
-"boot_index": "{$block_device_mapping.boot_index}"
-{if !empty($block_device_mapping.destination_type)}
-,"destination_type": "{$block_device_mapping.destination_type}"
 {/if}
+{if !empty($block_device_mapping.destination_type)}
+"destination_type": "{$block_device_mapping.destination_type}",
+{/if}
+{if !empty($block_device_mapping.delete_on_termination)}
+"delete_on_termination": {$block_device_mapping.delete_on_termination},
+{/if}{if !empty($block_device_mapping.guest_format)}
+"guest_format": "{$block_device_mapping.guest_format}",
+{/if}
+"boot_index": {$block_device_mapping.boot_index}
 {literal}}{/literal}
 {/foreach}
 ]

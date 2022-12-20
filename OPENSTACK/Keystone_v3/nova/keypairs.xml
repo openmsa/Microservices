@@ -1,84 +1,91 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/key.jpg</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Nova</group>
-    <icon>/images/repository/CommandDefinition/icons/key.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Keypairs</name>
+    <group>Nova</group>
     <importonce>false</importonce>
     <importrank>2</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Keypairs</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" maxLength="200" name="params.object_id" startIncrement="0" type="String"/>
-    <variable displayName="Fingerprint" displayOrder="1" isUserLocked="true" maxLength="200" name="params.fingerprint" startIncrement="0" type="String"/>
-    <variable displayName="Public Key" displayOrder="2" maxLength="200" name="params.public_key" startIncrement="0" type="String"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Fingerprint" name="params.fingerprint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Public Key" name="params.public_key" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation>nova</operation>
-    <xpath>/{$TENANT_ID}/os-keypairs</xpath>
+    <operation><![CDATA[nova]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/keypairs/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>keypair/name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>keypair/name</xpath>
         </line>
         <line>
-          <xpath>keypair/fingerprint</xpath>
+          <array/>
           <regexp>@&lt;fingerprint&gt;(?&lt;fingerprint&gt;.*)&lt;/fingerprint&gt;@</regexp>
+          <xpath>keypair/fingerprint</xpath>
         </line>
         <line>
-          <xpath>keypair/public_key</xpath>
+          <array/>
           <regexp>@&lt;public_key&gt;(?&lt;public_key&gt;.*)&lt;/public_key&gt;@</regexp>
+          <xpath>keypair/public_key</xpath>
         </line>
-        
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/{$TENANT_ID}/os-keypairs</xpath>
   </command>
-  
-  
-  
-<command name="CREATE">
-    <rest>POST#nova
-</rest>
-    <xpath>/{$TENANT_ID}/os-keypairs
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
 "keypair": {literal}{{/literal}
 "name": "{$params.object_id}"
 {if !empty($params.public_key)}
 ,"public_key": "{$params.public_key}"
 {/if}
+{if !empty($params.type)}
+,"type": "{$params.type}"
+{/if}
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>POST#nova
+</rest>
+    <xpath>/{$TENANT_ID}/os-keypairs
+</xpath>
   </command>
-<command name="DELETE">
+  <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>nova
 </rest>
     <xpath>/{$TENANT_ID}/os-keypairs/{$params.object_id|object_id}
 </xpath>
-    <operation>
-</operation>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
