@@ -1,36 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/www server.jpg</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>true</defaultDisplay>
-    <description/>
-    <displayField>host</displayField>
     <dynamic>false</dynamic>
-    <group>Nova</group>
-    <icon>/images/repository/CommandDefinition/icons/www server.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Hosts</name>
+    <group>Nova</group>
     <importonce>false</importonce>
     <importrank>4</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Hosts</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="ID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" numberOfRowMax="0" type="String"/>
-    <variable displayName="Hypervisor Hostname" displayOrder="1" isUserLocked="true" maxLength="200" name="params.hypervisor_hostname" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="disk" displayOrder="2" maxLength="100" name="params.disk" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="State" displayOrder="2" maxLength="100" name="params.state" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="host" displayOrder="3" editable="false" maxLength="100" name="params.host" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String" visible="false"/>
-    <variable displayName="Status" displayOrder="3" isUserLocked="true" maxLength="120" name="params.status" numberOfRowMax="0" type="String"/>
-  </variables>  <example>
-    <content>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+  </information>
+  <variables frozen="0">
+    <variable displayName="hypervisor_hostname" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="80" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ID" name="params.hypervisor_hostname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Disk" name="params.disk" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="State" name="params.state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="host" name="params.host" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="120" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;root&gt;
   &lt;hypervisors&gt;
     &lt;hypervisor_hostname&gt;host1&lt;/hypervisor_hostname&gt;
@@ -45,50 +48,38 @@
 &lt;/root&gt;
 </content>
   </example>
-<command name="IMPORT">
-    <operation>nova</operation>
-    <xpath>/os-hypervisors</xpath>
+  <command name="IMPORT">
+    <operation><![CDATA[nova]]></operation>
+    <post_template>{assign_object_variable var=&quot;host&quot; value=&quot;{$params.hypervisor_hostname} [ID: {$params.object_id} - State: {$params.state} - State: {$params.status}]&quot;}</post_template>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/hypervisors/row</xpath>
       </section>
       <lines>
         <line>
+          <array/>
+          <regexp>@&lt;id&gt;(?&lt;hypervisor_hostname&gt;.*)&lt;/id&gt;@</regexp>
           <xpath>id</xpath>
-          <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
         </line>
-         
-        
-        
-        
-        
-        
         <line>
+          <array/>
+          <regexp>@&lt;hypervisor_hostname&gt;(?&lt;object_id&gt;.*)&lt;/hypervisor_hostname&gt;@</regexp>
           <xpath>hypervisor_hostname</xpath>
-          <regexp>@&lt;hypervisor_hostname&gt;(?&lt;hypervisor_hostname&gt;.*)&lt;/hypervisor_hostname&gt;@</regexp>
         </line>
-        
         <line>
-          <xpath>status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
         </line>
         <line>
-          <xpath>state</xpath>
+          <array/>
           <regexp>@&lt;state&gt;(?&lt;state&gt;.*)&lt;/state&gt;@</regexp>
+          <xpath>state</xpath>
         </line>
-        
-        
-        
-        
-        
-        
-        
-        
       </lines>
     </parser>
-    <post_template>{assign_object_variable var="host" value="{$params.hypervisor_hostname} [ID: {$params.object_id} - State: {$params.state} - State: {$params.status}]"}</post_template>
+    <xpath>/os-hypervisors</xpath>
   </command>
-
-
-
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
