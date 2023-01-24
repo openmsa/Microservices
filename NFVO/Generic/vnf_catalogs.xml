@@ -305,6 +305,6 @@ system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUy
         </line>
       </lines>
     </parser>
-    <xpath>/{$SD->smarty[BASE_URL]}/sol003/vnfpkgm/v1/vnf_packages?all_fields=1{$SD-&gt;smarty[&apos;VNF_PKG_FILTER_EXPRESSION&apos;]}</xpath>
+    <xpath>/{$SD->smarty[BASE_URL]}sol003/vnfpkgm/v1/vnf_packages?all_fields=1{$SD-&gt;smarty[&apos;VNF_PKG_FILTER_EXPRESSION&apos;]}</xpath>
   </command>
 </ObjectDefinition>
