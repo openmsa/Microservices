@@ -130,6 +130,6 @@
         </line>
       </lines>
     </parser>
-    <xpath>/{$SD->smarty[BASE_URL]}/sol005/nsd/v1/ns_descriptors?all_fields=1{$NS_PKG_FILTER_EXPRESSION}</xpath>
+    <xpath>{$SD-&gt;smarty[&apos;BASE_URL&apos;]}/sol005/nsd/v1/ns_descriptors?all_fields=1{$NS_PKG_FILTER_EXPRESSION}</xpath>
   </command>
 </ObjectDefinition>
