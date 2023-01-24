@@ -163,7 +163,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>/ubi-etsi-mano/admin/vim</xpath>
+    <xpath>/{$SD->smarty[BASE_URL]}/admin/vim</xpath>
   </command>
   <command name="READ"/>
   <command name="CONSTRAINT"/>
