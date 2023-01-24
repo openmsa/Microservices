@@ -189,7 +189,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>/{$SD->smarty[BASE_URL]}/admin/server</xpath>
+    <xpath>{$SD-&gt;smarty[&apos;BASE_URL&apos;]}/admin/server</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
