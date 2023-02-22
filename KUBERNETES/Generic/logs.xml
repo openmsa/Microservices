@@ -40,7 +40,7 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root</xpath>
+        <xpath>/api/v1/{$params.url}</xpath>
       </section>
       <lines>
         <line>
@@ -60,7 +60,6 @@
         </line>
       </lines>
     </parser>
-    <xpath>/api/v1/{$params.url}</xpath>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>

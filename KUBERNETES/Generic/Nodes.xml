@@ -34,7 +34,7 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root/items/row</xpath>
+        <xpath>/api/v1/nodes/</xpath>
       </section>
       <lines>
         <line>
@@ -44,7 +44,6 @@
         </line>
       </lines>
     </parser>
-    <xpath>/api/v1/nodes/</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>

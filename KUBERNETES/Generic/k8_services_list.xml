@@ -131,7 +131,7 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root/items/row</xpath>
+        <xpath>/api/v1/services</xpath>
       </section>
       <lines>
         <line>
@@ -239,7 +239,6 @@
         </line>
       </lines>
     </parser>
-    <xpath>/api/v1/services</xpath>
   </command>
   <command name="CONSTRAINT"/>
 </ObjectDefinition>

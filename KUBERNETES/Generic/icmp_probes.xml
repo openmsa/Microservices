@@ -39,11 +39,10 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root</xpath>
+        <xpath>/api/v1/namespaces/network-metrics/pods</xpath>
       </section>
       <lines/>
     </parser>
-    <xpath>/api/v1/namespaces/network-metrics/pods</xpath>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
