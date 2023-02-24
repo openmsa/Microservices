@@ -6,7 +6,7 @@
     <serviceTaskType/>
     <order>10000</order>
     <visibility>5</visibility>
-    <configType>xml</configType>
+    <configType>json</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
@@ -131,58 +131,58 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root/items/row</xpath>
+        <xpath>..root.items.row</xpath>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
-          <xpath>metadata/name</xpath>
+          <xpath>metadata.name</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;creationTimestamp&gt;(?&lt;creation_date&gt;.*)&lt;/creationTimestamp&gt;@</regexp>
-          <xpath>metadata/creationTimestamp</xpath>
+          <xpath>metadata.creationTimestamp</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;type&gt;(?&lt;type&gt;.*)&lt;/type&gt;@</regexp>
-          <xpath>spec/type</xpath>
+          <xpath>spec.type</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;clusterIP&gt;(?&lt;cluster_ip&gt;.*)&lt;/clusterIP&gt;@</regexp>
-          <xpath>spec/clusterIP</xpath>
+          <xpath>spec.clusterIP</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;row&gt;(?&lt;external_ips&gt;.*)&lt;/row&gt;@</regexp>
-          <xpath>spec/externalIPs/row</xpath>
+          <xpath>spec.externalIPs.row</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;protocol&gt;(?&lt;protocol&gt;.*)&lt;/protocol&gt;@</regexp>
-          <xpath>spec/ports/row/protocol</xpath>
+          <xpath>spec.ports.row.protocol</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;port&gt;(?&lt;port&gt;.*)&lt;/port&gt;@</regexp>
-          <xpath>spec/ports/row/port</xpath>
+          <xpath>spec.ports.row.port</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;targetPort&gt;(?&lt;target_port&gt;.*)&lt;/targetPort&gt;@</regexp>
-          <xpath>spec/ports/row/targetPort</xpath>
+          <xpath>spec.ports.row.targetPort</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;nodePort&gt;(?&lt;node_port&gt;.*)&lt;/nodePort&gt;@</regexp>
-          <xpath>spec/ports/row/nodePort</xpath>
+          <xpath>spec.ports.row.nodePort</xpath>
         </line>
         <line>
           <array/>
           <regexp>@&lt;hostname&gt;(?&lt;hostname&gt;.*)&lt;/hostname&gt;@</regexp>
-          <xpath>status/loadBalancer/ingress/row/hostname</xpath>
+          <xpath>status.loadBalancer.ingress.row.hostname</xpath>
         </line>
         <line>
           <array name="ports">
@@ -213,7 +213,7 @@
                 <xpath>nodePort</xpath>
               </line>
             </lines>
-            <xpath>spec/ports/row</xpath>
+            <xpath>spec.ports.row</xpath>
           </array>
           <regexp/>
           <xpath/>
@@ -232,7 +232,7 @@
                 <xpath>ip</xpath>
               </line>
             </lines>
-            <xpath>status/loadBalancer/ingress/row</xpath>
+            <xpath>status.loadBalancer.ingress.row</xpath>
           </array>
           <regexp/>
           <xpath/>

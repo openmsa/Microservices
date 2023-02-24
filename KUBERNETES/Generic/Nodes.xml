@@ -6,7 +6,7 @@
     <serviceTaskType/>
     <order>0</order>
     <visibility>0</visibility>
-    <configType>xml</configType>
+    <configType>json</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
@@ -34,13 +34,13 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root/items/row</xpath>
+        <xpath>..root.items.row</xpath>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@&lt;name&gt;(?&lt;node&gt;.*)&lt;/name&gt;@</regexp>
-          <xpath>//row/metadata/name</xpath>
+          <xpath>..row.metadata.name</xpath>
         </line>
       </lines>
     </parser>

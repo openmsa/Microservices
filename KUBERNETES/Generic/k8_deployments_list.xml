@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ObjectDefinition>  <information>
-    <configType>xml</configType>
+    <configType>json</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
@@ -54,7 +54,7 @@
     <xpath>/apis/apps/v1/deployments</xpath>
     <parser>
       <section>
-        <xpath>//root/items/row</xpath>
+        <xpath>..root.items.row</xpath>
       </section>
       <lines>
         <line>
@@ -62,19 +62,19 @@
           <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
         </line>
         <line>
-          <xpath>status/replicas</xpath>
+          <xpath>status.replicas</xpath>
           <regexp>@&lt;replicas&gt;(?&lt;replicas&gt;.*)&lt;/replicas&gt;@</regexp>
         </line>
         <line>
-          <xpath>status/availableReplicas</xpath>
+          <xpath>status.availableReplicas</xpath>
           <regexp>@&lt;availableReplicas&gt;(?&lt;available_replicas&gt;.*)&lt;/availableReplicas&gt;@</regexp>
         </line>
         <line>
-          <xpath>status/readyReplicas</xpath>
+          <xpath>status.readyReplicas</xpath>
           <regexp>@&lt;readyReplicas&gt;(?&lt;ready_replicas&gt;.*)&lt;/readyReplicas&gt;@</regexp>
         </line>
         <line>
-          <xpath>status/updatedReplicas</xpath>
+          <xpath>status.updatedReplicas</xpath>
           <regexp>@&lt;updatedReplicas&gt;(?&lt;updated_replicas&gt;.*)&lt;/updatedReplicas&gt;@</regexp>
         </line>
       </lines>
