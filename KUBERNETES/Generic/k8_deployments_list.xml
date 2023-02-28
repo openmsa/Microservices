@@ -1,85 +1,92 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/eclipseIcons/page_obj.gif</icon>
+    <description/>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>json</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
     <dynamic>false</dynamic>
-    <group>Contrainer|K8</group>
-    <icon>/images/eclipseIcons/page_obj.gif</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Deployments</name>
+    <group>Contrainer|K8</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Deployments</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="Name" displayOrder="0" isUserLocked="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Total" displayOrder="2" isUserLocked="true" maxLength="100" name="params.replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Total" name="params.replicas" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Replicas</section>
+        <sections>Replicas</sections>
       </sections>
     </variable>
-    <variable displayName="Available" displayOrder="3" isUserLocked="true" maxLength="100" name="params.available_replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Available" name="params.available_replicas" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Replicas</section>
+        <sections>Replicas</sections>
       </sections>
     </variable>
-    <variable displayName="Ready" displayOrder="4" isUserLocked="true" maxLength="100" name="params.ready_replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Ready" name="params.ready_replicas" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Replicas</section>
+        <sections>Replicas</sections>
       </sections>
     </variable>
-    <variable displayName="Updated" displayOrder="5" isUserLocked="true" maxLength="100" name="params.updated_replicas" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String">
+    <variable displayName="Updated" name="params.updated_replicas" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Replicas</section>
+        <sections>Replicas</sections>
       </sections>
     </variable>
-    <variable displayName="Template URL" displayOrder="6" maxLength="100" name="params.template_url" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="Link"/>
-  </variables>  <example>
+    <variable displayName="Template URL" name="params.template_url" startIncrement="0" type="Link" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
-    <xpath>/apis/apps/v1/deployments</xpath>
+    <operation><![CDATA[GET]]></operation>
     <parser>
       <section>
-        <xpath>..root.items.row</xpath>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>$.items.*</xpath>
       </section>
       <lines>
         <line>
-          <xpath>metadata/name</xpath>
-          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <array/>
+          <regexp>@(?&lt;object_id&gt;.*)@</regexp>
+          <xpath>$.metadata.name</xpath>
         </line>
         <line>
-          <xpath>status.replicas</xpath>
-          <regexp>@&lt;replicas&gt;(?&lt;replicas&gt;.*)&lt;/replicas&gt;@</regexp>
+          <array/>
+          <regexp>@(?&lt;replicas&gt;.*)@</regexp>
+          <xpath>$.status.replicas</xpath>
         </line>
         <line>
-          <xpath>status.availableReplicas</xpath>
-          <regexp>@&lt;availableReplicas&gt;(?&lt;available_replicas&gt;.*)&lt;/availableReplicas&gt;@</regexp>
+          <array/>
+          <regexp>@(?&lt;available_replicas&gt;.*)@</regexp>
+          <xpath>$.status.availableReplicas</xpath>
         </line>
         <line>
-          <xpath>status.readyReplicas</xpath>
-          <regexp>@&lt;readyReplicas&gt;(?&lt;ready_replicas&gt;.*)&lt;/readyReplicas&gt;@</regexp>
+          <array/>
+          <regexp>@(?&lt;ready_replicas&gt;.*)@</regexp>
+          <xpath>$.status.readyReplicas</xpath>
         </line>
         <line>
-          <xpath>status.updatedReplicas</xpath>
-          <regexp>@&lt;updatedReplicas&gt;(?&lt;updated_replicas&gt;.*)&lt;/updatedReplicas&gt;@</regexp>
+          <array/>
+          <regexp>@(?&lt;updated_replicas&gt;.*)@</regexp>
+          <xpath>$.status.updatedReplicas</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/apis/apps/v1/deployments</xpath>
   </command>
-
 </ObjectDefinition>
