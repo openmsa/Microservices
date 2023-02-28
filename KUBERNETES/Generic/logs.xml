@@ -6,7 +6,7 @@
     <serviceTaskType/>
     <order>0</order>
     <visibility>0</visibility>
-    <configType>xml</configType>
+    <configType>json</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
@@ -40,23 +40,23 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root</xpath>
+        <xpath>$</xpath>
       </section>
       <lines>
         <line>
           <array/>
           <regexp>@PING (?&lt;object_id&gt;([0-9]{1,3}\.){3}[0-9]{1,3})[^:]+:\s+(?&lt;size&gt;\d+)@</regexp>
-          <xpath>//line_1</xpath>
+          <xpath>..line_1</xpath>
         </line>
         <line>
           <array/>
           <regexp>@(?&lt;transmitted&gt;\d+)[^\d]+(?&lt;received&gt;\d+)[^\d]+(?&lt;loss&gt;\d+)@</regexp>
-          <xpath>//line_4</xpath>
+          <xpath>..line_4</xpath>
         </line>
         <line>
           <array/>
           <regexp>@(?&lt;min&gt;\d+\.\d+)\/(?&lt;avg&gt;\d+\.\d+)\/(?&lt;max&gt;\d+\.\d+)@</regexp>
-          <xpath>//line_5</xpath>
+          <xpath>..line_5</xpath>
         </line>
       </lines>
     </parser>

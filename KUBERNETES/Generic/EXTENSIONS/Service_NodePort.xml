@@ -6,7 +6,7 @@
     <serviceTaskType/>
     <order>0</order>
     <visibility>5</visibility>
-    <configType>xml</configType>
+    <configType>json</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
@@ -37,7 +37,7 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath></xpath>
+        <xpath>$</xpath>
       </section>
       <lines/>
     </parser>
