@@ -1,0 +1,545 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>json</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Juju Status (Json)</name>
+    <group>MANO | Juju</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="model" name="params.model" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="model_name" name="params.model_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="model_controller" name="params.model_controller" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="model_cloud" name="params.model_cloud" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>{
+	&quot;model&quot;: {
+		&quot;name&quot;: &quot;k8s-bundle-core-108&quot;,
+		&quot;type&quot;: &quot;iaas&quot;,
+		&quot;controller&quot;: &quot;openstack-inari-108-controller&quot;,
+		&quot;cloud&quot;: &quot;openstack-inari-108&quot;,
+		&quot;region&quot;: &quot;RegionOne&quot;,
+		&quot;version&quot;: &quot;2.9.42&quot;,
+		&quot;model-status&quot;: {
+			&quot;current&quot;: &quot;available&quot;,
+			&quot;since&quot;: &quot;31 Mar 2023 09:12:00Z&quot;
+		},
+		&quot;sla&quot;: &quot;unsupported&quot;
+	},
+	&quot;machines&quot;: {
+		&quot;0&quot;: {
+			&quot;juju-status&quot;: {
+				&quot;current&quot;: &quot;started&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:19:12Z&quot;,
+				&quot;version&quot;: &quot;2.9.42&quot;
+			},
+			&quot;hostname&quot;: &quot;juju-1ca198-k8s-bundle-core-108-0&quot;,
+			&quot;dns-name&quot;: &quot;10.31.1.49&quot;,
+			&quot;ip-addresses&quot;: [&quot;10.31.1.49&quot;, &quot;252.49.0.1&quot;],
+			&quot;instance-id&quot;: &quot;614a39a9-65a3-4aac-bde4-700ce75bbabc&quot;,
+			&quot;machine-status&quot;: {
+				&quot;current&quot;: &quot;running&quot;,
+				&quot;message&quot;: &quot;ACTIVE&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:14:53Z&quot;
+			},
+			&quot;modification-status&quot;: {
+				&quot;current&quot;: &quot;idle&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:14:28Z&quot;
+			},
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;network-interfaces&quot;: {
+				&quot;ens3&quot;: {
+					&quot;ip-addresses&quot;: [&quot;10.31.1.49&quot;],
+					&quot;mac-address&quot;: &quot;fa:16:3e:23:ca:1b&quot;,
+					&quot;gateway&quot;: &quot;10.31.1.251&quot;,
+					&quot;space&quot;: &quot;alpha&quot;,
+					&quot;is-up&quot;: true
+				},
+				&quot;fan-252&quot;: {
+					&quot;ip-addresses&quot;: [&quot;252.49.0.1&quot;],
+					&quot;mac-address&quot;: &quot;d6:f1:ba:b6:86:6b&quot;,
+					&quot;space&quot;: &quot;alpha&quot;,
+					&quot;is-up&quot;: true
+				},
+				&quot;lxdbr0&quot;: {
+					&quot;ip-addresses&quot;: [&quot;10.160.108.1&quot;],
+					&quot;mac-address&quot;: &quot;00:16:3e:d9:ea:f1&quot;,
+					&quot;is-up&quot;: true
+				}
+			},
+			&quot;containers&quot;: {
+				&quot;0/lxd/0&quot;: {
+					&quot;juju-status&quot;: {
+						&quot;current&quot;: &quot;started&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:32:19Z&quot;,
+						&quot;version&quot;: &quot;2.9.42&quot;
+					},
+					&quot;hostname&quot;: &quot;juju-1ca198-0-lxd-0&quot;,
+					&quot;dns-name&quot;: &quot;252.49.94.201&quot;,
+					&quot;ip-addresses&quot;: [&quot;252.49.94.201&quot;],
+					&quot;instance-id&quot;: &quot;juju-1ca198-0-lxd-0&quot;,
+					&quot;machine-status&quot;: {
+						&quot;current&quot;: &quot;running&quot;,
+						&quot;message&quot;: &quot;Container started&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:30:05Z&quot;
+					},
+					&quot;modification-status&quot;: {
+						&quot;current&quot;: &quot;applied&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:30:10Z&quot;
+					},
+					&quot;series&quot;: &quot;jammy&quot;,
+					&quot;network-interfaces&quot;: {
+						&quot;eth0&quot;: {
+							&quot;ip-addresses&quot;: [&quot;252.49.94.201&quot;],
+							&quot;mac-address&quot;: &quot;00:16:3e:22:4d:54&quot;,
+							&quot;gateway&quot;: &quot;252.49.0.1&quot;,
+							&quot;space&quot;: &quot;alpha&quot;,
+							&quot;is-up&quot;: true
+						}
+					},
+					&quot;hardware&quot;: &quot;availability-zone=nova&quot;
+				}
+			},
+			&quot;constraints&quot;: &quot;cores=2 mem=8192M root-disk=16384M&quot;,
+			&quot;hardware&quot;: &quot;arch=amd64 cores=2 mem=8192M root-disk=16384M availability-zone=nova&quot;
+		},
+		&quot;1&quot;: {
+			&quot;juju-status&quot;: {
+				&quot;current&quot;: &quot;started&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:19:13Z&quot;,
+				&quot;version&quot;: &quot;2.9.42&quot;
+			},
+			&quot;hostname&quot;: &quot;juju-1ca198-k8s-bundle-core-108-1&quot;,
+			&quot;dns-name&quot;: &quot;10.31.1.45&quot;,
+			&quot;ip-addresses&quot;: [&quot;10.31.1.45&quot;, &quot;252.45.0.1&quot;],
+			&quot;instance-id&quot;: &quot;d9b11637-589e-49e7-be66-c5f62463577d&quot;,
+			&quot;machine-status&quot;: {
+				&quot;current&quot;: &quot;running&quot;,
+				&quot;message&quot;: &quot;ACTIVE&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:15:16Z&quot;
+			},
+			&quot;modification-status&quot;: {
+				&quot;current&quot;: &quot;idle&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:14:29Z&quot;
+			},
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;network-interfaces&quot;: {
+				&quot;ens3&quot;: {
+					&quot;ip-addresses&quot;: [&quot;10.31.1.45&quot;],
+					&quot;mac-address&quot;: &quot;fa:16:3e:5a:9e:ba&quot;,
+					&quot;gateway&quot;: &quot;10.31.1.251&quot;,
+					&quot;space&quot;: &quot;alpha&quot;,
+					&quot;is-up&quot;: true
+				},
+				&quot;fan-252&quot;: {
+					&quot;ip-addresses&quot;: [&quot;252.45.0.1&quot;],
+					&quot;mac-address&quot;: &quot;26:64:e5:58:e7:9d&quot;,
+					&quot;space&quot;: &quot;alpha&quot;,
+					&quot;is-up&quot;: true
+				}
+			},
+			&quot;constraints&quot;: &quot;cores=2 mem=8192M root-disk=16384M&quot;,
+			&quot;hardware&quot;: &quot;arch=amd64 cores=2 mem=8192M root-disk=16384M availability-zone=nova&quot;
+		}
+	},
+	&quot;applications&quot;: {
+		&quot;calico&quot;: {
+			&quot;charm&quot;: &quot;calico&quot;,
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;os&quot;: &quot;ubuntu&quot;,
+			&quot;charm-origin&quot;: &quot;charmhub&quot;,
+			&quot;charm-name&quot;: &quot;calico&quot;,
+			&quot;charm-rev&quot;: 77,
+			&quot;charm-channel&quot;: &quot;stable&quot;,
+			&quot;charm-version&quot;: &quot;a164af4&quot;,
+			&quot;exposed&quot;: false,
+			&quot;application-status&quot;: {
+				&quot;current&quot;: &quot;active&quot;,
+				&quot;message&quot;: &quot;Calico is active&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:57:38Z&quot;
+			},
+			&quot;relations&quot;: {
+				&quot;cni&quot;: [&quot;kubernetes-control-plane&quot;, &quot;kubernetes-worker&quot;],
+				&quot;etcd&quot;: [&quot;etcd&quot;]
+			},
+			&quot;subordinate-to&quot;: [&quot;kubernetes-control-plane&quot;, &quot;kubernetes-worker&quot;],
+			&quot;version&quot;: &quot;3.21.4&quot;,
+			&quot;endpoint-bindings&quot;: {
+				&quot;&quot;: &quot;alpha&quot;,
+				&quot;cni&quot;: &quot;alpha&quot;,
+				&quot;etcd&quot;: &quot;alpha&quot;
+			}
+		},
+		&quot;containerd&quot;: {
+			&quot;charm&quot;: &quot;containerd&quot;,
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;os&quot;: &quot;ubuntu&quot;,
+			&quot;charm-origin&quot;: &quot;charmhub&quot;,
+			&quot;charm-name&quot;: &quot;containerd&quot;,
+			&quot;charm-rev&quot;: 54,
+			&quot;charm-channel&quot;: &quot;stable&quot;,
+			&quot;charm-version&quot;: &quot;ck-1.26-2-g0fa6807&quot;,
+			&quot;exposed&quot;: false,
+			&quot;application-status&quot;: {
+				&quot;current&quot;: &quot;active&quot;,
+				&quot;message&quot;: &quot;Container runtime available&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:46:23Z&quot;
+			},
+			&quot;relations&quot;: {
+				&quot;containerd&quot;: [&quot;kubernetes-control-plane&quot;, &quot;kubernetes-worker&quot;]
+			},
+			&quot;subordinate-to&quot;: [&quot;kubernetes-control-plane&quot;, &quot;kubernetes-worker&quot;],
+			&quot;version&quot;: &quot;1.6.8&quot;,
+			&quot;endpoint-bindings&quot;: {
+				&quot;&quot;: &quot;alpha&quot;,
+				&quot;containerd&quot;: &quot;alpha&quot;,
+				&quot;docker-registry&quot;: &quot;alpha&quot;,
+				&quot;untrusted&quot;: &quot;alpha&quot;
+			}
+		},
+		&quot;easyrsa&quot;: {
+			&quot;charm&quot;: &quot;easyrsa&quot;,
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;os&quot;: &quot;ubuntu&quot;,
+			&quot;charm-origin&quot;: &quot;charmhub&quot;,
+			&quot;charm-name&quot;: &quot;easyrsa&quot;,
+			&quot;charm-rev&quot;: 33,
+			&quot;charm-channel&quot;: &quot;stable&quot;,
+			&quot;charm-version&quot;: &quot;b26c377&quot;,
+			&quot;exposed&quot;: false,
+			&quot;application-status&quot;: {
+				&quot;current&quot;: &quot;active&quot;,
+				&quot;message&quot;: &quot;Certificate Authority connected.&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:34:32Z&quot;
+			},
+			&quot;relations&quot;: {
+				&quot;client&quot;: [&quot;etcd&quot;, &quot;kubernetes-control-plane&quot;, &quot;kubernetes-worker&quot;]
+			},
+			&quot;units&quot;: {
+				&quot;easyrsa/0&quot;: {
+					&quot;workload-status&quot;: {
+						&quot;current&quot;: &quot;active&quot;,
+						&quot;message&quot;: &quot;Certificate Authority connected.&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:34:32Z&quot;
+					},
+					&quot;juju-status&quot;: {
+						&quot;current&quot;: &quot;idle&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:54:31Z&quot;,
+						&quot;version&quot;: &quot;2.9.42&quot;
+					},
+					&quot;leader&quot;: true,
+					&quot;machine&quot;: &quot;0/lxd/0&quot;,
+					&quot;public-address&quot;: &quot;252.49.94.201&quot;
+				}
+			},
+			&quot;version&quot;: &quot;3.0.1&quot;,
+			&quot;endpoint-bindings&quot;: {
+				&quot;&quot;: &quot;alpha&quot;,
+				&quot;client&quot;: &quot;alpha&quot;
+			}
+		},
+		&quot;etcd&quot;: {
+			&quot;charm&quot;: &quot;etcd&quot;,
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;os&quot;: &quot;ubuntu&quot;,
+			&quot;charm-origin&quot;: &quot;charmhub&quot;,
+			&quot;charm-name&quot;: &quot;etcd&quot;,
+			&quot;charm-rev&quot;: 728,
+			&quot;charm-channel&quot;: &quot;stable&quot;,
+			&quot;charm-version&quot;: &quot;42c81a7&quot;,
+			&quot;exposed&quot;: false,
+			&quot;application-status&quot;: {
+				&quot;current&quot;: &quot;active&quot;,
+				&quot;message&quot;: &quot;Healthy with 1 known peer&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:38:55Z&quot;
+			},
+			&quot;relations&quot;: {
+				&quot;certificates&quot;: [&quot;easyrsa&quot;],
+				&quot;cluster&quot;: [&quot;etcd&quot;],
+				&quot;db&quot;: [&quot;calico&quot;, &quot;kubernetes-control-plane&quot;]
+			},
+			&quot;units&quot;: {
+				&quot;etcd/0&quot;: {
+					&quot;workload-status&quot;: {
+						&quot;current&quot;: &quot;active&quot;,
+						&quot;message&quot;: &quot;Healthy with 1 known peer&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:38:55Z&quot;
+					},
+					&quot;juju-status&quot;: {
+						&quot;current&quot;: &quot;idle&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:42:23Z&quot;,
+						&quot;version&quot;: &quot;2.9.42&quot;
+					},
+					&quot;leader&quot;: true,
+					&quot;machine&quot;: &quot;0&quot;,
+					&quot;open-ports&quot;: [&quot;2379/tcp&quot;],
+					&quot;public-address&quot;: &quot;10.31.1.49&quot;
+				}
+			},
+			&quot;version&quot;: &quot;3.4.22&quot;,
+			&quot;endpoint-bindings&quot;: {
+				&quot;&quot;: &quot;alpha&quot;,
+				&quot;certificates&quot;: &quot;alpha&quot;,
+				&quot;cluster&quot;: &quot;alpha&quot;,
+				&quot;db&quot;: &quot;alpha&quot;,
+				&quot;grafana&quot;: &quot;alpha&quot;,
+				&quot;nrpe-external-master&quot;: &quot;alpha&quot;,
+				&quot;prometheus&quot;: &quot;alpha&quot;,
+				&quot;proxy&quot;: &quot;alpha&quot;
+			}
+		},
+		&quot;kubernetes-control-plane&quot;: {
+			&quot;charm&quot;: &quot;kubernetes-control-plane&quot;,
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;os&quot;: &quot;ubuntu&quot;,
+			&quot;charm-origin&quot;: &quot;charmhub&quot;,
+			&quot;charm-name&quot;: &quot;kubernetes-control-plane&quot;,
+			&quot;charm-rev&quot;: 247,
+			&quot;charm-channel&quot;: &quot;stable&quot;,
+			&quot;charm-version&quot;: &quot;ck-1.26-3-g6b4e9b2&quot;,
+			&quot;charm-profile&quot;: &quot;juju-k8s-bundle-core-108-kubernetes-control-plane-247&quot;,
+			&quot;exposed&quot;: true,
+			&quot;application-status&quot;: {
+				&quot;current&quot;: &quot;active&quot;,
+				&quot;message&quot;: &quot;Kubernetes control-plane running.&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:59:56Z&quot;
+			},
+			&quot;relations&quot;: {
+				&quot;certificates&quot;: [&quot;easyrsa&quot;],
+				&quot;cni&quot;: [&quot;calico&quot;],
+				&quot;container-runtime&quot;: [&quot;containerd&quot;],
+				&quot;coordinator&quot;: [&quot;kubernetes-control-plane&quot;],
+				&quot;etcd&quot;: [&quot;etcd&quot;],
+				&quot;kube-control&quot;: [&quot;kubernetes-worker&quot;],
+				&quot;kube-masters&quot;: [&quot;kubernetes-control-plane&quot;]
+			},
+			&quot;units&quot;: {
+				&quot;kubernetes-control-plane/0&quot;: {
+					&quot;workload-status&quot;: {
+						&quot;current&quot;: &quot;active&quot;,
+						&quot;message&quot;: &quot;Kubernetes control-plane running.&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:59:56Z&quot;
+					},
+					&quot;juju-status&quot;: {
+						&quot;current&quot;: &quot;idle&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:56:26Z&quot;,
+						&quot;version&quot;: &quot;2.9.42&quot;
+					},
+					&quot;leader&quot;: true,
+					&quot;machine&quot;: &quot;0&quot;,
+					&quot;open-ports&quot;: [&quot;6443/tcp&quot;],
+					&quot;public-address&quot;: &quot;10.31.1.49&quot;,
+					&quot;subordinates&quot;: {
+						&quot;calico/1&quot;: {
+							&quot;workload-status&quot;: {
+								&quot;current&quot;: &quot;active&quot;,
+								&quot;message&quot;: &quot;Calico is active&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:56:28Z&quot;
+							},
+							&quot;juju-status&quot;: {
+								&quot;current&quot;: &quot;idle&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:56:29Z&quot;,
+								&quot;version&quot;: &quot;2.9.42&quot;
+							},
+							&quot;public-address&quot;: &quot;10.31.1.49&quot;
+						},
+						&quot;containerd/1&quot;: {
+							&quot;workload-status&quot;: {
+								&quot;current&quot;: &quot;active&quot;,
+								&quot;message&quot;: &quot;Container runtime available&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:48:20Z&quot;
+							},
+							&quot;juju-status&quot;: {
+								&quot;current&quot;: &quot;idle&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:48:20Z&quot;,
+								&quot;version&quot;: &quot;2.9.42&quot;
+							},
+							&quot;public-address&quot;: &quot;10.31.1.49&quot;
+						}
+					}
+				}
+			},
+			&quot;version&quot;: &quot;1.26.3&quot;,
+			&quot;endpoint-bindings&quot;: {
+				&quot;&quot;: &quot;alpha&quot;,
+				&quot;aws&quot;: &quot;alpha&quot;,
+				&quot;aws-iam&quot;: &quot;alpha&quot;,
+				&quot;azure&quot;: &quot;alpha&quot;,
+				&quot;ceph-client&quot;: &quot;alpha&quot;,
+				&quot;ceph-storage&quot;: &quot;alpha&quot;,
+				&quot;certificates&quot;: &quot;alpha&quot;,
+				&quot;cni&quot;: &quot;alpha&quot;,
+				&quot;container-runtime&quot;: &quot;alpha&quot;,
+				&quot;coordinator&quot;: &quot;alpha&quot;,
+				&quot;dns-provider&quot;: &quot;alpha&quot;,
+				&quot;etcd&quot;: &quot;alpha&quot;,
+				&quot;external-cloud-provider&quot;: &quot;alpha&quot;,
+				&quot;gcp&quot;: &quot;alpha&quot;,
+				&quot;grafana&quot;: &quot;alpha&quot;,
+				&quot;ha&quot;: &quot;alpha&quot;,
+				&quot;keystone-credentials&quot;: &quot;alpha&quot;,
+				&quot;kube-api-endpoint&quot;: &quot;alpha&quot;,
+				&quot;kube-control&quot;: &quot;alpha&quot;,
+				&quot;kube-masters&quot;: &quot;alpha&quot;,
+				&quot;loadbalancer&quot;: &quot;alpha&quot;,
+				&quot;loadbalancer-external&quot;: &quot;alpha&quot;,
+				&quot;loadbalancer-internal&quot;: &quot;alpha&quot;,
+				&quot;nrpe-external-master&quot;: &quot;alpha&quot;,
+				&quot;openstack&quot;: &quot;alpha&quot;,
+				&quot;prometheus&quot;: &quot;alpha&quot;,
+				&quot;vault-kv&quot;: &quot;alpha&quot;,
+				&quot;vsphere&quot;: &quot;alpha&quot;
+			}
+		},
+		&quot;kubernetes-worker&quot;: {
+			&quot;charm&quot;: &quot;kubernetes-worker&quot;,
+			&quot;series&quot;: &quot;jammy&quot;,
+			&quot;os&quot;: &quot;ubuntu&quot;,
+			&quot;charm-origin&quot;: &quot;charmhub&quot;,
+			&quot;charm-name&quot;: &quot;kubernetes-worker&quot;,
+			&quot;charm-rev&quot;: 92,
+			&quot;charm-channel&quot;: &quot;stable&quot;,
+			&quot;charm-version&quot;: &quot;627111e&quot;,
+			&quot;charm-profile&quot;: &quot;juju-k8s-bundle-core-108-kubernetes-worker-92&quot;,
+			&quot;exposed&quot;: true,
+			&quot;application-status&quot;: {
+				&quot;current&quot;: &quot;active&quot;,
+				&quot;message&quot;: &quot;Kubernetes worker running.&quot;,
+				&quot;since&quot;: &quot;31 Mar 2023 09:55:06Z&quot;
+			},
+			&quot;relations&quot;: {
+				&quot;certificates&quot;: [&quot;easyrsa&quot;],
+				&quot;cni&quot;: [&quot;calico&quot;],
+				&quot;container-runtime&quot;: [&quot;containerd&quot;],
+				&quot;coordinator&quot;: [&quot;kubernetes-worker&quot;],
+				&quot;kube-control&quot;: [&quot;kubernetes-control-plane&quot;]
+			},
+			&quot;units&quot;: {
+				&quot;kubernetes-worker/0&quot;: {
+					&quot;workload-status&quot;: {
+						&quot;current&quot;: &quot;active&quot;,
+						&quot;message&quot;: &quot;Kubernetes worker running.&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:55:06Z&quot;
+					},
+					&quot;juju-status&quot;: {
+						&quot;current&quot;: &quot;idle&quot;,
+						&quot;since&quot;: &quot;31 Mar 2023 09:55:07Z&quot;,
+						&quot;version&quot;: &quot;2.9.42&quot;
+					},
+					&quot;leader&quot;: true,
+					&quot;machine&quot;: &quot;1&quot;,
+					&quot;open-ports&quot;: [&quot;80/tcp&quot;, &quot;443/tcp&quot;],
+					&quot;public-address&quot;: &quot;10.31.1.45&quot;,
+					&quot;subordinates&quot;: {
+						&quot;calico/0&quot;: {
+							&quot;workload-status&quot;: {
+								&quot;current&quot;: &quot;active&quot;,
+								&quot;message&quot;: &quot;Calico is active&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:57:38Z&quot;
+							},
+							&quot;juju-status&quot;: {
+								&quot;current&quot;: &quot;idle&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:55:21Z&quot;,
+								&quot;version&quot;: &quot;2.9.42&quot;
+							},
+							&quot;leader&quot;: true,
+							&quot;public-address&quot;: &quot;10.31.1.45&quot;
+						},
+						&quot;containerd/0&quot;: {
+							&quot;workload-status&quot;: {
+								&quot;current&quot;: &quot;active&quot;,
+								&quot;message&quot;: &quot;Container runtime available&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:46:23Z&quot;
+							},
+							&quot;juju-status&quot;: {
+								&quot;current&quot;: &quot;idle&quot;,
+								&quot;since&quot;: &quot;31 Mar 2023 09:46:23Z&quot;,
+								&quot;version&quot;: &quot;2.9.42&quot;
+							},
+							&quot;leader&quot;: true,
+							&quot;public-address&quot;: &quot;10.31.1.45&quot;
+						}
+					}
+				}
+			},
+			&quot;version&quot;: &quot;1.26.3&quot;,
+			&quot;endpoint-bindings&quot;: {
+				&quot;&quot;: &quot;alpha&quot;,
+				&quot;aws&quot;: &quot;alpha&quot;,
+				&quot;azure&quot;: &quot;alpha&quot;,
+				&quot;certificates&quot;: &quot;alpha&quot;,
+				&quot;cni&quot;: &quot;alpha&quot;,
+				&quot;container-runtime&quot;: &quot;alpha&quot;,
+				&quot;coordinator&quot;: &quot;alpha&quot;,
+				&quot;gcp&quot;: &quot;alpha&quot;,
+				&quot;ingress-proxy&quot;: &quot;alpha&quot;,
+				&quot;kube-api-endpoint&quot;: &quot;alpha&quot;,
+				&quot;kube-control&quot;: &quot;alpha&quot;,
+				&quot;nfs&quot;: &quot;alpha&quot;,
+				&quot;nrpe-external-master&quot;: &quot;alpha&quot;,
+				&quot;openstack&quot;: &quot;alpha&quot;,
+				&quot;scrape&quot;: &quot;alpha&quot;,
+				&quot;vsphere&quot;: &quot;alpha&quot;
+			}
+		}
+	},
+	&quot;storage&quot;: {},
+	&quot;controller&quot;: {
+		&quot;timestamp&quot;: &quot;13:29:26Z&quot;
+	}
+}</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>$.*</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;model_name&gt;.*)$@</regexp>
+          <xpath>$.model.name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;model_controller&gt;.*)$@</regexp>
+          <xpath>$.model.controller</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;model_cloud&gt;.*)$@</regexp>
+          <xpath>$.model.cloud</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/juju/status</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

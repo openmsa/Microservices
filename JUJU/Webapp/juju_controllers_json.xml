@@ -1,0 +1,218 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>json</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Juju Controllers (Json)</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Current Model" name="params.current_model" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Recent Server" name="params.recent_server" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Access" name="params.access" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="User" name="params.user" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="CA Cert" name="params.ca_cert" startIncrement="0" type="Password" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Cloud" name="params.cloud" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Region" name="params.region" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Agent Version" name="params.agent_version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="model_count" name="params.model_count" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="machine_count" name="params.machine_count" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="API Endpoints" name="params.api_endpoints.0.api_endpoint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Active" name="params.controller_machines.0.active" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Controller machines</sections>
+      </sections>
+    </variable>
+    <variable displayName="Total" name="params.controller_machines.0.total" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <sections>
+        <sections>Controller machines</sections>
+      </sections>
+    </variable>
+  </variables>
+  <example>
+    <content>{
+    &quot;controllers&quot;: {
+        &quot;k8s-controller1&quot;: {
+            &quot;current-model&quot;: &quot;k8s-ubi-model-kt&quot;,
+            &quot;user&quot;: &quot;admin&quot;,
+            &quot;access&quot;: &quot;superuser&quot;,
+            &quot;recent-server&quot;: &quot;10.31.1.47:17070&quot;,
+            &quot;uuid&quot;: &quot;581f5c71-50cb-42fe-8312-4b5241979bae&quot;,
+            &quot;api-endpoints&quot;: [&quot;10.31.1.47:17070&quot;],
+            &quot;ca-cert&quot;: &quot;-----BEGIN CERTIFICATE-----\nMIIEEzCCAnugAwIBAgIVANlHpC4Pq3g37He5eIC6/SQbVtzGMA0GCSqGSIb3DQEB\nCwUAMCExDTALBgNVBAoTBEp1anUxEDAOBgNVBAMTB2p1anUtY2EwHhcNMjMwMzE1\nMTAyMzQ3WhcNMzMwMzE1MTAyODQ3WjAhMQ0wCwYDVQQKEwRKdWp1MRAwDgYDVQQD\nEwdqdWp1LWNhMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA8AUm2e4N\nco3iq9JK4YaL4rGz/hZYzJk1EXTfmOPSLjKUOjWO9u9brqokPcqEg6+iQF6oZTYf\nHsjPBIFCUb68QbP0eIFXzbqrJa0Vb3lRSzSpEg9XK9t8U+TibaJgOSX55YqB1Sid\nS7Tg3+7zpAjCiYDTW0DOgUt2xij+CRufEYl+AzQWxXn3GXkv6DHAuquLMQS7AMlj\nWw21L0guz4XN8BlEWpMqlzFQe1X/0xxsaW7yXcc9vGrpxg8jItRuZSrozQP8xL5v\nEeWih0jMGNafgv7ag2ZJMaZxWfhZ/At9pEaRanfthBCSjzc3MSEJSITpSPOEFmp2\nTnRVMr4Dzsi1WgsEEz8etpoF5NsA5Fmu04zgRFQuQ/XhvrOYa0B+DjqaiimKNXUs\n0hbhj8W8yMqI25qhBGOSoI6aVWfrPUdjmSpgc4RsmyhqNf6zCtf5MRT0eg/TP4na\ns3oKHs5ZGX+pdZlM9F24OUetVkTiiEjjH73obA18V6JfkconKU3mN/3HAgMBAAGj\nQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBQU\ndRdtNUERRSMVczfdxy9GYZt67TANBgkqhkiG9w0BAQsFAAOCAYEARgQVxrQSp4Dz\n4411OS+4OWpzy8DDPcfDflGy5RzTHdzdtUg5Ls8/8+dotTa6mSJoEdslUk+/uD11\nRUWJt0Tg8GVREfu5paBRl3+KgXlUvGcVqv3ekH5GAATuOzjYZS2fqJRHNtp1UnD6\nPhVMQg6Jv2TQxNY+JT/j2UduVVxVq8dthrTd8sTGkCGwzMFeDnykJOEeBNwVwdq1\nAIqFX5cx4zROrOsEqyMisNA30wnEf3Bas8S3Qxlrqc3TJ3PMdWI1l51Uus81ReOp\nqZkmlk18qiqbfi+Ww9ZzSVn7cS9YNQpImN9+Cr57ESI8oRrg68V4i8LSkEw4tQwG\nfTPEfjYkFXu3czZOkkBx/Jy/Kfg+E4bwC3/YfDO/jIDJOG3o43zDQusPZkjEXKfU\nddxLUmyvYX9CxOsUW92jy0m3U+Z39Io+Cko/rHv7ZUrbTQJVr8HKOiXdUDLQEe0W\nWPp77aKW0uqxCg5a9f5B9LLzRNy3NMzI6MsO4vYRod19blPiYs7Q\n-----END CERTIFICATE-----\n&quot;,
+            &quot;cloud&quot;: &quot;openstack-cloud-240&quot;,
+            &quot;region&quot;: &quot;RegionOne&quot;,
+            &quot;agent-version&quot;: &quot;2.9.42&quot;,
+            &quot;model-count&quot;: 3,
+            &quot;machine-count&quot;: 1,
+            &quot;controller-machines&quot;: {
+                &quot;Active&quot;: 1,
+                &quot;Total&quot;: 1
+            }
+        },
+        &quot;openstack-cloud-240-controller&quot;: {
+            &quot;current-model&quot;: &quot;default&quot;,
+            &quot;user&quot;: &quot;admin&quot;,
+            &quot;access&quot;: &quot;superuser&quot;,
+            &quot;recent-server&quot;: &quot;10.31.1.43:17070&quot;,
+            &quot;uuid&quot;: &quot;875c80b7-1dc6-4017-867c-9b1232a534e6&quot;,
+            &quot;api-endpoints&quot;: [&quot;10.31.1.43:17070&quot;],
+            &quot;ca-cert&quot;: &quot;-----BEGIN CERTIFICATE-----\nMIIEEzCCAnugAwIBAgIVAI3nswc6zPk9XkciD4+qKt/z0e04MA0GCSqGSIb3DQEB\nCwUAMCExDTALBgNVBAoTBEp1anUxEDAOBgNVBAMTB2p1anUtY2EwHhcNMjMwMzEw\nMTQzOTM4WhcNMzMwMzEwMTQ0NDM4WjAhMQ0wCwYDVQQKEwRKdWp1MRAwDgYDVQQD\nEwdqdWp1LWNhMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEA0YFQ2Fid\nOVJZyiyb+wAgjQ4IKfUEfn0l0SsUrEs34RCLrVxWUa5eUNrNR7+b0SyCNEeilgJq\nWsPFUBEAWAGwOKk2E5MbdEu+oQD2hITPAQ2o25GPwfXqbNeeKcZorvvZNkk1RoIG\nlKNxPirqhmx0VzzLT7IVSme5b8BetuTq67nQzavawNWs48cglyTqwvIF1WyK6Vw8\nATf45je2K1d5+442kKN86ZISRxgWjZG70fNA3hkDwSaDL7xnk1Tyn0ILWUwGIORb\nB7s/vdbtaaVh8zuVUaaVBjC7H1aqxUpc62wdduoOKAU6gddRFSlX11oqpLAMjDau\nZ6POecIcL27igrkcd5WTQfmhVT67EVM4BQ2gRWPmjDEff48FohnkY+lFTDkFuH+o\n4uF+G8G3m+qukhthgUhQmAs5H4I07E0rek3cusZW1t881QwQPg7KjAQ5gPP3qfDC\n4lDhSnhq0uf8/jU+2BFX/uVmwtELIgwb9oBAszi0RUA2LlVVotcyul6dAgMBAAGj\nQjBAMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBTj\nMfvMf1j8wmUgPssm2J+yYwIi9jANBgkqhkiG9w0BAQsFAAOCAYEAN+isEzl4Oupv\njan1AvWkuMXCUxPmBRz4tCozFxomtwfYowpn9l/hzhe0rxXxS68zRAAhJlExDCuK\nDuSZO7j5Ja5sw3ihp9WinIpAQIYvM3DRyfqZITf8V+jwi/l1f0zY33sr7cTE2Llw\nS1my9nkCKg1K1kdJtt3iq5E/2hTfJiqEXYoEmiYYi+TasYwaRb9LvwIfVQgXFX+P\nKw78gDN5468WRD64iibUMpW8pQluVvQiRN0JhMHrCM/0buD9Q1bF7LZDOQ0n456w\nmooOuEs+nze2Ae2P+KPFySVBWBfJ7Mw2WbRd/v6kI0cA314c4ksAYyw8oROjjKJU\nLFjULJ9oF5rjWN5Ew9cCdWhJxZkHZJkLzt3To45IZm+PKeX4QtwwViyl3+E8Zw6r\nQkwMcbeltYJasDJvOeLNoBj8P+Ev7Bpk4xeJ0iaTXHmNnveKZ2V90RLsa3G+P/0F\nHqIfGAmqs8SdN3Ay7alyv0bq8AC+3GmmYhopNVZ+EGHuegVJ2Nh0\n-----END CERTIFICATE-----\n&quot;,
+            &quot;cloud&quot;: &quot;openstack-cloud-240&quot;,
+            &quot;region&quot;: &quot;RegionOne&quot;,
+            &quot;agent-version&quot;: &quot;2.9.42&quot;,
+            &quot;model-count&quot;: 2,
+            &quot;machine-count&quot;: 1,
+            &quot;controller-machines&quot;: {
+                &quot;Active&quot;: 1,
+                &quot;Total&quot;: 1
+            }
+        },
+        &quot;openstack-inari-108-controller&quot;: {
+            &quot;current-model&quot;: &quot;controller&quot;,
+            &quot;user&quot;: &quot;admin&quot;,
+            &quot;access&quot;: &quot;superuser&quot;,
+            &quot;recent-server&quot;: &quot;10.31.1.43:17070&quot;,
+            &quot;uuid&quot;: &quot;80de4055-3dad-4b94-8066-b56c112e6002&quot;,
+            &quot;api-endpoints&quot;: [&quot;10.31.1.43:17070&quot;, &quot;252.43.0.1:17070&quot;],
+            &quot;ca-cert&quot;: &quot;-----BEGIN CERTIFICATE-----\nMIIEEjCCAnqgAwIBAgIUNQArQB89+uO2IMStQWmSkky9LMUwDQYJKoZIhvcNAQEL\nBQAwITENMAsGA1UEChMESnVqdTEQMA4GA1UEAxMHanVqdS1jYTAeFw0yMzAzMTYw\nOTIwNDhaFw0zMzAzMTYwOTI1NDhaMCExDTALBgNVBAoTBEp1anUxEDAOBgNVBAMT\nB2p1anUtY2EwggGiMA0GCSqGSIb3DQEBAQUAA4IBjwAwggGKAoIBgQCoFXLu+3Hm\nypv0WbjH9SY0gxRRj9LfoB1m4iMJpmnQsGvvhypG1f1fEGe4LXwsCVJS60FsH6Bj\nDno1jpTJuch6ZxpmSy9BStlyDlyJ4o30EsALdi+N9x5mGOpHpqRYn+BnSpGUV50f\nlYdTtkjacw2DOTAMsSzvfpbU6bPmhZNuy0wl0StnEIGfJ8s9hEgeLZtfeerrdof5\nsqCrsUXoMmSX6nzQFXidpjcn3ZLklfwE7chH5I7Of6+p8yWoKUg1G80EzA6YH5ug\nu3dpfAW5T0BYnHa1Bp3p1t6FcuZ7miQfw2P+IOQ35MvcUcUYITVPb6JeYtCuj2Ps\n7qoBcDCW+BKH3BhqE2ZzDriPMM9EqdIBlwNcU0ZlKB+MEktBaB5BGWxO+Wachlgc\n2whuC1bT1MFRmUDYjGmghGYAdLSOXsuzwojFsvhU2ESQjJTBmRpM5zldvEx536qI\n+xD7phulHdBvA4aMyxg0DJOfNNNqqCoG/XMqclkFpcHIU5JMRCjEYS8CAwEAAaNC\nMEAwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFA/y\nkRyvuur5lv5/dLn2x/tbSp0CMA0GCSqGSIb3DQEBCwUAA4IBgQAGj4AOnKe1m/jW\nYgJojqO3lKQcGPcOWnocMwNA9G6IeLHX/MqOMm61y54TJz7Y0O3wJX/6HOvcPU6b\nmzBzP0WHbnXu6e6Iq5EGh7/QB/q9eSi5N0vn3Z8SP3powGIGodGGVj/vbw3IOrNJ\nh752puT4ErMOB67zhu8lu+G9IkRFNrijDMrnU62LlpgDZrEFMltFFKxHZRPr4INE\nphsZig4/RdmPc22d2QptUq0LpL+xFEKnp1DPkFtjjdtgYUr8wfNlDyiCbNQTcjBU\nbK/XxFwGR6ufFlsGwpArOJr0XA8Jwxw7AmAuShspsg6Jb9zGyrLqn62ccz77HU9G\nwq1+CiV7XKtlmu66SblVafc6Mn2cqkb+1bNbMlH7yTRxUbzo8fRvvM0bsmIjjfBS\nXaP1cZBhEvTlLCGvXjHIgHp+2M8qkJbwY9rayy6s3Zz2dmf0QAjQ5A07d/wK2WzM\nUQw5wtb+vYA1EbGJFvqq9NE/X0YAZow/EdEK7O9y7hBrmxW0Kqo=\n-----END CERTIFICATE-----\n&quot;,
+            &quot;cloud&quot;: &quot;openstack-inari-108&quot;,
+            &quot;region&quot;: &quot;RegionOne&quot;,
+            &quot;agent-version&quot;: &quot;2.9.42&quot;,
+            &quot;model-count&quot;: 3,
+            &quot;machine-count&quot;: 4,
+            &quot;controller-machines&quot;: {
+                &quot;Active&quot;: 1,
+                &quot;Total&quot;: 1
+            }
+        }
+    },
+    &quot;current-controller&quot;: &quot;openstack-inari-108-controller&quot;
+}</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>$.controllers</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@(?&lt;current_model&gt;.*)@</regexp>
+          <xpath>$.*.current-model</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;object_id&gt;.*)@</regexp>
+          <xpath>$.*.uuid</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;recent_server&gt;.*)$@</regexp>
+          <xpath>$.*.recent-server</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;user&gt;.*)$@</regexp>
+          <xpath>$.*.user</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;access&gt;.*)$@</regexp>
+          <xpath>$.*.access</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;cloud&gt;.*)$@</regexp>
+          <xpath>$.*.cloud</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;region&gt;.*)$@</regexp>
+          <xpath>$.*.region</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;agent_version&gt;.*)$@</regexp>
+          <xpath>$.*.agent-version</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;model_count&gt;.*)$@</regexp>
+          <xpath>$.*.model-count</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;machine_count&gt;.*)$@</regexp>
+          <xpath>$.*.machine-count</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;ca_cert&gt;.*)$@</regexp>
+          <xpath>$.*.ca-cert</xpath>
+        </line>
+        <line>
+          <array name="api_endpoints">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^(?&lt;api_endpoint&gt;.*)$@</regexp>
+                <xpath>$.*</xpath>
+              </line>
+            </lines>
+            <xpath>$.*.api-endpoints</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+        <line>
+          <array name="controller_machines">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@^(?&lt;active&gt;.*)$@</regexp>
+                <xpath>$.Active</xpath>
+              </line>
+              <line>
+                <array/>
+                <regexp>@^(?&lt;total&gt;.*)$@</regexp>
+                <xpath>$.Total</xpath>
+              </line>
+            </lines>
+            <xpath>$.*.controller-machines</xpath>
+          </array>
+          <regexp/>
+          <xpath/>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/juju/controller</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
