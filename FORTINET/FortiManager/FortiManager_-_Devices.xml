@@ -1,0 +1,158 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>FortiManager - Devices</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Device Name" name="params.object_id" startIncrement="0" type="Index" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="username" name="params.user_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="user password" name="params.user_password" startIncrement="0" type="Password" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ip address" name="params.ip_address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="130" displayOrder="3" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="adom" name="params.adom" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <classes>
+        <class>ADOM</class>
+      </classes>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[POST]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/result/row/data/row/name</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;ip&gt;(?&lt;ip_address&gt;.*)&lt;/ip&gt;@</regexp>
+          <xpath>//ip</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;adm_usr&gt;(?&lt;usr_name&gt;.*)&lt;/adm_usr&gt;@</regexp>
+          <xpath>//adm_usr</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/jsonrpc#{ldelim}
+&quot;method&quot;: &quot;get&quot;,
+&quot;params&quot;:
+[
+{ldelim}
+&quot;data&quot;:
+{ldelim}
+&quot;adom&quot;: &quot;{$ADOM}&quot;
+{rdelim},
+&quot;url&quot;: &quot;/dvmdb/device&quot;
+{rdelim}
+],
+&quot;verbose&quot;: 6,
+&quot;id&quot;: 1
+{rdelim}</xpath>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{ldelim}
+"method": "exec",
+"params":
+[
+{ldelim}
+"data":
+{ldelim}
+"adom": "{$ADOM}",
+"device":
+{ldelim}
+"name": "{$params.object_id}",
+"adm_pass": "{$params.user_password}",
+"adm_usr": "{$params.user_name}",
+"ip": "{$params.ip_address}",
+"mgmt_mode": "fmg"
+{rdelim}
+{rdelim},
+"url": "/dvm/cmd/add/device"
+{rdelim}
+],
+"id": 1
+{rdelim}]]></operation>
+    <rest>POST</rest>
+    <xpath>/jsonrpc</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[{ldelim}
+"method": "exec",
+"params": 
+[
+{ldelim}
+"data": 
+[
+{ldelim}
+"adom": "root2",
+"scope": [{ldelim}
+"name": "{$params.object_id}",
+"vdom": "{$ADOM}"
+{rdelim}
+]
+{rdelim}
+],
+"url": "/securityconsole/install/device"
+{rdelim}
+],
+"id": 1
+{rdelim}]]></operation>
+    <rest>POST</rest>
+    <xpath>/jsonrpc</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{ldelim}
+"method": "exec",
+"params":
+[
+{ldelim}
+"data":
+{ldelim}
+"adom": "{$ADOM}",
+"device": "{$params.object_id}",
+"flags": 
+[
+"create_task",
+"nonblocking"
+]
+{rdelim},
+"url": "/dvm/cmd/del/device"
+{rdelim}
+],
+"id": 1
+{rdelim}]]></operation>
+    <rest>POST</rest>
+    <xpath>/jsonrpc</xpath>
+  </command>
+  <command name="LIST"/>
+</ObjectDefinition>

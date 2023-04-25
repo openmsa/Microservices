@@ -1,0 +1,103 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>xml</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>ADOMs (Administrative domains)</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="ADOM Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="os version" name="params.os_version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" default="6.0" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+      <values>
+        <values displayValue="6.0">6.0</values>
+        <values displayValue="7.0">7.0</values>
+      </values>
+    </variable>
+  </variables>
+  <example/>
+  <command name="IMPORT">
+    <operation><![CDATA[POST]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>//root/result/row/data/row/name</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>//name</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/jsonrpc#{ldelim}
+&quot;method&quot;: &quot;get&quot;,
+&quot;params&quot;: [
+{ldelim}
+&quot;url&quot;: &quot;/dvmdb/adom&quot;,
+&quot;option&quot;: &quot;object member&quot;
+{rdelim}
+],
+&quot;verbose&quot;: 1,
+&quot;id&quot;: 1
+{rdelim}</xpath>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[{ldelim}
+"method": "add",
+"params": [
+{ldelim}
+"data": [
+{ldelim}
+"name": "{$params.object_id}",
+"os_ver": "{$params.os_version}"
+{rdelim}
+],
+"url": "/dvmdb/adom"
+{rdelim}
+],
+"verbose": 1,
+"id": 1
+{rdelim}]]></operation>
+    <rest>POST</rest>
+    <xpath>/jsonrpc</xpath>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[{ldelim}
+"method": "delete",
+"params": 
+[
+{ldelim}
+"url": "/dvmdb/adom/{$params.object_id}"
+{rdelim}
+],
+"verbose": 1,
+"id": 1
+}]]></operation>
+    <rest>POST</rest>
+    <xpath>/jsonrpc</xpath>
+  </command>
+  <command name="LIST"/>
+</ObjectDefinition>
