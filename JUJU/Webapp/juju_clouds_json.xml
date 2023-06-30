@@ -1,0 +1,111 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>json</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Juju Clouds (Json)</name>
+    <group>MANO | Juju</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="endpoint" name="params.endpoint" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="defined" name="params.defined" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>{
+	&quot;juju-context&quot;: {
+		&quot;defined&quot;: &quot;built-in&quot;,
+		&quot;type&quot;: &quot;k8s&quot;,
+		&quot;description&quot;: &quot;A local Kubernetes context&quot;,
+		&quot;auth-types&quot;: [&quot;certificate&quot;, &quot;clientcertificate&quot;, &quot;oauth2&quot;, &quot;oauth2withcert&quot;, &quot;userpass&quot;],
+		&quot;endpoint&quot;: &quot;https://10.31.1.49:6443&quot;,
+		&quot;ca-credentials&quot;: [&quot;-----BEGIN CERTIFICATE-----\nMIIDUTCCAjmgAwIBAgIUekdm87s+ha4fc36wAL+vI/M38xEwDQYJKoZIhvcNAQEL\nBQAwGDEWMBQGA1UEAwwNMjUyLjQ5Ljk0LjIwMTAeFw0yMzAzMzEwOTM0MTRaFw0z\nMzAzMjgwOTM0MTRaMBgxFjAUBgNVBAMMDTI1Mi40OS45NC4yMDEwggEiMA0GCSqG\nSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqncu5cSU1ie+7Z5N3IRztmsGzeduJWw3B\nmrhEP7kWAx2RYRy4FE63fCjD4Rv+m4t+hHn9QFV89d9cNYAz8uqwD4+p+EXuhrge\n+/g+BKNeK0BDAwW/v63EfqM3rIYmVs+vy6YSFwiArL7BPmBQFrxDx8P8dGDwnByn\njJiQrjDxhIVGvvInOFlgFRrHNZfDIUUNqX4mcGFEECh/aStutjQmXb1rBsnayUpY\nf7IhvTn4wOSY90T8hFTEy24U73Sf7RfRxG2tKeb3SF/A9l2zlV2BoEaAVoHqsMgI\n7WBjAttGXSK498l9LmbKYp+ZOT2z69hEOzglKtwXlcCdI1SkrBtJAgMBAAGjgZIw\ngY8wHQYDVR0OBBYEFEqYrCpIDXRAWK3lPF9zhDxumvN3MFMGA1UdIwRMMEqAFEqY\nrCpIDXRAWK3lPF9zhDxumvN3oRykGjAYMRYwFAYDVQQDDA0yNTIuNDkuOTQuMjAx\nghR6R2bzuz6Frh9zfrAAv68j8zfzETAMBgNVHRMEBTADAQH/MAsGA1UdDwQEAwIB\nBjANBgkqhkiG9w0BAQsFAAOCAQEAB2F1i+fyrYCtvRIjqg/xlOeWuL4X/2D05zXc\nENYDbzq31vcUnHmtRL7r2+CuHkyU+B7cteCYhEJmacFyjq9U8he6MHPHHy2K8MIU\nQEYpsrFCCwjatIAAm36PloYeIoYM6r4KaLwvcllXKmcOohMnDIGcT+NlH6EvFGYp\nJYXbGmqk2rZxncFRTpAWbgC8HR78eJAsiOzrMqvGu4TN9JKn3FhH4Ygphz2+tCQ8\nxrP5bJud/vD2MeuaCSE39rRaim8S2aK+7CwdQFJZOI9RJe6DxTE4hbtnT5OJUvtn\nPMNxjpVQfCpYeofblydxLs5wXMYe7e3Os8wTNtM76saJVWsmIQ==\n-----END CERTIFICATE-----\n&quot;]
+	},
+	&quot;localhost&quot;: {
+		&quot;defined&quot;: &quot;built-in&quot;,
+		&quot;type&quot;: &quot;lxd&quot;,
+		&quot;description&quot;: &quot;LXD Container Hypervisor&quot;,
+		&quot;auth-types&quot;: [&quot;certificate&quot;],
+		&quot;regions&quot;: {
+			&quot;localhost&quot;: {}
+		}
+	},
+	&quot;openstack-cloud-240&quot;: {
+		&quot;defined&quot;: &quot;local&quot;,
+		&quot;type&quot;: &quot;openstack&quot;,
+		&quot;description&quot;: &quot;Openstack Cloud&quot;,
+		&quot;auth-types&quot;: [&quot;userpass&quot;],
+		&quot;credential-count&quot;: 1,
+		&quot;regions&quot;: {
+			&quot;RegionOne&quot;: {
+				&quot;endpoint&quot;: &quot;http://10.31.1.240:5000/v3&quot;
+			}
+		}
+	},
+	&quot;openstack-inari-108&quot;: {
+		&quot;defined&quot;: &quot;local&quot;,
+		&quot;type&quot;: &quot;openstack&quot;,
+		&quot;description&quot;: &quot;Openstack Cloud&quot;,
+		&quot;auth-types&quot;: [&quot;userpass&quot;],
+		&quot;credential-count&quot;: 1,
+		&quot;regions&quot;: {
+			&quot;RegionOne&quot;: {
+				&quot;endpoint&quot;: &quot;http://10.31.1.108:5000/v3&quot;
+			}
+		}
+	}
+}</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath></xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@(?&lt;endpoint&gt;.*)@</regexp>
+          <xpath>$.endpoint</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;type&gt;.*)@</regexp>
+          <xpath>$.type</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;defined&gt;.*)@</regexp>
+          <xpath>$.defined</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/juju/cloud</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>

@@ -152,7 +152,7 @@
               </line>
               <line>
                 <array/>
-                <regexp>@&lt;sdn_endpoint&gt;(?&lt;sdn_endpoint&gt;.*)&lt;/sdn_endpoint&gt;@</regexp>
+                <regexp>@&lt;sdn-endpoint&gt;(?&lt;sdn_endpoint&gt;.*)&lt;/sdn-endpoint&gt;@</regexp>
                 <xpath>sdn_endpoint</xpath>
               </line>
             </lines>
@@ -163,7 +163,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>/ubi-etsi-mano/admin/vim</xpath>
+    <xpath>{$SD-&gt;smarty[&apos;BASE_URL&apos;]}admin/vim</xpath>
   </command>
   <command name="READ"/>
   <command name="CONSTRAINT"/>

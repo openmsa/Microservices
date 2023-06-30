@@ -1,0 +1,173 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <serviceTaskType/>
+    <order>0</order>
+    <visibility>5</visibility>
+    <configType>json</configType>
+    <createTemplateId/>
+    <createTemplateObject/>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Juju Models (Json)</name>
+    <group>MANO | Juju</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="region" name="params.region" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="short_name" name="params.short_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="cloud" name="params.cloud" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="controller_name" name="params.controller_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>{
+	&quot;models&quot;: [{
+		&quot;name&quot;: &quot;admin/controller&quot;,
+		&quot;short-name&quot;: &quot;controller&quot;,
+		&quot;model-uuid&quot;: &quot;dd682e7d-67af-4823-8889-3982f8731933&quot;,
+		&quot;model-type&quot;: &quot;iaas&quot;,
+		&quot;controller-uuid&quot;: &quot;80de4055-3dad-4b94-8066-b56c112e6002&quot;,
+		&quot;controller-name&quot;: &quot;openstack-inari-108-controller&quot;,
+		&quot;is-controller&quot;: true,
+		&quot;owner&quot;: &quot;admin&quot;,
+		&quot;cloud&quot;: &quot;openstack-inari-108&quot;,
+		&quot;region&quot;: &quot;RegionOne&quot;,
+		&quot;credential&quot;: {
+			&quot;name&quot;: &quot;inari-admin-tenant&quot;,
+			&quot;owner&quot;: &quot;admin&quot;,
+			&quot;cloud&quot;: &quot;openstack-inari-108&quot;
+		},
+		&quot;type&quot;: &quot;openstack&quot;,
+		&quot;life&quot;: &quot;alive&quot;,
+		&quot;status&quot;: {
+			&quot;current&quot;: &quot;available&quot;,
+			&quot;since&quot;: &quot;2023-03-16&quot;
+		},
+		&quot;access&quot;: &quot;admin&quot;,
+		&quot;last-connection&quot;: &quot;just now&quot;,
+		&quot;sla-owner&quot;: &quot;admin&quot;,
+		&quot;agent-version&quot;: &quot;2.9.42&quot;
+	}, {
+		&quot;name&quot;: &quot;admin/default&quot;,
+		&quot;short-name&quot;: &quot;default&quot;,
+		&quot;model-uuid&quot;: &quot;bd7d80b4-5b69-44d6-8d63-91cfa5ff2850&quot;,
+		&quot;model-type&quot;: &quot;iaas&quot;,
+		&quot;controller-uuid&quot;: &quot;80de4055-3dad-4b94-8066-b56c112e6002&quot;,
+		&quot;controller-name&quot;: &quot;openstack-inari-108-controller&quot;,
+		&quot;is-controller&quot;: false,
+		&quot;owner&quot;: &quot;admin&quot;,
+		&quot;cloud&quot;: &quot;openstack-inari-108&quot;,
+		&quot;region&quot;: &quot;RegionOne&quot;,
+		&quot;credential&quot;: {
+			&quot;name&quot;: &quot;inari-admin-tenant&quot;,
+			&quot;owner&quot;: &quot;admin&quot;,
+			&quot;cloud&quot;: &quot;openstack-inari-108&quot;
+		},
+		&quot;type&quot;: &quot;openstack&quot;,
+		&quot;life&quot;: &quot;alive&quot;,
+		&quot;status&quot;: {
+			&quot;current&quot;: &quot;available&quot;,
+			&quot;since&quot;: &quot;2023-03-16&quot;
+		},
+		&quot;access&quot;: &quot;admin&quot;,
+		&quot;last-connection&quot;: &quot;2023-03-31&quot;,
+		&quot;sla-owner&quot;: &quot;admin&quot;,
+		&quot;agent-version&quot;: &quot;2.9.42&quot;
+	}, {
+		&quot;name&quot;: &quot;admin/k8s-bundle-core-108&quot;,
+		&quot;short-name&quot;: &quot;k8s-bundle-core-108&quot;,
+		&quot;model-uuid&quot;: &quot;2d426ec3-0676-49c7-8756-12ae6c1ca198&quot;,
+		&quot;model-type&quot;: &quot;iaas&quot;,
+		&quot;controller-uuid&quot;: &quot;80de4055-3dad-4b94-8066-b56c112e6002&quot;,
+		&quot;controller-name&quot;: &quot;openstack-inari-108-controller&quot;,
+		&quot;is-controller&quot;: false,
+		&quot;owner&quot;: &quot;admin&quot;,
+		&quot;cloud&quot;: &quot;openstack-inari-108&quot;,
+		&quot;region&quot;: &quot;RegionOne&quot;,
+		&quot;credential&quot;: {
+			&quot;name&quot;: &quot;inari-admin-tenant&quot;,
+			&quot;owner&quot;: &quot;admin&quot;,
+			&quot;cloud&quot;: &quot;openstack-inari-108&quot;
+		},
+		&quot;type&quot;: &quot;openstack&quot;,
+		&quot;life&quot;: &quot;alive&quot;,
+		&quot;status&quot;: {
+			&quot;current&quot;: &quot;available&quot;,
+			&quot;since&quot;: &quot;2023-03-31&quot;
+		},
+		&quot;access&quot;: &quot;admin&quot;,
+		&quot;last-connection&quot;: &quot;1 hour ago&quot;,
+		&quot;sla-owner&quot;: &quot;admin&quot;,
+		&quot;agent-version&quot;: &quot;2.9.42&quot;
+	}],
+	&quot;current-model&quot;: &quot;k8s-bundle-core-108&quot;
+}</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>$.models.*</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@(?&lt;object_id&gt;.*)@</regexp>
+          <xpath>$.model-uuid</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;region&gt;.*)@</regexp>
+          <xpath>$.region</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;name&gt;.*)@</regexp>
+          <xpath>$.name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;short_name&gt;.*)@</regexp>
+          <xpath>$.short-name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;controller_name&gt;.*)@</regexp>
+          <xpath>$.controller-name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;cloud&gt;.*)@</regexp>
+          <xpath>$.cloud</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@(?&lt;type&gt;.*)@</regexp>
+          <xpath>$.type</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/juju/model</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
