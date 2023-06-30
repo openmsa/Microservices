@@ -25,43 +25,14 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="operational_state" name="params.operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vnf_operational_state" name="params.vnf_operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="VNF Package Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="onboarding_state" name="params.onboarding_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="usage_state" name="params.usage_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vnf_catalogs" name="params.vnf_catalogs" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vnf_pkg_name" name="params.userDefinedData.0.vnf_package_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="customer_id" name="params.userDefinedData.0.customer_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="manufacturer" name="params.userDefinedData.0.manufacturer" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="vim_id" name="params.userDefinedData.0.vim_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="model" name="params.userDefinedData.0.model" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="device_password" name="params.userDefinedData.0.device_password" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
+    <variable displayName="Name" name="params.userDefinedData.0.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnf_package_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnfdId" name="params.vnfdId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="operational_state" name="params.operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="onboarding_state" name="params.onboarding_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="usage_state" name="params.usage_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnf_catalogs" name="params.vnf_catalogs" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>&lt;?xml version=&quot;1.0&quot;?&gt;
@@ -229,7 +200,7 @@ system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUy
   </example>
   <command name="IMPORT">
     <operation><![CDATA[GET]]></operation>
-    <post_template>{assign_object_variable var=&quot;vnf_catalogs&quot; value=&quot;{$params.object_id} - {$params.userDefinedData.0.vnf_package_name} - {$params.userDefinedData.0.manufacturer} - {$params.userDefinedData.0.model} - {$params.operational_state}&quot;}
+    <post_template>{assign_object_variable var=&quot;vnf_catalogs&quot; value=&quot;{$params.object_id} - {$params.userDefinedData.0.name} - {$params.userDefinedData.0.manufacturer} - {$params.userDefinedData.0.model} - {$params.operational_state}&quot;}
 
 {if  $params.operational_state == DISABLED}
       {assign_object_variable var=&quot;_color&quot; value=red}
@@ -249,33 +220,8 @@ system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUy
             <lines>
               <line>
                 <array/>
-                <regexp>@&lt;vnf_package_name&gt;(?&lt;vnf_package_name&gt;.*)&lt;/vnf_package_name&gt;@</regexp>
-                <xpath>vnf_package_name</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;model&gt;(?&lt;model&gt;.*)&lt;/model&gt;@</regexp>
-                <xpath>model</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;manufacturer&gt;(?&lt;manufacturer&gt;.*)&lt;/manufacturer&gt;@</regexp>
-                <xpath>manufacturer</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;vimId&gt;(?&lt;vim_id&gt;.*)&lt;/vimId&gt;@</regexp>
-                <xpath>vimId</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;customerId&gt;(?&lt;customer_id&gt;.*)&lt;/customerId&gt;@</regexp>
-                <xpath>customerId</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;device_password&gt;(?&lt;device_password&gt;.*)&lt;/device_password&gt;@</regexp>
-                <xpath>device_password</xpath>
+                <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+                <xpath>name</xpath>
               </line>
             </lines>
             <xpath>userDefinedData</xpath>
@@ -303,8 +249,14 @@ system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUy
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
           <xpath>id</xpath>
         </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vnfdId&gt;(?&lt;vnfdId&gt;.*)&lt;/vnfdId&gt;@</regexp>
+          <xpath>vnfdId</xpath>
+        </line>
       </lines>
     </parser>
     <xpath>/ubi-etsi-mano/sol005/vnfpkgm/v1/vnf_packages?all_fields=1{$VNF_PKG_FILTER_EXPRESSION}</xpath>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>

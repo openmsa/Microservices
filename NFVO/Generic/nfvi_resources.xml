@@ -167,4 +167,8 @@
   </command>
   <command name="READ"/>
   <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <rest>DELETE</rest>
+    <xpath>/ubi-etsi-mano/admin/vim/{$params.object_id}</xpath>
+  </command>
 </ObjectDefinition>
