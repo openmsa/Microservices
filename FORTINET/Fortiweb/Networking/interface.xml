@@ -25,38 +25,90 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="Port Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="IP/CIDR" name="params.address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="up" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Port Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP/CIDR" name="params.address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="up" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="UP">up</value>
-        <value displayValue="DOWN">down</value>
+        <values displayValue="UP">up</values>
+        <values displayValue="DOWN">down</values>
       </values>
     </variable>
-    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Comment" name="params.comment" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>
-</content>
+== [ port1 ]
+	type: physical
+	ip: 10.12.111.2/24
+	ip6: ::/0
+	allowaccess: ping ssh snmp http https FWB-manager 
+	status: up
+	mode: static
+	ip6-mode: static
+	description: OAM
+	ip6-allowaccess: 
+	wccp: disable
+	mtu: 1500
+	dynamic_gateway: 
+	dynamic_dns1: 
+	dynamic_dns2: 
+
+== [ port2 ]
+	type: physical
+	ip: 10.12.112.2/29
+	ip6: ::/0
+	allowaccess: ping ssh snmp http https FWB-manager 
+	status: up
+	mode: dhcp
+	ip6-mode: static
+	description: VWAF-External1
+	ip6-allowaccess: 
+	wccp: disable
+	mtu: 1500
+	dynamic_gateway: 10.12.112.1
+	dynamic_dns1: 10.12.112.6
+	dynamic_dns2: 
+
+== [ port3 ]
+	type: physical
+	ip: 10.12.112.10/29
+	ip6: ::/0
+	allowaccess: ping ssh snmp http https FWB-manager 
+	status: up
+	mode: dhcp
+	ip6-mode: static
+	description: VWAF-External2
+	ip6-allowaccess: 
+	wccp: disable
+	mtu: 1500
+	dynamic_gateway: 10.12.112.9
+	dynamic_dns1: 10.12.112.14
+	dynamic_dns2: 
+
+
+FortiWeb (global) $ </content>
   </example>
   <command name="IMPORT">
-    <operation>get system interface</operation>
+    <operation><![CDATA[get system interface]]></operation>
     <parser>
       <section>
-        <regexp>@^==\s..(?&lt;object_id>\S+)\s.@</regexp>
+        <regexp>@==\s+\[\s+(?&lt;object_id&gt;port\d+)@</regexp>
       </section>
       <lines>
         <line>
           <array/>
-          <regexp>@.ip:.(?&lt;address>\S*)@</regexp>
+          <regexp>@.ip:.(?&lt;address&gt;\S*)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@status:.(?&lt;status>\S*)@</regexp>
+          <regexp>@status:.(?&lt;status&gt;\S*)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@description:.(?&lt;comment>.*)@</regexp>
+          <regexp>@description:.(?&lt;comment&gt;.*)@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@.type:@</regexp>
@@ -77,14 +129,14 @@
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config system interfaceedit "{$params.object_id}"set type physicalset ip6 ::/0unset allowaccessset status {$params.status}set mode dhcpset ip6-mode static{if empty($params.comment)}unset description{else}set description {$params.comment}{/if}configsecondaryipendunset ip6-allowaccessset wccp disableset mtu 1500nextend
-</operation>
+    <operation><![CDATA[config system interfaceedit "{$params.object_id}"set type physicalset ip6 ::/0unset allowaccessset status {$params.status}set mode dhcpset ip6-mode static{if empty($params.comment)}unset description{else}set description {$params.comment}{/if}configsecondaryipendunset ip6-allowaccessset wccp disableset mtu 1500nextend
+]]></operation>
   </command>
   <command name="CONSTRAINT">
-    <operation>{if $params.object_id == "port2"}INPUT RESTRICTION: Interface {$params.object_id} cannot be EDITED/DELETED. Management port.
+    <operation><![CDATA[{if $params.object_id == "port2"}INPUT RESTRICTION: Interface {$params.object_id} cannot be EDITED/DELETED. Management port.
 {/if}{if "/\s+/"|preg_match:$params.comment}INPUT RESTRICTION - No Blank space allowed in comments.
 {/if}
-</operation>
+]]></operation>
   </command>
   <command name="CREATE"/>
   <command name="DELETE"/>

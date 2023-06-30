@@ -27,31 +27,31 @@
   <variables frozen="0">
     <variable displayName="DNS Priority" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="0">0</value>
+        <values displayValue="0">0</values>
       </values>
     </variable>
     <variable displayName="DNS Priority" name="params.dns_priority" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="dhcp" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="System">system</value>
-        <value displayValue="DHCP">dhcp</value>
+        <values displayValue="System">system</values>
+        <values displayValue="DHCP">dhcp</values>
       </values>
     </variable>
     <variable displayName="DHCP Server Mode" name="params.server_mode" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="Static">static</value>
-        <value displayValue="DHCP">dhcp</value>
+        <values displayValue="Static">static</values>
+        <values displayValue="DHCP">dhcp</values>
       </values>
     </variable>
     <variable displayName="DNS Server 01" name="params.primary_dns" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_mode" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour displayName="primary_dns" displayOrder="0" maxLength="100" name="params.primary_dns" selectorValue="dhcp" startIncrement="0" type="String"/>
-        <behaviour displayName="primary_dns" displayOrder="0" maxLength="100" name="params.primary_dns" selectorValue="static" startIncrement="0" type="IpAddress"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="primary_dns" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.primary_dns" selectorValue="dhcp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="primary_dns" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.primary_dns" selectorValue="static" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
     <variable displayName="DNS Server 02" name="params.secondary_dns" startIncrement="0" type="Composite" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_mode" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour displayName="secondary_dns" displayOrder="0" maxLength="100" name="params.secondary_dns" selectorValue="dhcp" startIncrement="0" type="String"/>
-        <behaviour displayName="secondary_dns" displayOrder="0" maxLength="100" name="params.secondary_dns" selectorValue="static" startIncrement="0" type="IpAddress"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="secondary_dns" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.secondary_dns" selectorValue="dhcp" startIncrement="0" type="String"/>
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="secondary_dns" displayOrder="0" maxLength="100" isMandatory="false" isUserLocked="false" name="params.secondary_dns" selectorValue="static" startIncrement="0" type="IpAddress"/>
       </behaviors>
     </variable>
   </variables>
@@ -60,25 +60,25 @@
 </content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration system dns</operation>
+    <operation><![CDATA[show full-configuration global system dns]]></operation>
     <parser>
       <section>
-        <regexp>@set.secondary\s(?&lt;secondary_dns>\S+)@</regexp>
+        <regexp>@set.secondary\s(?&lt;secondary_dns&gt;\S+)@</regexp>
       </section>
       <lines/>
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config system network-option{if $params.server_mode == dhcp}set dns-priority dhcp{else}set dns-priority system{/if}
+    <operation><![CDATA[config system network-option{if $params.server_mode == dhcp}set dns-priority dhcp{else}set dns-priority system{/if}
 end
 config system dns{if $params.server_mode == dhcp}set primary 0.0.0.0set secondary 0.0.0.0{else}set primary {$params.primary_dns}{if empty($params.secondary_dns)}set secondary 0.0.0.0{else}set secondary {$params.secondary_dns}{/if}{/if}unset domain
 end
-</operation>
+]]></operation>
   </command>
   <command name="CONSTRAINT">
-    <operation>{if $params.dns_priority == "system" &amp;&amp; $params.server_mode == "dhcp"} INPUT RESTRICTION. BOTH PRIMARY DNS AND SECONDARY DNS VALUES ARE EMPTY.
+    <operation><![CDATA[{if $params.dns_priority == "system" && $params.server_mode == "dhcp"} INPUT RESTRICTION. BOTH PRIMARY DNS AND SECONDARY DNS VALUES ARE EMPTY.
 {/if}
-</operation>
+]]></operation>
   </command>
   <command name="CREATE"/>
   <command name="DELETE"/>

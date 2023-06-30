@@ -17,7 +17,7 @@
     <name>Syslogd</name>
     <group>Log</group>
     <importonce>false</importonce>
-    <importrank>1</importrank>
+    <importrank>10</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
@@ -25,46 +25,46 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="syslogd" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" displayOrder="0" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="Syslogd" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="syslogd" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="true" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="Syslogd" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="Enable">enable</value>
-        <value displayValue="Disable">disable</value>
+        <values displayValue="Enable">enable</values>
+        <values displayValue="Disable">disable</values>
       </values>
     </variable>
-    <variable displayName="Facility" name="params.facility" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" default="local7" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Facility" name="params.facility" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="local7" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="alert">alert</value>
-        <value displayValue="audit">audit</value>
-        <value displayValue="auth">auth</value>
-        <value displayValue="authpriv">authpriv</value>
-        <value displayValue="clock">clock</value>
-        <value displayValue="cron">cron</value>
-        <value displayValue="daemon">daemon</value>
-        <value displayValue="ftp">ftp</value>
-        <value displayValue="kernel">kernel</value>
-        <value displayValue="local0">local0</value>
-        <value displayValue="local1">local1</value>
-        <value displayValue="local2">local2</value>
-        <value displayValue="local3">local3</value>
-        <value displayValue="local4">local4</value>
-        <value displayValue="local5">local5</value>
-        <value displayValue="local6">local6</value>
-        <value displayValue="local7">local7</value>
-        <value displayValue="mail">mail</value>
-        <value displayValue="ntp">ntp</value>
-        <value displayValue="user">user</value>
+        <values displayValue="alert">alert</values>
+        <values displayValue="audit">audit</values>
+        <values displayValue="auth">auth</values>
+        <values displayValue="authpriv">authpriv</values>
+        <values displayValue="clock">clock</values>
+        <values displayValue="cron">cron</values>
+        <values displayValue="daemon">daemon</values>
+        <values displayValue="ftp">ftp</values>
+        <values displayValue="kernel">kernel</values>
+        <values displayValue="local0">local0</values>
+        <values displayValue="local1">local1</values>
+        <values displayValue="local2">local2</values>
+        <values displayValue="local3">local3</values>
+        <values displayValue="local4">local4</values>
+        <values displayValue="local5">local5</values>
+        <values displayValue="local6">local6</values>
+        <values displayValue="local7">local7</values>
+        <values displayValue="mail">mail</values>
+        <values displayValue="ntp">ntp</values>
+        <values displayValue="user">user</values>
       </values>
     </variable>
-    <variable displayName="Server IP Address" name="params.ipaddr" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Server IP Address" name="params.ipaddr" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Port" name="params.port" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation>show full-configuration log syslog-policy##show full-configuration log syslogd</operation>
+    <operation><![CDATA[show full-configuration log syslog-policy##show full-configuration log syslogd]]></operation>
     <parser>
       <section>
         <regexp>@syslogd@</regexp>
@@ -72,19 +72,23 @@
       <lines>
         <line>
           <array/>
-          <regexp>@^\s+set server (?&lt;ipaddr>\S+)@</regexp>
+          <regexp>@^\s+set server (?&lt;ipaddr&gt;\S+)@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s+set port (?&lt;port>\d+)\s*$@</regexp>
+          <regexp>@^\s+set port (?&lt;port&gt;\d+)\s*$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s+set status (?&lt;status>\S+)\s*$@</regexp>
+          <regexp>@^\s+set status (?&lt;status&gt;\S+)\s*$@</regexp>
+          <xpath/>
         </line>
         <line>
           <array/>
-          <regexp>@^\s+set facility (?&lt;facility>\S+)\s*$@</regexp>
+          <regexp>@^\s+set facility (?&lt;facility&gt;\S+)\s*$@</regexp>
+          <xpath/>
         </line>
         <ignore>
           <regexp>@set @</regexp>
@@ -93,8 +97,25 @@
     </parser>
   </command>
   <command name="UPDATE">
-    <operation>config log syslogdset status {$params.status}set severity informationset facility {$params.facility}set policy Customer_Syslogendconfig log syslog-policyedit Customer_Syslogconfigsyslog-server-listedit 1set server {$params.ipaddr}set port {$params.port}set csv disableset tls disablenextendnextend
-</operation>
+    <operation><![CDATA[config log syslogd
+set status {$params.status}
+set severity information
+set facility {$params.facility}
+set policy Customer_Syslog
+end
+config log syslog-policy
+edit Customer_Syslog
+config syslog-server-list
+edit 1
+set server {$params.ipaddr}
+set port {$params.port}
+set csv disable
+set tls disable
+next
+end
+next
+end
+]]></operation>
   </command>
   <command name="CONSTRAINT"/>
   <command name="CREATE"/>
