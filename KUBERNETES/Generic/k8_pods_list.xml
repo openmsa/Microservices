@@ -66,62 +66,25 @@
     <content></content>
   </example>
   <command name="IMPORT">
-    <operation>GET</operation>
+    <operation><![CDATA[GET]]></operation>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>//root/items/row</xpath>
       </section>
-      <lines>
-        <line>
-          <array/>
-          <regexp>@&lt;name&gt;(?&lt;object_id&gt;.*)&lt;/name&gt;@</regexp>
-          <xpath>metadata/name</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;creationTimestamp&gt;(?&lt;creation_date&gt;.*)&lt;/creationTimestamp&gt;@</regexp>
-          <xpath>metadata/creationTimestamp</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;app&gt;(?&lt;app_name&gt;.*)&lt;/app&gt;@</regexp>
-          <xpath>metadata/labels/app</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;name&gt;(?&lt;container_name&gt;.*)&lt;/name&gt;@</regexp>
-          <xpath>spec/containers/row/name</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;image&gt;(?&lt;container_image&gt;.*)&lt;/image&gt;@</regexp>
-          <xpath>spec/containers/row/image</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;phase&gt;(?&lt;container_status_phase&gt;.*)&lt;/phase&gt;@</regexp>
-          <xpath>status/phase</xpath>
-        </line>
-        <line>
-          <array/>
-          <regexp>@&lt;namespace&gt;(?&lt;namespace&gt;.*)&lt;/namespace&gt;@</regexp>
-          <xpath>metadata/namespace</xpath>
-        </line>
-      </lines>
+      <lines/>
     </parser>
     <xpath>/api/v1/pods</xpath>
   </command>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
   <command name="CREATE">
-    <operation>{literal}{{/literal}&quot;apiVersion&quot;:&quot;v1&quot;,&quot;kind&quot;:&quot;Pod&quot;,&quot;metadata&quot;:{literal}{{/literal}&quot;name&quot;:&quot;{$params.app_name}&quot;,&quot;namespace&quot;: &quot;{$params.namespace}&quot;{literal}}{/literal},&quot;spec&quot;:{literal}{{/literal}&quot;containers&quot;:[{literal}{{/literal}&quot;name&quot;:&quot;{$params.app_name}&quot;,&quot;image&quot;:&quot;{$params.app_name}&quot;{literal}}{/literal}],&quot;restartPolicy&quot;:&quot;Never&quot;{literal}}{/literal}
-{literal}}{/literal}</operation>
+    <operation><![CDATA[{literal}{{/literal}"apiVersion":"v1","kind":"Pod","metadata":{literal}{{/literal}"name":"{$params.app_name}","namespace": "{$params.namespace}"{literal}}{/literal},"spec":{literal}{{/literal}"containers":[{literal}{{/literal}"name":"{$params.app_name}","image":"{$params.app_name}"{literal}}{/literal}],"restartPolicy":"Never"{literal}}{/literal}
+{literal}}{/literal}]]></operation>
     <rest>POST#</rest>
     <xpath>/api/v1/namespaces/{$params.namespace}/pods</xpath>
   </command>
   <command name="DELETE">
-    <operation>{}</operation>
+    <operation><![CDATA[{}]]></operation>
     <rest>DELETE</rest>
     <xpath>/api/v1/namespaces/{$k8_pods_list.$object_id.namespace}/pods/{$k8_pods_list.$object_id.user_app}</xpath>
   </command>
