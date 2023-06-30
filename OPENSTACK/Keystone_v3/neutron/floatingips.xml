@@ -1,107 +1,113 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/ip.jpg</icon>
+    <description/>
+    <displayField>floating_network_id</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>floating_network_id</displayField>
     <dynamic>false</dynamic>
-    <group>Neutron</group>
-    <icon>/images/repository/CommandDefinition/icons/ip.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Floating IPs</name>
+    <group>Neutron</group>
     <importonce>false</importonce>
     <importrank>3</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Floating IPs</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="UUID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayName="Fixed IP Address" displayOrder="1" maxLength="200" name="params.fixed_ip_address" type="IpAddress"/>
-    <variable displayName="Floating IP Address" displayOrder="2" maxLength="200" name="params.floating_ip_address" type="IpAddress"/>
-    <variable displayName="Status" displayOrder="3" isUserLocked="true" maxLength="200" name="params.status" type="String"/>
-    <variable displayName="Floating Network" displayOrder="4" maxLength="200" name="params.floating_network_id" type="ObjectRef">
+  </information>
+  <variables frozen="0">
+    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Fixed IP Address" name="params.fixed_ip_address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Floating IP Address" name="params.floating_ip_address" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Floating Network" name="params.floating_network_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>networks</class>
       </classes>
     </variable>
-    <variable displayName="Router" displayOrder="6" isUserLocked="true" maxLength="200" name="params.router_id" type="ObjectRef">
+    <variable displayName="Router" name="params.router_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>routers</class>
       </classes>
     </variable>
-    <variable displayName="Port ID" displayOrder="8" maxLength="200" name="params.port_id" type="ObjectRef">
+    <variable displayName="Port ID" name="params.port_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>ports</class>
       </classes>
     </variable>
-    <variable displayName="Tenant" displayOrder="9" maxLength="200" name="params.tenant_id" type="ObjectRef">
+    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
-<command name="IMPORT">
-    <operation>neutron</operation>
-    <xpath>/v2.0/floatingips</xpath>
+  <command name="IMPORT">
+    <operation><![CDATA[neutron]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/floatingips/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>fixed_ip_address</xpath>
+          <array/>
           <regexp>@&lt;fixed_ip_address&gt;(?&lt;fixed_ip_address&gt;.*)&lt;/fixed_ip_address&gt;@</regexp>
+          <xpath>fixed_ip_address</xpath>
         </line>
-        
         <line>
-          <xpath>floating_ip_address</xpath>
+          <array/>
           <regexp>@&lt;floating_ip_address&gt;(?&lt;floating_ip_address&gt;.*)&lt;/floating_ip_address&gt;@</regexp>
+          <xpath>floating_ip_address</xpath>
         </line>
         <line>
-          <xpath>floating_network_id</xpath>
+          <array/>
           <regexp>@&lt;floating_network_id&gt;(?&lt;floating_network_id&gt;.*)&lt;/floating_network_id&gt;@</regexp>
+          <xpath>floating_network_id</xpath>
         </line>
         <line>
-          <xpath>port_id</xpath>
+          <array/>
           <regexp>@&lt;port_id&gt;(?&lt;port_id&gt;.*)&lt;/port_id&gt;@</regexp>
+          <xpath>port_id</xpath>
         </line>
         <line>
-          <xpath>router_id</xpath>
+          <array/>
           <regexp>@&lt;router_id&gt;(?&lt;router_id&gt;.*)&lt;/router_id&gt;@</regexp>
+          <xpath>router_id</xpath>
         </line>
         <line>
-          <xpath>tenant_id</xpath>
+          <array/>
           <regexp>@&lt;tenant_id&gt;(?&lt;tenant_id&gt;.*)&lt;/tenant_id&gt;@</regexp>
+          <xpath>tenant_id</xpath>
         </line>
         <line>
-          <xpath>status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/v2.0/floatingips</xpath>
   </command>
-<command name="CREATE">
-    <rest>POST#neutron
-</rest>
-    <xpath>/v2.0/floatingips
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
 "floatingip": {literal}{{/literal}
 "floating_network_id": "{$params.floating_network_id}"
 {if !empty($params.fixed_ip_address)}
@@ -118,23 +124,22 @@
 {/if}
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>POST#neutron
+</rest>
+    <xpath>/v2.0/floatingips
+</xpath>
   </command>
-  
   <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>neutron
 </rest>
     <xpath>/v2.0/floatingips/{$params.object_id|object_id}
 </xpath>
-    <operation>
-</operation>
   </command>
-<command name="UPDATE">
-    <rest>PUT#neutron
-</rest>
-    <xpath>/v2.0/floatingips/{$params.object_id|object_id}
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
 "floatingip": {literal}{{/literal}
 {if !empty($params.port_id)}
 "port_id" : "{$params.port_id}"
@@ -143,6 +148,11 @@
 {/if}
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>PUT#neutron
+</rest>
+    <xpath>/v2.0/floatingips/{$params.object_id|object_id}
+</xpath>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>

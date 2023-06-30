@@ -1,154 +1,171 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/file server.jpg</icon>
+    <description/>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>Glance</group>
-    <icon>/images/repository/CommandDefinition/icons/file server.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Images</name>
+    <group>Glance</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <name>Images</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
-    <singleton>false</singleton>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="UUID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayName="Name" displayOrder="1" maxLength="200" name="params.name" type="String"/>
-    <variable displayName="Status" displayOrder="2" isUserLocked="true" maxLength="200" name="params.status" type="String"/>
-    <variable displayName="Disk Format" displayOrder="3" maxLength="200" name="params.disk_format" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="AutoIncrement" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="1" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Disk Format" name="params.disk_format" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>vdi</value>
-        <value>raw</value>
-        <value>aki</value>
-        <value>ari</value>
-        <value>qcow2</value>
-        <value>ami</value>
-        <value>iso</value>
-        <value>vmdk</value>
-        <value>vhd</value>
+        <values>vdi</values>
+        <values>raw</values>
+        <values>aki</values>
+        <values>ari</values>
+        <values>qcow2</values>
+        <values>ami</values>
+        <values>iso</values>
+        <values>vmdk</values>
+        <values>vhd</values>
       </values>
     </variable>
-    <variable displayName="Container Format" displayOrder="4" maxLength="200" name="params.container_format" type="String">
+    <variable displayName="Container Format" name="params.container_format" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value>bare</value>
-        <value>aki</value>
-        <value>ari</value>
-        <value>ovf</value>
-        <value>ami</value>
+        <values>bare</values>
+        <values>aki</values>
+        <values>ari</values>
+        <values>ovf</values>
+        <values>ami</values>
       </values>
     </variable>
-    <variable displayName="Size" displayOrder="5" isUserLocked="true" maxLength="200" name="params.size" type="Integer"/>
-    <variable displayName="Minimum RAM" displayOrder="6" maxLength="200" name="params.min_ram" type="Integer"/>
-    <variable displayName="Minimum Disk" displayOrder="7" maxLength="200" name="params.min_disk" type="Integer"/>
-    <variable default="false" displayName="Protected" displayOrder="8" maxLength="200" name="params.protected" type="Boolean"/>
-    <variable default="public" displayName="Visibility" displayOrder="9" maxLength="200" name="params.visibility" type="String">
+    <variable displayName="Size" name="params.size" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Minimum RAM" name="params.min_ram" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Minimum Disk" name="params.min_disk" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Protected" name="params.protected" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Visibility" name="params.visibility" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="public" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="public">public</value>
-        <value displayValue="private">private</value>
+        <values displayValue="public">public</values>
+        <values displayValue="private">private</values>
       </values>
     </variable>
-    <variable displayName="File Path" displayOrder="10" maxLength="200" name="params.file_path" onlyDetailView="true" type="String"/>
-  </variables>  <example>
+    <variable displayName="File Path" name="params.file_path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation>glance</operation>
-    <xpath>/v2/images</xpath>
+    <operation><![CDATA[glance]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/images/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
         <line>
-          <xpath>status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
         </line>
         <line>
-          <xpath>container_format</xpath>
+          <array/>
           <regexp>@&lt;container_format&gt;(?&lt;container_format&gt;.*)&lt;/container_format&gt;@</regexp>
+          <xpath>container_format</xpath>
         </line>
         <line>
-          <xpath>disk_format</xpath>
+          <array/>
           <regexp>@&lt;disk_format&gt;(?&lt;disk_format&gt;.*)&lt;/disk_format&gt;@</regexp>
+          <xpath>disk_format</xpath>
         </line>
         <line>
-          <xpath>min_disk</xpath>
+          <array/>
           <regexp>@&lt;min_disk&gt;(?&lt;min_disk&gt;.*)&lt;/min_disk&gt;@</regexp>
+          <xpath>min_disk</xpath>
         </line>
         <line>
-          <xpath>min_ram</xpath>
+          <array/>
           <regexp>@&lt;min_ram&gt;(?&lt;min_ram&gt;.*)&lt;/min_ram&gt;@</regexp>
+          <xpath>min_ram</xpath>
         </line>
         <line>
-          <xpath>protected</xpath>
+          <array/>
           <regexp>@&lt;protected&gt;(?&lt;protected&gt;.*)&lt;/protected&gt;@</regexp>
+          <xpath>protected</xpath>
         </line>
         <line>
-          <xpath>visibility</xpath>
+          <array/>
           <regexp>@&lt;visibility&gt;(?&lt;visibility&gt;.*)&lt;/visibility&gt;@</regexp>
+          <xpath>visibility</xpath>
         </line>
         <line>
-          <xpath>size</xpath>
+          <array/>
           <regexp>@&lt;size&gt;(?&lt;size&gt;.*)&lt;/size&gt;@</regexp>
+          <xpath>size</xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/v2/images</xpath>
   </command>
-<command name="CREATE">
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
+"name": "{$params.name}",
+"visibility": "{$params.visibility}",
+"container_format": "{$params.container_format}",
+"disk_format": "{$params.disk_format}"
+{if !empty({$params.min_disk})}
+,"min_disk": {$params.min_disk}
+{/if}
+{if !empty({$params.min_ram})}
+,"min_ram": {$params.min_ram}
+{/if}
+{if !empty($params.protected) && $params.protected == 1}
+,"protected": true
+{/if}
+{if empty($params.protected)}
+,"protected": false
+{/if}
+{literal}}{/literal}
+]]></operation>
     <rest>POST#glance
 </rest>
     <xpath>/v2/images
 </xpath>
-    <operation>{literal}{{/literal}
-"name": "{$params.name}",
-"visibility": "{$params.visibility}",
-"container_format": "{$params.container_format}",
-"disk_format": "{$params.disk_format}",
-{if !empty({$params.min_disk})}
-"min_disk": {$params.min_disk},
-{/if}
-{if !empty({$params.min_ram})}
-"min_ram": {$params.min_ram},
-{/if}
-"protected": {$params.protected}
-{literal}}{/literal}
-</operation>
   </command>
-<command name="DELETE">
+  <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>glance
 </rest>
-    <xpath>​/v2/images/{$params.object_id|object_id}
-</xpath>
-    <operation>
-</operation>
+    <xpath>&#8203;/v2/images/{$params.object_id}</xpath>
   </command>
-<command name="UPDATE">
+  <command name="UPDATE">
+    <operation><![CDATA[@{$params.file_path}
+]]></operation>
     <rest>PUT#glance
 </rest>
-    <xpath>​/v2/images/{$params.object_id|object_id}/file
-</xpath>
-    <operation>@{$params.file_path}
-</operation>
+    <xpath>&#8203;/v2/images/{$params.object_id}/file</xpath>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>

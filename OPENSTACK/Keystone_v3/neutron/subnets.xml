@@ -1,132 +1,139 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
+    <description/>
+    <displayField>cidr</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>Neutron</group>
-    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
-    <importonce>false</importonce>
-    <importrank>1</importrank>
     <maxInstances>0</maxInstances>
-    <name>Subnets</name>
-    <order>10000</order>
     <relatedObjects/>
+    <name>Subnets</name>
+    <group>Neutron</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="UUID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayName="Name" displayOrder="1" maxLength="200" name="params.name" type="String"/>
-    <variable displayName="CIDR" displayOrder="2" maxLength="200" name="params.cidr" type="String"/>
-    <variable displayName="Gateway IP" displayOrder="3" maxLength="200" name="params.gateway_ip" type="IpAddress"/>
-    <variable default="4" displayName="IP Version" displayOrder="4" editable="false" maxLength="200" name="params.ip_version" type="Integer">
+  </information>
+  <variables frozen="0">
+    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="CIDR" name="params.cidr" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Gateway IP" name="params.gateway_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP Version" name="params.ip_version" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="4" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="4">4</value>
-        <value displayValue="6">6</value>
+        <values displayValue="4">4</values>
+        <values displayValue="6">6</values>
       </values>
     </variable>
-    <variable default="true" displayName="Enable DHCP" displayOrder="5" maxLength="200" name="params.enable_dhcp" type="Boolean"/>
-    <variable displayName="Start" displayOrder="6" groupDisplayName="Allocation pools" maxLength="300" name="params.allocation_pools.0.start" type="IpAddress">
+    <variable displayName="Enable DHCP" name="params.enable_dhcp" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Start" name="params.allocation_pools.0.start" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="Allocation pools" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Allocation pools</section>
+        <sections>Allocation pools</sections>
       </sections>
     </variable>
-    <variable displayName="End" displayOrder="7" groupDisplayName="Allocation pools" groupSeparator="-" maxLength="300" name="params.allocation_pools.0.end" type="IpAddress">
+    <variable displayName="End" name="params.allocation_pools.0.end" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="-" groupDisplayName="Allocation pools" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Allocation pools</section>
+        <sections>Allocation pools</sections>
       </sections>
     </variable>
-    <variable displayName="Network" displayOrder="8" isMandatory="true" maxLength="200" name="params.network_id" startIncrement="0" type="ObjectRef">
+    <variable displayName="Network" name="params.network_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>networks</class>
       </classes>
     </variable>
-    <variable displayName="Tenant" displayOrder="9" maxLength="200" name="params.tenant_id" startIncrement="0" type="ObjectRef">
+    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
-<command name="IMPORT">
-    <operation>neutron</operation>
-    <xpath>/v2.0/subnets</xpath>
+  <command name="IMPORT">
+    <operation><![CDATA[neutron]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/subnets/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>network_id</xpath>
+          <array/>
           <regexp>@&lt;network_id&gt;(?&lt;network_id&gt;.*)&lt;/network_id&gt;@</regexp>
+          <xpath>network_id</xpath>
         </line>
         <line>
-          <xpath>enable_dhcp</xpath>
+          <array/>
           <regexp>@&lt;enable_dhcp&gt;(?&lt;enable_dhcp&gt;.*)&lt;/enable_dhcp&gt;@</regexp>
+          <xpath>enable_dhcp</xpath>
         </line>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
         <line>
-          <xpath>cidr</xpath>
+          <array/>
           <regexp>@&lt;cidr&gt;(?&lt;cidr&gt;.*)&lt;/cidr&gt;@</regexp>
+          <xpath>cidr</xpath>
         </line>
         <line>
-          <xpath>gateway_ip</xpath>
+          <array/>
           <regexp>@&lt;gateway_ip&gt;(?&lt;gateway_ip&gt;.*)&lt;/gateway_ip&gt;@</regexp>
+          <xpath>gateway_ip</xpath>
         </line>
         <line>
-          <xpath>ip_version</xpath>
+          <array/>
           <regexp>@&lt;ip_version&gt;(?&lt;ip_version&gt;.*)&lt;/ip_version&gt;@</regexp>
+          <xpath>ip_version</xpath>
         </line>
-        
-        
-        
-        
         <line>
-          <xpath>tenant_id</xpath>
+          <array/>
           <regexp>@&lt;tenant_id&gt;(?&lt;tenant_id&gt;.*)&lt;/tenant_id&gt;@</regexp>
+          <xpath>tenant_id</xpath>
         </line>
         <line>
           <array name="allocation_pools">
-            <xpath>allocation_pools/row</xpath>
             <lines>
               <line>
-                <xpath>start</xpath>
+                <array/>
                 <regexp>@&lt;start&gt;(?&lt;start&gt;.*)&lt;/start&gt;@</regexp>
+                <xpath>start</xpath>
               </line>
               <line>
-                <xpath>end</xpath>
+                <array/>
                 <regexp>@&lt;end&gt;(?&lt;end&gt;.*)&lt;/end&gt;@</regexp>
+                <xpath>end</xpath>
               </line>
             </lines>
+            <xpath>allocation_pools/row</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/v2.0/subnets</xpath>
   </command>
-<command name="CREATE">
-    <rest>POST#neutron
-</rest>
-    <xpath>/v2.0/subnets
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
 "subnet": {literal}{{/literal}
 "name": "{$params.name}",
 "network_id": "{$params.network_id}",
@@ -139,7 +146,7 @@
 {if !empty($params.allocation_pools)}
 ,"allocation_pools":[
 {foreach $params.allocation_pools as $allocation_pool}
-{if $allocation_pool@iteration &gt; 1},{/if}
+{if $allocation_pool@iteration > 1},{/if}
 {literal}{{/literal}
 "start": "{$allocation_pool.start}",
 "end": "{$allocation_pool.end}"
@@ -152,22 +159,22 @@
 {/if}
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>POST#neutron
+</rest>
+    <xpath>/v2.0/subnets
+</xpath>
   </command>
-<command name="DELETE">
+  <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>neutron
 </rest>
     <xpath>/v2.0/subnets/{$params.object_id|object_id}
 </xpath>
-    <operation>
-</operation>
   </command>
-<command name="UPDATE">
-    <rest>PUT#neutron
-</rest>
-    <xpath>/v2.0/subnets/{$params.object_id|object_id}
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
 "subnet": {literal}{{/literal}
 "name": "{$params.name}",
 {if !empty($params.enable_dhcp)}
@@ -181,7 +188,7 @@
 {if !empty($params.allocation_pools)}
 ,"allocation_pools":[
 {foreach $params.allocation_pools as $allocation_pool}
-{if $allocation_pool@iteration &gt; 1},{/if}
+{if $allocation_pool@iteration > 1},{/if}
 {literal}{{/literal}
 "start": "{$allocation_pool.start}",
 "end": "{$allocation_pool.end}"
@@ -191,6 +198,11 @@
 {/if}
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>PUT#neutron
+</rest>
+    <xpath>/v2.0/subnets/{$params.object_id|object_id}
+</xpath>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>

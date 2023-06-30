@@ -1,147 +1,154 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ObjectDefinition>  <information>
+<ObjectDefinition>
+  <information>
+    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
+    <description/>
+    <displayField>name</displayField>
+    <serviceTaskType/>
+    <order>10000</order>
+    <visibility>5</visibility>
     <configType>xml</configType>
     <createTemplateId/>
     <createTemplateObject/>
     <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>name</displayField>
     <dynamic>false</dynamic>
-    <group>Neutron</group>
-    <icon>/images/repository/CommandDefinition/icons/network management.jpg</icon>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects/>
+    <name>Networks</name>
+    <group>Neutron</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Networks</name>
-    <order>10000</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable displayName="UUID" displayOrder="0" isUserLocked="true" maxLength="200" name="params.object_id" type="String"/>
-    <variable displayName="Name" displayOrder="1" maxLength="200" name="params.name" type="String"/>
-    <variable default="true" displayName="Admin State Up" displayOrder="2" maxLength="200" name="params.admin_state_up" type="Boolean"/>
-    <variable displayName="Status" displayOrder="3" isUserLocked="true" maxLength="150" name="params.status" type="String"/>
-    <variable displayName="Network Type" displayOrder="4" maxLength="200" name="params.network_type" type="String">
+  </information>
+  <variables frozen="0">
+    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Admin State Up" name="params.admin_state_up" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="true" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Network Type" name="params.network_type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
-        <value displayValue="gre">gre</value>
-        <value displayValue="vxlan">vxlan</value>
-        <value displayValue="flat">flat</value>
-        <value displayValue="vlan">vlan</value>
+        <values displayValue="gre">gre</values>
+        <values displayValue="vxlan">vxlan</values>
+        <values displayValue="flat">flat</values>
+        <values displayValue="vlan">vlan</values>
       </values>
     </variable>
-    <variable displayName="Physical Network" displayOrder="5" maxLength="200" name="params.physical_network" startIncrement="0" type="String"/>
-    <variable displayName="Segmentation ID" displayOrder="6" maxLength="200" name="params.segmentation_id" startIncrement="0" type="String"/>
-    <variable displayName="Subnet" displayOrder="7" isUserLocked="true" maxLength="200" name="params.subnet_list.0.subnet_id" type="ObjectRef">
+    <variable displayName="Physical Network" name="params.physical_network" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Segmentation ID" name="params.segmentation_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Subnet" name="params.subnet_list.0.subnet_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
-        <section>Subnets</section>
+        <sections>Subnets</sections>
       </sections>
       <classes>
         <class>subnets</class>
       </classes>
     </variable>
-    <variable default="false" displayName="Router External" displayOrder="9" maxLength="200" name="params.router_external" type="Boolean"/>
-    <variable default="false" displayName="Shared" displayOrder="10" keepOnImport="true" maxLength="150" name="params.shared" type="Boolean"/>
-    <variable default="false" displayName="Port Security Enabled" displayOrder="11" maxLength="200" name="params.port_security_enabled" startIncrement="0" type="Boolean"/>
-    <variable displayName="MTU" displayOrder="12" maxLength="200" name="params.mtu" startIncrement="0" type="Integer"/>
-    <variable displayName="Tenant" displayOrder="13" maxLength="200" name="params.tenant_id" type="ObjectRef">
+    <variable displayName="Router External" name="params.router_external" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Shared" name="params.shared" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="150" displayOrder="10" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Port Security Enabled" name="params.port_security_enabled" startIncrement="0" type="Boolean" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="MTU" name="params.mtu" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="200" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-  </variables>  <example>
+  </variables>
+  <example>
     <content>
 </content>
   </example>
   <command name="IMPORT">
-    <operation>neutron</operation>
-    <xpath>/v2.0/networks</xpath>
+    <operation><![CDATA[neutron]]></operation>
     <parser>
       <section>
+        <regexp>@^\s \s*$@</regexp>
         <xpath>//root/networks/row</xpath>
       </section>
       <lines>
         <line>
-          <xpath>id</xpath>
+          <array/>
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
+          <xpath>id</xpath>
         </line>
         <line>
-          <xpath>shared</xpath>
+          <array/>
           <regexp>@&lt;shared&gt;(?&lt;shared&gt;.*)&lt;/shared&gt;@</regexp>
+          <xpath>shared</xpath>
         </line>
         <line>
-          <xpath>external</xpath>
+          <array/>
           <regexp>@&lt;external&gt;(?&lt;router_external&gt;.*)&lt;/external&gt;@</regexp>
+          <xpath>external</xpath>
         </line>
         <line>
-          <xpath>tenant_id</xpath>
+          <array/>
           <regexp>@&lt;tenant_id&gt;(?&lt;tenant_id&gt;.*)&lt;/tenant_id&gt;@</regexp>
+          <xpath>tenant_id</xpath>
         </line>
         <line>
-          <xpath>name</xpath>
+          <array/>
           <regexp>@&lt;name&gt;(?&lt;name&gt;.*)&lt;/name&gt;@</regexp>
+          <xpath>name</xpath>
         </line>
         <line>
-          <xpath>status</xpath>
+          <array/>
           <regexp>@&lt;status&gt;(?&lt;status&gt;.*)&lt;/status&gt;@</regexp>
+          <xpath>status</xpath>
         </line>
         <line>
-          <xpath>network_type</xpath>
+          <array/>
           <regexp>@&lt;network_type&gt;(?&lt;network_type&gt;.*)&lt;/network_type&gt;@</regexp>
+          <xpath>network_type</xpath>
         </line>
         <line>
-          <xpath>admin_state_up</xpath>
+          <array/>
           <regexp>@&lt;admin_state_up&gt;(?&lt;admin_state_up&gt;.*)&lt;/admin_state_up&gt;@</regexp>
+          <xpath>admin_state_up</xpath>
         </line>
-        
         <line>
-          <xpath>physical_network</xpath>
+          <array/>
           <regexp>@&lt;physical_network&gt;(?&lt;physical_network&gt;.*)&lt;/physical_network&gt;@</regexp>
+          <xpath>physical_network</xpath>
         </line>
         <line>
-          <xpath>port_security_enabled</xpath>
+          <array/>
           <regexp>@&lt;port_security_enabled&gt;(?&lt;port_security_enabled&gt;.*)&lt;/port_security_enabled&gt;@</regexp>
+          <xpath>port_security_enabled</xpath>
         </line>
         <line>
-          <xpath>mtu</xpath>
+          <array/>
           <regexp>@&lt;mtu&gt;(?&lt;mtu&gt;.*)&lt;/mtu&gt;@</regexp>
+          <xpath>mtu</xpath>
         </line>
         <line>
-          <xpath>segmentation_id</xpath>
+          <array/>
           <regexp>@&lt;segmentation_id&gt;(?&lt;segmentation_id&gt;.*)&lt;/segmentation_id&gt;@</regexp>
+          <xpath>segmentation_id</xpath>
         </line>
-        
         <line>
           <array name="subnet_list">
-            <xpath>subnets/row</xpath>
             <lines>
               <line>
-                <xpath>//row</xpath>
+                <array/>
                 <regexp>@&lt;row&gt;(?&lt;subnet_id&gt;.*)&lt;/row&gt;@</regexp>
+                <xpath>//row</xpath>
               </line>
-              
-              
             </lines>
+            <xpath>subnets/row</xpath>
           </array>
+          <regexp/>
+          <xpath/>
         </line>
-        
-        
-        
       </lines>
     </parser>
-    <post_template/>
+    <xpath>/v2.0/networks</xpath>
   </command>
-<command name="CREATE">
-    <rest>POST#neutron
-</rest>
-    <xpath>/v2.0/networks
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="CREATE">
+    <operation><![CDATA[{literal}{{/literal}
 "network": {literal}{{/literal}
 "name": "{$params.name}",
 "admin_state_up": "{$params.admin_state_up}",
@@ -159,22 +166,22 @@
 {/if}
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>POST#neutron
+</rest>
+    <xpath>/v2.0/networks
+</xpath>
   </command>
-<command name="DELETE">
+  <command name="DELETE">
+    <operation><![CDATA[
+]]></operation>
     <rest>neutron
 </rest>
-    <xpath>​/v2.0/networks/{$params.object_id|object_id}
+    <xpath>&#8203;/v2.0/networks/{$params.object_id|object_id}
 </xpath>
-    <operation>
-</operation>
   </command>
-<command name="UPDATE">
-    <rest>PUT#neutron
-</rest>
-    <xpath>/v2.0/networks/{$params.object_id|object_id}​
-</xpath>
-    <operation>{literal}{{/literal}
+  <command name="UPDATE">
+    <operation><![CDATA[{literal}{{/literal}
 "network": {literal}{{/literal}
 "name": "{$params.name}",
 "admin_state_up": "{$params.admin_state_up}",
@@ -183,6 +190,11 @@
 "router:external": "{$params.router_external}"
 {literal}}{/literal}
 {literal}}{/literal}
-</operation>
+]]></operation>
+    <rest>PUT#neutron
+</rest>
+    <xpath>/v2.0/networks/{$params.object_id|object_id}&#8203;
+</xpath>
   </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
