@@ -3,7 +3,6 @@
     <icon>/images/eclipseIcons/page_obj.gif</icon>
     <description/>
     <displayField>vnf_catalogs</displayField>
-    <serviceTaskType/>
     <order>10000</order>
     <visibility>5</visibility>
     <configType>xml</configType>
@@ -14,6 +13,8 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
+    <msDirectoryName/>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
     <name>VNF catalogs</name>
     <group>MANO</group>
     <importonce>false</importonce>
@@ -25,211 +26,66 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="operational_state" name="params.operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vnf_operational_state" name="params.vnf_operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="VNF Package Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="onboarding_state" name="params.onboarding_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="usage_state" name="params.usage_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vnf_catalogs" name="params.vnf_catalogs" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="vnf_pkg_name" name="params.userDefinedData.0.vnf_package_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="customer_id" name="params.userDefinedData.0.customer_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="manufacturer" name="params.userDefinedData.0.manufacturer" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="vim_id" name="params.userDefinedData.0.vim_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="model" name="params.userDefinedData.0.model" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="11" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
-    <variable displayName="device_password" name="params.userDefinedData.0.device_password" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
-      <sections>
-        <sections>userDefinedData</sections>
-      </sections>
-    </variable>
+    <variable displayName="VNF Package Id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNFD  Id" name="params.vnfd_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Onboarding State" name="params.onboarding_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Operational State" name="params.operational_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Usage State" name="params.usage_state" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNF Product Name" name="params.vnf_product_name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNF Provider" name="params.vnf_provider" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNFD Version" name="params.vnfd_version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="VNF Software Version" name="params.vnf_software_version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="vnf_catalogs" name="params.vnf_catalogs" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="_color" name="params._color" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;row&gt;
-	&lt;id&gt;c026b619-8fa5-48a7-a724-228892cad44e&lt;/id&gt;
-	&lt;additionalArtifacts/&gt;
-	&lt;onboardingState&gt;ONBOARDED&lt;/onboardingState&gt;
-	&lt;operationalState&gt;ENABLED&lt;/operationalState&gt;
-	&lt;usageState&gt;NOT_IN_USE&lt;/usageState&gt;
-	&lt;userDefinedData&gt;
-		&lt;customerId&gt;TMAA6&lt;/customerId&gt;
-		&lt;vimId&gt;TMA125&lt;/vimId&gt;
-		&lt;manufacturerId&gt;18&lt;/manufacturerId&gt;
-		&lt;modelId&gt;16010203&lt;/modelId&gt;
-		&lt;device_login&gt;root&lt;/device_login&gt;
-		&lt;device_password&gt;ubisle38&lt;/device_password&gt;
-		&lt;monitoring_profile_ref&gt;VNF_MON_JUNIPER&lt;/monitoring_profile_ref&gt;
-		&lt;heat&gt;
-			&lt;heat_template_version&gt;2015-04-30&lt;/heat_template_version&gt;
-			&lt;description&gt;HOT template (Heat Orchestration Template) for Juniper vSRX VNF.
-			&lt;/description&gt;
-			&lt;parameters&gt;
-				&lt;key_name&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Name of key-pair to be used for compute instance&lt;/description&gt;
-					&lt;default/&gt;
-				&lt;/key_name&gt;
-				&lt;flavor&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Type of instance (flavor) to be used&lt;/description&gt;
-					&lt;default&gt;m1.medium&lt;/default&gt;
-				&lt;/flavor&gt;
-				&lt;availability_zone&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;availability zone to be used&lt;/description&gt;
-					&lt;default&gt;standard&lt;/default&gt;
-				&lt;/availability_zone&gt;
-				&lt;image_id&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Image Name&lt;/description&gt;
-					&lt;default&gt;66c96610-f427-45fe-b7c9-e70d163f35e5&lt;/default&gt;
-				&lt;/image_id&gt;
-				&lt;private_primary_network_id&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Private primary network ID&lt;/description&gt;
-					&lt;default&gt;net3&lt;/default&gt;
-				&lt;/private_primary_network_id&gt;
-				&lt;private_primary_subnetwork&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Private primary sub-network name or ID&lt;/description&gt;
-					&lt;default&gt;net3_subnet&lt;/default&gt;
-				&lt;/private_primary_subnetwork&gt;
-				&lt;private_secondary_network_id&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Private secondary network ID&lt;/description&gt;
-					&lt;default&gt;net2&lt;/default&gt;
-				&lt;/private_secondary_network_id&gt;
-				&lt;private_secondary_subnetwork&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Private secondary sub-network name or ID&lt;/description&gt;
-					&lt;default&gt;net2_subnet&lt;/default&gt;
-				&lt;/private_secondary_subnetwork&gt;
-				&lt;public_network&gt;
-					&lt;type&gt;string&lt;/type&gt;
-					&lt;description&gt;Network private IP&apos;s to attach instance to .&lt;/description&gt;
-					&lt;default&gt;Floating-Public&lt;/default&gt;
-				&lt;/public_network&gt;
-			&lt;/parameters&gt;
-			&lt;resources&gt;
-				&lt;Junipervsrx&gt;
-					&lt;type&gt;OS::Nova::Server&lt;/type&gt;
-					&lt;properties&gt;
-						&lt;name&gt;Junipervsrx&lt;/name&gt;
-						&lt;key_name&gt;
-							&lt;get_param&gt;key_name&lt;/get_param&gt;
-						&lt;/key_name&gt;
-						&lt;image&gt;
-							&lt;get_param&gt;image_id&lt;/get_param&gt;
-						&lt;/image&gt;
-						&lt;flavor&gt;
-							&lt;get_param&gt;flavor&lt;/get_param&gt;
-						&lt;/flavor&gt;
-						&lt;availability_zone&gt;
-							&lt;get_param&gt;availability_zone&lt;/get_param&gt;
-						&lt;/availability_zone&gt;
-						&lt;networks&gt;
-							&lt;row&gt;
-								&lt;port&gt;
-									&lt;get_resource&gt;server_primary_port&lt;/get_resource&gt;
-								&lt;/port&gt;
-							&lt;/row&gt;
-							&lt;row&gt;
-								&lt;port&gt;
-									&lt;get_resource&gt;server_secondary_port&lt;/get_resource&gt;
-								&lt;/port&gt;
-							&lt;/row&gt;
-						&lt;/networks&gt;
-						&lt;config_drive&gt;true&lt;/config_drive&gt;
-						&lt;user_data_format&gt;RAW&lt;/user_data_format&gt;
-						&lt;user_data&gt;#junos-config
-system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUyUsHP8Uf3JuoSngcMf4TMMjrkCiRmVF9&quot;; } name-server { 8.8.4.4; } services { ssh { root-login allow; } web-management { http { interface fxp0.0; } https { system-generated-certificate; interface[fxp0.0 ge-0/0/0.0]; } } } syslog { user * { any emergency; } file messages { any any; authorization info; } file interactive-commands { interactive-commands any; } } license { autoupdate { url https://ae1.juniper.net/junos/key_retrieval; } } } services { application-identification; } security { application-firewall { traceoptions { file app; flag all; } rule-sets apptest { rule 1 { match { dynamic-application junos:UNKNOWN; } then { deny; } } default-rule { permit; } } } application-tracking { first-update; } screen { ids-option untrust-screen { icmp { ping-death; } ip { source-route-option; tear-drop; } tcp { syn-flood { alarm-threshold 1024; attack-threshold 200; source-threshold 1024; destination-threshold 2048; timeout 20; } land; } } } nat { source { rule-set nat { from zone trust; to zone untrust; rule 1 { match { source-address 0.0.0.0/0; destination-address 0.0.0.0/0; } then { source-nat { interface; } } } } } } policies { from-zone trust to-zone trust { policy default-permit { match { source-address any; destination-address any; application any; } then { permit; log { session-init; session-close; } } } } from-zone trust to-zone untrust { policy default-permit { match { source-address any; destination-address any; application any; } then { permit { application-services { application-firewall { rule-set apptest; } } } } } } from-zone untrust to-zone trust { policy default-deny { match { source-address any; destination-address any; application any; } then { deny; } } } global { policy log-deny { match { source-address any; destination-address any; application any; } then { reject; log { session-init; session-close; } } } } } zones { security-zone untrust { screen untrust-screen; interfaces { ge-0/0/0.0 { host-inbound-traffic { system-services { ping; ssh; https; } } } } } security-zone trust; } } interfaces { ge-0/0/0 { unit 0 { family inet { dhcp-client; } } } fxp0 { unit 0 { family inet { dhcp-client; } } } } snmp { community ubiqube { authorization read-only; } }&lt;/user_data&gt;
-					&lt;/properties&gt;
-				&lt;/Junipervsrx&gt;
-				&lt;server_primary_port&gt;
-					&lt;type&gt;OS::Neutron::Port&lt;/type&gt;
-					&lt;properties&gt;
-						&lt;network_id&gt;
-							&lt;get_param&gt;private_primary_network_id&lt;/get_param&gt;
-						&lt;/network_id&gt;
-					&lt;/properties&gt;
-				&lt;/server_primary_port&gt;
-				&lt;server_floating_ip&gt;
-					&lt;type&gt;OS::Neutron::FloatingIP&lt;/type&gt;
-					&lt;properties&gt;
-						&lt;floating_network&gt;
-							&lt;get_param&gt;public_network&lt;/get_param&gt;
-						&lt;/floating_network&gt;
-					&lt;/properties&gt;
-				&lt;/server_floating_ip&gt;
-				&lt;server_floating_ip_association&gt;
-					&lt;type&gt;OS::Neutron::FloatingIPAssociation&lt;/type&gt;
-					&lt;properties&gt;
-						&lt;floatingip_id&gt;
-							&lt;get_resource&gt;server_floating_ip&lt;/get_resource&gt;
-						&lt;/floatingip_id&gt;
-						&lt;port_id&gt;
-							&lt;get_attr&gt;
-								&lt;row&gt;Junipervsrx&lt;/row&gt;
-								&lt;row&gt;addresses&lt;/row&gt;
-								&lt;row&gt;
-									&lt;get_param&gt;private_primary_network_id&lt;/get_param&gt;
-								&lt;/row&gt;
-								&lt;row&gt;0&lt;/row&gt;
-								&lt;row&gt;port&lt;/row&gt;
-							&lt;/get_attr&gt;
-						&lt;/port_id&gt;
-					&lt;/properties&gt;
-				&lt;/server_floating_ip_association&gt;
-				&lt;server_secondary_port&gt;
-					&lt;type&gt;OS::Neutron::Port&lt;/type&gt;
-					&lt;properties&gt;
-						&lt;network_id&gt;
-							&lt;get_param&gt;private_secondary_network_id&lt;/get_param&gt;
-						&lt;/network_id&gt;
-					&lt;/properties&gt;
-				&lt;/server_secondary_port&gt;
-			&lt;/resources&gt;
-		&lt;/heat&gt;
-		&lt;manufacturer&gt;JUNIPER&lt;/manufacturer&gt;
-		&lt;model&gt;junOS generic&lt;/model&gt;
-	&lt;/userDefinedData&gt;
-	&lt;_links&gt;
-		&lt;self&gt;
-			&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/c026b619-8fa5-48a7-a724-228892cad44e&lt;/href&gt;
-		&lt;/self&gt;
-		&lt;vnfd&gt;
-			&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/c026b619-8fa5-48a7-a724-228892cad44e/vnfd&lt;/href&gt;
-		&lt;/vnfd&gt;
-		&lt;packageContent&gt;
-			&lt;href&gt;http://127.0.0.1:8380/ubi-etsi-mano/c026b619-8fa5-48a7-a724-228892cad44e/package_content&lt;/href&gt;
-		&lt;/packageContent&gt;
-	&lt;/_links&gt;
-&lt;/row&gt;
+&lt;root&gt;
+	&lt;row&gt;
+		&lt;id&gt;0b66be53-5c71-4f62-9e56-3d2eaeabd648&lt;/id&gt;
+		&lt;vnfdId&gt;f80158ae-dfa9-4906-9b3a-a75584742522&lt;/vnfdId&gt;
+		&lt;vnfProvider&gt;Ubiqube internal.&lt;/vnfProvider&gt;
+		&lt;vnfProductName&gt;Integration tests&lt;/vnfProductName&gt;
+		&lt;vnfSoftwareVersion&gt;1.0.0&lt;/vnfSoftwareVersion&gt;
+		&lt;vnfdVersion&gt;1.0.1&lt;/vnfdVersion&gt;
+		&lt;checksum&gt;
+			&lt;algorithm&gt;SHA-512&lt;/algorithm&gt;
+			&lt;hash&gt;cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e&lt;/hash&gt;
+		&lt;/checksum&gt;
+		&lt;softwareImages&gt;
+			&lt;row&gt;
+				&lt;id&gt;f58cf0f0-4b18-4816-9a1b-a9be604d260e&lt;/id&gt;
+				&lt;name&gt;cirros-0.5.2&lt;/name&gt;
+				&lt;checksum&gt;
+					&lt;algorithm&gt;sha-512&lt;/algorithm&gt;
+					&lt;hash&gt;6b813aa46bb90b4da216a4d19376593fa3f4fc7e617f03a92b7fe11e9a3981cbe8f0959dbebe36225e5f53dc4492341a4863cac4ed1ee0909f3fc78ef9c3e869&lt;/hash&gt;
+				&lt;/checksum&gt;
+				&lt;minDisk&gt;0&lt;/minDisk&gt;
+				&lt;minRam&gt;0&lt;/minRam&gt;
+				&lt;imagePath&gt;myFile.qcow2&lt;/imagePath&gt;
+			&lt;/row&gt;
+		&lt;/softwareImages&gt;
+		&lt;onboardingState&gt;ONBOARDED&lt;/onboardingState&gt;
+		&lt;operationalState&gt;DISABLED&lt;/operationalState&gt;
+		&lt;usageState&gt;NOT_IN_USE&lt;/usageState&gt;
+		&lt;_links&gt;
+			&lt;self&gt;
+				&lt;href&gt;http://10.255.3.106:8100/nfvo-webapp/sol005/vnfpkgm/v1/vnf_packages/0b66be53-5c71-4f62-9e56-3d2eaeabd648&lt;/href&gt;
+			&lt;/self&gt;
+			&lt;vnfd&gt;
+				&lt;href&gt;http://10.255.3.106:8100/nfvo-webapp/sol005/vnfpkgm/v1/vnf_packages/0b66be53-5c71-4f62-9e56-3d2eaeabd648/vnfd&lt;/href&gt;
+			&lt;/vnfd&gt;
+			&lt;packageContent&gt;
+				&lt;href&gt;http://10.255.3.106:8100/nfvo-webapp/sol005/vnfpkgm/v1/vnf_packages/0b66be53-5c71-4f62-9e56-3d2eaeabd648/package_content&lt;/href&gt;
+			&lt;/packageContent&gt;
+		&lt;/_links&gt;
+	&lt;/row&gt;
+&lt;/root&gt;
 </content>
   </example>
   <command name="IMPORT">
     <operation><![CDATA[GET]]></operation>
-    <post_template>{assign_object_variable var=&quot;vnf_catalogs&quot; value=&quot;{$params.object_id} - {$params.userDefinedData.0.vnf_package_name} - {$params.userDefinedData.0.manufacturer} - {$params.userDefinedData.0.model} - {$params.operational_state}&quot;}
+    <post_template>{assign_object_variable var=&quot;vnf_catalogs&quot; value=&quot;{$params.object_id} - {$params.vnf_package_name} - {$params.onboarding_state} - {$params.operational_state}&quot;}
 
 {if  $params.operational_state == DISABLED}
       {assign_object_variable var=&quot;_color&quot; value=red}
@@ -244,45 +100,6 @@ system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUy
         <xpath>//root/row</xpath>
       </section>
       <lines>
-        <line>
-          <array name="userDefinedData">
-            <lines>
-              <line>
-                <array/>
-                <regexp>@&lt;name&gt;(?&lt;vnf_package_name&gt;.*)&lt;/name&gt;@</regexp>
-                <xpath>name</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;model&gt;(?&lt;model&gt;.*)&lt;/model&gt;@</regexp>
-                <xpath>model</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;manufacturer&gt;(?&lt;manufacturer&gt;.*)&lt;/manufacturer&gt;@</regexp>
-                <xpath>manufacturer</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;vimId&gt;(?&lt;vim_id&gt;.*)&lt;/vimId&gt;@</regexp>
-                <xpath>vimId</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;customerId&gt;(?&lt;customer_id&gt;.*)&lt;/customerId&gt;@</regexp>
-                <xpath>customerId</xpath>
-              </line>
-              <line>
-                <array/>
-                <regexp>@&lt;device_password&gt;(?&lt;device_password&gt;.*)&lt;/device_password&gt;@</regexp>
-                <xpath>device_password</xpath>
-              </line>
-            </lines>
-            <xpath>userDefinedData</xpath>
-          </array>
-          <regexp/>
-          <xpath/>
-        </line>
         <line>
           <array/>
           <regexp>@&lt;usageState&gt;(?&lt;usage_state&gt;.*)&lt;/usageState&gt;@</regexp>
@@ -303,8 +120,38 @@ system { root-authentication { encrypted-password &quot;$5$FgYBloiu$uWknvCn20tUy
           <regexp>@&lt;id&gt;(?&lt;object_id&gt;.*)&lt;/id&gt;@</regexp>
           <xpath>id</xpath>
         </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vnfdId&gt;(?&lt;vnfd_id&gt;.*)&lt;/vnfdId&gt;@</regexp>
+          <xpath>vnfdId</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vnfProvider&gt;(?&lt;vnf_provider&gt;.*)&lt;/vnfProvider&gt;@</regexp>
+          <xpath>vnfProvider</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vnfSoftwareVersion&gt;(?&lt;vnf_software_version&gt;.*)&lt;/vnfSoftwareVersion&gt;@</regexp>
+          <xpath>vnfSoftwareVersion</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vnfdVersion&gt;(?&lt;vnfd_version&gt;.*)&lt;/vnfdVersion&gt;@</regexp>
+          <xpath>vnfdVersion</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@&lt;vnfProductName&gt;(?&lt;vnf_product_name&gt;.*)&lt;/vnfProductName&gt;@</regexp>
+          <xpath>vnfProductName</xpath>
+        </line>
       </lines>
     </parser>
-    <xpath>{$SD-&gt;smarty[&apos;BASE_URL&apos;]}sol005/vnfpkgm/v1/vnf_packages?all_fields=1{$SD-&gt;smarty[&apos;VNF_PKG_FILTER_EXPRESSION&apos;]}</xpath>
+    <xpath>{$SD-&gt;smarty[&apos;BASE_URL_MS&apos;]}vnfpkgm/v1/vnf_packages?all_fields=1{$SD-&gt;smarty[&apos;VNF_PKG_FILTER_EXPRESSION&apos;]}</xpath>
   </command>
+  <command name="DELETE">
+    <rest>DELETE</rest>
+    <xpath>{$SD-&gt;smarty[&apos;BASE_URL_MS&apos;]}vnfpkgm/v1/vnf_packages/{$params.object_id|object_id}</xpath>
+  </command>
+  <command name="CONSTRAINT"/>
 </ObjectDefinition>
