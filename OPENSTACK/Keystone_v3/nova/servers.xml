@@ -1,19 +1,20 @@
 <ObjectDefinition>
   <information>
     <icon>/images/repository/CommandDefinition/icons/www server.jpg</icon>
-    <description/>
+    <description></description>
     <displayField>name</displayField>
-    <serviceTaskType/>
     <order>10000</order>
     <visibility>5</visibility>
     <configType>xml</configType>
-    <createTemplateId/>
-    <createTemplateObject/>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
     <defaultDisplay>true</defaultDisplay>
     <dynamic>false</dynamic>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
-    <relatedObjects/>
+    <relatedObjects></relatedObjects>
+    <msDirectoryName/>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
     <name>Servers</name>
     <group>Nova</group>
     <importonce>false</importonce>
@@ -25,16 +26,16 @@
     <sortvariable>params._order</sortvariable>
   </information>
   <variables frozen="0">
-    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Image" name="params.image_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="UUID" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Image" name="params.image_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="17" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>images</class>
       </classes>
     </variable>
-    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Task State" name="params.task_state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Power State" name="params.power_state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Status" name="params.status" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Task State" name="params.task_state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Power State" name="params.power_state" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="No State">0</values>
         <values displayValue="Running">1</values>
@@ -45,12 +46,12 @@
         <values displayValue="Building">9</values>
       </values>
     </variable>
-    <variable displayName="Address" name="params.addresses.0.addr" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Address" name="params.addresses.0.addr" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Addresses</sections>
       </sections>
     </variable>
-    <variable displayName="Version" name="params.addresses.0.version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="4" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Version" name="params.addresses.0.version" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="6" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="4" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Addresses</sections>
       </sections>
@@ -59,17 +60,17 @@
         <values displayValue="4">4</values>
       </values>
     </variable>
-    <variable displayName="MAC Address" name="params.addresses.0.mac_addr" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="MAC Address" name="params.addresses.0.mac_addr" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="7" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Addresses</sections>
       </sections>
     </variable>
-    <variable displayName="Type" name="params.addresses.0.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Type" name="params.addresses.0.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="8" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Addresses</sections>
       </sections>
     </variable>
-    <variable displayName="Network" name="params.networks.0.network" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Network" name="params.networks.0.network" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="9" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Networks</sections>
       </sections>
@@ -77,7 +78,7 @@
         <class>networks</class>
       </classes>
     </variable>
-    <variable displayName="Port" name="params.networks.0.port" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Port" name="params.networks.0.port" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="10" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Networks</sections>
       </sections>
@@ -85,12 +86,12 @@
         <class>ports</class>
       </classes>
     </variable>
-    <variable displayName="Fixed IP" name="params.networks.0.fixed_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="11" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Fixed IP" name="params.networks.0.fixed_ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="11" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Networks</sections>
       </sections>
     </variable>
-    <variable displayName="Security Group" name="params.security_groups.0.security_group" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Security Group" name="params.security_groups.0.security_group" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="12" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Security Groups</sections>
       </sections>
@@ -98,67 +99,66 @@
         <class>security_groups</class>
       </classes>
     </variable>
-    <variable displayName="Access IPv4" name="params.accessIPv4" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="metadata.0" name="params.metadata.0" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Access IPv6" name="params.accessIPv6" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Host" name="params.host" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Hypervisor Hostname" name="params.hypervisor_hostname" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Flavor" name="params.flavor_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Access IPv4" name="params.accessIPv4" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="13" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Access IPv6" name="params.accessIPv6" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="14" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Host" name="params.host" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="15" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Hypervisor Hostname" name="params.hypervisor_hostname" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="16" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Flavor" name="params.flavor_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="18" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>flavors</class>
       </classes>
     </variable>
-    <variable displayName="Key Name" name="params.key_name" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Key Name" name="params.key_name" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="19" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>keypairs</class>
       </classes>
     </variable>
-    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Tenant" name="params.tenant_id" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="20" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>tenants</class>
       </classes>
     </variable>
-    <variable displayName="Availability Zone" name="params.availability_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Availability Zone" name="params.availability_zone" startIncrement="0" type="ObjectRef" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="21" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <classes>
         <class>availability_zones</class>
       </classes>
     </variable>
-    <variable displayName="Minimum Count" name="params.min_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="22" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Maximum Count" name="params.max_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="23" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Admin Password" name="params.admin_pass" startIncrement="0" type="Password" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="User Data" name="params.user_data" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="25" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
-    <variable displayName="Path" name="params.personality.0.path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="26" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Minimum Count" name="params.min_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="22" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Maximum Count" name="params.max_count" startIncrement="0" type="Integer" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="23" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Admin Password" name="params.admin_pass" startIncrement="0" type="Password" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="24" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="User Data" name="params.user_data" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="25" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Path" name="params.personality.0.path" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="26" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Personality</sections>
       </sections>
     </variable>
-    <variable displayName="Contents" name="params.personality.0.contents" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="27" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Contents" name="params.personality.0.contents" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="27" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Personality</sections>
       </sections>
     </variable>
-    <variable displayName="Key" name="params.metadata.0.metadata_key" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="28" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Key" name="params.metadata.0.metadata_key" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="28" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Metadata</sections>
       </sections>
     </variable>
-    <variable displayName="Value" name="params.metadata.0.metadata_value" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="29" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Value" name="params.metadata.0.metadata_value" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="29" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Metadata</sections>
       </sections>
     </variable>
-    <variable displayName="Config Drive" name="params.config_drive" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="30" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Config Drive" name="params.config_drive" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="30" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="false">false</values>
         <values displayValue="true">true</values>
       </values>
     </variable>
-    <variable displayName="Device Name" name="params.block_device_mapping_v2.0.device_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="31" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Device Name" name="params.block_device_mapping_v2.0.device_name" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="31" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
     </variable>
-    <variable displayName="Source Type" name="params.block_device_mapping_v2.0.source_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="32" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Source Type" name="params.block_device_mapping_v2.0.source_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="32" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
@@ -169,7 +169,7 @@
         <values displayValue="volume">volume</values>
       </values>
     </variable>
-    <variable displayName="Destination Type" name="params.block_device_mapping_v2.0.destination_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="33" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Destination Type" name="params.block_device_mapping_v2.0.destination_type" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="33" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
@@ -178,7 +178,7 @@
         <values displayValue="volume">volume</values>
       </values>
     </variable>
-    <variable displayName="Delete on Termination" name="params.block_device_mapping_v2.0.delete_on_termination" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="34" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Delete on Termination" name="params.block_device_mapping_v2.0.delete_on_termination" startIncrement="0" type="Boolean" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="34" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
@@ -187,7 +187,7 @@
         <values displayValue="false">false</values>
       </values>
     </variable>
-    <variable displayName="Guest Format" name="params.block_device_mapping_v2.0.guest_format" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="35" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Guest Format" name="params.block_device_mapping_v2.0.guest_format" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="35" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
@@ -196,12 +196,12 @@
         <values displayValue="swap">swap</values>
       </values>
     </variable>
-    <variable displayName="volume_size" name="params.block_device_mapping_v2.0.volume_size" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="46" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="volume_size" name="params.block_device_mapping_v2.0.volume_size" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="46" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
     </variable>
-    <variable displayName="Boot Index" name="params.block_device_mapping_v2.0.boot_index" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="36" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Boot Index" name="params.block_device_mapping_v2.0.boot_index" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="36" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
@@ -210,37 +210,37 @@
         <values displayValue="-1">-1</values>
       </values>
     </variable>
-    <variable displayName="uuid" name="params.block_device_mapping_v2.0.uuid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="uuid" name="params.block_device_mapping_v2.0.uuid" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="|" groupDisplayName="" maxLength="100" displayOrder="47" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Block Device Mapping V2</sections>
       </sections>
     </variable>
-    <variable displayName="rel" name="params.links.0.rel" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="37" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="rel" name="params.links.0.rel" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="37" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Links</sections>
       </sections>
     </variable>
-    <variable displayName="href" name="params.links.0.href" startIncrement="0" type="Link" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="38" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="href" name="params.links.0.href" startIncrement="0" type="Link" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="38" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sections>
         <sections>Links</sections>
       </sections>
     </variable>
-    <variable displayName="MSA Device" name="params.msadevice" startIncrement="0" type="Device" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="39" increment="0" refServiceURI="" keepOnImport="true" editable="true" onlyDetailView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="MSA Device" name="params.msadevice" startIncrement="0" type="Device" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="39" increment="0" refServiceURI="" keepOnImport="true" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <sdTypes>
         <sdTypes manId="17" modId="130"/>
         <sdTypes manId="14020601" modId="14020601"/>
       </sdTypes>
     </variable>
-    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="40" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default=" " isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Action" name="params.action" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="40" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default=" " isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <values>
         <values displayValue="Server Action">Server Action</values>
         <values displayValue="Server Update">Server Update</values>
         <values displayValue=" "/>
       </values>
     </variable>
-    <variable displayName="Server Action" name="params.server_action" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="41" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.action" isCompositeKey="false" default=" " isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Server Action" name="params.server_action" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="41" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.action" isCompositeKey="false" default=" " isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Server Action" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.server_action" selectorValue="Server Action" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Server Action" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.server_action" selectorValue="Server Action" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <values>
             <values displayValue="Add Floating IP Address">Add Floating IP Address</values>
@@ -271,11 +271,11 @@
             <values displayValue="Evacuate Server">Evacuate Server</values>
             <values displayValue="Reboot">Reboot</values>
           </values>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -284,10 +284,10 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
       </behaviors>
@@ -321,18 +321,18 @@
         <values displayValue="Revert Resize">Revert Resize</values>
       </values>
     </variable>
-    <variable displayName="Action Argument1" name="params.action_arg1" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="42" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_action" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Action Argument1" name="params.action_arg1" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="42" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_action" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Fixed IP Network" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Add Fixed IP Address" startIncrement="0" type="ObjectRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Fixed IP Network" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Add Fixed IP Address" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <classes>
             <class>networks</class>
           </classes>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -341,22 +341,22 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Floating IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Add Floating IP Address" startIncrement="0" type="ObjectRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Floating IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Add Floating IP Address" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <classes>
             <class>floatingips</class>
           </classes>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -365,22 +365,22 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Security Group" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Add Security Group" startIncrement="0" type="ObjectRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Security Group" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Add Security Group" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <classes>
             <class>security_groups</class>
           </classes>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -389,19 +389,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Backup Name" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Create Backup" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Backup Name" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Create Backup" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -410,19 +410,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="On Shared Storage" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Evacuate Server" startIncrement="0" type="Boolean" default="false">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="On Shared Storage" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Evacuate Server" startIncrement="0" type="Boolean" default="false" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -431,19 +431,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Host" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Live Migrate" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Host" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Live Migrate" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -452,23 +452,23 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Reboot Type" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Reboot" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Reboot Type" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Reboot" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <values>
             <values displayValue="SOFT">SOFT</values>
             <values displayValue="HARD">HARD</values>
           </values>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -477,19 +477,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Fixed IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Remove Fixed IP Address" startIncrement="0" type="IpAddress">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Fixed IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Remove Fixed IP Address" startIncrement="0" type="IpAddress" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -498,22 +498,22 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Floating IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Remove Floating IP Address" startIncrement="0" type="ObjectRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Floating IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Remove Floating IP Address" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <classes>
             <class>floatingips</class>
           </classes>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -522,22 +522,22 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Security Group" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Remove Security Group" startIncrement="0" type="ObjectRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Security Group" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Remove Security Group" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <classes>
             <class>security_groups</class>
           </classes>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -546,19 +546,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Reset Server State" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Reset Server State" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Reset Server State" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Reset Server State" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -567,22 +567,22 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Flavor" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Resize" startIncrement="0" type="ObjectRef">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Flavor" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg1" selectorValue="Resize" startIncrement="0" type="ObjectRef" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <classes>
             <class>flavors</class>
           </classes>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -591,23 +591,23 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
       </behaviors>
     </variable>
-    <variable displayName="Action Argument2" name="params.action_arg2" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="43" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_action" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Action Argument2" name="params.action_arg2" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="43" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_action" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Fixed IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Add Floating IP Address" startIncrement="0" type="IpAddress">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Fixed IP Address" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Add Floating IP Address" startIncrement="0" type="IpAddress" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -616,23 +616,23 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Backup Type" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Create Backup" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Backup Type" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Create Backup" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
           <values>
             <values displayValue="Daily">daily</values>
             <values displayValue="Weekly">weekly</values>
           </values>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -641,19 +641,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Host" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Evacuate Server" startIncrement="0" type="String">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Host" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Evacuate Server" startIncrement="0" type="String" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -662,19 +662,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Block Migration" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Live Migrate" startIncrement="0" type="Boolean" default="false">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Block Migration" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg2" selectorValue="Live Migrate" startIncrement="0" type="Boolean" default="false" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -683,23 +683,23 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
       </behaviors>
     </variable>
-    <variable displayName="Action Argument3" name="params.action_arg3" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="44" increment="0" refServiceURI="" keepOnImport="false" editable="true" onlyDetailView="true" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_action" isCompositeKey="false" isMandatory="false" isUserLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
+    <variable displayName="Action Argument3" name="params.action_arg3" startIncrement="0" type="Composite" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="44" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="true" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" selector="params.server_action" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false">
       <behaviors>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Rotation" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg3" selectorValue="Create Backup" startIncrement="0" type="Integer">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Rotation" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg3" selectorValue="Create Backup" startIncrement="0" type="Integer" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -708,19 +708,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Admin Password" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg3" selectorValue="Evacuate Server" startIncrement="0" type="Password">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Admin Password" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg3" selectorValue="Evacuate Server" startIncrement="0" type="Password" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -729,19 +729,19 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
-        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Disk Over Limit" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg3" selectorValue="Live Migrate" startIncrement="0" type="Boolean" default="false">
+        <behaviour arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" editable="true" visible="true" displayName="Disk Over Limit" displayOrder="0" maxLength="200" isMandatory="false" isUserLocked="false" name="params.action_arg3" selectorValue="Live Migrate" startIncrement="0" type="Boolean" default="false" localVarToFilter="" remoteVarToFilter="" uniqueItemsInDropDownList="false">
           <compositeKey>false</compositeKey>
-          <codeLanguage/>
+          <codeLanguage></codeLanguage>
           <defaultValueLong/>
           <description></description>
-          <displayNameHeader/>
-          <fullDisplayName/>
+          <displayNameHeader></displayNameHeader>
+          <fullDisplayName></fullDisplayName>
           <groupDisplayName></groupDisplayName>
           <groupSeparator></groupSeparator>
           <isGrouped>false</isGrouped>
@@ -750,10 +750,10 @@
           <keepOnImport>false</keepOnImport>
           <mandatoryArray>false</mandatoryArray>
           <onlyDetailView>false</onlyDetailView>
-          <refDeviceIdVar/>
+          <refDeviceIdVar></refDeviceIdVar>
           <refServiceURI></refServiceURI>
           <isSearchable>false</isSearchable>
-          <selector/>
+          <selector></selector>
           <isUniqueGlobal>false</isUniqueGlobal>
         </behaviour>
       </behaviors>
@@ -791,8 +791,8 @@
             </lines>
             <xpath>links/row</xpath>
           </array>
-          <regexp/>
-          <xpath/>
+          <regexp></regexp>
+          <xpath></xpath>
         </line>
         <line>
           <array/>
@@ -875,8 +875,8 @@
             </lines>
             <xpath>addresses/*</xpath>
           </array>
-          <regexp/>
-          <xpath/>
+          <regexp></regexp>
+          <xpath></xpath>
         </line>
         <line>
           <array name="addresses">
@@ -914,8 +914,8 @@
             </lines>
             <xpath>addresses/*/row</xpath>
           </array>
-          <regexp/>
-          <xpath/>
+          <regexp></regexp>
+          <xpath></xpath>
         </line>
         <line>
           <array name="security_groups">
@@ -927,6 +927,20 @@
               </line>
             </lines>
             <xpath>security_groups/row</xpath>
+          </array>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <array name="metadata">
+            <lines>
+              <line>
+                <array/>
+                <regexp>@&lt;tag&gt;(?&lt;metadata_key&gt;.*)&lt;/tag&gt;@</regexp>
+                <xpath>tag</xpath>
+              </line>
+            </lines>
+            <xpath>metadata</xpath>
           </array>
           <regexp/>
           <xpath/>
