@@ -121,10 +121,10 @@ interface {$object_id}
 no description {$params.description}
 {/if}
 {if isset($params.nameif) &amp;&amp; $params.nameif != ''}
-no nameif{$params.nameif}
+no nameif {$params.nameif}
 {/if}
 {if isset($params.securitylevel) &amp;&amp; $params.securitylevel != ''}
-no security-level{$params.securitylevel}
+no security-level {$params.securitylevel}
 {/if}
 </operation>
   </command>
