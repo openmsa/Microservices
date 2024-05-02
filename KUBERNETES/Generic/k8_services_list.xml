@@ -14,7 +14,7 @@
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
     <maxInstances>0</maxInstances>
     <relatedObjects/>
-    <name>Services</name>
+    <name>Services - XML</name>
     <group>Contrainer|K8</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
@@ -106,7 +106,7 @@
         <sections>Ingress</sections>
       </sections>
     </variable>
-    <variable displayName="hostname" name="params.hostname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Hostname" name="params.hostname" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
   </variables>
   <example>
     <content>
@@ -114,21 +114,6 @@
   </example>
   <command name="IMPORT">
     <operation><![CDATA[GET]]></operation>
-    <post_template>{foreach $params.ingress as $ingress_index =&gt; $ing}
-	{foreach $params.ports as $port_index =&gt; $port}
-		{if isset($ing.hostname)}
-			{assign var=&quot;host&quot; value=$ing.hostname}
-		{else}
-			{assign var=&quot;host&quot; value=$ing.ip}
-		{/if}
-		{if $port.port == 443} 
-			{assign_object_variable var=&quot;ingress.{$ingress_index}.endpoints.{$port_index}.link&quot; value=&quot;https://{$host}&quot;}
-		{else}
-			{assign_object_variable var=&quot;ingress.{$ingress_index}.endpoints.{$port_index}.link&quot; value=&quot;http://{$host}:{$port.port}&quot;}
-		{/if}
-	{/foreach}
-{/foreach}
-</post_template>
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
@@ -242,5 +227,4 @@
     </parser>
     <xpath>/api/v1/services</xpath>
   </command>
-  <command name="CONSTRAINT"/>
 </ObjectDefinition>
