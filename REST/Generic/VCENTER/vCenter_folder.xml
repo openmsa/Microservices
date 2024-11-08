@@ -1,0 +1,118 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>json</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>vCenter folder</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Group" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Name" name="params.name" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content> Array
+(
+    [value] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [folder] =&gt; group-d1
+                    [name] =&gt; Datacenters
+                    [type] =&gt; DATACENTER
+                )
+
+            [1] =&gt; Array
+                (
+                    [folder] =&gt; group-h4
+                    [name] =&gt; host
+                    [type] =&gt; HOST
+                )
+
+            [2] =&gt; Array
+                (
+                    [folder] =&gt; group-n6
+                    [name] =&gt; network
+                    [type] =&gt; NETWORK
+                )
+
+            [3] =&gt; Array
+                (
+                    [folder] =&gt; group-s5
+                    [name] =&gt; datastore
+                    [type] =&gt; DATASTORE
+                )
+
+            [4] =&gt; Array
+                (
+                    [folder] =&gt; group-v18
+                    [name] =&gt; Discovered virtual machine
+                    [type] =&gt; VIRTUAL_MACHINE
+                )
+
+            [5] =&gt; Array
+                (
+                    [folder] =&gt; group-v3
+                    [name] =&gt; vm
+                    [type] =&gt; VIRTUAL_MACHINE
+                )
+
+        )
+
+)
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>$.value.*</xpath>
+      </section>
+      <lines>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;object_id&gt;.*)$@</regexp>
+          <xpath>$.folder</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;name&gt;.*)$@</regexp>
+          <xpath>$.name</xpath>
+        </line>
+        <line>
+          <array/>
+          <regexp>@^(?&lt;type&gt;.*)$@</regexp>
+          <xpath>$.type</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>/rest/vcenter/folder</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+</ObjectDefinition>
