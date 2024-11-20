@@ -37,10 +37,10 @@
   </variables>
   <example/>
   <command name="IMPORT">
-    <operation><![CDATA[rm -f /opt/fmc_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt; for f in /opt/fmc_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/*.txt; do echo `basename "$f"` >> /opt/fmc_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt; cat $f >> /opt/fmc_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt; done;  sed -i '/^$/d' /opt/fmc_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt ; cat /opt/fmc_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt]]></operation>
+    <operation><![CDATA[rm -f /mnt/NASVolume/msa_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt; for f in /mnt/NASVolume/msa_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/*.lic; do echo `basename "$f"` >> /mnt/NASVolume/msa_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt; cat $f >> /mnt/NASVolume/msa_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt; done;  sed -i '/^$/d' /mnt/NASVolume/msa_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt ; cat /mnt/NASVolume/msa_repository/Datafiles/{$SD->SD_CLI_PREFIX}/{$SD->SD_ABONNE}/appended_lic.txt]]></operation>
     <parser>
       <section>
-        <regexp>@(?&lt;object_id&gt;\d+)\.txt@</regexp>
+        <regexp>@(?&lt;object_id&gt;\d+)\.txt\.lic@</regexp>
       </section>
       <lines>
         <line>
@@ -65,7 +65,7 @@
         </line>
         <line>
           <array/>
-          <regexp>@\s+\.\.(?&lt;license_type&gt;PROD|POC|LAB)@</regexp>
+          <regexp>@\s+\.\.(?&lt;license_type&gt;PROD|POC|LAB|MAINT)@</regexp>
           <xpath/>
         </line>
         <line>
@@ -131,6 +131,8 @@
   <command name="READ"/>
   <command name="UPDATE"/>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[#]]></operation>
+  </command>
   <command name="LIST"/>
 </ObjectDefinition>
