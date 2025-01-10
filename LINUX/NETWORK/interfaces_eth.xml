@@ -1,35 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ObjectDefinition>  <information>
-    <configType>cli</configType>
-    <createTemplateId/>
-    <createTemplateObject/>
-    <defaultDisplay>false</defaultDisplay>
-    <description/>
-    <displayField>object_id</displayField>
-    <dynamic>true</dynamic>
-    <group>Networking</group>
+<ObjectDefinition>
+  <information>
     <icon>/images/repository/CommandDefinition/icons/interface_fortinet.png</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <order>20</order>
+    <visibility>5</visibility>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>true</dynamic>
     <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>Interfaces</name>
+    <group>Networking</group>
     <importonce>false</importonce>
     <importrank>1</importrank>
-    <maxInstances>0</maxInstances>
-    <name>Interfaces</name>
-    <order>20</order>
-    <relatedObjects/>
     <reorderinstances>false</reorderinstances>
     <sortascending>true</sortascending>
     <sortauto>true</sortauto>
     <sortnumerical>true</sortnumerical>
     <sortvariable>params._order</sortvariable>
-    <visibility>5</visibility>
-  </information>  <variables frozen="0">
-    <variable default="eth0:" displayName="Name" displayOrder="0" isMandatory="true" maxLength="100" name="params.object_id" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="Type" displayOrder="1" isUserLocked="true" maxLength="100" name="params.type" numberOfRowMax="0" startIncrement="0" type="String"/>
-    <variable displayName="IP" displayOrder="2" isMandatory="true" maxLength="100" name="params.ip" numberOfRowMax="0" startIncrement="0" type="IpAddress"/>
-    <variable default="255.255.255.0" displayName="Mask" displayOrder="3" maxLength="100" name="params.mask" numberOfRowMax="0" startIncrement="0" type="IpMask"/>
-    <variable displayName="MacAddress" displayOrder="4" maxLength="100" name="params.macaddress" numberOfRowMax="0" startIncrement="0" tableSizeFix="false" type="String"/>
-    <variable displayName="Broadcast" displayOrder="5" maxLength="100" name="params.bcast" numberOfRowMax="0" startIncrement="0" type="String" visible="false"/>
-  </variables>  <example>
+  </information>
+  <variables frozen="0">
+    <variable displayName="Name" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="eth0:" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Type" name="params.type" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="1" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="true" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="IP" name="params.ip" startIncrement="0" type="IpAddress" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="2" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="true" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Mask" name="params.mask" startIncrement="0" type="IpMask" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="3" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" default="255.255.255.0" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="MacAddress" name="params.macaddress" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="4" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Broadcast" name="params.bcast" startIncrement="0" type="String" mandatoryArray="false" visible="false" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="5" increment="0" refServiceURI="" keepOnImport="false" editable="true" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
     <content>eth0      Link encap:Ethernet  HWaddr 00:0C:29:88:A4:8F  
           inet adr:172.10.15.139  Bcast:172.10.15.255  Masque:255.255.255.0
           adr inet6: fe80::20c:29ff:fe88:a48f/64 Scope:Lien
@@ -59,7 +63,8 @@ lo        Link encap:Boucle locale
 </content>
   </example>
   <command name="IMPORT">
-    <operation>LANG=C ifconfig##ip addr show</operation>
+    <operation><![CDATA[LANG=C ifconfig##ip addr show]]></operation>
+    <post_template></post_template>
     <parser>
       <section>
         <regexp>@(?&lt;object_id&gt;\S+):\s+flags@</regexp>
@@ -67,38 +72,42 @@ lo        Link encap:Boucle locale
         <regexp>@\d: (?&lt;object_id&gt;\S+):@</regexp>
       </section>
       <lines>
-        
-        
-        
-        
-        
-        
         <line>
+          <array/>
           <regexp>@inet addr:(?&lt;ip&gt;\S+)  Bcast:(?&lt;bcast&gt;\S+)  Mask:(?&lt;mask&gt;\S+)@</regexp>
+          <xpath></xpath>
         </line>
         <line>
+          <array/>
           <regexp>@inet\s+(?&lt;ip&gt;\S+)\s+netmask (?&lt;mask&gt;\S+)\s+broadcast (?&lt;bcast&gt;\S+)@</regexp>
+          <xpath></xpath>
         </line>
         <line>
+          <array/>
           <regexp>@inet\s+(?&lt;ip&gt;\S+)\s+netmask (?&lt;mask&gt;\S+)@</regexp>
+          <xpath></xpath>
         </line>
         <line>
+          <array/>
           <regexp>@link/(?&lt;type&gt;\S+) (?&lt;macaddress&gt;\S+)@</regexp>
+          <xpath></xpath>
         </line>
       </lines>
     </parser>
-    <post_template/>
   </command>
-<command name="CREATE">
-    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}
-</operation>
+  <command name="CREATE">
+    <operation><![CDATA[ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}
+]]></operation>
   </command>
   <command name="UPDATE">
-    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}
-</operation>
+    <operation><![CDATA[ifconfig {$params.object_id} {$params.ip} netmask {$params.mask}
+]]></operation>
   </command>
   <command name="DELETE">
-    <operation>ifconfig {$params.object_id} {$params.ip} netmask {$params.mask} down
-</operation>
+    <operation><![CDATA[ifconfig {$params.object_id} {$params.ip} netmask {$params.mask} down
+]]></operation>
   </command>
+  <command name="CONSTRAINT"/>
+  <displayName>Interfaces</displayName>
+  <order>20</order>
 </ObjectDefinition>
