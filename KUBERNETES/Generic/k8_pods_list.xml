@@ -123,7 +123,7 @@
   <command name="DELETE">
     <operation><![CDATA[{}]]></operation>
     <rest>DELETE</rest>
-    <xpath>/api/v1/namespaces/{$k8_pods_list.$object_id.namespace}/pods/{$k8_pods_list.$object_id.user_app}</xpath>
+    <xpath>/api/v1/namespaces/{$k8_pods_list.{$params.object_id}.namespace}/pods/{$params.object_id}</xpath>
   </command>
   <command name="READ"/>
   <command name="LIST"/>
