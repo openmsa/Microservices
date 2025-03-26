@@ -1,0 +1,77 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>json</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>vCenter content library</name>
+    <group>Default</group>
+    <importonce>false</importonce>
+    <importrank>10</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>{
+  &quot;value&quot;: [
+    &quot;76d51fd7-b5ae-44f4-b176-c5e326a7ca8f&quot;,
+    &quot;e990c7c2-fd94-4621-9bb1-1e83dd845b57&quot;,
+    &quot;f7ace970-9263-4084-a49d-50a1aa38fbfd&quot;,
+    &quot;245ffe7e-07ea-4636-932d-e2a68e39ebe9&quot;,
+    &quot;537b34ac-5945-41ba-b3f4-ec442a395b8c&quot;,
+    &quot;70d3572f-2bc3-4ae2-9107-a5a3ee90d1d4&quot;,
+    &quot;38ce0e5f-db40-44d4-8679-7223361c610d&quot;,
+    &quot;5581ca17-7170-4fd3-a2f1-adecdce16879&quot;
+  ]
+}</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[GET]]></operation>
+    <parser>
+      <section>
+        <regexp>@^\s \s*$@</regexp>
+        <xpath>$.value</xpath>
+      </section>
+      <lines>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp></regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@(?&lt;object_id&gt;.*)$@</regexp>
+          <xpath>$[.*]</xpath>
+        </line>
+      </lines>
+    </parser>
+    <xpath>{foreach $vCenter_library as $libr}/rest/com/vmware/content/library/item?library_id={$libr.object_id}{/foreach}</xpath>
+  </command>
+  <command name="CREATE"/>
+  <command name="READ"/>
+  <command name="UPDATE"/>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE"/>
+  <command name="LIST"/>
+  <displayName>vCenter content library</displayName>
+  <order>0</order>
+</ObjectDefinition>
