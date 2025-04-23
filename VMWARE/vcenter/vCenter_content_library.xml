@@ -47,7 +47,7 @@
     <parser>
       <section>
         <regexp>@^\s \s*$@</regexp>
-        <xpath>$.value</xpath>
+        <xpath>$.value.*</xpath>
       </section>
       <lines>
         <line>
@@ -59,8 +59,8 @@
           <xpath></xpath>
         </line>
         <line>
-          <regexp>@(?&lt;object_id&gt;.*)$@</regexp>
-          <xpath>$[.*]</xpath>
+          <regexp>@^(?&lt;object_id&gt;.*)$@</regexp>
+          <xpath>$</xpath>
         </line>
       </lines>
     </parser>
