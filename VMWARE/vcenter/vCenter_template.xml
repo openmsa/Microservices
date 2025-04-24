@@ -2,7 +2,7 @@
   <information>
     <icon>none</icon>
     <description></description>
-    <displayField>object_id</displayField>
+    <displayField>name</displayField>
     <order>0</order>
     <visibility/>
     <wfConstraintsPath></wfConstraintsPath>
@@ -58,7 +58,7 @@
         </line>
       </lines>
     </parser>
-    <xpath>{foreach $vCenter_content_library as $cl}/rest/com/vmware/content/library/item/id:{$cl.object_id}{/foreach}</xpath>
+    <xpath>{foreach $vCenter_content_library as $cl}/rest/com/vmware/content/library/item/id:{$cl.object_id}##{/foreach}</xpath>
   </command>
   <command name="CREATE"/>
   <command name="READ"/>
