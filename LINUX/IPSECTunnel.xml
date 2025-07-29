@@ -1,0 +1,141 @@
+<ObjectDefinition>
+  <information>
+    <icon>none</icon>
+    <description></description>
+    <displayField>object_id</displayField>
+    <order>0</order>
+    <visibility/>
+    <wfConstraintsPath></wfConstraintsPath>
+    <configType>cli</configType>
+    <createTemplateId></createTemplateId>
+    <createTemplateObject></createTemplateObject>
+    <defaultDisplay>false</defaultDisplay>
+    <dynamic>false</dynamic>
+    <importIfMandatoryPresent>false</importIfMandatoryPresent>
+    <maxInstances>0</maxInstances>
+    <relatedObjects></relatedObjects>
+    <retainIfImportIsEmpty>false</retainIfImportIsEmpty>
+    <name>IPSECTunnel</name>
+    <group>linux</group>
+    <importonce>false</importonce>
+    <importrank>0</importrank>
+    <reorderinstances>false</reorderinstances>
+    <sortascending>false</sortascending>
+    <sortauto>false</sortauto>
+    <sortnumerical>false</sortnumerical>
+    <sortvariable>params._order</sortvariable>
+  </information>
+  <variables frozen="0">
+    <variable displayName="object_id" name="params.object_id" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="true" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="RemoteGateway" name="params.RemoteGateway" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Interface" name="params.Interface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="LocalId" name="params.LocalId" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="PreSharedKey" name="params.PreSharedKey" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="LanInterface" name="params.LanInterface" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="LanSubnet" name="params.LanSubnet" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="LanMask" name="params.LanMask" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="ProbeIp" name="params.ProbeIp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="EdgeDeviceIp" name="params.EdgeDeviceIp" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+    <variable displayName="Failover" name="params.Failover" startIncrement="0" type="String" mandatoryArray="false" visible="true" description="" groupSeparator="" groupDisplayName="" maxLength="100" displayOrder="0" increment="0" refServiceURI="" keepOnImport="false" editable="false" uniqueItemsInDropDownList="false" onlyDetailView="false" createOnlyView="false" localVarNameMatch="" remoteVarNameMatch="" localVarToFilter="" remoteVarToFilter="" remoteVarValueToFilter="" arrayCanAdd="true" arrayCanRemove="true" arrayCanMove="true" arrayCanEdit="true" arrayMinSizeRequired="false" frozen="false" displayNameHeader="" fullDisplayName="" isCompositeKey="false" shared="false" isMandatory="false" isUserLocked="false" isEditLocked="false" isGrouped="false" isSearchable="false" isUniqueGlobal="false"/>
+  </variables>
+  <example>
+    <content>&quot;TunnelId&quot;: &quot;b1254b49-d5be-557d-8be8-d9058aa4aa04&quot;,
+&quot;RemoteGateway&quot;: &quot;{$params.RemoteGateway}&quot;,
+&quot;Interface&quot;: &quot;{$params.Interface}&quot;,
+&quot;LocalId&quot;: &quot;{$params.LocalId}&quot;,
+&quot;PreSharedKey&quot;: &quot;{$params.PreSharedKey}&quot;,
+&quot;LanInterface&quot;: &quot;{$params.LanInterface}&quot;,
+&quot;LanSubnet&quot;: &quot;{$params.LanSubnet}&quot;,
+&quot;LanMask&quot;: &quot;{$params.LanMask}&quot;,
+&quot;ProbeIp&quot;: &quot;{$params.ProbeIp}&quot;,
+&quot;EdgeDeviceIp&quot;: &quot;{$params.EdgeDeviceIp}&quot;,
+&quot;Failover&quot;: &quot;{$params.Failover}&quot;,
+</content>
+  </example>
+  <command name="IMPORT">
+    <operation><![CDATA[cat  {$FILE}.*]]></operation>
+    <parser>
+      <section>
+        <regexp>@&quot;TunnelId&quot;: &quot;(?&lt;object_id&gt;.*)&quot;,@</regexp>
+      </section>
+      <lines>
+        <line>
+          <regexp>@&quot;RemoteGateway&quot;: &quot;(?&lt;RemoteGateway&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;Interface&quot;: &quot;(?&lt;Interface&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;LocalId&quot;: &quot;(?&lt;LocalId&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;PreSharedKey&quot;: &quot;(?&lt;PreSharedKey&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;LanInterface&quot;: &quot;(?&lt;LanInterface&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;LanSubnet&quot;: &quot;(?&lt;LanSubnet&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;LanMask&quot;: &quot;(?&lt;LanMask&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;ProbeIp&quot;: &quot;(?&lt;ProbeIp&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;EdgeDeviceIp&quot;: &quot;(?&lt;EdgeDeviceIp&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+        <line>
+          <regexp>@&quot;Failover&quot;: &quot;(?&lt;Failover&gt;.*)&quot;,@</regexp>
+          <xpath></xpath>
+        </line>
+      </lines>
+    </parser>
+  </command>
+  <command name="CREATE">
+    <operation><![CDATA[echo " " > {$FILE}.{$params.object_id}
+echo '"TunnelId": "{$params.object_id}",' >> {$FILE}.{$params.object_id}
+echo '"RemoteGateway": "{$params.RemoteGateway}",' >> {$FILE}.{$params.object_id}
+echo '"Interface": "{$params.Interface}",' >> {$FILE}.{$params.object_id}
+echo '"LocalId": "{$params.LocalId}",' >> {$FILE}.{$params.object_id}
+echo '"PreSharedKey": "{$params.PreSharedKey}",' >> {$FILE}.{$params.object_id}
+echo '"LanInterface": "{$params.LanInterface}",' >> {$FILE}.{$params.object_id}
+echo '"LanSubnet": "{$params.LanSubnet}",' >> {$FILE}.{$params.object_id}
+echo '"LanMask": "{$params.LanMask}",' >> {$FILE}.{$params.object_id}
+echo '"ProbeIp": "{$params.ProbeIp}",' >> {$FILE}.{$params.object_id}
+echo '"EdgeDeviceIp": "{$params.EdgeDeviceIp}",' >> {$FILE}.{$params.object_id}
+echo '"Failover": "{$params.Failover}",' >> {$FILE}.{$params.object_id}]]></operation>
+  </command>
+  <command name="READ"/>
+  <command name="UPDATE">
+    <operation><![CDATA[sed -i 's/"TunnelId": "{$IPSECTunnel.{$params.object_id}.object_id}",/"TunnelId": "{$params.object_id}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"RemoteGateway": "{$IPSECTunnel.{$params.object_id}.RemoteGateway}",/"RemoteGateway": "{$params.RemoteGateway}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"Interface": "{$IPSECTunnel.{$params.object_id}.Interface}",/"Interface": "{$params.Interface}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"LocalId": "{$IPSECTunnel.{$params.object_id}.LocalId}",/"LocalId": "{$params.LocalId}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"PreSharedKey": "{$IPSECTunnel.{$params.object_id}.PreSharedKey}",/"PreSharedKey": "{$params.PreSharedKey}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"LanInterface": "{$IPSECTunnel.{$params.object_id}.LanInterface}",/"LanInterface": "{$params.LanInterface}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"LanSubnet": "{$IPSECTunnel.{$params.object_id}.LanSubnet}",/"LanSubnet": "{$params.LanSubnet}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"LanMask": "{$IPSECTunnel.{$params.object_id}.LanMask}",/"LanMask": "{$params.LanMask}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"ProbeIp": "{$IPSECTunnel.{$params.object_id}.ProbeIp}",/"ProbeIp": "{$params.ProbeIp}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"EdgeDeviceIp": "{$IPSECTunnel.{$params.object_id}.EdgeDeviceIp}",/"EdgeDeviceIp": "{$params.EdgeDeviceIp}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+sed -i 's/"Failover": "{$IPSECTunnel.{$params.object_id}.Failover}",/"Failover": "{$params.Failover}",/g' {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}
+]]></operation>
+  </command>
+  <command name="CONSTRAINT"/>
+  <command name="DELETE">
+    <operation><![CDATA[rm {$FILE}.{$IPSECTunnel.{$params.object_id}.object_id}]]></operation>
+  </command>
+  <command name="LIST"/>
+  <displayName>IPSECTunnel</displayName>
+  <order>0</order>
+</ObjectDefinition>
