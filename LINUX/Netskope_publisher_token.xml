@@ -39,13 +39,24 @@
     </parser>
   </command>
   <command name="CREATE">
-    <operation><![CDATA[sudo ./npa_publisher_wizard -token {$params.token}
+    <operation><![CDATA[cd ~
+sudo rm -rf resources/*
+sudo pkill -9 npa_publisher
+sudo ./npa_publisher_wizard -token {$params.token}
 ]]></operation>
   </command>
   <command name="READ"/>
-  <command name="UPDATE"/>
+  <command name="UPDATE">
+    <operation><![CDATA[
+]]></operation>
+  </command>
   <command name="CONSTRAINT"/>
-  <command name="DELETE"/>
+  <command name="DELETE">
+    <operation><![CDATA[cd ~
+sudo rm -rf resources/*
+sudo pkill -9 npa_publisher
+]]></operation>
+  </command>
   <command name="LIST"/>
   <displayName>Netskope publisher token</displayName>
   <order>0</order>
